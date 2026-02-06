@@ -1,0 +1,39 @@
+name: Update AI Rankings
+
+on:
+  schedule:
+    - cron: '0 */6 * * *' # Ejecutar cada 6 horas
+  workflow_dispatch: # Permite ejecutarlo manualmente desde la web
+
+jobs:
+  scrape-and-update:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v3
+      
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+        
+    - name: Install dependencies
+      run: |
+        pip install -r requirements_scraper.txt
+        pip install -r requirements.txt # Necesario para src.config imports
+        playwright install chromium
+        
+    - name: Run Scraper
+      env:
+        # Si necesitas las keys para el scraping, agrégalas a los Secrets del repo
+        CONTEXT7_API_KEY: ${{ secrets.CONTEXT7_API_KEY }}
+        ARTIFICIAL_ANALYSIS_API_KEY: ${{ secrets.ARTIFICIAL_ANALYSIS_API_KEY }}
+      run: python src/update_data.py
+      
+    - name: Commit and Push changes
+      run: |
+        git config --global user.name "RankingAI Bot"
+        git config --global user.email "bot@rankingai.com"
+        git add data/rankings.json
+        git diff --quiet && git diff --staged --quiet || (git commit -m "🔄 Actualización automática de rankings" && git push)
