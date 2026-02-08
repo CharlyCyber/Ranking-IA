@@ -88,10 +88,15 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     try:
         # 1. Cargar datos del disco
         rankings_context, _ = load_cached_data()
+        if not rankings_context:
+            rankings_context = "No hay datos de rankings disponibles en este momento."
         
         # 2. Generar respuesta con Gemini
         response = brain.generate_response(user_text, rankings_context)
         
+        if not response:
+            response = "Lo siento, no pude generar una respuesta en este momento. Intenta preguntar de otra forma."
+
         # 3. Enviar respuesta con fallback para errores de Markdown
         try:
             await update.message.reply_text(response, parse_mode='Markdown')
@@ -100,8 +105,9 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
             await update.message.reply_text(response)
             
     except Exception as e:
-        logging.error(f"Error en chat: {e}", exc_info=True)
-        await update.message.reply_text("Tuve un pequeño cortocircuito. ¿Podrías preguntar de nuevo?")
+        error_detail = str(e)
+        logging.error(f"Error en chat: {error_detail}", exc_info=True)
+        await update.message.reply_text(f"Tuve un pequeño cortocircuito técnico. 🛠️\nError: {error_detail[:100]}")
 
 if __name__ == '__main__':
     # Asegurar que el directorio de datos existe

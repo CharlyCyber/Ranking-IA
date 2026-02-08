@@ -64,17 +64,25 @@ class RankingBrain:
                 current_model = genai.GenerativeModel(model_name)
                 response = current_model.generate_content(prompt)
                 
+                # Caso 1: Respuesta exitosa con texto
+                if response and hasattr(response, 'text') and response.text:
+                    return response.text
+                
+                # Caso 2: Respuesta bloqueada o vacía (sin .text disponible)
                 if response and response.candidates:
-                    # Verificar si el primer candidato tiene texto
-                    if response.candidates[0].content.parts:
-                        return response.text
-                    else:
-                        print(f"⚠️ El modelo {model_name} devolvió una respuesta vacía (posiblemente bloqueada).")
-                else:
-                    print(f"⚠️ El modelo {model_name} no devolvió candidatos.")
+                    parts = response.candidates[0].content.parts
+                    if parts:
+                        return parts[0].text
+                
+                print(f"⚠️ El modelo {model_name} no devolvió texto utilizable (posible bloqueo).")
                 
             except Exception as e:
-                print(f"⚠️ Error con {model_name}: {e}. Intentando siguiente modelo...")
+                # Capturar errores específicos de seguridad o cuotas
+                error_msg = str(e)
+                if "safety" in error_msg.lower():
+                    print(f"🛑 Bloqueo de seguridad con {model_name}. Intentando siguiente...")
+                else:
+                    print(f"⚠️ Error con {model_name}: {error_msg}. Intentando siguiente...")
                 continue
         
         return "Lo siento, todos los modelos de IA están ocupados o no disponibles en este momento."
