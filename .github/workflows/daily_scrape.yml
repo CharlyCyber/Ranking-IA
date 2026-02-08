@@ -5,6 +5,9 @@ on:
     - cron: '0 */6 * * *' # Ejecutar cada 6 horas
   workflow_dispatch: # Permite ejecutarlo manualmente desde la web
 
+permissions:
+  contents: write
+
 jobs:
   scrape-and-update:
     runs-on: ubuntu-latest
@@ -12,6 +15,8 @@ jobs:
     steps:
     - name: Checkout repo
       uses: actions/checkout@v3
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
       
     - name: Set up Python
       uses: actions/setup-python@v4
