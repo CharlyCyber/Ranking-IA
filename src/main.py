@@ -27,27 +27,56 @@ logging.basicConfig(
 
 brain = RankingBrain()
 
+import time
+from datetime import datetime
+
+# ... imports existentes ...
+
 def load_cached_data():
     """Carga los datos del JSON generado por GitHub Actions."""
     try:
         path = os.path.join("data", "rankings.json")
         if not os.path.exists(path):
-            return "Aún no hay datos cacheados. Esperando primera actualización..."
+            return "Aún no hay datos cacheados. Esperando primera actualización...", None
+        
+        # Obtener fecha de modificación del archivo
+        mod_time = os.path.getmtime(path)
+        last_update = datetime.fromtimestamp(mod_time).strftime('%Y-%m-%d %H:%M:%S')
         
         with open(path, "r", encoding="utf-8") as f:
             data = json.load(f)
         # Convertir diccionario a texto bonito para el prompt
-        return json.dumps(data, indent=2, ensure_ascii=False)
+        return json.dumps(data, indent=2, ensure_ascii=False), last_update
     except Exception as e:
         logging.error(f"Error cargando caché: {e}")
-        return "Error leyendo base de datos local."
+        return "Error leyendo base de datos local.", None
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Mensaje de bienvenida."""
     await update.message.reply_text(
         "¡Hola! Soy tu **Ranking AI Agent** 🏆. \n\n"
-        "Mis datos se actualizan automáticamente cada 6 horas gracias a GitHub Actions. "
+        "Mis datos se actualizan automáticamente cada 6 horas.\n"
+        "Usa /status para verificar mi estado de salud.\n"
         "Pregúntame lo que quieras sobre el estado del arte de la IA."
+    )
+
+async def status(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """Chequeo de salud del sistema."""
+    await context.bot.send_chat_action(chat_id=update.effective_chat.id, action="typing")
+    
+    # 1. Verificar datos
+    _, last_update = load_cached_data()
+    data_status = f"✅ Datos actualizados ({last_update})" if last_update else "⚠️ Sin datos o datos antiguos"
+    
+    # 2. Verificar Cerebro (Gemini)
+    brain_ok, brain_msg = brain.check_health()
+    brain_status = "✅ Gemini Conectado" if brain_ok else f"❌ Error Gemini: {brain_msg}"
+    
+    await update.message.reply_text(
+        f"📊 **Estado del Sistema**\n\n"
+        f"**Base de Datos:** {data_status}\n"
+        f"**IA Brain:** {brain_status}\n"
+        f"**Versión:** 1.1 (Stable)"
     )
 
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -57,8 +86,8 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await context.bot.send_chat_action(chat_id=update.effective_chat.id, action="typing")
 
     try:
-        # 1. Cargar datos del disco (Ultra rápido, sin espera de scraping)
-        rankings_context = load_cached_data()
+        # 1. Cargar datos del disco
+        rankings_context, _ = load_cached_data()
         
         # 2. Generar respuesta con Gemini
         response = brain.generate_response(user_text, rankings_context)
@@ -70,23 +99,20 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text("Tuve un pequeño cortocircuito. ¿Podrías preguntar de nuevo?")
 
 if __name__ == '__main__':
-    # Iniciar servidor web en segundo plano
-    flask_thread = threading.Thread(target=run_flask)
-    flask_thread.daemon = True
-    flask_thread.start()
-    
+    # ... código existente ...
     # Iniciar Bot
     if not TELEGRAM_TOKEN:
-        logging.error("❌ TELEGRAM_TOKEN no encontrado. El bot de Telegram no se iniciará.")
-        # Mantenemos el proceso vivo solo con Flask para que no crashee el contenedor
+        # ... logs de error ...
         flask_thread.join()
     else:
         application = ApplicationBuilder().token(TELEGRAM_TOKEN).build()
         
         start_handler = CommandHandler('start', start)
+        status_handler = CommandHandler('status', status)
         message_handler = MessageHandler(filters.TEXT & (~filters.COMMAND), handle_message)
         
         application.add_handler(start_handler)
+        application.add_handler(status_handler)
         application.add_handler(message_handler)
         
         print("Bot y Servidor Web iniciados...")

@@ -25,15 +25,9 @@ jobs:
         
     - name: Install dependencies
       run: |
-        python -m pip install --upgrade pip
         pip install -r requirements_scraper.txt
         pip install -r requirements.txt
         playwright install chromium
-        
-    - name: Debug Structure
-      run: |
-        pwd
-        ls -R
         
     - name: Run Scraper
       env:

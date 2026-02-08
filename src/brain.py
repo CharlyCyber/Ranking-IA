@@ -27,6 +27,17 @@ class RankingBrain:
         print(f"🧠 Configurando cerebro con prioridad: {self.preferred_models[0]}")
         return genai.GenerativeModel(self.preferred_models[0])
 
+    def check_health(self):
+        """Verifica si el cerebro está conectado y respondiendo."""
+        try:
+            if not self.model:
+                return False, "API Key no configurada."
+            # Intento de generación muy barata (1 token)
+            self.model.generate_content("Ping", generation_config={"max_output_tokens": 1})
+            return True, "Cerebro operativo y conectado a Gemini."
+        except Exception as e:
+            return False, f"Error de conexión con Gemini: {str(e)}"
+
     def generate_response(self, user_query, context_data):
         """Genera respuesta con reintentos en modelos de respaldo."""
         
