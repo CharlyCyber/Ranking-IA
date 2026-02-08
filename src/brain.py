@@ -63,7 +63,16 @@ class RankingBrain:
             try:
                 current_model = genai.GenerativeModel(model_name)
                 response = current_model.generate_content(prompt)
-                return response.text
+                
+                if response and response.candidates:
+                    # Verificar si el primer candidato tiene texto
+                    if response.candidates[0].content.parts:
+                        return response.text
+                    else:
+                        print(f"⚠️ El modelo {model_name} devolvió una respuesta vacía (posiblemente bloqueada).")
+                else:
+                    print(f"⚠️ El modelo {model_name} no devolvió candidatos.")
+                
             except Exception as e:
                 print(f"⚠️ Error con {model_name}: {e}. Intentando siguiente modelo...")
                 continue

@@ -92,17 +92,30 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
         # 2. Generar respuesta con Gemini
         response = brain.generate_response(user_text, rankings_context)
         
-        # 3. Enviar respuesta
-        await update.message.reply_text(response, parse_mode='Markdown')
+        # 3. Enviar respuesta con fallback para errores de Markdown
+        try:
+            await update.message.reply_text(response, parse_mode='Markdown')
+        except Exception as e:
+            logging.warning(f"Error parseando Markdown, enviando como texto plano: {e}")
+            await update.message.reply_text(response)
+            
     except Exception as e:
-        logging.error(f"Error en chat: {e}")
+        logging.error(f"Error en chat: {e}", exc_info=True)
         await update.message.reply_text("Tuve un pequeño cortocircuito. ¿Podrías preguntar de nuevo?")
 
 if __name__ == '__main__':
-    # ... código existente ...
+    # Asegurar que el directorio de datos existe
+    os.makedirs("data", exist_ok=True)
+    
+    # Iniciar Flask en un hilo separado
+    flask_thread = threading.Thread(target=run_flask)
+    flask_thread.daemon = True
+    flask_thread.start()
+
     # Iniciar Bot
     if not TELEGRAM_TOKEN:
-        # ... logs de error ...
+        logging.error("No se encontró TELEGRAM_TOKEN en las variables de entorno.")
+        # Mantener el hilo de Flask vivo si el bot falla
         flask_thread.join()
     else:
         application = ApplicationBuilder().token(TELEGRAM_TOKEN).build()
@@ -116,4 +129,4 @@ if __name__ == '__main__':
         application.add_handler(message_handler)
         
         print("Bot y Servidor Web iniciados...")
-        application.run_polling()
+        application.run_polling(drop_pending_updates=True)
