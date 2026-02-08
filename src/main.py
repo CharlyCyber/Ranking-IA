@@ -76,13 +76,18 @@ if __name__ == '__main__':
     flask_thread.start()
     
     # Iniciar Bot
-    application = ApplicationBuilder().token(TELEGRAM_TOKEN).build()
-    
-    start_handler = CommandHandler('start', start)
-    message_handler = MessageHandler(filters.TEXT & (~filters.COMMAND), handle_message)
-    
-    application.add_handler(start_handler)
-    application.add_handler(message_handler)
-    
-    print("Bot y Servidor Web iniciados...")
-    application.run_polling()
+    if not TELEGRAM_TOKEN:
+        logging.error("❌ TELEGRAM_TOKEN no encontrado. El bot de Telegram no se iniciará.")
+        # Mantenemos el proceso vivo solo con Flask para que no crashee el contenedor
+        flask_thread.join()
+    else:
+        application = ApplicationBuilder().token(TELEGRAM_TOKEN).build()
+        
+        start_handler = CommandHandler('start', start)
+        message_handler = MessageHandler(filters.TEXT & (~filters.COMMAND), handle_message)
+        
+        application.add_handler(start_handler)
+        application.add_handler(message_handler)
+        
+        print("Bot y Servidor Web iniciados...")
+        application.run_polling()

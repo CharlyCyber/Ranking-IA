@@ -3,10 +3,22 @@ from src.config import GEMINI_API_KEY
 
 class RankingBrain:
     def __init__(self):
-        genai.configure(api_key=GEMINI_API_KEY)
+        if not GEMINI_API_KEY:
+            print("⚠️ ADVERTENCIA: GEMINI_API_KEY no encontrada. El bot no podrá generar respuestas.")
+        else:
+            genai.configure(api_key=GEMINI_API_KEY)
+        
         # Lista de prioridad de modelos: El más avanzado primero
-        self.preferred_models = ['gemini-2.5-flash', 'gemini-2.0-flash', 'gemini-1.5-pro', 'gemini-flash-latest']
-        self.model = self._get_best_available_model()
+        self.preferred_models = [
+            'gemini-flash-latest', 
+            'gemini-pro-latest'
+        ]
+        
+        # Intentamos inicializar el modelo solo si hay key, sino dejaremos que falle en generate_response
+        if GEMINI_API_KEY:
+            self.model = self._get_best_available_model()
+        else:
+            self.model = None
 
     def _get_best_available_model(self):
         """Intenta inicializar el mejor modelo disponible."""

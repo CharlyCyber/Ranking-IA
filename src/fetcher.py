@@ -61,11 +61,15 @@ class DataFetcher:
 
     def fetch_artificial_analysis(self):
         """Simulación de datos de Artificial Analysis."""
-        return f"Datos consolidados de Artificial Analysis (API Activa: {API_KEYS['artificial_analysis'][:5]}...)"
+        key = API_KEYS.get('artificial_analysis')
+        display_key = key[:5] if key else "None"
+        return f"Datos consolidados de Artificial Analysis (API Activa: {display_key}...)"
 
     def fetch_context7(self):
         """Simulación de datos de Context7."""
-        return f"Datos consolidados de Context7 (API Activa: {API_KEYS['context7'][:5]}...)"
+        key = API_KEYS.get('context7')
+        display_key = key[:5] if key else "None"
+        return f"Datos consolidados de Context7 (API Activa: {display_key}...)"
 
     async def fetch_all(self):
         """Orquesta todas las extracciones de forma paralela para mayor velocidad."""
