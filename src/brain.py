@@ -96,3 +96,39 @@ class RankingBrain:
                 continue
         
         return "Lo siento, todos los modelos de IA están ocupados o no disponibles en este momento."
+
+    def compare_data(self, old_data, new_data):
+        """Compara datos antiguos vs nuevos para detectar cambios interesantes."""
+        system_prompt = f"""
+        Eres un vigilante de rankings de IA. Tu tarea es comparar los datos antiguos con los nuevos y detectar:
+        1. Cambios en el TOP 1 de cualquier categoría.
+        2. Nuevos modelos que aparezcan en los rankings.
+        3. Caídas o subidas drásticas de posición.
+
+        DATOS ANTIGUOS:
+        {json.dumps(old_data, ensure_ascii=False)[:3000]}
+
+        DATOS NUEVOS:
+        {json.dumps(new_data, ensure_ascii=False)[:3000]}
+
+        INSTRUCCIONES:
+        - Si NO hay cambios relevantes, responde ÚNICAMENTE con la palabra: "SIN_CAMBIOS".
+        - Si hay cambios, genera un breve reporte (máx 150 palabras) usando emojis.
+        - Sé emocionante, como un boletín de noticias de última hora.
+        - Usa el formato: 🚨 **¡ALERTA DE CAMBIO EN EL RANKING!** ...
+        """
+        
+        try:
+            for model_name in self.preferred_models:
+                try:
+                    model = genai.GenerativeModel(model_name)
+                    response = model.generate_content(system_prompt)
+                    text = response.text.strip()
+                    if text:
+                        return text
+                except:
+                    continue
+            return "SIN_CAMBIOS"
+        except Exception as e:
+            print(f"Error comparando datos: {e}")
+            return "SIN_CAMBIOS"

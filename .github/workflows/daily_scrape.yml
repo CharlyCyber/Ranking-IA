@@ -31,7 +31,9 @@ jobs:
         
     - name: Run Scraper
       env:
-        # Si necesitas las keys para el scraping, agrégalas a los Secrets del repo
+        TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+        CHAT_ID: ${{ secrets.CHAT_ID }}
+        GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         CONTEXT7_API_KEY: ${{ secrets.CONTEXT7_API_KEY }}
         ARTIFICIAL_ANALYSIS_API_KEY: ${{ secrets.ARTIFICIAL_ANALYSIS_API_KEY }}
       run: python -m src.update_data
