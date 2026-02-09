@@ -2,6 +2,7 @@ import logging
 import json
 import os
 import threading
+import requests
 from telegram import Update
 from telegram.ext import ApplicationBuilder, ContextTypes, MessageHandler, filters, CommandHandler
 from src.config import TELEGRAM_TOKEN
@@ -12,8 +13,9 @@ from flask import Flask
 app = Flask(__name__)
 
 @app.route('/')
-def home():
-    return "Ranking AI Agent is Alive! 🤖"
+@app.route('/health')
+def health():
+    return {"status": "ok", "message": "Ranking AI Agent is Alive! 🤖", "timestamp": datetime.now().isoformat()}
 
 def run_flask():
     port = int(os.environ.get("PORT", 5000))
@@ -30,26 +32,37 @@ brain = RankingBrain()
 import time
 from datetime import datetime
 
-# ... imports existentes ...
+# URL Raw de GitHub para los datos (reemplazar con el repo real si es necesario)
+# Por defecto intentaremos deducirlo del entorno o usar una rama específica 'data'
+DATA_URL = os.getenv("DATA_JSON_URL", "https://raw.githubusercontent.com/Charli/Ranking-AI/data/data/rankings.json")
 
 def load_cached_data():
-    """Carga los datos del JSON generado por GitHub Actions."""
+    """Carga los datos del JSON. Intenta primero desde GitHub Raw para evitar redespliegues."""
     try:
+        # 1. Intentar carga remota (siempre tendrá lo último sin reiniciar el bot)
+        try:
+            response = requests.get(DATA_URL, timeout=10)
+            if response.status_code == 200:
+                data = response.json()
+                logging.info("Datos cargados exitosamente desde GitHub Raw.")
+                return json.dumps(data, indent=2, ensure_ascii=False), "Online (GitHub)"
+        except Exception as e:
+            logging.warning(f"No se pudo cargar desde GitHub Raw, usando local: {e}")
+
+        # 2. Fallback a archivo local
         path = os.path.join("data", "rankings.json")
         if not os.path.exists(path):
             return "Aún no hay datos cacheados. Esperando primera actualización...", None
         
-        # Obtener fecha de modificación del archivo
         mod_time = os.path.getmtime(path)
         last_update = datetime.fromtimestamp(mod_time).strftime('%Y-%m-%d %H:%M:%S')
         
         with open(path, "r", encoding="utf-8") as f:
             data = json.load(f)
-        # Convertir diccionario a texto bonito para el prompt
-        return json.dumps(data, indent=2, ensure_ascii=False), last_update
+        return json.dumps(data, indent=2, ensure_ascii=False), f"Local ({last_update})"
     except Exception as e:
         logging.error(f"Error cargando caché: {e}")
-        return "Error leyendo base de datos local.", None
+        return "Error leyendo base de datos.", None
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Mensaje de bienvenida."""

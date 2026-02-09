@@ -36,9 +36,10 @@ jobs:
         ARTIFICIAL_ANALYSIS_API_KEY: ${{ secrets.ARTIFICIAL_ANALYSIS_API_KEY }}
       run: python -m src.update_data
       
-    - name: Commit and Push changes
+    - name: Commit and Push changes to data branch
       run: |
         git config --global user.name "RankingAI Bot"
         git config --global user.email "bot@rankingai.com"
+        git checkout -b data || git checkout data
         git add data/rankings.json
-        git diff --quiet && git diff --staged --quiet || (git commit -m "🔄 Actualización automática de rankings" && git push)
+        git diff --quiet && git diff --staged --quiet || (git commit -m "🔄 Actualización automática de rankings" && git push origin data --force)
