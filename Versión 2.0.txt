@@ -1,0 +1,38 @@
+💡 Recomendaciones para la V2.0
+
+
+  Aquí tienes algunas ideas si quieres robustecerlo o hacerlo público:
+
+
+  1. 🛡️ Validación de Datos ("Safety Net")
+  Riesgo: Si mañana las webs cambian su diseño y el scraper captura un texto vacío o basura, 
+  Gemini podría alucinar o guardar un JSON corrupto, "ensuciando" tu base de datos histórica.  Solución: En update_data.py, añade una validación simple antes de guardar.
+  > "Si el nuevo JSON tiene menos de 100 caracteres o faltan claves clave, descarta la       
+  actualización y envía alerta de error."
+
+
+  2. 👥 Modo Multi-Usuario
+  Situación: Ahora las alertas van solo a ti (ADMIN_CHAT_ID).
+  Mejora: Si quieres compartir el bot con amigos:
+   * Añadir comando /subscribe para que guarden su ID en una lista.
+   * Cuando haya alertas, el bot itera esa lista y notifica a todos.
+   * Nota: Aquí "Git as DB" se queda corto, necesitarías una mini base de datos como SQLite o     Supabase.
+
+
+  3. 📉 Gráficos de Tendencia (El "Wow Factor")
+  Idea: El texto está bien, pero una imagen vale más que 1000 tokens.
+  Mejora: Cuando un modelo suba, genera una gráfica simple con Python (matplotlib) o      
+  QuickChart API mostrando su evolución de ELO en el último mes y envíala como foto.      
+  > "Mira cómo GPT-5 ha superado a Claude en la última semana 📈"
+
+
+  4. 🧹 Limpieza de Historial Git
+  Riesgo a largo plazo: Al guardar datos en la rama data cada 6 horas, tu historial de Git   
+  crecerá infinitamente. En un año tendrás miles de commits inútiles.
+  Solución: Eventualmente, cambia el almacenamiento de rankings.json a un Gist de GitHub (que  se puede actualizar sobre el mismo archivo sin llenar el historial del repo) o un bucket   
+  S3/Firebase Storage (capa gratuita).
+
+  🏆 Conclusión
+  Estás en el Top 1% de bots personales. La mayoría usa webhooks simples sin persistencia ni 
+  análisis. Tienes un sistema autónomo que se mantiene, se actualiza y te avisa solo cuando  
+  importa.
