@@ -17,20 +17,21 @@ from telegram.ext import (
 )
 from src.config import TELEGRAM_TOKEN, ADMIN_CHAT_ID
 from src.brain import RankingBrain
+from src.updater import DataUpdater
 from flask import Flask
 
 # --- Configuración de Logging ---
 logging.basicConfig(
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-    level=logging.INFO
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO
 )
 logger = logging.getLogger(__name__)
 
 # --- Configuración Flask (Para mantener vivo el bot en Render) ---
 flask_app = Flask(__name__)
 
-@flask_app.route('/')
-@flask_app.route('/health')
+
+@flask_app.route("/")
+@flask_app.route("/health")
 def health():
     return {
         "status": "ok",
@@ -39,15 +40,21 @@ def health():
         "uptime_check": True,
     }
 
+
 def run_flask():
     port = int(os.environ.get("PORT", 5000))
-    flask_app.run(host='0.0.0.0', port=port)
+    flask_app.run(host="0.0.0.0", port=port)
+
 
 # --- Inicialización del Cerebro ---
 brain = RankingBrain()
 
+# --- Inicialización del Updater ---
+updater = DataUpdater()
+
 # URL Raw de GitHub para los datos
 DATA_URL = os.getenv("DATA_JSON_URL", "")
+
 
 # --- Funciones de datos ---
 async def load_cached_data():
@@ -60,55 +67,104 @@ async def load_cached_data():
                     if response.status_code == 200:
                         data = response.json()
                         logger.info("Datos cargados exitosamente desde GitHub Raw.")
-                        return json.dumps(data, indent=2, ensure_ascii=False), "Online (GitHub)"
+                        return json.dumps(
+                            data, indent=2, ensure_ascii=False
+                        ), "Online (GitHub)"
             except Exception as e:
                 logger.warning(f"No se pudo cargar desde GitHub Raw: {e}")
 
         path = os.path.join("data", "rankings.json")
         if os.path.exists(path):
             mod_time = os.path.getmtime(path)
-            last_update = datetime.fromtimestamp(mod_time).strftime('%Y-%m-%d %H:%M:%S')
+            last_update = datetime.fromtimestamp(mod_time).strftime("%Y-%m-%d %H:%M:%S")
             with open(path, "r", encoding="utf-8") as f:
                 data = json.load(f)
-            return json.dumps(data, indent=2, ensure_ascii=False), f"Local ({last_update})"
+            return json.dumps(
+                data, indent=2, ensure_ascii=False
+            ), f"Local ({last_update})"
 
         return "Aún no hay datos cacheados. Esperando primera actualización...", None
     except Exception as e:
         logger.error(f"Error cargando caché: {e}")
         return "Error leyendo base de datos.", None
 
+
 # --- Handlers del Bot ---
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Mensaje de bienvenida."""
     await update.message.reply_text(
         "¡Hola! Soy tu **Ranking AI Agent** 🏆. \n\n"
-        "Mis datos se actualizan automáticamente cada 6 horas.\n"
-        "Usa /status para verificar mi estado de salud.\n"
+        "🔥 **Detección en Tiempo Real:** Mis datos se actualizan cada 30 minutos automáticamente.\n"
+        "📊 Rastreo constante de: LMSYS Arena, OpenRouter, Design Arena y más.\n"
+        "🚨 Te notificaré **inmediatamente** si hay cambios importantes en los rankings.\n\n"
+        "Comandos disponibles:\n"
+        "• /status - Ver estado del sistema\n"
+        "• /forceupdate - Forzar actualización manual\n\n"
         "Pregúntame lo que quieras sobre el estado del arte de la IA."
     )
 
+
 async def status(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Chequeo de salud del sistema."""
-    await context.bot.send_chat_action(chat_id=update.effective_chat.id, action="typing")
+    await context.bot.send_chat_action(
+        chat_id=update.effective_chat.id, action="typing"
+    )
 
     _, last_update = await load_cached_data()
-    data_status = f"✅ Datos actualizados ({last_update})" if last_update else "⚠️ Sin datos o datos antiguos"
+    data_status = (
+        f"✅ Datos actualizados ({last_update})"
+        if last_update
+        else "⚠️ Sin datos o datos antiguos"
+    )
 
     brain_ok, brain_msg = brain.check_health()
-    brain_status = "✅ Gemini Conectado" if brain_ok else f"❌ Error Gemini: {brain_msg}"
+    brain_status = (
+        "✅ Gemini Conectado" if brain_ok else f"❌ Error Gemini: {brain_msg}"
+    )
 
     await update.message.reply_text(
         f"📊 **Estado del Sistema**\n\n"
         f"**Base de Datos:** {data_status}\n"
         f"**IA Brain:** {brain_status}\n"
-        f"**Versión:** 1.2 (Resilient)\n"
+        f"**Versión:** 2.0 (Real-Time)\n"
         f"**Uptime desde:** {context.bot_data.get('start_time', 'N/A')}"
     )
+
+
+async def force_update(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """Fuerza una actualización manual de los datos."""
+    await context.bot.send_chat_action(
+        chat_id=update.effective_chat.id, action="typing"
+    )
+
+    await update.message.reply_text("🔄 Forzando actualización de datos...")
+
+    try:
+        # Inicializar updater con el bot para poder notificar
+        updater.bot = context.bot
+        result = await updater.check_and_update(force=True)
+
+        if result["success"]:
+            await update.message.reply_text(
+                f"✅ **Actualización completada**\n\n"
+                f"📊 Fuentes consultadas: {', '.join(result.get('sources_scraped', []))}\n"
+                f"📝 {result.get('message', 'Datos actualizados correctamente')}"
+            )
+        else:
+            await update.message.reply_text(
+                f"❌ **Error en actualización**\n\n{result.get('message', 'Error desconocido')}"
+            )
+    except Exception as e:
+        logger.error(f"Error en force_update: {e}", exc_info=True)
+        await update.message.reply_text(f"❌ Error: {str(e)}")
+
 
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Procesa las preguntas usando datos locales + Gemini."""
     user_text = update.message.text
-    await context.bot.send_chat_action(chat_id=update.effective_chat.id, action="typing")
+    await context.bot.send_chat_action(
+        chat_id=update.effective_chat.id, action="typing"
+    )
 
     try:
         rankings_context, _ = await load_cached_data()
@@ -121,7 +177,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
             response = "Lo siento, no pude generar una respuesta en este momento. Intenta preguntar de otra forma."
 
         try:
-            await update.message.reply_text(response, parse_mode='Markdown')
+            await update.message.reply_text(response, parse_mode="Markdown")
         except Exception as e:
             logger.warning(f"Error parseando Markdown, enviando como texto plano: {e}")
             await update.message.reply_text(response)
@@ -129,14 +185,19 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     except Exception as e:
         error_detail = str(e)
         logger.error(f"Error en chat: {error_detail}", exc_info=True)
-        await update.message.reply_text(f"Tuve un pequeño cortocircuito técnico. [Error: {error_detail[:100]}]")
+        await update.message.reply_text(
+            f"Tuve un pequeño cortocircuito técnico. [Error: {error_detail[:100]}]"
+        )
+
 
 # --- Error Handler Global ---
 async def error_handler(update: object, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Captura TODOS los errores del bot, loguea y notifica al admin."""
     logger.error("Excepción durante procesamiento de update:", exc_info=context.error)
 
-    tb_list = traceback.format_exception(None, context.error, context.error.__traceback__)
+    tb_list = traceback.format_exception(
+        None, context.error, context.error.__traceback__
+    )
     tb_string = "".join(tb_list)
 
     update_str = update.to_dict() if isinstance(update, Update) else str(update)
@@ -156,6 +217,7 @@ async def error_handler(update: object, context: ContextTypes.DEFAULT_TYPE) -> N
         except Exception as notify_err:
             logger.error(f"No se pudo notificar al admin: {notify_err}")
 
+
 # --- Jobs Periódicos (Keep-Alive + Heartbeat) ---
 async def self_ping(context: ContextTypes.DEFAULT_TYPE) -> None:
     """Ping al propio endpoint /health cada 5 min para evitar que Render duerma el servicio."""
@@ -171,14 +233,33 @@ async def self_ping(context: ContextTypes.DEFAULT_TYPE) -> None:
     except Exception as e:
         logger.warning(f"⚠️ Self-ping falló: {e}")
 
+
 async def heartbeat(context: ContextTypes.DEFAULT_TYPE) -> None:
     """Log periódico que confirma que el bot sigue vivo."""
     now = datetime.now().isoformat()
     logger.info(f"💓 Heartbeat — Bot activo a las {now}")
 
+
+async def periodic_update(context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Job periódico: Actualiza datos de rankings cada 30 minutos."""
+    logger.info("🔄 [Job] Iniciando actualización periódica de rankings...")
+    try:
+        # Asignar el bot al updater para que pueda enviar notificaciones
+        updater.bot = context.bot
+        result = await updater.check_and_update(force=False)
+
+        if result["changes_detected"]:
+            logger.info("📣 [Job] Cambios detectados y notificados")
+        else:
+            logger.info("✅ [Job] Verificación completada - Sin cambios")
+
+    except Exception as e:
+        logger.error(f"❌ [Job] Error en actualización periódica: {e}", exc_info=True)
+
+
 async def post_init(application) -> None:
     """Se ejecuta después de que el bot se inicializa correctamente."""
-    application.bot_data['start_time'] = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    application.bot_data["start_time"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     logger.info("🚀 Bot inicializado correctamente. Registrando jobs periódicos...")
 
     # Job: Self-ping cada 5 minutos (300 seg) para mantener vivo Render
@@ -197,15 +278,29 @@ async def post_init(application) -> None:
         name="heartbeat",
     )
 
-    logger.info("✅ Jobs registrados: self_ping (5 min), heartbeat (30 min)")
+    # Job: Actualización de rankings cada 30 minutos (1800 seg)
+    # Este es el job principal para detección en tiempo real
+    application.job_queue.run_repeating(
+        periodic_update,
+        interval=1800,  # 30 minutos
+        first=120,  # Primer chequeo 2 minutos después de iniciar
+        name="periodic_update",
+    )
+
+    logger.info(
+        "✅ Jobs registrados: self_ping (5 min), heartbeat (30 min), periodic_update (30 min)"
+    )
+
 
 # --- Entry Point ---
-if __name__ == '__main__':
+if __name__ == "__main__":
     os.makedirs("data", exist_ok=True)
 
     # Iniciar Flask en un hilo separado (NO daemon, para que sobreviva si el polling se reinicia)
     flask_thread = threading.Thread(target=run_flask, name="FlaskKeepAlive")
-    flask_thread.daemon = True  # Seguimos usando daemon para que no bloquee el cierre del proceso
+    flask_thread.daemon = (
+        True  # Seguimos usando daemon para que no bloquee el cierre del proceso
+    )
     flask_thread.start()
     logger.info("🌐 Servidor Flask iniciado en hilo separado")
 
@@ -227,9 +322,12 @@ if __name__ == '__main__':
         )
 
         # Registrar handlers
-        application.add_handler(CommandHandler('start', start))
-        application.add_handler(CommandHandler('status', status))
-        application.add_handler(MessageHandler(filters.TEXT & (~filters.COMMAND), handle_message))
+        application.add_handler(CommandHandler("start", start))
+        application.add_handler(CommandHandler("status", status))
+        application.add_handler(CommandHandler("forceupdate", force_update))
+        application.add_handler(
+            MessageHandler(filters.TEXT & (~filters.COMMAND), handle_message)
+        )
 
         # Registrar error handler global
         application.add_error_handler(error_handler)
@@ -239,7 +337,7 @@ if __name__ == '__main__':
         # Polling con parámetros de resiliencia
         application.run_polling(
             drop_pending_updates=True,
-            poll_interval=1.0,       # Intervalo entre polls (seg)
-            timeout=30,              # Long polling timeout
+            poll_interval=1.0,  # Intervalo entre polls (seg)
+            timeout=30,  # Long polling timeout
             allowed_updates=Update.ALL_TYPES,
         )

@@ -2,7 +2,7 @@ name: Update AI Rankings
 
 on:
   schedule:
-    - cron: '0 */6 * * *' # Ejecutar cada 6 horas
+    - cron: '0 */12 * * *' # Backup cada 12 horas (el bot ya actualiza cada 30 min)
   workflow_dispatch: # Permite ejecutarlo manualmente desde la web
 
 permissions:
