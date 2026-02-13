@@ -17,8 +17,23 @@ from telegram.ext import (
 )
 from src.config import TELEGRAM_TOKEN, ADMIN_CHAT_ID
 from src.brain import RankingBrain
-from src.updater import DataUpdater
 from flask import Flask
+
+# Importación lazy de DataUpdater para evitar cargar Playwright al inicio
+updater = None
+
+
+def get_updater(bot=None):
+    """Obtiene instancia de DataUpdater (lazy import)."""
+    global updater
+    if updater is None:
+        from src.updater import DataUpdater
+
+        updater = DataUpdater(bot=bot)
+    elif bot is not None:
+        updater.bot = bot
+    return updater
+
 
 # --- Configuración de Logging ---
 logging.basicConfig(
@@ -48,9 +63,6 @@ def run_flask():
 
 # --- Inicialización del Cerebro ---
 brain = RankingBrain()
-
-# --- Inicialización del Updater ---
-updater = DataUpdater()
 
 # URL Raw de GitHub para los datos
 DATA_URL = os.getenv("DATA_JSON_URL", "")
@@ -141,8 +153,8 @@ async def force_update(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     try:
         # Inicializar updater con el bot para poder notificar
-        updater.bot = context.bot
-        result = await updater.check_and_update(force=True)
+        updater_instance = get_updater(context.bot)
+        result = await updater_instance.check_and_update(force=True)
 
         if result["success"]:
             await update.message.reply_text(
@@ -244,9 +256,9 @@ async def periodic_update(context: ContextTypes.DEFAULT_TYPE) -> None:
     """Job periódico: Actualiza datos de rankings cada 30 minutos."""
     logger.info("🔄 [Job] Iniciando actualización periódica de rankings...")
     try:
-        # Asignar el bot al updater para que pueda enviar notificaciones
-        updater.bot = context.bot
-        result = await updater.check_and_update(force=False)
+        # Obtener instancia de updater con el bot para notificaciones
+        updater_instance = get_updater(context.bot)
+        result = await updater_instance.check_and_update(force=False)
 
         if result["changes_detected"]:
             logger.info("📣 [Job] Cambios detectados y notificados")
