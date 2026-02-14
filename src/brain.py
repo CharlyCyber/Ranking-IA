@@ -1,10 +1,11 @@
+import json
 import google.generativeai as genai
 from src.config import GEMINI_API_KEY
 
 class RankingBrain:
     def __init__(self):
         if not GEMINI_API_KEY:
-            print("⚠️ ADVERTENCIA: GEMINI_API_KEY no encontrada. El bot no podrá generar respuestas.")
+            print("ADVERTENCIA: GEMINI_API_KEY no encontrada. El bot no podrá generar respuestas.")
         else:
             genai.configure(api_key=GEMINI_API_KEY)
         
@@ -24,7 +25,7 @@ class RankingBrain:
         """Intenta inicializar el mejor modelo disponible."""
         # Por defecto instanciamos el primero, la validación ocurre al llamar generate_content
         # pero aquí dejamos configurado el "intento" principal.
-        print(f"🧠 Configurando cerebro con prioridad: {self.preferred_models[0]}")
+        print(f"Cerebro: Configurando cerebro con prioridad: {self.preferred_models[0]}")
         return genai.GenerativeModel(self.preferred_models[0])
 
     def check_health(self):
@@ -84,15 +85,15 @@ class RankingBrain:
                     if parts:
                         return parts[0].text
                 
-                print(f"⚠️ El modelo {model_name} no devolvió texto utilizable (posible bloqueo).")
+                print(f"Warning: El modelo {model_name} no devolvió texto utilizable (posible bloqueo).")
                 
             except Exception as e:
                 # Capturar errores específicos de seguridad o cuotas
                 error_msg = str(e)
                 if "safety" in error_msg.lower():
-                    print(f"🛑 Bloqueo de seguridad con {model_name}. Intentando siguiente...")
+                    print(f"Bloqueo de seguridad con {model_name}. Intentando siguiente...")
                 else:
-                    print(f"⚠️ Error con {model_name}: {error_msg}. Intentando siguiente...")
+                    print(f"Warning: Error con {model_name}: {error_msg}. Intentando siguiente...")
                 continue
         
         return "Lo siento, todos los modelos de IA están ocupados o no disponibles en este momento."
