@@ -6,6 +6,7 @@ from datetime import datetime
 from src.fetcher import DataFetcher
 from src.brain import RankingBrain
 from src.config import TELEGRAM_TOKEN, ADMIN_CHAT_ID
+from src.db import Database
 
 logger = logging.getLogger(__name__)
 
@@ -17,6 +18,7 @@ class DataUpdater:
         self.bot = bot
         self.fetcher = DataFetcher()
         self.brain = RankingBrain()
+        self.db = Database()
         self.output_path = os.path.join("data", "rankings.json")
         self.last_check = None
         self.last_change = None
@@ -50,6 +52,9 @@ class DataUpdater:
             logger.info("📡 Scraping fuentes de datos...")
             new_data = await self.fetcher.fetch_all()
             result["sources_scraped"] = list(new_data.keys())
+
+            # Guardar snapshot en base de datos
+            self.db.save_snapshot(new_data)
 
             # 3. Comparar datos
             changes_detected = False
@@ -86,12 +91,16 @@ class DataUpdater:
 
             if changes_detected and notification_text:
                 self.last_change = datetime.now()
-                # 5. Enviar notificación
+                # 5. Guardar cambio en base de datos
+                self.db.save_change(notification_text)
+                # 6. Enviar notificación
                 await self._send_notification(notification_text)
                 result["message"] = (
                     f"Actualización exitosa con cambios: {notification_text[:100]}..."
                 )
 
+            # Limpiar datos antiguos (>31 días)
+            self.db.cleanup_old_data()
             logger.info(f"✅ Datos guardados en {self.output_path}")
             return result
 

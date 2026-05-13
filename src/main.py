@@ -44,6 +44,10 @@ logger = logging.getLogger(__name__)
 # --- Configuración Flask (Para mantener vivo el bot en Render) ---
 flask_app = Flask(__name__)
 
+# Registrar dashboard y API
+from src.web import web
+flask_app.register_blueprint(web)
+
 
 @flask_app.route("/")
 @flask_app.route("/health")
