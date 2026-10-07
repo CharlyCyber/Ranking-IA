@@ -15,7 +15,7 @@ class DataFetcher:
             async with async_playwright() as p:
                 browser = await p.chromium.launch(headless=True)
                 page = await browser.new_page()
-                await page.goto(URLS["arena"], timeout=60000)
+                await page.goto(URLS["arena"], timeout=60000, wait_until="domcontentloaded")
                 await page.wait_for_timeout(5000) 
                 
                 # En lugar de buscar filas específicas, extraemos el texto visible
@@ -35,7 +35,7 @@ class DataFetcher:
             async with async_playwright() as p:
                 browser = await p.chromium.launch(headless=True)
                 page = await browser.new_page()
-                await page.goto(URLS["openrouter"], timeout=60000)
+                await page.goto(URLS["openrouter"], timeout=60000, wait_until="domcontentloaded")
                 await page.wait_for_timeout(5000)
                 content = await page.inner_text("body")
                 await browser.close()
@@ -50,7 +50,7 @@ class DataFetcher:
             async with async_playwright() as p:
                 browser = await p.chromium.launch(headless=True)
                 page = await browser.new_page()
-                await page.goto(URLS["design_arena"], timeout=60000)
+                await page.goto(URLS["design_arena"], timeout=60000, wait_until="domcontentloaded")
                 await page.wait_for_timeout(5000)
                 content = await page.inner_text("body")
                 await browser.close()
