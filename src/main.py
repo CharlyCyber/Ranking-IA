@@ -312,6 +312,21 @@ async def post_init(application) -> None:
 if __name__ == "__main__":
     os.makedirs("data", exist_ok=True)
 
+    # Render instala el paquete Playwright mediante requirements.txt, pero los
+    # navegadores de Playwright no vienen incluidos. Instalar Chromium al
+    # arrancar garantiza que el scraper pueda ejecutar el navegador.
+    try:
+        import subprocess
+        import sys
+        subprocess.run(
+            [sys.executable, "-m", "playwright", "install", "chromium"],
+            check=True,
+        )
+        logger.info("🌐 Chromium de Playwright disponible")
+    except Exception as e:
+        logger.error(f"❌ No se pudo instalar Chromium para Playwright: {e}")
+
+
     # Iniciar Flask en un hilo separado (NO daemon, para que sobreviva si el polling se reinicia)
     flask_thread = threading.Thread(target=run_flask, name="FlaskKeepAlive")
     flask_thread.daemon = (
