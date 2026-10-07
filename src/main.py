@@ -319,7 +319,7 @@ if __name__ == "__main__":
         import subprocess
         import sys
         subprocess.run(
-            [sys.executable, "-m", "playwright", "install", "chromium"],
+            [sys.executable, "-m", "playwright", "install", "chromium", "chromium-headless-shell"],
             check=True,
         )
         logger.info("🌐 Chromium de Playwright disponible")
