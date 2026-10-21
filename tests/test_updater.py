@@ -51,6 +51,8 @@ def _trending_ok():
 def _make_updater(tmp_path, monkeypatch, fetch_results, old_snapshot=None, brain=None):
     monkeypatch.setattr("src.updater.Database", lambda: Database(str(tmp_path / "test.db")))
     monkeypatch.setattr("src.updater.DataFetcher", lambda: FakeFetcher(fetch_results))
+    # El broadcast exige token; se fija uno falso para no depender del .env local.
+    monkeypatch.setattr("src.updater.TELEGRAM_TOKEN", "test-token")
 
     async def fake_trending():
         return _trending_ok()
