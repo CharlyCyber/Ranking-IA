@@ -48,7 +48,12 @@ jobs:
         else
           git checkout -b data
         fi
-        git add -f data/rankings.json data/rankings.db
+        # `git add` de un pathspec inexistente aborta el paso: se añaden por separado
+        # y el fichero SQLite solo si esta ejecución llegó a crearlo.
+        git add -f data/rankings.json
+        if [ -f data/rankings.db ]; then
+          git add -f data/rankings.db
+        fi
         if git diff --cached --quiet; then
           echo "Sin cambios en los datos."
         else
