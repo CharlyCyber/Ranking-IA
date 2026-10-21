@@ -1,0 +1,260 @@
+DesignArenaby Arcada Labs
+
+Leaderboards
+
+Blog
+
+Methodology
+
+Leaderboards
+
+Powered by real users. Crafted to be the most authentic leaderboard in the world, with 2,292,141 votes and counting.
+
+Jump to
+
+All Categories
+Website
+UI Components
+Game Dev
+Data Viz
+3D Design
+Web App
+Builder
+Agent
+Mobile
+Image
+Image Editing
+SVG
+Video
+Video Editing
+Graphic Design
+Logo
+Text-to-Speech
+Slides
+All Categories
+Website
+UI Components
+Game Dev
+Data Viz
+3D Design
+824.7K votes
+Model Performance
+Preference vs Speed
+
+DesignArenaby Arcada Labs
+
+Top 20
+All Models
+Win Rate
+Elo Rating
+1397
+
+Claude
+Opus 4.6
+
+1375
+
+Claude
+Opus 4.6 (Thinking)
+
+1344
+
+Kimi
+K2.5
+
+1344
+
+Gemini
+3 Pro Preview
+
+1338
+
+Claude
+Opus 4.5
+
+1323
+
+GLM
+4.7
+
+1286
+
+Gemini
+3 Flash Preview
+
+1286
+
+MiniMax
+M2.1
+
+1284
+
+Claude
+Sonnet 4.5 (Thinking)
+
+1280
+
+Claude
+Sonnet 4.5
+
+1278
+
+GLM
+4.7 Flash
+
+1277
+
+GPT-5.2
+(XHigh)
+
+1273
+
+Claude
+3.7 Sonnet
+
+1269
+
+DeepSeek-V3.1
+(Thinking)
+
+1266
+
+Claude
+Opus 4.1
+
+1266
+
+Claude
+Opus 4.1 (Thinking)
+
+1266
+
+DeepSeek-V3.2
+
+1264
+
+GLM
+4.6
+
+1263
+
+GPT-5
+(High)
+
+1261
+
+GPT-5.1
+(High)
+
+Last updated February 9, 2026 at 2:07 AM UTC
+
+DesignArenaby Arcada Labs
+
+Rank
+Model
+Elo Rating
+Win Rate
+MoE
+Battles
+Organization
+Time
+#1
+Claude Opus 4.6
+1397
+740W / 330L
+69.2%
+±2.8%
+1,070
+Anthropic
+3m 0s
+#2
+Claude Opus 4.6 (Thinking)
+1375
+791W / 404L
+66.2%
+±2.7%
+1,195
+Anthropic
+2m 59s
+#3
+Kimi K2.5
+1344
+2118W / 1187L
+64.1%
+±1.6%
+3,305
+Moonshot AI
+3m 2s
+#4
+Gemini 3 Pro Preview
+1344
+11360W / 5865L
+66.0%
+±0.7%
+17,225
+Google
+1m 29s
+#5
+Claude Opus 4.5
+1338
+7700W / 4284L
+64.3%
+±0.9%
+11,984
+Anthropic
+2m 0s
+#6
+GLM 4.7
+1323
+8622W / 5234L
+62.2%
+±0.8%
+13,856
+Zhipu AI
+2m 35s
+#7
+Gemini 3 Flash Preview
+1286
+2563W / 1879L
+57.7%
+±1.5%
+4,442
+Google
+34.5s
+#8
+MiniMax M2.1
+1286
+6999W / 5466L
+56.1%
+±0.9%
+12,465
+MiniMax
+1m 45s
+#9
+Claude Sonnet 4.5 (Thinking)
+1284
+8704W / 6194L
+58.4%
+±0.8%
+14,898
+Anthropic
+1m 26s
+#10
+Claude Sonnet 4.5
+1280
+9371W / 6818L
+57.9%
+±0.8%
+16,189
+Anthropic
+1m 31s
+#11
+GLM 4.7 Flash
+1278
+1925W / 1550L
+55.4%
+±1.7%
+3,475
+Zhipu AI
+2m 41s
+#

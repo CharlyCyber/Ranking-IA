@@ -1,0 +1,17 @@
+[project]
+name = "ranking-ai-agent"
+version = "3.0.0"
+description = "Bot de Telegram que informa del top y las novedades de modelos de IA, con dashboard web y briefing diario de tendencias de GitHub"
+requires-python = ">=3.10"
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+extend-exclude = ["__pycache__", ".ruff_cache", "data"]
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]

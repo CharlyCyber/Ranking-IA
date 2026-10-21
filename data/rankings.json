@@ -1,7 +1,342 @@
 {
-  "arena": "Overview\nText\nCode\nVision\nText-to-Image\nImage Edit\nSearch\nText-to-Video\nImage-to-Video\nStart Voting\nLeaderboard Overview\n\nSee how leading models stack up across text, image, vision, and beyond. This page gives you a snapshot of each Arena, you can explore deeper insights in their dedicated tabs. Learn more about it here.\n\nText\n2 days ago\nView\nRank\n\t\nModel\n\t\nScore\n\t\nVotes\n\n1\t\nclaude-opus-4-6\n\t1496\t2,829\n2\t\ngemini-3-pro\n\t1486\t34,419\n3\t\ngrok-4.1-thinking\n\t1475\t34,455\n4\t\ngemini-3-flash\n\t1470\t25,085\n5\t\nclaude-opus-4-5-20251101-thinking-32k\n\t1468\t26,178\n6\t\nclaude-opus-4-5-20251101\n\t1467\t31,069\n7\t\ngrok-4.1\n\t1465\t38,605\n8\t\ngemini-3-flash (thinking-minimal)\n\t1463\t16,255\n9\t\ngpt-5.1-high\n\t1458\t30,500\n10\t\nernie-5.0-0110\n\t\n1452\n\t10,184\n\nView all\nCode\n2 days ago\nView\nRank\n\t\nModel\n\t\nScore\n\t\nVotes\n\n1\t\nclaude-opus-4-6\n\t1576\t1,422\n2\t\nclaude-opus-4-5-20251101-thinking-32k\n\t1502\t9,003\n3\t\ngpt-5.2-high\n\t1472\t1,691\n4\t\nclaude-opus-4-5-20251101\n\t1470\t9,179\n5\t\ngemini-3-pro\n\t1452\t15,193\n6\t\nkimi-k2.5-thinking\n\t1449\t2,123\n7\t\ngemini-3-flash\n\t1442\t10,736\n8\t\nglm-4.7\n\t1441\t5,125\n9\t\nminimax-m2.1-preview\n\t1408\t8,095\n10\t\nkimi-k2.5-instant\n\t1407\t1,056\n\nView all\nVision\n2 days ago\nView\nRank\n\t\nModel\n\t\nScore\n\t\nVotes\n\n1\t\ngemini-3-pro\n\t1289\t11,297\n2\t\ngemini-3-flash\n\t1277\t9,175\n3\t\ngpt-5.2-high\n\t1257\t2,749\n4\t\ngemini-3-flash (thinking-minimal)\n\t1256\t7,313\n5\t\ngpt-5.1-high\n\t1252\t7,299\n6\t\nkimi-k2.5-thinking\n\t1251\t2,979\n7\t\ngemini-2.5-pro\n\t1246\t79,747\n8\t\nchatgpt-4o-latest-20250326\n\t1235\t23,313\n9\t\ngpt-5.1\n\t1235\t7,974\n10\t\nkimi-k2.5-instant\n\t1231\t1,663\n\nView all\nText-to-Image\n2 days ago\nView\nRank\n\t\nModel\n\t\nScore\n\t\nVotes\n\n1\t\ngpt-image-1.5-high-fidelity\n\t1237\t44,375\n2\t\ngemini-3-pro-image-preview-2k (nano-banana-pro)\n\t1231\t44,490\n3\t\ngemini-3-pro-image-preview (nano-banana-pro)\n\t1227\t91,441\n4\t\ngrok-imagine-image\n\t\n1170\n\t5,395\n5\t\nflux-2-max\n\t1168\t50,661\n6\t\ngrok-imagine-image-pro\n\t\n1168\n\t8,399\n7\t\nflux-2-flex\n\t1156\t73,268\n8\t\ngemini-2.5-flash-image-preview (nano-banana)\n\t1154\t752,601\n9\t\nflux-2-pro\n\t1153\t87,100\n10\t\nhunyuan-image-3.0\n\t1150\t172,643\n\nView all\nImage Edit\n2 days ago\nView\nRank\n\t\nModel\n\t\nScore\n\t\nVotes\n\n1\t\nchatgpt-image-latest-high-fidelity (20251216)\n\t1413\t184,593\n2\t\ngemini-3-pro-image-preview-2k (nano-banana-pro)\n\t1400\t179,642\n3\t\ngemini-3-pro-image-preview (nano-banana-pro)\n\t1395\t510,948\n4\t\ngpt-image-1.5-high-fidelity\n\t1390\t202,523\n5\t\ngrok-imagine-image-pro\n\t\n1330\n\t11,347\n6\t\ngrok-imagine-image\n\t\n1322\n\t7,183\n7\t\nseedream-4.5\n\t1316\t237,793\n8\t\nhunyuan-image-3.0-instruct\n\t\n1315\n\t50,075\n9\t\ngemini-2.5-flash-image-preview (nano-banana)\n\t1313\t10,456,668\n10\t\nseedream-4-2k\n\t1285\t218,668\n\nView all\nSearch\n10 days ago\nView\nRank\n\t\nModel\n\t\nScore\n\t\nVotes\n\n1\t\ngemini-3-flash-grounding\n\t1224\t11,062\n2\t\ngemini-3-pro-grounding\n\t1219\t18,839\n3\t\ngpt-5.2-search\n\t1218\t12,157\n4\t\ngpt-5.1-search\n\t1207\t14,152\n5\t\ngpt-5.2-search-non-reasoning\n\t1189\t5,510\n6\t\ngrok-4-1-fast-search\n\t1185\t14,111\n7\t\nclaude-opus-4-5-search\n\t1179\t4,293\n8\t\ngrok-4-fast-search\n\t1170\t31,388\n9\t\no3-search\n\t1144\t21,056\n10\t\ngemini-2.5-pro-grounding\n\t1143\t36,828\n\nView all\nText-to-Video\n10 days ago\nView\nRank\n\t\nModel\n\t\nScore\n\t\nVotes\n\n1\t\nveo-3.1-audio\n\t1371\t12,572\n2\t\nsora-2-pro\n\t1369\t11,435\n3\t\nveo-3.1-fast-audio\n\t1367\t13,963\n4\t\ngrok-imagine-video-720p\n\t\n1362\n\t7,952\n5\t\nveo-3-fast-audio\n\t1350\t25,771\n6\t\nveo-3-audio\n\t1340\t19,329\n7\t\nsora-2\n\t1338\t14,207\n8\t\nwan2.5-t2v-preview\n\t1267\t6,077\n9\t\nseedance-v1.5-pro\n\t1261\t13,960\n10\t\nveo-3\n\t1257\t15,192\n\nView all\nImage-to-Video\n3 days ago\nView\nRank\n\t\nModel\n\t\nScore\n\t\nVotes\n\n1\t\ngrok-imagine-video-720p\n\t\n1400\n\t7,215\n2\t\nveo-3.1-audio\n\t1395\t23,432\n3\t\nveo-3.1-fast-audio\n\t1382\t30,039\n4\t\ngrok-imagine-video-480p\n\t\n1381\n\t19,582\n5\t\nvidu-q3-pro\n\t1362\t11,270\n6\t\nwan2.5-i2v-preview\n\t1339\t12,039\n7\t\nveo-3-audio\n\t1331\t34,546\n8\t\nveo-3-fast-audio\n\t1322\t43,912\n9\t\nseedance-v1.5-pro\n\t1303\t39,229\n10\t\nkling-2.6-pro\n\t1291\t30,845\n\nView all\nArena Overview\n\nScroll to the right to see full stats of each model\n\nFirst Place\nSecond Place\nThird Place\n💬 Default\nCompact View\nModel\n596/596\n\t\nOverall\n\t\nExpert\n\t\nHard Prompts\n\t\nCoding\n\t\nMath\n\t\nCreative Writing\n\t\nInstruction Following\n\t\nLonger Query\n\n\nclaude-opus-4-6\n\t\n1\n\t\n1\n\t\n1\n\t\n2\n\t\n-\n\t\n2\n\t\n1\n\t\n1\n\n\ngemini-3-pro\n\t\n2\n\t\n5\n\t\n2\n\t\n5\n\t\n1\n\t\n1\n\t\n4\n\t\n3\n\n\ngrok-4.1-thinking\n\t\n3\n\t\n9\n\t\n6\n\t\n10\n\t\n13\n\t\n13\n\t\n17\n\t\n18\n\n\ngemini-3-flash\n\t\n4\n\t\n7\n\t\n5\n\t\n13\n\t\n2\n\t\n5\n\t\n8\n\t\n10\n\n\nclaude-opus-4-5-20251101-thinking-32k\n\t\n5\n\t\n4\n\t\n3\n\t\n1\n\t\n7\n\t\n3\n\t\n2\n\t\n4\n\n\nclaude-opus-4-5-20251101\n\t\n6\n\t\n2\n\t\n4\n\t\n4\n\t\n5\n\t\n4\n\t\n3\n\t\n2\n\n\ngrok-4.1\n\t\n7\n\t\n18\n\t\n12\n\t\n15\n\t\n22\n\t\n16\n\t\n18\n\t\n17\n\n\ngemini-3-flash (thinking-minimal)\n\t\n8\n\t\n13\n\t\n9\n\t\n11\n\t\n8\n\t\n8\n\t\n11\n\t\n9\n\n\ngpt-5.1-high\n\t\n9\n\t\n12\n\t\n11\n\t\n16\n\t\n6\n\t\n14\n\t\n10\n\t\n11\n\n\nernie-5.0-0110\n\t\n10\n\t\n23\n\t\n15\n\t\n18\n\t\n9\n\t\n20\n\t\n19\n\t\n25\n\n\nclaude-sonnet-4-5-20250929\n\t\n11\n\t\n8\n\t\n10\n\t\n9\n\t\n27\n\t\n7\n\t\n7\n\t\n6\n\n\nclaude-sonnet-4-5-20250929-thinking-32k\n\t\n12\n\t\n6\n\t\n7\n\t\n3\n\t\n10\n\t\n10\n\t\n5\n\t\n7\n\n\ngemini-2.5-pro\n\t\n13\n\t\n17\n\t\n20\n\t\n36\n\t\n12\n\t\n6\n\t\n13\n\t\n13\n\n\nernie-5.0-preview-1203\n\t\n14\n\t\n25\n\t\n18\n\t\n29\n\t\n50\n\t\n18\n\t\n27\n\t\n39\n\n\nkimi-k2.5-thinking\n\t\n15\n\t\n3\n\t\n14\n\t\n8\n\t\n3\n\t\n21\n\t\n12\n\t\n14\n\n\nclaude-opus-4-1-20250805-thinking-16k\n\t\n16\n\t\n10\n\t\n8\n\t\n7\n\t\n14\n\t\n9\n",
-  "openrouter": "Send traces to your favorite observability platforms with Broadcast (now GA).\nSkip to content\nOpenRouter\n/\nModels\nChat\nRankings\nEnterprise\nPricing\nDocs\nSign Up\nAI Model Rankings\n\nBased on real usage data from millions of users accessing models through OpenRouter.\n\nTop Models\n\nCompare weekly usage of models across OpenRouter\n\nFeb 10, 2025\nMar 24\nMay 5\nJun 16\nJul 28\nSep 8\nOct 20\nDec 1\nJan 12\n3T\n6T\n9T\n12T\nLLM Leaderboard\n\nCompare the most popular models on OpenRouter \n\nThis Week\n1.\nKimi K2.5\nby\nmoonshotai\n1.16T tokens\n222%\n2.\nGemini 3 Flash Preview\nby\ngoogle\n764B tokens\n11%\n3.\nClaude Sonnet 4.5\nby\nanthropic\n706B tokens\n9%\n4.\nDeepSeek V3.2\nby\ndeepseek\n665B tokens\n31%\n5.\nMiniMax M2.1\nby\nminimax\n442B tokens\n88%\n6.\nGemini 2.5 Flash\nby\ngoogle\n430B tokens\n6%\n7.\nClaude Opus 4.5\nby\nanthropic\n370B tokens\n2%\n8.\nGrok 4.1 Fast\nby\nx-ai\n345B tokens\n9%\n9.\nGemini 2.5 Flash Lite\nby\ngoogle\n344B tokens\n16%\n10.\nTrinity Large Preview (free)\nby\narcee-ai\n343B tokens\n226%\nShow more\nMarket Share\n\nCompare OpenRouter token share by model author\n\nCategories\n\nCompare models by usecase on OpenRouter \n\nProgramming\nLanguages\n\nCompare models by natural language on OpenRouter \n\nEnglish\nProgramming\n\nCompare models by programming language on OpenRouter \n\nPython\nContext Length\n\nRequests by prompt & completion length on OpenRouter\n\n1K - 10K tokens\nTool Calls\n\nTool usage across models on OpenRouter\n\nImages\n\nTotal images processed on OpenRouter\n\nTop Apps\n\nLargest public apps opting into usage tracking on OpenRouter\n\nToday\n1.\nOpenClaw \nThe AI that actually does things\n176Btokens\n2.\nKilo Code \nAI coding agent for VS Code\n83.1Btokens\n3.\nBLACKBOXAI \nAI agent for builders\n44.1Btokens\n4.\nJanitor AI \nCharacter chat and creation\n37.9Btokens\n5.\nliteLLM \nOpen-source library to simplify LLM calls\n32Btokens\n6.\nISEKAI ZERO \nAI adventures. Travel with your favorite characters\n27.3Btokens\n7.\nClaude Code \nThe AI for problem solvers\n13.8Btokens\n8.\nCline \nAutonomous coding agent right in your IDE\n13.3Btokens\n9.\nRoo Code \nA whole dev team of AI agents in your editor\n11.9Btokens\n10.\nLemonade \nThe AI tool for Roblox games.\n11Btokens\n11.\nSillyTavern \nLLM frontend for power users\n8.9Btokens\n12.\nPax Historia \nAn alternate history sandbox game\n8.23Btokens\n13.\nHammerAI \nChat with AI characters for free\n7.92Btokens\n14.\nNew API \nUnified AI framework\n6.9Btokens\n15.\nFake Slop Dataset Generator \nnew\n5.73Btokens\n16.\nChub AI \nGenAI for everyone\n4.51Btokens\n17.\nSophia's LoreBary \nOrganize and enhance your roleplay creations.\n4.21Btokens\n18.\nVidMuse \nGenerate music videos, shorts, and more from audio\n3.92Btokens\n19.\nRulate \nnew\n3.54Btokens\n20.\nOpenCharacter \nOpen-source recreation of the old c.ai site\n3.25Btokens\nOpenRouter\n© 2026 OpenRouter, Inc\nProduct\nChat\nRankings\nModels\nProviders\nPricing\nEnterprise\nCompany\nAbout\nAnnouncements\nCareers\nHiring\nPrivacy\nTerms of Service\nSupport\nState of AI\nWorks With OR\nDeveloper\nDocumentation\nAPI Reference\nSDK\nStatus\nConnect\nDiscord\nGitHub\nLinkedIn\nX\nYouTube",
-  "design": "DesignArenaby Arcada Labs\n\nLeaderboards\n\nBlog\n\nMethodology\n\nLeaderboards\n\nPowered by real users. Crafted to be the most authentic leaderboard in the world, with 2,292,141 votes and counting.\n\nJump to\n\nAll Categories\nWebsite\nUI Components\nGame Dev\nData Viz\n3D Design\nWeb App\nBuilder\nAgent\nMobile\nImage\nImage Editing\nSVG\nVideo\nVideo Editing\nGraphic Design\nLogo\nText-to-Speech\nSlides\nAll Categories\nWebsite\nUI Components\nGame Dev\nData Viz\n3D Design\n824.7K votes\nModel Performance\nPreference vs Speed\n\nDesignArenaby Arcada Labs\n\nTop 20\nAll Models\nWin Rate\nElo Rating\n1397\n\nClaude\nOpus 4.6\n\n1375\n\nClaude\nOpus 4.6 (Thinking)\n\n1344\n\nKimi\nK2.5\n\n1344\n\nGemini\n3 Pro Preview\n\n1338\n\nClaude\nOpus 4.5\n\n1323\n\nGLM\n4.7\n\n1286\n\nGemini\n3 Flash Preview\n\n1286\n\nMiniMax\nM2.1\n\n1284\n\nClaude\nSonnet 4.5 (Thinking)\n\n1280\n\nClaude\nSonnet 4.5\n\n1278\n\nGLM\n4.7 Flash\n\n1277\n\nGPT-5.2\n(XHigh)\n\n1273\n\nClaude\n3.7 Sonnet\n\n1269\n\nDeepSeek-V3.1\n(Thinking)\n\n1266\n\nClaude\nOpus 4.1\n\n1266\n\nClaude\nOpus 4.1 (Thinking)\n\n1266\n\nDeepSeek-V3.2\n\n1264\n\nGLM\n4.6\n\n1263\n\nGPT-5\n(High)\n\n1261\n\nGPT-5.1\n(High)\n\nLast updated February 9, 2026 at 2:07 AM UTC\n\nDesignArenaby Arcada Labs\n\nRank\nModel\nElo Rating\nWin Rate\nMoE\nBattles\nOrganization\nTime\n#1\nClaude Opus 4.6\n1397\n740W / 330L\n69.2%\n±2.8%\n1,070\nAnthropic\n3m 0s\n#2\nClaude Opus 4.6 (Thinking)\n1375\n791W / 404L\n66.2%\n±2.7%\n1,195\nAnthropic\n2m 59s\n#3\nKimi K2.5\n1344\n2118W / 1187L\n64.1%\n±1.6%\n3,305\nMoonshot AI\n3m 2s\n#4\nGemini 3 Pro Preview\n1344\n11360W / 5865L\n66.0%\n±0.7%\n17,225\nGoogle\n1m 29s\n#5\nClaude Opus 4.5\n1338\n7700W / 4284L\n64.3%\n±0.9%\n11,984\nAnthropic\n2m 0s\n#6\nGLM 4.7\n1323\n8622W / 5234L\n62.2%\n±0.8%\n13,856\nZhipu AI\n2m 35s\n#7\nGemini 3 Flash Preview\n1286\n2563W / 1879L\n57.7%\n±1.5%\n4,442\nGoogle\n34.5s\n#8\nMiniMax M2.1\n1286\n6999W / 5466L\n56.1%\n±0.9%\n12,465\nMiniMax\n1m 45s\n#9\nClaude Sonnet 4.5 (Thinking)\n1284\n8704W / 6194L\n58.4%\n±0.8%\n14,898\nAnthropic\n1m 26s\n#10\nClaude Sonnet 4.5\n1280\n9371W / 6818L\n57.9%\n±0.8%\n16,189\nAnthropic\n1m 31s\n#11\nGLM 4.7 Flash\n1278\n1925W / 1550L\n55.4%\n±1.7%\n3,475\nZhipu AI\n2m 41s\n#",
-  "artificial_analysis": "Datos consolidados de Artificial Analysis (API Activa: aa_aK...)",
-  "context7": "Datos consolidados de Context7 (API Activa: ctx7s...)"
+  "generated_at": "2026-10-22T00:23:03.817529",
+  "sources": {
+    "arena": {
+      "status": "error",
+      "error": "Arena: no se encontró ninguna tabla de rankings"
+    },
+    "design": {
+      "status": "ok",
+      "models": [
+        {
+          "rank": 1,
+          "model": "Claude Opus 5.5",
+          "score": 1390
+        },
+        {
+          "rank": 2,
+          "model": "GPT-6 Astra (xhigh)",
+          "score": 1379
+        },
+        {
+          "rank": 3,
+          "model": "Muse Wonder (max)",
+          "score": 1371
+        },
+        {
+          "rank": 4,
+          "model": "Claude Sonnet 5.5",
+          "score": 1364
+        },
+        {
+          "rank": 5,
+          "model": "Kimi K3",
+          "score": 1360
+        },
+        {
+          "rank": 6,
+          "model": "Muse Spark 1.3 (xhigh)",
+          "score": 1353
+        },
+        {
+          "rank": 7,
+          "model": "Muse Spark 1.3 Max",
+          "score": 1351
+        },
+        {
+          "rank": 8,
+          "model": "GPT-6.1 Sol",
+          "score": 1345
+        },
+        {
+          "rank": 9,
+          "model": "GPT-5.6 Sol (xhigh)",
+          "score": 1341
+        },
+        {
+          "rank": 10,
+          "model": "Claude Fable 5.1",
+          "score": 1336
+        },
+        {
+          "rank": 11,
+          "model": "DeepSeek-V4.1-Flash (1017)",
+          "score": 1334
+        },
+        {
+          "rank": 12,
+          "model": "Gemini 4 Argon",
+          "score": 1329
+        },
+        {
+          "rank": 13,
+          "model": "Claude Opus 5",
+          "score": 1324
+        },
+        {
+          "rank": 14,
+          "model": "MiMo-V2.6-Pro",
+          "score": 1317
+        },
+        {
+          "rank": 15,
+          "model": "Muse Spark 1.2",
+          "score": 1313
+        },
+        {
+          "rank": 16,
+          "model": "Claude Fable 5",
+          "score": 1310
+        },
+        {
+          "rank": 17,
+          "model": "Gemini 3.7 Flash",
+          "score": 1308
+        }
+      ],
+      "method": "page"
+    },
+    "openrouter": {
+      "status": "error",
+      "error": "OpenRouter: solo 0 filas parseadas"
+    },
+    "github": {
+      "status": "ok",
+      "since": "2026-10-20",
+      "ai": [
+        {
+          "full_name": "Alejandros17487/ai-jailbreaks",
+          "stars": 205,
+          "language": "",
+          "description": "AI jailbreaks: 35 paste-ready AI jailbreak prompts for 25+ frontier and open-weight models - system prompts, AGENTS.md specs, and Ollama Modelfiles. Built for AI security research and red-team testing.",
+          "url": "https://github.com/Alejandros17487/ai-jailbreaks",
+          "created_at": "2026-10-21T14:44:06Z"
+        },
+        {
+          "full_name": "h9-tec/ai-roadmap-2026",
+          "stars": 68,
+          "language": "",
+          "description": "AI Roadmap 2026: a beginner's path through Foundations, LLM Engineering, Agents, Evaluation, and Production, with verified free resources and a mini-project per layer",
+          "url": "https://github.com/h9-tec/ai-roadmap-2026",
+          "created_at": "2026-10-21T12:23:43Z"
+        }
+      ],
+      "general": [
+        {
+          "full_name": "ikow/php2shell-poc",
+          "stars": 844,
+          "language": "Python",
+          "description": "CVE-2026-109618/109619 PHP session.upload_progress Exploit Research — POC & Analysis",
+          "url": "https://github.com/ikow/php2shell-poc",
+          "created_at": "2026-10-21T07:55:16Z"
+        },
+        {
+          "full_name": "eness/php2shell-CVE-2026-109618-CVE-2026-109619-PoC",
+          "stars": 520,
+          "language": "Shell",
+          "description": "Proof-of-Concept (PoC) exploit for php2shell (CVE-2026-109618 / CVE-2026-109619), demonstrating remote code execution in vulnerable PHP environments. For security research and educational purposes only.",
+          "url": "https://github.com/eness/php2shell-CVE-2026-109618-CVE-2026-109619-PoC",
+          "created_at": "2026-10-21T08:31:43Z"
+        },
+        {
+          "full_name": "9bie/php2shell-bypass-aslr-exp",
+          "stars": 335,
+          "language": "Python",
+          "description": "",
+          "url": "https://github.com/9bie/php2shell-bypass-aslr-exp",
+          "created_at": "2026-10-21T11:11:57Z"
+        },
+        {
+          "full_name": "openai/php2shell-checker",
+          "stars": 295,
+          "language": "JavaScript",
+          "description": "",
+          "url": "https://github.com/openai/php2shell-checker",
+          "created_at": "2026-10-21T00:29:12Z"
+        },
+        {
+          "full_name": "WoYun520/dsh-purge",
+          "stars": 277,
+          "language": "JavaScript",
+          "description": "DeepSeek Harness 破甲 (mirror of mmparko/dsh-purge) — 全量镜像：全部分支/100 个 tag/完整提交历史。原作者署名见 README。",
+          "url": "https://github.com/WoYun520/dsh-purge",
+          "created_at": "2026-10-21T01:35:52Z"
+        },
+        {
+          "full_name": "helloianneo/ian-xhs-carousel",
+          "stars": 126,
+          "language": "HTML",
+          "description": "把文章、案例或笔记排成 3:4 小红书图文 | 1080×1440 | 20 个母版 | 浅色 / 深色 | Claude Code Skill",
+          "url": "https://github.com/helloianneo/ian-xhs-carousel",
+          "created_at": "2026-10-21T07:58:58Z"
+        },
+        {
+          "full_name": "Monopoly0024/simple-checker-v1",
+          "stars": 98,
+          "language": "Python",
+          "description": "Codex skill：拆解代码功能板块，以彩色流程图和运行证据复核代码功能的实现--辅助你进行ai代码写作与更新。",
+          "url": "https://github.com/Monopoly0024/simple-checker-v1",
+          "created_at": "2026-10-21T04:22:59Z"
+        },
+        {
+          "full_name": "lol-tools-new/.github",
+          "stars": 95,
+          "language": "HTML",
+          "description": "🔥 league-of-legends-lol-skin-swapper-skin-changer",
+          "url": "https://github.com/lol-tools-new/.github",
+          "created_at": "2026-10-21T12:29:19Z"
+        },
+        {
+          "full_name": "ilAoC/mcd-gacha-collector",
+          "stars": 92,
+          "language": "Python",
+          "description": "麦卡收藏家 · 基于麦当劳中国 MCP 的卡牌收集 Skill + 网页版（麦当劳程序员创意开发大赛参赛作品）",
+          "url": "https://github.com/ilAoC/mcd-gacha-collector",
+          "created_at": "2026-10-21T01:19:17Z"
+        },
+        {
+          "full_name": "NCSC-NL/php2shell",
+          "stars": 91,
+          "language": "Python",
+          "description": "Operational information regarding the 2026 php2shell vulnerabilities  ",
+          "url": "https://github.com/NCSC-NL/php2shell",
+          "created_at": "2026-10-21T10:21:40Z"
+        }
+      ],
+      "items": [
+        {
+          "full_name": "Alejandros17487/ai-jailbreaks",
+          "stars": 205,
+          "language": "",
+          "description": "AI jailbreaks: 35 paste-ready AI jailbreak prompts for 25+ frontier and open-weight models - system prompts, AGENTS.md specs, and Ollama Modelfiles. Built for AI security research and red-team testing.",
+          "url": "https://github.com/Alejandros17487/ai-jailbreaks",
+          "created_at": "2026-10-21T14:44:06Z"
+        },
+        {
+          "full_name": "h9-tec/ai-roadmap-2026",
+          "stars": 68,
+          "language": "",
+          "description": "AI Roadmap 2026: a beginner's path through Foundations, LLM Engineering, Agents, Evaluation, and Production, with verified free resources and a mini-project per layer",
+          "url": "https://github.com/h9-tec/ai-roadmap-2026",
+          "created_at": "2026-10-21T12:23:43Z"
+        },
+        {
+          "full_name": "ikow/php2shell-poc",
+          "stars": 844,
+          "language": "Python",
+          "description": "CVE-2026-109618/109619 PHP session.upload_progress Exploit Research — POC & Analysis",
+          "url": "https://github.com/ikow/php2shell-poc",
+          "created_at": "2026-10-21T07:55:16Z"
+        },
+        {
+          "full_name": "eness/php2shell-CVE-2026-109618-CVE-2026-109619-PoC",
+          "stars": 520,
+          "language": "Shell",
+          "description": "Proof-of-Concept (PoC) exploit for php2shell (CVE-2026-109618 / CVE-2026-109619), demonstrating remote code execution in vulnerable PHP environments. For security research and educational purposes only.",
+          "url": "https://github.com/eness/php2shell-CVE-2026-109618-CVE-2026-109619-PoC",
+          "created_at": "2026-10-21T08:31:43Z"
+        },
+        {
+          "full_name": "9bie/php2shell-bypass-aslr-exp",
+          "stars": 335,
+          "language": "Python",
+          "description": "",
+          "url": "https://github.com/9bie/php2shell-bypass-aslr-exp",
+          "created_at": "2026-10-21T11:11:57Z"
+        },
+        {
+          "full_name": "openai/php2shell-checker",
+          "stars": 295,
+          "language": "JavaScript",
+          "description": "",
+          "url": "https://github.com/openai/php2shell-checker",
+          "created_at": "2026-10-21T00:29:12Z"
+        },
+        {
+          "full_name": "WoYun520/dsh-purge",
+          "stars": 277,
+          "language": "JavaScript",
+          "description": "DeepSeek Harness 破甲 (mirror of mmparko/dsh-purge) — 全量镜像：全部分支/100 个 tag/完整提交历史。原作者署名见 README。",
+          "url": "https://github.com/WoYun520/dsh-purge",
+          "created_at": "2026-10-21T01:35:52Z"
+        },
+        {
+          "full_name": "helloianneo/ian-xhs-carousel",
+          "stars": 126,
+          "language": "HTML",
+          "description": "把文章、案例或笔记排成 3:4 小红书图文 | 1080×1440 | 20 个母版 | 浅色 / 深色 | Claude Code Skill",
+          "url": "https://github.com/helloianneo/ian-xhs-carousel",
+          "created_at": "2026-10-21T07:58:58Z"
+        },
+        {
+          "full_name": "Monopoly0024/simple-checker-v1",
+          "stars": 98,
+          "language": "Python",
+          "description": "Codex skill：拆解代码功能板块，以彩色流程图和运行证据复核代码功能的实现--辅助你进行ai代码写作与更新。",
+          "url": "https://github.com/Monopoly0024/simple-checker-v1",
+          "created_at": "2026-10-21T04:22:59Z"
+        },
+        {
+          "full_name": "lol-tools-new/.github",
+          "stars": 95,
+          "language": "HTML",
+          "description": "🔥 league-of-legends-lol-skin-swapper-skin-changer",
+          "url": "https://github.com/lol-tools-new/.github",
+          "created_at": "2026-10-21T12:29:19Z"
+        },
+        {
+          "full_name": "ilAoC/mcd-gacha-collector",
+          "stars": 92,
+          "language": "Python",
+          "description": "麦卡收藏家 · 基于麦当劳中国 MCP 的卡牌收集 Skill + 网页版（麦当劳程序员创意开发大赛参赛作品）",
+          "url": "https://github.com/ilAoC/mcd-gacha-collector",
+          "created_at": "2026-10-21T01:19:17Z"
+        },
+        {
+          "full_name": "NCSC-NL/php2shell",
+          "stars": 91,
+          "language": "Python",
+          "description": "Operational information regarding the 2026 php2shell vulnerabilities  ",
+          "url": "https://github.com/NCSC-NL/php2shell",
+          "created_at": "2026-10-21T10:21:40Z"
+        },
+        {
+          "full_name": "browser-use/rl-env-use",
+          "stars": 88,
+          "language": "HTML",
+          "description": "Build RL environments for any domain from real cases that Browser Use agents mine from the web",
+          "url": "https://github.com/browser-use/rl-env-use",
+          "created_at": "2026-10-21T04:31:55Z"
+        },
+        {
+          "full_name": "DLSS-5-Swapper-Download-2026/.github",
+          "stars": 86,
+          "language": "",
+          "description": "DLSS 5 Swapper brings DLSS 5 installation and configuration into one desktop application, so you don't have to manage every game modification by hand. It can detect games from supported libraries, work with manually added game folders, and provide different installation routes de",
+          "url": "https://github.com/DLSS-5-Swapper-Download-2026/.github",
+          "created_at": "2026-10-21T00:33:59Z"
+        },
+        {
+          "full_name": "shareshellrelease/Cinema-4d",
+          "stars": 82,
+          "language": "",
+          "description": "Professional Cinema 4D configuration utility for 2026, offering a full working installer with all essential features pre-configured and ready to run.",
+          "url": "https://github.com/shareshellrelease/Cinema-4d",
+          "created_at": "2026-10-21T15:50:20Z"
+        },
+        {
+          "full_name": "ThresholdSummoner/Camtasia",
+          "stars": 80,
+          "language": "",
+          "description": "Camtasia 2026: Full working installer for professional video editing, screen recording, and VFX. Ready-to-use desktop edition with all...",
+          "url": "https://github.com/ThresholdSummoner/Camtasia",
+          "created_at": "2026-10-21T15:50:19Z"
+        }
+      ]
+    },
+    "hackernews": {
+      "status": "error",
+      "error": "HN Firebase API no disponible: "
+    }
+  }
 }

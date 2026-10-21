@@ -14,34 +14,44 @@ jobs:
     
     steps:
     - name: Checkout repo
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
+        fetch-depth: 0
         token: ${{ secrets.GITHUB_TOKEN }}
-      
+
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
-        python-version: '3.10'
-        
+        python-version: '3.12'
+        cache: pip
+
     - name: Install dependencies
       run: |
-        pip install -r requirements_scraper.txt
         pip install -r requirements.txt
         playwright install chromium
-        
+
     - name: Run Scraper
       env:
         TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
         CHAT_ID: ${{ secrets.CHAT_ID }}
         GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        CONTEXT7_API_KEY: ${{ secrets.CONTEXT7_API_KEY }}
-        ARTIFICIAL_ANALYSIS_API_KEY: ${{ secrets.ARTIFICIAL_ANALYSIS_API_KEY }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: python -m src.update_data
-      
-    - name: Commit and Push changes to data branch
+
+    - name: Commit and push to data branch
       run: |
         git config --global user.name "RankingAI Bot"
         git config --global user.email "bot@rankingai.com"
-        git checkout -b data || git checkout data
-        git add data/rankings.json
-        git diff --quiet && git diff --staged --quiet || (git commit -m "🔄 Actualización automática de rankings" && git push origin data --force)
+        git fetch origin data || true
+        if git rev-parse --verify origin/data >/dev/null 2>&1; then
+          git checkout -B data origin/data
+        else
+          git checkout -b data
+        fi
+        git add -f data/rankings.json data/rankings.db
+        if git diff --cached --quiet; then
+          echo "Sin cambios en los datos."
+        else
+          git commit -m "🔄 Actualización automática de rankings"
+          git push origin data
+        fi

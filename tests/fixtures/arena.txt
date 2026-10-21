@@ -1,0 +1,703 @@
+Overview
+Text
+Code
+Vision
+Text-to-Image
+Image Edit
+Search
+Text-to-Video
+Image-to-Video
+Start Voting
+Leaderboard Overview
+
+See how leading models stack up across text, image, vision, and beyond. This page gives you a snapshot of each Arena, you can explore deeper insights in their dedicated tabs. Learn more about it here.
+
+Text
+2 days ago
+View
+Rank
+	
+Model
+	
+Score
+	
+Votes
+
+1	
+claude-opus-4-6
+	1496	2,829
+2	
+gemini-3-pro
+	1486	34,419
+3	
+grok-4.1-thinking
+	1475	34,455
+4	
+gemini-3-flash
+	1470	25,085
+5	
+claude-opus-4-5-20251101-thinking-32k
+	1468	26,178
+6	
+claude-opus-4-5-20251101
+	1467	31,069
+7	
+grok-4.1
+	1465	38,605
+8	
+gemini-3-flash (thinking-minimal)
+	1463	16,255
+9	
+gpt-5.1-high
+	1458	30,500
+10	
+ernie-5.0-0110
+	
+1452
+	10,184
+
+View all
+Code
+2 days ago
+View
+Rank
+	
+Model
+	
+Score
+	
+Votes
+
+1	
+claude-opus-4-6
+	1576	1,422
+2	
+claude-opus-4-5-20251101-thinking-32k
+	1502	9,003
+3	
+gpt-5.2-high
+	1472	1,691
+4	
+claude-opus-4-5-20251101
+	1470	9,179
+5	
+gemini-3-pro
+	1452	15,193
+6	
+kimi-k2.5-thinking
+	1449	2,123
+7	
+gemini-3-flash
+	1442	10,736
+8	
+glm-4.7
+	1441	5,125
+9	
+minimax-m2.1-preview
+	1408	8,095
+10	
+kimi-k2.5-instant
+	1407	1,056
+
+View all
+Vision
+2 days ago
+View
+Rank
+	
+Model
+	
+Score
+	
+Votes
+
+1	
+gemini-3-pro
+	1289	11,297
+2	
+gemini-3-flash
+	1277	9,175
+3	
+gpt-5.2-high
+	1257	2,749
+4	
+gemini-3-flash (thinking-minimal)
+	1256	7,313
+5	
+gpt-5.1-high
+	1252	7,299
+6	
+kimi-k2.5-thinking
+	1251	2,979
+7	
+gemini-2.5-pro
+	1246	79,747
+8	
+chatgpt-4o-latest-20250326
+	1235	23,313
+9	
+gpt-5.1
+	1235	7,974
+10	
+kimi-k2.5-instant
+	1231	1,663
+
+View all
+Text-to-Image
+2 days ago
+View
+Rank
+	
+Model
+	
+Score
+	
+Votes
+
+1	
+gpt-image-1.5-high-fidelity
+	1237	44,375
+2	
+gemini-3-pro-image-preview-2k (nano-banana-pro)
+	1231	44,490
+3	
+gemini-3-pro-image-preview (nano-banana-pro)
+	1227	91,441
+4	
+grok-imagine-image
+	
+1170
+	5,395
+5	
+flux-2-max
+	1168	50,661
+6	
+grok-imagine-image-pro
+	
+1168
+	8,399
+7	
+flux-2-flex
+	1156	73,268
+8	
+gemini-2.5-flash-image-preview (nano-banana)
+	1154	752,601
+9	
+flux-2-pro
+	1153	87,100
+10	
+hunyuan-image-3.0
+	1150	172,643
+
+View all
+Image Edit
+2 days ago
+View
+Rank
+	
+Model
+	
+Score
+	
+Votes
+
+1	
+chatgpt-image-latest-high-fidelity (20251216)
+	1413	184,593
+2	
+gemini-3-pro-image-preview-2k (nano-banana-pro)
+	1400	179,642
+3	
+gemini-3-pro-image-preview (nano-banana-pro)
+	1395	510,948
+4	
+gpt-image-1.5-high-fidelity
+	1390	202,523
+5	
+grok-imagine-image-pro
+	
+1330
+	11,347
+6	
+grok-imagine-image
+	
+1322
+	7,183
+7	
+seedream-4.5
+	1316	237,793
+8	
+hunyuan-image-3.0-instruct
+	
+1315
+	50,075
+9	
+gemini-2.5-flash-image-preview (nano-banana)
+	1313	10,456,668
+10	
+seedream-4-2k
+	1285	218,668
+
+View all
+Search
+10 days ago
+View
+Rank
+	
+Model
+	
+Score
+	
+Votes
+
+1	
+gemini-3-flash-grounding
+	1224	11,062
+2	
+gemini-3-pro-grounding
+	1219	18,839
+3	
+gpt-5.2-search
+	1218	12,157
+4	
+gpt-5.1-search
+	1207	14,152
+5	
+gpt-5.2-search-non-reasoning
+	1189	5,510
+6	
+grok-4-1-fast-search
+	1185	14,111
+7	
+claude-opus-4-5-search
+	1179	4,293
+8	
+grok-4-fast-search
+	1170	31,388
+9	
+o3-search
+	1144	21,056
+10	
+gemini-2.5-pro-grounding
+	1143	36,828
+
+View all
+Text-to-Video
+10 days ago
+View
+Rank
+	
+Model
+	
+Score
+	
+Votes
+
+1	
+veo-3.1-audio
+	1371	12,572
+2	
+sora-2-pro
+	1369	11,435
+3	
+veo-3.1-fast-audio
+	1367	13,963
+4	
+grok-imagine-video-720p
+	
+1362
+	7,952
+5	
+veo-3-fast-audio
+	1350	25,771
+6	
+veo-3-audio
+	1340	19,329
+7	
+sora-2
+	1338	14,207
+8	
+wan2.5-t2v-preview
+	1267	6,077
+9	
+seedance-v1.5-pro
+	1261	13,960
+10	
+veo-3
+	1257	15,192
+
+View all
+Image-to-Video
+3 days ago
+View
+Rank
+	
+Model
+	
+Score
+	
+Votes
+
+1	
+grok-imagine-video-720p
+	
+1400
+	7,215
+2	
+veo-3.1-audio
+	1395	23,432
+3	
+veo-3.1-fast-audio
+	1382	30,039
+4	
+grok-imagine-video-480p
+	
+1381
+	19,582
+5	
+vidu-q3-pro
+	1362	11,270
+6	
+wan2.5-i2v-preview
+	1339	12,039
+7	
+veo-3-audio
+	1331	34,546
+8	
+veo-3-fast-audio
+	1322	43,912
+9	
+seedance-v1.5-pro
+	1303	39,229
+10	
+kling-2.6-pro
+	1291	30,845
+
+View all
+Arena Overview
+
+Scroll to the right to see full stats of each model
+
+First Place
+Second Place
+Third Place
+💬 Default
+Compact View
+Model
+596/596
+	
+Overall
+	
+Expert
+	
+Hard Prompts
+	
+Coding
+	
+Math
+	
+Creative Writing
+	
+Instruction Following
+	
+Longer Query
+
+
+claude-opus-4-6
+	
+1
+	
+1
+	
+1
+	
+2
+	
+-
+	
+2
+	
+1
+	
+1
+
+
+gemini-3-pro
+	
+2
+	
+5
+	
+2
+	
+5
+	
+1
+	
+1
+	
+4
+	
+3
+
+
+grok-4.1-thinking
+	
+3
+	
+9
+	
+6
+	
+10
+	
+13
+	
+13
+	
+17
+	
+18
+
+
+gemini-3-flash
+	
+4
+	
+7
+	
+5
+	
+13
+	
+2
+	
+5
+	
+8
+	
+10
+
+
+claude-opus-4-5-20251101-thinking-32k
+	
+5
+	
+4
+	
+3
+	
+1
+	
+7
+	
+3
+	
+2
+	
+4
+
+
+claude-opus-4-5-20251101
+	
+6
+	
+2
+	
+4
+	
+4
+	
+5
+	
+4
+	
+3
+	
+2
+
+
+grok-4.1
+	
+7
+	
+18
+	
+12
+	
+15
+	
+22
+	
+16
+	
+18
+	
+17
+
+
+gemini-3-flash (thinking-minimal)
+	
+8
+	
+13
+	
+9
+	
+11
+	
+8
+	
+8
+	
+11
+	
+9
+
+
+gpt-5.1-high
+	
+9
+	
+12
+	
+11
+	
+16
+	
+6
+	
+14
+	
+10
+	
+11
+
+
+ernie-5.0-0110
+	
+10
+	
+23
+	
+15
+	
+18
+	
+9
+	
+20
+	
+19
+	
+25
+
+
+claude-sonnet-4-5-20250929
+	
+11
+	
+8
+	
+10
+	
+9
+	
+27
+	
+7
+	
+7
+	
+6
+
+
+claude-sonnet-4-5-20250929-thinking-32k
+	
+12
+	
+6
+	
+7
+	
+3
+	
+10
+	
+10
+	
+5
+	
+7
+
+
+gemini-2.5-pro
+	
+13
+	
+17
+	
+20
+	
+36
+	
+12
+	
+6
+	
+13
+	
+13
+
+
+ernie-5.0-preview-1203
+	
+14
+	
+25
+	
+18
+	
+29
+	
+50
+	
+18
+	
+27
+	
+39
+
+
+kimi-k2.5-thinking
+	
+15
+	
+3
+	
+14
+	
+8
+	
+3
+	
+21
+	
+12
+	
+14
+
+
+claude-opus-4-1-20250805-thinking-16k
+	
+16
+	
+10
+	
+8
+	
+7
+	
+14
+	
+9

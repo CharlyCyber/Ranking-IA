@@ -1,4 +1,5 @@
 import os
+
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -22,3 +23,18 @@ API_KEYS = {
     "context7": os.getenv("CONTEXT7_API_KEY"),
     "artificial_analysis": os.getenv("ARTIFICIAL_ANALYSIS_API_KEY")
 }
+
+# --- V3: Tendencias, briefing y límites ---
+GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
+
+# URL raw de data/rankings.json en la rama `data` (respaldo remoto opcional)
+DATA_JSON_URL = os.getenv("DATA_JSON_URL", "")
+
+# Hora local del briefing diario /hoy (0-23)
+DAILY_BRIEF_HOUR = max(0, min(23, int(os.getenv("DAILY_BRIEF_HOUR", "9"))))
+
+# Presupuesto global diario de llamadas a Gemini (protege la cuota compartida)
+GEMINI_DAILY_LIMIT = max(1, int(os.getenv("GEMINI_DAILY_LIMIT", "200")))
+
+# Consultas de texto por usuario y hora
+USER_RATE_LIMIT = max(1, int(os.getenv("USER_RATE_LIMIT", "10")))

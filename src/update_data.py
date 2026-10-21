@@ -4,6 +4,7 @@ Este script ahora utiliza el módulo updater.py centralizado.
 """
 
 import asyncio
+
 from src.updater import update_data
 
 if __name__ == "__main__":

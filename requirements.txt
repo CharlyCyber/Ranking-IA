@@ -1,8 +1,8 @@
-python-telegram-bot[job-queue]
-google-generativeai
-python-dotenv
-flask
-gunicorn
-requests
-httpx
-playwright
+python-telegram-bot[job-queue]==22.6
+google-genai==2.32.0
+python-dotenv==1.0.1
+flask==3.1.2
+gunicorn==23.0.0
+requests==2.32.5
+httpx==0.28.1
+playwright==1.58.0

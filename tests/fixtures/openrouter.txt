@@ -1,0 +1,245 @@
+Send traces to your favorite observability platforms with Broadcast (now GA).
+Skip to content
+OpenRouter
+/
+Models
+Chat
+Rankings
+Enterprise
+Pricing
+Docs
+Sign Up
+AI Model Rankings
+
+Based on real usage data from millions of users accessing models through OpenRouter.
+
+Top Models
+
+Compare weekly usage of models across OpenRouter
+
+Feb 10, 2025
+Mar 24
+May 5
+Jun 16
+Jul 28
+Sep 8
+Oct 20
+Dec 1
+Jan 12
+3T
+6T
+9T
+12T
+LLM Leaderboard
+
+Compare the most popular models on OpenRouter 
+
+This Week
+1.
+Kimi K2.5
+by
+moonshotai
+1.16T tokens
+222%
+2.
+Gemini 3 Flash Preview
+by
+google
+764B tokens
+11%
+3.
+Claude Sonnet 4.5
+by
+anthropic
+706B tokens
+9%
+4.
+DeepSeek V3.2
+by
+deepseek
+665B tokens
+31%
+5.
+MiniMax M2.1
+by
+minimax
+442B tokens
+88%
+6.
+Gemini 2.5 Flash
+by
+google
+430B tokens
+6%
+7.
+Claude Opus 4.5
+by
+anthropic
+370B tokens
+2%
+8.
+Grok 4.1 Fast
+by
+x-ai
+345B tokens
+9%
+9.
+Gemini 2.5 Flash Lite
+by
+google
+344B tokens
+16%
+10.
+Trinity Large Preview (free)
+by
+arcee-ai
+343B tokens
+226%
+Show more
+Market Share
+
+Compare OpenRouter token share by model author
+
+Categories
+
+Compare models by usecase on OpenRouter 
+
+Programming
+Languages
+
+Compare models by natural language on OpenRouter 
+
+English
+Programming
+
+Compare models by programming language on OpenRouter 
+
+Python
+Context Length
+
+Requests by prompt & completion length on OpenRouter
+
+1K - 10K tokens
+Tool Calls
+
+Tool usage across models on OpenRouter
+
+Images
+
+Total images processed on OpenRouter
+
+Top Apps
+
+Largest public apps opting into usage tracking on OpenRouter
+
+Today
+1.
+OpenClaw 
+The AI that actually does things
+176Btokens
+2.
+Kilo Code 
+AI coding agent for VS Code
+83.1Btokens
+3.
+BLACKBOXAI 
+AI agent for builders
+44.1Btokens
+4.
+Janitor AI 
+Character chat and creation
+37.9Btokens
+5.
+liteLLM 
+Open-source library to simplify LLM calls
+32Btokens
+6.
+ISEKAI ZERO 
+AI adventures. Travel with your favorite characters
+27.3Btokens
+7.
+Claude Code 
+The AI for problem solvers
+13.8Btokens
+8.
+Cline 
+Autonomous coding agent right in your IDE
+13.3Btokens
+9.
+Roo Code 
+A whole dev team of AI agents in your editor
+11.9Btokens
+10.
+Lemonade 
+The AI tool for Roblox games.
+11Btokens
+11.
+SillyTavern 
+LLM frontend for power users
+8.9Btokens
+12.
+Pax Historia 
+An alternate history sandbox game
+8.23Btokens
+13.
+HammerAI 
+Chat with AI characters for free
+7.92Btokens
+14.
+New API 
+Unified AI framework
+6.9Btokens
+15.
+Fake Slop Dataset Generator 
+new
+5.73Btokens
+16.
+Chub AI 
+GenAI for everyone
+4.51Btokens
+17.
+Sophia's LoreBary 
+Organize and enhance your roleplay creations.
+4.21Btokens
+18.
+VidMuse 
+Generate music videos, shorts, and more from audio
+3.92Btokens
+19.
+Rulate 
+new
+3.54Btokens
+20.
+OpenCharacter 
+Open-source recreation of the old c.ai site
+3.25Btokens
+OpenRouter
+© 2026 OpenRouter, Inc
+Product
+Chat
+Rankings
+Models
+Providers
+Pricing
+Enterprise
+Company
+About
+Announcements
+Careers
+Hiring
+Privacy
+Terms of Service
+Support
+State of AI
+Works With OR
+Developer
+Documentation
+API Reference
+SDK
+Status
+Connect
+Discord
+GitHub
+LinkedIn
+X
+YouTube

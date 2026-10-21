@@ -1,4 +1,5 @@
-from flask import Blueprint, jsonify, render_template_string
+from flask import Blueprint, jsonify, render_template_string, request
+
 from src.db import Database
 
 web = Blueprint('web', __name__)
@@ -28,6 +29,49 @@ def api_history():
 def api_changes():
     changes = db.get_changes(days=30)
     return jsonify(changes)
+
+
+@web.route('/api/elo-history')
+def api_elo_history():
+    """Series temporales de puntuación por modelo (snapshots estructurados v3).
+
+    Query params: source (arena|design|openrouter), category (arena), days, limit.
+    Los snapshots legados de texto crudo se ignoran automáticamente.
+    """
+    source = request.args.get('source', 'arena')
+    days = min(int(request.args.get('days', 30)), 90)
+    limit = min(int(request.args.get('limit', 8)), 20)
+    category = request.args.get('category')
+    if source == 'arena' and not category:
+        category = 'Text'
+
+    snapshots = list(reversed(db.get_snapshots(days=days)))  # cronológico
+    series: dict[str, list] = {}
+    for snap in snapshots:
+        data = snap.get('data') or {}
+        src = (data.get('sources') or {}).get(source)
+        if not isinstance(src, dict) or src.get('status') not in ('ok', 'stale'):
+            continue
+        for m in src.get('models') or []:
+            if not isinstance(m, dict):
+                continue
+            if category and (m.get('category') or 'default') != category:
+                continue
+            value = m.get('score', m.get('tokens_week'))
+            if not isinstance(value, int):
+                continue
+            series.setdefault(m.get('model', '?'), []).append([snap['created_at'], value])
+
+    if not series:
+        return jsonify({'source': source, 'series': {}, 'note': 'Sin snapshots estructurados en el rango'})
+
+    # Limita a los N modelos con mayor puntuación final.
+    ranked = sorted(series.items(), key=lambda kv: kv[1][-1][1], reverse=True)[:limit]
+    return jsonify({
+        'source': source,
+        'category': category,
+        'series': {name: points for name, points in ranked},
+    })
 
 
 DASHBOARD_HTML = """
@@ -89,8 +133,17 @@ DASHBOARD_HTML = """
                 <div id="fuentesData"><div class="loading">Cargando...</div></div>
             </div>
             <div class="card">
-                <h2>📈 Historial de snapshots (30 días)</h2>
-                <div class="chart-container"><canvas id="chartSnapshots"></canvas></div>
+                <h2>📈 Evolución de puntuaciones (30 días)</h2>
+                <div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;">
+                    <select id="selSource" class="refresh-btn" style="background:#334155;color:#e2e8f0;">
+                        <option value="arena">Arena (Elo)</option>
+                        <option value="design">Design Arena (Elo)</option>
+                        <option value="openrouter">OpenRouter (tokens/sem)</option>
+                    </select>
+                    <select id="selCategory" class="refresh-btn" style="background:#334155;color:#e2e8f0;"></select>
+                </div>
+                <div class="chart-container"><canvas id="chartElo"></canvas></div>
+                <div id="eloEmpty" class="loading" style="display:none;">Sin snapshots estructurados todavía — esperando la primera actualización v3…</div>
             </div>
         </div>
 
@@ -101,7 +154,7 @@ DASHBOARD_HTML = """
     </div>
 
     <script>
-        let chartSnapshots = null;
+        let chartElo = null;
 
         async function cargarDatos() {
             await Promise.all([cargarRankings(), cargarHistorial(), cargarCambios()]);
@@ -117,48 +170,115 @@ DASHBOARD_HTML = """
             const data = await res.json();
             document.getElementById('ultimaActualizacion').textContent = new Date(data.created_at).toLocaleString();
 
-            const fuentes = data.data || {};
+            // v3: data.data = {generated_at, sources:{...}}; v2 legado: data.data = {fuente: texto}
+            const snap = data.data || {};
+            const fuentes = (snap.sources && typeof snap.sources === 'object') ? snap.sources : snap;
             const fuentesKeys = Object.keys(fuentes);
             document.getElementById('fuentesCount').textContent = fuentesKeys.length;
 
             let html = '';
             for (const [key, val] of Object.entries(fuentes)) {
                 const label = key.replace(/_/g, ' ');
-                const texto = val ? val.substring(0, 500) : '(vacío)';
-                html += `<details><summary style="cursor:pointer;font-weight:600;margin-bottom:5px;color:#f1f5f9;">🔹 ${label}</summary><pre>${escapeHtml(texto)}</pre></details>`;
+                let body;
+                if (typeof val === 'string') {
+                    // formato v2 legado: texto crudo de la web
+                    body = `<pre>${escapeHtml(val.substring(0, 500))}</pre>`;
+                } else if (val && typeof val === 'object') {
+                    const status = val.status || '?';
+                    const badge = status === 'ok' ? '🟢' : (status === 'stale' ? '🟡' : '🔴');
+                    const items = val.models || val.items || [];
+                    let head = `<div style="color:#94a3b8;font-size:0.78rem;margin-bottom:6px;">${badge} ${escapeHtml(status)} · ${items.length} entradas`;
+                    if (val.error) head += ` · ${escapeHtml(String(val.error).substring(0, 120))}`;
+                    head += '</div>';
+                    const rows = items.slice(0, 10).map(m => {
+                        if (m.model) {
+                            const metric = (m.score != null) ? `${m.score} elo` : (m.tokens_week != null ? `${m.tokens_week} tokens` : '');
+                            const cat = m.category ? `[${m.category}] ` : '';
+                            return `${cat}${m.rank ?? '–'}. ${m.model} — ${metric}`;
+                        }
+                        if (m.full_name) return `⭐ ${m.full_name} — ${m.stars}★`;
+                        if (m.title) return `• ${m.title} (${m.points} pts)`;
+                        return JSON.stringify(m).substring(0, 120);
+                    }).join(String.fromCharCode(10));
+                    body = head + `<pre>${escapeHtml(rows)}${items.length > 10 ? '… +' + (items.length - 10) + ' más' : ''}</pre>`;
+                } else {
+                    body = '<pre>(vacío)</pre>';
+                }
+                html += `<details open><summary style="cursor:pointer;font-weight:600;margin-bottom:5px;color:#f1f5f9;">🔹 ${label}</summary>${body}</details>`;
             }
-            document.getElementById('fuentesData').innerHTML = html;
+            document.getElementById('fuentesData').innerHTML = html || '<div class="loading">Sin datos</div>';
         }
 
         async function cargarHistorial() {
             const res = await fetch('/api/history');
             const data = await res.json();
             document.getElementById('snapshotId').textContent = data.length + ' snapshots';
+            await cargarElo();
+        }
 
-            const fechas = data.map(d => new Date(d.created_at).toLocaleDateString()).reverse();
-            const counts = data.map((d, i) => i + 1).reverse();
+        async function refrescarCategorias() {
+            const catSel = document.getElementById('selCategory');
+            const source = document.getElementById('selSource').value;
+            catSel.style.display = source === 'arena' ? '' : 'none';
+            if (source !== 'arena') return;
+            try {
+                const res = await fetch('/api/rankings');
+                if (!res.ok) return;
+                const payload = await res.json();
+                const models = ((((payload.data || {}).sources) || {}).arena || {}).models || [];
+                const cats = [...new Set(models.map(m => m.category).filter(Boolean))];
+                const current = catSel.value;
+                catSel.innerHTML = cats.map(c => `<option value="${escapeHtml(c)}">${escapeHtml(c)}</option>`).join('');
+                if (cats.includes(current)) catSel.value = current;
+            } catch (e) { /* sin datos aún */ }
+        }
 
-            if (chartSnapshots) chartSnapshots.destroy();
-            const ctx = document.getElementById('chartSnapshots').getContext('2d');
-            chartSnapshots = new Chart(ctx, {
+        async function cargarElo() {
+            await refrescarCategorias();
+            const source = document.getElementById('selSource').value;
+            const cat = document.getElementById('selCategory').value;
+            const params = new URLSearchParams({ source, days: '30', limit: '8' });
+            if (source === 'arena' && cat) params.set('category', cat);
+
+            let payload = {};
+            try {
+                const res = await fetch('/api/elo-history?' + params.toString());
+                if (res.ok) payload = await res.json();
+            } catch (e) { payload = {}; }
+            const series = payload.series || {};
+
+            const canvas = document.getElementById('chartElo');
+            if (!canvas) return;
+            if (chartElo) { chartElo.destroy(); chartElo = null; }
+            const empty = document.getElementById('eloEmpty');
+            if (Object.keys(series).length === 0) {
+                canvas.parentElement.style.display = 'none';
+                empty.style.display = '';
+                return;
+            }
+            canvas.parentElement.style.display = '';
+            empty.style.display = 'none';
+
+            const labels = [...new Set(Object.values(series).flat().map(p => p[0]))].sort();
+            const palette = ['#38bdf8','#4ade80','#fbbf24','#f87171','#c084fc','#22d3ee','#fb923c','#f472b6'];
+            const datasets = Object.entries(series).map(([name, points], i) => ({
+                label: name,
+                data: labels.map(l => { const hit = points.find(p => p[0] === l); return hit ? hit[1] : null; }),
+                borderColor: palette[i % palette.length],
+                backgroundColor: palette[i % palette.length],
+                spanGaps: true, tension: 0.25, pointRadius: 2, borderWidth: 2,
+            }));
+
+            const ctx = canvas.getContext('2d');
+            chartElo = new Chart(ctx, {
                 type: 'line',
-                data: {
-                    labels: fechas.slice(-30),
-                    datasets: [{
-                        label: 'Snapshots acumulados',
-                        data: counts.slice(-30),
-                        borderColor: '#38bdf8',
-                        backgroundColor: 'rgba(56, 189, 248, 0.1)',
-                        fill: true,
-                        tension: 0.3
-                    }]
-                },
+                data: { labels: labels.map(l => new Date(l).toLocaleDateString()), datasets },
                 options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: { legend: { display: false } },
+                    responsive: true, maintainAspectRatio: false,
+                    interaction: { mode: 'index', intersect: false },
+                    plugins: { legend: { position: 'bottom', labels: { color: '#94a3b8', boxWidth: 12, font: { size: 10 } } } },
                     scales: {
-                        x: { ticks: { color: '#94a3b8', maxTicksLimit: 10 }, grid: { color: '#1e293b' } },
+                        x: { ticks: { color: '#94a3b8', maxTicksLimit: 8 }, grid: { color: '#1e293b' } },
                         y: { ticks: { color: '#94a3b8' }, grid: { color: '#1e293b' } }
                     }
                 }
@@ -188,6 +308,8 @@ DASHBOARD_HTML = """
             return div.innerHTML;
         }
 
+        document.getElementById('selSource').addEventListener('change', cargarElo);
+        document.getElementById('selCategory').addEventListener('change', cargarElo);
         cargarDatos();
         setInterval(cargarDatos, 60000);
     </script>
