@@ -208,3 +208,46 @@ async def test_update_data_compatibilidad(tmp_path, monkeypatch, force):
     if force:
         # force no emite boletín de cambios, solo actualiza
         assert result["changes_detected"] is False
+
+
+async def test_force_registra_cambios_en_historial_sin_perderlos(tmp_path, monkeypatch):
+    """Aunque force=True no spamee broadcast, el cambio sí queda guardado en SQLite."""
+    fetch_results = {"arena": {"status": "ok", "models": _models(swap_top=True)}}
+    updater, bot = _make_updater(tmp_path, monkeypatch, fetch_results, old_snapshot=OLD_V3)
+
+    result = await updater.check_and_update(force=True)
+    assert result["success"] is True
+    assert bot.sent == []
+    assert len(updater.db.get_changes(days=1)) == 1
+
+
+async def test_broadcast_desactiva_suscriptor_que_bloqueo_el_bot(tmp_path, monkeypatch):
+    class BlockingBot:
+        def __init__(self):
+            self.ok_sent = []
+
+        async def send_message(self, chat_id, text, parse_mode=None):
+            if chat_id == 777:
+                raise RuntimeError("Forbidden: bot was blocked by the user")
+            self.ok_sent.append(chat_id)
+
+    fetch_results = {"arena": {"status": "ok", "models": _models(swap_top=True)}}
+    updater, _ = _make_updater(tmp_path, monkeypatch, fetch_results, old_snapshot=OLD_V3)
+    updater.bot = BlockingBot()
+    updater.db.add_subscriber("888")
+
+    await updater.check_and_update(force=False)
+    assert updater.db.is_subscriber("777") is False
+    assert updater.db.is_subscriber("888") is True
+    assert updater.bot.ok_sent == [888]
+
+
+async def test_lock_impide_ejecuciones_concurrentes(tmp_path, monkeypatch):
+    fetch_results = {"arena": {"status": "ok", "models": _models()}}
+    updater, _ = _make_updater(tmp_path, monkeypatch, fetch_results, old_snapshot=OLD_V3)
+
+    async with updater._lock:
+        res = await updater.check_and_update(force=True)
+        assert res["success"] is False
+        assert "en curso" in res["message"]
+

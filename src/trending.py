@@ -1,20 +1,19 @@
-"""Tendencias diarias de GitHub y Hacker News con APIs oficiales (sin scraping).
+"""Tendencias diarias de GitHub, Hacker News y Hugging Face con APIs oficiales (sin scraping).
 
-- GitHub Search API: repos nuevos con más estrellas (el equivalente determinista
-  de la página github.com/trending, que no tiene API oficial).
-- Algolia HN API: historias recientes con más puntos.
-
-Los deltas de estrellas reales se calculan en ``detector`` con el historial que
-guarda ``db.save_repo_stars``.
+- GitHub Search API: repos nuevos con más estrellas (IA + general).
+- Algolia HN API (con fallback a Firebase oficial): historias recientes con más puntos.
+- Hugging Face Trending API: modelos open-weights en tendencia.
 """
 
+import asyncio
 import logging
 from datetime import datetime, timedelta, timezone
 
 import httpx
 
 from src.config import GITHUB_TOKEN
-from src.parsers import ParseError, parse_github_search, parse_hn_stories
+from src.html_utils import escape_html, safe_url
+from src.parsers import ParseError, parse_github_search, parse_hf_trending, parse_hn_stories
 
 logger = logging.getLogger(__name__)
 
@@ -22,12 +21,12 @@ GITHUB_SEARCH_URL = "https://api.github.com/search/repositories"
 HN_SEARCH_URL = "https://hn.algolia.com/api/v1/search"
 HN_FB_TOP_URL = "https://hacker-news.firebaseio.com/v0/topstories.json"
 HN_FB_ITEM_URL = "https://hacker-news.firebaseio.com/v0/item/{}.json"
+HF_TRENDING_URL = "https://huggingface.co/api/trending?type=model"
 UA = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
     "(KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
 )
 
-# Palabras que marcatildes un repo como relevante para el público de este bot (IA/dev).
 AI_KEYWORDS = (
     "ai", "llm", "gpt", "claude", "gemini", "agent", "ml", "machine-learning",
     "deep-learning", "neural", "rag", "inference", "model", "transformer", "diffusion",
@@ -39,11 +38,7 @@ class TrendingError(Exception):
 
 
 async def fetch_github_trending(days: int = 1, per_query: int = 15) -> dict:
-    """Repos creados recientemente con más estrellas, separados en AI y generales.
-
-    Se hacen dos consultas (``topic:ai`` y general) para poder presentar las
-    tendencias de IA por separado de las generales.
-    """
+    """Repos creados recientemente con más estrellas, separados en AI y generales."""
     since = (datetime.now(timezone.utc) - timedelta(days=days)).strftime("%Y-%m-%d")
     headers = {"Accept": "application/vnd.github+json", "User-Agent": UA}
     if GITHUB_TOKEN:
@@ -75,7 +70,6 @@ async def fetch_github_trending(days: int = 1, per_query: int = 15) -> dict:
             raise TrendingError(f"GitHub Search falló: {exc}") from exc
         general_repos = []
 
-    # La sección general excluye los que ya están en AI y prioriza keywords de IA.
     ai_names = {r["full_name"] for r in ai_repos}
     general_repos = [r for r in general_repos if r["full_name"] not in ai_names]
 
@@ -84,7 +78,6 @@ async def fetch_github_trending(days: int = 1, per_query: int = 15) -> dict:
             f"GitHub Search: AI={ai_resp.status_code}, general={general_resp.status_code} sin resultados"
         )
 
-    # Un solo conjunto para el historial de estrellas (sin duplicados).
     merged: dict[str, dict] = {}
     for r in ai_repos[:10] + general_repos[:15]:
         merged.setdefault(r["full_name"], r)
@@ -99,11 +92,7 @@ async def fetch_github_trending(days: int = 1, per_query: int = 15) -> dict:
 
 
 async def fetch_hackernews(top_n: int = 8, min_points: int = 80) -> dict:
-    """Historias de HN de las últimas 24 h ordenadas por puntos.
-
-    Primero la API de Algolia (1 petición); si está bloqueada, la API oficial
-    de HN en Firebase (topstories + detalle de cada item).
-    """
+    """Historias de HN de las últimas 24 h ordenadas por puntos."""
     try:
         return await _fetch_hn_algolia(top_n, min_points)
     except TrendingError as exc:
@@ -156,10 +145,10 @@ async def _fetch_hn_firebase(top_n: int, min_points: int) -> dict:
                     continue
                 stories.append(
                     {
-                        "title": item["title"],
+                        "title": str(item["title"]),
                         "points": points,
                         "comments": int(item.get("descendants") or 0),
-                        "url": item.get("url") or f"https://news.ycombinator.com/item?id={item_id}",
+                        "url": str(item.get("url") or f"https://news.ycombinator.com/item?id={item_id}"),
                     },
                 )
     except (httpx.HTTPError, ValueError) as exc:
@@ -170,13 +159,24 @@ async def _fetch_hn_firebase(top_n: int, min_points: int) -> dict:
     return {"status": "ok", "items": stories[:top_n], "source": "firebase"}
 
 
-async def fetch_trending() -> dict[str, dict]:
-    """GitHub + HN en paralelo. Cada fuente falla de forma independiente."""
-    import asyncio
+async def fetch_huggingface_trending(top_n: int = 10) -> dict:
+    """Modelos open-weights en tendencia desde la API pública de Hugging Face."""
+    try:
+        async with httpx.AsyncClient(headers={"User-Agent": UA}, timeout=15, follow_redirects=True) as client:
+            resp = await client.get(HF_TRENDING_URL)
+            resp.raise_for_status()
+            models = parse_hf_trending(resp.json())
+            return {"status": "ok", "items": models[:top_n]}
+    except (httpx.HTTPError, ValueError, ParseError) as exc:
+        raise TrendingError(f"Hugging Face API no disponible: {exc}") from exc
 
+
+async def fetch_trending() -> dict[str, dict]:
+    """GitHub + HN + Hugging Face en paralelo. Cada fuente falla de forma independiente."""
     gh_task = asyncio.create_task(fetch_github_trending())
     hn_task = asyncio.create_task(fetch_hackernews())
-    gh_res, hn_res = await asyncio.gather(gh_task, hn_task, return_exceptions=True)
+    hf_task = asyncio.create_task(fetch_huggingface_trending())
+    gh_res, hn_res, hf_res = await asyncio.gather(gh_task, hn_task, hf_task, return_exceptions=True)
 
     results: dict[str, dict] = {}
     if isinstance(gh_res, Exception):
@@ -191,29 +191,56 @@ async def fetch_trending() -> dict[str, dict]:
     else:
         results["hackernews"] = hn_res
 
+    # Hugging Face es fuente complementaria: si está disponible se incluye; si no, no ensucia stale
+    if not isinstance(hf_res, Exception):
+        results["huggingface"] = hf_res
+    else:
+        logger.info("Trending Hugging Face omitido: %s", hf_res)
+
     return results
 
 
-def render_trending_brief(github: dict, hackernews: dict) -> str:
-    """Plantilla HTML (Telegram-safe) del bloque de tendencias para /hoy."""
+def render_trending_brief(github: dict, hackernews: dict, huggingface: dict | None = None) -> str:
+    """Plantilla HTML segura (con escapado estricto) del bloque de tendencias para /hoy."""
     parts: list[str] = []
 
     if github.get("status") == "ok":
         lines = []
         for r in (github.get("ai") or [])[:5]:
+            raw_name = str(r.get("full_name") or "")
+            name = escape_html(raw_name)
+            url = safe_url(r.get("url") or f"https://github.com/{raw_name}")
+            stars = int(r.get("stars") or 0)
+            title_html = f'<a href="{url}"><b>{name}</b></a>' if url else f"<b>{name}</b>"
+            line = f"⭐ {title_html} ({stars:,}★)"
             desc = (r.get("description") or "").strip()
-            line = f'⭐ <b>{r["full_name"]}</b> ({r["stars"]:,}★)'
             if desc:
-                line += "\n   " + desc[:120]
+                line += "\n   " + escape_html(desc[:120])
             lines.append(line)
         if lines:
             parts.append("🐙 <b>Tendencias en GitHub (repos nuevos)</b>\n" + "\n".join(lines))
 
+    if huggingface and huggingface.get("status") == "ok":
+        hf_lines = []
+        for m in (huggingface.get("items") or [])[:4]:
+            repo_id = escape_html(m.get("id") or "")
+            url = safe_url(m.get("url"))
+            likes = int(m.get("likes") or 0)
+            tag = escape_html(m.get("pipeline_tag") or "model")
+            label = f'<a href="{url}">{repo_id}</a>' if url else repo_id
+            hf_lines.append(f"• {label} ({likes:,}❤️ · {tag})")
+        if hf_lines:
+            parts.append("🤗 <b>Hugging Face (Open-Weights)</b>\n" + "\n".join(hf_lines))
+
     if hackernews.get("status") == "ok":
-        lines = [
-            f'• <a href="{s["url"]}">{s["title"]}</a> ({s["points"]} pts, {s["comments"]} 💬)'
-            for s in (hackernews.get("items") or [])[:5]
-        ]
+        lines = []
+        for s in (hackernews.get("items") or [])[:5]:
+            title = escape_html(s.get("title") or "")
+            url = safe_url(s.get("url"))
+            points = int(s.get("points") or 0)
+            comments = int(s.get("comments") or 0)
+            link = f'<a href="{url}">{title}</a>' if url else title
+            lines.append(f"• {link} ({points} pts, {comments} 💬)")
         if lines:
             parts.append("🔥 <b>Hacker News</b>\n" + "\n".join(lines))
 

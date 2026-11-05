@@ -2,61 +2,71 @@ name: Update AI Rankings
 
 on:
   schedule:
-    - cron: '0 */12 * * *' # Backup cada 12 horas (el bot ya actualiza cada 30 min)
-  workflow_dispatch: # Permite ejecutarlo manualmente desde la web
+    - cron: '0 */6 * * *' # Respaldo público cada 6 horas en la rama `data`
+  workflow_dispatch:
 
 permissions:
   contents: write
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
 jobs:
   scrape-and-update:
-    runs-on: ubuntu-latest
-    
+    # Fijado a ubuntu-24.04 para compatibilidad garantizada con binarios de Playwright
+    runs-on: ubuntu-24.04
+
     steps:
-    - name: Checkout repo
-      uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
-        token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Set up Python
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.12'
-        cache: pip
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
 
-    - name: Install dependencies
-      run: |
-        pip install -r requirements.txt
-        playwright install chromium
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          python -m playwright install --with-deps chromium
 
-    - name: Run Scraper
-      env:
-        TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
-        CHAT_ID: ${{ secrets.CHAT_ID }}
-        GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: python -m src.update_data
+      - name: Run Scraper
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          CHAT_ID: ${{ secrets.CHAT_ID }}
+          PUBLIC_CHANNEL_ID: ${{ secrets.PUBLIC_CHANNEL_ID }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TURSO_DATABASE_URL: ${{ secrets.TURSO_DATABASE_URL }}
+          TURSO_AUTH_TOKEN: ${{ secrets.TURSO_AUTH_TOKEN }}
+        run: python -m src.update_data
 
-    - name: Commit and push to data branch
-      run: |
-        git config --global user.name "RankingAI Bot"
-        git config --global user.email "bot@rankingai.com"
-        git fetch origin data || true
-        if git rev-parse --verify origin/data >/dev/null 2>&1; then
-          git checkout -B data origin/data
-        else
-          git checkout -b data
-        fi
-        # `git add` de un pathspec inexistente aborta el paso: se añaden por separado
-        # y el fichero SQLite solo si esta ejecución llegó a crearlo.
-        git add -f data/rankings.json
-        if [ -f data/rankings.db ]; then
-          git add -f data/rankings.db
-        fi
-        if git diff --cached --quiet; then
-          echo "Sin cambios en los datos."
-        else
-          git commit -m "🔄 Actualización automática de rankings"
-          git push origin data
-        fi
+      - name: Commit and push JSON snapshot to data branch
+        run: |
+          git config --global user.name "RankingAI Bot"
+          git config --global user.email "bot@rankingai.com"
+          cp data/rankings.json /tmp/rankings.json
+          git fetch origin data || true
+          if git rev-parse --verify origin/data >/dev/null 2>&1; then
+            git checkout -B data origin/data
+          else
+            git checkout --orphan data
+            git rm -rf . >/dev/null 2>&1 || true
+          fi
+          mkdir -p data
+          cp /tmp/rankings.json data/rankings.json
+          # Nunca versionar binarios SQLite ni IDs de suscriptores en Git público
+          git rm -f --ignore-unmatch data/rankings.db || true
+          git add -f data/rankings.json
+          if git diff --cached --quiet; then
+            echo "Sin cambios en los datos."
+          else
+            git commit -m "🔄 Actualización automática de rankings"
+            git push origin data
+          fi

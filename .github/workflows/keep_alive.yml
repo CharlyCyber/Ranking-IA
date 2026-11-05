@@ -2,19 +2,24 @@ name: Keep Bot Alive
 
 on:
   schedule:
-    - cron: '*/10 * * * *' # Cada 10 minutos
+    - cron: '*/14 * * * *' # Cada 14 min (Render duerme a los 15 min de inactividad externa)
   workflow_dispatch:
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
 
 jobs:
   ping:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
-    - name: Ping Bot URL
-      env:
-        BOT_URL: ${{ secrets.BOT_URL }}
-      run: |
-        if [ -z "$BOT_URL" ]; then
-          echo "⚠️ BOT_URL no configurada en los secrets del repositorio."
-          exit 0
-        fi
-        curl -s -f "$BOT_URL/health" || echo "⚠️ El bot no respondió al ping de salud."
+      - name: Ping Bot URL
+        env:
+          BOT_URL: ${{ secrets.BOT_URL }}
+        run: |
+          if [ -z "$BOT_URL" ]; then
+            echo "ℹ️ BOT_URL no configurada en secrets; omitiendo ping externo."
+            exit 0
+          fi
+          curl --fail --silent --show-error --location \
+            --max-time 25 --retry 2 --retry-delay 3 \
+            "${BOT_URL%/}/health"

@@ -2,103 +2,902 @@
   "generated_at": "2026-10-22T00:23:03.817529",
   "sources": {
     "arena": {
-      "status": "error",
-      "error": "Arena: no se encontró ninguna tabla de rankings"
+      "status": "ok",
+      "models": [
+        {
+          "rank": 1,
+          "model": "Claude Fable 5.1 (Max)",
+          "category": "Agent",
+          "win_rate_pct": 13.71
+        },
+        {
+          "rank": 2,
+          "model": "GPT 6 Astra (Max)",
+          "category": "Agent",
+          "win_rate_pct": 11.54
+        },
+        {
+          "rank": 3,
+          "model": "Claude Opus 5 (High)",
+          "category": "Agent",
+          "win_rate_pct": 10.25
+        },
+        {
+          "rank": 4,
+          "model": "Claude Opus 5 (Max)",
+          "category": "Agent",
+          "win_rate_pct": 10.16
+        },
+        {
+          "rank": 5,
+          "model": "Claude Fable 5 (High)",
+          "category": "Agent",
+          "win_rate_pct": 8.81
+        },
+        {
+          "rank": 6,
+          "model": "Claude Opus 4.8 (High)",
+          "category": "Agent",
+          "win_rate_pct": 8.19
+        },
+        {
+          "rank": 7,
+          "model": "GPT 5.6 Sol (xHigh)",
+          "category": "Agent",
+          "win_rate_pct": 7.1
+        },
+        {
+          "rank": 8,
+          "model": "Kimi K3 (Max)",
+          "category": "Agent",
+          "win_rate_pct": 6.22
+        },
+        {
+          "rank": 9,
+          "model": "Claude Sonnet 5 (High)",
+          "category": "Agent",
+          "win_rate_pct": 5.97
+        },
+        {
+          "rank": 10,
+          "model": "GPT 5.5 (xHigh)",
+          "category": "Agent",
+          "win_rate_pct": 5.03
+        },
+        {
+          "rank": 1,
+          "model": "claude-fable-5-high",
+          "category": "Text",
+          "score": 1506
+        },
+        {
+          "rank": 2,
+          "model": "claude-opus-4-6-high",
+          "category": "Text",
+          "score": 1505
+        },
+        {
+          "rank": 3,
+          "model": "claude-opus-4-7-high",
+          "category": "Text",
+          "score": 1502
+        },
+        {
+          "rank": 4,
+          "model": "muse-spark-1.2 (xHigh)",
+          "category": "Text",
+          "score": 1500
+        },
+        {
+          "rank": 5,
+          "model": "claude-fable-5.1-max",
+          "category": "Text",
+          "score": 1498
+        },
+        {
+          "rank": 6,
+          "model": "claude-opus-4-6",
+          "category": "Text",
+          "score": 1497
+        },
+        {
+          "rank": 7,
+          "model": "claude-opus-4-7",
+          "category": "Text",
+          "score": 1494
+        },
+        {
+          "rank": 8,
+          "model": "muse-spark-1.3-max",
+          "category": "Text",
+          "score": 1493
+        },
+        {
+          "rank": 9,
+          "model": "gemini-3.8-flash-high",
+          "category": "Text",
+          "score": 1493
+        },
+        {
+          "rank": 10,
+          "model": "claude-opus-5-high",
+          "category": "Text",
+          "score": 1493
+        },
+        {
+          "rank": 1,
+          "model": "gpt-6-astra-max",
+          "category": "WebDev",
+          "score": 1800
+        },
+        {
+          "rank": 2,
+          "model": "claude-fable-5.1-max",
+          "category": "WebDev",
+          "score": 1758
+        },
+        {
+          "rank": 3,
+          "model": "claude-opus-5-max",
+          "category": "WebDev",
+          "score": 1687
+        },
+        {
+          "rank": 4,
+          "model": "qwen3.8-max-0902",
+          "category": "WebDev",
+          "score": 1681
+        },
+        {
+          "rank": 5,
+          "model": "kimi-k3-max",
+          "category": "WebDev",
+          "score": 1674
+        },
+        {
+          "rank": 6,
+          "model": "qwen3.8-max",
+          "category": "WebDev",
+          "score": 1671
+        },
+        {
+          "rank": 7,
+          "model": "claude-opus-5-high",
+          "category": "WebDev",
+          "score": 1660
+        },
+        {
+          "rank": 8,
+          "model": "muse-spark-1.3-max",
+          "category": "WebDev",
+          "score": 1652
+        },
+        {
+          "rank": 9,
+          "model": "qwen3.8-flash-next",
+          "category": "WebDev",
+          "score": 1635
+        },
+        {
+          "rank": 10,
+          "model": "claude-fable-5-high",
+          "category": "WebDev",
+          "score": 1628
+        },
+        {
+          "rank": 1,
+          "model": "claude-fable-5-high",
+          "category": "Vision",
+          "score": 1310
+        },
+        {
+          "rank": 2,
+          "model": "qwen3.8-max",
+          "category": "Vision",
+          "score": 1302
+        },
+        {
+          "rank": 3,
+          "model": "claude-opus-4-7-high",
+          "category": "Vision",
+          "score": 1301
+        },
+        {
+          "rank": 4,
+          "model": "claude-opus-4-7",
+          "category": "Vision",
+          "score": 1300
+        },
+        {
+          "rank": 5,
+          "model": "claude-opus-4-6-high",
+          "category": "Vision",
+          "score": 1299
+        },
+        {
+          "rank": 6,
+          "model": "muse-spark-1.3-max",
+          "category": "Vision",
+          "score": 1294
+        },
+        {
+          "rank": 7,
+          "model": "muse-spark",
+          "category": "Vision",
+          "score": 1294
+        },
+        {
+          "rank": 8,
+          "model": "claude-opus-4-6",
+          "category": "Vision",
+          "score": 1293
+        },
+        {
+          "rank": 9,
+          "model": "muse-spark-1.2 (xHigh)",
+          "category": "Vision",
+          "score": 1292
+        },
+        {
+          "rank": 10,
+          "model": "claude-opus-5-high",
+          "category": "Vision",
+          "score": 1289
+        },
+        {
+          "rank": 1,
+          "model": "claude-opus-5-high",
+          "category": "Document",
+          "score": 1516
+        },
+        {
+          "rank": 2,
+          "model": "claude-fable-5.1-max",
+          "category": "Document",
+          "score": 1513
+        },
+        {
+          "rank": 3,
+          "model": "claude-opus-4-6-high",
+          "category": "Document",
+          "score": 1507
+        },
+        {
+          "rank": 4,
+          "model": "claude-opus-4-6",
+          "category": "Document",
+          "score": 1507
+        },
+        {
+          "rank": 5,
+          "model": "claude-fable-5-high",
+          "category": "Document",
+          "score": 1496
+        },
+        {
+          "rank": 6,
+          "model": "claude-opus-4-7",
+          "category": "Document",
+          "score": 1495
+        },
+        {
+          "rank": 7,
+          "model": "claude-opus-4-7-high",
+          "category": "Document",
+          "score": 1495
+        },
+        {
+          "rank": 8,
+          "model": "gpt-5.5",
+          "category": "Document",
+          "score": 1486
+        },
+        {
+          "rank": 9,
+          "model": "gpt-5.5-high",
+          "category": "Document",
+          "score": 1484
+        },
+        {
+          "rank": 10,
+          "model": "gpt-5.6-sol-xhigh",
+          "category": "Document",
+          "score": 1483
+        },
+        {
+          "rank": 1,
+          "model": "gpt-image-2.5-sunburst",
+          "category": "Text-to-Image",
+          "score": 1421
+        },
+        {
+          "rank": 2,
+          "model": "gpt-image-2.5-flare",
+          "category": "Text-to-Image",
+          "score": 1399
+        },
+        {
+          "rank": 3,
+          "model": "gpt-image-2 (medium)",
+          "category": "Text-to-Image",
+          "score": 1381
+        },
+        {
+          "rank": 4,
+          "model": "mai-image-2.6",
+          "category": "Text-to-Image",
+          "score": 1331
+        },
+        {
+          "rank": 5,
+          "model": "grok-imagine-image-2.0 (low)",
+          "category": "Text-to-Image",
+          "score": 1315
+        },
+        {
+          "rank": 6,
+          "model": "reve-2.1",
+          "category": "Text-to-Image",
+          "score": 1301
+        },
+        {
+          "rank": 7,
+          "model": "muse-image",
+          "category": "Text-to-Image",
+          "score": 1277
+        },
+        {
+          "rank": 8,
+          "model": "reve-2.0",
+          "category": "Text-to-Image",
+          "score": 1270
+        },
+        {
+          "rank": 9,
+          "model": "gemini-3.1-flash-image (nano-banana-2) [web-search]",
+          "category": "Text-to-Image",
+          "score": 1261
+        },
+        {
+          "rank": 10,
+          "model": "seedream-5.0-pro",
+          "category": "Text-to-Image",
+          "score": 1257
+        },
+        {
+          "rank": 1,
+          "model": "gpt-image-2.5-sunburst",
+          "category": "Image Edit",
+          "score": 1520
+        },
+        {
+          "rank": 2,
+          "model": "gpt-image-2.5-flare",
+          "category": "Image Edit",
+          "score": 1491
+        },
+        {
+          "rank": 3,
+          "model": "gpt-image-2 (medium)",
+          "category": "Image Edit",
+          "score": 1461
+        },
+        {
+          "rank": 4,
+          "model": "grok-imagine-image-2.0 (low)",
+          "category": "Image Edit",
+          "score": 1439
+        },
+        {
+          "rank": 5,
+          "model": "mai-image-2.6",
+          "category": "Image Edit",
+          "score": 1434
+        },
+        {
+          "rank": 6,
+          "model": "muse-image",
+          "category": "Image Edit",
+          "score": 1403
+        },
+        {
+          "rank": 7,
+          "model": "mai-image-2.5",
+          "category": "Image Edit",
+          "score": 1400
+        },
+        {
+          "rank": 8,
+          "model": "seedream-5.0-pro",
+          "category": "Image Edit",
+          "score": 1394
+        },
+        {
+          "rank": 9,
+          "model": "gemini-3-pro-image-2k (nano-banana-pro)",
+          "category": "Image Edit",
+          "score": 1390
+        },
+        {
+          "rank": 10,
+          "model": "grok-imagine-image-quality (20260519)",
+          "category": "Image Edit",
+          "score": 1390
+        },
+        {
+          "rank": 1,
+          "model": "gpt-6-astra-max",
+          "category": "Image-to-WebDev",
+          "score": 1733
+        },
+        {
+          "rank": 2,
+          "model": "claude-fable-5.1-max",
+          "category": "Image-to-WebDev",
+          "score": 1710
+        },
+        {
+          "rank": 3,
+          "model": "claude-opus-5-max",
+          "category": "Image-to-WebDev",
+          "score": 1665
+        },
+        {
+          "rank": 4,
+          "model": "muse-spark-1.3-max",
+          "category": "Image-to-WebDev",
+          "score": 1645
+        },
+        {
+          "rank": 5,
+          "model": "qwen3.8-max-0902",
+          "category": "Image-to-WebDev",
+          "score": 1639
+        },
+        {
+          "rank": 6,
+          "model": "claude-fable-5-high",
+          "category": "Image-to-WebDev",
+          "score": 1623
+        },
+        {
+          "rank": 7,
+          "model": "qwen3.8-max",
+          "category": "Image-to-WebDev",
+          "score": 1618
+        },
+        {
+          "rank": 8,
+          "model": "gpt-5.6-sol-xhigh (codex-harness)",
+          "category": "Image-to-WebDev",
+          "score": 1604
+        },
+        {
+          "rank": 9,
+          "model": "grok-4.6-high",
+          "category": "Image-to-WebDev",
+          "score": 1596
+        },
+        {
+          "rank": 10,
+          "model": "glm-5.3-flash",
+          "category": "Image-to-WebDev",
+          "score": 1588
+        },
+        {
+          "rank": 1,
+          "model": "gpt-5.6-sol-xhigh",
+          "category": "Search",
+          "score": 1257
+        },
+        {
+          "rank": 2,
+          "model": "claude-opus-4-6-search",
+          "category": "Search",
+          "score": 1253
+        },
+        {
+          "rank": 3,
+          "model": "gpt-5.5-search",
+          "category": "Search",
+          "score": 1242
+        },
+        {
+          "rank": 4,
+          "model": "claude-opus-4-7",
+          "category": "Search",
+          "score": 1233
+        },
+        {
+          "rank": 5,
+          "model": "claude-fable-5-high",
+          "category": "Search",
+          "score": 1230
+        },
+        {
+          "rank": 6,
+          "model": "ernie-5.1",
+          "category": "Search",
+          "score": 1227
+        },
+        {
+          "rank": 7,
+          "model": "claude-sonnet-4-6-search",
+          "category": "Search",
+          "score": 1221
+        },
+        {
+          "rank": 8,
+          "model": "grok-4.5",
+          "category": "Search",
+          "score": 1213
+        },
+        {
+          "rank": 9,
+          "model": "gemini-3.1-pro-grounding",
+          "category": "Search",
+          "score": 1210
+        },
+        {
+          "rank": 10,
+          "model": "gemini-3-pro-grounding",
+          "category": "Search",
+          "score": 1207
+        },
+        {
+          "rank": 1,
+          "model": "gemini-omni-1.1-flash",
+          "category": "Text-to-Video",
+          "score": 1515
+        },
+        {
+          "rank": 2,
+          "model": "gemini-omni-flash",
+          "category": "Text-to-Video",
+          "score": 1511
+        },
+        {
+          "rank": 3,
+          "model": "wan3.0",
+          "category": "Text-to-Video",
+          "score": 1494
+        },
+        {
+          "rank": 4,
+          "model": "flux-3-video",
+          "category": "Text-to-Video",
+          "score": 1494
+        },
+        {
+          "rank": 5,
+          "model": "grok-imagine-video-1.5-agent",
+          "category": "Text-to-Video",
+          "score": 1491
+        },
+        {
+          "rank": 6,
+          "model": "dreamina-seedance-2.5-720p",
+          "category": "Text-to-Video",
+          "score": 1482
+        },
+        {
+          "rank": 7,
+          "model": "dreamina-seedance-2.0-720p",
+          "category": "Text-to-Video",
+          "score": 1479
+        },
+        {
+          "rank": 8,
+          "model": "minimax-h3",
+          "category": "Text-to-Video",
+          "score": 1462
+        },
+        {
+          "rank": 9,
+          "model": "muse-video",
+          "category": "Text-to-Video",
+          "score": 1456
+        },
+        {
+          "rank": 10,
+          "model": "happyhorse-1.0",
+          "category": "Text-to-Video",
+          "score": 1427
+        },
+        {
+          "rank": 1,
+          "model": "minimax-h3",
+          "category": "Image-to-Video",
+          "score": 1494
+        },
+        {
+          "rank": 2,
+          "model": "gemini-omni-1.1-flash",
+          "category": "Image-to-Video",
+          "score": 1488
+        },
+        {
+          "rank": 3,
+          "model": "wan3.0",
+          "category": "Image-to-Video",
+          "score": 1479
+        },
+        {
+          "rank": 4,
+          "model": "dreamina-seedance-2.5-720p",
+          "category": "Image-to-Video",
+          "score": 1475
+        },
+        {
+          "rank": 5,
+          "model": "dreamina-seedance-2.0-720p",
+          "category": "Image-to-Video",
+          "score": 1474
+        },
+        {
+          "rank": 6,
+          "model": "gemini-omni-flash",
+          "category": "Image-to-Video",
+          "score": 1464
+        },
+        {
+          "rank": 7,
+          "model": "grok-imagine-video-1.5-720p",
+          "category": "Image-to-Video",
+          "score": 1456
+        },
+        {
+          "rank": 8,
+          "model": "hidream-o1-video-1.0",
+          "category": "Image-to-Video",
+          "score": 1452
+        },
+        {
+          "rank": 9,
+          "model": "flux-3-video-20260811",
+          "category": "Image-to-Video",
+          "score": 1450
+        },
+        {
+          "rank": 10,
+          "model": "happyhorse-1.0",
+          "category": "Image-to-Video",
+          "score": 1442
+        },
+        {
+          "rank": 1,
+          "model": "wan3.0",
+          "category": "Video Edit",
+          "score": 1414
+        },
+        {
+          "rank": 2,
+          "model": "dreamina-seedance-2.5-720p",
+          "category": "Video Edit",
+          "score": 1410
+        },
+        {
+          "rank": 3,
+          "model": "minimax-h3",
+          "category": "Video Edit",
+          "score": 1392
+        },
+        {
+          "rank": 4,
+          "model": "gemini-omni-flash",
+          "category": "Video Edit",
+          "score": 1367
+        },
+        {
+          "rank": 5,
+          "model": "dreamina-seedance-2.0-720p",
+          "category": "Video Edit",
+          "score": 1365
+        },
+        {
+          "rank": 6,
+          "model": "happyhorse-1.0",
+          "category": "Video Edit",
+          "score": 1307
+        },
+        {
+          "rank": 7,
+          "model": "grok-imagine-video",
+          "category": "Video Edit",
+          "score": 1258
+        },
+        {
+          "rank": 8,
+          "model": "kling-o3-pro",
+          "category": "Video Edit",
+          "score": 1255
+        },
+        {
+          "rank": 9,
+          "model": "kling-o1-pro",
+          "category": "Video Edit",
+          "score": 1197
+        },
+        {
+          "rank": 10,
+          "model": "runway-gen4-aleph",
+          "category": "Video Edit",
+          "score": 1182
+        }
+      ],
+      "method": "page"
+    },
+    "openrouter": {
+      "status": "ok",
+      "models": [
+        {
+          "rank": 1,
+          "model": "GPT-5.6 Luna",
+          "author": "openai",
+          "tokens_week": 15800000000000,
+          "growth_pct": 12
+        },
+        {
+          "rank": 2,
+          "model": "DeepSeek V4.1 Flash",
+          "author": "deepseek",
+          "tokens_week": 11800000000000,
+          "growth_pct": 999
+        },
+        {
+          "rank": 3,
+          "model": "Hy4 preview",
+          "author": "tencent",
+          "tokens_week": 11600000000000,
+          "growth_pct": 39
+        },
+        {
+          "rank": 4,
+          "model": "GLM 5.3 Flash",
+          "author": "z-ai",
+          "tokens_week": 11400000000000,
+          "growth_pct": 7
+        },
+        {
+          "rank": 5,
+          "model": "DeepSeek V4 Flash 0731",
+          "author": "deepseek",
+          "tokens_week": 10600000000000,
+          "growth_pct": 14
+        },
+        {
+          "rank": 6,
+          "model": "MiMo-V2.5",
+          "author": "xiaomi",
+          "tokens_week": 7520000000000,
+          "growth_pct": 46
+        },
+        {
+          "rank": 7,
+          "model": "Hy3",
+          "author": "tencent",
+          "tokens_week": 4690000000000,
+          "growth_pct": 40
+        },
+        {
+          "rank": 8,
+          "model": "DeepSeek V4 Flash 0423",
+          "author": "deepseek",
+          "tokens_week": 4090000000000,
+          "growth_pct": 14
+        },
+        {
+          "rank": 9,
+          "model": "Nemotron 3 Ultra (free)",
+          "author": "nvidia",
+          "tokens_week": 3640000000000,
+          "growth_pct": 0
+        },
+        {
+          "rank": 10,
+          "model": "GLM 5.3",
+          "author": "z-ai",
+          "tokens_week": 2560000000000,
+          "growth_pct": 16
+        }
+      ],
+      "method": "page"
     },
     "design": {
       "status": "ok",
       "models": [
         {
           "rank": 1,
-          "model": "Claude Opus 5.5",
-          "score": 1390
+          "model": "Kimi K3",
+          "score": 1387
         },
         {
           "rank": 2,
-          "model": "GPT-6 Astra (xhigh)",
-          "score": 1379
+          "model": "Muse Spark 1.3 Max",
+          "score": 1373
         },
         {
           "rank": 3,
-          "model": "Muse Wonder (max)",
-          "score": 1371
+          "model": "GPT-6 Astra (xhigh)",
+          "score": 1369
         },
         {
           "rank": 4,
-          "model": "Claude Sonnet 5.5",
+          "model": "Muse Spark 1.3 (xhigh)",
           "score": 1364
         },
         {
           "rank": 5,
-          "model": "Kimi K3",
-          "score": 1360
+          "model": "GPT-5.6 Sol (xhigh)",
+          "score": 1352
         },
         {
           "rank": 6,
-          "model": "Muse Spark 1.3 (xhigh)",
-          "score": 1353
+          "model": "Claude Fable 5.1",
+          "score": 1346
         },
         {
           "rank": 7,
-          "model": "Muse Spark 1.3 Max",
-          "score": 1351
-        },
-        {
-          "rank": 8,
-          "model": "GPT-6.1 Sol",
-          "score": 1345
-        },
-        {
-          "rank": 9,
-          "model": "GPT-5.6 Sol (xhigh)",
+          "model": "DeepSeek-V4.1-Flash",
           "score": 1341
         },
         {
-          "rank": 10,
-          "model": "Claude Fable 5.1",
-          "score": 1336
+          "rank": 8,
+          "model": "Claude Opus 5",
+          "score": 1338
         },
         {
-          "rank": 11,
-          "model": "DeepSeek-V4.1-Flash (1017)",
+          "rank": 9,
+          "model": "GPT-5.6 Sol (Medium)",
           "score": 1334
         },
         {
+          "rank": 10,
+          "model": "GLM-5.3",
+          "score": 1330
+        },
+        {
+          "rank": 11,
+          "model": "Muse Spark 1.2",
+          "score": 1327
+        },
+        {
           "rank": 12,
-          "model": "Gemini 4 Argon",
-          "score": 1329
+          "model": "Claude Fable 5",
+          "score": 1325
         },
         {
           "rank": 13,
-          "model": "Claude Opus 5",
+          "model": "Gemini 3.8 Flash",
           "score": 1324
         },
         {
           "rank": 14,
-          "model": "MiMo-V2.6-Pro",
-          "score": 1317
+          "model": "Gemini 3.7 Flash",
+          "score": 1323
         },
         {
           "rank": 15,
-          "model": "Muse Spark 1.2",
-          "score": 1313
+          "model": "Grok 4.6",
+          "score": 1309
         },
         {
           "rank": 16,
-          "model": "Claude Fable 5",
-          "score": 1310
+          "model": "Qwen3.8 Max",
+          "score": 1309
         },
         {
           "rank": 17,
-          "model": "Gemini 3.7 Flash",
+          "model": "GLM 5.2",
           "score": 1308
+        },
+        {
+          "rank": 18,
+          "model": "Gemini 3.6 Flash",
+          "score": 1305
         }
       ],
       "method": "page"
-    },
-    "openrouter": {
-      "status": "error",
-      "error": "OpenRouter: solo 0 filas parseadas"
     },
     "github": {
       "status": "ok",

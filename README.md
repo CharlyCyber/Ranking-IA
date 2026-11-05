@@ -1,86 +1,105 @@
-# 🏆 Ranking AI Agent
+# 🏆 Ranking AI Agent v4 — Open & Free AI Leaderboard Hub
 
-Bot de Telegram que te informa en lenguaje natural del **top y las novedades de modelos de IA**, con alertas de cambios en los rankings cada 30 minutos, **briefing diario de tendencias de GitHub y Hacker News** (`/hoy`), y un dashboard web con la evolución histórica de los ELOs.
+Plataforma abierta y gratuita (Bot de Telegram + Dashboard Web / Mini App + API Abierta + RSS) que monitoriza en tiempo real **los rankings, precios y tendencias de modelos de IA**, con alertas deterministas cada 30 minutos, **briefing matutino cacheado** (`/hoy`), **menús instantáneos a 0 tokens** y **Modo Inline** para compartir comparativas en cualquier grupo.
 
-## Qué hace
+## ✨ Novedades de la v4.0
 
-- **Scraping estructurado** de LMSYS/Arena, OpenRouter y Design Arena → datos normalizados (`rank`, `modelo`, `score`, `votes`), no texto crudo.
-- **Detección de cambios determinista** (diff local): cambio de top-1, subidas/caídas de ≥3 posiciones, modelos nuevos y estrellas en ascenso en GitHub. Gemini solo redacta el boletín cuando hay cambios reales.
-- **Safety net**: cada fuente se valida antes de guardar; si un scraper falla, se conservan los datos anteriores de esa fuente y se lanza alerta de error. Nunca se sobrescribe buenos datos con strings de error.
-- **Multiusuario**: cualquier persona puede suscribirse con `/subscribe` y recibe las alertas; rate limit por usuario y presupuesto global diario de Gemini.
-- **Briefing diario `/hoy`**: movimientos de rankings + top repos nuevos de IA en GitHub + historias calientes de Hacker News.
-- **Dashboard web** (`/dashboard`): gráficas de evolución de ELO por modelo, últimos datos por fuente y cambios detectados.
+- **Scraping y APIs resilientes (2026+)**:
+  - **LMSYS / Arena**: soporte dual de tablas clásicas y tarjetas modernas (12 categorías: `Text`, `Agent`, `WebDev`, `Vision`, `Document`, `Search`, imagen y vídeo).
+  - **OpenRouter**: uso semanal de tokens (con soporte de crecimientos `>999%` y negativos) + cruce automático con la **API pública gratuita `/api/v1/models`** para precios `$/1M tokens`, contexto y modelos `:free`.
+  - **Design Arena**, **GitHub Search API**, **Hugging Face Trending (Open-Weights)** y **Hacker News** (Algolia + fallback Firebase).
+- **Ingeniería de IA segura y sin coste descontrolado**:
+  - **Menús interactivos y buscador a 0 tokens** (`/menu`, `/buscar`, `/chart`): las consultas habituales responden en `<50 ms` sin gastar llamadas al LLM.
+  - **Caché global de `/hoy`**: el briefing diario se redacta **1 sola vez por snapshot** y se sirve desde caché a miles de usuarios.
+  - **Failover Multi-LLM 100% Gratuito**: cascada automática **Google Gemini Free** → **Groq Cloud Free** (`llama-3.3-70b-versatile`) → **OpenRouter `:free`**.
+  - **Defensa Anti-Prompt-Injection & Sanitizador HTML**: separación estricta de `system_instruction`, aislamiento `<untrusted_data>` para textos de GitHub/HN y whitelist HTML con cierre automático de etiquetas.
+- **Listo para escalar gratis al público ($0/mes)**:
+  - **Persistencia en la nube opcional con Turso (libSQL Free Tier)** vía HTTP API sin dependencias extra (no pierdes suscriptores en despliegues con disco efímero como Render Free).
+  - **Difusión en Canal Público** (`PUBLIC_CHANNEL_ID`): 1 sola petición llega a suscriptores ilimitados.
+  - **Preferencias por usuario** (`/alertas`): elige recibir *Todas*, *Solo Nuevo #1*, *Solo Coding/UI* o *Silenciar*.
+  - **Modo Inline viral (`@TuBot modelo`)**: comparte fichas de cualquier modelo en cualquier chat o grupo a coste cero.
+  - **Open Data Hub**: Dashboard adaptable como **Telegram Mini App**, feed **RSS 2.0** (`/feed.xml`), **gráficas SVG dinámicas** (`/api/chart.svg`) y **badges Shields.io** (`/api/badge/arena`).
 
-## Captura del dashboard
+## 🏗️ Arquitectura
 
-![Dashboard v3](screenshots/dashboard_v3.png)
-
-## Arquitectura
-
-```
+```text
 src/
-├── main.py       # Bot Telegram: handlers, jobs periódicos, rate limiting
-├── fetcher.py    # Captura: OpenRouter (API con fallback Playwright), Arena/Design (Playwright, navegador único)
-├── parsers.py    # Texto/JSON crudo → esquema normalizado {rank, model, score, votes}
-├── validator.py  # Safety net: valida cada fuente antes de persistir
-├── detector.py   # Diff local determinista entre snapshots + plantilla de alerta
-├── trending.py   # GitHub Search API + Hacker News Algolia API (sin scraping)
-├── brain.py      # Gemini (google-genai): redacción de boletines y respuestas al chat
-├── updater.py    # Orquesta fetch → validate → persist → detect → notify
-├── db.py         # SQLite: snapshots, cambios, suscriptores, historial de estrellas
-├── web.py        # Dashboard Flask + API REST
-└── keepalive.py  # Auto-ping para planes de hosting con sleep (Render free)
+├── main.py        # Bot Telegram: menús inline (0 tokens), Modo Inline, /hoy cacheado, auth admin
+├── brain.py       # Multi-LLM gratuito (Gemini → Groq → OpenRouter :free) + guardrails anti-injection
+├── insights.py    # Analítica determinista: Calidad/Precio, modelos gratis, buscador y gráficas SVG/QuickChart
+├── html_utils.py  # Sanitizador HTML estricto para Telegram y partición segura de mensajes largos
+├── fetcher.py     # Captura: OpenRouter Catalog API + Playwright con navegador único y espera de hidratación
+├── parsers.py     # Parsers deterministas (Arena clásico/2026, OpenRouter, Design, GitHub, HF, HN)
+├── validator.py   # Safety net por fuente antes de persistir
+├── detector.py    # Diff local determinista + delta histórico de estrellas + filtro por preferencias
+├── trending.py    # APIs oficiales de GitHub, Hugging Face y Hacker News (sin scraping)
+├── updater.py     # Orquestador con asyncio.Lock, difusión a canal público y limpieza de bots bloqueados
+├── db.py          # SQLite WAL concurrente + sincronización opcional con Turso Cloud (HTTP Pipeline)
+├── web.py         # Dashboard Web / Telegram Mini App + API REST + RSS + Badges
+└── keepalive.py   # Servidor web + healthcheck externo/local
 ```
 
-**Flujo de datos:** `fetcher` produce fuentes estructuradas → `validator` aprueba/rechaza cada una → `updater` persiste el snapshot (SQLite + `data/rankings.json`) → `detector` compara con el snapshot anterior → si hay cambios, `brain` redacta el boletín (con plantilla de fallback) y se envía a todos los suscriptores.
-
-## Setup local
+## 🚀 Setup local rápido
 
 ```bash
 # 1. Dependencias
 pip install -r requirements-dev.txt
-playwright install chromium
+python -m playwright install --with-deps chromium
 
 # 2. Configuración
-cp .env.example .env   # y rellena TELEGRAM_TOKEN, GEMINI_API_KEY, CHAT_ID
+cp .env.example .env   # rellena TELEGRAM_TOKEN, GEMINI_API_KEY y CHAT_ID
 
-# 3. Tests y lint
-python -m ruff check .
-python -m pytest
+# 3. Lint y tests
+ruff check .
+pytest -q
 
-# 4. Arrancar el bot
+# 4. Arrancar bot + dashboard web (http://localhost:5000/dashboard)
 python -m src.main
 ```
 
-## Comandos del bot
+## 🤖 Comandos del Bot
 
-| Comando | Descripción |
-|---------|-------------|
-| `/start` | Bienvenida y registro como suscriptor |
-| `/subscribe` | Recibir alertas de cambios y el briefing diario |
-| `/unsubscribe` | Baja de las alertas |
-| `/status` | Estado del sistema (datos, Gemini, uptime) |
-| `/forceupdate` | Forzar actualización manual de rankings |
-| `/hoy` | Briefing de hoy: rankings + tendencias de GitHub y HN |
-| *(cualquier texto)* | Pregunta en lenguaje natural sobre el estado del arte |
+| Comando | Coste LLM | Descripción |
+|---------|:---------:|-------------|
+| `/start` / `/menu` | **0 tokens** | Panel interactivo (General, Coding, Multimodal, OpenRouter, Gratis/Precio) |
+| `/buscar <modelo>` | **0 tokens** | Posición en todos los rankings, ELO y precio por millón de tokens |
+| `/chart` | **0 tokens** | Tarjeta visual PNG con el gráfico ELO actual (QuickChart) |
+| `/alertas` | **0 tokens** | Configurar filtro de notificaciones (*Todas*, *Top-1*, *Coding*, *Pausa*) |
+| `/hoy` | **Cacheado (1/snapshot)** | Briefing ejecutivo del día: rankings + GitHub + HF + HN |
+| `/status` | **0 tokens** | Salud de fuentes, proveedores IA activos y cuota restante |
+| `/subscribe` / `/unsubscribe` | **0 tokens** | Alta o baja de alertas automáticas |
+| `/forceupdate` | *Solo Admin* | Fuerza actualización manual protegida por `CHAT_ID` y lock de concurrencia |
+| `@TuBot <consulta>` | **0 tokens** | **Modo Inline**: úsalo desde cualquier grupo de Telegram |
+| *(texto libre)* | **1 llamada** | Pregunta abierta al analista IA con rate limit por usuario |
 
-## Variables de entorno
+## 🌐 Endpoints Públicos Gratuitos (Dashboard & Open Data)
 
-Ver [.env.example](.env.example). Las obligatorias son `TELEGRAM_TOKEN`, `GEMINI_API_KEY` y `CHAT_ID`. Opcionales: `GITHUB_TOKEN` (rate limit de la API de GitHub), `DATA_JSON_URL`, `DAILY_BRIEF_HOUR`, `GEMINI_DAILY_LIMIT`, `USER_RATE_LIMIT`.
+| Ruta | Descripción |
+|------|-------------|
+| `/dashboard` | Monitor interactivo con buscador, pestañas, gráfica ELO y radar Gratis/Precio (compatible con Telegram Mini App) |
+| `/api/rankings` | Último snapshot completo normalizado en JSON |
+| `/api/models/search?q=claude` | Buscador transversal de modelos y precios |
+| `/api/value-leaders` | Índice Calidad/Precio (ELO vs $/1M tok) y modelos API `$0` |
+| `/api/elo-history?source=arena&category=Text` | Series temporales para gráficas |
+| `/api/chart.svg?source=arena&category=Text` | Gráfico SVG dinámico listo para incrustar en README o web |
+| `/api/badge/arena` | Endpoint JSON compatible con Shields.io (`https://img.shields.io/endpoint?url=...`) |
+| `/feed.xml` | Feed RSS 2.0 de cambios detectados (conecta gratis con Slack, Discord, Feedly o n8n) |
 
-## Despliegue
+## 💸 Cómo publicarlo para todo el mundo a $0/mes (100% Herramientas Gratuitas)
 
-- **Render**: `Procfile` incluido (`web: python -m src.main`). El self-ping de `/health` mantiene despierto el plan gratuito.
-- **GitHub Actions**: `.github/workflows/daily_scrape.yml` ejecuta un respaldo cada 12 h y guarda los datos en la rama `data` (sin force-push). El dashboard y el bot leen esos datos como respaldo remoto.
-- **CI**: `.github/workflows/ci.yml` ejecuta ruff + pytest en cada push.
+1. **Base de datos sin pérdida en redeploys → [Turso](https://turso.tech) (Free Tier: 5 GB gratis)**:
+   - Crea una BD gratuita en Turso y añade `TURSO_DATABASE_URL` y `TURSO_AUTH_TOKEN` en tus variables de entorno. Así tus suscriptores e histórico sobreviven aunque el contenedor sea efímero.
+2. **Alta disponibilidad de IA → [Google AI Studio](https://aistudio.google.com/apikey) + [Groq Cloud](https://console.groq.com/keys) (Gratis)**:
+   - Configura `GEMINI_API_KEY` y añade `GROQ_API_KEY` (y opcionalmente `OPENROUTER_API_KEY`). Si un proveedor llega al rate limit gratuito, el bot salta al siguiente sin interrupción.
+3. **Escala ilimitada de alertas → Canal Público de Telegram**:
+   - Crea un canal público (ej. `@RankingIA_ES`), mete al bot como administrador y define `PUBLIC_CHANNEL_ID=@RankingIA_ES`. Publicar ahí consume **1 sola llamada** aunque tengas 50.000 lectores.
+4. **Activar Modo Inline y Mini App en `@BotFather` (Gratis, 1 minuto)**:
+   - Envía `/setinline` a `@BotFather` para habilitar `@TuBot <modelo>` en cualquier grupo.
+   - Define `PUBLIC_URL=https://tu-dominio-https` para que aparezca automáticamente el botón **📱 Abrir Dashboard Interactivo** dentro de Telegram.
+5. **Hosting gratuito recomendado**:
+   - **GitHub Actions** (`.github/workflows/daily_scrape.yml`): ejecuta el respaldo estructurado en la rama `data` con runners `ubuntu-24.04` gratuitos.
+   - **Hugging Face Spaces (Docker CPU Basic: 2 vCPU y 16 GB RAM gratis)** o **Render Free / Koyeb Free** para el proceso del bot + dashboard.
 
-## Limitaciones conocidas
-
-- El historial SQLite vive en `data/` (efímero en Render free); los datos estructurados se respaldan en la rama `data` del repo.
-- La API de OpenRouter puede bloquearse desde ciertas IPs (WAF); el fetcher cae automáticamente al scraping con Playwright y parseo estructurado.
-- GitHub no publica API para github.com/trending, así que las tendencias se calculan con la Search API oficial: repos **creados en las últimas 24 h** ordenados por estrellas (sección IA con `topic:ai` + sección general). No reproduce el algoritmo de "trending today" (que mezcla repos de cualquier antigüedad por velocidad de estrellas), pero es determinista, gratuito y sin scraping.
-- Diseñado para un despliegue único; para escalar a muchas instancias conviene migrar SQLite a Postgres.
-
-## Licencia
+## 📄 Licencia
 
 [MIT](LICENSE)
