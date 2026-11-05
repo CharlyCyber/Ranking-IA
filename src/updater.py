@@ -1,23 +1,30 @@
 """Orquestador de actualizaciones: fetch → validate → persist → detect → notify.
 
-Reglas del safety net:
-- Cada fuente se valida ANTES de persistir; si falla, se conservan los datos
-  antiguos de ESA fuente (status "stale") en lugar de sobrescribirlos.
-- Los cambios se detectan con diff local determinista (detector.py); Gemini solo
-  interviene para pulir el boletín, y con plantilla de fallback si falla.
-- Las alertas se emiten a todos los suscriptores; los errores, solo al admin.
+Reglas del safety net y mejoras v4:
+- Lock asíncrono global para impedir ejecuciones solapadas de Playwright (protege RAM).
+- Cada fuente se valida ANTES de persistir; si falla, se conservan los datos previos como ``stale``.
+- Los cambios se detectan con diff local determinista + historial de estrellas de GitHub.
+- Broadcast resiliente: soporte de Canal Público (1 llamada = alcance ilimitado), filtrado por
+  preferencias de cada suscriptor, rate limit de 20 msg/s y baja automática en 403 Forbidden.
 """
 
 import asyncio
 import json
 import logging
 import os
-from datetime import datetime
 
-from src.config import ADMIN_CHAT_ID, TELEGRAM_TOKEN
-from src.db import Database
-from src.detector import change_summary, detect_changes, render_alert
+import httpx
+
+from src.config import ADMIN_CHAT_ID, PUBLIC_CHANNEL_ID, TELEGRAM_TOKEN
+from src.db import Database, utc_now_iso
+from src.detector import (
+    change_summary,
+    detect_changes,
+    filter_events_for_preference,
+    render_alert,
+)
 from src.fetcher import DataFetcher
+from src.html_utils import escape_html, split_html_message
 from src.trending import fetch_trending
 from src.validator import is_legacy_snapshot, validate_source
 
@@ -33,13 +40,14 @@ class DataUpdater:
         self._brain = brain
         self.db = Database()
         self.output_path = os.path.join("data", "rankings.json")
-        self.last_check = None
-        self.last_change = None
+        self.last_check: str | None = None
+        self.last_change: str | None = None
+        self._lock = asyncio.Lock()
 
     @property
     def brain(self):
         if self._brain is None:
-            from src.brain import get_brain  # importación diferida: evita ciclos y carga Gemini al arrancar
+            from src.brain import get_brain
 
             self._brain = get_brain()
         return self._brain
@@ -61,157 +69,211 @@ class DataUpdater:
                 logger.warning("No se pudo leer el snapshot local: %s", exc)
         return None
 
-    async def check_and_update(self, force=False) -> dict:
+    async def check_and_update(self, force: bool = False) -> dict:
+        now_iso = utc_now_iso()
         result = {
             "success": False,
             "updated": False,
             "changes_detected": False,
             "message": "",
-            "timestamp": datetime.now().isoformat(),
+            "timestamp": now_iso,
         }
 
-        try:
-            logger.info("🔄 Iniciando verificación de actualizaciones...")
-            old = self._load_snapshot()
-            if isinstance(old, dict) and old.get("generated_at"):
-                result["last_update"] = old["generated_at"]
+        if self._lock.locked():
+            result["message"] = "Ya hay una actualización en curso; espera unos segundos."
+            return result
 
-            # 1. Captura: rankings + tendencias (cada fuente falla de forma independiente)
-            fetched = await self.fetcher.fetch_all()
-            fetched.update(await fetch_trending())
-            result["sources_scraped"] = list(fetched)
+        async with self._lock:
+            try:
+                logger.info("🔄 Iniciando verificación de actualizaciones...")
+                old = self._load_snapshot()
+                if isinstance(old, dict) and old.get("generated_at"):
+                    result["last_update"] = old["generated_at"]
 
-            # 2. Safety net: fuente inválida conserva sus datos anteriores
-            merged: dict[str, dict] = {}
-            stale: list[str] = []
-            now_iso = datetime.now().isoformat()
-            old_sources = (old or {}).get("sources") if isinstance(old, dict) else None
-            old_sources = old_sources if isinstance(old_sources, dict) else {}
+                # Línea base de estrellas antes de insertar la nueva observación
+                star_baselines = self.db.get_repo_stars_baseline(hours=24)
 
-            for source, payload in fetched.items():
-                errors = validate_source(source, payload)
-                if not errors:
-                    merged[source] = payload
-                    continue
+                # 1. Captura: rankings + tendencias
+                fetched = await self.fetcher.fetch_all()
+                fetched.update(await fetch_trending())
+                result["sources_scraped"] = list(fetched)
 
-                stale.append(source)
-                previous = old_sources.get(source)
-                if isinstance(previous, dict) and previous.get("status") == "ok":
-                    merged[source] = {
-                        **previous,
-                        "status": "stale",
-                        "error": "; ".join(errors)[:300],
-                        "stale_since": now_iso,
-                    }
-                    logger.warning("🛡️ Safety net: %s inválida; se conservan datos previos. %s", source, errors[:3])
+                # 2. Safety net: fuente inválida conserva sus datos anteriores
+                merged: dict[str, dict] = {}
+                stale: list[str] = []
+                snap_iso = utc_now_iso()
+                old_sources = (old or {}).get("sources") if isinstance(old, dict) else None
+                old_sources = old_sources if isinstance(old_sources, dict) else {}
+
+                for source, payload in fetched.items():
+                    errors = validate_source(source, payload)
+                    if not errors:
+                        merged[source] = payload
+                        continue
+
+                    stale.append(source)
+                    previous = old_sources.get(source)
+                    if isinstance(previous, dict) and previous.get("status") in ("ok", "stale"):
+                        merged[source] = {
+                            **previous,
+                            "status": "stale",
+                            "error": "; ".join(errors)[:300],
+                            "stale_since": previous.get("stale_since") or snap_iso,
+                        }
+                        logger.warning("🛡️ Safety net: %s inválida; se conservan datos previos. %s", source, errors[:3])
+                    else:
+                        merged[source] = (
+                            payload if isinstance(payload, dict) else {"status": "error", "error": str(payload)[:300]}
+                        )
+                        logger.error("Fuente %s falló y no hay datos previos: %s", source, errors[:3])
+
+                snapshot = {"generated_at": snap_iso, "sources": merged}
+
+                # 3. Persistencia atómica: SQLite + fichero JSON
+                self.db.save_snapshot(snapshot)
+                out_dir = os.path.dirname(self.output_path)
+                if out_dir:
+                    os.makedirs(out_dir, exist_ok=True)
+                tmp_path = f"{self.output_path}.tmp"
+                with open(tmp_path, "w", encoding="utf-8") as f:
+                    json.dump(snapshot, f, ensure_ascii=False, indent=2)
+                os.replace(tmp_path, self.output_path)
+
+                result["success"] = True
+                result["updated"] = True
+                self.last_check = snap_iso
+
+                gh = merged.get("github") or {}
+                if gh.get("status") == "ok" and gh.get("items"):
+                    try:
+                        self.db.save_repo_stars(gh["items"])
+                    except Exception as exc:  # noqa: BLE001
+                        logger.warning("No se pudo guardar historial de estrellas: %s", exc)
+
+                # 4. Detección de cambios (diff local determinista; 0 tokens)
+                events = detect_changes(old, snapshot, star_baselines=star_baselines)
+                baseline = is_legacy_snapshot(old)
+
+                if events:
+                    summary = change_summary(events)
+                    self.db.save_change(summary)
+                    self.last_change = snap_iso
+
+                    if force:
+                        result["message"] = f"Actualización forzada completada ({len(events)} cambio(s) registrados)"
+                    else:
+                        result["changes_detected"] = True
+                        result["comparison_result"] = summary
+                        alert = await self._compose_alert(events, summary)
+                        delivered = await self._broadcast(alert, events=events)
+                        result["message"] = f"Cambios detectados ({len(events)} eventos), enviado a {delivered} destino(s)"
+                        logger.info("📣 %s", result["message"])
+                elif force:
+                    result["message"] = "Actualización forzada completada"
+                elif stale:
+                    result["message"] = f"Datos actualizados con {len(stale)} fuente(s) en stale: {', '.join(stale)}"
+                elif baseline:
+                    result["message"] = "Línea base estructurada establecida (primer snapshot)"
                 else:
-                    merged[source] = (
-                        payload if isinstance(payload, dict) else {"status": "error", "error": str(payload)[:300]}
-                    )
-                    logger.error("Fuente %s falló y no hay datos previos: %s", source, errors[:3])
+                    result["message"] = "Sin cambios detectados"
+                    logger.info("✅ Sin cambios significativos.")
 
-            snapshot = {"generated_at": now_iso, "sources": merged}
+                self.db.cleanup_old_data()
+                return result
 
-            # 3. Persistencia: SQLite + fichero JSON (respaldo rama `data`)
-            self.db.save_snapshot(snapshot)
-            os.makedirs("data", exist_ok=True)
-            with open(self.output_path, "w", encoding="utf-8") as f:
-                json.dump(snapshot, f, ensure_ascii=False, indent=2)
-            result["success"] = True
-            result["updated"] = True
-            self.last_check = datetime.now()
-
-            # Historial de estrellas para deltas de tendencia
-            gh = merged.get("github") or {}
-            if gh.get("status") == "ok" and gh.get("items"):
-                try:
-                    self.db.save_repo_stars(gh["items"])
-                except Exception as exc:  # noqa: BLE001 - el historial no puede tumbar la actualización
-                    logger.warning("No se pudo guardar historial de estrellas: %s", exc)
-
-            # 4. Detección de cambios (diff local; cero tokens)
-            events = detect_changes(old, snapshot)
-            baseline = is_legacy_snapshot(old)
-
-            if force:
-                result["message"] = "Actualización forzada completada"
-            elif stale and not events:
-                result["message"] = f"Datos actualizados con {len(stale)} fuente(s) en stale: {', '.join(stale)}"
-            elif events:
-                result["changes_detected"] = True
-                summary = change_summary(events)
-                result["comparison_result"] = summary
-                alert = await self._compose_alert(events, summary)
-                self.db.save_change(summary)
-                self.last_change = datetime.now()
-                delivered = await self._broadcast(alert)
-                result["message"] = f"Cambios detectados ({len(events)} eventos), enviado a {delivered} chat(s)"
-                logger.info("📣 %s", result["message"])
-            elif baseline:
-                result["message"] = "Línea base estructurada establecida (primer snapshot v3)"
-            else:
-                result["message"] = "Sin cambios detectados"
-                logger.info("✅ Sin cambios significativos.")
-
-            self.db.cleanup_old_data()
-            return result
-
-        except Exception as e:
-            error_msg = f"Error en actualización: {str(e)}"
-            logger.error(error_msg, exc_info=True)
-            result["message"] = error_msg
-            result["error"] = str(e)
-            await self._notify_admin(f"⚠️ <b>Error en actualización automática</b>\n\n{error_msg[:500]}", is_error=True)
-            return result
+            except Exception as e:
+                error_msg = f"Error en actualización: {str(e)}"
+                logger.error(error_msg, exc_info=True)
+                result["message"] = error_msg
+                result["error"] = str(e)
+                await self._notify_admin(
+                    f"⚠️ <b>Error en actualización automática</b>\n\n<code>{escape_html(error_msg[:500])}</code>",
+                    is_error=True,
+                )
+                return result
 
     # ------------------------------------------------------------- notificaciones
 
     async def _compose_alert(self, events: list[dict], summary: str) -> str:
-        """Plantilla determinista; Gemini solo pule el boletín si está disponible."""
+        """Plantilla determinista; el LLM solo pule el boletín si está disponible."""
         template = render_alert(events)
         try:
             draft = await asyncio.to_thread(self.brain.draft_newsletter, template, summary)
             if draft and len(draft.strip()) > 50:
                 return draft
-        except Exception as exc:  # noqa: BLE001 - el pulido es opcional
-            logger.warning("No se pudo pulir el boletín con Gemini: %s", exc)
+        except Exception as exc:  # noqa: BLE001
+            logger.warning("No se pudo pulir el boletín con LLM: %s", exc)
         return template
 
-    async def _broadcast(self, text: str) -> int:
-        """Envía un mensaje a todos los suscriptores (o al admin si no hay nadie)."""
+    async def _broadcast(self, text: str, events: list[dict] | None = None) -> int:
+        """Envía alertas al canal público (si existe) y a los suscriptores según sus preferencias."""
         if not TELEGRAM_TOKEN or not text:
             logger.warning("Broadcast omitido: falta TELEGRAM_TOKEN o mensaje")
             return 0
 
-        chat_ids = [c for c in self.db.list_subscribers() if c and c != "None"]
-        if not chat_ids and ADMIN_CHAT_ID:
-            chat_ids = [str(ADMIN_CHAT_ID)]
-        if not chat_ids:
-            logger.warning("Broadcast omitido: sin suscriptores ni admin")
+        delivered = 0
+
+        # 1. Canal público (alcance ilimitado con 1 sola llamada)
+        if PUBLIC_CHANNEL_ID:
+            try:
+                await self._send_to(PUBLIC_CHANNEL_ID, text)
+                delivered += 1
+            except Exception as exc:  # noqa: BLE001
+                logger.error("No se pudo publicar en el canal público %s: %s", PUBLIC_CHANNEL_ID, exc)
+
+        # 2. Suscriptores individuales filtrados por preferencia
+        subs = [s for s in self.db.list_subscribers_with_prefs() if s["chat_id"] and s["chat_id"] != "None"]
+        if not subs and not PUBLIC_CHANNEL_ID and ADMIN_CHAT_ID:
+            subs = [{"chat_id": str(ADMIN_CHAT_ID), "preferences": {"alerts": "all"}}]
+
+        if not subs and not PUBLIC_CHANNEL_ID:
+            logger.warning("Broadcast omitido: sin suscriptores ni canal público")
             return 0
 
-        delivered = 0
-        for chat_id in chat_ids:
+        for idx, sub in enumerate(subs):
+            chat_id = sub["chat_id"]
+            pref = (sub.get("preferences") or {}).get("alerts", "all")
+            if pref == "none":
+                continue
+
+            msg_to_send = text
+            if events is not None and pref != "all":
+                subset = filter_events_for_preference(events, pref)
+                if not subset:
+                    continue
+                msg_to_send = render_alert(subset)
+
             try:
-                await self._send_to(chat_id, text)
+                await self._send_to(chat_id, msg_to_send)
                 delivered += 1
-            except Exception as exc:  # noqa: BLE001 - un chat caído no debe abortar el resto
-                logger.error("No se pudo enviar a %s: %s", chat_id, exc)
+            except Exception as exc:  # noqa: BLE001
+                err_lower = str(exc).lower()
+                if any(tok in err_lower for tok in ("forbidden", "bot was blocked", "chat not found", "deactivated")):
+                    logger.info("Suscriptor %s bloqueó o cerró el chat; desactivando suscripción.", chat_id)
+                    self.db.remove_subscriber(chat_id)
+                else:
+                    logger.error("No se pudo enviar a %s: %s", chat_id, exc)
+
+            # Respetar límite de envío de Telegram (~20 mensajes/seg)
+            if idx + 1 < len(subs):
+                await asyncio.sleep(0.05)
+
         return delivered
 
     async def _send_to(self, chat_id: str, text: str) -> None:
-        if self.bot:
-            await self.bot.send_message(chat_id=int(chat_id), text=text[:4096], parse_mode="HTML")
-        else:
-            import requests
-
-            url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"
-            resp = requests.post(
-                url,
-                json={"chat_id": chat_id, "text": text[:4096], "parse_mode": "HTML"},
-                timeout=10,
-            )
-            resp.raise_for_status()
+        target: int | str = int(chat_id) if str(chat_id).lstrip("-").isdigit() else str(chat_id)
+        chunks = split_html_message(text, limit=4000)
+        for chunk in chunks:
+            if self.bot:
+                await self.bot.send_message(chat_id=target, text=chunk, parse_mode="HTML")
+            else:
+                url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"
+                async with httpx.AsyncClient(timeout=12.0) as client:
+                    resp = await client.post(
+                        url,
+                        json={"chat_id": target, "text": chunk, "parse_mode": "HTML"},
+                    )
+                    resp.raise_for_status()
 
     async def _notify_admin(self, text: str, is_error: bool = False) -> None:
         if not ADMIN_CHAT_ID:
@@ -225,15 +287,15 @@ class DataUpdater:
 
     def get_status(self) -> dict:
         return {
-            "last_check": self.last_check.isoformat() if self.last_check else None,
-            "last_change": self.last_change.isoformat() if self.last_change else None,
+            "last_check": self.last_check,
+            "last_change": self.last_change,
             "data_exists": os.path.exists(self.output_path),
             "output_path": self.output_path,
             "subscribers": len(self.db.list_subscribers()),
         }
 
 
-async def update_data(bot=None, force=False) -> dict:
+async def update_data(bot=None, force: bool = False) -> dict:
     """Función standalone (GitHub Actions / manual): python -m src.update_data."""
     updater = DataUpdater(bot=bot)
     return await updater.check_and_update(force=force)
