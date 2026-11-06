@@ -279,15 +279,15 @@ def render_elo_svg(series: dict[str, list], title: str = "Evolución de ELO (30 
     pad_l, pad_r, pad_t, pad_b = 58, 24, 48, 66
     plot_w = width - pad_l - pad_r
     plot_h = height - pad_t - pad_b
-    palette = ["#38bdf8", "#4ade80", "#fbbf24", "#f87171", "#c084fc", "#22d3ee", "#fb923c", "#f472b6"]
+    palette = ["#a3ff12", "#ffffff", "#38bdf8", "#fbbf24", "#c084fc", "#22d3ee", "#fb923c", "#f472b6"]
 
     all_dates = sorted({pt[0] for pts in series.values() for pt in pts})
     all_vals = [pt[1] for pts in series.values() for pt in pts if isinstance(pt[1], (int, float))]
 
     svg = [
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}" width="{width}" height="{height}">',
-        '<rect width="100%" height="100%" rx="12" fill="#0f172a"/>',
-        f'<text x="{pad_l}" y="28" fill="#38bdf8" font-family="system-ui,sans-serif" font-size="15" font-weight="700">'
+        '<rect width="100%" height="100%" rx="18" fill="#0c1017"/>',
+        f'<text x="{pad_l}" y="28" fill="#a3ff12" font-family="system-ui,sans-serif" font-size="15" font-weight="700">'
         f"{escape_html(title)}</text>",
     ]
 
@@ -362,7 +362,7 @@ def build_quickchart_url(models: list[dict], title: str = "Top Modelos IA (ELO)"
         "type": "horizontalBar",
         "data": {
             "labels": labels,
-            "datasets": [{"label": "ELO", "data": values, "backgroundColor": "#38bdf8"}],
+            "datasets": [{"label": "ELO", "data": values, "backgroundColor": "#a3ff12"}],
         },
         "options": {
             "title": {"display": True, "text": title, "fontColor": "#f1f5f9"},
@@ -374,4 +374,4 @@ def build_quickchart_url(models: list[dict], title: str = "Top Modelos IA (ELO)"
         },
     }
     encoded = quote(json.dumps(cfg, separators=(",", ":")))
-    return f"https://quickchart.io/chart?bkg=%230f172a&w=700&h=380&c={encoded}"
+    return f"https://quickchart.io/chart?bkg=%230c1017&w=700&h=380&c={encoded}"
