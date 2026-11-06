@@ -251,3 +251,36 @@ async def test_lock_impide_ejecuciones_concurrentes(tmp_path, monkeypatch):
         assert res["success"] is False
         assert "en curso" in res["message"]
 
+
+async def test_skip_telegram_broadcast_en_modo_respaldo(tmp_path, monkeypatch):
+    """Cuando el bot 24/7 ya está vivo, el backup horario persiste datos sin duplicar mensajes."""
+    monkeypatch.setattr("src.config.SKIP_TELEGRAM_BROADCAST", True)
+    fetch_results = {"arena": {"status": "ok", "models": _models(swap_top=True)}}
+    updater, bot = _make_updater(tmp_path, monkeypatch, fetch_results, old_snapshot=OLD_V3)
+
+    res = await updater.check_and_update(force=False)
+    assert res["success"] is True
+    assert res["changes_detected"] is False
+    assert bot.sent == []
+    assert len(updater.db.get_changes(days=1)) == 1
+
+
+async def test_deduplicacion_evita_doble_alerta_del_mismo_cambio(tmp_path, monkeypatch):
+    """Si otro proceso ya registró el mismo cambio hace pocos minutos, no se reenvía."""
+    from src.detector import change_summary, detect_changes
+
+    new_models = _models(swap_top=True)
+    fetch_results = {"arena": {"status": "ok", "models": new_models}}
+    updater, bot = _make_updater(tmp_path, monkeypatch, fetch_results, old_snapshot=OLD_V3)
+
+    expected_summary = change_summary(
+        detect_changes(OLD_V3, {"generated_at": "2026-11-05T10:00:00", "sources": fetch_results})
+    )
+    updater.db.save_change(expected_summary)
+
+    res = await updater.check_and_update(force=False)
+    assert res["success"] is True
+    assert res["changes_detected"] is False
+    assert bot.sent == []
+
+

@@ -1,6 +1,8 @@
 # 🏆 Ranking AI Agent v4 — Open & Free AI Leaderboard Hub
 
-Plataforma abierta y gratuita (Bot de Telegram + Dashboard Web / Mini App + API Abierta + RSS) que monitoriza en tiempo real **los rankings, precios y tendencias de modelos de IA**, con alertas deterministas cada 30 minutos, **briefing matutino cacheado** (`/hoy`), **menús instantáneos a 0 tokens** y **Modo Inline** para compartir comparativas en cualquier grupo.
+Plataforma abierta y gratuita (Bot de Telegram + Dashboard Web / Mini App + API Abierta + RSS) que monitoriza automáticamente **cada 1 hora los rankings, precios y tendencias de modelos de IA** (avisando únicamente cuando hay cambios reales), con **briefing matutino cacheado** (`/hoy`), **menús instantáneos a 0 tokens** y **Modo Inline** para compartir comparativas en cualquier grupo.
+
+> 🟢 **¿Quieres dejarlo encendido 24/7 sin que se duerma jamás a $0/mes?** Sigue paso a paso [**DEPLOY_24_7_GRATIS.md**](DEPLOY_24_7_GRATIS.md) (incluye `Dockerfile` con Chromium preinstalado para **Hugging Face Spaces 16 GB Gratis** / **Render** + failover automático en GitHub Actions).
 
 ## ✨ Novedades de la v4.0
 

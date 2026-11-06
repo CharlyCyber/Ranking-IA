@@ -1,8 +1,8 @@
-name: Update AI Rankings
+name: Hourly AI Rankings & Failover
 
 on:
   schedule:
-    - cron: '0 */6 * * *' # Respaldo público cada 6 horas en la rama `data`
+    - cron: '0 * * * *' # Revisión cada 1 hora: respalda datos y actúa como failover automático si el bot 24/7 cae
   workflow_dispatch:
 
 permissions:
@@ -13,7 +13,6 @@ env:
 
 jobs:
   scrape-and-update:
-    # Fijado a ubuntu-24.04 para compatibilidad garantizada con binarios de Playwright
     runs-on: ubuntu-24.04
 
     steps:
@@ -29,12 +28,25 @@ jobs:
           python-version: '3.12'
           cache: pip
 
+      - name: Check if 24/7 Bot is Awake (Smart Failover)
+        id: bot_check
+        env:
+          BOT_URL: ${{ secrets.BOT_URL }}
+        run: |
+          if [ -n "$BOT_URL" ] && curl --fail --silent --location --max-time 15 "${BOT_URL%/}/health" >/dev/null; then
+            echo "✅ Bot 24/7 activo en $BOT_URL: ejecutando solo respaldo silencioso (sin duplicar alertas)."
+            echo "skip_broadcast=1" >> "$GITHUB_OUTPUT"
+          else
+            echo "🛡️ Bot externo no alcanzado o BOT_URL vacía: GitHub Actions enviará alertas si hay cambios."
+            echo "skip_broadcast=0" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
           python -m playwright install --with-deps chromium
 
-      - name: Run Scraper
+      - name: Run Hourly Scraper
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           CHAT_ID: ${{ secrets.CHAT_ID }}
@@ -45,6 +57,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TURSO_DATABASE_URL: ${{ secrets.TURSO_DATABASE_URL }}
           TURSO_AUTH_TOKEN: ${{ secrets.TURSO_AUTH_TOKEN }}
+          SKIP_TELEGRAM_BROADCAST: ${{ steps.bot_check.outputs.skip_broadcast }}
         run: python -m src.update_data
 
       - name: Commit and push JSON snapshot to data branch
@@ -61,12 +74,11 @@ jobs:
           fi
           mkdir -p data
           cp /tmp/rankings.json data/rankings.json
-          # Nunca versionar binarios SQLite ni IDs de suscriptores en Git público
           git rm -f --ignore-unmatch data/rankings.db || true
           git add -f data/rankings.json
           if git diff --cached --quiet; then
             echo "Sin cambios en los datos."
           else
-            git commit -m "🔄 Actualización automática de rankings"
+            git commit -m "🔄 Actualización horaria automática de rankings"
             git push origin data
           fi

@@ -20,6 +20,13 @@ def _env_int(name: str, default: int, minimum: int | None = None, maximum: int |
     return value
 
 
+def _env_bool(name: str, default: bool = False) -> bool:
+    raw = (os.getenv(name) or "").strip().lower()
+    if not raw:
+        return default
+    return raw in ("1", "true", "yes", "on")
+
+
 TELEGRAM_TOKEN = (os.getenv("TELEGRAM_TOKEN") or "").strip() or None
 GEMINI_API_KEY = (os.getenv("GEMINI_API_KEY") or "").strip() or None
 GROQ_API_KEY = (os.getenv("GROQ_API_KEY") or "").strip() or None
@@ -32,7 +39,12 @@ ADMIN_CHAT_ID = (os.getenv("CHAT_ID") or "").strip() or None
 PUBLIC_CHANNEL_ID = (os.getenv("PUBLIC_CHANNEL_ID") or "").strip() or None
 
 # URL pública externa (activa ping externo real y Telegram Mini App)
-PUBLIC_URL = (os.getenv("PUBLIC_URL") or os.getenv("RENDER_EXTERNAL_URL") or "").strip().rstrip("/")
+# En Hugging Face Spaces se puede inferir de SPACE_HOST si no se define PUBLIC_URL
+_space_host = (os.getenv("SPACE_HOST") or "").strip()
+_default_public = f"https://{_space_host}" if _space_host else ""
+PUBLIC_URL = (
+    os.getenv("PUBLIC_URL") or os.getenv("RENDER_EXTERNAL_URL") or _default_public
+).strip().rstrip("/")
 
 # Persistencia gratuita en la nube vía HTTP API de Turso (libSQL)
 TURSO_DATABASE_URL = (os.getenv("TURSO_DATABASE_URL") or "").strip().rstrip("/")
@@ -46,13 +58,19 @@ URLS = {
     "design_arena": "https://www.designarena.ai/leaderboard",
 }
 
-# --- Tendencias, briefing y límites ---
+# --- Frecuencia, tendencias, briefing y límites ---
 GITHUB_TOKEN = (os.getenv("GITHUB_TOKEN") or "").strip() or None
 
 # URL raw de data/rankings.json en la rama `data` (respaldo remoto opcional)
 DATA_JSON_URL = (os.getenv("DATA_JSON_URL") or "").strip()
 
-# Hora del briefing diario /hoy (0-23)
+# Intervalo de revisión automática en minutos (por defecto 60 = cada 1 hora)
+UPDATE_INTERVAL_MINUTES = _env_int("UPDATE_INTERVAL_MINUTES", 60, minimum=5, maximum=1440)
+
+# Modo respaldo silencioso (usado por GitHub Actions cuando el bot 24/7 ya está despierto)
+SKIP_TELEGRAM_BROADCAST = _env_bool("SKIP_TELEGRAM_BROADCAST", default=False)
+
+# Hora UTC del briefing diario /hoy (0-23)
 DAILY_BRIEF_HOUR = _env_int("DAILY_BRIEF_HOUR", 9, minimum=0, maximum=23)
 
 # Presupuesto global diario de llamadas a LLM (protege la cuota compartida)

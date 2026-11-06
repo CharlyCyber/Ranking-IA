@@ -1,0 +1,16 @@
+.git
+.github
+.kilocode
+.kilocodemodes
+.pytest_cache
+.ruff_cache
+__pycache__/
+*.pyc
+.env
+venv/
+tests/
+screenshots/
+data/*.db
+data/*.db-shm
+data/*.db-wal
+Versión 2.0.txt

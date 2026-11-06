@@ -16,7 +16,10 @@ def client():
 def test_health(client):
     resp = client.get("/health")
     assert resp.status_code == 200
-    assert resp.get_json()["status"] == "ok"
+    body = resp.get_json()
+    assert body["status"] == "ok"
+    assert body["update_interval_minutes"] == 60
+    assert "chromium_ready" in body
 
 
 def test_root_redirige_navegador_y_responde_json_a_api(client):

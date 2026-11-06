@@ -1,20 +1,22 @@
 """Orquestador de actualizaciones: fetch → validate → persist → detect → notify.
 
-Reglas del safety net y mejoras v4:
+Reglas del safety net y mejoras v4.1 (24/7):
 - Lock asíncrono global para impedir ejecuciones solapadas de Playwright (protege RAM).
 - Cada fuente se valida ANTES de persistir; si falla, se conservan los datos previos como ``stale``.
-- Los cambios se detectan con diff local determinista + historial de estrellas de GitHub.
-- Broadcast resiliente: soporte de Canal Público (1 llamada = alcance ilimitado), filtrado por
-  preferencias de cada suscriptor, rate limit de 20 msg/s y baja automática en 403 Forbidden.
+- Deduplicación idempotente de cambios recientes (evita alertas duplicadas si conviven bot + backup).
+- Soporte ``SKIP_TELEGRAM_BROADCAST`` para respaldo silencioso desde GitHub Actions cuando el bot
+  24/7 ya está activo, con failover automático si el bot cae.
 """
 
 import asyncio
 import json
 import logging
 import os
+from datetime import datetime, timedelta, timezone
 
 import httpx
 
+import src.config as cfg
 from src.config import ADMIN_CHAT_ID, PUBLIC_CHANNEL_ID, TELEGRAM_TOKEN
 from src.db import Database, utc_now_iso
 from src.detector import (
@@ -25,6 +27,7 @@ from src.detector import (
 )
 from src.fetcher import DataFetcher
 from src.html_utils import escape_html, split_html_message
+from src.keepalive import RUNTIME_STATE
 from src.trending import fetch_trending
 from src.validator import is_legacy_snapshot, validate_source
 
@@ -69,6 +72,14 @@ class DataUpdater:
                 logger.warning("No se pudo leer el snapshot local: %s", exc)
         return None
 
+    def _is_recent_duplicate_change(self, summary: str, hours: int = 2) -> bool:
+        """Evita emitir dos veces exactamente el mismo cambio si comparten BD (ej. Turso)."""
+        cutoff = (datetime.now(timezone.utc).replace(tzinfo=None) - timedelta(hours=hours)).isoformat()
+        for ch in self.db.get_changes(days=1):
+            if ch.get("detected_at", "") >= cutoff and ch.get("summary") == summary:
+                return True
+        return False
+
     async def check_and_update(self, force: bool = False) -> dict:
         now_iso = utc_now_iso()
         result = {
@@ -85,12 +96,11 @@ class DataUpdater:
 
         async with self._lock:
             try:
-                logger.info("🔄 Iniciando verificación de actualizaciones...")
+                logger.info("🔄 Iniciando verificación horaria de actualizaciones...")
                 old = self._load_snapshot()
                 if isinstance(old, dict) and old.get("generated_at"):
                     result["last_update"] = old["generated_at"]
 
-                # Línea base de estrellas antes de insertar la nueva observación
                 star_baselines = self.db.get_repo_stars_baseline(hours=24)
 
                 # 1. Captura: rankings + tendencias
@@ -153,14 +163,21 @@ class DataUpdater:
                 # 4. Detección de cambios (diff local determinista; 0 tokens)
                 events = detect_changes(old, snapshot, star_baselines=star_baselines)
                 baseline = is_legacy_snapshot(old)
+                skip_broadcast = bool(cfg.SKIP_TELEGRAM_BROADCAST)
 
                 if events:
                     summary = change_summary(events)
-                    self.db.save_change(summary)
+                    already_sent = self._is_recent_duplicate_change(summary)
+                    if not already_sent:
+                        self.db.save_change(summary)
                     self.last_change = snap_iso
 
                     if force:
                         result["message"] = f"Actualización forzada completada ({len(events)} cambio(s) registrados)"
+                    elif skip_broadcast or already_sent:
+                        reason = "modo respaldo silencioso" if skip_broadcast else "cambio ya notificado recientemente"
+                        result["message"] = f"Cambios detectados ({len(events)}), broadcast omitido ({reason})"
+                        logger.info("ℹ️ %s", result["message"])
                     else:
                         result["changes_detected"] = True
                         result["comparison_result"] = summary
@@ -178,6 +195,9 @@ class DataUpdater:
                     result["message"] = "Sin cambios detectados"
                     logger.info("✅ Sin cambios significativos.")
 
+                RUNTIME_STATE["last_update_check"] = snap_iso
+                RUNTIME_STATE["last_update_message"] = result["message"]
+
                 self.db.cleanup_old_data()
                 return result
 
@@ -186,10 +206,13 @@ class DataUpdater:
                 logger.error(error_msg, exc_info=True)
                 result["message"] = error_msg
                 result["error"] = str(e)
-                await self._notify_admin(
-                    f"⚠️ <b>Error en actualización automática</b>\n\n<code>{escape_html(error_msg[:500])}</code>",
-                    is_error=True,
-                )
+                RUNTIME_STATE["last_update_check"] = utc_now_iso()
+                RUNTIME_STATE["last_update_message"] = error_msg[:200]
+                if not cfg.SKIP_TELEGRAM_BROADCAST:
+                    await self._notify_admin(
+                        f"⚠️ <b>Error en actualización automática</b>\n\n<code>{escape_html(error_msg[:500])}</code>",
+                        is_error=True,
+                    )
                 return result
 
     # ------------------------------------------------------------- notificaciones
@@ -213,7 +236,6 @@ class DataUpdater:
 
         delivered = 0
 
-        # 1. Canal público (alcance ilimitado con 1 sola llamada)
         if PUBLIC_CHANNEL_ID:
             try:
                 await self._send_to(PUBLIC_CHANNEL_ID, text)
@@ -221,7 +243,6 @@ class DataUpdater:
             except Exception as exc:  # noqa: BLE001
                 logger.error("No se pudo publicar en el canal público %s: %s", PUBLIC_CHANNEL_ID, exc)
 
-        # 2. Suscriptores individuales filtrados por preferencia
         subs = [s for s in self.db.list_subscribers_with_prefs() if s["chat_id"] and s["chat_id"] != "None"]
         if not subs and not PUBLIC_CHANNEL_ID and ADMIN_CHAT_ID:
             subs = [{"chat_id": str(ADMIN_CHAT_ID), "preferences": {"alerts": "all"}}]
@@ -254,7 +275,6 @@ class DataUpdater:
                 else:
                     logger.error("No se pudo enviar a %s: %s", chat_id, exc)
 
-            # Respetar límite de envío de Telegram (~20 mensajes/seg)
             if idx + 1 < len(subs):
                 await asyncio.sleep(0.05)
 

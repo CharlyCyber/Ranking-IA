@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: ranking-ia-agent
+    runtime: docker
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: UPDATE_INTERVAL_MINUTES
+        value: "60"
+      - key: SKIP_CHROMIUM_INSTALL
+        value: "1"
+      - key: TELEGRAM_TOKEN
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: CHAT_ID
+        sync: false
+      - key: GROQ_API_KEY
+        sync: false
+      - key: TURSO_DATABASE_URL
+        sync: false
+      - key: TURSO_AUTH_TOKEN
+        sync: false

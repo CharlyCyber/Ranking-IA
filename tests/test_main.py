@@ -54,3 +54,29 @@ def deque_with_old_timestamp():
 class TestStripHtml:
     def test_quita_etiquetas_y_decodifica(self):
         assert m._strip_html("<b>Hola</b> &amp; <i>mundo</i>") == "Hola & mundo"
+
+
+class TestHourlySchedule:
+    async def test_post_init_registra_revision_cada_1_hora(self):
+        from types import SimpleNamespace
+
+        assert m.UPDATE_INTERVAL_MINUTES == 60
+        repeating_jobs = {}
+
+        def record_repeating(cb, interval, first, name):
+            repeating_jobs[name] = {"interval": interval, "first": first}
+
+        async def noop_commands(*args, **kwargs):
+            return None
+
+        app = SimpleNamespace(
+            bot_data={},
+            bot=SimpleNamespace(set_my_commands=noop_commands),
+            job_queue=SimpleNamespace(
+                run_repeating=record_repeating,
+                run_daily=lambda *a, **k: None,
+            ),
+        )
+        await m.post_init(app)
+        assert repeating_jobs["periodic_update"]["interval"] == 3600
+
