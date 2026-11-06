@@ -38,6 +38,9 @@ def test_dashboard_renderiza(client):
     assert b"chartElo" in resp.data
     assert b"selSource" in resp.data
     assert b"modelSearch" in resp.data
+    assert b"white-sheet" in resp.data
+    assert b"sheet-notch" in resp.data
+    assert b"detail-dark-card" in resp.data
 
 
 def test_elo_history_series_temporales(client, monkeypatch, v3_snapshot):
