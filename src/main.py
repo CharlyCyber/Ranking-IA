@@ -53,9 +53,10 @@ from src.config import (
     PUBLIC_CHANNEL_ID,
     PUBLIC_URL,
     TELEGRAM_TOKEN,
+    UPDATE_INTERVAL_MINUTES,
     USER_RATE_LIMIT,
 )
-from src.db import Database
+from src.db import Database, utc_now_iso
 from src.html_utils import (
     escape_html,
     sanitize_telegram_html,
@@ -68,7 +69,7 @@ from src.insights import (
     render_model_card_html,
     search_models,
 )
-from src.keepalive import run_flask, self_ping
+from src.keepalive import RUNTIME_STATE, run_flask, self_ping
 from src.trending import render_trending_brief
 from src.updater import DataUpdater
 
@@ -370,9 +371,10 @@ async def status(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await update.message.reply_text(
         f"📊 <b>Estado del Sistema</b>\n\n"
         f"<b>Datos:</b> {escape_html(data_status)}\n"
+        f"<b>Revisión automática:</b> cada {UPDATE_INTERVAL_MINUTES} min (avisa solo cambios)\n"
         f"<b>IA Brain:</b> {brain_status}\n"
         f"<b>Suscriptores activos:</b> {len(db.list_subscribers())}\n"
-        f"<b>Versión:</b> 4.0 (Open Free Hub)\n"
+        f"<b>Versión:</b> 4.1 (24/7 Always-On)\n"
         f"<b>Uptime desde:</b> {escape_html(context.bot_data.get('start_time', 'N/A'))}",
         parse_mode="HTML",
     )
@@ -383,7 +385,7 @@ async def force_update(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
     if not is_admin(update.effective_chat.id):
         await update.message.reply_text(
             "🔒 El comando <code>/forceupdate</code> está reservado al administrador.\n"
-            "Los datos se actualizan solos cada 30 min; usa /menu o /hoy para ver el último corte.",
+            f"Los datos se revisan solos cada {UPDATE_INTERVAL_MINUTES} min; usa /menu o /hoy para ver el último corte.",
             parse_mode="HTML",
         )
         return
@@ -727,12 +729,14 @@ async def error_handler(update: object, context: ContextTypes.DEFAULT_TYPE) -> N
 
 
 async def heartbeat(context: ContextTypes.DEFAULT_TYPE) -> None:
-    logger.info("💓 Heartbeat — Bot activo a las %s UTC", datetime.now(timezone.utc).isoformat())
+    now_str = utc_now_iso()
+    RUNTIME_STATE["last_heartbeat"] = now_str
+    logger.info("💓 Heartbeat — Bot activo a las %s UTC", now_str)
 
 
 async def periodic_update(context: ContextTypes.DEFAULT_TYPE) -> None:
-    """Job principal: actualiza rankings + tendencias cada 30 minutos."""
-    logger.info("🔄 [Job] Iniciando actualización periódica...")
+    """Job principal: revisa rankings + tendencias cada UPDATE_INTERVAL_MINUTES (60 min por defecto)."""
+    logger.info("🔄 [Job] Iniciando revisión periódica (%d min)...", UPDATE_INTERVAL_MINUTES)
     try:
         result = await get_updater(context.bot).check_and_update(force=False)
         if result["changes_detected"]:
@@ -746,6 +750,8 @@ async def periodic_update(context: ContextTypes.DEFAULT_TYPE) -> None:
 async def post_init(application) -> None:
     """Registra comandos visibles y jobs periódicos tras inicializar el bot."""
     application.bot_data["start_time"] = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+    RUNTIME_STATE["bot_polling_active"] = True
+    RUNTIME_STATE["last_heartbeat"] = utc_now_iso()
     logger.info("🚀 Bot inicializado. Registrando jobs periódicos...")
 
     try:
@@ -763,9 +769,15 @@ async def post_init(application) -> None:
     except Exception as exc:  # noqa: BLE001
         logger.warning("No se pudo registrar menú de comandos en Telegram: %s", exc)
 
+    update_seconds = max(300, UPDATE_INTERVAL_MINUTES * 60)
     application.job_queue.run_repeating(self_ping, interval=300, first=30, name="self_ping")
     application.job_queue.run_repeating(heartbeat, interval=1800, first=60, name="heartbeat")
-    application.job_queue.run_repeating(periodic_update, interval=1800, first=120, name="periodic_update")
+    application.job_queue.run_repeating(
+        periodic_update,
+        interval=update_seconds,
+        first=45,
+        name="periodic_update",
+    )
     application.job_queue.run_daily(
         daily_briefing,
         time=dtime(hour=DAILY_BRIEF_HOUR, minute=0, tzinfo=timezone.utc),
@@ -773,8 +785,9 @@ async def post_init(application) -> None:
     )
 
     logger.info(
-        "✅ Jobs registrados: self_ping (5 min), heartbeat (30 min), periodic_update (30 min), "
-        "daily_briefing (%02d:00 UTC)",
+        "✅ Jobs registrados: self_ping (5 min), heartbeat (30 min), "
+        "periodic_update (%d min), daily_briefing (%02d:00 UTC)",
+        UPDATE_INTERVAL_MINUTES,
         DAILY_BRIEF_HOUR,
     )
 
@@ -783,9 +796,10 @@ async def post_init(application) -> None:
 
 
 def ensure_chromium() -> None:
-    """Instala Chromium de Playwright si falta y no está deshabilitado por entorno."""
+    """Instala Chromium en segundo plano si falta (sin bloquear el puerto HTTP al arrancar)."""
     if os.getenv("SKIP_CHROMIUM_INSTALL", "").lower() in ("1", "true", "yes"):
-        logger.info("⏭️ SKIP_CHROMIUM_INSTALL activo: omitiendo descarga de Chromium en el proceso del bot.")
+        RUNTIME_STATE["chromium_ready"] = True
+        logger.info("⏭️ SKIP_CHROMIUM_INSTALL activo: Chromium preinstalado en contenedor.")
         return
     try:
         import subprocess
@@ -797,6 +811,7 @@ def ensure_chromium() -> None:
             timeout=600,
             capture_output=True,
         )
+        RUNTIME_STATE["chromium_ready"] = True
         logger.info("🌐 Chromium de Playwright disponible")
     except Exception as exc:  # noqa: BLE001
         logger.error("❌ No se pudo preparar Chromium para Playwright: %s", exc)
@@ -804,11 +819,15 @@ def ensure_chromium() -> None:
 
 if __name__ == "__main__":
     os.makedirs("data", exist_ok=True)
-    ensure_chromium()
 
+    # 1. Abrir el puerto HTTP ANTES que nada (<100 ms) para evitar timeouts en Render / HF Spaces
     flask_thread = threading.Thread(target=run_flask, name="FlaskKeepAlive", daemon=True)
     flask_thread.start()
-    logger.info("🌐 Servidor Flask (Dashboard + API abierta + health) iniciado en hilo separado")
+    logger.info("🌐 Servidor HTTP iniciado inmediatamente (puerto abierto para healthcheck 24/7)")
+
+    # 2. Verificar/instalar Chromium en hilo de fondo sin bloquear el arranque del bot
+    chromium_thread = threading.Thread(target=ensure_chromium, name="ChromiumSetup", daemon=True)
+    chromium_thread.start()
 
     if not TELEGRAM_TOKEN:
         logger.error("❌ No se encontró TELEGRAM_TOKEN en las variables de entorno; sirviendo solo Dashboard Web.")

@@ -647,7 +647,7 @@ DASHBOARD_HTML = """
             document.getElementById('cambiosCount').textContent = data.length;
 
             if (data.length === 0) {
-                document.getElementById('cambiosLista').innerHTML = '<div style="color:var(--muted);font-size:0.83rem;">Sin cambios bruscos recientes; monitorizando cada 30 min.</div>';
+                document.getElementById('cambiosLista').innerHTML = '<div style="color:var(--muted);font-size:0.83rem;">Sin cambios bruscos recientes; revisando automáticamente cada 1 hora.</div>';
                 return;
             }
             document.getElementById('cambiosLista').innerHTML = data.slice(0, 12).map(c => {
