@@ -174,31 +174,49 @@ def render_category_card(snapshot: dict | None, view: str) -> str:
     sources = snapshot["sources"]
     arena = sources.get("arena") if isinstance(sources.get("arena"), dict) else {}
     arena_models = arena.get("models") or []
+    gen_date = str(snapshot.get("generated_at") or "")[:10]
+    footer_date = f"\n\n🕒 <i>Actualizado: {escape_html(gen_date)} · Más puntos = mayor calidad real.</i>" if gen_date else ""
+    medals = {1: "🥇", 2: "🥈", 3: "🥉"}
 
     if view == "general":
-        rows = [m for m in arena_models if m.get("category") in ("Text", None)][:10]
+        rows = sorted(
+            [m for m in arena_models if m.get("category") in ("Text", None)],
+            key=lambda m: m.get("rank", 999),
+        )[:10]
         if not rows:
             return "⚠️ <i>Ranking General de Arena no disponible en este momento.</i>"
-        lines = ["🏆 <b>Top 10 IA General (LMSYS Arena · Text)</b>\n"]
+        lines = ["🏆 <b>Top 10 IA General (LMSYS Arena · ELO)</b>\n"]
         for m in rows:
-            price = f" · 💰 {fmt_price(m.get('prompt_per_m'), m.get('completion_per_m'))}" if m.get("prompt_per_m") is not None else ""
-            lines.append(f"<b>{m['rank']}. {escape_html(m['model'])}</b> — <code>{m.get('score')}</code> elo{price}")
-        return "\n".join(lines)
+            rk = m.get("rank", 99)
+            prefix = f"{medals[rk]} " if rk in medals else f"<b>{rk}.</b> "
+            price = (
+                f" · 💰 {fmt_price(m.get('prompt_per_m'), m.get('completion_per_m'))}"
+                if m.get("prompt_per_m") is not None
+                else ""
+            )
+            lines.append(f"{prefix}<b>{escape_html(m['model'])}</b> — <code>{m.get('score')}</code> elo{price}")
+        return "\n".join(lines) + footer_date
 
     if view == "coding":
-        code_rows = [m for m in arena_models if m.get("category") in ("Code", "WebDev")][:8]
+        only_code = sorted([m for m in arena_models if m.get("category") == "Code"], key=lambda m: m.get("rank", 999))[:5]
+        only_web = sorted([m for m in arena_models if m.get("category") == "WebDev"], key=lambda m: m.get("rank", 999))[:5]
         design = (sources.get("design") or {}).get("models") or []
         lines = []
-        if code_rows:
-            cat_name = code_rows[0].get("category") or "Code"
-            lines.append(f"💻 <b>Top Programación (Arena · {escape_html(cat_name)})</b>")
-            for m in code_rows[:6]:
+        if only_code:
+            lines.append("💻 <b>Top Programación Pura (Arena · Code)</b>")
+            for m in only_code:
+                lines.append(f"  {m['rank']}. <b>{escape_html(m['model'])}</b> — <code>{m.get('score')}</code> elo")
+        if only_web:
+            if lines:
+                lines.append("")
+            lines.append("🌐 <b>Top Desarrollo Web & Apps (Arena · WebDev)</b>")
+            for m in only_web:
                 lines.append(f"  {m['rank']}. <b>{escape_html(m['model'])}</b> — <code>{m.get('score')}</code> elo")
         if design:
-            lines.append("\n🎨 <b>Top Frontend / UI (Design Arena)</b>")
-            for m in design[:5]:
+            lines.append("\n🎨 <b>Top Diseño de Interfaces (Design Arena)</b>")
+            for m in design[:4]:
                 lines.append(f"  {m['rank']}. <b>{escape_html(m['model'])}</b> — <code>{m.get('score')}</code> elo")
-        return "\n".join(lines) if lines else "⚠️ <i>Datos de programación no disponibles ahora mismo.</i>"
+        return ("\n".join(lines) + footer_date) if lines else "⚠️ <i>Datos de programación no disponibles ahora mismo.</i>"
 
     if view == "multimodal":
         lines = ["🎬 <b>Líderes Multimodales (Arena)</b>"]

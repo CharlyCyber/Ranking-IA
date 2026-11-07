@@ -118,6 +118,21 @@ class DataUpdater:
                 for source, payload in fetched.items():
                     errors = validate_source(source, payload)
                     if not errors:
+                        if (
+                            source == "arena"
+                            and payload.get("method") == "api"
+                            and isinstance(old_sources.get("arena"), dict)
+                        ):
+                            new_models = list(payload.get("models") or [])
+                            new_cats = {m.get("category") for m in new_models if isinstance(m, dict) and m.get("category")}
+                            prev_models = old_sources["arena"].get("models") or []
+                            extra_multimodal = [
+                                m
+                                for m in prev_models
+                                if isinstance(m, dict) and m.get("category") and m.get("category") not in new_cats
+                            ]
+                            if extra_multimodal:
+                                payload = {**payload, "models": new_models + extra_multimodal}
                         merged[source] = payload
                         continue
 

@@ -117,9 +117,12 @@ def sanitize_telegram_html(text: str) -> str:
     """Convierte HTML potencialmente roto o inseguro en HTML válido para Telegram."""
     if not text:
         return ""
+    # Escapar cualquier '<' huérfano que no tenga '>' de cierre antes del siguiente '<' o fin de texto,
+    # evitando que HTMLParser descarte el resto del mensaje si un modelo escribe '<texto' sin cerrar.
+    safe_input = re.sub(r"<(?=[^<>]*(?:<|$))", "&lt;", text)
     parser = _TelegramHTMLSanitizer()
     try:
-        parser.feed(text)
+        parser.feed(safe_input)
         parser.close()
         return parser.get_html()
     except Exception:

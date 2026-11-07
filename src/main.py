@@ -325,6 +325,27 @@ async def buscar_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None
     await send_html(context.bot, update.effective_chat.id, body)
 
 
+def _build_chart_caption(arena_models: list[dict], generated_at: str | dict | None = None) -> str:
+    """Construye un pie de foto completo (<1000 chars) con el Top 8 actual y fecha de corte."""
+    if isinstance(generated_at, dict):
+        generated_at = generated_at.get("generated_at")
+    medals = {1: "🥇", 2: "🥈", 3: "🥉"}
+    lines = ["📈 <b>Top IA General (LMSYS Arena · ELO)</b>"]
+    if generated_at:
+        lines.append(f"🕒 <i>Corte actualizado: {escape_html(str(generated_at)[:16].replace('T', ' '))} UTC</i>")
+    lines.append("")
+    text_rows = [m for m in arena_models if m.get("category") in ("Text", None)] or arena_models
+    sorted_rows = sorted(text_rows, key=lambda m: m.get("rank", 999))[:8]
+    for m in sorted_rows:
+        rk = m.get("rank", "?")
+        badge = medals.get(rk, f"<b>{rk}.</b>")
+        score = m.get("score")
+        metric = f" — <code>{score}</code> pts" if score is not None else ""
+        lines.append(f"{badge} <b>{escape_html(m.get('model'))}</b>{metric}")
+    lines.append("\n💡 <i>Más puntos = mayor calidad votada a ciegas por humanos. Usa /menu para ver Código, Webs y Gratis.</i>")
+    return "\n".join(lines)[:1000]
+
+
 async def chart_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Envía gráfica PNG compartible del Top Arena actual vía QuickChart (gratis)."""
     snapshot = await load_snapshot()
@@ -337,16 +358,21 @@ async def chart_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     if not url:
         await update.message.reply_text("⚠️ Aún no hay suficientes puntuaciones ELO para generar la gráfica.")
         return
-    caption = "📈 <b>Top IA General (LMSYS Arena · ELO)</b>\nUsa /menu para explorar el resto de categorías."
+    caption = _build_chart_caption(arena_models, (snapshot or {}).get("generated_at"))
     try:
         await context.bot.send_photo(
             chat_id=update.effective_chat.id,
             photo=url,
             caption=caption,
             parse_mode="HTML",
+            reply_markup=build_main_keyboard(),
         )
     except Exception:  # noqa: BLE001 - fallback a enlace directo si Telegram no puede descargar la imagen
-        await update.message.reply_text(f"{caption}\n\n🔗 <a href=\"{escape_html(url)}\">Abrir gráfica</a>", parse_mode="HTML")
+        await update.message.reply_text(
+            f"{caption}\n\n🔗 <a href=\"{escape_html(url)}\">Abrir gráfica completa</a>",
+            parse_mode="HTML",
+            reply_markup=build_main_keyboard(),
+        )
 
 
 async def status(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
@@ -416,7 +442,7 @@ async def force_update(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
 
 
 def _rankings_digest(snapshot: dict | None) -> str:
-    """Resumen breve de rankings para el briefing: últimos cambios + top Text."""
+    """Resumen completo y claro de rankings para el briefing: cambios + General + Código/Web."""
     parts: list[str] = []
 
     changes = db.get_changes(days=1)
@@ -427,16 +453,33 @@ def _rankings_digest(snapshot: dict | None) -> str:
 
     if isinstance(snapshot, dict):
         arena = (snapshot.get("sources") or {}).get("arena") or {}
-        top = [
-            m
-            for m in (arena.get("models") or [])
-            if m.get("category") in ("Text", None) and m.get("rank", 99) <= 5
-        ]
-        top.sort(key=lambda m: m.get("rank", 99))
-        if top:
-            parts.append("🏆 <b>Top Arena (Text)</b>")
-            for m in top:
-                parts.append(f"  {m['rank']}. {escape_html(m['model'])} — {m.get('score')} elo")
+        arena_models = arena.get("models") or []
+        top_text = sorted(
+            [m for m in arena_models if m.get("category") in ("Text", None) and m.get("rank", 99) <= 6],
+            key=lambda m: m.get("rank", 99),
+        )
+        if top_text:
+            parts.append("🏆 <b>Top IA General (LMSYS Arena · ELO)</b>")
+            for m in top_text:
+                parts.append(f"  {m['rank']}. <b>{escape_html(m['model'])}</b> — <code>{m.get('score')}</code> elo")
+
+        top_code = sorted(
+            [m for m in arena_models if m.get("category") == "Code" and m.get("rank", 99) <= 4],
+            key=lambda m: m.get("rank", 99),
+        )
+        if top_code:
+            parts.append("\n💻 <b>Top Programación (Arena · Code)</b>")
+            for m in top_code:
+                parts.append(f"  {m['rank']}. <b>{escape_html(m['model'])}</b> — <code>{m.get('score')}</code> elo")
+
+        top_web = sorted(
+            [m for m in arena_models if m.get("category") == "WebDev" and m.get("rank", 99) <= 3],
+            key=lambda m: m.get("rank", 99),
+        )
+        if top_web:
+            parts.append("\n🌐 <b>Top Desarrollo Web (Arena · WebDev)</b>")
+            for m in top_web:
+                parts.append(f"  {m['rank']}. <b>{escape_html(m['model'])}</b> — <code>{m.get('score')}</code> elo")
 
     if not parts:
         return "<i>Aún no hay cambios registrados hoy.</i>"
@@ -446,7 +489,11 @@ def _rankings_digest(snapshot: dict | None) -> str:
 async def build_hoy_text() -> str:
     """Compone el briefing /hoy y lo cachea por snapshot para no gastar cuota repetida."""
     snapshot = await load_snapshot()
-    cache_key = f"hoy:{snapshot.get('generated_at')}" if isinstance(snapshot, dict) and snapshot.get("generated_at") else ""
+    cache_key = (
+        f"hoy:v4.3:{snapshot.get('generated_at')}"
+        if isinstance(snapshot, dict) and snapshot.get("generated_at")
+        else ""
+    )
     if cache_key:
         cached = db.get_briefing_cache(cache_key)
         if cached:
@@ -587,11 +634,24 @@ async def handle_callback(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
         ]
         url = build_quickchart_url(arena_models, title="LMSYS Arena · Top IA General (ELO)")
         if url:
+            caption = _build_chart_caption(arena_models, (snapshot or {}).get("generated_at"))
             try:
-                await context.bot.send_photo(chat_id=chat_id, photo=url, caption="📈 Top Arena General (ELO)")
+                await context.bot.send_photo(
+                    chat_id=chat_id,
+                    photo=url,
+                    caption=caption,
+                    parse_mode="HTML",
+                    reply_markup=build_main_keyboard(),
+                )
                 return
             except Exception:  # noqa: BLE001
-                pass
+                await send_html(
+                    context.bot,
+                    chat_id,
+                    f"{caption}\n\n🔗 <a href=\"{escape_html(url)}\">Abrir gráfica completa</a>",
+                    reply_markup=build_main_keyboard(),
+                )
+                return
         await send_html(context.bot, chat_id, "⚠️ Gráfica no disponible en este momento.", reply_markup=build_main_keyboard())
         return
 

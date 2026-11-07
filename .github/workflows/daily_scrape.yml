@@ -65,9 +65,9 @@ jobs:
           git config --global user.name "RankingAI Bot"
           git config --global user.email "bot@rankingai.com"
           cp data/rankings.json /tmp/rankings.json
-          git fetch origin data || true
-          if git rev-parse --verify origin/data >/dev/null 2>&1; then
-            git checkout -B data origin/data
+          git fetch origin +refs/heads/data:refs/remotes/origin/data || true
+          if git rev-parse --verify refs/remotes/origin/data >/dev/null 2>&1; then
+            git checkout -B data refs/remotes/origin/data
           else
             git checkout --orphan data
             git rm -rf . >/dev/null 2>&1 || true
@@ -80,5 +80,5 @@ jobs:
             echo "Sin cambios en los datos."
           else
             git commit -m "🔄 Actualización horaria automática de rankings"
-            git push origin data
+            git push origin HEAD:refs/heads/data || git push --force-with-lease origin HEAD:refs/heads/data
           fi

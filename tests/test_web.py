@@ -41,6 +41,17 @@ def test_dashboard_renderiza(client):
     assert b"white-sheet" in resp.data
     assert b"sheet-notch" in resp.data
     assert b"detail-dark-card" in resp.data
+    assert b"simpleExplainBox" in resp.data
+    assert b"guideBanner" in resp.data
+    assert b"btnTryModel" in resp.data
+
+
+def test_seed_actualizado_contiene_claude_opus_5_5(client):
+    resp = client.get("/api/models/search?q=Claude+Opus+5.5")
+    assert resp.status_code == 200
+    body = resp.get_json()
+    assert body["count"] >= 1
+    assert any("Claude Opus 5.5" in r["model"] for r in body["results"])
 
 
 def test_elo_history_series_temporales(client, monkeypatch, v3_snapshot):

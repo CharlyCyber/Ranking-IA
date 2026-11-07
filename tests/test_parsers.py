@@ -212,3 +212,30 @@ class TestTrendingParsers:
         assert len(models) == 1
         assert models[0]["id"] == "Qwen/Qwen3-32B"
         assert models[0]["likes"] == 850
+
+    def test_arena_hf_y_mirror_json_incluyen_claude_opus_5_5(self):
+        from src.parsers import parse_arena_hf_dataset, parse_arena_mirror_json
+
+        hf_rows = {
+            "Text": [
+                {"row": {"rank": i, "model_name": f"Model-{i}", "rating": 1545 - i * 3, "vote_count": 5000, "organization": "lab"}}
+                for i in range(1, 12)
+            ]
+        }
+        hf_rows["Text"][3]["row"]["model_name"] = "Claude Opus 5.5 (High)"
+        parsed_hf = parse_arena_hf_dataset(hf_rows)
+        assert any(m["model"] == "Claude Opus 5.5 (High)" and m["category"] == "Text" for m in parsed_hf)
+
+        mirror_payload = {
+            "rows": [
+                {"arenaName": f"Model-{i}", "vendor": "lab", "rankO": i, "elo": 1545.0 - i * 3, "votes": 4000}
+                for i in range(1, 12)
+            ]
+        }
+        mirror_payload["rows"][3]["arenaName"] = "Claude Opus 5.5 (High)"
+        mirror_payload["rows"][3]["rankC"] = 2
+        mirror_payload["rows"][3]["eloC"] = 1545.5
+        parsed_mirror = parse_arena_mirror_json(mirror_payload)
+        assert any(m["model"] == "Claude Opus 5.5 (High)" and m["category"] == "Text" for m in parsed_mirror)
+        assert any(m["model"] == "Claude Opus 5.5 (High)" and m["category"] == "Code" for m in parsed_mirror)
+

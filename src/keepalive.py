@@ -46,7 +46,7 @@ def create_flask_app() -> Flask:
         return {
             "status": "ok",
             "message": "Ranking AI Agent is Alive!",
-            "version": "4.1.0",
+            "version": "4.3.0",
             "timestamp": utc_now_iso(),
             "uptime_check": True,
             "update_interval_minutes": UPDATE_INTERVAL_MINUTES,

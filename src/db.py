@@ -185,26 +185,32 @@ class Database:
         return None
 
     def get_or_seed_latest_snapshot(self, json_path: str = os.path.join("data", "rankings.json")) -> dict | None:
-        """Devuelve el último snapshot de SQLite; si está vacío en frío, hidrata desde rankings.json."""
+        """Devuelve el último snapshot; si está vacío o el rankings.json local es más reciente, sincroniza."""
         snap = self.get_latest_snapshot()
-        if snap:
-            return snap
-        if json_path and os.path.exists(json_path):
+        seed_data: dict | None = None
+        if json_path and os.path.exists(json_path) and (snap is None or self.db_path == DB_PATH):
             try:
                 with open(json_path, "r", encoding="utf-8") as f:
-                    data = json.load(f)
-                if isinstance(data, dict) and data:
-                    created = str(data.get("generated_at") or utc_now_iso())
-                    with self._connect() as conn:
-                        conn.execute(
-                            "INSERT INTO snapshots (created_at, data) VALUES (?, ?)",
-                            (created, json.dumps(data, ensure_ascii=False)),
-                        )
-                        conn.commit()
-                    return {"created_at": created, "data": data}
+                    loaded = json.load(f)
+                if isinstance(loaded, dict) and loaded:
+                    seed_data = loaded
             except (OSError, json.JSONDecodeError) as exc:
-                logger.warning("No se pudo hidratar SQLite desde %s: %s", json_path, exc)
-        return None
+                logger.warning("No se pudo leer %s: %s", json_path, exc)
+
+        if seed_data is not None:
+            seed_ts = str(seed_data.get("generated_at") or "")
+            snap_ts = str(((snap or {}).get("data") or {}).get("generated_at") or (snap or {}).get("created_at") or "")
+            if snap is None or (seed_ts and seed_ts > snap_ts):
+                created = seed_ts or utc_now_iso()
+                serialized = json.dumps(seed_data, ensure_ascii=False)
+                sql = "INSERT INTO snapshots (created_at, data) VALUES (?, ?)"
+                with self._connect() as conn:
+                    conn.execute(sql, (created, serialized))
+                    conn.commit()
+                self._turso_exec(sql, (created, serialized))
+                return {"created_at": created, "data": seed_data}
+
+        return snap
 
     def get_snapshots(self, days: int = 30) -> list[dict]:
         cutoff = (datetime.now(timezone.utc).replace(tzinfo=None) - timedelta(days=days)).isoformat()
