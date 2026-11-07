@@ -432,6 +432,159 @@ def parse_hf_trending(payload) -> list[dict]:
     return models
 
 
+def parse_arena_hf_dataset(category_rows: dict[str, list[dict]], per_category: int = 15) -> list[dict]:
+    """Parsea filas del dataset oficial ``lmarena-ai/leaderboard-dataset`` (HF Datasets Server JSON).
+
+    ``category_rows`` mapea etiqueta canónica (``Text``, ``Code``, ``WebDev``, ``Vision``, ``Agent``)
+    a la lista de filas devueltas por ``/filter`` o ``/rows`` (ya sea ``{"row": {...}}`` o dict plano).
+    """
+    if not isinstance(category_rows, dict) or not category_rows:
+        raise ParseError("Arena HF dataset vacío")
+
+    models: list[dict] = []
+    for category, raw_list in category_rows.items():
+        if not isinstance(raw_list, list):
+            continue
+        parsed_cat: list[dict] = []
+        for idx, wrapper in enumerate(raw_list):
+            row = wrapper.get("row") if isinstance(wrapper, dict) and isinstance(wrapper.get("row"), dict) else wrapper
+            if not isinstance(row, dict):
+                continue
+            model_name = str(row.get("model_name") or row.get("model") or "").strip()
+            if not model_name:
+                continue
+            try:
+                rank = int(row.get("rank") or (idx + 1))
+            except (TypeError, ValueError):
+                rank = idx + 1
+            if rank < 1:
+                continue
+
+            entry: dict = {"rank": rank, "model": model_name, "category": category}
+            org = str(row.get("organization") or "").strip()
+            if org:
+                entry["author"] = org
+
+            votes_raw = row.get("vote_count", row.get("observation_count", row.get("votes")))
+            if votes_raw is not None:
+                try:
+                    entry["votes"] = int(float(votes_raw))
+                except (TypeError, ValueError):
+                    pass
+
+            raw_rating = row.get("rating")
+            raw_score = row.get("score")
+            if raw_rating is not None:
+                try:
+                    entry["score"] = int(round(float(raw_rating)))
+                except (TypeError, ValueError):
+                    continue
+            elif raw_score is not None:
+                try:
+                    val = float(raw_score)
+                except (TypeError, ValueError):
+                    continue
+                if 0 < val <= 1.0:
+                    entry["win_rate_pct"] = round(val * 100.0, 2)
+                elif val >= 100:
+                    entry["score"] = int(round(val))
+                else:
+                    entry["win_rate_pct"] = round(val, 2)
+            else:
+                continue
+
+            parsed_cat.append(entry)
+
+        parsed_cat.sort(key=lambda item: (item["rank"], -(item.get("score") or 0)))
+        seen_names: set[str] = set()
+        clean_rank = 1
+        for item in parsed_cat:
+            if item["model"] in seen_names:
+                continue
+            seen_names.add(item["model"])
+            item["rank"] = clean_rank
+            models.append(item)
+            clean_rank += 1
+            if clean_rank > per_category:
+                break
+
+    if len(models) < 10:
+        raise ParseError(f"Arena HF dataset insuficiente ({len(models)} modelos)")
+    return models
+
+
+def parse_arena_mirror_json(payload: dict, per_category: int = 15) -> list[dict]:
+    """Parsea el feed JSON abierto diario compilado desde ``lmarena-ai/leaderboard-dataset``."""
+    rows = payload.get("rows") if isinstance(payload, dict) else None
+    if not isinstance(rows, list) or not rows:
+        raise ParseError("Feed JSON de Arena sin filas")
+
+    boards = (
+        ("Text", "rankO", "elo", False),
+        ("Code", "rankC", "eloC", False),
+        ("WebDev", "rankD", "eloD", False),
+        ("Vision", "rankV", "eloV", False),
+        ("Agent", "rankA", "eloA", True),
+    )
+
+    models: list[dict] = []
+    for category, rank_key, score_key, is_agent in boards:
+        bucket: list[tuple[int, float, dict]] = []
+        for r in rows:
+            if not isinstance(r, dict):
+                continue
+            rk = r.get(rank_key)
+            sc = r.get(score_key)
+            if rk is None or sc is None:
+                continue
+            try:
+                rank_num = int(rk)
+                score_num = float(sc)
+            except (TypeError, ValueError):
+                continue
+            if rank_num < 1:
+                continue
+            bucket.append((rank_num, score_num, r))
+
+        bucket.sort(key=lambda t: (t[0], -t[1]))
+        seen: set[str] = set()
+        pos = 1
+        for _orig_rank, score_num, r in bucket:
+            model_name = str(r.get("arenaName") or r.get("name") or "").strip()
+            if not model_name or model_name in seen:
+                continue
+            seen.add(model_name)
+            entry: dict = {"rank": pos, "model": model_name, "category": category}
+            if is_agent and 0 < score_num <= 1.0:
+                entry["win_rate_pct"] = round(score_num * 100.0, 2)
+            else:
+                entry["score"] = int(round(score_num))
+
+            vendor = str(r.get("vendor") or "").strip()
+            if vendor:
+                entry["author"] = vendor
+            if isinstance(r.get("votes"), (int, float)) and int(r["votes"]) > 0:
+                entry["votes"] = int(r["votes"])
+            if isinstance(r.get("pin"), (int, float)) and r["pin"] >= 0:
+                entry["prompt_per_m"] = round(float(r["pin"]), 4)
+                entry["completion_per_m"] = round(float(r.get("pout") or 0), 4)
+            if isinstance(r.get("ctx"), (int, float)) and int(r["ctx"]) > 0:
+                entry["context_length"] = int(r["ctx"])
+            if r.get("free") is True:
+                entry["is_free"] = True
+                entry.setdefault("prompt_per_m", 0.0)
+                entry.setdefault("completion_per_m", 0.0)
+
+            models.append(entry)
+            pos += 1
+            if pos > per_category:
+                break
+
+    if len(models) < 10:
+        raise ParseError(f"Feed JSON de Arena insuficiente ({len(models)} modelos)")
+    return models
+
+
 def parse_json(text: str):
     """Parser genérico de JSON con mensaje de error claro."""
     try:

@@ -53,6 +53,7 @@ TURSO_AUTH_TOKEN = (os.getenv("TURSO_AUTH_TOKEN") or "").strip()
 # URLs oficiales de Ranking (en inglés canónico para evitar roturas por traducciones de UI)
 URLS = {
     "arena": "https://arena.ai/leaderboard",
+    "arena_mirror_json": "https://raw.githubusercontent.com/Tliens/ai-model-rank/main/data.json",
     "openrouter": "https://openrouter.ai/rankings",
     "openrouter_models_api": "https://openrouter.ai/api/v1/models",
     "design_arena": "https://www.designarena.ai/leaderboard",
@@ -61,8 +62,11 @@ URLS = {
 # --- Frecuencia, tendencias, briefing y límites ---
 GITHUB_TOKEN = (os.getenv("GITHUB_TOKEN") or "").strip() or None
 
-# URL raw de data/rankings.json en la rama `data` (respaldo remoto opcional)
-DATA_JSON_URL = (os.getenv("DATA_JSON_URL") or "").strip()
+# URL raw de data/rankings.json en la rama `data` (respaldo remoto automático)
+DATA_JSON_URL = (
+    os.getenv("DATA_JSON_URL")
+    or "https://raw.githubusercontent.com/CharlyCyber/Ranking-IA/data/data/rankings.json"
+).strip()
 
 # Intervalo de revisión automática en minutos (por defecto 60 = cada 1 hora)
 UPDATE_INTERVAL_MINUTES = _env_int("UPDATE_INTERVAL_MINUTES", 60, minimum=5, maximum=1440)

@@ -125,3 +125,41 @@ async def test_inline_query_modo_viral(monkeypatch):
     await main_mod.handle_inline_query(update_q, SimpleNamespace())
     assert len(answered[1]) == 1
     assert "claude-opus-4-6" in answered[1][0].title
+
+
+def test_chart_caption_incluye_top_elo_completo():
+    snap = _sample_snapshot()
+    caption = main_mod._build_chart_caption(snap["sources"]["arena"]["models"], snap)
+    assert "Top IA General (LMSYS Arena · ELO)" in caption
+    assert "claude-opus-4-6" in caption
+    assert "deepseek-v4" in caption
+    assert "2026-11-05 12:00" in caption
+
+
+def test_seed_auto_actualiza_sqlite_cuando_json_es_mas_reciente(tmp_path, monkeypatch):
+    import json
+
+    import src.db as db_mod
+
+    db_file = str(tmp_path / "auto_seed.db")
+    seed_file = tmp_path / "rankings.json"
+    monkeypatch.setattr(db_mod, "DB_PATH", db_file)
+
+    db = Database(db_file)
+    db.save_snapshot({"generated_at": "2026-08-30T14:53:36", "sources": {"arena": {"status": "ok", "models": []}}})
+
+    seed_payload = {
+        "generated_at": "2026-11-07T12:30:00",
+        "sources": {
+            "arena": {
+                "status": "ok",
+                "models": [{"rank": 4, "model": "Claude Opus 5.5 (High)", "score": 1512, "category": "Text"}],
+            }
+        },
+    }
+    seed_file.write_text(json.dumps(seed_payload), encoding="utf-8")
+
+    snap = db.get_or_seed_latest_snapshot(json_path=str(seed_file))
+    assert snap["data"]["generated_at"] == "2026-11-07T12:30:00"
+    assert snap["data"]["sources"]["arena"]["models"][0]["model"] == "Claude Opus 5.5 (High)"
+

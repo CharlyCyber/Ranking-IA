@@ -1,248 +1,801 @@
 {
-  "generated_at": "2026-10-22T00:23:03.817529",
+  "generated_at": "2026-11-07T12:30:00",
   "sources": {
     "arena": {
       "status": "ok",
+      "method": "api",
       "models": [
         {
           "rank": 1,
+          "model": "Gemini 4 Carbon (High)",
+          "category": "Text",
+          "score": 1539,
+          "author": "google",
+          "votes": 4483
+        },
+        {
+          "rank": 2,
+          "model": "Gemini 4 Argon (High)",
+          "category": "Text",
+          "score": 1530,
+          "author": "google",
+          "votes": 18399,
+          "prompt_per_m": 2.0,
+          "completion_per_m": 10.0,
+          "context_length": 1048576
+        },
+        {
+          "rank": 3,
+          "model": "Claude Fable 5.1 (Max)",
+          "category": "Text",
+          "score": 1513,
+          "author": "anthropic",
+          "votes": 19892,
+          "prompt_per_m": 10.0,
+          "completion_per_m": 50.0,
+          "context_length": 1000000
+        },
+        {
+          "rank": 4,
+          "model": "Claude Opus 5.5 (High)",
+          "category": "Text",
+          "score": 1512,
+          "author": "anthropic",
+          "votes": 14849,
+          "prompt_per_m": 4.0,
+          "completion_per_m": 20.0,
+          "context_length": 1000000
+        },
+        {
+          "rank": 5,
+          "model": "Claude Opus 5 (Max)",
+          "category": "Text",
+          "score": 1507,
+          "author": "anthropic",
+          "votes": 36681,
+          "prompt_per_m": 5.0,
+          "completion_per_m": 25.0,
+          "context_length": 1000000
+        },
+        {
+          "rank": 6,
+          "model": "Muse Wonder (Max)",
+          "category": "Text",
+          "score": 1505,
+          "author": "meta",
+          "votes": 11229,
+          "prompt_per_m": 4.0,
+          "completion_per_m": 20.0,
+          "context_length": 1048576
+        },
+        {
+          "rank": 7,
+          "model": "Claude Opus 5 (High)",
+          "category": "Text",
+          "score": 1503,
+          "author": "anthropic",
+          "votes": 75732,
+          "prompt_per_m": 5.0,
+          "completion_per_m": 25.0,
+          "context_length": 1000000
+        },
+        {
+          "rank": 8,
+          "model": "Claude Opus 4.6 (High)",
+          "category": "Text",
+          "score": 1502,
+          "author": "anthropic",
+          "votes": 85548,
+          "prompt_per_m": 5.0,
+          "completion_per_m": 25.0,
+          "context_length": 1000000
+        },
+        {
+          "rank": 9,
+          "model": "Gemini 3.8 Flash (High)",
+          "category": "Text",
+          "score": 1501,
+          "author": "google",
+          "votes": 59680,
+          "prompt_per_m": 0.825,
+          "completion_per_m": 4.125,
+          "context_length": 1048576
+        },
+        {
+          "rank": 10,
+          "model": "Claude Opus 4.6",
+          "category": "Text",
+          "score": 1497,
+          "author": "anthropic",
+          "votes": 90487,
+          "prompt_per_m": 5.0,
+          "completion_per_m": 25.0,
+          "context_length": 1000000
+        },
+        {
+          "rank": 11,
+          "model": "Claude Fable 5 (High)",
+          "category": "Text",
+          "score": 1492,
+          "author": "anthropic",
+          "votes": 46601,
+          "prompt_per_m": 10.0,
+          "completion_per_m": 50.0,
+          "context_length": 1000000
+        },
+        {
+          "rank": 12,
+          "model": "MiMo-V2.6-Pro",
+          "category": "Text",
+          "score": 1491,
+          "author": "xiaomi",
+          "votes": 4189,
+          "prompt_per_m": 0.435,
+          "completion_per_m": 0.87,
+          "context_length": 1050000
+        },
+        {
+          "rank": 13,
+          "model": "Muse Spark 1.3 (Max)",
+          "category": "Text",
+          "score": 1491,
+          "author": "meta",
+          "votes": 25672,
+          "prompt_per_m": 1.25,
+          "completion_per_m": 4.25,
+          "context_length": 1048576
+        },
+        {
+          "rank": 14,
+          "model": "Claude Opus 4.7 (High)",
+          "category": "Text",
+          "score": 1490,
+          "author": "anthropic",
+          "votes": 65007,
+          "prompt_per_m": 5.0,
+          "completion_per_m": 25.0,
+          "context_length": 1000000
+        },
+        {
+          "rank": 15,
+          "model": "Gemini 3.7 Flash (High)",
+          "category": "Text",
+          "score": 1488,
+          "author": "google",
+          "votes": 34346,
+          "prompt_per_m": 0.75,
+          "completion_per_m": 3.75,
+          "context_length": 1048576
+        },
+        {
+          "rank": 1,
+          "model": "Gemini 4 Carbon (High)",
+          "category": "Code",
+          "score": 1565,
+          "author": "google",
+          "votes": 4483
+        },
+        {
+          "rank": 2,
+          "model": "Claude Opus 5.5 (High)",
+          "category": "Code",
+          "score": 1546,
+          "author": "anthropic",
+          "votes": 14849,
+          "prompt_per_m": 4.0,
+          "completion_per_m": 20.0,
+          "context_length": 1000000
+        },
+        {
+          "rank": 3,
+          "model": "Gemini 4 Argon (High)",
+          "category": "Code",
+          "score": 1540,
+          "author": "google",
+          "votes": 18399,
+          "prompt_per_m": 2.0,
+          "completion_per_m": 10.0,
+          "context_length": 1048576
+        },
+        {
+          "rank": 4,
+          "model": "Claude Opus 4.6",
+          "category": "Code",
+          "score": 1534,
+          "author": "anthropic",
+          "votes": 90487,
+          "prompt_per_m": 5.0,
+          "completion_per_m": 25.0,
+          "context_length": 1000000
+        },
+        {
+          "rank": 5,
+          "model": "Claude Opus 5 (Max)",
+          "category": "Code",
+          "score": 1533,
+          "author": "anthropic",
+          "votes": 36681,
+          "prompt_per_m": 5.0,
+          "completion_per_m": 25.0,
+          "context_length": 1000000
+        },
+        {
+          "rank": 6,
+          "model": "Claude Opus 5 (High)",
+          "category": "Code",
+          "score": 1532,
+          "author": "anthropic",
+          "votes": 75732,
+          "prompt_per_m": 5.0,
+          "completion_per_m": 25.0,
+          "context_length": 1000000
+        },
+        {
+          "rank": 7,
+          "model": "Claude Opus 4.6 (High)",
+          "category": "Code",
+          "score": 1531,
+          "author": "anthropic",
+          "votes": 85548,
+          "prompt_per_m": 5.0,
+          "completion_per_m": 25.0,
+          "context_length": 1000000
+        },
+        {
+          "rank": 8,
+          "model": "MiMo-V2.6-Pro",
+          "category": "Code",
+          "score": 1531,
+          "author": "xiaomi",
+          "votes": 4189,
+          "prompt_per_m": 0.435,
+          "completion_per_m": 0.87,
+          "context_length": 1050000
+        },
+        {
+          "rank": 9,
+          "model": "Claude Fable 5.1 (Max)",
+          "category": "Code",
+          "score": 1530,
+          "author": "anthropic",
+          "votes": 19892,
+          "prompt_per_m": 10.0,
+          "completion_per_m": 50.0,
+          "context_length": 1000000
+        },
+        {
+          "rank": 10,
+          "model": "Muse Wonder (Max)",
+          "category": "Code",
+          "score": 1521,
+          "author": "meta",
+          "votes": 11229,
+          "prompt_per_m": 4.0,
+          "completion_per_m": 20.0,
+          "context_length": 1048576
+        },
+        {
+          "rank": 11,
+          "model": "Claude Opus 4.7 (High)",
+          "category": "Code",
+          "score": 1519,
+          "author": "anthropic",
+          "votes": 65007,
+          "prompt_per_m": 5.0,
+          "completion_per_m": 25.0,
+          "context_length": 1000000
+        },
+        {
+          "rank": 12,
+          "model": "Claude Fable 5 (High)",
+          "category": "Code",
+          "score": 1519,
+          "author": "anthropic",
+          "votes": 46601,
+          "prompt_per_m": 10.0,
+          "completion_per_m": 50.0,
+          "context_length": 1000000
+        },
+        {
+          "rank": 13,
+          "model": "Claude Opus 4.7",
+          "category": "Code",
+          "score": 1515,
+          "author": "anthropic",
+          "votes": 66092,
+          "prompt_per_m": 5.0,
+          "completion_per_m": 25.0,
+          "context_length": 1000000
+        },
+        {
+          "rank": 14,
+          "model": "GLM-5.3-Flash",
+          "category": "Code",
+          "score": 1511,
+          "author": "z-ai",
+          "votes": 49824,
+          "prompt_per_m": 0.15,
+          "completion_per_m": 0.5,
+          "context_length": 1048576
+        },
+        {
+          "rank": 15,
+          "model": "Gemini 3.8 Flash (High)",
+          "category": "Code",
+          "score": 1510,
+          "author": "google",
+          "votes": 59680,
+          "prompt_per_m": 0.825,
+          "completion_per_m": 4.125,
+          "context_length": 1048576
+        },
+        {
+          "rank": 1,
+          "model": "Claude Opus 5.5 (Max)",
+          "category": "WebDev",
+          "score": 1814,
+          "author": "anthropic",
+          "prompt_per_m": 4.0,
+          "completion_per_m": 20.0,
+          "context_length": 1000000
+        },
+        {
+          "rank": 2,
+          "model": "Claude Sonnet 5.5 (xHigh)",
+          "category": "WebDev",
+          "score": 1772,
+          "author": "anthropic",
+          "votes": 13410,
+          "prompt_per_m": 2.0,
+          "completion_per_m": 10.0,
+          "context_length": 1000000
+        },
+        {
+          "rank": 3,
+          "model": "GPT-6 Astra (Max)",
+          "category": "WebDev",
+          "score": 1770,
+          "author": "openai",
+          "votes": 18076,
+          "prompt_per_m": 10.0,
+          "completion_per_m": 50.0,
+          "context_length": 1050000
+        },
+        {
+          "rank": 4,
+          "model": "Gemini 4 Carbon (High)",
+          "category": "WebDev",
+          "score": 1767,
+          "author": "google",
+          "votes": 4483
+        },
+        {
+          "rank": 5,
+          "model": "Claude Fable 5.1 (Max)",
+          "category": "WebDev",
+          "score": 1746,
+          "author": "anthropic",
+          "votes": 19892,
+          "prompt_per_m": 10.0,
+          "completion_per_m": 50.0,
+          "context_length": 1000000
+        },
+        {
+          "rank": 6,
+          "model": "GPT-6.1 Sol (Max)",
+          "category": "WebDev",
+          "score": 1742,
+          "author": "openai",
+          "votes": 12539,
+          "prompt_per_m": 2.0,
+          "completion_per_m": 10.0,
+          "context_length": 1050000
+        },
+        {
+          "rank": 7,
+          "model": "Muse Wonder Full (Max)",
+          "category": "WebDev",
+          "score": 1726,
+          "author": "meta"
+        },
+        {
+          "rank": 8,
+          "model": "Claude Sonnet 5.5 (High)",
+          "category": "WebDev",
+          "score": 1711,
+          "author": "anthropic",
+          "prompt_per_m": 2.0,
+          "completion_per_m": 10.0,
+          "context_length": 1000000
+        },
+        {
+          "rank": 9,
+          "model": "Claude Opus 5 (Max)",
+          "category": "WebDev",
+          "score": 1691,
+          "author": "anthropic",
+          "votes": 36681,
+          "prompt_per_m": 5.0,
+          "completion_per_m": 25.0,
+          "context_length": 1000000
+        },
+        {
+          "rank": 10,
+          "model": "Kimi K3.1 Pro (Max)",
+          "category": "WebDev",
+          "score": 1684,
+          "author": "moonshot",
+          "prompt_per_m": 2.0,
+          "completion_per_m": 10.0,
+          "context_length": 1048576
+        },
+        {
+          "rank": 11,
+          "model": "Gemini 4 Argon (High)",
+          "category": "WebDev",
+          "score": 1683,
+          "author": "google",
+          "votes": 18399,
+          "prompt_per_m": 2.0,
+          "completion_per_m": 10.0,
+          "context_length": 1048576
+        },
+        {
+          "rank": 12,
+          "model": "GPT-6.1 Terra (Max)",
+          "category": "WebDev",
+          "score": 1680,
+          "author": "openai",
+          "prompt_per_m": 1.0,
+          "completion_per_m": 5.0,
+          "context_length": 1050000
+        },
+        {
+          "rank": 13,
+          "model": "Qwen3.8-Max (0902)",
+          "category": "WebDev",
+          "score": 1677,
+          "author": "qwen",
+          "prompt_per_m": 2.0,
+          "completion_per_m": 6.0,
+          "context_length": 1000000
+        },
+        {
+          "rank": 14,
+          "model": "GPT-6 Sol (Max)",
+          "category": "WebDev",
+          "score": 1674,
+          "author": "openai",
+          "votes": 19521,
+          "prompt_per_m": 2.0,
+          "completion_per_m": 10.0,
+          "context_length": 1050000
+        },
+        {
+          "rank": 15,
+          "model": "Qwen3.8-Max",
+          "category": "WebDev",
+          "score": 1671,
+          "author": "qwen",
+          "votes": 36028,
+          "prompt_per_m": 2.0,
+          "completion_per_m": 6.0,
+          "context_length": 1000000
+        },
+        {
+          "rank": 1,
+          "model": "Claude Fable 5 (High)",
+          "category": "Vision",
+          "score": 1326,
+          "author": "anthropic",
+          "votes": 46601,
+          "prompt_per_m": 10.0,
+          "completion_per_m": 50.0,
+          "context_length": 1000000
+        },
+        {
+          "rank": 2,
+          "model": "Claude Opus 5.5 (High)",
+          "category": "Vision",
+          "score": 1324,
+          "author": "anthropic",
+          "votes": 14849,
+          "prompt_per_m": 4.0,
+          "completion_per_m": 20.0,
+          "context_length": 1000000
+        },
+        {
+          "rank": 3,
+          "model": "Claude Fable 5.1 (Max)",
+          "category": "Vision",
+          "score": 1321,
+          "author": "anthropic",
+          "votes": 19892,
+          "prompt_per_m": 10.0,
+          "completion_per_m": 50.0,
+          "context_length": 1000000
+        },
+        {
+          "rank": 4,
+          "model": "Claude Opus 4.7",
+          "category": "Vision",
+          "score": 1317,
+          "author": "anthropic",
+          "votes": 66092,
+          "prompt_per_m": 5.0,
+          "completion_per_m": 25.0,
+          "context_length": 1000000
+        },
+        {
+          "rank": 5,
+          "model": "Claude Opus 5 (High)",
+          "category": "Vision",
+          "score": 1317,
+          "author": "anthropic",
+          "votes": 75732,
+          "prompt_per_m": 5.0,
+          "completion_per_m": 25.0,
+          "context_length": 1000000
+        },
+        {
+          "rank": 6,
+          "model": "Gemini 3.8 Flash (High)",
+          "category": "Vision",
+          "score": 1316,
+          "author": "google",
+          "votes": 59680,
+          "prompt_per_m": 0.825,
+          "completion_per_m": 4.125,
+          "context_length": 1048576
+        },
+        {
+          "rank": 7,
+          "model": "Claude Opus 4.6 (High)",
+          "category": "Vision",
+          "score": 1315,
+          "author": "anthropic",
+          "votes": 85548,
+          "prompt_per_m": 5.0,
+          "completion_per_m": 25.0,
+          "context_length": 1000000
+        },
+        {
+          "rank": 8,
+          "model": "Claude Opus 4.7 (High)",
+          "category": "Vision",
+          "score": 1313,
+          "author": "anthropic",
+          "votes": 65007,
+          "prompt_per_m": 5.0,
+          "completion_per_m": 25.0,
+          "context_length": 1000000
+        },
+        {
+          "rank": 9,
+          "model": "Gemini 3.7 Flash (High)",
+          "category": "Vision",
+          "score": 1313,
+          "author": "google",
+          "votes": 34346,
+          "prompt_per_m": 0.75,
+          "completion_per_m": 3.75,
+          "context_length": 1048576
+        },
+        {
+          "rank": 10,
+          "model": "Qwen3.8-Max",
+          "category": "Vision",
+          "score": 1313,
+          "author": "qwen",
+          "votes": 36028,
+          "prompt_per_m": 2.0,
+          "completion_per_m": 6.0,
+          "context_length": 1000000
+        },
+        {
+          "rank": 11,
+          "model": "Claude Opus 4.6",
+          "category": "Vision",
+          "score": 1312,
+          "author": "anthropic",
+          "votes": 90487,
+          "prompt_per_m": 5.0,
+          "completion_per_m": 25.0,
+          "context_length": 1000000
+        },
+        {
+          "rank": 12,
+          "model": "Muse Spark 1.3 (Max)",
+          "category": "Vision",
+          "score": 1308,
+          "author": "meta",
+          "votes": 25672,
+          "prompt_per_m": 1.25,
+          "completion_per_m": 4.25,
+          "context_length": 1048576
+        },
+        {
+          "rank": 13,
+          "model": "Gemini 3.5 Flash (High)",
+          "category": "Vision",
+          "score": 1307,
+          "author": "google",
+          "votes": 48503,
+          "prompt_per_m": 1.5,
+          "completion_per_m": 9.0,
+          "context_length": 1048576
+        },
+        {
+          "rank": 14,
+          "model": "Gemini 3.5 Flash (Medium)",
+          "category": "Vision",
+          "score": 1306,
+          "author": "google",
+          "votes": 47284,
+          "prompt_per_m": 1.5,
+          "completion_per_m": 9.0,
+          "context_length": 1048576
+        },
+        {
+          "rank": 15,
+          "model": "Muse Spark",
+          "category": "Vision",
+          "score": 1306,
+          "author": "meta",
+          "votes": 14119
+        },
+        {
+          "rank": 1,
+          "model": "Claude Opus 5.5 (Max)",
+          "category": "Agent",
+          "win_rate_pct": 20.14,
+          "author": "anthropic",
+          "prompt_per_m": 4.0,
+          "completion_per_m": 20.0,
+          "context_length": 1000000
+        },
+        {
+          "rank": 2,
+          "model": "Gemini 4 Carbon (High)",
+          "category": "Agent",
+          "win_rate_pct": 16.72,
+          "author": "google",
+          "votes": 4483
+        },
+        {
+          "rank": 3,
+          "model": "Claude Sonnet 5.5 (Max)",
+          "category": "Agent",
+          "win_rate_pct": 15.42,
+          "author": "anthropic",
+          "prompt_per_m": 2.0,
+          "completion_per_m": 10.0,
+          "context_length": 1000000
+        },
+        {
+          "rank": 4,
+          "model": "GPT-6 Astra (Max)",
+          "category": "Agent",
+          "win_rate_pct": 14.7,
+          "author": "openai",
+          "votes": 18076,
+          "prompt_per_m": 10.0,
+          "completion_per_m": 50.0,
+          "context_length": 1050000
+        },
+        {
+          "rank": 5,
           "model": "Claude Fable 5.1 (Max)",
           "category": "Agent",
-          "win_rate_pct": 13.71
+          "win_rate_pct": 13.86,
+          "author": "anthropic",
+          "votes": 19892,
+          "prompt_per_m": 10.0,
+          "completion_per_m": 50.0,
+          "context_length": 1000000
         },
         {
-          "rank": 2,
-          "model": "GPT 6 Astra (Max)",
+          "rank": 6,
+          "model": "GPT-6.1 Sol (Max)",
           "category": "Agent",
-          "win_rate_pct": 11.54
+          "win_rate_pct": 12.51,
+          "author": "openai",
+          "votes": 12539,
+          "prompt_per_m": 2.0,
+          "completion_per_m": 10.0,
+          "context_length": 1050000
         },
         {
-          "rank": 3,
-          "model": "Claude Opus 5 (High)",
+          "rank": 7,
+          "model": "GPT-6.1 Terra (Max)",
           "category": "Agent",
-          "win_rate_pct": 10.25
+          "win_rate_pct": 11.4,
+          "author": "openai",
+          "prompt_per_m": 1.0,
+          "completion_per_m": 5.0,
+          "context_length": 1050000
         },
         {
-          "rank": 4,
-          "model": "Claude Opus 5 (Max)",
+          "rank": 8,
+          "model": "Gemini 4 Argon (High)",
           "category": "Agent",
-          "win_rate_pct": 10.16
+          "win_rate_pct": 10.53,
+          "author": "google",
+          "votes": 18399,
+          "prompt_per_m": 2.0,
+          "completion_per_m": 10.0,
+          "context_length": 1048576
         },
         {
-          "rank": 5,
+          "rank": 9,
+          "model": "Muse Wonder Full (Max)",
+          "category": "Agent",
+          "win_rate_pct": 9.42,
+          "author": "meta"
+        },
+        {
+          "rank": 10,
           "model": "Claude Fable 5 (High)",
           "category": "Agent",
-          "win_rate_pct": 8.81
+          "win_rate_pct": 7.82,
+          "author": "anthropic",
+          "votes": 46601,
+          "prompt_per_m": 10.0,
+          "completion_per_m": 50.0,
+          "context_length": 1000000
         },
         {
-          "rank": 6,
-          "model": "Claude Opus 4.8 (High)",
+          "rank": 11,
+          "model": "Claude Opus 5 (Max)",
           "category": "Agent",
-          "win_rate_pct": 8.19
+          "win_rate_pct": 7.66,
+          "author": "anthropic",
+          "votes": 36681,
+          "prompt_per_m": 5.0,
+          "completion_per_m": 25.0,
+          "context_length": 1000000
         },
         {
-          "rank": 7,
-          "model": "GPT 5.6 Sol (xHigh)",
+          "rank": 12,
+          "model": "GPT-6 Sol (Max)",
           "category": "Agent",
-          "win_rate_pct": 7.1
+          "win_rate_pct": 6.78,
+          "author": "openai",
+          "votes": 19521,
+          "prompt_per_m": 2.0,
+          "completion_per_m": 10.0,
+          "context_length": 1050000
         },
         {
-          "rank": 8,
-          "model": "Kimi K3 (Max)",
+          "rank": 13,
+          "model": "Hy4",
           "category": "Agent",
-          "win_rate_pct": 6.22
+          "win_rate_pct": 5.39,
+          "author": "tencent",
+          "prompt_per_m": 0.417,
+          "completion_per_m": 1.2505,
+          "context_length": 1048576
         },
         {
-          "rank": 9,
-          "model": "Claude Sonnet 5 (High)",
+          "rank": 14,
+          "model": "Kimi K3.1 Pro (Max)",
           "category": "Agent",
-          "win_rate_pct": 5.97
+          "win_rate_pct": 5.29,
+          "author": "moonshot",
+          "prompt_per_m": 2.0,
+          "completion_per_m": 10.0,
+          "context_length": 1048576
         },
         {
-          "rank": 10,
-          "model": "GPT 5.5 (xHigh)",
+          "rank": 15,
+          "model": "GPT-5.6 Sol (xHigh)",
           "category": "Agent",
-          "win_rate_pct": 5.03
-        },
-        {
-          "rank": 1,
-          "model": "claude-fable-5-high",
-          "category": "Text",
-          "score": 1506
-        },
-        {
-          "rank": 2,
-          "model": "claude-opus-4-6-high",
-          "category": "Text",
-          "score": 1505
-        },
-        {
-          "rank": 3,
-          "model": "claude-opus-4-7-high",
-          "category": "Text",
-          "score": 1502
-        },
-        {
-          "rank": 4,
-          "model": "muse-spark-1.2 (xHigh)",
-          "category": "Text",
-          "score": 1500
-        },
-        {
-          "rank": 5,
-          "model": "claude-fable-5.1-max",
-          "category": "Text",
-          "score": 1498
-        },
-        {
-          "rank": 6,
-          "model": "claude-opus-4-6",
-          "category": "Text",
-          "score": 1497
-        },
-        {
-          "rank": 7,
-          "model": "claude-opus-4-7",
-          "category": "Text",
-          "score": 1494
-        },
-        {
-          "rank": 8,
-          "model": "muse-spark-1.3-max",
-          "category": "Text",
-          "score": 1493
-        },
-        {
-          "rank": 9,
-          "model": "gemini-3.8-flash-high",
-          "category": "Text",
-          "score": 1493
-        },
-        {
-          "rank": 10,
-          "model": "claude-opus-5-high",
-          "category": "Text",
-          "score": 1493
-        },
-        {
-          "rank": 1,
-          "model": "gpt-6-astra-max",
-          "category": "WebDev",
-          "score": 1800
-        },
-        {
-          "rank": 2,
-          "model": "claude-fable-5.1-max",
-          "category": "WebDev",
-          "score": 1758
-        },
-        {
-          "rank": 3,
-          "model": "claude-opus-5-max",
-          "category": "WebDev",
-          "score": 1687
-        },
-        {
-          "rank": 4,
-          "model": "qwen3.8-max-0902",
-          "category": "WebDev",
-          "score": 1681
-        },
-        {
-          "rank": 5,
-          "model": "kimi-k3-max",
-          "category": "WebDev",
-          "score": 1674
-        },
-        {
-          "rank": 6,
-          "model": "qwen3.8-max",
-          "category": "WebDev",
-          "score": 1671
-        },
-        {
-          "rank": 7,
-          "model": "claude-opus-5-high",
-          "category": "WebDev",
-          "score": 1660
-        },
-        {
-          "rank": 8,
-          "model": "muse-spark-1.3-max",
-          "category": "WebDev",
-          "score": 1652
-        },
-        {
-          "rank": 9,
-          "model": "qwen3.8-flash-next",
-          "category": "WebDev",
-          "score": 1635
-        },
-        {
-          "rank": 10,
-          "model": "claude-fable-5-high",
-          "category": "WebDev",
-          "score": 1628
-        },
-        {
-          "rank": 1,
-          "model": "claude-fable-5-high",
-          "category": "Vision",
-          "score": 1310
-        },
-        {
-          "rank": 2,
-          "model": "qwen3.8-max",
-          "category": "Vision",
-          "score": 1302
-        },
-        {
-          "rank": 3,
-          "model": "claude-opus-4-7-high",
-          "category": "Vision",
-          "score": 1301
-        },
-        {
-          "rank": 4,
-          "model": "claude-opus-4-7",
-          "category": "Vision",
-          "score": 1300
-        },
-        {
-          "rank": 5,
-          "model": "claude-opus-4-6-high",
-          "category": "Vision",
-          "score": 1299
-        },
-        {
-          "rank": 6,
-          "model": "muse-spark-1.3-max",
-          "category": "Vision",
-          "score": 1294
-        },
-        {
-          "rank": 7,
-          "model": "muse-spark",
-          "category": "Vision",
-          "score": 1294
-        },
-        {
-          "rank": 8,
-          "model": "claude-opus-4-6",
-          "category": "Vision",
-          "score": 1293
-        },
-        {
-          "rank": 9,
-          "model": "muse-spark-1.2 (xHigh)",
-          "category": "Vision",
-          "score": 1292
-        },
-        {
-          "rank": 10,
-          "model": "claude-opus-5-high",
-          "category": "Vision",
-          "score": 1289
+          "win_rate_pct": 4.57,
+          "author": "openai",
+          "votes": 45082,
+          "prompt_per_m": 4.0,
+          "completion_per_m": 20.0,
+          "context_length": 1050000
         },
         {
           "rank": 1,
@@ -290,7 +843,10 @@
           "rank": 8,
           "model": "gpt-5.5",
           "category": "Document",
-          "score": 1486
+          "score": 1486,
+          "prompt_per_m": 5.0,
+          "completion_per_m": 30.0,
+          "context_length": 1050000
         },
         {
           "rank": 9,
@@ -482,7 +1038,10 @@
           "rank": 10,
           "model": "glm-5.3-flash",
           "category": "Image-to-WebDev",
-          "score": 1588
+          "score": 1588,
+          "prompt_per_m": 0.15,
+          "completion_per_m": 0.5,
+          "context_length": 1048576
         },
         {
           "rank": 1,
@@ -724,8 +1283,7 @@
           "category": "Video Edit",
           "score": 1182
         }
-      ],
-      "method": "page"
+      ]
     },
     "openrouter": {
       "status": "ok",
@@ -801,7 +1359,117 @@
           "growth_pct": 16
         }
       ],
-      "method": "page"
+      "method": "page",
+      "free_models": [
+        {
+          "id": "nvidia/nemotron-3.5-super-vl:free",
+          "name": "Nemotron 3.5 Super VL",
+          "context_length": 1048576,
+          "prompt_per_m": 0.0,
+          "completion_per_m": 0.0,
+          "is_free": true,
+          "rank_info": "Proveedor: nvidia"
+        },
+        {
+          "id": "nvidia/step-5-preview:free",
+          "name": "Step 5 Preview",
+          "context_length": 1048576,
+          "prompt_per_m": 0.0,
+          "completion_per_m": 0.0,
+          "is_free": true,
+          "rank_info": "Proveedor: nvidia"
+        },
+        {
+          "id": "nvidia/kimi-k3:free",
+          "name": "Kimi K3",
+          "context_length": 1048576,
+          "prompt_per_m": 0.0,
+          "completion_per_m": 0.0,
+          "is_free": true,
+          "rank_info": "Proveedor: nvidia"
+        },
+        {
+          "id": "nvidia/nemotron-3.5-super-vl-120b-a12b:free",
+          "name": "Nemotron 3.5 Super VL 120B A12B",
+          "context_length": 1048576,
+          "prompt_per_m": 0.0,
+          "completion_per_m": 0.0,
+          "is_free": true,
+          "rank_info": "Proveedor: nvidia"
+        },
+        {
+          "id": "nvidia/glm-5.3-flash:free",
+          "name": "GLM-5.3-Flash",
+          "context_length": 1000000,
+          "prompt_per_m": 0.0,
+          "completion_per_m": 0.0,
+          "is_free": true,
+          "rank_info": "Proveedor: nvidia"
+        },
+        {
+          "id": "nvidia/glm-5.3:free",
+          "name": "GLM-5.3",
+          "context_length": 1000000,
+          "prompt_per_m": 0.0,
+          "completion_per_m": 0.0,
+          "is_free": true,
+          "rank_info": "Proveedor: nvidia"
+        },
+        {
+          "id": "nvidia/deepseek-v4.1-flash:free",
+          "name": "DeepSeek V4.1 Flash",
+          "context_length": 1000000,
+          "prompt_per_m": 0.0,
+          "completion_per_m": 0.0,
+          "is_free": true,
+          "rank_info": "Proveedor: nvidia"
+        },
+        {
+          "id": "nvidia/nemotron-3-ultra-550b-a55b:free",
+          "name": "Nemotron 3 Ultra 550B A55B",
+          "context_length": 1000000,
+          "prompt_per_m": 0.0,
+          "completion_per_m": 0.0,
+          "is_free": true,
+          "rank_info": "Proveedor: nvidia"
+        },
+        {
+          "id": "other/dots3-note-preview-(free):free",
+          "name": "Dots3-Note Preview (free)",
+          "context_length": 512000,
+          "prompt_per_m": 0.0,
+          "completion_per_m": 0.0,
+          "is_free": true,
+          "rank_info": "Proveedor: other"
+        },
+        {
+          "id": "liquid/lfm3-1.7b:free",
+          "name": "LFM3-1.7B",
+          "context_length": 262144,
+          "prompt_per_m": 0.0,
+          "completion_per_m": 0.0,
+          "is_free": true,
+          "rank_info": "Proveedor: liquid"
+        },
+        {
+          "id": "other/flint-(free):free",
+          "name": "Flint (free)",
+          "context_length": 262144,
+          "prompt_per_m": 0.0,
+          "completion_per_m": 0.0,
+          "is_free": true,
+          "rank_info": "Proveedor: other"
+        },
+        {
+          "id": "other/xing4.0-29b-a4b-(free):free",
+          "name": "Xing4.0 29B A4B (free)",
+          "context_length": 262144,
+          "prompt_per_m": 0.0,
+          "completion_per_m": 0.0,
+          "is_free": true,
+          "rank_info": "Proveedor: other"
+        }
+      ]
     },
     "design": {
       "status": "ok",
@@ -901,241 +1569,386 @@
     },
     "github": {
       "status": "ok",
-      "since": "2026-10-20",
+      "since": "2026-11-01",
       "ai": [
         {
-          "full_name": "Alejandros17487/ai-jailbreaks",
-          "stars": 205,
-          "language": "",
-          "description": "AI jailbreaks: 35 paste-ready AI jailbreak prompts for 25+ frontier and open-weight models - system prompts, AGENTS.md specs, and Ollama Modelfiles. Built for AI security research and red-team testing.",
-          "url": "https://github.com/Alejandros17487/ai-jailbreaks",
-          "created_at": "2026-10-21T14:44:06Z"
+          "full_name": "TIGER-AI-Lab/WebsiteBench",
+          "stars": 91,
+          "language": "Python",
+          "description": "Can AI agents rebuild websites through browser exploration?",
+          "url": "https://github.com/TIGER-AI-Lab/WebsiteBench",
+          "created_at": "2026-11-04T12:58:50Z"
         },
         {
-          "full_name": "h9-tec/ai-roadmap-2026",
-          "stars": 68,
+          "full_name": "quyetcao/ai-manus",
+          "stars": 82,
+          "language": "Python",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/quyetcao/ai-manus",
+          "created_at": "2026-11-06T18:16:53Z"
+        },
+        {
+          "full_name": "SinceGalaxyquiver49740/ai--manus",
+          "stars": 81,
           "language": "",
-          "description": "AI Roadmap 2026: a beginner's path through Foundations, LLM Engineering, Agents, Evaluation, and Production, with verified free resources and a mini-project per layer",
-          "url": "https://github.com/h9-tec/ai-roadmap-2026",
-          "created_at": "2026-10-21T12:23:43Z"
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/SinceGalaxyquiver49740/ai--manus",
+          "created_at": "2026-11-07T07:46:10Z"
+        },
+        {
+          "full_name": "monirchemrubd/ai-manus",
+          "stars": 81,
+          "language": "Python",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/monirchemrubd/ai-manus",
+          "created_at": "2026-11-06T18:15:56Z"
+        },
+        {
+          "full_name": "OdysseyglassSamurai13935/ai--manus",
+          "stars": 81,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/OdysseyglassSamurai13935/ai--manus",
+          "created_at": "2026-11-07T07:17:08Z"
+        },
+        {
+          "full_name": "FrostFromquasar89091/ai--manus",
+          "stars": 81,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/FrostFromquasar89091/ai--manus",
+          "created_at": "2026-11-07T07:20:38Z"
+        },
+        {
+          "full_name": "Gigachad-byte/ai-manus",
+          "stars": 81,
+          "language": "Python",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/Gigachad-byte/ai-manus",
+          "created_at": "2026-11-06T18:15:33Z"
+        },
+        {
+          "full_name": "willsmanuel123-creator/ai-manus",
+          "stars": 81,
+          "language": "Python",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/willsmanuel123-creator/ai-manus",
+          "created_at": "2026-11-06T18:15:33Z"
+        },
+        {
+          "full_name": "thecoderrrer/ai-manus",
+          "stars": 81,
+          "language": "Python",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/thecoderrrer/ai-manus",
+          "created_at": "2026-11-06T18:16:31Z"
+        },
+        {
+          "full_name": "abhinay-h/manus-ai",
+          "stars": 81,
+          "language": "Python",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment. ",
+          "url": "https://github.com/abhinay-h/manus-ai",
+          "created_at": "2026-11-07T06:35:00Z"
         }
       ],
       "general": [
         {
-          "full_name": "ikow/php2shell-poc",
-          "stars": 844,
+          "full_name": "KKKKhazix/agent-autoloop",
+          "stars": 3885,
+          "language": "TypeScript",
+          "description": "让你的命令行 Agent 在后台自己接活、自己跟进到底；平时不烦你，遇到拿不准的事才发卡片找你拍板。",
+          "url": "https://github.com/KKKKhazix/agent-autoloop",
+          "created_at": "2026-11-03T08:02:11Z"
+        },
+        {
+          "full_name": "worldonlyu/Google_AI_Pro_2Year_ZeroCost_Auto",
+          "stars": 3002,
           "language": "Python",
-          "description": "CVE-2026-109618/109619 PHP session.upload_progress Exploit Research — POC & Analysis",
-          "url": "https://github.com/ikow/php2shell-poc",
-          "created_at": "2026-10-21T07:55:16Z"
+          "description": "Google_AI_Pro_2Year_ZeroCost_Auto",
+          "url": "https://github.com/worldonlyu/Google_AI_Pro_2Year_ZeroCost_Auto",
+          "created_at": "2026-11-04T14:54:56Z"
         },
         {
-          "full_name": "eness/php2shell-CVE-2026-109618-CVE-2026-109619-PoC",
-          "stars": 520,
-          "language": "Shell",
-          "description": "Proof-of-Concept (PoC) exploit for php2shell (CVE-2026-109618 / CVE-2026-109619), demonstrating remote code execution in vulnerable PHP environments. For security research and educational purposes only.",
-          "url": "https://github.com/eness/php2shell-CVE-2026-109618-CVE-2026-109619-PoC",
-          "created_at": "2026-10-21T08:31:43Z"
+          "full_name": "govijr/terminal-mac",
+          "stars": 2208,
+          "language": "Swift",
+          "description": "Entire MacOS running in your terminal.",
+          "url": "https://github.com/govijr/terminal-mac",
+          "created_at": "2026-11-03T03:22:56Z"
         },
         {
-          "full_name": "9bie/php2shell-bypass-aslr-exp",
-          "stars": 335,
-          "language": "Python",
-          "description": "",
-          "url": "https://github.com/9bie/php2shell-bypass-aslr-exp",
-          "created_at": "2026-10-21T11:11:57Z"
+          "full_name": "Minireel/HGhub",
+          "stars": 1967,
+          "language": "TypeScript",
+          "description": "YellowFruit third-party client",
+          "url": "https://github.com/Minireel/HGhub",
+          "created_at": "2026-11-03T14:04:27Z"
         },
         {
-          "full_name": "openai/php2shell-checker",
-          "stars": 295,
+          "full_name": "JenkinWoo/sheeridVerify",
+          "stars": 1409,
           "language": "JavaScript",
           "description": "",
-          "url": "https://github.com/openai/php2shell-checker",
-          "created_at": "2026-10-21T00:29:12Z"
+          "url": "https://github.com/JenkinWoo/sheeridVerify",
+          "created_at": "2026-11-06T09:28:09Z"
         },
         {
-          "full_name": "WoYun520/dsh-purge",
-          "stars": 277,
-          "language": "JavaScript",
-          "description": "DeepSeek Harness 破甲 (mirror of mmparko/dsh-purge) — 全量镜像：全部分支/100 个 tag/完整提交历史。原作者署名见 README。",
-          "url": "https://github.com/WoYun520/dsh-purge",
-          "created_at": "2026-10-21T01:35:52Z"
+          "full_name": "livliv-dev/player",
+          "stars": 1101,
+          "language": "TypeScript",
+          "description": "A lightweight 2.5D character player for the web, with lip sync and webcam face tracking.",
+          "url": "https://github.com/livliv-dev/player",
+          "created_at": "2026-11-04T03:28:33Z"
         },
         {
-          "full_name": "helloianneo/ian-xhs-carousel",
-          "stars": 126,
+          "full_name": "mmdoctor/google-pro-helper",
+          "stars": 1078,
+          "language": "Python",
+          "description": "",
+          "url": "https://github.com/mmdoctor/google-pro-helper",
+          "created_at": "2026-11-05T04:52:28Z"
+        },
+        {
+          "full_name": "NotRexed/Hookshot",
+          "stars": 1000,
+          "language": "C++",
+          "description": "A Native Recompilation Of The Legend Of Zelda: Ocarina Of Time Nintendo Switch 2 Remake",
+          "url": "https://github.com/NotRexed/Hookshot",
+          "created_at": "2026-11-05T12:18:58Z"
+        },
+        {
+          "full_name": "Sandflow-ai/sand3d",
+          "stars": 943,
           "language": "HTML",
-          "description": "把文章、案例或笔记排成 3:4 小红书图文 | 1080×1440 | 20 个母版 | 浅色 / 深色 | Claude Code Skill",
-          "url": "https://github.com/helloianneo/ian-xhs-carousel",
-          "created_at": "2026-10-21T07:58:58Z"
+          "description": "3D modeling in Python, built for LLMs.",
+          "url": "https://github.com/Sandflow-ai/sand3d",
+          "created_at": "2026-11-03T08:23:03Z"
         },
         {
-          "full_name": "Monopoly0024/simple-checker-v1",
-          "stars": 98,
+          "full_name": "AssassinCreator/steam-stash-value-report-card",
+          "stars": 788,
           "language": "Python",
-          "description": "Codex skill：拆解代码功能板块，以彩色流程图和运行证据复核代码功能的实现--辅助你进行ai代码写作与更新。",
-          "url": "https://github.com/Monopoly0024/simple-checker-v1",
-          "created_at": "2026-10-21T04:22:59Z"
-        },
-        {
-          "full_name": "lol-tools-new/.github",
-          "stars": 95,
-          "language": "HTML",
-          "description": "🔥 league-of-legends-lol-skin-swapper-skin-changer",
-          "url": "https://github.com/lol-tools-new/.github",
-          "created_at": "2026-10-21T12:29:19Z"
-        },
-        {
-          "full_name": "ilAoC/mcd-gacha-collector",
-          "stars": 92,
-          "language": "Python",
-          "description": "麦卡收藏家 · 基于麦当劳中国 MCP 的卡牌收集 Skill + 网页版（麦当劳程序员创意开发大赛参赛作品）",
-          "url": "https://github.com/ilAoC/mcd-gacha-collector",
-          "created_at": "2026-10-21T01:19:17Z"
-        },
-        {
-          "full_name": "NCSC-NL/php2shell",
-          "stars": 91,
-          "language": "Python",
-          "description": "Operational information regarding the 2026 php2shell vulnerabilities  ",
-          "url": "https://github.com/NCSC-NL/php2shell",
-          "created_at": "2026-10-21T10:21:40Z"
+          "description": "Value your Steam stash in the terminal and print it as a share card: per game, per market, what sold and what sits. One Windows portable build, no account.",
+          "url": "https://github.com/AssassinCreator/steam-stash-value-report-card",
+          "created_at": "2026-11-02T00:40:47Z"
         }
       ],
       "items": [
         {
-          "full_name": "Alejandros17487/ai-jailbreaks",
-          "stars": 205,
-          "language": "",
-          "description": "AI jailbreaks: 35 paste-ready AI jailbreak prompts for 25+ frontier and open-weight models - system prompts, AGENTS.md specs, and Ollama Modelfiles. Built for AI security research and red-team testing.",
-          "url": "https://github.com/Alejandros17487/ai-jailbreaks",
-          "created_at": "2026-10-21T14:44:06Z"
-        },
-        {
-          "full_name": "h9-tec/ai-roadmap-2026",
-          "stars": 68,
-          "language": "",
-          "description": "AI Roadmap 2026: a beginner's path through Foundations, LLM Engineering, Agents, Evaluation, and Production, with verified free resources and a mini-project per layer",
-          "url": "https://github.com/h9-tec/ai-roadmap-2026",
-          "created_at": "2026-10-21T12:23:43Z"
-        },
-        {
-          "full_name": "ikow/php2shell-poc",
-          "stars": 844,
-          "language": "Python",
-          "description": "CVE-2026-109618/109619 PHP session.upload_progress Exploit Research — POC & Analysis",
-          "url": "https://github.com/ikow/php2shell-poc",
-          "created_at": "2026-10-21T07:55:16Z"
-        },
-        {
-          "full_name": "eness/php2shell-CVE-2026-109618-CVE-2026-109619-PoC",
-          "stars": 520,
-          "language": "Shell",
-          "description": "Proof-of-Concept (PoC) exploit for php2shell (CVE-2026-109618 / CVE-2026-109619), demonstrating remote code execution in vulnerable PHP environments. For security research and educational purposes only.",
-          "url": "https://github.com/eness/php2shell-CVE-2026-109618-CVE-2026-109619-PoC",
-          "created_at": "2026-10-21T08:31:43Z"
-        },
-        {
-          "full_name": "9bie/php2shell-bypass-aslr-exp",
-          "stars": 335,
-          "language": "Python",
-          "description": "",
-          "url": "https://github.com/9bie/php2shell-bypass-aslr-exp",
-          "created_at": "2026-10-21T11:11:57Z"
-        },
-        {
-          "full_name": "openai/php2shell-checker",
-          "stars": 295,
-          "language": "JavaScript",
-          "description": "",
-          "url": "https://github.com/openai/php2shell-checker",
-          "created_at": "2026-10-21T00:29:12Z"
-        },
-        {
-          "full_name": "WoYun520/dsh-purge",
-          "stars": 277,
-          "language": "JavaScript",
-          "description": "DeepSeek Harness 破甲 (mirror of mmparko/dsh-purge) — 全量镜像：全部分支/100 个 tag/完整提交历史。原作者署名见 README。",
-          "url": "https://github.com/WoYun520/dsh-purge",
-          "created_at": "2026-10-21T01:35:52Z"
-        },
-        {
-          "full_name": "helloianneo/ian-xhs-carousel",
-          "stars": 126,
-          "language": "HTML",
-          "description": "把文章、案例或笔记排成 3:4 小红书图文 | 1080×1440 | 20 个母版 | 浅色 / 深色 | Claude Code Skill",
-          "url": "https://github.com/helloianneo/ian-xhs-carousel",
-          "created_at": "2026-10-21T07:58:58Z"
-        },
-        {
-          "full_name": "Monopoly0024/simple-checker-v1",
-          "stars": 98,
-          "language": "Python",
-          "description": "Codex skill：拆解代码功能板块，以彩色流程图和运行证据复核代码功能的实现--辅助你进行ai代码写作与更新。",
-          "url": "https://github.com/Monopoly0024/simple-checker-v1",
-          "created_at": "2026-10-21T04:22:59Z"
-        },
-        {
-          "full_name": "lol-tools-new/.github",
-          "stars": 95,
-          "language": "HTML",
-          "description": "🔥 league-of-legends-lol-skin-swapper-skin-changer",
-          "url": "https://github.com/lol-tools-new/.github",
-          "created_at": "2026-10-21T12:29:19Z"
-        },
-        {
-          "full_name": "ilAoC/mcd-gacha-collector",
-          "stars": 92,
-          "language": "Python",
-          "description": "麦卡收藏家 · 基于麦当劳中国 MCP 的卡牌收集 Skill + 网页版（麦当劳程序员创意开发大赛参赛作品）",
-          "url": "https://github.com/ilAoC/mcd-gacha-collector",
-          "created_at": "2026-10-21T01:19:17Z"
-        },
-        {
-          "full_name": "NCSC-NL/php2shell",
+          "full_name": "TIGER-AI-Lab/WebsiteBench",
           "stars": 91,
           "language": "Python",
-          "description": "Operational information regarding the 2026 php2shell vulnerabilities  ",
-          "url": "https://github.com/NCSC-NL/php2shell",
-          "created_at": "2026-10-21T10:21:40Z"
+          "description": "Can AI agents rebuild websites through browser exploration?",
+          "url": "https://github.com/TIGER-AI-Lab/WebsiteBench",
+          "created_at": "2026-11-04T12:58:50Z"
         },
         {
-          "full_name": "browser-use/rl-env-use",
-          "stars": 88,
-          "language": "HTML",
-          "description": "Build RL environments for any domain from real cases that Browser Use agents mine from the web",
-          "url": "https://github.com/browser-use/rl-env-use",
-          "created_at": "2026-10-21T04:31:55Z"
-        },
-        {
-          "full_name": "DLSS-5-Swapper-Download-2026/.github",
-          "stars": 86,
-          "language": "",
-          "description": "DLSS 5 Swapper brings DLSS 5 installation and configuration into one desktop application, so you don't have to manage every game modification by hand. It can detect games from supported libraries, work with manually added game folders, and provide different installation routes de",
-          "url": "https://github.com/DLSS-5-Swapper-Download-2026/.github",
-          "created_at": "2026-10-21T00:33:59Z"
-        },
-        {
-          "full_name": "shareshellrelease/Cinema-4d",
+          "full_name": "quyetcao/ai-manus",
           "stars": 82,
-          "language": "",
-          "description": "Professional Cinema 4D configuration utility for 2026, offering a full working installer with all essential features pre-configured and ready to run.",
-          "url": "https://github.com/shareshellrelease/Cinema-4d",
-          "created_at": "2026-10-21T15:50:20Z"
+          "language": "Python",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/quyetcao/ai-manus",
+          "created_at": "2026-11-06T18:16:53Z"
         },
         {
-          "full_name": "ThresholdSummoner/Camtasia",
-          "stars": 80,
+          "full_name": "SinceGalaxyquiver49740/ai--manus",
+          "stars": 81,
           "language": "",
-          "description": "Camtasia 2026: Full working installer for professional video editing, screen recording, and VFX. Ready-to-use desktop edition with all...",
-          "url": "https://github.com/ThresholdSummoner/Camtasia",
-          "created_at": "2026-10-21T15:50:19Z"
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/SinceGalaxyquiver49740/ai--manus",
+          "created_at": "2026-11-07T07:46:10Z"
+        },
+        {
+          "full_name": "monirchemrubd/ai-manus",
+          "stars": 81,
+          "language": "Python",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/monirchemrubd/ai-manus",
+          "created_at": "2026-11-06T18:15:56Z"
+        },
+        {
+          "full_name": "OdysseyglassSamurai13935/ai--manus",
+          "stars": 81,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/OdysseyglassSamurai13935/ai--manus",
+          "created_at": "2026-11-07T07:17:08Z"
+        },
+        {
+          "full_name": "FrostFromquasar89091/ai--manus",
+          "stars": 81,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/FrostFromquasar89091/ai--manus",
+          "created_at": "2026-11-07T07:20:38Z"
+        },
+        {
+          "full_name": "Gigachad-byte/ai-manus",
+          "stars": 81,
+          "language": "Python",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/Gigachad-byte/ai-manus",
+          "created_at": "2026-11-06T18:15:33Z"
+        },
+        {
+          "full_name": "willsmanuel123-creator/ai-manus",
+          "stars": 81,
+          "language": "Python",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/willsmanuel123-creator/ai-manus",
+          "created_at": "2026-11-06T18:15:33Z"
+        },
+        {
+          "full_name": "thecoderrrer/ai-manus",
+          "stars": 81,
+          "language": "Python",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/thecoderrrer/ai-manus",
+          "created_at": "2026-11-06T18:16:31Z"
+        },
+        {
+          "full_name": "abhinay-h/manus-ai",
+          "stars": 81,
+          "language": "Python",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment. ",
+          "url": "https://github.com/abhinay-h/manus-ai",
+          "created_at": "2026-11-07T06:35:00Z"
+        },
+        {
+          "full_name": "KKKKhazix/agent-autoloop",
+          "stars": 3885,
+          "language": "TypeScript",
+          "description": "让你的命令行 Agent 在后台自己接活、自己跟进到底；平时不烦你，遇到拿不准的事才发卡片找你拍板。",
+          "url": "https://github.com/KKKKhazix/agent-autoloop",
+          "created_at": "2026-11-03T08:02:11Z"
+        },
+        {
+          "full_name": "worldonlyu/Google_AI_Pro_2Year_ZeroCost_Auto",
+          "stars": 3002,
+          "language": "Python",
+          "description": "Google_AI_Pro_2Year_ZeroCost_Auto",
+          "url": "https://github.com/worldonlyu/Google_AI_Pro_2Year_ZeroCost_Auto",
+          "created_at": "2026-11-04T14:54:56Z"
+        },
+        {
+          "full_name": "govijr/terminal-mac",
+          "stars": 2208,
+          "language": "Swift",
+          "description": "Entire MacOS running in your terminal.",
+          "url": "https://github.com/govijr/terminal-mac",
+          "created_at": "2026-11-03T03:22:56Z"
+        },
+        {
+          "full_name": "Minireel/HGhub",
+          "stars": 1967,
+          "language": "TypeScript",
+          "description": "YellowFruit third-party client",
+          "url": "https://github.com/Minireel/HGhub",
+          "created_at": "2026-11-03T14:04:27Z"
+        },
+        {
+          "full_name": "JenkinWoo/sheeridVerify",
+          "stars": 1409,
+          "language": "JavaScript",
+          "description": "",
+          "url": "https://github.com/JenkinWoo/sheeridVerify",
+          "created_at": "2026-11-06T09:28:09Z"
+        },
+        {
+          "full_name": "livliv-dev/player",
+          "stars": 1101,
+          "language": "TypeScript",
+          "description": "A lightweight 2.5D character player for the web, with lip sync and webcam face tracking.",
+          "url": "https://github.com/livliv-dev/player",
+          "created_at": "2026-11-04T03:28:33Z"
+        },
+        {
+          "full_name": "mmdoctor/google-pro-helper",
+          "stars": 1078,
+          "language": "Python",
+          "description": "",
+          "url": "https://github.com/mmdoctor/google-pro-helper",
+          "created_at": "2026-11-05T04:52:28Z"
+        },
+        {
+          "full_name": "NotRexed/Hookshot",
+          "stars": 1000,
+          "language": "C++",
+          "description": "A Native Recompilation Of The Legend Of Zelda: Ocarina Of Time Nintendo Switch 2 Remake",
+          "url": "https://github.com/NotRexed/Hookshot",
+          "created_at": "2026-11-05T12:18:58Z"
+        },
+        {
+          "full_name": "Sandflow-ai/sand3d",
+          "stars": 943,
+          "language": "HTML",
+          "description": "3D modeling in Python, built for LLMs.",
+          "url": "https://github.com/Sandflow-ai/sand3d",
+          "created_at": "2026-11-03T08:23:03Z"
+        },
+        {
+          "full_name": "AssassinCreator/steam-stash-value-report-card",
+          "stars": 788,
+          "language": "Python",
+          "description": "Value your Steam stash in the terminal and print it as a share card: per game, per market, what sold and what sits. One Windows portable build, no account.",
+          "url": "https://github.com/AssassinCreator/steam-stash-value-report-card",
+          "created_at": "2026-11-02T00:40:47Z"
         }
       ]
     },
     "hackernews": {
-      "status": "error",
-      "error": "HN Firebase API no disponible: "
+      "status": "ok",
+      "items": [
+        {
+          "title": "Homegrown edge AI clinical hardware startup O-Health secures strategic funding",
+          "points": 180,
+          "comments": 64,
+          "url": "https://news.google.com/rss/articles/CBMipgJBVV95cUxPdXhOQnUxamk4RUN0bjRqdi1GVnItMWVsTTlTcEJkbzFzOE5HRVBmZGlxTUJQdi13MDE1enhjVDQ2OTlsZ1hrTDZSQW9SUkdxUHF0dUZXT3plVVJndFBMM3A3Zmh3Ymd2bnVnTUdqNXFOR2pGamdLNENZSV8tcDZmejdvOU5DZ2tEVmU0bVlzemVuUjhBLU84QUhzekZHWGNTaWF3T0g0dW5sX24wRmVZRXVjWVhDZk1PSEEwSG1hYS1EdnJMeG1jTzlpOHZudHNIV2VNaC1VRFNCYkgwSXY1LXMzN2dSR2VaSGNRNzNpcmhRa3FyZnN2Y3NDenQ1b1QzWDdzRlowQTh0VlY4NWNCbkJvenJ2TEpMWU9zYnIwS19lNGNvZ0HSAfQBQVVfeXFMT3FkX1B6dmRkbjZYY2FQa0JsREgwSGlMQjJaMVFfMUlUNFhrQ0pKd1hsTXU3X1BCYi12RnJvWG1OTlMtNEJSOWtMZHdvNGthZ2FlNGRseTV4YmhTM2NjRVF5Tl9PbnczMUFobWNPa29CdGZhZFBQYUI1NzJidENLeUdra2FHVTVubHpSNTNkTnlpdzBjenM2bVRLQ284eTF4ZmVnZUx6ZVRIbktwd3RXT1RwWTdfUVNQREpOQWJ0eV83RmZmajlwMUgwT2p6QXlVOUlQNzR4QjlkcGJ5cGsyODdoSkotR2VTdHNzT3drMmgyYjBQcw?oc=5"
+        },
+        {
+          "title": "OpenAI’s GPT-6 Cyber finds 81 Firefox flaws and 948 Linux exploits",
+          "points": 168,
+          "comments": 59,
+          "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPU21BcXFOblZveklMdUpkdmVSUGgxVVlheVd4Y3dMSzktNjBBR19pMzZjZWNHN0ZUNHlidGJyWmIyREhlaFBpdTZpR3JvOXRBem9aTEJHalhHZW1WRWMtWWVNV3p1RGVrcll6WDd1NjBsUFRDUXNobUZ1UGpxN0c0TzJpcjJfOGZuNnNCU2VSWVJfRGpwQTktOV93ZVU?oc=5"
+        },
+        {
+          "title": "Funding and acquisitions in Indian startups this week [Nov 02- Nov 07]",
+          "points": 156,
+          "comments": 54,
+          "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxQTUNvMlpYcEs3MkF3OXItSXdPMVU4aHBZYWhoSUtBU25zZ3NGTEZENDE2NjhGUUVxbXE1VTVZT2ZDeXJxZ2x1U0hKNEo3OHZBR0QtR3N2NjZwVDV0V1BrYURBdFVGdlo1WkJnOGlWOWEyQ1hCTWNYVDNWUF9pQnBoU0k2SHcwdTQycDBWMG8wVHVQdWtxRmdWeGRYX1ZnLUpDaVY5eHJDUmt2X2hXbHUzZ1JhR0gxQXFVOV9WOVVnZVlaRkR2TGVfWGxkMjM5c0Y4UGpNQjNtNmxfWnNHMTJYQnhR0gHiAUFVX3lxTFBNQ28yWlhwSzcyQXc5ci1Jd08xVThocFlhaGhJS0FTbnNnc0ZMRkQ0MTY2OEZRRXFtcTVVNVlPZkN5cnFnbHVTSEo0Sjc4dkFHRC1Hc3Y2NnBUNXRXUGthREF0VUZ2WjVaQmc4aVY5YTJDWEJNY1hUM1ZQX2lCcGhTSTZIdzB1NDJwMFYwbzBUdVB1a3FGZ1Z4ZFhfVmctSkNpVjl4ckNSa3ZfaFdsdTNnUmFHSDFBcVU5X1Y5VWdlWVpGRHZMZV9YbGQyMzlzRjhQak1CM202bF9ac0cxMlhCeFE?oc=5"
+        },
+        {
+          "title": "GPT-6 Cyber: 99.93% Scope Score, Critical Rating [2026]",
+          "points": 144,
+          "comments": 49,
+          "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQbUtiYWhhd1pRazFJWG9yRzFIbWtzWkZqZHZtck9zU0ZvV2NDel93UEluMUdqY0ozdzhpQVh0MVYydlVyNFI1b3hLMXQxWnZvbFVvR2p5SXRidG1lY05ieHg3SG4xMno4azYxeXRlU2ZJaTdacHo0RWdlSW8wazF1ME5hWmxQUGZLc2hMVXh3?oc=5"
+        },
+        {
+          "title": "​OpenAI Unveils GPT-6 Cyber Model Capable of Exploiting 948 Linux Kernel Flaws",
+          "points": 132,
+          "comments": 44,
+          "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNVzNEa3gweHRxU0xscVIwTnBXc3VLMzRtTHdnMnNUckItaTNZMnFpSUNBRW8tR1dCT0o3VjdWRkZWN0lERzFKQ08xZjRLdm5WbnVaUWs5QzQ3VmpNTlBUcVU5ck5CbTZtZHQzYzNIbWE0dk9EVEw3ZksyNkV3enFkejRITDBrY2c2UHQxQjdWX1BTUzhCN0JIUWR6SDY?oc=5"
+        },
+        {
+          "title": "How to Use ChatGPT: Plans, Limits, Features and Fixes",
+          "points": 120,
+          "comments": 39,
+          "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1qY1lPZEFWaEJ6S19uN1BTUTVZV2VCVkxqTC1ubWpRbGxFcDZVYzhtX0N1RzA2NTJYUWotWGdkcWlYNDVYV1VpTVZyNTJWN01EUVhz?oc=5"
+        },
+        {
+          "title": "OpenAI Secures $11B in Initial Funding at $1.25T Valuation",
+          "points": 108,
+          "comments": 34,
+          "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQWnpoOTlNTHZ4WHFsUWJ2S1FpVDFfeTBNYmRCa3pGa3JSSF8yLXV2NU9lQm8zeFl2T0I3bGF2dThMU2NTWjk2N05ULTlYLXF3QW91a1hWdHVMdS1wNFBJQ3BYZnlPMnFzUWZnRzFQUXdXVVJXRG9Wck5RMHB4T2JBN01LQzc?oc=5"
+        },
+        {
+          "title": "OpenAI valued at $1.25 trillion, as rival Anthropic nears its IPO",
+          "points": 96,
+          "comments": 29,
+          "url": "https://www.theverge.com/ai-artificial-intelligence/1029380/openai-1-25-trillion-investment-valuation"
+        }
+      ]
     }
   }
 }

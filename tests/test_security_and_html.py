@@ -18,6 +18,12 @@ class TestHtmlSecurity:
         assert "<prompt>" not in clean
         assert clean == "<b>Hola alert(1)<i>mundohack</i></b>"
 
+    def test_sanitize_no_trunca_mensaje_con_menor_que_sin_cerrar(self):
+        msg = "Inicio del resumen <Claude Opus 5.5 y luego todo el análisis completo hasta el final."
+        clean = sanitize_telegram_html(msg)
+        assert "análisis completo hasta el final." in clean
+        assert "&lt;Claude Opus 5.5" in clean
+
     def test_safe_url_bloquea_javascript_y_comillas(self):
         assert safe_url("javascript:alert(1)") is None
         assert safe_url("file:///etc/passwd") is None
@@ -89,6 +95,30 @@ class TestPromptGuardrailsAndFailover:
         assert calls == [("groq", True)]
         assert "<script>" not in out
         assert "<b>Respuesta desde Groq</b>" in out
+
+    def test_draft_briefing_descarta_salida_cortada_a_mitad_de_frase(self, monkeypatch):
+        brain = RankingBrain()
+        brain.client = None
+        brain.groq_key = "fake-groq-key"
+
+        # Simula un mensaje cortado tras las primeras palabras ("...destaca la presencia de")
+        monkeypatch.setattr(
+            brain,
+            "_generate",
+            lambda *a, **k: "☀️ <b>Briefing de hoy</b>\n\nEn el ranking general de LMSYS Arena destaca la presencia de",
+        )
+        assert brain.draft_briefing("RANKINGS", "TRENDING") is None
+
+        # En cambio, un resumen completo y bien cerrado sí se acepta
+        completo = (
+            "☀️ <b>Resumen del día en IA</b>\n\n"
+            "Hoy lidera Gemini 4 Carbon con 1539 puntos en calidad general, seguido muy de cerca por "
+            "Gemini 4 Argon y Claude Opus 5.5, que además ocupa el puesto #2 en programación y #1 en desarrollo web."
+        )
+        monkeypatch.setattr(brain, "_generate", lambda *a, **k: completo)
+        rendered = brain.draft_briefing("RANKINGS", "TRENDING")
+        assert rendered is not None
+        assert "Claude Opus 5.5" in rendered
 
 
 class TestBotSecurityAndCache:

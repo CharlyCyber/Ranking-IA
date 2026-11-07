@@ -1,4 +1,4 @@
-"""Dashboard Web Público v4.2 (Diseño Obsidian + Neon Lime + White Split Sheet) + API + RSS."""
+"""Dashboard Web Público v4.3 (Obsidian + Neon Lime + White Split Sheet · UX Sencilla) + API + RSS."""
 
 from datetime import datetime, timezone
 from email.utils import format_datetime
@@ -205,13 +205,18 @@ def rss_feed():
 
     rss = (
         '<?xml version="1.0" encoding="UTF-8"?>'
-        '<rss version="2.0"><channel>'
-        "<title>Ranking AI Monitor — Alertas de Modelos IA</title>"
-        f"<link>{escape_html(base_url)}/dashboard</link>"
-        "<description>Cambios verificados en LMSYS Arena, OpenRouter, Design Arena y GitHub</description>"
-        "<language>es</language>"
-        + "".join(items_xml)
-        + "</channel></rss>"
+        '<rss version="1.0" xmlns:atom="http://www.w3.org/2005/Atom"></rss>'
+        if False
+        else (
+            '<?xml version="1.0" encoding="UTF-8"?>'
+            '<rss version="2.0"><channel>'
+            "<title>Ranking AI Monitor — Alertas de Modelos IA</title>"
+            f"<link>{escape_html(base_url)}/dashboard</link>"
+            "<description>Cambios verificados en LMSYS Arena, OpenRouter, Design Arena y GitHub</description>"
+            "<language>es</language>"
+            + "".join(items_xml)
+            + "</channel></rss>"
+        )
     )
     return Response(rss, mimetype="application/rss+xml; charset=utf-8")
 
@@ -221,7 +226,7 @@ DASHBOARD_HTML = """<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ranking IA · Monitor</title>
+    <title>Ranking IA · ¿Cuál es la mejor IA hoy?</title>
     <link rel="alternate" type="application/rss+xml" title="Ranking AI Cambios RSS" href="/feed.xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -235,15 +240,13 @@ DASHBOARD_HTML = """<!DOCTYPE html>
             --bg-card-2: #1f2632;
             --bg-pill: #181e28;
             --lime: #a3ff12;
-            --lime-dim: rgba(163, 255, 18, 0.16);
+            --lime-dim: rgba(163, 255, 18, 0.14);
             --sheet: #ffffff;
-            --sheet-muted: #f3f5f8;
             --ink-dark: #0f141c;
-            --ink-gray: #717b8a;
+            --ink-gray: #647082;
             --text-light: #f4f7fb;
-            --text-muted: #8a94a6;
-            --border-subtle: rgba(255, 255, 255, 0.065);
-            --border-light: #ebeff4;
+            --text-muted: #8e98aa;
+            --border-subtle: rgba(255, 255, 255, 0.07);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -254,7 +257,7 @@ DASHBOARD_HTML = """<!DOCTYPE html>
             color: var(--text-light);
             min-height: 100vh;
             -webkit-font-smoothing: antialiased;
-            padding-bottom: 36px;
+            padding-bottom: 40px;
         }
 
         .shell {
@@ -269,14 +272,14 @@ DASHBOARD_HTML = """<!DOCTYPE html>
             align-items: center;
             justify-content: space-between;
             gap: 14px;
-            padding: 6px 0 22px;
+            padding: 6px 0 20px;
             flex-wrap: wrap;
         }
 
         .brand-cluster {
             display: flex;
             align-items: center;
-            gap: 14px;
+            gap: 12px;
         }
 
         .brand-logo {
@@ -311,6 +314,7 @@ DASHBOARD_HTML = """<!DOCTYPE html>
             align-items: center;
             gap: 2px;
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+            flex-wrap: wrap;
         }
 
         .nav-tab {
@@ -318,7 +322,7 @@ DASHBOARD_HTML = """<!DOCTYPE html>
             background: transparent;
             color: #262e3b;
             font-family: inherit;
-            font-size: 0.78rem;
+            font-size: 0.8rem;
             font-weight: 500;
             padding: 8px 16px;
             border-radius: 999px;
@@ -327,9 +331,7 @@ DASHBOARD_HTML = """<!DOCTYPE html>
             white-space: nowrap;
         }
 
-        .nav-tab:hover {
-            color: #000;
-        }
+        .nav-tab:hover { color: #000; }
 
         .nav-tab.active {
             background: var(--lime);
@@ -337,9 +339,7 @@ DASHBOARD_HTML = """<!DOCTYPE html>
             font-weight: 700;
         }
 
-        .nav-tab.active::before {
-            content: "• ";
-        }
+        .nav-tab.active::before { content: "• "; }
 
         .icon-circle {
             width: 36px;
@@ -361,7 +361,7 @@ DASHBOARD_HTML = """<!DOCTYPE html>
         .icon-circle:hover {
             background: var(--bg-card-2);
             color: var(--text-light);
-            border-color: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.16);
         }
 
         .icon-dot {
@@ -394,12 +394,12 @@ DASHBOARD_HTML = """<!DOCTYPE html>
             font-size: 0.78rem;
         }
 
-        /* ───────────── 2. HERO HEADER ROW ───────────── */
+        /* ───────────── 2. HERO HEADER + 1-CLICK BEGINNER GOALS ───────────── */
         .hero-row {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 20px;
+            margin-bottom: 14px;
             gap: 12px;
             flex-wrap: wrap;
         }
@@ -411,10 +411,16 @@ DASHBOARD_HTML = """<!DOCTYPE html>
         }
 
         .hero-title {
-            font-size: 2.15rem;
-            font-weight: 400;
+            font-size: 2rem;
+            font-weight: 500;
             letter-spacing: -0.025em;
             color: #ffffff;
+        }
+
+        .hero-subtitle {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 2px;
         }
 
         .hero-actions {
@@ -444,12 +450,85 @@ DASHBOARD_HTML = """<!DOCTYPE html>
             border-color: rgba(163, 255, 18, 0.45);
         }
 
+        /* Beginner 1-click Goal Strip */
+        .goals-strip {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 18px;
+            flex-wrap: wrap;
+        }
+
+        .goals-label {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-right: 4px;
+        }
+
+        .goal-chip {
+            border: 1px solid var(--border-subtle);
+            background: var(--bg-card);
+            color: #dce3ee;
+            font-family: inherit;
+            font-size: 0.79rem;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 999px;
+            cursor: pointer;
+            transition: all 0.18s ease;
+        }
+
+        .goal-chip:hover {
+            border-color: rgba(163, 255, 18, 0.45);
+            color: #ffffff;
+        }
+
+        .goal-chip.active {
+            background: var(--lime-dim);
+            border-color: var(--lime);
+            color: var(--lime);
+            font-weight: 600;
+        }
+
+        /* Collapsible Beginner Guide Banner */
+        .guide-banner {
+            display: none;
+            background: #141a24;
+            border: 1px solid rgba(163, 255, 18, 0.35);
+            border-radius: 22px;
+            padding: 18px 22px;
+            margin-bottom: 18px;
+            gap: 18px;
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .guide-banner.open {
+            display: grid;
+        }
+
+        @media (max-width: 820px) {
+            .guide-banner { grid-template-columns: 1fr; }
+        }
+
+        .guide-step strong {
+            display: block;
+            color: var(--lime);
+            font-size: 0.84rem;
+            margin-bottom: 4px;
+        }
+
+        .guide-step p {
+            color: #cbd5e1;
+            font-size: 0.79rem;
+            line-height: 1.45;
+        }
+
         /* ───────────── 3. TOP ASYMMETRIC BENTO CARDS ───────────── */
         .bento-top {
             display: grid;
             grid-template-columns: 1.38fr 1fr;
             gap: 18px;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
 
         @media (max-width: 1024px) {
@@ -460,19 +539,19 @@ DASHBOARD_HTML = """<!DOCTYPE html>
             background: var(--bg-card);
             border: 1px solid var(--border-subtle);
             border-radius: 28px;
-            padding: 26px 28px;
+            padding: 25px 28px;
             position: relative;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            min-height: 248px;
+            min-height: 244px;
         }
 
         .metrics-triple {
             display: grid;
-            grid-template-columns: 1fr 1.15fr 0.85fr;
+            grid-template-columns: 1.15fr 1fr 0.85fr;
             gap: 18px;
-            margin-bottom: 26px;
+            margin-bottom: 24px;
         }
 
         @media (max-width: 640px) {
@@ -483,36 +562,45 @@ DASHBOARD_HTML = """<!DOCTYPE html>
             color: var(--text-muted);
             font-size: 0.78rem;
             font-weight: 400;
-            margin-bottom: 8px;
+            margin-bottom: 7px;
         }
 
         .metric-big {
-            font-size: 2rem;
+            font-size: 1.95rem;
             font-weight: 400;
             letter-spacing: -0.03em;
             color: #ffffff;
             font-variant-numeric: tabular-nums;
-            line-height: 1.1;
+            line-height: 1.12;
         }
 
         .metric-big .prefix {
             color: var(--text-muted);
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             font-weight: 400;
-            margin-right: 3px;
+            margin-right: 4px;
         }
 
         .metric-big .suffix {
             color: var(--text-muted);
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 300;
             margin-left: 4px;
+        }
+
+        .metric-hint {
+            font-size: 0.73rem;
+            color: var(--lime);
+            margin-top: 4px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         /* Progress bars + overlapping lab avatars */
         .bars-grid {
             display: grid;
-            grid-template-columns: 1fr 1.25fr 0.9fr;
+            grid-template-columns: 1fr 1.2fr 0.9fr;
             gap: 18px;
             align-items: end;
         }
@@ -589,13 +677,13 @@ DASHBOARD_HTML = """<!DOCTYPE html>
             align-items: baseline;
             gap: 12px;
             flex-wrap: wrap;
-            margin-bottom: 18px;
+            margin-bottom: 16px;
         }
 
         .pill-subtle {
             background: #212835;
             color: #cbd5e1;
-            font-size: 0.72rem;
+            font-size: 0.73rem;
             padding: 4px 11px;
             border-radius: 999px;
             font-weight: 500;
@@ -629,7 +717,7 @@ DASHBOARD_HTML = """<!DOCTYPE html>
         }
 
         .w-card:hover {
-            border-color: rgba(255, 255, 255, 0.16);
+            border-color: rgba(255, 255, 255, 0.18);
         }
 
         .w-card .w-top {
@@ -642,7 +730,7 @@ DASHBOARD_HTML = """<!DOCTYPE html>
         }
 
         .w-card .w-sub {
-            font-size: 0.72rem;
+            font-size: 0.73rem;
             color: var(--text-muted);
         }
 
@@ -660,7 +748,7 @@ DASHBOARD_HTML = """<!DOCTYPE html>
         }
 
         .w-card.featured .w-sub {
-            color: rgba(11, 15, 20, 0.78);
+            color: rgba(11, 15, 20, 0.8);
             font-weight: 600;
         }
 
@@ -678,9 +766,7 @@ DASHBOARD_HTML = """<!DOCTYPE html>
             transition: transform 0.15s ease;
         }
 
-        .btn-white-pill:hover {
-            transform: translateY(-1px);
-        }
+        .btn-white-pill:hover { transform: translateY(-1px); }
 
         /* ───────────── 4. ACTIVE FILTERS BAR ───────────── */
         .filters-bar {
@@ -695,9 +781,9 @@ DASHBOARD_HTML = """<!DOCTYPE html>
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            font-size: 0.83rem;
+            font-size: 0.82rem;
             color: #d8dee9;
-            margin-right: 6px;
+            margin-right: 4px;
             white-space: nowrap;
         }
 
@@ -716,7 +802,7 @@ DASHBOARD_HTML = """<!DOCTYPE html>
 
         .filter-pill {
             flex: 1;
-            min-width: 155px;
+            min-width: 160px;
             background-color: var(--bg-card);
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='11' fill='%23212835'/%3E%3Cpath d='M8.5 10.5L12 14l3.5-3.5' fill='none' stroke='%2394a3b8' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
             background-repeat: no-repeat;
@@ -733,13 +819,11 @@ DASHBOARD_HTML = """<!DOCTYPE html>
             cursor: pointer;
         }
 
-        .filter-pill:focus {
-            border-color: rgba(163, 255, 18, 0.5);
-        }
+        .filter-pill:focus { border-color: rgba(163, 255, 18, 0.55); }
 
         .search-pill-wrap {
-            flex: 1.2;
-            min-width: 200px;
+            flex: 1.25;
+            min-width: 220px;
             background: var(--bg-card);
             border: 1px solid var(--border-subtle);
             border-radius: 999px;
@@ -754,14 +838,12 @@ DASHBOARD_HTML = """<!DOCTYPE html>
             border: none;
             color: var(--text-light);
             font-family: inherit;
-            font-size: 0.78rem;
+            font-size: 0.79rem;
             width: 100%;
             outline: none;
         }
 
-        .search-pill-wrap input::placeholder {
-            color: #5c6678;
-        }
+        .search-pill-wrap input::placeholder { color: #647084; }
 
         .search-icon-btn {
             width: 30px;
@@ -786,7 +868,6 @@ DASHBOARD_HTML = """<!DOCTYPE html>
             box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
         }
 
-        /* Inverted dark center cutout notch */
         .sheet-notch {
             position: absolute;
             top: 0;
@@ -821,7 +902,7 @@ DASHBOARD_HTML = """<!DOCTYPE html>
             background: radial-gradient(circle at 100% 100%, transparent 20px, var(--bg-canvas) 20.5px);
         }
 
-        @media (max-width: 860px) {
+        @media (max-width: 880px) {
             .sheet-notch {
                 position: static;
                 transform: none;
@@ -875,14 +956,21 @@ DASHBOARD_HTML = """<!DOCTYPE html>
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 18px;
+            margin-bottom: 16px;
             min-height: 36px;
+            gap: 12px;
         }
 
         .sheet-heading {
-            font-size: 0.96rem;
-            font-weight: 600;
+            font-size: 0.98rem;
+            font-weight: 700;
             color: var(--ink-dark);
+        }
+
+        .sheet-subheading {
+            font-size: 0.76rem;
+            color: var(--ink-gray);
+            margin-top: 2px;
         }
 
         .sheet-tools {
@@ -905,13 +993,11 @@ DASHBOARD_HTML = """<!DOCTYPE html>
             text-decoration: none;
         }
 
-        .sheet-tool-btn:hover {
-            background: #e2e8f0;
-        }
+        .sheet-tool-btn:hover { background: #e2e8f0; }
 
         .split-grid {
             display: grid;
-            grid-template-columns: 0.72fr 1.28fr;
+            grid-template-columns: 0.76fr 1.24fr;
             gap: 22px;
             align-items: stretch;
         }
@@ -925,7 +1011,7 @@ DASHBOARD_HTML = """<!DOCTYPE html>
             display: flex;
             flex-direction: column;
             gap: 6px;
-            max-height: 410px;
+            max-height: 440px;
             overflow-y: auto;
             padding-right: 4px;
         }
@@ -945,9 +1031,7 @@ DASHBOARD_HTML = """<!DOCTYPE html>
             color: var(--ink-dark);
         }
 
-        .model-row:hover {
-            background: #f1f5f9;
-        }
+        .model-row:hover { background: #f1f5f9; }
 
         .model-row.selected {
             background: #141923;
@@ -973,7 +1057,7 @@ DASHBOARD_HTML = """<!DOCTYPE html>
         }
 
         .row-title {
-            font-size: 0.82rem;
+            font-size: 0.83rem;
             font-weight: 700;
             line-height: 1.25;
             white-space: nowrap;
@@ -982,13 +1066,14 @@ DASHBOARD_HTML = """<!DOCTYPE html>
         }
 
         .row-sub {
-            font-size: 0.72rem;
+            font-size: 0.73rem;
             color: var(--ink-gray);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
-        .model-row.selected .row-sub {
-            color: #94a3b8;
-        }
+        .model-row.selected .row-sub { color: #94a3b8; }
 
         .row-tag {
             background: #f1f5f9;
@@ -1008,16 +1093,17 @@ DASHBOARD_HTML = """<!DOCTYPE html>
 
         .row-metric {
             font-size: 0.92rem;
-            font-weight: 500;
+            font-weight: 600;
             font-variant-numeric: tabular-nums;
             text-align: right;
-            min-width: 78px;
+            min-width: 76px;
         }
 
         .row-metric .unit-sm {
             color: #94a3b8;
-            font-size: 0.72rem;
-            margin-right: 2px;
+            font-size: 0.7rem;
+            font-weight: 400;
+            margin-left: 2px;
         }
 
         /* Right Dark Inset Detail Panel */
@@ -1029,13 +1115,13 @@ DASHBOARD_HTML = """<!DOCTYPE html>
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            gap: 18px;
-            min-height: 396px;
+            gap: 16px;
+            min-height: 425px;
         }
 
         .detail-header {
             display: grid;
-            grid-template-columns: 1.25fr 0.95fr 0.95fr;
+            grid-template-columns: 1.15fr 0.95fr 1.1fr;
             gap: 16px;
             align-items: start;
         }
@@ -1058,8 +1144,8 @@ DASHBOARD_HTML = """<!DOCTYPE html>
         }
 
         .d-id {
-            font-size: 1.48rem;
-            font-weight: 400;
+            font-size: 1.42rem;
+            font-weight: 500;
             letter-spacing: -0.02em;
             color: #ffffff;
         }
@@ -1074,7 +1160,7 @@ DASHBOARD_HTML = """<!DOCTYPE html>
             display: flex;
             align-items: center;
             gap: 8px;
-            font-size: 1.25rem;
+            font-size: 1.18rem;
             font-weight: 600;
             color: #ffffff;
         }
@@ -1086,14 +1172,29 @@ DASHBOARD_HTML = """<!DOCTYPE html>
         }
 
         .d-cust-name {
-            font-size: 0.84rem;
-            font-weight: 600;
+            font-size: 0.86rem;
+            font-weight: 700;
             color: #ffffff;
         }
 
         .d-cust-sub {
-            font-size: 0.71rem;
+            font-size: 0.73rem;
             color: var(--text-muted);
+        }
+
+        /* Plain-Spanish Beginner Summary Box */
+        .simple-explain-box {
+            background: rgba(163, 255, 18, 0.08);
+            border: 1px solid rgba(163, 255, 18, 0.24);
+            border-radius: 16px;
+            padding: 12px 16px;
+            font-size: 0.82rem;
+            line-height: 1.48;
+            color: #e6edf7;
+        }
+
+        .simple-explain-box strong {
+            color: var(--lime);
         }
 
         /* 4 Sub-cards inside Dark Detail Panel */
@@ -1110,8 +1211,8 @@ DASHBOARD_HTML = """<!DOCTYPE html>
         .sub-box {
             background: #202633;
             border-radius: 18px;
-            padding: 16px;
-            min-height: 118px;
+            padding: 15px;
+            min-height: 112px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -1128,8 +1229,8 @@ DASHBOARD_HTML = """<!DOCTYPE html>
         }
 
         .sub-box .sub-val {
-            font-size: 1.08rem;
-            font-weight: 500;
+            font-size: 1.04rem;
+            font-weight: 600;
             color: #ffffff;
             font-variant-numeric: tabular-nums;
             padding-right: 16px;
@@ -1138,14 +1239,14 @@ DASHBOARD_HTML = """<!DOCTYPE html>
         .sub-box .sub-lbl {
             font-size: 0.72rem;
             color: var(--text-muted);
-            line-height: 1.3;
+            line-height: 1.35;
         }
 
         .sub-box.dotted-add {
             background: radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px);
             background-size: 10px 10px;
             background-color: rgba(255, 255, 255, 0.015);
-            border: 1.5px dashed rgba(255, 255, 255, 0.14);
+            border: 1.5px dashed rgba(255, 255, 255, 0.16);
             align-items: center;
             justify-content: center;
             cursor: pointer;
@@ -1174,7 +1275,7 @@ DASHBOARD_HTML = """<!DOCTYPE html>
         .detail-footer-bar {
             background: #202633;
             border-radius: 18px;
-            padding: 14px 18px;
+            padding: 13px 18px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -1185,7 +1286,7 @@ DASHBOARD_HTML = """<!DOCTYPE html>
         .footer-stats {
             display: flex;
             align-items: center;
-            gap: 28px;
+            gap: 24px;
             flex-wrap: wrap;
         }
 
@@ -1196,8 +1297,8 @@ DASHBOARD_HTML = """<!DOCTYPE html>
         }
 
         .f-stat-val {
-            font-size: 1.02rem;
-            font-weight: 500;
+            font-size: 0.98rem;
+            font-weight: 600;
             color: #ffffff;
             font-variant-numeric: tabular-nums;
         }
@@ -1213,11 +1314,15 @@ DASHBOARD_HTML = """<!DOCTYPE html>
             color: #0b0f14;
             border: none;
             font-family: inherit;
-            font-size: 0.78rem;
+            font-size: 0.8rem;
             font-weight: 700;
             padding: 11px 20px;
             border-radius: 999px;
             cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
             transition: transform 0.15s ease, box-shadow 0.15s ease;
         }
 
@@ -1226,12 +1331,12 @@ DASHBOARD_HTML = """<!DOCTYPE html>
             box-shadow: 0 8px 20px rgba(163, 255, 18, 0.28);
         }
 
-        /* Secondary Views inside Detail Card (ELO Chart / Tendencias / Cambios) */
+        /* Secondary Views inside Detail Card */
         .panel-view { display: none; }
         .panel-view.active { display: flex; flex-direction: column; justify-content: space-between; height: 100%; gap: 16px; }
 
         .chart-wrap {
-            height: 235px;
+            height: 245px;
             background: #1b212d;
             border-radius: 18px;
             padding: 14px;
@@ -1241,7 +1346,7 @@ DASHBOARD_HTML = """<!DOCTYPE html>
             display: flex;
             flex-direction: column;
             gap: 8px;
-            max-height: 255px;
+            max-height: 270px;
             overflow-y: auto;
         }
 
@@ -1249,7 +1354,7 @@ DASHBOARD_HTML = """<!DOCTYPE html>
             background: #202633;
             border-radius: 14px;
             padding: 11px 14px;
-            font-size: 0.8rem;
+            font-size: 0.81rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -1290,63 +1395,85 @@ DASHBOARD_HTML = """<!DOCTYPE html>
                     </svg>
                     <span>ranking.ia</span>
                 </a>
-                <button class="icon-circle" onclick="cambiarVistaPanel('detail')" title="Vista principal">
-                    <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
-                </button>
+                <button class="icon-circle" onclick="toggleGuia()" title="Guía rápida para principiantes">?</button>
             </div>
 
             <div class="nav-center">
                 <div class="white-nav-pill" id="topNavPills">
-                    <button class="nav-tab" data-panel="chart" onclick="activarNavSuperior(this, 'chart')">Evolución</button>
-                    <button class="nav-tab active" data-panel="detail" onclick="activarNavSuperior(this, 'detail')">Rankings</button>
-                    <button class="nav-tab" data-panel="value" onclick="activarNavSuperior(this, 'value')">Gratis &amp; Precio</button>
-                    <button class="nav-tab" data-panel="trends" onclick="activarNavSuperior(this, 'trends')">Tendencias</button>
-                    <button class="nav-tab" data-panel="changes" onclick="activarNavSuperior(this, 'changes')">Cambios</button>
+                    <button class="nav-tab active" data-panel="detail" onclick="activarNavSuperior(this, 'detail')">Mejores IAs</button>
+                    <button class="nav-tab" data-panel="value" onclick="activarNavSuperior(this, 'value')">IAs Gratis ($0)</button>
+                    <button class="nav-tab" data-panel="chart" onclick="activarNavSuperior(this, 'chart')">Gráfico de Evolución</button>
+                    <button class="nav-tab" data-panel="trends" onclick="activarNavSuperior(this, 'trends')">Novedades</button>
+                    <button class="nav-tab" data-panel="changes" onclick="activarNavSuperior(this, 'changes')">Últimos Cambios</button>
                 </div>
 
-                <a class="icon-circle" href="/api/rankings" target="_blank" rel="noopener" title="JSON API Abierta">
-                    <svg viewBox="0 0 24 24"><path d="M8 4H6a2 2 0 0 0-2 2v4a2 2 0 0 1-2 2 2 2 0 0 1 2 2v4a2 2 0 0 0 2 2h2"/><path d="M16 4h2a2 2 0 0 1 2 2v4a2 2 0 0 0 2 2 2 2 0 0 0-2 2v4a2 2 0 0 1-2 2h-2"/></svg>
-                </a>
-                <a class="icon-circle" href="/feed.xml" target="_blank" rel="noopener" title="Feed RSS 2.0">
+                <a class="icon-circle" href="/feed.xml" target="_blank" rel="noopener" title="Suscripción RSS gratuita">
                     <svg viewBox="0 0 24 24"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
                 </a>
-                <a class="icon-circle" href="/api/chart.svg?source=arena&category=Text" target="_blank" rel="noopener" title="Gráfico SVG">
-                    <svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
-                </a>
-                <a class="icon-circle" href="/api/badge/arena" target="_blank" rel="noopener" title="Shields Badge">
-                    <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <a class="icon-circle" href="/api/rankings" target="_blank" rel="noopener" title="Datos abiertos JSON">
+                    <svg viewBox="0 0 24 24"><path d="M8 4H6a2 2 0 0 0-2 2v4a2 2 0 0 1-2 2 2 2 0 0 1 2 2v4a2 2 0 0 0 2 2h2"/><path d="M16 4h2a2 2 0 0 1 2 2v4a2 2 0 0 0 2 2 2 2 0 0 0-2 2v4a2 2 0 0 1-2 2h-2"/></svg>
                 </a>
             </div>
 
             <div class="topbar-right">
-                <button class="icon-circle" onclick="cambiarVistaPanel('changes')" title="Alertas detectadas">
+                <button class="icon-circle" onclick="cambiarVistaPanel('changes')" title="Ver movimientos recientes">
                     <svg viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
                     <span class="icon-dot" id="bellDot" style="display:none;"></span>
                 </button>
-                <a class="icon-circle" href="/health" target="_blank" rel="noopener" title="Estado 24/7 (/health)">
-                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9c.26.6.77 1.02 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                <a class="icon-circle" href="/health" target="_blank" rel="noopener" title="Estado del monitor 24/7">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.93 4.93l2.12 2.12M16.95 16.95l2.12 2.12M2 12h3M19 12h3M4.93 19.07l2.12-2.12M16.95 7.05l2.12-2.12"/></svg>
                 </a>
-                <div class="profile-avatar" title="Agente IA 24/7 Activo">IA</div>
+                <div class="profile-avatar" title="Monitor Automático Activo">IA</div>
             </div>
         </nav>
 
         <!-- 2. HERO ROW -->
         <section class="hero-row">
             <div class="hero-left">
-                <button class="icon-circle" onclick="resetearFiltros()" title="Restablecer vista">
+                <button class="icon-circle" onclick="resetearFiltros()" title="Volver al inicio">
                     <svg viewBox="0 0 24 24"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
                 </button>
-                <h1 class="hero-title" id="heroTitle">Rankings IA</h1>
+                <div>
+                    <h1 class="hero-title" id="heroTitle">¿Cuál es la mejor IA hoy?</h1>
+                    <div class="hero-subtitle">Guía fácil actualizada cada hora según miles de pruebas reales a ciegas</div>
+                </div>
             </div>
             <div class="hero-actions">
-                <button class="icon-circle" onclick="cambiarVistaPanel('chart')" title="Abrir serie temporal ELO">
-                    <svg viewBox="0 0 24 24"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="2" y1="14" x2="6" y2="14"/><line x1="10" y1="8" x2="14" y2="8"/><line x1="18" y1="16" x2="22" y2="16"/></svg>
+                <button class="btn-dark-pill" onclick="toggleGuia()">
+                    <span>💡</span> <span>¿Cómo elegir?</span>
                 </button>
                 <button class="btn-dark-pill" onclick="cargarDatos()">
-                    <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M12 8v8"/><path d="M8 12h8"/></svg>
-                    <span id="ultimaActualizacion">Actualizar ranking</span>
+                    <svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg>
+                    <span id="ultimaActualizacion">Actualizar</span>
                 </button>
             </div>
+        </section>
+
+        <!-- COLLAPSIBLE 3-STEP BEGINNER GUIDE -->
+        <section class="guide-banner" id="guideBanner">
+            <div class="guide-step">
+                <strong>1. Elige para qué la quieres</strong>
+                <p>Pulsa uno de los botones rápidos de abajo (escribir, programar, crear webs, imágenes o usar gratis) sin complicarte con términos técnicos.</p>
+            </div>
+            <div class="guide-step">
+                <strong>2. Fíjate en las medallas 🥇 🥈 🥉</strong>
+                <p>Los puntos salen de miles de personas comparando respuestas sin saber qué empresa las escribió. <b>Más puntos = mejor calidad real.</b></p>
+            </div>
+            <div class="guide-step">
+                <strong>3. Toca una IA y pruébala</strong>
+                <p>Al tocar cualquier fila blanca verás a la derecha un resumen en español sencillo y el botón verde <b>Probar esta IA ↗</b> para abrirla.</p>
+            </div>
+        </section>
+
+        <!-- 1-CLICK BEGINNER GOALS -->
+        <section class="goals-strip" aria-label="Atajos rápidos por tarea">
+            <span class="goals-label">¿Qué quieres hacer hoy?</span>
+            <button class="goal-chip active" id="goalGeneral" onclick="elegirObjetivo('general', this)">🏆 Todo uso (Escribir y dudas)</button>
+            <button class="goal-chip" id="goalCode" onclick="elegirObjetivo('code', this)">💻 Programar código</button>
+            <button class="goal-chip" id="goalWeb" onclick="elegirObjetivo('web', this)">🌐 Crear páginas web</button>
+            <button class="goal-chip" id="goalVisual" onclick="elegirObjetivo('visual', this)">🎨 Imágenes y fotos</button>
+            <button class="goal-chip" id="goalFree" onclick="elegirObjetivo('free', this)">🆓 Usar Gratis ($0)</button>
+            <button class="goal-chip" id="goalPopular" onclick="elegirObjetivo('popular', this)">🔥 Las más populares</button>
         </section>
 
         <!-- 3. TOP BENTO CARDS -->
@@ -1355,33 +1482,36 @@ DASHBOARD_HTML = """<!DOCTYPE html>
             <div class="dark-card">
                 <div class="metrics-triple">
                     <div>
-                        <div class="metric-label">Líder ELO Global</div>
-                        <div class="metric-big"><span class="prefix">#1</span><span id="kpiTopElo">1,506</span><span class="suffix">elo</span></div>
+                        <div class="metric-label">🥇 #1 en Calidad General Hoy</div>
+                        <div class="metric-big"><span id="kpiTopElo">1,539</span><span class="suffix">pts</span></div>
+                        <div class="metric-hint" id="kpiTopModelName">Gemini 4 Carbon (High)</div>
                     </div>
                     <div>
-                        <div class="metric-label">Volumen Semanal Top</div>
-                        <div class="metric-big"><span class="prefix">~</span><span id="kpiTopTokens">15.80</span><span class="suffix">T tok</span></div>
+                        <div class="metric-label">🔥 Uso Mundial Esta Semana</div>
+                        <div class="metric-big"><span class="prefix">~</span><span id="kpiTopTokens">15.80</span><span class="suffix">T usos</span></div>
+                        <div class="metric-hint" id="kpiPopularName">Líder en volumen global</div>
                     </div>
                     <div>
-                        <div class="metric-label">Ciclo de Revisión</div>
+                        <div class="metric-label">🔄 Revisión Automática</div>
                         <div class="metric-big"><span id="kpiInterval">60</span><span class="suffix">min</span></div>
+                        <div class="metric-hint">Vigilancia continua 24/7</div>
                     </div>
                 </div>
 
                 <div class="bars-grid">
                     <div>
-                        <div class="bar-col-head"><span>Arena</span><span id="barArenaCount">120 mod</span></div>
+                        <div class="bar-col-head"><span>Calidad (Votos)</span><span id="barArenaCount">155 mod</span></div>
                         <div class="bar-track"><div class="bar-fill" id="barArenaFill" style="width: 100%;"></div></div>
                         <div class="avatar-stack" id="avatarsArena"></div>
                     </div>
                     <div>
-                        <div class="bar-col-head"><span>Design Arena</span><span id="barDesignCount">18 mod</span></div>
+                        <div class="bar-col-head"><span>Diseño Visual</span><span id="barDesignCount">18 mod</span></div>
                         <div class="bar-track"><div class="bar-fill" id="barDesignFill" style="width: 44%;"></div></div>
                         <div class="avatar-stack" id="avatarsDesign"></div>
                     </div>
                     <div>
-                        <div class="bar-col-head"><span>OpenRouter</span><span id="barOrCount">10 mod</span></div>
-                        <div class="bar-track"><div class="bar-fill" id="barOrFill" style="width: 26%;"></div></div>
+                        <div class="bar-col-head"><span>Más Usadas</span><span id="barOrCount">10 mod</span></div>
+                        <div class="bar-track"><div class="bar-fill" id="barOrFill" style="width: 28%;"></div></div>
                         <div class="avatar-stack" id="avatarsOr"></div>
                     </div>
                 </div>
@@ -1389,31 +1519,31 @@ DASHBOARD_HTML = """<!DOCTYPE html>
 
             <!-- Right Dark Spotlight Card -->
             <div class="dark-card">
-                <button class="corner-arrow" onclick="cambiarVistaPanel('chart')" title="Ver evolución histórica">↗</button>
+                <button class="corner-arrow" onclick="cambiarVistaPanel('chart')" title="Ver gráfico de evolución">↗</button>
                 <div>
-                    <div class="metric-label">Modelos Indexados en Vivo</div>
+                    <div class="metric-label">Inteligencias Artificiales Comparadas</div>
                     <div class="spotlight-row">
-                        <div class="metric-big"><span class="prefix">+</span><span id="modelosCount">148</span><span class="suffix">modelos</span></div>
-                        <span class="pill-subtle" id="fuentesCount">5 fuentes activas</span>
+                        <div class="metric-big"><span class="prefix">+</span><span id="modelosCount">183</span><span class="suffix">modelos</span></div>
+                        <span class="pill-subtle" id="fuentesCount">6 fuentes al día</span>
                     </div>
                 </div>
 
                 <div class="wallet-strip">
                     <div class="wallet-cards">
                         <div class="w-card" id="wCardDesign" onclick="seleccionarFuente('design')">
-                            <div class="w-top" id="wDesignTop">#1 · 1387</div>
-                            <div class="w-sub">Design UI</div>
+                            <div class="w-top" id="wDesignTop">#1 · 1387 pts</div>
+                            <div class="w-sub">Diseño &amp; Webs</div>
                         </div>
                         <div class="w-card featured" id="wCardArena" onclick="seleccionarFuente('arena')">
-                            <div class="w-top" id="wArenaTop">#1 · 1506</div>
-                            <div class="w-sub">LMSYS Arena</div>
+                            <div class="w-top" id="wArenaTop">#1 · 1539 pts</div>
+                            <div class="w-sub">Mejor Calidad</div>
                         </div>
                         <div class="w-card" id="wCardOr" onclick="seleccionarFuente('openrouter')">
                             <div class="w-top" id="wOrTop">#1 · 15.8T</div>
-                            <div class="w-sub">OpenRouter</div>
+                            <div class="w-sub">Más Usadas</div>
                         </div>
                     </div>
-                    <button class="btn-white-pill" onclick="cambiarVistaPanel('chart')">Ver ELO</button>
+                    <button class="btn-white-pill" onclick="cambiarVistaPanel('value')">Ver Gratis $0</button>
                 </div>
             </div>
         </section>
@@ -1421,39 +1551,41 @@ DASHBOARD_HTML = """<!DOCTYPE html>
         <!-- 4. ACTIVE FILTERS ROW -->
         <section class="filters-bar">
             <div class="filters-title">
-                <span>Filtros activos</span>
+                <span>Filtros fáciles</span>
                 <span class="count-dot" id="activeFilterCount">2</span>
             </div>
 
-            <select id="selSource" class="filter-pill" aria-label="Fuente">
-                <option value="arena">Fuente: LMSYS Arena</option>
-                <option value="openrouter">Fuente: OpenRouter</option>
-                <option value="design">Fuente: Design Arena</option>
+            <select id="selSource" class="filter-pill" aria-label="Tipo de ranking">
+                <option value="arena">Ranking: Mejor Calidad (Votos humanos)</option>
+                <option value="openrouter">Ranking: Más Usadas del Mundo</option>
+                <option value="design">Ranking: Diseño de Páginas y Apps</option>
             </select>
 
-            <select id="selCategory" class="filter-pill" aria-label="Categoría">
-                <option value="Text">Categoría: Text</option>
+            <select id="selCategory" class="filter-pill" aria-label="Tarea">
+                <option value="Text">Tarea: Escribir, resumir y pensar (General)</option>
             </select>
 
-            <select id="selProvider" class="filter-pill" onchange="aplicarFiltros()" aria-label="Laboratorio">
-                <option value="">Todos los laboratorios</option>
+            <select id="selProvider" class="filter-pill" onchange="aplicarFiltros()" aria-label="Empresa creadora">
+                <option value="">Empresa: Todas las marcas</option>
                 <option value="claude">Anthropic (Claude)</option>
-                <option value="gpt">OpenAI (GPT)</option>
                 <option value="gemini">Google (Gemini)</option>
+                <option value="gpt">OpenAI (ChatGPT / GPT)</option>
+                <option value="muse">Meta (Muse / Llama)</option>
                 <option value="deepseek">DeepSeek</option>
                 <option value="qwen">Alibaba (Qwen)</option>
                 <option value="kimi">Moonshot (Kimi)</option>
                 <option value="grok">xAI (Grok)</option>
+                <option value="mimo">Xiaomi (MiMo)</option>
             </select>
 
-            <select id="selLimit" class="filter-pill" onchange="aplicarFiltros()" aria-label="Filtro rápido">
-                <option value="all">Vista: Top Completo</option>
-                <option value="top5">Vista: Solo Top 5</option>
-                <option value="free">Vista: Gratis ($0 API)</option>
+            <select id="selLimit" class="filter-pill" onchange="aplicarFiltros()" aria-label="Cantidad a mostrar">
+                <option value="all">Mostrar: Lista completa</option>
+                <option value="top5">Mostrar: Solo el Top 5</option>
+                <option value="free">Mostrar: Solo Gratis ($0)</option>
             </select>
 
             <div class="search-pill-wrap">
-                <input id="modelSearch" type="search" placeholder="Buscar modelo o autor..." oninput="aplicarFiltros()">
+                <input id="modelSearch" type="search" placeholder="Buscar IA (ej. Claude Opus 5.5, Gemini, GPT)..." oninput="aplicarFiltros()">
                 <span class="search-icon-btn">
                     <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
                 </span>
@@ -1464,108 +1596,115 @@ DASHBOARD_HTML = """<!DOCTYPE html>
         <section class="white-sheet">
             <!-- Top Center Dark Inverted Notch -->
             <div class="sheet-notch">
-                <button class="notch-btn" id="notchAll" onclick="cambiarNotch('all')">Todos</button>
-                <button class="notch-btn" id="notchFree" onclick="cambiarNotch('top5')">Top Podio <span class="nbadge">3</span></button>
+                <button class="notch-btn" id="notchAll" onclick="cambiarNotch('all')">Ver Todas</button>
+                <button class="notch-btn" id="notchFree" onclick="cambiarNotch('top5')">Top Recomendadas <span class="nbadge">5</span></button>
                 <button class="notch-btn active" id="notchActive" onclick="cambiarNotch('source')">
-                    <span id="notchActiveLabel">En Ranking</span>
-                    <span class="nbadge" id="notchActiveCount">10</span>
+                    <span id="notchActiveLabel">General</span>
+                    <span class="nbadge" id="notchActiveCount">15</span>
                 </button>
             </div>
 
             <div class="sheet-top-row">
-                <div class="sheet-heading" id="listHeading">Clasificación Actual</div>
+                <div>
+                    <div class="sheet-heading" id="listHeading">Mejores IAs para Todo Uso (General)</div>
+                    <div class="sheet-subheading" id="listSubheading">Haz clic en cualquier IA de la lista para ver su explicación sencilla a la derecha</div>
+                </div>
                 <div class="sheet-tools">
-                    <button class="sheet-tool-btn" onclick="cambiarVistaPanel('detail')" title="Ficha de modelo">
-                        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 15h6"/><path d="M12 12v6"/></svg>
+                    <button class="sheet-tool-btn" onclick="cambiarVistaPanel('detail')" title="Ver ficha explicada">
+                        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 15h6"/></svg>
                     </button>
-                    <button class="sheet-tool-btn" onclick="cambiarVistaPanel('chart')" title="Gráfico ELO">
-                        <svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="1.4"/><circle cx="12" cy="12" r="1.4"/><circle cx="12" cy="19" r="1.4"/></svg>
+                    <button class="sheet-tool-btn" onclick="cambiarVistaPanel('chart')" title="Ver gráfico comparativo">
+                        <svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
                     </button>
                 </div>
             </div>
 
             <div class="split-grid">
-                <!-- Left Column: Unpaid-Invoices-Style Selectable Model List -->
+                <!-- Left Column: Selectable Model List -->
                 <div class="model-list" id="modelListContainer">
-                    <div style="padding:24px;color:#64748b;font-size:0.85rem;">Cargando clasificación...</div>
+                    <div style="padding:24px;color:#64748b;font-size:0.85rem;">Cargando las mejores IAs de hoy...</div>
                 </div>
 
                 <!-- Right Column: Deep Dark Inset Detail & Analytics Card -->
                 <div class="detail-dark-card">
-                    <!-- VIEW A: MODEL DETAILS (Default, matches reference screenshot) -->
+                    <!-- VIEW A: SIMPLE MODEL DETAILS (Default) -->
                     <div class="panel-view active" id="panel-detail">
                         <div class="detail-header">
                             <div>
-                                <div class="d-caption">Posición &amp; Código</div>
+                                <div class="d-caption">Posición en esta tarea</div>
                                 <div class="d-id-row">
-                                    <div class="d-id"><span class="hash">#</span><span id="detRankCode">01-TXT</span></div>
-                                    <span class="pill-subtle" id="detStatusPill">Verificado</span>
+                                    <div class="d-id"><span class="hash">#</span><span id="detRankCode">1 del Mundo</span></div>
+                                    <span class="pill-subtle" id="detStatusPill">Muy recomendada</span>
                                 </div>
                             </div>
                             <div>
-                                <div class="d-caption">Laboratorio</div>
+                                <div class="d-caption">Empresa creadora</div>
                                 <div class="d-company">
-                                    <span id="detCompany">Anthropic</span>
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="color:#ffffff;opacity:0.9;"><path d="M12 2L19 9L12 16L5 9L12 2Z"/><path d="M12 16L17 21H7L12 16Z" opacity="0.55"/></svg>
+                                    <span id="detCompany">Google</span>
+                                    <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" style="color:var(--lime);"><path d="M12 2L19 9L12 16L5 9L12 2Z"/></svg>
                                 </div>
                             </div>
                             <div>
-                                <div class="d-caption">Modelo Seleccionado</div>
+                                <div class="d-caption">IA Seleccionada</div>
                                 <div class="d-customer">
-                                    <div class="row-avatar" id="detAvatar" style="background:#fde68a;">CL</div>
+                                    <div class="row-avatar" id="detAvatar" style="background:#bfdbfe;">GO</div>
                                     <div>
-                                        <div class="d-cust-name" id="detModelName">claude-fable-5-high</div>
-                                        <div class="d-cust-sub" id="detModelSub">LMSYS Arena · Text</div>
+                                        <div class="d-cust-name" id="detModelName">Gemini 4 Carbon (High)</div>
+                                        <div class="d-cust-sub" id="detModelSub">Ideal para escribir, pensar y resolver dudas</div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
+                        <!-- Plain-Spanish Explanation Banner -->
+                        <div class="simple-explain-box" id="simpleExplainBox">
+                            <strong>💡 En palabras simples:</strong> Selecciona cualquier modelo de la izquierda para entender por qué destaca y si te conviene usarlo.
+                        </div>
+
                         <div class="subcards-grid">
                             <div class="sub-box">
                                 <span class="mini-arrow">↗</span>
-                                <div class="sub-val" id="subVal1">1,506 elo</div>
-                                <div class="sub-lbl" id="subLbl1">Puntuación Principal</div>
+                                <div class="sub-val" id="subVal1">1,539 pts</div>
+                                <div class="sub-lbl" id="subLbl1">Nota de calidad (más alto = mejor)</div>
                             </div>
                             <div class="sub-box">
                                 <span class="mini-arrow">↗</span>
-                                <div class="sub-val" id="subVal2">#1 Puesto</div>
-                                <div class="sub-lbl" id="subLbl2">Categoría Activa</div>
+                                <div class="sub-val" id="subVal2">4,483 votos</div>
+                                <div class="sub-lbl" id="subLbl2">Personas reales que la probaron</div>
                             </div>
                             <div class="sub-box">
                                 <span class="mini-arrow">↗</span>
-                                <div class="sub-val" id="subVal3">API Activa</div>
-                                <div class="sub-lbl" id="subLbl3">Coste / Crecimiento</div>
+                                <div class="sub-val" id="subVal3">Web / API</div>
+                                <div class="sub-lbl" id="subLbl3">Acceso y coste estimado</div>
                             </div>
-                            <div class="sub-box dotted-add" onclick="cambiarVistaPanel('chart')" title="Abrir evolución histórica de ELO">
+                            <div class="sub-box dotted-add" onclick="cambiarVistaPanel('chart')" title="Comparar evolución en gráfico">
                                 <div class="plus-circle">+</div>
-                                <div class="sub-lbl" style="text-align:center;">Ver Serie ELO</div>
+                                <div class="sub-lbl" style="text-align:center;">Ver en Gráfico</div>
                             </div>
                         </div>
 
                         <div class="detail-footer-bar">
                             <div class="footer-stats">
                                 <div>
-                                    <div class="f-stat-lbl">Mejor Puesto</div>
-                                    <div class="f-stat-val" id="footBestRank">#1</div>
+                                    <div class="f-stat-lbl">Nivel de Calidad</div>
+                                    <div class="f-stat-val" id="footBestRank">Sobresaliente</div>
                                 </div>
                                 <div>
-                                    <div class="f-stat-lbl">Métrica Líder</div>
-                                    <div class="f-stat-val" id="footScore">1,506 elo</div>
+                                    <div class="f-stat-lbl">Puntuación</div>
+                                    <div class="f-stat-val" id="footScore">1,539 pts</div>
                                 </div>
                                 <div>
-                                    <div class="f-stat-lbl">Snapshots / Alertas</div>
+                                    <div class="f-stat-lbl">Revisiones / Avisos</div>
                                     <div class="f-stat-val" id="snapshotId">—</div>
                                 </div>
                             </div>
                             <div class="footer-ctas">
-                                <button class="icon-circle" onclick="cambiarVistaPanel('trends')" title="Tendencias GitHub/HN">
-                                    <svg viewBox="0 0 24 24"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></svg>
+                                <button class="icon-circle" onclick="cambiarVistaPanel('value')" title="Ver alternativas Gratis ($0)">
+                                    <svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
                                 </button>
-                                <button class="icon-circle" onclick="cambiarVistaPanel('value')" title="Modelos Gratis ($0)">
-                                    <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-                                </button>
-                                <button class="btn-lime" onclick="cambiarVistaPanel('chart')">Evolución ELO</button>
+                                <a class="btn-lime" id="btnTryModel" href="https://gemini.google.com" target="_blank" rel="noopener">
+                                    <span>Probar esta IA</span> <span>↗</span>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -1574,68 +1713,68 @@ DASHBOARD_HTML = """<!DOCTYPE html>
                     <div class="panel-view" id="panel-chart">
                         <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
                             <div>
-                                <div class="d-caption">Evolución Histórica (30 días)</div>
-                                <div style="font-size:1.15rem;font-weight:600;">Curva de Puntuación por Modelo</div>
+                                <div class="d-caption">Comparativa Visual (Últimos 30 días)</div>
+                                <div style="font-size:1.15rem;font-weight:600;">¿Qué IA está subiendo más rápido?</div>
                             </div>
-                            <button class="btn-dark-pill" onclick="cambiarVistaPanel('detail')">← Volver a ficha</button>
+                            <button class="btn-dark-pill" onclick="cambiarVistaPanel('detail')">← Volver a la explicación</button>
                         </div>
                         <div class="chart-wrap">
                             <canvas id="chartElo"></canvas>
                             <div id="eloEmpty" style="display:none;color:var(--text-muted);text-align:center;padding-top:85px;font-size:0.84rem;">
-                                Acumulando puntos históricos para esta fuente…
+                                Guardando historial horario para dibujar la evolución de esta tarea…
                             </div>
                         </div>
                         <div class="detail-footer-bar">
-                            <div class="f-stat-lbl">Usa los selectores de Fuente y Categoría de arriba para cambiar la gráfica en vivo.</div>
-                            <a class="btn-lime" href="/api/chart.svg?source=arena&category=Text" target="_blank" rel="noopener" style="text-decoration:none;">Exportar SVG</a>
+                            <div class="f-stat-lbl">Cuanto más arriba esté la línea de una IA, mejores resultados da frente a sus rivales.</div>
+                            <a class="btn-lime" href="/api/chart.svg?source=arena&category=Text" target="_blank" rel="noopener">Descargar Imagen</a>
                         </div>
                     </div>
 
                     <!-- VIEW C: FREE MODELS & VALUE RADAR -->
                     <div class="panel-view" id="panel-value">
-                        <div style="display:flex;justify-content:space-between;align-items:center;">
+                        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
                             <div>
-                                <div class="d-caption">Optimización de Costes IA</div>
-                                <div style="font-size:1.15rem;font-weight:600;">Modelos Gratis ($0) &amp; Calidad/Precio</div>
+                                <div class="d-caption">Ahorra el 100 % sin perder calidad</div>
+                                <div style="font-size:1.15rem;font-weight:600;">Mejores IAs Gratis ($0) y Económicas</div>
                             </div>
-                            <button class="btn-dark-pill" onclick="cambiarVistaPanel('detail')">← Volver a ficha</button>
+                            <button class="btn-dark-pill" onclick="cambiarVistaPanel('detail')">← Volver a la explicación</button>
                         </div>
                         <div class="feed-scroll" id="valueData"></div>
                         <div class="detail-footer-bar">
-                            <div class="f-stat-lbl">Sincronizado con el catálogo público gratuito <code>/api/v1/models</code> de OpenRouter.</div>
-                            <a class="btn-lime" href="/api/value-leaders" target="_blank" rel="noopener" style="text-decoration:none;">Ver JSON</a>
+                            <div class="f-stat-lbl">Todas las opciones marcadas con 🆓 se pueden usar gratis en OpenRouter.</div>
+                            <a class="btn-lime" href="https://openrouter.ai/models?max_price=0" target="_blank" rel="noopener">Usar IAs Gratis ↗</a>
                         </div>
                     </div>
 
                     <!-- VIEW D: GITHUB / HF / HN TRENDS -->
                     <div class="panel-view" id="panel-trends">
-                        <div style="display:flex;justify-content:space-between;align-items:center;">
+                        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
                             <div>
-                                <div class="d-caption">Radar Diario de Comunidad</div>
-                                <div style="font-size:1.15rem;font-weight:600;">GitHub AI · Hugging Face · Hacker News</div>
+                                <div class="d-caption">Lo más comentado hoy en el mundo tecnológico</div>
+                                <div style="font-size:1.15rem;font-weight:600;">Proyectos Nuevos y Noticias de IA</div>
                             </div>
-                            <button class="btn-dark-pill" onclick="cambiarVistaPanel('detail')">← Volver a ficha</button>
+                            <button class="btn-dark-pill" onclick="cambiarVistaPanel('detail')">← Volver a la explicación</button>
                         </div>
                         <div class="feed-scroll" id="trendingData"></div>
                         <div class="detail-footer-bar">
-                            <div class="f-stat-lbl">Repositorios nuevos con tracción real y debates técnicos del día.</div>
+                            <div class="f-stat-lbl">Haz clic en cualquier titular verde para abrir la noticia o herramienta original.</div>
                             <button class="btn-lime" onclick="cambiarVistaPanel('detail')">Ver Rankings</button>
                         </div>
                     </div>
 
                     <!-- VIEW E: DETECTED CHANGES LOG -->
                     <div class="panel-view" id="panel-changes">
-                        <div style="display:flex;justify-content:space-between;align-items:center;">
+                        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
                             <div>
-                                <div class="d-caption">Auditoría Automática Cada 1 Hora</div>
-                                <div style="font-size:1.15rem;font-weight:600;">Cambios Detectados (<span id="cambiosCount">0</span>)</div>
+                                <div class="d-caption">Vigilancia automática cada 60 minutos</div>
+                                <div style="font-size:1.15rem;font-weight:600;">Últimos Movimientos (<span id="cambiosCount">0</span>)</div>
                             </div>
-                            <button class="btn-dark-pill" onclick="cambiarVistaPanel('detail')">← Volver a ficha</button>
+                            <button class="btn-dark-pill" onclick="cambiarVistaPanel('detail')">← Volver a la explicación</button>
                         </div>
                         <div class="feed-scroll" id="cambiosLista"></div>
                         <div class="detail-footer-bar">
-                            <div class="f-stat-lbl">Suscríbete gratis por RSS o Telegram para recibir alertas al instante.</div>
-                            <a class="btn-lime" href="/feed.xml" target="_blank" rel="noopener" style="text-decoration:none;">Abrir RSS</a>
+                            <div class="f-stat-lbl">El bot revisa cada hora y avisa por Telegram únicamente cuando cambia algún puesto importante.</div>
+                            <a class="btn-lime" href="/feed.xml" target="_blank" rel="noopener">Suscribirse RSS</a>
                         </div>
                     </div>
                 </div>
@@ -1653,24 +1792,107 @@ DASHBOARD_HTML = """<!DOCTYPE html>
         let visibleModels = [];
         let selectedIdx = 0;
 
+        const CATEGORY_LABELS = {
+            'Text': {
+                select: 'Tarea: Escribir, resumir y pensar (General)',
+                short: 'Chat y Textos',
+                heading: 'Mejores IAs para Todo Uso (Escribir, estudiar y resolver dudas)',
+                use: 'Ideal para redactar, resumir textos, estudiar y responder cualquier duda'
+            },
+            'Code': {
+                select: 'Tarea: Programar y escribir código',
+                short: 'Programación',
+                heading: 'Mejores IAs para Programación y Código',
+                use: 'Especialista en escribir programas, corregir errores y lógica técnica'
+            },
+            'WebDev': {
+                select: 'Tarea: Crear páginas web y aplicaciones',
+                short: 'Crear Webs',
+                heading: 'Mejores IAs para Crear Páginas Web y Apps Completas',
+                use: 'Diseña y programa páginas web modernas e interactivas listas para usar'
+            },
+            'Vision': {
+                select: 'Tarea: Ver y analizar fotos o capturas',
+                short: 'Analizar Fotos',
+                heading: 'Mejores IAs para Entender Fotos, Gráficos y Capturas',
+                use: 'Capaz de mirar fotografías, documentos escaneados o pantallas y explicarlos'
+            },
+            'Agent': {
+                select: 'Tarea: Agentes que resuelven tareas solos',
+                short: 'Agente Autónomo',
+                heading: 'Mejores Agentes IA (Trabajan paso a paso por ti)',
+                use: 'Ejecuta tareas largas de varios pasos de forma autónoma'
+            },
+            'Document': {
+                select: 'Tarea: Leer PDFs y documentos largos',
+                short: 'Documentos PDF',
+                heading: 'Mejores IAs para Leer Documentos y Contratos Largos',
+                use: 'Analiza informes extensos y extrae respuestas precisas'
+            },
+            'Search': {
+                select: 'Tarea: Buscar información actual en internet',
+                short: 'Búsqueda Web',
+                heading: 'Mejores IAs para Buscar Datos Actuales en Internet',
+                use: 'Consulta internet con fuentes reales para responder sobre actualidad'
+            },
+            'Text-to-Image': {
+                select: 'Tarea: Crear imágenes desde cero',
+                short: 'Crear Imagen',
+                heading: 'Mejores IAs para Generar Imágenes e Ilustraciones',
+                use: 'Convierte cualquier descripción escrita en una imagen o ilustración'
+            },
+            'Image Edit': {
+                select: 'Tarea: Editar y retocar fotos',
+                short: 'Editar Foto',
+                heading: 'Mejores IAs para Retocar y Modificar Imágenes',
+                use: 'Modifica detalles de una foto siguiendo instrucciones sencillas'
+            },
+            'Image-to-WebDev': {
+                select: 'Tarea: Convertir un dibujo en página web',
+                short: 'Foto a Web',
+                heading: 'Mejores IAs para Pasar de Captura a Página Web',
+                use: 'Transforma una imagen o boceto en una página web funcional'
+            },
+            'Text-to-Video': {
+                select: 'Tarea: Crear vídeos a partir de texto',
+                short: 'Crear Vídeo',
+                heading: 'Mejores IAs para Generar Vídeos desde Texto',
+                use: 'Genera clips de vídeo a partir de una idea escrita'
+            },
+            'Image-to-Video': {
+                select: 'Tarea: Dar movimiento a una foto (Vídeo)',
+                short: 'Foto a Vídeo',
+                heading: 'Mejores IAs para Animar Fotos en Vídeo',
+                use: 'Convierte una imagen fija en un vídeo en movimiento'
+            },
+            'Video Edit': {
+                select: 'Tarea: Edición inteligente de vídeo',
+                short: 'Editar Vídeo',
+                heading: 'Mejores IAs para Editar Vídeo',
+                use: 'Edita y transforma vídeos automáticamente'
+            }
+        };
+
         const LAB_META = [
-            { match: 'claude', name: 'Anthropic', code: 'AN', bg: '#fed7aa' },
-            { match: 'gpt', name: 'OpenAI', code: 'OA', bg: '#bbf7d0' },
-            { match: 'o1', name: 'OpenAI', code: 'OA', bg: '#bbf7d0' },
-            { match: 'o3', name: 'OpenAI', code: 'OA', bg: '#bbf7d0' },
-            { match: 'gemini', name: 'Google DeepMind', code: 'GM', bg: '#bfdbfe' },
-            { match: 'deepseek', name: 'DeepSeek', code: 'DS', bg: '#c7d2fe' },
-            { match: 'kimi', name: 'Moonshot AI', code: 'KM', bg: '#f5d0fe' },
-            { match: 'qwen', name: 'Alibaba Qwen', code: 'QW', bg: '#ddd6fe' },
-            { match: 'grok', name: 'xAI', code: 'XA', bg: '#e2e8f0' },
-            { match: 'llama', name: 'Meta AI', code: 'MT', bg: '#bae6fd' },
-            { match: 'glm', name: 'Zhipu AI', code: 'ZP', bg: '#fecdd3' },
-            { match: 'muse', name: 'Muse AI', code: 'MU', bg: '#fde68a' },
-            { match: 'minimax', name: 'MiniMax', code: 'MM', bg: '#fbcfe8' },
-            { match: 'nemotron', name: 'NVIDIA', code: 'NV', bg: '#d9f99d' },
-            { match: 'ernie', name: 'Baidu', code: 'BD', bg: '#fed7aa' },
-            { match: 'wan', name: 'Alibaba Wan', code: 'WN', bg: '#ddd6fe' },
-            { match: 'flux', name: 'Black Forest', code: 'BF', bg: '#e2e8f0' }
+            { match: 'claude', name: 'Anthropic (Claude)', code: 'AN', bg: '#fed7aa', url: 'https://claude.ai' },
+            { match: 'gemini', name: 'Google (Gemini)', code: 'GO', bg: '#bfdbfe', url: 'https://gemini.google.com' },
+            { match: 'gemma', name: 'Google (Gemma)', code: 'GO', bg: '#bfdbfe', url: 'https://aistudio.google.com' },
+            { match: 'gpt', name: 'OpenAI (ChatGPT)', code: 'OA', bg: '#bbf7d0', url: 'https://chatgpt.com' },
+            { match: 'o1', name: 'OpenAI (ChatGPT)', code: 'OA', bg: '#bbf7d0', url: 'https://chatgpt.com' },
+            { match: 'o3', name: 'OpenAI (ChatGPT)', code: 'OA', bg: '#bbf7d0', url: 'https://chatgpt.com' },
+            { match: 'deepseek', name: 'DeepSeek', code: 'DS', bg: '#c7d2fe', url: 'https://chat.deepseek.com' },
+            { match: 'kimi', name: 'Moonshot (Kimi)', code: 'KM', bg: '#f5d0fe', url: 'https://www.kimi.com' },
+            { match: 'qwen', name: 'Alibaba (Qwen)', code: 'QW', bg: '#ddd6fe', url: 'https://chat.qwen.ai' },
+            { match: 'grok', name: 'xAI (Grok)', code: 'XA', bg: '#e2e8f0', url: 'https://grok.com' },
+            { match: 'muse', name: 'Meta AI (Muse)', code: 'MT', bg: '#fde68a', url: 'https://www.meta.ai' },
+            { match: 'llama', name: 'Meta AI (Llama)', code: 'MT', bg: '#bae6fd', url: 'https://www.meta.ai' },
+            { match: 'glm', name: 'Zhipu AI (GLM)', code: 'ZP', bg: '#fecdd3', url: 'https://chat.z.ai' },
+            { match: 'mimo', name: 'Xiaomi (MiMo)', code: 'XM', bg: '#fed7aa', url: 'https://openrouter.ai' },
+            { match: 'minimax', name: 'MiniMax', code: 'MM', bg: '#fbcfe8', url: 'https://chat.minimax.io' },
+            { match: 'nemotron', name: 'NVIDIA', code: 'NV', bg: '#d9f99d', url: 'https://build.nvidia.com' },
+            { match: 'ernie', name: 'Baidu (Ernie)', code: 'BD', bg: '#fed7aa', url: 'https://yiyan.baidu.com' },
+            { match: 'wan', name: 'Alibaba (Wan)', code: 'WN', bg: '#ddd6fe', url: 'https://wan.video' },
+            { match: 'flux', name: 'Black Forest (Flux)', code: 'BF', bg: '#e2e8f0', url: 'https://bfl.ai' }
         ];
 
         function inferLab(modelName, author) {
@@ -1680,9 +1902,19 @@ DASHBOARD_HTML = """<!DOCTYPE html>
             }
             const clean = String(author || modelName || 'IA').replace(/[^a-zA-Z0-9]/g, '').toUpperCase();
             return {
-                name: author ? author.charAt(0).toUpperCase() + author.slice(1) : 'Frontier Lab',
+                name: author ? author.charAt(0).toUpperCase() + author.slice(1) : 'Laboratorio IA',
                 code: (clean.substring(0, 2) || 'IA'),
-                bg: '#e2e8f0'
+                bg: '#e2e8f0',
+                url: 'https://openrouter.ai/models'
+            };
+        }
+
+        function catInfo(cat) {
+            return CATEGORY_LABELS[cat] || {
+                select: `Tarea: ${cat || 'General'}`,
+                short: cat || 'General',
+                heading: `Clasificación: ${cat || 'General'}`,
+                use: 'Evaluada en pruebas comparativas reales'
             };
         }
 
@@ -1706,17 +1938,21 @@ DASHBOARD_HTML = """<!DOCTYPE html>
             return div.innerHTML;
         }
 
+        function toggleGuia() {
+            document.getElementById('guideBanner').classList.toggle('open');
+        }
+
         function activarNavSuperior(btn, panelName) {
             document.querySelectorAll('#topNavPills .nav-tab').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
+            if (btn) btn.classList.add('active');
             const titles = {
-                detail: 'Rankings IA',
-                chart: 'Evolución ELO',
-                value: 'Gratis & Calidad/Precio',
-                trends: 'Tendencias Dev & IA',
-                changes: 'Alertas de Cambios'
+                detail: '¿Cuál es la mejor IA hoy?',
+                value: 'IAs Gratis ($0) y Económicas',
+                chart: 'Evolución de Calidad',
+                trends: 'Novedades del Día en IA',
+                changes: 'Últimos Cambios en el Ranking'
             };
-            document.getElementById('heroTitle').textContent = titles[panelName] || 'Rankings IA';
+            document.getElementById('heroTitle').textContent = titles[panelName] || '¿Cuál es la mejor IA hoy?';
             cambiarVistaPanel(panelName);
         }
 
@@ -1727,11 +1963,60 @@ DASHBOARD_HTML = """<!DOCTYPE html>
             if (panelName === 'chart') cargarElo();
         }
 
+        function elegirObjetivo(goal, btn) {
+            document.querySelectorAll('.goal-chip').forEach(b => b.classList.remove('active'));
+            if (btn) btn.classList.add('active');
+
+            const selSrc = document.getElementById('selSource');
+            const selLim = document.getElementById('selLimit');
+            document.getElementById('selProvider').value = '';
+            document.getElementById('modelSearch').value = '';
+            selLim.value = 'all';
+
+            if (goal === 'free') {
+                cambiarVistaPanel('value');
+                document.querySelectorAll('#topNavPills .nav-tab').forEach(b => {
+                    b.classList.toggle('active', b.dataset.panel === 'value');
+                });
+                return;
+            }
+
+            cambiarVistaPanel('detail');
+            document.querySelectorAll('#topNavPills .nav-tab').forEach(b => {
+                b.classList.toggle('active', b.dataset.panel === 'detail');
+            });
+
+            if (goal === 'popular') {
+                selSrc.value = 'openrouter';
+                actualizarTarjetasWallet('openrouter');
+                sincronizarCategoriasSelect();
+            } else {
+                selSrc.value = 'arena';
+                actualizarTarjetasWallet('arena');
+                sincronizarCategoriasSelect();
+                const catSel = document.getElementById('selCategory');
+                const desired = {
+                    general: 'Text',
+                    code: 'Code',
+                    web: 'WebDev',
+                    visual: 'Vision'
+                }[goal] || 'Text';
+                const opts = [...catSel.options].map(o => o.value);
+                if (opts.includes(desired)) catSel.value = desired;
+                else if (goal === 'code' && opts.includes('WebDev')) catSel.value = 'WebDev';
+                else if (goal === 'visual' && opts.includes('Text-to-Image')) catSel.value = 'Text-to-Image';
+            }
+            selectedIdx = 0;
+            aplicarFiltros();
+        }
+
         function seleccionarFuente(src) {
             const sel = document.getElementById('selSource');
             sel.value = src;
             actualizarTarjetasWallet(src);
             sincronizarCategoriasSelect();
+            selectedIdx = 0;
+            cambiarVistaPanel('detail');
             aplicarFiltros();
             cargarElo();
         }
@@ -1757,18 +2042,12 @@ DASHBOARD_HTML = """<!DOCTYPE html>
                 document.getElementById('notchActive').classList.add('active');
                 document.getElementById('selLimit').value = 'all';
             }
+            selectedIdx = 0;
             aplicarFiltros();
         }
 
         function resetearFiltros() {
-            document.getElementById('selSource').value = 'arena';
-            document.getElementById('selProvider').value = '';
-            document.getElementById('selLimit').value = 'all';
-            document.getElementById('modelSearch').value = '';
-            actualizarTarjetasWallet('arena');
-            sincronizarCategoriasSelect();
-            cambiarVistaPanel('detail');
-            aplicarFiltros();
+            elegirObjetivo('general', document.getElementById('goalGeneral'));
         }
 
         function renderAvatarCluster(containerId, models) {
@@ -1803,13 +2082,14 @@ DASHBOARD_HTML = """<!DOCTYPE html>
             const res = await fetch('/api/rankings').catch(() => null);
             if (!res || !res.ok) {
                 document.getElementById('ultimaActualizacion').textContent = 'Sin datos';
-                document.getElementById('modelListContainer').innerHTML = '<div style="padding:20px;color:#ef4444;">No hay datos disponibles todavía.</div>';
+                document.getElementById('modelListContainer').innerHTML = '<div style="padding:20px;color:#ef4444;">Todavía no hay datos cargados.</div>';
                 return;
             }
             const data = await res.json();
-            const ts = new Date(data.created_at);
+            const rawDate = (data.data && data.data.generated_at) || data.created_at;
+            const ts = new Date(rawDate);
             document.getElementById('ultimaActualizacion').textContent =
-                isNaN(ts.getTime()) ? 'En vivo' : 'Actualizado ' + ts.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                isNaN(ts.getTime()) ? 'Al día' : 'Al día · ' + ts.toLocaleDateString();
 
             const snap = data.data || {};
             const fuentes = (snap.sources && typeof snap.sources === 'object') ? snap.sources : snap;
@@ -1820,10 +2100,9 @@ DASHBOARD_HTML = """<!DOCTYPE html>
                 if (val && (val.status === 'ok' || val.status === 'stale')) okCount++;
                 if (val && Array.isArray(val.models)) totalModels += val.models.length;
             }
-            document.getElementById('fuentesCount').textContent = `${okCount} fuentes activas`;
+            document.getElementById('fuentesCount').textContent = `${okCount} fuentes al día`;
             document.getElementById('modelosCount').textContent = totalModels;
 
-            // Populate Top Bento KPIs & Progress Bars
             const arenaModels = (fuentes.arena && fuentes.arena.models) || [];
             const designModels = (fuentes.design && fuentes.design.models) || [];
             const orModels = (fuentes.openrouter && fuentes.openrouter.models) || [];
@@ -1831,20 +2110,22 @@ DASHBOARD_HTML = """<!DOCTYPE html>
             const arenaTextTop = arenaModels.find(m => (m.category === 'Text' || !m.category) && m.rank === 1) || arenaModels[0];
             if (arenaTextTop && arenaTextTop.score) {
                 document.getElementById('kpiTopElo').textContent = fmtIntComma(arenaTextTop.score);
-                document.getElementById('wArenaTop').textContent = `#1 · ${arenaTextTop.score}`;
+                document.getElementById('kpiTopModelName').textContent = arenaTextTop.model;
+                document.getElementById('wArenaTop').textContent = `#1 · ${arenaTextTop.score} pts`;
             }
             if (designModels[0] && designModels[0].score) {
-                document.getElementById('wDesignTop').textContent = `#1 · ${designModels[0].score}`;
+                document.getElementById('wDesignTop').textContent = `#1 · ${designModels[0].score} pts`;
             }
             if (orModels[0] && orModels[0].tokens_week) {
                 const t = (orModels[0].tokens_week / 1e12).toFixed(2);
                 document.getElementById('kpiTopTokens').textContent = t;
+                document.getElementById('kpiPopularName').textContent = orModels[0].model;
                 document.getElementById('wOrTop').textContent = `#1 · ${fmtCompact(orModels[0].tokens_week)}`;
             }
 
-            document.getElementById('barArenaCount').textContent = `${arenaModels.length} mod`;
-            document.getElementById('barDesignCount').textContent = `${designModels.length} mod`;
-            document.getElementById('barOrCount').textContent = `${orModels.length} mod`;
+            document.getElementById('barArenaCount').textContent = `${arenaModels.length} IAs`;
+            document.getElementById('barDesignCount').textContent = `${designModels.length} IAs`;
+            document.getElementById('barOrCount').textContent = `${orModels.length} IAs`;
 
             renderAvatarCluster('avatarsArena', arenaModels.filter(m => m.category === 'Text' || !m.category));
             renderAvatarCluster('avatarsDesign', designModels);
@@ -1859,19 +2140,25 @@ DASHBOARD_HTML = """<!DOCTYPE html>
             const catSel = document.getElementById('selCategory');
             const source = document.getElementById('selSource').value;
             if (source !== 'arena') {
-                catSel.innerHTML = `<option value="">Categoría: Global (${source})</option>`;
+                const label = source === 'openrouter' ? 'Uso mundial real' : 'Diseño de interfaces y webs';
+                catSel.innerHTML = `<option value="">Tarea: ${label}</option>`;
                 catSel.disabled = true;
                 return;
             }
             catSel.disabled = false;
             const arenaModels = (currentSources.arena && currentSources.arena.models) || [];
-            const cats = [...new Set(arenaModels.map(m => m.category).filter(Boolean))];
+            const rawCats = [...new Set(arenaModels.map(m => m.category).filter(Boolean))];
+            const priority = ['Text', 'Code', 'WebDev', 'Vision', 'Agent', 'Document', 'Search', 'Text-to-Image', 'Image Edit', 'Text-to-Video', 'Image-to-Video', 'Video Edit', 'Image-to-WebDev'];
+            const cats = [
+                ...priority.filter(c => rawCats.includes(c)),
+                ...rawCats.filter(c => !priority.includes(c))
+            ];
             if (!cats.length) {
-                catSel.innerHTML = '<option value="">Categoría: General</option>';
+                catSel.innerHTML = '<option value="">Tarea: General</option>';
                 return;
             }
             const prev = catSel.value || (cats.includes('Text') ? 'Text' : cats[0]);
-            catSel.innerHTML = cats.map(c => `<option value="${escapeHtml(c)}">Categoría: ${escapeHtml(c)}</option>`).join('');
+            catSel.innerHTML = cats.map(c => `<option value="${escapeHtml(c)}">${escapeHtml(catInfo(c).select)}</option>`).join('');
             catSel.value = cats.includes(prev) ? prev : (cats.includes('Text') ? 'Text' : cats[0]);
         }
 
@@ -1882,7 +2169,6 @@ DASHBOARD_HTML = """<!DOCTYPE html>
             const limMode = document.getElementById('selLimit').value;
             const q = (document.getElementById('modelSearch').value || '').trim().toLowerCase();
 
-            // Count active filters
             let fCount = 1;
             if (source === 'arena' && cat) fCount++;
             if (prov) fCount++;
@@ -1890,12 +2176,22 @@ DASHBOARD_HTML = """<!DOCTYPE html>
             if (q) fCount++;
             document.getElementById('activeFilterCount').textContent = fCount;
 
+            // If user types a search query, search across ALL categories of the selected source if needed
             const payload = currentSources[source] || {};
             let rows = Array.isArray(payload.models) ? payload.models.slice() : [];
 
-            if (source === 'arena' && cat) {
+            if (source === 'arena' && cat && !q) {
                 rows = rows.filter(m => m.category === cat);
+            } else if (source === 'arena' && q) {
+                // Keep matching models deduplicated by model+category, prioritizing Text/Code/WebDev
+                const matchingCurrentCat = rows.filter(m => m.category === cat && ((m.model || '') + ' ' + (m.author || '')).toLowerCase().includes(q));
+                if (matchingCurrentCat.length > 0) {
+                    rows = matchingCurrentCat;
+                } else {
+                    rows = rows.filter(m => ((m.model || '') + ' ' + (m.author || '') + ' ' + (m.category || '')).toLowerCase().includes(q));
+                }
             }
+
             if (prov) {
                 rows = rows.filter(m => ((m.model || '') + ' ' + (m.author || '')).toLowerCase().includes(prov));
             }
@@ -1904,15 +2200,23 @@ DASHBOARD_HTML = """<!DOCTYPE html>
             } else if (limMode === 'free') {
                 rows = rows.filter(m => m.is_free || String(m.model).toLowerCase().includes('free'));
             }
-            if (q) {
-                rows = rows.filter(m => ((m.model || '') + ' ' + (m.author || '') + ' ' + (m.category || '')).toLowerCase().includes(q));
+            if (q && source !== 'arena') {
+                rows = rows.filter(m => ((m.model || '') + ' ' + (m.author || '')).toLowerCase().includes(q));
             }
 
             visibleModels = rows.map(m => ({ ...m, _source: source }));
-            const srcNames = { arena: 'LMSYS Arena', openrouter: 'OpenRouter', design: 'Design Arena' };
-            const titleSuffix = (source === 'arena' && cat) ? ` · ${cat}` : '';
-            document.getElementById('listHeading').textContent = `${srcNames[source] || source}${titleSuffix}`;
-            document.getElementById('notchActiveLabel').textContent = source === 'arena' && cat ? cat : (srcNames[source] || source);
+
+            if (source === 'arena' && cat) {
+                const info = catInfo(cat);
+                document.getElementById('listHeading').textContent = info.heading;
+                document.getElementById('notchActiveLabel').textContent = info.short;
+            } else if (source === 'openrouter') {
+                document.getElementById('listHeading').textContent = 'IAs Más Usadas del Mundo Esta Semana';
+                document.getElementById('notchActiveLabel').textContent = 'Más Usadas';
+            } else {
+                document.getElementById('listHeading').textContent = 'Mejores IAs para Diseño de Interfaces y Webs';
+                document.getElementById('notchActiveLabel').textContent = 'Diseño';
+            }
             document.getElementById('notchActiveCount').textContent = visibleModels.length;
 
             if (selectedIdx >= visibleModels.length) selectedIdx = 0;
@@ -1925,26 +2229,30 @@ DASHBOARD_HTML = """<!DOCTYPE html>
         function renderListaModelos() {
             const box = document.getElementById('modelListContainer');
             if (!visibleModels.length) {
-                box.innerHTML = '<div style="padding:26px 14px;color:#64748b;font-size:0.84rem;">No hay modelos que coincidan con los filtros actuales.</div>';
+                box.innerHTML = '<div style="padding:26px 14px;color:#64748b;font-size:0.85rem;">No encontramos ninguna IA con ese filtro. Prueba borrar el texto de búsqueda o pulsar "Ver Todas".</div>';
                 return;
             }
+            const medals = { 1: '🥇 ', 2: '🥈 ', 3: '🥉 ' };
             box.innerHTML = visibleModels.map((m, idx) => {
                 const lab = inferLab(m.model, m.author);
                 const isSel = idx === selectedIdx;
                 let metricHtml = '—';
-                if (m.score != null) metricHtml = `<span class="unit-sm">elo</span>${fmtIntComma(m.score)}`;
+                if (m.score != null) metricHtml = `${fmtIntComma(m.score)}<span class="unit-sm">pts</span>`;
                 else if (m.tokens_week != null) metricHtml = `${fmtCompact(m.tokens_week)}`;
                 else if (m.win_rate_pct != null) metricHtml = `${m.win_rate_pct}%`;
 
-                let pill = m.category || (m._source === 'openrouter' ? 'Uso Top' : 'UI/Web');
-                if (m.is_free || String(m.model).toLowerCase().includes('(free)')) pill = 'FREE $0';
+                let pill = m.category ? catInfo(m.category).short : (m._source === 'openrouter' ? 'Popular' : 'Diseño');
+                if (m.is_free || String(m.model).toLowerCase().includes('(free)')) pill = 'Gratis $0';
 
-                const subText = m.author ? `Puesto #${m.rank} · ${m.author}` : `Puesto #${m.rank} · ${lab.name}`;
+                const medal = medals[m.rank] || `#${m.rank} `;
+                const rec = m.rank <= 3 ? ' · Top recomendada' : '';
+                const subText = `Creada por ${lab.name}${rec}`;
+
                 return `
                     <div class="model-row ${isSel ? 'selected' : ''}" onclick="seleccionarModelo(${idx})">
                         <div class="row-avatar" style="background:${lab.bg};">${escapeHtml(lab.code)}</div>
                         <div style="min-width:0;">
-                            <div class="row-title">#${escapeHtml(m.rank)} ${escapeHtml(m.model)}</div>
+                            <div class="row-title">${medal}${escapeHtml(m.model)}</div>
                             <div class="row-sub">${escapeHtml(subText)}</div>
                         </div>
                         <span class="row-tag">${escapeHtml(pill)}</span>
@@ -1963,14 +2271,31 @@ DASHBOARD_HTML = """<!DOCTYPE html>
             }
         }
 
+        function buscarOtrasPosiciones(modelName, currentCategory) {
+            const arenaModels = (currentSources.arena && currentSources.arena.models) || [];
+            const base = String(modelName || '').split('(')[0].trim().toLowerCase();
+            if (!base) return [];
+            const extras = [];
+            const seenCats = new Set([currentCategory]);
+            for (const item of arenaModels) {
+                if (!item.category || seenCats.has(item.category)) continue;
+                const itemBase = String(item.model || '').split('(')[0].trim().toLowerCase();
+                if (itemBase === base && item.rank <= 5) {
+                    seenCats.add(item.category);
+                    extras.push(`#${item.rank} en ${catInfo(item.category).short}`);
+                }
+            }
+            return extras.slice(0, 3);
+        }
+
         function renderDetalleModelo(m) {
             const lab = inferLab(m.model, m.author);
-            const catCode = (m.category || m._source || 'TOP').substring(0, 3).toUpperCase();
-            const rankStr = String(m.rank || 1).padStart(2, '0');
+            const cInfo = catInfo(m.category);
+            const isFree = Boolean(m.is_free || String(m.model).toLowerCase().includes('free'));
 
-            document.getElementById('detRankCode').textContent = `${rankStr}-${catCode}`;
+            document.getElementById('detRankCode').textContent = `${m.rank} en su lista`;
             document.getElementById('detStatusPill').textContent =
-                (m.is_free || String(m.model).toLowerCase().includes('free')) ? 'FREE $0' : 'Activo 1h';
+                isFree ? '🆓 Gratis ($0)' : (m.rank <= 3 ? '🏆 Top Podio Mundial' : (m.rank <= 10 ? '⭐ Top 10 Mundial' : 'Verificada'));
             document.getElementById('detCompany').textContent = lab.name;
 
             const av = document.getElementById('detAvatar');
@@ -1979,46 +2304,68 @@ DASHBOARD_HTML = """<!DOCTYPE html>
 
             document.getElementById('detModelName').textContent = m.model;
             document.getElementById('detModelSub').textContent =
-                `${m._source.toUpperCase()}${m.category ? ' · ' + m.category : ''}`;
+                m._source === 'arena' ? cInfo.use : (m._source === 'openrouter' ? 'Una de las IAs más utilizadas del planeta hoy' : 'Especialista en diseño visual e interfaces web');
 
-            // Sub-card 1: Primary Score / Metric
+            const tryBtn = document.getElementById('btnTryModel');
+            tryBtn.href = isFree ? 'https://openrouter.ai/models?max_price=0' : lab.url;
+
+            // Build friendly plain-Spanish explanation
+            const otherBadges = m._source === 'arena' ? buscarOtrasPosiciones(m.model, m.category) : [];
+            const alsoText = otherBadges.length ? ` Además destaca como <b>${escapeHtml(otherBadges.join(', '))}</b>.` : '';
+            let priceSentence = 'Se puede probar desde la web oficial de su creador.';
+            if (isFree) {
+                priceSentence = '¡Es <b>100 % gratuita ($0)</b> para usar a través de OpenRouter!';
+            } else if (m.prompt_per_m != null) {
+                priceSentence = m.prompt_per_m <= 0.6
+                    ? 'Además es <b>muy económica</b> (cuesta apenas centavos por miles de palabras).'
+                    : 'Es un modelo de <b>gama alta</b> pensado para máxima calidad.';
+            }
+
+            let rankIntro = `Ocupa el <b>puesto #${m.rank}</b> en <b>${escapeHtml(m.category ? cInfo.short : 'esta clasificación')}</b>`;
+            if (m.score != null) rankIntro += ` con <b>${fmtIntComma(m.score)} puntos de calidad</b>`;
+            else if (m.win_rate_pct != null) rankIntro += ` ganando el <b>${m.win_rate_pct}%</b> de duelos directos`;
+            else if (m.tokens_week != null) rankIntro += ` con un uso masivo esta semana`;
+
+            document.getElementById('simpleExplainBox').innerHTML =
+                `<strong>💡 En palabras simples:</strong> ${rankIntro}, creada por <b>${escapeHtml(lab.name)}</b>.${alsoText} ${priceSentence}`;
+
+            // Sub-card 1: Primary Score
             let mainMetric = '—';
-            if (m.score != null) mainMetric = `${fmtIntComma(m.score)} elo`;
-            else if (m.tokens_week != null) mainMetric = `${fmtCompact(m.tokens_week)} tok`;
-            else if (m.win_rate_pct != null) mainMetric = `${m.win_rate_pct}%`;
+            if (m.score != null) mainMetric = `${fmtIntComma(m.score)} pts`;
+            else if (m.tokens_week != null) mainMetric = `${fmtCompact(m.tokens_week)} usos`;
+            else if (m.win_rate_pct != null) mainMetric = `${m.win_rate_pct}% éxito`;
 
             document.getElementById('subVal1').textContent = mainMetric;
             document.getElementById('subLbl1').textContent =
-                m.score != null ? 'Puntuación ELO Verificada' : 'Volumen Semanal';
+                m.score != null ? 'Nota de calidad (más alto = mejor)' : 'Nivel de actividad verificado';
 
-            // Sub-card 2: Position / Votes / Win-rate
+            // Sub-card 2: Human Votes / Confidence
             if (m.votes != null) {
-                document.getElementById('subVal2').textContent = `${fmtIntComma(m.votes)}`;
-                document.getElementById('subLbl2').textContent = 'Votos Humanos (Arena)';
+                document.getElementById('subVal2').textContent = `${fmtIntComma(m.votes)} votos`;
+                document.getElementById('subLbl2').textContent = 'Personas reales que la evaluaron';
             } else if (m.growth_pct != null) {
                 document.getElementById('subVal2').textContent = `${m.growth_pct >= 0 ? '+' : ''}${m.growth_pct}%`;
-                document.getElementById('subLbl2').textContent = 'Crecimiento Semanal';
-            } else if (m.win_rate_pct != null) {
-                document.getElementById('subVal2').textContent = `${m.win_rate_pct}%`;
-                document.getElementById('subLbl2').textContent = 'Tasa de Victoria';
+                document.getElementById('subLbl2').textContent = 'Crecimiento de popularidad semanal';
             } else {
-                document.getElementById('subVal2').textContent = `Top #${m.rank}`;
-                document.getElementById('subLbl2').textContent = `Posición en ${m.category || m._source}`;
+                document.getElementById('subVal2').textContent = `Puesto #${m.rank}`;
+                document.getElementById('subLbl2').textContent = 'Posición frente a sus competidores';
             }
 
-            // Sub-card 3: Pricing / Context
-            if (m.is_free || String(m.model).toLowerCase().includes('(free)')) {
-                document.getElementById('subVal3').textContent = '$0.00 / 1M';
-                document.getElementById('subLbl3').textContent = 'API Pública Gratuita';
+            // Sub-card 3: Simple Cost Description
+            if (isFree) {
+                document.getElementById('subVal3').textContent = 'Gratis ($0)';
+                document.getElementById('subLbl3').textContent = 'Uso sin coste disponible hoy';
             } else if (m.prompt_per_m != null) {
-                document.getElementById('subVal3').textContent = `$${Number(m.prompt_per_m).toFixed(2)} / $${Number(m.completion_per_m || 0).toFixed(2)}`;
-                document.getElementById('subLbl3').textContent = 'Input / Output por 1M tok';
+                const labelTier = m.prompt_per_m <= 0.6 ? 'Muy barata' : (m.prompt_per_m <= 3 ? 'Precio medio' : 'Premium');
+                document.getElementById('subVal3').textContent = labelTier;
+                document.getElementById('subLbl3').textContent = `~$${Number(m.prompt_per_m).toFixed(2)} entrada / 1M tokens`;
             } else {
-                document.getElementById('subVal3').textContent = lab.name;
-                document.getElementById('subLbl3').textContent = 'Proveedor Principal';
+                document.getElementById('subVal3').textContent = 'Web oficial';
+                document.getElementById('subLbl3').textContent = `Disponible en ${lab.name}`;
             }
 
-            document.getElementById('footBestRank').textContent = `#${m.rank}`;
+            document.getElementById('footBestRank').textContent =
+                m.rank === 1 ? '🥇 Líder #1' : (m.rank <= 3 ? '🏆 Top 3 Élite' : (m.rank <= 10 ? '⭐ Excelente' : 'Muy buena'));
             document.getElementById('footScore').textContent = mainMetric;
         }
 
@@ -2029,30 +2376,30 @@ DASHBOARD_HTML = """<!DOCTYPE html>
             const items = [];
 
             for (const r of gh) {
-                items.push(`<div class="feed-card"><div><a href="${escapeHtml(r.url)}" target="_blank" rel="noopener">⭐ ${escapeHtml(r.full_name)}</a><div style="color:var(--text-muted);font-size:0.73rem;margin-top:2px;">${escapeHtml((r.description || '').substring(0, 95))}</div></div><span class="pill-subtle">${r.stars}★</span></div>`);
+                items.push(`<div class="feed-card"><div><a href="${escapeHtml(r.url)}" target="_blank" rel="noopener">🛠️ Proyecto nuevo: ${escapeHtml(r.full_name)}</a><div style="color:var(--text-muted);font-size:0.74rem;margin-top:2px;">${escapeHtml((r.description || '').substring(0, 100))}</div></div><span class="pill-subtle">${r.stars} ★</span></div>`);
             }
             for (const m of hf) {
-                items.push(`<div class="feed-card"><div><a href="${escapeHtml(m.url)}" target="_blank" rel="noopener">🤗 ${escapeHtml(m.id)}</a></div><span class="pill-subtle">${m.likes}❤️</span></div>`);
+                items.push(`<div class="feed-card"><div><a href="${escapeHtml(m.url)}" target="_blank" rel="noopener">🤖 Modelo abierto: ${escapeHtml(m.id)}</a></div><span class="pill-subtle">${m.likes} ❤️</span></div>`);
             }
             for (const s of hn) {
-                items.push(`<div class="feed-card"><div><a href="${escapeHtml(s.url)}" target="_blank" rel="noopener">🔥 ${escapeHtml(s.title)}</a></div><span class="pill-subtle">${s.points} pts</span></div>`);
+                items.push(`<div class="feed-card"><div><a href="${escapeHtml(s.url)}" target="_blank" rel="noopener">📰 Noticia: ${escapeHtml(s.title)}</a></div><span class="pill-subtle">${s.points} pts</span></div>`);
             }
-            document.getElementById('trendingData').innerHTML = items.join('') || '<div style="color:var(--text-muted);padding:16px;">Sin tendencias disponibles ahora mismo.</div>';
+            document.getElementById('trendingData').innerHTML = items.join('') || '<div style="color:var(--text-muted);padding:16px;">No hay noticias nuevas en este momento.</div>';
         }
 
         async function cargarValue() {
-            const res = await fetch('/api/value-leaders?limit=8').catch(() => null);
+            const res = await fetch('/api/value-leaders?limit=10').catch(() => null);
             if (!res || !res.ok) return;
             const data = await res.json();
             const rows = [];
             for (const fm of (data.free_models || [])) {
-                const ctx = fm.context_length ? `${Math.round(fm.context_length / 1000)}K ctx` : 'API Gratis';
-                rows.push(`<div class="feed-card"><div><strong style="color:var(--lime);">🆓 ${escapeHtml(fm.name || fm.id)}</strong><div style="color:var(--text-muted);font-size:0.73rem;">Coste $0.00 · ${escapeHtml(fm.rank_info || 'OpenRouter Free')}</div></div><span class="pill-subtle">${escapeHtml(ctx)}</span></div>`);
+                const ctx = fm.context_length ? `Memoria larga (${Math.round(fm.context_length / 1000)}K)` : '100 % Gratis';
+                rows.push(`<div class="feed-card"><div><strong style="color:var(--lime);">🆓 ${escapeHtml(fm.name || fm.id)}</strong><div style="color:var(--text-muted);font-size:0.74rem;">Coste $0.00 · ${escapeHtml(fm.rank_info || 'Disponible gratis')}</div></div><span class="pill-subtle">${escapeHtml(ctx)}</span></div>`);
             }
             for (const vm of (data.value_models || [])) {
-                rows.push(`<div class="feed-card"><div><strong>💎 ${escapeHtml(vm.model)}</strong><div style="color:var(--text-muted);font-size:0.73rem;">${vm.score} elo · ~$${Number(vm.blended_per_m).toFixed(2)} / 1M tok</div></div><span class="pill-subtle">Índice ${vm.value_index}</span></div>`);
+                rows.push(`<div class="feed-card"><div><strong>💎 ${escapeHtml(vm.model)}</strong><div style="color:var(--text-muted);font-size:0.74rem;">Gran calidad (${vm.score} pts) a bajo precio (~$${Number(vm.blended_per_m).toFixed(2)})</div></div><span class="pill-subtle">Calidad/Precio ${vm.value_index}</span></div>`);
             }
-            document.getElementById('valueData').innerHTML = rows.join('') || '<div style="color:var(--text-muted);padding:16px;">El catálogo de precios gratuitos de OpenRouter se sincroniza automáticamente en el ciclo horario.</div>';
+            document.getElementById('valueData').innerHTML = rows.join('') || '<div style="color:var(--text-muted);padding:16px;">Actualizando lista de modelos gratuitos…</div>';
         }
 
         async function cargarHistorial() {
@@ -2096,8 +2443,8 @@ DASHBOARD_HTML = """<!DOCTYPE html>
                 backgroundColor: palette[i % palette.length],
                 spanGaps: true,
                 tension: 0.3,
-                pointRadius: 3,
-                borderWidth: 2.2
+                pointRadius: 3.5,
+                borderWidth: 2.3
             }));
 
             chartElo = new Chart(canvas.getContext('2d'), {
@@ -2108,11 +2455,11 @@ DASHBOARD_HTML = """<!DOCTYPE html>
                     maintainAspectRatio: false,
                     interaction: { mode: 'index', intersect: false },
                     plugins: {
-                        legend: { position: 'bottom', labels: { color: '#94a3b8', boxWidth: 10, font: { size: 10 } } }
+                        legend: { position: 'bottom', labels: { color: '#cbd5e1', boxWidth: 10, font: { size: 10.5 } } }
                     },
                     scales: {
-                        x: { ticks: { color: '#8a94a6', maxTicksLimit: 7 }, grid: { color: 'rgba(255,255,255,0.05)' } },
-                        y: { ticks: { color: '#8a94a6' }, grid: { color: 'rgba(255,255,255,0.05)' } }
+                        x: { ticks: { color: '#8e98aa', maxTicksLimit: 7 }, grid: { color: 'rgba(255,255,255,0.05)' } },
+                        y: { ticks: { color: '#8e98aa' }, grid: { color: 'rgba(255,255,255,0.05)' } }
                     }
                 }
             });
@@ -2125,12 +2472,12 @@ DASHBOARD_HTML = """<!DOCTYPE html>
             document.getElementById('bellDot').style.display = data.length > 0 ? 'block' : 'none';
 
             if (data.length === 0) {
-                document.getElementById('cambiosLista').innerHTML = '<div class="feed-card"><span style="color:var(--text-muted);">Sin cambios bruscos recientes; revisando automáticamente cada 1 hora.</span></div>';
+                document.getElementById('cambiosLista').innerHTML = '<div class="feed-card"><span style="color:var(--text-muted);">Todo estable por ahora. Revisamos automáticamente cada hora y te avisaremos en cuanto cambie algún puesto.</span></div>';
                 return;
             }
             document.getElementById('cambiosLista').innerHTML = data.slice(0, 15).map(c => {
                 const fecha = new Date(c.detected_at).toLocaleString();
-                return `<div class="feed-card"><div><div style="font-size:0.7rem;color:var(--text-muted);">${escapeHtml(fecha)}</div><div>${escapeHtml(String(c.summary || '').substring(0, 260))}</div></div></div>`;
+                return `<div class="feed-card"><div><div style="font-size:0.71rem;color:var(--text-muted);">${escapeHtml(fecha)}</div><div>${escapeHtml(String(c.summary || '').substring(0, 260))}</div></div></div>`;
             }).join('');
         }
 

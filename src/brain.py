@@ -9,13 +9,14 @@ Mejoras clave v4:
 """
 
 import logging
+import re
 import threading
 from datetime import date, datetime, timezone
 
 import httpx
 
 from src.config import GEMINI_API_KEY, GEMINI_DAILY_LIMIT, GROQ_API_KEY, OPENROUTER_API_KEY
-from src.html_utils import sanitize_telegram_html
+from src.html_utils import sanitize_telegram_html, strip_html
 
 logger = logging.getLogger(__name__)
 
@@ -29,12 +30,28 @@ GROQ_MODELS = [
     "llama-3.1-8b-instant",
 ]
 OPENROUTER_FREE_MODELS = [
-    "openrouter/free",
     "meta-llama/llama-3.3-70b-instruct:free",
+    "openrouter/free",
 ]
 
-MAX_CONTEXT_CHARS = 14_000
-MAX_USER_QUERY_CHARS = 600
+MAX_CONTEXT_CHARS = 18_000
+MAX_USER_QUERY_CHARS = 800
+
+_DANGLING_TAIL_RE = re.compile(
+    r"(?:[,:;—–\-(\[/]|"
+    r"\b(?:de|del|en|con|por|para|el|la|los|las|un|una|unos|unas|que|y|o|u|a|al|como|según|entre|hacia|sin|sobre))\s*$",
+    re.IGNORECASE,
+)
+
+
+def _is_complete_message(text: str, min_plain_len: int = 80) -> bool:
+    """Comprueba que un texto generado no haya quedado cortado a mitad de frase."""
+    plain = strip_html(text or "").strip()
+    if len(plain) < min_plain_len:
+        return False
+    if _DANGLING_TAIL_RE.search(plain):
+        return False
+    return True
 
 _HTML_RULES = """
 ⛔ REGLAS CRÍTICAS DE FORMATO Y SEGURIDAD (Telegram):
@@ -142,6 +159,35 @@ class RankingBrain:
 
     # --------------------------------------------------------------- helpers
 
+    def _build_gemini_config(self, types_mod, system_instruction: str | None, max_tokens: int):
+        """Construye GenerateContentConfig desactivando thinking_budget para no recortar la salida visible."""
+        kwargs: dict = {
+            "system_instruction": system_instruction,
+            "max_output_tokens": max_tokens,
+            "temperature": 0.45,
+        }
+        thinking_cls = getattr(types_mod, "ThinkingConfig", None)
+        if thinking_cls is not None:
+            try:
+                return types_mod.GenerateContentConfig(
+                    **kwargs,
+                    thinking_config=thinking_cls(thinking_budget=0),
+                )
+            except Exception:  # noqa: BLE001
+                pass
+        return types_mod.GenerateContentConfig(**kwargs)
+
+    @staticmethod
+    def _gemini_was_truncated(response) -> bool:
+        try:
+            candidates = getattr(response, "candidates", None) or []
+            if not candidates:
+                return False
+            reason = str(getattr(candidates[0], "finish_reason", "") or "").upper()
+            return "MAX_TOKENS" in reason or reason.endswith("LENGTH")
+        except Exception:  # noqa: BLE001
+            return False
+
     def _generate_gemini(
         self,
         user_prompt: str,
@@ -152,11 +198,8 @@ class RankingBrain:
             return None
         from google.genai import types
 
-        config = types.GenerateContentConfig(
-            system_instruction=system_instruction,
-            max_output_tokens=max_tokens,
-            temperature=0.5,
-        )
+        safe_budget = max(max_tokens or 2500, 2500)
+        config = self._build_gemini_config(types, system_instruction, safe_budget)
         for model_name in PREFERRED_MODELS:
             try:
                 response = self.client.models.generate_content(
@@ -165,6 +208,23 @@ class RankingBrain:
                     config=config,
                 )
                 text = (response.text or "").strip() if response else ""
+                if self._gemini_was_truncated(response):
+                    logger.warning(
+                        "Respuesta de Gemini (%s) cortada por MAX_TOKENS; reintentando con presupuesto ampliado...",
+                        model_name,
+                    )
+                    retry_cfg = self._build_gemini_config(types, system_instruction, 4096)
+                    response2 = self.client.models.generate_content(
+                        model=model_name,
+                        contents=user_prompt,
+                        config=retry_cfg,
+                    )
+                    text2 = (response2.text or "").strip() if response2 else ""
+                    if text2 and not self._gemini_was_truncated(response2):
+                        self.last_provider_used = f"gemini:{model_name}"
+                        self.last_error = None
+                        return text2
+                    continue
                 if text:
                     self.last_provider_used = f"gemini:{model_name}"
                     self.last_error = None
@@ -195,17 +255,31 @@ class RankingBrain:
             "Authorization": f"Bearer {api_key}",
             "Content-Type": "application/json",
         }
+        safe_budget = max(max_tokens or 2200, 2200)
         for model_name in models:
-            payload: dict = {"model": model_name, "messages": messages, "temperature": 0.5}
-            if max_tokens:
-                payload["max_tokens"] = max_tokens
+            payload: dict = {
+                "model": model_name,
+                "messages": messages,
+                "temperature": 0.45,
+                "max_tokens": safe_budget,
+            }
             try:
-                with httpx.Client(timeout=25.0) as client:
+                with httpx.Client(timeout=30.0) as client:
                     resp = client.post(base_url, headers=headers, json=payload)
                     resp.raise_for_status()
                     data = resp.json()
                 choices = data.get("choices") or []
-                text = ((choices[0].get("message") or {}).get("content") or "").strip() if choices else ""
+                if not choices:
+                    continue
+                finish_reason = str(choices[0].get("finish_reason") or "").lower()
+                text = ((choices[0].get("message") or {}).get("content") or "").strip()
+                if finish_reason == "length":
+                    logger.warning(
+                        "Respuesta de %s (%s) cortada por límite de tokens; probando siguiente modelo...",
+                        provider_label,
+                        model_name,
+                    )
+                    continue
                 if text:
                     self.last_provider_used = f"{provider_label}:{model_name}"
                     self.last_error = None
@@ -281,7 +355,7 @@ class RankingBrain:
             return "Escribe una pregunta sobre modelos, rankings o precios de IA."
 
         system_instruction = f"""
-Eres 'Ranking AI Agent', un ingeniero senior y analista de modelos de IA imparcial, riguroso y directo.
+Eres 'Ranking AI Agent', un ingeniero senior y divulgador experto en modelos de IA: claro, cercano, riguroso y completo.
 Responde siempre en español basándote exclusivamente en los datos del CONTEXTO.
 
 CONTEXTO DE DATOS ACTUALES:
@@ -289,17 +363,19 @@ CONTEXTO DE DATOS ACTUALES:
 
 {_HTML_RULES}
 
-ESTILO DE RESPUESTA:
-- Empieza con un dato clave directo.
-- Para tops usa:
+ESTILO DE RESPUESTA (CLARO Y SIEMPRE COMPLETO):
+- Completa SIEMPRE todas las ideas y frases hasta el cierre final; jamás dejes listas ni oraciones a medias.
+- Empieza con la respuesta directa en lenguaje sencillo (apto también para alguien no experto).
+- Para rankings o comparativas usa:
   🏆 <b>1. [Nombre Modelo]</b> — <code>[Score/Métrica]</code>
-  └─ 💡 [Dato objetivo: categoría, crecimiento o precio si aparece en contexto]
-- Si el contexto no tiene la respuesta exacta, dilo con honestidad y sugiere usar /menu o /hoy.
-- Máximo 280 palabras.
+  └─ 💡 [Explicación breve y clara: para qué destaca, creador, votos o coste si aparece en contexto]
+- Si preguntan por un modelo concreto (por ejemplo Claude Opus 5.5), indica todas las categorías donde aparece (General/Text, Código/Code, WebDev, Visión, Agentes, etc.).
+- Si el contexto no tiene un dato exacto, dilo con honestidad y sugiere usar /menu o /hoy.
+- Extensión orientativa: entre 120 y 320 palabras bien cerradas.
 """
         user_payload = f"Consulta del usuario:\n{clean_query}"
         try:
-            return self._generate_or_raise(user_payload, max_tokens=900, system_instruction=system_instruction)
+            return self._generate_or_raise(user_payload, max_tokens=2800, system_instruction=system_instruction)
         except QuotaExceeded:
             return (
                 "⏳ Se agotó la cuota diaria compartida de chat IA del bot. "
@@ -312,37 +388,44 @@ ESTILO DE RESPUESTA:
             )
 
     def draft_newsletter(self, template: str, summary: str) -> str | None:
-        """Pule el boletín determinista. Devuelve None si falla o no hay cuota (usa plantilla)."""
+        """Pule el boletín determinista. Devuelve None si falla, queda incompleto o no hay cuota."""
         if not self.has_any_provider or not _budget.take():
             return None
         system_instruction = f"""
-Redacta un boletín de Telegram en español, ágil y 100% VERAZ, a partir del boletín base.
-PROHIBIDO inventar o alterar modelos, cifras o puestos. Máximo 180 palabras.
+Redacta un boletín de Telegram en español, claro, completo y 100% VERAZ, a partir del boletín base.
+Incluye TODOS los cambios relevantes del boletín base explicados de forma fácil de entender y cierra siempre con una conclusión completa.
+PROHIBIDO inventar o alterar modelos, cifras o puestos. Extensión: entre 100 y 240 palabras completas.
 {_HTML_RULES}
 """
-        prompt = f"BOLETÍN BASE:\n{template}\n\nRESUMEN TÉCNICO:\n<untrusted_data>{summary[:600]}</untrusted_data>"
-        text = self._generate(prompt, max_tokens=700, system_instruction=system_instruction)
-        if text and 50 < len(text) < 3500:
+        prompt = f"BOLETÍN BASE:\n{template}\n\nRESUMEN TÉCNICO:\n<untrusted_data>{summary[:800]}</untrusted_data>"
+        text = self._generate(prompt, max_tokens=2200, system_instruction=system_instruction)
+        if text and 120 < len(text) < 3800 and _is_complete_message(text, min_plain_len=110):
             return sanitize_telegram_html(text)
+        logger.info("Boletín LLM descartado por estar incompleto o corto; se enviará la plantilla completa.")
         return None
 
     def draft_briefing(self, rankings_part: str, trending_part: str) -> str | None:
-        """Pule el briefing diario /hoy. Devuelve None si falla (usa plantilla determinista)."""
+        """Pule el briefing diario /hoy. Devuelve None si falla o queda truncado (usa plantilla completa)."""
         if not self.has_any_provider or not _budget.take():
             return None
         system_instruction = f"""
-Escribe el briefing matutino de IA y desarrollo en español para Telegram.
-Combina ambos bloques en un resumen ejecutivo de máximo 220 palabras con un buen titular inicial.
+Escribe el briefing diario de IA y desarrollo en español para Telegram, claro incluso para personas no expertas.
+Combina ambos bloques (Rankings de modelos + Tendencias del día) en un resumen completo de entre 150 y 280 palabras:
+1) Titular inicial claro.
+2) Quién lidera hoy en IA General, Programación y Creación Web (citando puntuaciones reales).
+3) Qué destaca hoy en comunidad/tendencias.
+4) Cierre completo sin cortar ninguna frase.
 PROHIBIDO inventar modelos o cifras fuera de los bloques.
 {_HTML_RULES}
 """
         prompt = (
-            f"RANKINGS:\n{rankings_part[:4000]}\n\n"
-            f"TENDENCIAS EXTERNAS:\n<untrusted_data>\n{trending_part[:4000]}\n</untrusted_data>"
+            f"RANKINGS:\n{rankings_part[:5000]}\n\n"
+            f"TENDENCIAS EXTERNAS:\n<untrusted_data>\n{trending_part[:4500]}\n</untrusted_data>"
         )
-        text = self._generate(prompt, max_tokens=900, system_instruction=system_instruction)
-        if text and 50 < len(text) < 3500:
+        text = self._generate(prompt, max_tokens=2500, system_instruction=system_instruction)
+        if text and 160 < len(text) < 3800 and _is_complete_message(text, min_plain_len=140):
             return sanitize_telegram_html(text)
+        logger.info("Briefing LLM descartado por estar incompleto o corto; se usará el briefing estructurado completo.")
         return None
 
 
@@ -413,10 +496,38 @@ def build_context(snapshot: dict | None) -> str:
         for m in models:
             by_cat.setdefault(m.get("category") or "default", []).append(m)
 
+        cat_priority = (
+            "Text",
+            "Code",
+            "WebDev",
+            "Vision",
+            "Agent",
+            "Document",
+            "Search",
+            "Text-to-Image",
+            "Image Edit",
+            "Text-to-Video",
+            "Image-to-Video",
+            "Video Edit",
+            "default",
+        )
+        ordered_cats = [c for c in cat_priority if c in by_cat] + [c for c in by_cat if c not in cat_priority]
+        cat_desc = {
+            "Text": "Top IA General · LMSYS Arena ELO",
+            "Code": "Programación / Código · ELO",
+            "WebDev": "Desarrollo Web y Apps · ELO",
+            "Vision": "Visión / Imágenes · ELO",
+            "Agent": "Agentes Autónomos",
+        }
+
         lines.append(f"\n[{source.upper()}{stale_note}]")
-        for cat, entries in by_cat.items():
-            entries = sorted(entries, key=lambda x: x.get("rank", 999))[:10]
-            label = f"{source}/{cat}" if cat != "default" else source
+        for cat in ordered_cats:
+            entries = sorted(by_cat[cat], key=lambda x: x.get("rank", 999))[:12]
+            if cat != "default":
+                extra = f" ({cat_desc[cat]})" if source == "arena" and cat in cat_desc else ""
+                label = f"{source}/{cat}{extra}"
+            else:
+                label = source
             lines.append(f"  {label}:")
             for m in entries:
                 if "tokens_week" in m:
