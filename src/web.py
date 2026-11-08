@@ -1382,6 +1382,86 @@ DASHBOARD_HTML = """<!DOCTYPE html>
             stroke-linejoin: round;
             flex-shrink: 0;
         }
+
+        /* ───────────── RESPONSIVE / MOBILE FIRST-FRIENDLY ───────────── */
+        html { -webkit-text-size-adjust: 100%; }
+
+        @media (max-width: 1080px) {
+            .shell { padding: 16px 18px 32px; }
+        }
+
+        /* Tablets / small laptops: keep the top navigation on one thumb-scrollable row */
+        @media (max-width: 860px) {
+            .shell { overflow-x: clip; }
+            .topbar { gap: 10px 14px; }
+            .hero-title { font-size: 1.5rem; }
+            .hero-subtitle { font-size: 0.78rem; }
+            .nav-center {
+                order: 3;
+                flex-basis: 100%;
+                width: 100%;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                padding-bottom: 2px;
+            }
+            .nav-center::-webkit-scrollbar { display: none; }
+            .white-nav-pill { flex-wrap: nowrap; width: max-content; }
+            .nav-tab { white-space: nowrap; }
+            .topbar-right { margin-left: auto; }
+        }
+
+        /* Phones: stack filters full-width, single-row scrollable goal chips, roomier taps */
+        @media (max-width: 720px) {
+            .shell { padding: 14px 14px 28px; }
+            .hero-row { margin-bottom: 12px; }
+            .goals-strip {
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                margin-left: -2px;
+                margin-right: -2px;
+                padding-bottom: 4px;
+            }
+            .goals-strip::-webkit-scrollbar { display: none; }
+            .goals-label { flex: 0 0 auto; }
+            .goal-chip { flex: 0 0 auto; white-space: nowrap; }
+
+            .filters-bar { gap: 8px; }
+            .filters-title { width: 100%; margin-right: 0; }
+            .filter-pill,
+            .search-pill-wrap { flex: 1 1 100%; min-width: 0; width: 100%; }
+            .filter-pill,
+            .search-pill-wrap input { font-size: 16px; } /* evita zoom automático en iOS */
+            .search-pill-wrap { order: -1; }
+
+            .dark-card { padding: 20px 18px; min-height: 0; }
+            .wallet-strip { flex-direction: column; align-items: stretch; gap: 12px; }
+            .btn-white-pill { width: 100%; justify-content: center; }
+            .white-sheet { padding: 20px 15px 22px; border-radius: 24px; }
+
+            .model-row { grid-template-columns: 34px 1fr auto auto; gap: 10px; }
+            .row-metric { min-width: 62px; font-size: 0.85rem; }
+
+            .subcards-grid { grid-template-columns: repeat(2, 1fr); }
+            .detail-dark-card { padding: 18px 15px; min-height: 0; }
+            .detail-header { grid-template-columns: 1fr; gap: 12px; }
+            .panel-view.active { gap: 12px; }
+            .sheet-top-row { flex-wrap: wrap; }
+        }
+
+        @media (max-width: 420px) {
+            .hero-title { font-size: 1.3rem; }
+            .btn-dark-pill { padding: 8px 12px; font-size: 0.76rem; }
+            .metric-big { font-size: 1.6rem; }
+            .d-id { font-size: 1.2rem; }
+            .white-nav-pill .nav-tab { padding: 8px 12px; font-size: 0.76rem; }
+            .sheet-notch { width: 100%; }
+            .notch-btn { flex: 1; justify-content: center; font-size: 0.7rem; padding: 7px 8px; }
+            .notch-btn .nbadge { display: none; }
+        }
     </style>
 </head>
 <body>
@@ -1694,7 +1774,7 @@ DASHBOARD_HTML = """<!DOCTYPE html>
                                     <div class="f-stat-val" id="footScore">1,539 pts</div>
                                 </div>
                                 <div>
-                                    <div class="f-stat-lbl">Revisiones / Avisos</div>
+                                    <div class="f-stat-lbl">Revisiones</div>
                                     <div class="f-stat-val" id="snapshotId">—</div>
                                 </div>
                             </div>
@@ -1726,7 +1806,7 @@ DASHBOARD_HTML = """<!DOCTYPE html>
                         </div>
                         <div class="detail-footer-bar">
                             <div class="f-stat-lbl">Cuanto más arriba esté la línea de una IA, mejores resultados da frente a sus rivales.</div>
-                            <a class="btn-lime" href="/api/chart.svg?source=arena&category=Text" target="_blank" rel="noopener">Descargar Imagen</a>
+                            <a class="btn-lime" id="chartDownload" href="/api/chart.svg?source=arena&category=Text" target="_blank" rel="noopener">Descargar Imagen</a>
                         </div>
                     </div>
 
@@ -1791,6 +1871,7 @@ DASHBOARD_HTML = """<!DOCTYPE html>
         let currentSources = {};
         let visibleModels = [];
         let selectedIdx = 0;
+        let currentPanel = 'detail';
 
         const CATEGORY_LABELS = {
             'Text': {
@@ -1957,6 +2038,7 @@ DASHBOARD_HTML = """<!DOCTYPE html>
         }
 
         function cambiarVistaPanel(panelName) {
+            currentPanel = panelName;
             document.querySelectorAll('.panel-view').forEach(p => p.classList.remove('active'));
             const target = document.getElementById('panel-' + panelName);
             if (target) target.classList.add('active');
@@ -2041,6 +2123,8 @@ DASHBOARD_HTML = """<!DOCTYPE html>
             } else {
                 document.getElementById('notchActive').classList.add('active');
                 document.getElementById('selLimit').value = 'all';
+                document.getElementById('selProvider').value = '';
+                document.getElementById('modelSearch').value = '';
             }
             selectedIdx = 0;
             aplicarFiltros();
@@ -2067,6 +2151,7 @@ DASHBOARD_HTML = """<!DOCTYPE html>
 
         async function cargarDatos() {
             await Promise.all([cargarRankings(), cargarHistorial(), cargarCambios(), cargarValue(), cargarSalud()]);
+            if (currentPanel === 'chart') cargarElo();
         }
 
         async function cargarSalud() {
@@ -2405,13 +2490,18 @@ DASHBOARD_HTML = """<!DOCTYPE html>
         async function cargarHistorial() {
             const res = await fetch('/api/history').catch(() => null);
             const data = (res && res.ok) ? await res.json() : [];
-            const cambiosCount = document.getElementById('cambiosCount').textContent || '0';
-            document.getElementById('snapshotId').textContent = `${data.length} / ${cambiosCount}`;
+            document.getElementById('snapshotId').textContent = data.length || 0;
         }
 
         async function cargarElo() {
             const source = document.getElementById('selSource').value;
             const catRaw = document.getElementById('selCategory').value;
+            const dl = document.getElementById('chartDownload');
+            if (dl) {
+                const dp = new URLSearchParams({ source });
+                if (source === 'arena' && catRaw) dp.set('category', catRaw);
+                dl.href = '/api/chart.svg?' + dp.toString();
+            }
             const params = new URLSearchParams({ source, days: '30', limit: '6' });
             if (source === 'arena' && catRaw) params.set('category', catRaw);
 
