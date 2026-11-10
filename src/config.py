@@ -74,6 +74,9 @@ UPDATE_INTERVAL_MINUTES = _env_int("UPDATE_INTERVAL_MINUTES", 60, minimum=5, max
 # Modo respaldo silencioso (usado por GitHub Actions cuando el bot 24/7 ya está despierto)
 SKIP_TELEGRAM_BROADCAST = _env_bool("SKIP_TELEGRAM_BROADCAST", default=False)
 
+# Desactivar Playwright en contenedores de 512 MB RAM (usa solo APIs + HTTP ligero)
+DISABLE_PLAYWRIGHT = _env_bool("DISABLE_PLAYWRIGHT", default=False)
+
 # Hora UTC del briefing diario /hoy (0-23)
 DAILY_BRIEF_HOUR = _env_int("DAILY_BRIEF_HOUR", 9, minimum=0, maximum=23)
 

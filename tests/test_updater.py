@@ -366,3 +366,63 @@ def test_turso_error_json_dispara_fallback_sqlite(tmp_path, monkeypatch):
     assert subs[0]["chat_id"] == "12345"
 
 
+async def test_deriva_gradual_multi_check_dispara_alerta_una_sola_vez(tmp_path, monkeypatch):
+    """Subidas graduales de 1 puesto se acumulan contra notified_snapshot y alertan una sola vez."""
+
+    class StepFetcher:
+        def __init__(self):
+            self.ranks = [8, 7, 6, 5, 5]
+            self.idx = 0
+
+        async def fetch_all(self):
+            r = self.ranks[min(self.idx, len(self.ranks) - 1)]
+            self.idx += 1
+            models = _models(10)
+            # Movemos model-7 gradualmente (sin alterar top-3 ni score)
+            for m in models:
+                if m["model"] == "model-7":
+                    m["rank"] = r
+            return {"arena": {"status": "ok", "models": models}}
+
+    fetcher = StepFetcher()
+    monkeypatch.setattr("src.updater.Database", lambda: Database(str(tmp_path / "drift.db")))
+    monkeypatch.setattr("src.updater.DataFetcher", lambda: fetcher)
+    monkeypatch.setattr("src.updater.TELEGRAM_TOKEN", "test-token")
+
+    async def fake_trending():
+        return _trending_ok()
+
+    monkeypatch.setattr("src.updater.fetch_trending", fake_trending)
+
+    bot = FakeBot()
+    updater = DataUpdater(bot=bot, brain=FakeBrain())
+    updater.output_path = str(tmp_path / "rankings.json")
+    updater.db.add_subscriber("777")
+
+    res0 = await updater.check_and_update()  # baseline (rank 8)
+    assert res0["changes_detected"] is False
+    res1 = await updater.check_and_update()  # rank 7
+    assert res1["changes_detected"] is False
+    res2 = await updater.check_and_update()  # rank 6
+    assert res2["changes_detected"] is False
+    res3 = await updater.check_and_update()  # rank 5 → acumula +3 desde baseline 8
+    assert res3["changes_detected"] is True
+    assert len(bot.sent) == 1
+    assert "8 → 5" in bot.sent[0]["text"]
+    res4 = await updater.check_and_update()  # se mantiene en 5 → sin spam
+    assert res4["changes_detected"] is False
+    assert len(bot.sent) == 1
+
+
+async def test_broadcast_respeta_modelos_seguidos_y_modo_watched(tmp_path, monkeypatch):
+    fetch_results = {"arena": {"status": "ok", "models": _models(swap_top=True)}}
+    updater, bot = _make_updater(tmp_path, monkeypatch, fetch_results, old_snapshot=OLD_V3)
+    updater.db.set_subscriber_prefs("777", {"alerts": "watched", "watch_models": ["model-1"]})
+    updater.db.set_subscriber_prefs("888", {"alerts": "watched", "watch_models": ["llama"]})
+
+    res = await updater.check_and_update()
+    assert res["changes_detected"] is True
+    assert [m["chat_id"] for m in bot.sent] == [777]
+
+
+

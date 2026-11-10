@@ -10,6 +10,7 @@ import json
 import logging
 import os
 import sqlite3
+import threading
 from datetime import datetime, timedelta, timezone
 
 import httpx
@@ -17,6 +18,7 @@ import httpx
 from src.config import TURSO_AUTH_TOKEN, TURSO_DATABASE_URL
 
 logger = logging.getLogger(__name__)
+_ORIG_HTTPX_POST = httpx.post
 
 DB_PATH = os.path.join("data", "rankings.db")
 DEFAULT_PREFS = {"alerts": "all", "daily_brief": True}
@@ -44,6 +46,8 @@ class Database:
         raw_tok = turso_token if turso_token is not None else (TURSO_AUTH_TOKEN if use_global_turso else "")
         self._turso_endpoint = _normalize_turso_url(raw_url) if raw_url and raw_tok else ""
         self._turso_token = raw_tok if self._turso_endpoint else ""
+        self._turso_client: httpx.Client | None = None
+        self._turso_lock = threading.Lock()
         self._init_db()
 
     def _connect(self) -> sqlite3.Connection:
@@ -80,12 +84,15 @@ class Database:
         ]
         requests_list.append({"type": "close"})
         try:
-            resp = httpx.post(
-                self._turso_endpoint,
-                headers={"Authorization": f"Bearer {self._turso_token}"},
-                json={"requests": requests_list},
-                timeout=10.0,
-            )
+            headers = {"Authorization": f"Bearer {self._turso_token}"}
+            payload = {"requests": requests_list}
+            if httpx.post is not _ORIG_HTTPX_POST:
+                resp = httpx.post(self._turso_endpoint, headers=headers, json=payload, timeout=10.0)
+            else:
+                with self._turso_lock:
+                    if self._turso_client is None or self._turso_client.is_closed:
+                        self._turso_client = httpx.Client(timeout=10.0)
+                    resp = self._turso_client.post(self._turso_endpoint, headers=headers, json=payload)
             resp.raise_for_status()
             body = resp.json()
             results = body.get("results") or []
@@ -165,6 +172,24 @@ class Database:
                 created_at TEXT NOT NULL
             )
             """,
+            """
+            CREATE TABLE IF NOT EXISTS elo_history (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                observed_at TEXT NOT NULL,
+                source TEXT NOT NULL,
+                category TEXT NOT NULL,
+                model TEXT NOT NULL,
+                value REAL NOT NULL
+            )
+            """,
+            "CREATE INDEX IF NOT EXISTS idx_elo_history_lookup ON elo_history(source, category, observed_at)",
+            """
+            CREATE TABLE IF NOT EXISTS app_state (
+                key TEXT PRIMARY KEY,
+                value TEXT NOT NULL,
+                updated_at TEXT NOT NULL
+            )
+            """,
         ]
         with self._connect() as conn:
             for ddl in ddl_statements:
@@ -183,14 +208,50 @@ class Database:
 
     # --------------------------------------------------------------- snapshots
 
+    @staticmethod
+    def _extract_elo_rows(data: dict, observed_at: str) -> list[tuple[str, str, str, str, float]]:
+        """Extrae series compactas (top-15 por fuente/categoría) para gráficas rápidas."""
+        sources = data.get("sources") if isinstance(data, dict) else None
+        if not isinstance(sources, dict):
+            return []
+        rows: list[tuple[str, str, str, str, float]] = []
+        per_bucket: dict[tuple[str, str], int] = {}
+        for source, payload in sources.items():
+            if not isinstance(payload, dict) or payload.get("status") not in ("ok", "stale"):
+                continue
+            models = payload.get("models")
+            if not isinstance(models, list):
+                continue
+            for m in models:
+                if not isinstance(m, dict) or not m.get("model"):
+                    continue
+                val = m.get("score", m.get("tokens_week"))
+                if not isinstance(val, (int, float)) or isinstance(val, bool):
+                    continue
+                cat = str(m.get("category") or "default")
+                bucket = (str(source), cat)
+                count = per_bucket.get(bucket, 0)
+                if count >= 15:
+                    continue
+                per_bucket[bucket] = count + 1
+                rows.append((observed_at, str(source), cat, str(m["model"]), float(val)))
+        return rows
+
     def save_snapshot(self, data: dict) -> None:
         now = utc_now_iso()
         serialized = json.dumps(data, ensure_ascii=False)
         sql = "INSERT INTO snapshots (created_at, data) VALUES (?, ?)"
+        elo_rows = self._extract_elo_rows(data, now)
+        elo_sql = "INSERT INTO elo_history (observed_at, source, category, model, value) VALUES (?, ?, ?, ?, ?)"
         with self._connect() as conn:
             conn.execute(sql, (now, serialized))
+            if elo_rows:
+                conn.executemany(elo_sql, elo_rows)
             conn.commit()
-        self._turso_exec(sql, (now, serialized))
+        if self._turso_endpoint:
+            stmts: list[tuple[str, tuple]] = [(sql, (now, serialized))]
+            stmts.extend((elo_sql, row) for row in elo_rows[:120])
+            self._turso_batch(stmts)
 
     def get_latest_snapshot(self) -> dict | None:
         sql = "SELECT created_at, data FROM snapshots ORDER BY id DESC LIMIT 1"
@@ -223,13 +284,63 @@ class Database:
                 created = seed_ts or utc_now_iso()
                 serialized = json.dumps(seed_data, ensure_ascii=False)
                 sql = "INSERT INTO snapshots (created_at, data) VALUES (?, ?)"
+                elo_rows = self._extract_elo_rows(seed_data, created)
+                elo_sql = "INSERT INTO elo_history (observed_at, source, category, model, value) VALUES (?, ?, ?, ?, ?)"
                 with self._connect() as conn:
                     conn.execute(sql, (created, serialized))
+                    if elo_rows:
+                        conn.executemany(elo_sql, elo_rows)
                     conn.commit()
-                self._turso_exec(sql, (created, serialized))
+                if self._turso_endpoint:
+                    stmts: list[tuple[str, tuple]] = [(sql, (created, serialized))]
+                    stmts.extend((elo_sql, row) for row in elo_rows[:120])
+                    self._turso_batch(stmts)
                 return {"created_at": created, "data": seed_data}
 
         return snap
+
+    def get_elo_series(
+        self,
+        source: str = "arena",
+        category: str | None = None,
+        days: int = 30,
+        limit: int = 8,
+    ) -> dict[str, list]:
+        """Devuelve series temporales compactas desde elo_history sin leer snapshots JSON completos."""
+        if source == "arena" and not category:
+            category = "Text"
+        cutoff = (datetime.now(timezone.utc).replace(tzinfo=None) - timedelta(days=days)).isoformat()
+        if category:
+            sql = (
+                "SELECT observed_at, model, value FROM elo_history "
+                "WHERE source = ? AND category = ? AND observed_at >= ? ORDER BY id ASC"
+            )
+            params: tuple = (source, category, cutoff)
+        else:
+            sql = (
+                "SELECT observed_at, model, value FROM elo_history "
+                "WHERE source = ? AND observed_at >= ? ORDER BY id ASC"
+            )
+            params = (source, cutoff)
+
+        rows = self._turso_exec(sql, params)
+        if rows is None:
+            with self._connect() as conn:
+                rows = conn.execute(sql, params).fetchall()
+
+        series: dict[str, list] = {}
+        for ts, model, raw_val in rows:
+            try:
+                fval = float(raw_val)
+            except (TypeError, ValueError):
+                continue
+            val = int(fval) if fval.is_integer() else round(fval, 2)
+            series.setdefault(str(model), []).append([str(ts), val])
+
+        if not series:
+            return {}
+        ranked = sorted(series.items(), key=lambda kv: kv[1][-1][1], reverse=True)[:limit]
+        return {name: points for name, points in ranked}
 
     def get_snapshots(self, days: int = 30) -> list[dict]:
         cutoff = (datetime.now(timezone.utc).replace(tzinfo=None) - timedelta(days=days)).isoformat()
@@ -332,7 +443,11 @@ class Database:
     def set_subscriber_prefs(self, chat_id: str | int, updates: dict) -> dict:
         self.add_subscriber(chat_id)
         prefs = self.get_subscriber_prefs(chat_id)
-        prefs.update(updates)
+        for key, value in updates.items():
+            if value is None:
+                prefs.pop(key, None)
+            else:
+                prefs[key] = value
         serialized = json.dumps(prefs, ensure_ascii=False)
         sql = "UPDATE subscribers SET preferences = ? WHERE chat_id = ?"
         cid = str(chat_id)
@@ -341,6 +456,37 @@ class Database:
             conn.commit()
         self._turso_exec(sql, (serialized, cid))
         return prefs
+
+    def get_watched_models(self, chat_id: str | int) -> list[str]:
+        prefs = self.get_subscriber_prefs(chat_id)
+        raw = prefs.get("watch_models")
+        if not isinstance(raw, list):
+            return []
+        return [str(m).strip() for m in raw if str(m).strip()]
+
+    def add_watched_model(self, chat_id: str | int, model_query: str) -> list[str]:
+        term = " ".join((model_query or "").split())[:60]
+        current = self.get_watched_models(chat_id)
+        if not term:
+            return current
+        if not any(w.lower() == term.lower() for w in current):
+            current = (current + [term])[:10]
+            self.set_subscriber_prefs(chat_id, {"watch_models": current})
+        else:
+            self.add_subscriber(chat_id)
+        return current
+
+    def remove_watched_model(self, chat_id: str | int, model_query: str) -> list[str]:
+        term = " ".join((model_query or "").split()).lower()
+        current = self.get_watched_models(chat_id)
+        if not term or not current:
+            return current
+        if term in ("all", "todo", "todos", "*"):
+            updated: list[str] = []
+        else:
+            updated = [w for w in current if w.lower() != term]
+        self.set_subscriber_prefs(chat_id, {"watch_models": updated if updated else None})
+        return updated
 
     def list_subscribers(self) -> list[str]:
         sql = "SELECT chat_id FROM subscribers WHERE active = 1"
@@ -442,6 +588,40 @@ class Database:
             conn.commit()
         self._turso_exec(sql, (cache_key, content, now))
 
+    # -------------------------------------------------------------- app_state
+
+    def get_state(self, key: str):
+        """Lee un valor JSON/texto persistido en app_state (SQLite / Turso)."""
+        if not key:
+            return None
+        sql = "SELECT value FROM app_state WHERE key = ?"
+        raw = None
+        remote = self._turso_exec(sql, (key,))
+        if remote:
+            raw = remote[0][0]
+        elif remote is None:
+            with self._connect() as conn:
+                row = conn.execute(sql, (key,)).fetchone()
+                if row:
+                    raw = row[0]
+        if raw is None:
+            return None
+        try:
+            return json.loads(raw)
+        except json.JSONDecodeError:
+            return raw
+
+    def set_state(self, key: str, value) -> None:
+        if not key:
+            return
+        now = utc_now_iso()
+        serialized = value if isinstance(value, str) else json.dumps(value, ensure_ascii=False)
+        sql = "INSERT OR REPLACE INTO app_state (key, value, updated_at) VALUES (?, ?, ?)"
+        with self._connect() as conn:
+            conn.execute(sql, (key, serialized, now))
+            conn.commit()
+        self._turso_exec(sql, (key, serialized, now))
+
     def cleanup_old_data(self, days: int = 31) -> None:
         cutoff = (datetime.now(timezone.utc).replace(tzinfo=None) - timedelta(days=days)).isoformat()
         brief_cutoff = (datetime.now(timezone.utc).replace(tzinfo=None) - timedelta(days=3)).isoformat()
@@ -449,6 +629,7 @@ class Database:
             conn.execute("DELETE FROM snapshots WHERE created_at < ?", (cutoff,))
             conn.execute("DELETE FROM changes WHERE detected_at < ?", (cutoff,))
             conn.execute("DELETE FROM repo_stars WHERE observed_at < ?", (cutoff,))
+            conn.execute("DELETE FROM elo_history WHERE observed_at < ?", (cutoff,))
             conn.execute("DELETE FROM briefing_cache WHERE created_at < ?", (brief_cutoff,))
             conn.commit()
         if self._turso_endpoint:
@@ -457,6 +638,7 @@ class Database:
                     ("DELETE FROM snapshots WHERE created_at < ?", (cutoff,)),
                     ("DELETE FROM changes WHERE detected_at < ?", (cutoff,)),
                     ("DELETE FROM repo_stars WHERE observed_at < ?", (cutoff,)),
+                    ("DELETE FROM elo_history WHERE observed_at < ?", (cutoff,)),
                     ("DELETE FROM briefing_cache WHERE created_at < ?", (brief_cutoff,)),
                 ]
             )
