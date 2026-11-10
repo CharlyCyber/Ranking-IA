@@ -12,9 +12,10 @@ from src.html_utils import escape_html, strip_html
 from src.validator import is_legacy_snapshot
 
 MOVE_THRESHOLD = 3
-SCORE_JUMP = 30
-NEW_REPO_MIN_STARS = 500
-REPO_ACCEL_STARS = 300
+SCORE_JUMP = 15
+NEW_REPO_MIN_STARS = 200
+REPO_ACCEL_STARS = 150
+HF_MIN_LIKES = 100
 MAX_EVENTS = 10
 
 SCORE_SOURCES = {"arena", "design"}
@@ -55,7 +56,7 @@ def detect_changes(
         if not isinstance(payload, dict) or payload.get("status") != "ok":
             continue
         old_payload = old_sources.get(source)
-        if not isinstance(old_payload, dict) or old_payload.get("status") != "ok":
+        if not isinstance(old_payload, dict) or old_payload.get("status") not in ("ok", "stale"):
             continue
 
         if source in ("github", "hackernews", "huggingface"):
@@ -64,7 +65,7 @@ def detect_changes(
 
         events.extend(_diff_models(source, old_payload, payload))
 
-    priority = {"top1": 0, "new": 1, "accel": 2, "move": 3, "score": 4}
+    priority = {"top1": 0, "podium": 1, "new": 2, "accel": 3, "move": 4, "score": 5}
     events.sort(key=lambda e: priority.get(e["kind"], 9))
     return events[:MAX_EVENTS]
 
@@ -96,10 +97,11 @@ def _diff_models(source: str, old_payload: dict, new_payload: dict) -> list[dict
                 },
             )
 
-        # 2. Modelos nuevos en el top-10
+        # 2. Modelos nuevos en el top-10 (o entrando desde #11+)
         for model, entry in new_group.items():
             rank = entry.get("rank", 999)
-            if model not in old_group and rank <= 10:
+            old_entry = old_group.get(model)
+            if not old_entry and rank <= 10:
                 events.append(
                     {
                         "kind": "new",
@@ -108,13 +110,32 @@ def _diff_models(source: str, old_payload: dict, new_payload: dict) -> list[dict
                         "text": f"🆕 <b>Modelo nuevo en {label}:</b> {escape_html(model)} entra directo al puesto {rank}.",
                     },
                 )
+            elif (
+                old_entry
+                and old_entry.get("rank", 999) > 10
+                and rank <= 10
+                and abs(old_entry.get("rank", 0) - rank) < MOVE_THRESHOLD
+            ):
+                events.append(
+                    {
+                        "kind": "new",
+                        "source": source,
+                        "category": category,
+                        "text": (
+                            f"🆕 <b>{escape_html(model)}</b> entra al Top 10 de {label} "
+                            f"(puesto {old_entry.get('rank')} → {rank})."
+                        ),
+                    },
+                )
 
-        # 3. Movimientos grandes y saltos de score
+        # 3. Subidas al podio Top-3, movimientos grandes y saltos de score
         for model, entry in new_group.items():
             old_entry = old_group.get(model)
             if not old_entry:
                 continue
-            delta = old_entry.get("rank", 0) - entry.get("rank", 0)
+            old_rank = old_entry.get("rank", 0)
+            new_rank = entry.get("rank", 0)
+            delta = old_rank - new_rank
             if abs(delta) >= MOVE_THRESHOLD and delta != 0:
                 arrow = "📈" if delta > 0 else "📉"
                 events.append(
@@ -124,8 +145,20 @@ def _diff_models(source: str, old_payload: dict, new_payload: dict) -> list[dict
                         "category": category,
                         "text": (
                             f"{arrow} <b>{escape_html(model)}</b> en {label}: "
-                            f"puesto {old_entry.get('rank')} → {entry.get('rank')} "
+                            f"puesto {old_rank} → {new_rank} "
                             f"({'sube' if delta > 0 else 'baja'} {abs(delta)})"
+                        ),
+                    },
+                )
+            elif new_rank in (2, 3) and old_rank > new_rank and delta > 0:
+                events.append(
+                    {
+                        "kind": "podium",
+                        "source": source,
+                        "category": category,
+                        "text": (
+                            f"🏅 <b>{escape_html(model)}</b> sube en el podio de {label}: "
+                            f"puesto {old_rank} → {new_rank}."
                         ),
                     },
                 )
@@ -145,6 +178,27 @@ def _diff_models(source: str, old_payload: dict, new_payload: dict) -> list[dict
                         },
                     )
 
+    if source == "openrouter":
+        old_free = old_payload.get("free_models")
+        new_free = new_payload.get("free_models")
+        if isinstance(old_free, list) and old_free and isinstance(new_free, list) and new_free:
+            old_ids = {m.get("id") or m.get("name") for m in old_free if isinstance(m, dict)}
+            for fm in new_free[:5]:
+                if not isinstance(fm, dict):
+                    continue
+                fid = fm.get("id") or fm.get("name")
+                if fid and fid not in old_ids and int(fm.get("context_length") or 0) >= 64_000:
+                    name = escape_html(fm.get("name") or fid)
+                    ctx_k = int(fm["context_length"]) // 1000
+                    events.append(
+                        {
+                            "kind": "new",
+                            "source": "openrouter",
+                            "category": "free",
+                            "text": f"🆓 <b>Nuevo modelo API gratis ($0):</b> {name} ({ctx_k}K contexto).",
+                        }
+                    )
+
     return events
 
 
@@ -154,7 +208,30 @@ def _diff_items(
     new_payload: dict,
     star_baselines: dict[str, int] | None = None,
 ) -> list[dict]:
-    """Diffs para fuentes de elementos (github): repos nuevos y en aceleración."""
+    """Diffs para fuentes de elementos (github y huggingface)."""
+    if source == "huggingface":
+        old_items = [i for i in (old_payload.get("items") or []) if isinstance(i, dict) and i.get("id")]
+        new_items = [i for i in (new_payload.get("items") or []) if isinstance(i, dict) and i.get("id")]
+        if not old_items or not new_items:
+            return []
+        old_top = old_items[0]["id"]
+        new_top_item = new_items[0]
+        new_top = new_top_item["id"]
+        likes = int(new_top_item.get("likes") or 0)
+        if new_top != old_top and likes >= HF_MIN_LIKES:
+            return [
+                {
+                    "kind": "top1",
+                    "source": "huggingface",
+                    "category": "huggingface",
+                    "text": (
+                        f"🤗 <b>Nuevo nº1 en tendencia Open-Weights (Hugging Face):</b> "
+                        f"{escape_html(new_top)} ({likes:,}❤️).".replace(",", ".")
+                    ),
+                }
+            ]
+        return []
+
     if source != "github":
         return []
     events: list[dict] = []

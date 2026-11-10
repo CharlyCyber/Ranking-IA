@@ -55,57 +55,74 @@ class Database:
         conn.execute("PRAGMA synchronous=NORMAL;")
         return conn
 
-    def _turso_exec(self, sql: str, params: tuple = ()) -> list[tuple] | None:
-        """Ejecuta una consulta en Turso vía HTTP Pipeline API. Devuelve filas o None si falla."""
-        if not self._turso_endpoint:
-            return None
+    def _turso_args(self, params: tuple) -> list[dict]:
         args = []
         for p in params:
             if p is None:
                 args.append({"type": "null"})
+            elif isinstance(p, bool):
+                args.append({"type": "integer", "value": "1" if p else "0"})
             elif isinstance(p, int):
                 args.append({"type": "integer", "value": str(p)})
             elif isinstance(p, float):
                 args.append({"type": "float", "value": p})
             else:
                 args.append({"type": "text", "value": str(p)})
+        return args
 
-        payload = {
-            "requests": [
-                {"type": "execute", "stmt": {"sql": sql, "args": args}},
-                {"type": "close"},
-            ]
-        }
+    def _turso_batch(self, statements: list[tuple[str, tuple]]) -> list[list[tuple]] | None:
+        """Ejecuta una lista de consultas en Turso en 1 sola petición HTTP Pipeline."""
+        if not self._turso_endpoint or not statements:
+            return None
+        requests_list = [
+            {"type": "execute", "stmt": {"sql": sql, "args": self._turso_args(params)}}
+            for sql, params in statements
+        ]
+        requests_list.append({"type": "close"})
         try:
             resp = httpx.post(
                 self._turso_endpoint,
                 headers={"Authorization": f"Bearer {self._turso_token}"},
-                json=payload,
-                timeout=8.0,
+                json={"requests": requests_list},
+                timeout=10.0,
             )
             resp.raise_for_status()
             body = resp.json()
-            res0 = ((body.get("results") or [{}])[0]).get("response") or {}
-            rows_raw = (res0.get("result") or {}).get("rows") or []
-            out = []
-            for row in rows_raw:
-                converted = []
-                for cell in row:
-                    ctype = cell.get("type")
-                    val = cell.get("value")
-                    if ctype == "null":
-                        converted.append(None)
-                    elif ctype == "integer":
-                        converted.append(int(val))
-                    elif ctype == "float":
-                        converted.append(float(val))
-                    else:
-                        converted.append(val)
-                out.append(tuple(converted))
-            return out
+            results = body.get("results") or []
+            all_rows: list[list[tuple]] = []
+            for item in results[: len(statements)]:
+                if item.get("type") == "error":
+                    err_msg = ((item.get("error") or {}).get("message")) or str(item)
+                    raise RuntimeError(f"Turso SQL error: {err_msg}")
+                res = item.get("response") or {}
+                rows_raw = (res.get("result") or {}).get("rows") or []
+                parsed_rows: list[tuple] = []
+                for row in rows_raw:
+                    converted = []
+                    for cell in row:
+                        ctype = cell.get("type")
+                        val = cell.get("value")
+                        if ctype == "null":
+                            converted.append(None)
+                        elif ctype == "integer":
+                            converted.append(int(val))
+                        elif ctype == "float":
+                            converted.append(float(val))
+                        else:
+                            converted.append(val)
+                    parsed_rows.append(tuple(converted))
+                all_rows.append(parsed_rows)
+            return all_rows
         except Exception as exc:  # noqa: BLE001 - fallback transparente a SQLite local
             logger.warning("Turso HTTP API falló (%s); usando SQLite local.", exc)
             return None
+
+    def _turso_exec(self, sql: str, params: tuple = ()) -> list[tuple] | None:
+        """Ejecuta una consulta en Turso vía HTTP Pipeline API. Devuelve filas o None si falla."""
+        batch = self._turso_batch([(sql, params)])
+        if batch is None:
+            return None
+        return batch[0] if batch else []
 
     def _init_db(self) -> None:
         ddl_statements = [
@@ -159,8 +176,10 @@ class Database:
             conn.commit()
 
         if self._turso_endpoint:
-            for ddl in ddl_statements:
-                self._turso_exec(ddl)
+            self._turso_batch([(ddl, ()) for ddl in ddl_statements])
+            t_cols = self._turso_exec("PRAGMA table_info(subscribers)")
+            if t_cols is not None and not any(len(r) > 1 and r[1] == "preferences" for r in t_cols):
+                self._turso_exec("ALTER TABLE subscribers ADD COLUMN preferences TEXT NOT NULL DEFAULT '{}'")
 
     # --------------------------------------------------------------- snapshots
 
@@ -252,6 +271,19 @@ class Database:
             "INSERT INTO subscribers (chat_id, created_at, active, preferences) VALUES (?, ?, 1, ?) "
             "ON CONFLICT(chat_id) DO UPDATE SET active = 1"
         )
+        with self._connect() as conn:
+            conn.execute(sql, (cid, now, default_prefs))
+            conn.commit()
+        self._turso_exec(sql, (cid, now, default_prefs))
+
+    def ensure_subscriber(self, chat_id: str | int) -> None:
+        """Registra un suscriptor por defecto solo si no existe aún (respeta /unsubscribe)."""
+        cid = str(chat_id).strip()
+        if not cid or cid == "None":
+            return
+        now = utc_now_iso()
+        default_prefs = json.dumps(DEFAULT_PREFS, ensure_ascii=False)
+        sql = "INSERT OR IGNORE INTO subscribers (chat_id, created_at, active, preferences) VALUES (?, ?, 1, ?)"
         with self._connect() as conn:
             conn.execute(sql, (cid, now, default_prefs))
             conn.commit()
@@ -353,11 +385,15 @@ class Database:
             )
             conn.commit()
         if self._turso_endpoint:
-            for full_name, stars, ts in entries[:25]:
-                self._turso_exec(
-                    "INSERT INTO repo_stars (full_name, stars, observed_at) VALUES (?, ?, ?)",
-                    (full_name, stars, ts),
-                )
+            self._turso_batch(
+                [
+                    (
+                        "INSERT INTO repo_stars (full_name, stars, observed_at) VALUES (?, ?, ?)",
+                        (full_name, stars, ts),
+                    )
+                    for full_name, stars, ts in entries[:25]
+                ]
+            )
 
     def get_latest_repo_stars(self) -> dict[str, int]:
         """Último valor observado por repo."""
@@ -416,7 +452,11 @@ class Database:
             conn.execute("DELETE FROM briefing_cache WHERE created_at < ?", (brief_cutoff,))
             conn.commit()
         if self._turso_endpoint:
-            self._turso_exec("DELETE FROM snapshots WHERE created_at < ?", (cutoff,))
-            self._turso_exec("DELETE FROM changes WHERE detected_at < ?", (cutoff,))
-            self._turso_exec("DELETE FROM repo_stars WHERE observed_at < ?", (cutoff,))
-            self._turso_exec("DELETE FROM briefing_cache WHERE created_at < ?", (brief_cutoff,))
+            self._turso_batch(
+                [
+                    ("DELETE FROM snapshots WHERE created_at < ?", (cutoff,)),
+                    ("DELETE FROM changes WHERE detected_at < ?", (cutoff,)),
+                    ("DELETE FROM repo_stars WHERE observed_at < ?", (cutoff,)),
+                    ("DELETE FROM briefing_cache WHERE created_at < ?", (brief_cutoff,)),
+                ]
+            )

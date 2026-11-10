@@ -26,7 +26,7 @@ from src.detector import (
     render_alert,
 )
 from src.fetcher import DataFetcher
-from src.html_utils import escape_html, split_html_message
+from src.html_utils import escape_html, split_html_message, strip_html
 from src.keepalive import RUNTIME_STATE
 from src.trending import fetch_trending
 from src.validator import is_legacy_snapshot, validate_source
@@ -186,6 +186,9 @@ class DataUpdater:
                     if not already_sent:
                         self.db.save_change(summary)
                     self.last_change = snap_iso
+                    RUNTIME_STATE["last_change"] = snap_iso
+                    result["events_count"] = len(events)
+                    result["events_preview"] = render_alert(events)
 
                     if force:
                         result["message"] = f"Actualización forzada completada ({len(events)} cambio(s) registrados)"
@@ -196,8 +199,11 @@ class DataUpdater:
                     else:
                         result["changes_detected"] = True
                         result["comparison_result"] = summary
+                        if ADMIN_CHAT_ID:
+                            self.db.ensure_subscriber(ADMIN_CHAT_ID)
                         alert = await self._compose_alert(events, summary)
                         delivered = await self._broadcast(alert, events=events)
+                        RUNTIME_STATE["last_broadcast_count"] = delivered
                         result["message"] = f"Cambios detectados ({len(events)} eventos), enviado a {delivered} destino(s)"
                         logger.info("📣 %s", result["message"])
                 elif force:
@@ -250,20 +256,22 @@ class DataUpdater:
             return 0
 
         delivered = 0
+        channel_ok = False
 
         if PUBLIC_CHANNEL_ID:
             try:
                 await self._send_to(PUBLIC_CHANNEL_ID, text)
                 delivered += 1
+                channel_ok = True
             except Exception as exc:  # noqa: BLE001
                 logger.error("No se pudo publicar en el canal público %s: %s", PUBLIC_CHANNEL_ID, exc)
 
         subs = [s for s in self.db.list_subscribers_with_prefs() if s["chat_id"] and s["chat_id"] != "None"]
-        if not subs and not PUBLIC_CHANNEL_ID and ADMIN_CHAT_ID:
+        if not subs and (not PUBLIC_CHANNEL_ID or not channel_ok) and ADMIN_CHAT_ID:
             subs = [{"chat_id": str(ADMIN_CHAT_ID), "preferences": {"alerts": "all"}}]
 
-        if not subs and not PUBLIC_CHANNEL_ID:
-            logger.warning("Broadcast omitido: sin suscriptores ni canal público")
+        if not subs and not channel_ok:
+            logger.warning("Broadcast omitido: sin suscriptores ni canal público operativo")
             return 0
 
         for idx, sub in enumerate(subs):
@@ -300,7 +308,14 @@ class DataUpdater:
         chunks = split_html_message(text, limit=4000)
         for chunk in chunks:
             if self.bot:
-                await self.bot.send_message(chat_id=target, text=chunk, parse_mode="HTML")
+                try:
+                    await self.bot.send_message(chat_id=target, text=chunk, parse_mode="HTML")
+                except Exception as exc:  # noqa: BLE001
+                    err_lower = str(exc).lower()
+                    if any(tok in err_lower for tok in ("forbidden", "bot was blocked", "chat not found", "deactivated")):
+                        raise
+                    logger.warning("Fallo envío HTML a %s (%s); reintentando plano.", chat_id, exc)
+                    await self.bot.send_message(chat_id=target, text=strip_html(chunk))
             else:
                 url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"
                 async with httpx.AsyncClient(timeout=12.0) as client:
@@ -308,6 +323,12 @@ class DataUpdater:
                         url,
                         json={"chat_id": target, "text": chunk, "parse_mode": "HTML"},
                     )
+                    if resp.status_code == 400:
+                        logger.warning("Telegram rechazó HTML para %s; reintentando plano.", chat_id)
+                        resp = await client.post(
+                            url,
+                            json={"chat_id": target, "text": strip_html(chunk)},
+                        )
                     resp.raise_for_status()
 
     async def _notify_admin(self, text: str, is_error: bool = False) -> None:

@@ -80,3 +80,46 @@ class TestHourlySchedule:
         await m.post_init(app)
         assert repeating_jobs["periodic_update"]["interval"] == 3600
 
+
+class TestDiagnosticCommands:
+    async def test_testalerta_requiere_admin(self, monkeypatch):
+        from types import SimpleNamespace
+
+        monkeypatch.setattr(m, "ADMIN_CHAT_ID", "12345")
+        replies = []
+
+        async def fake_reply(text, parse_mode=None):
+            replies.append(text)
+
+        upd = SimpleNamespace(
+            effective_chat=SimpleNamespace(id=999),
+            message=SimpleNamespace(reply_text=fake_reply),
+        )
+        await m.test_alerta(upd, SimpleNamespace(bot=SimpleNamespace()))
+        assert len(replies) == 1
+        assert "administrador" in replies[0]
+
+    async def test_testalerta_admin_envia_diagnostico(self, tmp_path, monkeypatch):
+        from types import SimpleNamespace
+
+        from src.db import Database
+
+        test_db = Database(str(tmp_path / "diag.db"))
+        monkeypatch.setattr(m, "db", test_db)
+        monkeypatch.setattr(m, "ADMIN_CHAT_ID", "12345")
+        monkeypatch.setattr(m, "PUBLIC_CHANNEL_ID", None)
+        replies = []
+
+        async def fake_reply(text, parse_mode=None):
+            replies.append(text)
+
+        upd = SimpleNamespace(
+            effective_chat=SimpleNamespace(id=12345),
+            message=SimpleNamespace(reply_text=fake_reply),
+        )
+        await m.test_alerta(upd, SimpleNamespace(bot=SimpleNamespace()))
+        assert len(replies) == 1
+        assert "Alerta de Prueba Enviada" in replies[0]
+        assert test_db.is_subscriber("12345") is True
+
+

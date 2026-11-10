@@ -26,6 +26,8 @@ RUNTIME_STATE: dict[str, object] = {
     "last_heartbeat": None,
     "last_update_check": None,
     "last_update_message": None,
+    "last_change": None,
+    "last_broadcast_count": 0,
 }
 
 
@@ -56,6 +58,8 @@ def create_flask_app() -> Flask:
             "last_heartbeat": RUNTIME_STATE["last_heartbeat"],
             "last_update_check": RUNTIME_STATE["last_update_check"],
             "last_update_message": RUNTIME_STATE["last_update_message"],
+            "last_change": RUNTIME_STATE["last_change"],
+            "last_broadcast_count": RUNTIME_STATE["last_broadcast_count"],
         }
 
     @app.route("/")

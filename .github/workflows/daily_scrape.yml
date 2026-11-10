@@ -33,9 +33,14 @@ jobs:
         env:
           BOT_URL: ${{ secrets.BOT_URL }}
         run: |
-          if [ -n "$BOT_URL" ] && curl --fail --silent --location --max-time 15 "${BOT_URL%/}/health" >/dev/null; then
-            echo "✅ Bot 24/7 activo en $BOT_URL: ejecutando solo respaldo silencioso (sin duplicar alertas)."
-            echo "skip_broadcast=1" >> "$GITHUB_OUTPUT"
+          if [ -n "$BOT_URL" ] && HEALTH_JSON=$(curl --fail --silent --location --max-time 15 "${BOT_URL%/}/health"); then
+            if python3 -c 'import json, sys; d = json.loads(sys.argv[1]); sys.exit(0 if d.get("bot_polling_active") else 1)' "$HEALTH_JSON" 2>/dev/null; then
+              echo "✅ Bot 24/7 activo con polling en $BOT_URL: ejecutando respaldo silencioso (sin duplicar ni consumir cambios de Turso)."
+              echo "skip_broadcast=1" >> "$GITHUB_OUTPUT"
+            else
+              echo "⚠️ Servidor web activo en $BOT_URL pero bot_polling_active=false: GitHub Actions asumirá las alertas."
+              echo "skip_broadcast=0" >> "$GITHUB_OUTPUT"
+            fi
           else
             echo "🛡️ Bot externo no alcanzado o BOT_URL vacía: GitHub Actions enviará alertas si hay cambios."
             echo "skip_broadcast=0" >> "$GITHUB_OUTPUT"
@@ -46,6 +51,32 @@ jobs:
           pip install -r requirements.txt
           python -m playwright install --with-deps chromium
 
+      - name: Restore latest snapshot from data branch as baseline
+        run: |
+          git fetch origin +refs/heads/data:refs/remotes/origin/data || true
+          if git show refs/remotes/origin/data:data/rankings.json > /tmp/data_rankings.json 2>/dev/null; then
+            python3 -c '
+          import json, shutil
+          try:
+              with open("/tmp/data_rankings.json", "r", encoding="utf-8") as f:
+                  remote = json.load(f)
+              with open("data/rankings.json", "r", encoding="utf-8") as f:
+                  local = json.load(f)
+              if isinstance(remote, dict) and isinstance(remote.get("sources"), dict) and remote.get("sources"):
+                  r_ts = str(remote.get("generated_at") or "")
+                  l_ts = str(local.get("generated_at") or "")
+                  if r_ts >= l_ts:
+                      shutil.copyfile("/tmp/data_rankings.json", "data/rankings.json")
+                      print(f"✅ Línea base restaurada desde rama data ({r_ts})")
+                  else:
+                      print(f"ℹ️ Snapshot en main ({l_ts}) es más reciente que rama data ({r_ts})")
+              else:
+                  print("ℹ️ Snapshot en rama data es legado; se usará el de main como línea base.")
+          except Exception as exc:
+              print(f"⚠️ No se pudo comparar snapshot de rama data: {exc}")
+          '
+          fi
+
       - name: Run Hourly Scraper
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
@@ -55,8 +86,8 @@ jobs:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TURSO_DATABASE_URL: ${{ secrets.TURSO_DATABASE_URL }}
-          TURSO_AUTH_TOKEN: ${{ secrets.TURSO_AUTH_TOKEN }}
+          TURSO_DATABASE_URL: ${{ steps.bot_check.outputs.skip_broadcast == '0' && secrets.TURSO_DATABASE_URL || '' }}
+          TURSO_AUTH_TOKEN: ${{ steps.bot_check.outputs.skip_broadcast == '0' && secrets.TURSO_AUTH_TOKEN || '' }}
           SKIP_TELEGRAM_BROADCAST: ${{ steps.bot_check.outputs.skip_broadcast }}
         run: python -m src.update_data
 
@@ -65,6 +96,8 @@ jobs:
           git config --global user.name "RankingAI Bot"
           git config --global user.email "bot@rankingai.com"
           cp data/rankings.json /tmp/rankings.json
+          rm -f data/rankings.db data/rankings.db-wal data/rankings.db-shm
+          git checkout -- data/rankings.json
           git fetch origin +refs/heads/data:refs/remotes/origin/data || true
           if git rev-parse --verify refs/remotes/origin/data >/dev/null 2>&1; then
             git checkout -B data refs/remotes/origin/data
