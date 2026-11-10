@@ -180,3 +180,68 @@ class TestRender:
         summary = change_summary(detect_changes(BASE, _mutate(swap)))
         assert "\n" not in summary
         assert len(summary) < 800
+
+
+class TestCanonicalYDeriva:
+    def test_canonical_model_key_ignora_cambio_de_metodo_sin_perder_variantes(self):
+        from src.detector import canonical_model_key, filter_events_for_preference
+
+        assert canonical_model_key("claude-opus-4-6") == canonical_model_key("Claude Opus 4.6")
+        assert canonical_model_key("anthropic/claude-opus-4-6") == canonical_model_key("Claude Opus 4.6")
+        assert canonical_model_key("Claude Opus 5 (High)") != canonical_model_key("Claude Opus 5 (Max)")
+
+        old = {
+            "generated_at": "2026-11-01T10:00:00",
+            "sources": {
+                "arena": _source(
+                    [
+                        _model(1, "claude-opus-4-6", score=1510),
+                        _model(2, "Claude Opus 5 (High)", score=1500),
+                        _model(3, "Claude Opus 5 (Max)", score=1490),
+                    ]
+                )
+            },
+        }
+        new = {
+            "generated_at": "2026-11-01T11:00:00",
+            "sources": {
+                "arena": _source(
+                    [
+                        _model(1, "Claude Opus 4.6", score=1510),
+                        _model(2, "Claude Opus 5 (High)", score=1500),
+                        _model(3, "Claude Opus 5 (Max)", score=1490),
+                    ]
+                )
+            },
+        }
+        # El cambio de formato (HF dataset -> página/mirror) no debe disparar falsas alertas
+        assert detect_changes(old, new) == []
+
+        # Cambio real entre variantes (Max) y (High) sí dispara alerta
+        new["sources"]["arena"]["models"][1]["rank"] = 3
+        new["sources"]["arena"]["models"][2]["rank"] = 2
+        ev = detect_changes(old, new)
+        assert any(e["kind"] == "podium" and "Max" in e["text"] for e in ev)
+
+        # Watchlist: modo watched y combinación con top1
+        events = [
+            {"kind": "top1", "source": "arena", "category": "Text", "models": ["GPT-6"], "text": "top1"},
+            {"kind": "move", "source": "arena", "category": "Text", "models": ["DeepSeek V4"], "text": "ds"},
+        ]
+        assert len(filter_events_for_preference(events, "watched", watch_models=["deepseek"])) == 1
+        assert len(filter_events_for_preference(events, "top1", watch_models=["deepseek"])) == 2
+
+    def test_deriva_gradual_acumulada_contra_baseline(self):
+        baseline = copy.deepcopy(BASE)
+        step1 = _mutate(lambda s: s["arena"]["models"][7].__setitem__("rank", 7))
+        step2 = _mutate(lambda s: s["arena"]["models"][7].__setitem__("rank", 6))
+        step3 = _mutate(lambda s: s["arena"]["models"][7].__setitem__("rank", 5))
+
+        assert [e for e in detect_changes(baseline, step1, baseline_snapshot=baseline) if e["kind"] == "move"] == []
+        assert [e for e in detect_changes(step1, step2, baseline_snapshot=baseline) if e["kind"] == "move"] == []
+        ev = detect_changes(step2, step3, baseline_snapshot=baseline)
+        moves = [e for e in ev if e["kind"] == "move"]
+        assert len(moves) == 1
+        assert "model-7" in moves[0]["text"]
+        assert "8 → 5" in moves[0]["text"]
+

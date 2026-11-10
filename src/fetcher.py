@@ -6,12 +6,14 @@ modelos ``:free`` desde el catálogo público gratuito ``/api/v1/models`` de Ope
 """
 
 import asyncio
+import html
 import logging
+import re
 
 import httpx
 from playwright.async_api import async_playwright
 
-from src.config import URLS
+from src.config import DISABLE_PLAYWRIGHT, URLS
 from src.parsers import (
     ParseError,
     enrich_models_with_catalog,
@@ -23,8 +25,35 @@ from src.parsers import (
     parse_openrouter_catalog,
     parse_openrouter_page,
 )
+from src.validator import validate_source
 
 logger = logging.getLogger(__name__)
+
+_TAG_STRIP_BLOCKS_RE = re.compile(r"<(script|style|noscript|svg)\b[^>]*>.*?</\1>", re.IGNORECASE | re.DOTALL)
+_BLOCK_TAGS_RE = re.compile(
+    r"</?(?:tr|td|th|div|p|li|h[1-6]|section|article|header|footer|br|table|tbody|thead|dt|dd|ul|ol|nav)[^>]*>",
+    re.IGNORECASE,
+)
+_ALL_TAGS_RE = re.compile(r"<[^>]+>")
+
+
+def _html_to_text(raw_html: str) -> str:
+    """Convierte HTML SSR en texto limpio por líneas para los parsers deterministas."""
+    if not raw_html:
+        return ""
+    cleaned = _TAG_STRIP_BLOCKS_RE.sub(" ", raw_html)
+    cleaned = _BLOCK_TAGS_RE.sub("\n", cleaned)
+    cleaned = _ALL_TAGS_RE.sub("", cleaned)
+    cleaned = html.unescape(cleaned)
+    return "\n".join(line.strip() for line in cleaned.splitlines() if line.strip())
+
+
+async def _abort_heavy_assets(route) -> None:
+    """Bloquea imágenes, fuentes, vídeo y CSS en Playwright para ahorrar RAM y latencia."""
+    if route.request.resource_type in ("image", "media", "font", "stylesheet"):
+        await route.abort()
+    else:
+        await route.continue_()
 
 BROWSER_UA = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
@@ -61,24 +90,40 @@ class DataFetcher:
             self._fetch_openrouter_catalog(),
         )
 
-        # 2. Páginas que necesitan navegador solo si su API no respondió
-        pages: dict[str, str] = {"design": URLS["design_arena"]}
+        # 2. Intento HTTP ligero (SSR/HTML) antes de levantar Chromium (ahorra RAM en 512MB)
+        candidate_pages: dict[str, tuple[str, object]] = {"design": (URLS["design_arena"], parse_design_arena)}
         if arena_api_models is None:
-            pages["arena"] = URLS["arena"]
+            candidate_pages["arena"] = (URLS["arena"], parse_arena)
         if openrouter_api is None:
-            pages["openrouter"] = URLS["openrouter"]
-
-        texts, page_errors = await self._load_pages(pages)
+            candidate_pages["openrouter"] = (URLS["openrouter"], parse_openrouter_page)
 
         results: dict[str, dict] = {}
+        pages_for_browser: dict[str, str] = {}
+        http_checks = await asyncio.gather(
+            *(self._fetch_page_http(url) for url, _parser in candidate_pages.values()),
+            return_exceptions=True,
+        )
+        for (key, (url, parser)), http_res in zip(candidate_pages.items(), http_checks):
+            http_text = http_res if isinstance(http_res, str) else None
+            if http_text:
+                parsed = self._parse_source(key, http_text, None, parser)
+                if parsed.get("status") == "ok" and not validate_source(key, parsed):
+                    parsed["method"] = "http"
+                    results[key] = parsed
+                    continue
+            pages_for_browser[key] = url
+
+        texts, page_errors = await self._load_pages(pages_for_browser)
+
         if arena_api_models is not None:
             results["arena"] = {"status": "ok", "models": arena_api_models, "method": "api"}
-        else:
+        elif "arena" not in results:
             results["arena"] = self._parse_source("arena", texts.get("arena"), page_errors.get("arena"), parse_arena)
 
-        results["design"] = self._parse_source(
-            "design", texts.get("design"), page_errors.get("design"), parse_design_arena
-        )
+        if "design" not in results:
+            results["design"] = self._parse_source(
+                "design", texts.get("design"), page_errors.get("design"), parse_design_arena
+            )
 
         if openrouter_api is not None:
             try:
@@ -89,10 +134,11 @@ class DataFetcher:
                 }
             except ParseError as exc:
                 logger.warning("OpenRouter API: %s — probando página como fallback", exc)
-                results["openrouter"] = self._parse_source(
-                    "openrouter", texts.get("openrouter"), page_errors.get("openrouter"), parse_openrouter_page
-                )
-        else:
+                if "openrouter" not in results:
+                    results["openrouter"] = self._parse_source(
+                        "openrouter", texts.get("openrouter"), page_errors.get("openrouter"), parse_openrouter_page
+                    )
+        elif "openrouter" not in results:
             results["openrouter"] = self._parse_source(
                 "openrouter", texts.get("openrouter"), page_errors.get("openrouter"), parse_openrouter_page
             )
@@ -194,18 +240,47 @@ class DataFetcher:
             logger.info("Catálogo público de OpenRouter no disponible (%s).", exc)
         return None
 
+    async def _fetch_page_http(self, url: str) -> str | None:
+        """Descarga HTML ligero con httpx y extrae texto SSR sin abrir navegador."""
+        try:
+            async with httpx.AsyncClient(headers={"User-Agent": BROWSER_UA}, timeout=15, follow_redirects=True) as client:
+                resp = await client.get(url)
+                if resp.status_code != 200 or not resp.text:
+                    return None
+                text = _html_to_text(resp.text)
+                if any(marker in text[:2000] for marker in BLOCK_MARKERS):
+                    return None
+                return text
+        except Exception as exc:  # noqa: BLE001
+            logger.debug("HTTP ligero no suficiente para %s: %s", url, exc)
+            return None
+
     async def _load_pages(self, urls: dict[str, str]) -> tuple[dict[str, str | None], dict[str, str]]:
         """Carga varias páginas con una única instancia de Chromium y espera de hidratación."""
         texts: dict[str, str | None] = {}
         errors: dict[str, str] = {}
         if not urls:
             return texts, errors
+        if DISABLE_PLAYWRIGHT:
+            logger.info("Playwright desactivado por DISABLE_PLAYWRIGHT=true; omitiendo %s.", list(urls.keys()))
+            for key in urls:
+                errors[key] = "Playwright desactivado (DISABLE_PLAYWRIGHT=true)"
+            return texts, errors
 
         try:
             async with async_playwright() as p:
                 browser = await p.chromium.launch(
                     headless=True,
-                    args=["--disable-dev-shm-usage", "--no-sandbox"],
+                    args=[
+                        "--disable-dev-shm-usage",
+                        "--no-sandbox",
+                        "--disable-gpu",
+                        "--disable-extensions",
+                        "--disable-background-networking",
+                        "--disable-default-apps",
+                        "--mute-audio",
+                        "--disable-software-rasterizer",
+                    ],
                 )
                 try:
                     for key, url in urls.items():
@@ -215,6 +290,7 @@ class DataFetcher:
                             extra_http_headers={"Accept-Language": "en-US,en;q=0.9"},
                         )
                         try:
+                            await page.route("**/*", _abort_heavy_assets)
                             await page.goto(url, timeout=NAV_TIMEOUT_MS, wait_until="domcontentloaded")
                             try:
                                 await page.wait_for_function(

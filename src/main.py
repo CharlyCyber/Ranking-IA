@@ -50,6 +50,7 @@ from src.config import (
     ADMIN_CHAT_ID,
     DAILY_BRIEF_HOUR,
     DATA_JSON_URL,
+    DISABLE_PLAYWRIGHT,
     PUBLIC_CHANNEL_ID,
     PUBLIC_URL,
     TELEGRAM_TOKEN,
@@ -152,8 +153,8 @@ async def send_html(bot, chat_id: int | str, text: str, reply_markup=None) -> No
 
 
 async def load_snapshot() -> dict | None:
-    """Carga el snapshot estructurado unificado: SQLite → fichero local → respaldo GitHub Raw."""
-    snap = db.get_or_seed_latest_snapshot()
+    """Carga el snapshot estructurado unificado: SQLite/Turso → fichero local → respaldo GitHub Raw."""
+    snap = await asyncio.to_thread(db.get_or_seed_latest_snapshot)
     if isinstance(snap, dict) and isinstance(snap.get("data"), dict):
         return snap["data"]
 
@@ -226,6 +227,9 @@ def build_prefs_keyboard(prefs: dict) -> InlineKeyboardMarkup:
             ],
             [
                 InlineKeyboardButton(mark("coding", "Solo Coding/UI"), callback_data="prefs:alerts:coding"),
+                InlineKeyboardButton(mark("watched", "Solo seguidos"), callback_data="prefs:alerts:watched"),
+            ],
+            [
                 InlineKeyboardButton(mark("none", "Silenciar alertas"), callback_data="prefs:alerts:none"),
             ],
             [
@@ -239,13 +243,23 @@ def build_prefs_keyboard(prefs: dict) -> InlineKeyboardMarkup:
     )
 
 
+def _format_prefs_header(prefs: dict, title: str) -> str:
+    watched = prefs.get("watch_models") or []
+    watch_line = (
+        f"\n👀 <b>Modelos seguidos:</b> {escape_html(', '.join(watched))}"
+        if watched
+        else "\n💡 <i>Tip: usa</i> <code>/seguir claude</code> <i>para vigilar un modelo concreto.</i>"
+    )
+    return f"{title}{watch_line}"
+
+
 # ------------------------------------------------------------------ handlers
 
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Bienvenida + alta como suscriptor + panel interactivo a 0 tokens."""
     chat_id = str(update.effective_chat.id)
-    db.add_subscriber(chat_id)
+    await asyncio.to_thread(db.add_subscriber, chat_id)
     channel_line = f"📢 Canal público rápido: <b>{escape_html(PUBLIC_CHANNEL_ID)}</b>\n" if PUBLIC_CHANNEL_ID else ""
     await update.message.reply_text(
         "¡Hola! Soy <b>Ranking AI Agent</b> 🏆 (100% gratuito y open-source).\n\n"
@@ -256,7 +270,9 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         "<b>Comandos principales:</b>\n"
         "• /menu — explorador interactivo de rankings\n"
         "• /hoy — briefing diario de rankings + tendencias\n"
+        "• /semanal — resumen semanal de la industria\n"
         "• /buscar <i>modelo</i> — ficha rápida de posiciones y precios\n"
+        "• /seguir <i>modelo</i> — vigilar cambios de un modelo concreto\n"
         "• /chart — gráfica visual del Top actual\n"
         "• /alertas — personalizar qué avisos recibes\n"
         "• /unsubscribe — darte de baja\n\n"
@@ -276,11 +292,14 @@ async def menu_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 
 async def subscribe(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     chat_id = str(update.effective_chat.id)
-    db.add_subscriber(chat_id)
-    prefs = db.get_subscriber_prefs(chat_id)
+    await asyncio.to_thread(db.add_subscriber, chat_id)
+    prefs = await asyncio.to_thread(db.get_subscriber_prefs, chat_id)
     await update.message.reply_text(
-        "✅ <b>¡Suscripción activa!</b>\n"
-        "Personaliza abajo qué tipo de alertas prefieres recibir para evitar ruido:",
+        _format_prefs_header(
+            prefs,
+            "✅ <b>¡Suscripción activa!</b>\n"
+            "Personaliza abajo qué tipo de alertas prefieres recibir para evitar ruido:",
+        ),
         parse_mode="HTML",
         reply_markup=build_prefs_keyboard(prefs),
     )
@@ -288,16 +307,73 @@ async def subscribe(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 
 async def alertas_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     chat_id = str(update.effective_chat.id)
-    prefs = db.get_subscriber_prefs(chat_id)
+    prefs = await asyncio.to_thread(db.get_subscriber_prefs, chat_id)
     await update.message.reply_text(
-        "🔔 <b>Preferencias de Notificaciones</b>\nElige qué avisos automáticos quieres recibir:",
+        _format_prefs_header(
+            prefs,
+            "🔔 <b>Preferencias de Notificaciones</b>\nElige qué avisos automáticos quieres recibir:",
+        ),
         parse_mode="HTML",
         reply_markup=build_prefs_keyboard(prefs),
     )
 
 
+async def seguir_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Añade un modelo o término a la lista de vigilancia personalizada."""
+    chat_id = str(update.effective_chat.id)
+    query = " ".join(context.args or []).strip()
+    if not query:
+        watched = await asyncio.to_thread(db.get_watched_models, chat_id)
+        if watched:
+            items = ", ".join(f"<code>{escape_html(w)}</code>" for w in watched)
+            msg = (
+                f"👀 <b>Modelos que estás vigilando:</b> {items}\n\n"
+                "Para añadir otro: <code>/seguir deepseek</code>\n"
+                "Para dejar de seguir: <code>/dejar deepseek</code>"
+            )
+        else:
+            msg = (
+                "👀 Aún no sigues ningún modelo específico.\n"
+                "Uso: <code>/seguir nombre</code> (ej. <code>/seguir claude</code>, "
+                "<code>/seguir deepseek</code>, <code>/seguir gpt-5</code>)."
+            )
+        await update.message.reply_text(msg, parse_mode="HTML")
+        return
+
+    watched = await asyncio.to_thread(db.add_watched_model, chat_id, query)
+    prefs = await asyncio.to_thread(db.get_subscriber_prefs, chat_id)
+    items = ", ".join(f"<code>{escape_html(w)}</code>" for w in watched)
+    await update.message.reply_text(
+        f"✅ Ahora vigilas <b>{escape_html(query)}</b>.\n"
+        f"👀 <b>Lista actual:</b> {items}\n\n"
+        "<i>Si solo quieres alertas de tus modelos seguidos, pulsa «Solo seguidos» abajo "
+        "(en modos «Solo Nuevo #1» y «Solo Coding/UI» también se suman automáticamente).</i>",
+        parse_mode="HTML",
+        reply_markup=build_prefs_keyboard(prefs),
+    )
+
+
+async def dejar_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Elimina un modelo de la lista de vigilancia personalizada."""
+    chat_id = str(update.effective_chat.id)
+    query = " ".join(context.args or []).strip()
+    if not query:
+        await update.message.reply_text(
+            "Uso: <code>/dejar nombre</code> (o <code>/dejar all</code> para limpiar la lista).",
+            parse_mode="HTML",
+        )
+        return
+    watched = await asyncio.to_thread(db.remove_watched_model, chat_id, query)
+    if watched:
+        items = ", ".join(f"<code>{escape_html(w)}</code>" for w in watched)
+        msg = f"🗑 Actualizado. <b>Sigues vigilando:</b> {items}"
+    else:
+        msg = "🗑 Lista de modelos seguidos vacía."
+    await update.message.reply_text(msg, parse_mode="HTML")
+
+
 async def unsubscribe(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    db.remove_subscriber(str(update.effective_chat.id))
+    await asyncio.to_thread(db.remove_subscriber, str(update.effective_chat.id))
     await update.message.reply_text(
         "👋 Baja realizada. Ya no recibirás alertas automáticas. Vuelve con /subscribe cuando quieras.",
         parse_mode="HTML",
@@ -396,14 +472,17 @@ async def status(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 
     last_check = RUNTIME_STATE.get("last_update_check") or "Pendiente"
     last_msg = RUNTIME_STATE.get("last_update_message") or "Aún no ejecutada en esta sesión"
-    recent_changes = db.get_changes(days=30)
+    recent_changes, prefs, is_sub, total_subs = await asyncio.gather(
+        asyncio.to_thread(db.get_changes, 30),
+        asyncio.to_thread(db.get_subscriber_prefs, update.effective_chat.id),
+        asyncio.to_thread(db.is_subscriber, update.effective_chat.id),
+        asyncio.to_thread(db.list_subscribers),
+    )
     last_change_str = (
         f"{str(recent_changes[0].get('detected_at', ''))[:16].replace('T', ' ')} UTC"
         if recent_changes
         else "Ninguno registrado aún"
     )
-    prefs = db.get_subscriber_prefs(update.effective_chat.id)
-    is_sub = db.is_subscriber(update.effective_chat.id)
     db_mode = "Turso Cloud + SQLite" if db._turso_endpoint else "SQLite local"
     channel_info = PUBLIC_CHANNEL_ID or "No configurado"
 
@@ -418,7 +497,7 @@ async def status(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         f"<b>Canal público:</b> {escape_html(channel_info)}\n"
         f"<b>Tus alertas:</b> {'✅ Activas' if is_sub else '❌ Sin suscripción'} ({escape_html(prefs.get('alerts', 'all'))})\n"
         f"<b>IA Brain:</b> {brain_status}\n"
-        f"<b>Suscriptores activos:</b> {len(db.list_subscribers())}\n"
+        f"<b>Suscriptores activos:</b> {len(total_subs)}\n"
         f"<b>Versión:</b> 4.3 (24/7 Always-On)\n"
         f"<b>Uptime desde:</b> {escape_html(context.bot_data.get('start_time', 'N/A'))}",
         parse_mode="HTML",
@@ -431,8 +510,8 @@ async def test_alerta(update: Update, context: ContextTypes.DEFAULT_TYPE) -> Non
         await update.message.reply_text("🔒 Solo el administrador puede ejecutar <code>/testalerta</code>.", parse_mode="HTML")
         return
 
-    db.ensure_subscriber(update.effective_chat.id)
-    subs = db.list_subscribers()
+    await asyncio.to_thread(db.ensure_subscriber, update.effective_chat.id)
+    subs = await asyncio.to_thread(db.list_subscribers)
     channel_status = "No configurado"
     if PUBLIC_CHANNEL_ID:
         try:
@@ -493,11 +572,12 @@ async def force_update(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
 # ------------------------------------------------------------------- /hoy (con caché)
 
 
-def _rankings_digest(snapshot: dict | None) -> str:
+def _rankings_digest(snapshot: dict | None, changes: list[dict] | None = None) -> str:
     """Resumen completo y claro de rankings para el briefing: cambios + General + Código/Web."""
     parts: list[str] = []
 
-    changes = db.get_changes(days=1)
+    if changes is None:
+        changes = db.get_changes(days=1)
     if changes:
         parts.append("🚨 <b>Cambios detectados (últimas 24 h)</b>")
         for c in changes[:3]:
@@ -547,11 +627,12 @@ async def build_hoy_text() -> str:
         else ""
     )
     if cache_key:
-        cached = db.get_briefing_cache(cache_key)
+        cached = await asyncio.to_thread(db.get_briefing_cache, cache_key)
         if cached:
             return cached
 
-    rankings = _rankings_digest(snapshot)
+    changes_24h = await asyncio.to_thread(db.get_changes, 1)
+    rankings = _rankings_digest(snapshot, changes=changes_24h)
     sources = (snapshot or {}).get("sources") or {}
     trending = render_trending_brief(
         sources.get("github") or {},
@@ -564,7 +645,7 @@ async def build_hoy_text() -> str:
         draft = await asyncio.to_thread(brain.draft_briefing, _strip_html(rankings), trending_plain)
         if draft:
             if cache_key:
-                db.save_briefing_cache(cache_key, draft)
+                await asyncio.to_thread(db.save_briefing_cache, cache_key, draft)
             return draft
     except Exception as exc:  # noqa: BLE001
         logger.warning("Briefing sin pulir (%s)", exc)
@@ -573,8 +654,68 @@ async def build_hoy_text() -> str:
     freshness = f" (datos hace {age:.1f} h)" if age is not None else ""
     fallback = f"☀️ <b>Briefing de hoy</b>{freshness}\n\n{rankings}\n\n{trending}"
     if cache_key:
-        db.save_briefing_cache(cache_key, fallback)
+        await asyncio.to_thread(db.save_briefing_cache, cache_key, fallback)
     return fallback
+
+
+async def build_weekly_digest_text() -> str:
+    """Resumen semanal determinista (0 tokens): podio actual + cambios de los últimos 7 días."""
+    snapshot, changes = await asyncio.gather(
+        load_snapshot(),
+        asyncio.to_thread(db.get_changes, 7),
+    )
+    lines = ["🗓 <b>Resumen Semanal del Ranking IA</b>"]
+    if isinstance(snapshot, dict) and snapshot.get("generated_at"):
+        lines.append(f"🕒 <i>Corte: {escape_html(str(snapshot['generated_at'])[:16].replace('T', ' '))} UTC</i>")
+
+    if changes:
+        lines.append(f"\n📌 <b>Movimientos destacados de la semana ({len(changes)}):</b>")
+        for ch in changes[:6]:
+            ts = str(ch.get("detected_at", ""))[:10]
+            lines.append(f"• <code>{escape_html(ts)}</code> — {escape_html(str(ch.get('summary', ''))[:220])}")
+    else:
+        lines.append("\n🧘 <i>Semana tranquila: sin cambios importantes que superaran el umbral de alerta.</i>")
+
+    sources = (snapshot or {}).get("sources") or {}
+    arena_models = (sources.get("arena") or {}).get("models") or []
+    top_text = sorted(
+        [m for m in arena_models if m.get("category") in ("Text", None)],
+        key=lambda m: m.get("rank", 999),
+    )[:5]
+    if top_text:
+        lines.append("\n🏆 <b>Top 5 General (LMSYS Arena):</b>")
+        for m in top_text:
+            lines.append(f"  {m['rank']}. <b>{escape_html(m['model'])}</b> — <code>{m.get('score')}</code> elo")
+
+    top_code = sorted(
+        [m for m in arena_models if m.get("category") == "Code"],
+        key=lambda m: m.get("rank", 999),
+    )[:3]
+    if top_code:
+        lines.append("\n💻 <b>Top 3 Coding (Arena):</b>")
+        for m in top_code:
+            lines.append(f"  {m['rank']}. <b>{escape_html(m['model'])}</b> — <code>{m.get('score')}</code> elo")
+
+    design_models = sorted((sources.get("design") or {}).get("models") or [], key=lambda m: m.get("rank", 999))[:3]
+    if design_models:
+        lines.append("\n🎨 <b>Top 3 Design Arena:</b>")
+        for m in design_models:
+            lines.append(f"  {m['rank']}. <b>{escape_html(m['model'])}</b> — <code>{m.get('score')}</code>")
+
+    or_models = sorted((sources.get("openrouter") or {}).get("models") or [], key=lambda m: m.get("rank", 999))[:3]
+    if or_models:
+        lines.append("\n⚡ <b>Top 3 Uso OpenRouter:</b>")
+        for m in or_models:
+            lines.append(f"  {m['rank']}. <b>{escape_html(m['model'])}</b>")
+
+    lines.append("\n💡 <i>Usa /seguir &lt;modelo&gt; para recibir alertas personalizadas o /menu para explorar todo.</i>")
+    return "\n".join(lines)
+
+
+async def semanal_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Comando: resumen semanal inmediato (0 cuota)."""
+    text = await build_weekly_digest_text()
+    await send_html(context.bot, update.effective_chat.id, text, reply_markup=build_main_keyboard())
 
 
 async def hoy(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
@@ -588,24 +729,16 @@ async def hoy(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await send_html(context.bot, update.effective_chat.id, text, reply_markup=build_main_keyboard())
 
 
-async def daily_briefing(context: ContextTypes.DEFAULT_TYPE) -> None:
-    """Job diario: envía el briefing al canal público y a suscriptores que lo tengan activo."""
-    logger.info("☀️ [Job] Enviando briefing diario...")
-    try:
-        text = await build_hoy_text()
-    except Exception as exc:  # noqa: BLE001
-        logger.error("Briefing diario falló: %s", exc, exc_info=True)
-        return
-
+async def _deliver_scheduled_brief(bot, text: str) -> None:
     channel_ok = False
     if PUBLIC_CHANNEL_ID:
         try:
-            await send_html(context.bot, PUBLIC_CHANNEL_ID, text)
+            await send_html(bot, PUBLIC_CHANNEL_ID, text)
             channel_ok = True
         except Exception as exc:  # noqa: BLE001
             logger.error("No se pudo enviar briefing al canal público %s: %s", PUBLIC_CHANNEL_ID, exc)
 
-    subs = db.list_subscribers_with_prefs()
+    subs = await asyncio.to_thread(db.list_subscribers_with_prefs)
     if not subs and (not PUBLIC_CHANNEL_ID or not channel_ok) and ADMIN_CHAT_ID:
         subs = [{"chat_id": str(ADMIN_CHAT_ID), "preferences": {"daily_brief": True}}]
 
@@ -614,14 +747,37 @@ async def daily_briefing(context: ContextTypes.DEFAULT_TYPE) -> None:
             continue
         cid = sub["chat_id"]
         try:
-            await send_html(context.bot, int(cid), text)
+            target: int | str = int(cid) if str(cid).lstrip("-").isdigit() else str(cid)
+            await send_html(bot, target, text)
         except Exception as exc:  # noqa: BLE001
             if any(t in str(exc).lower() for t in ("forbidden", "bot was blocked", "chat not found")):
-                db.remove_subscriber(cid)
+                await asyncio.to_thread(db.remove_subscriber, cid)
             else:
                 logger.error("No se pudo enviar el briefing a %s: %s", cid, exc)
         if idx + 1 < len(subs):
             await asyncio.sleep(0.05)
+
+
+async def daily_briefing(context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Job diario: envía el briefing al canal público y a suscriptores que lo tengan activo."""
+    logger.info("☀️ [Job] Enviando briefing diario...")
+    try:
+        text = await build_hoy_text()
+    except Exception as exc:  # noqa: BLE001
+        logger.error("Briefing diario falló: %s", exc, exc_info=True)
+        return
+    await _deliver_scheduled_brief(context.bot, text)
+
+
+async def weekly_digest(context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Job dominical: envía el resumen semanal aunque haya sido una semana sin alertas."""
+    logger.info("🗓 [Job] Enviando resumen semanal...")
+    try:
+        text = await build_weekly_digest_text()
+    except Exception as exc:  # noqa: BLE001
+        logger.error("Resumen semanal falló: %s", exc, exc_info=True)
+        return
+    await _deliver_scheduled_brief(context.bot, text)
 
 
 # --------------------------------------------------------- callbacks de botones
@@ -645,9 +801,12 @@ async def handle_callback(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
         return
 
     if data == "prefs:open":
-        prefs = db.get_subscriber_prefs(chat_id)
+        prefs = await asyncio.to_thread(db.get_subscriber_prefs, chat_id)
         await query.edit_message_text(
-            "🔔 <b>Preferencias de Notificaciones</b>\nSelecciona qué alertas deseas recibir:",
+            _format_prefs_header(
+                prefs,
+                "🔔 <b>Preferencias de Notificaciones</b>\nSelecciona qué alertas deseas recibir:",
+            ),
             parse_mode="HTML",
             reply_markup=build_prefs_keyboard(prefs),
         )
@@ -655,20 +814,25 @@ async def handle_callback(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
 
     if data.startswith("prefs:alerts:"):
         mode = data.split(":", 2)[2]
-        if mode in ("all", "top1", "coding", "none"):
-            prefs = db.set_subscriber_prefs(chat_id, {"alerts": mode})
+        if mode in ("all", "top1", "coding", "watched", "none"):
+            prefs = await asyncio.to_thread(db.set_subscriber_prefs, chat_id, {"alerts": mode})
             await query.edit_message_text(
-                f"✅ Preferencia de alertas actualizada a: <b>{escape_html(mode)}</b>",
+                _format_prefs_header(
+                    prefs,
+                    f"✅ Preferencia de alertas actualizada a: <b>{escape_html(mode)}</b>",
+                ),
                 parse_mode="HTML",
                 reply_markup=build_prefs_keyboard(prefs),
             )
         return
 
     if data == "prefs:toggle_brief":
-        cur = db.get_subscriber_prefs(chat_id)
-        prefs = db.set_subscriber_prefs(chat_id, {"daily_brief": not bool(cur.get("daily_brief", True))})
+        cur = await asyncio.to_thread(db.get_subscriber_prefs, chat_id)
+        prefs = await asyncio.to_thread(
+            db.set_subscriber_prefs, chat_id, {"daily_brief": not bool(cur.get("daily_brief", True))}
+        )
         await query.edit_message_text(
-            "☀️ Preferencia de briefing matutino actualizada:",
+            _format_prefs_header(prefs, "☀️ Preferencia de briefing matutino actualizada:"),
             parse_mode="HTML",
             reply_markup=build_prefs_keyboard(prefs),
         )
@@ -867,7 +1031,7 @@ async def post_init(application) -> None:
     RUNTIME_STATE["bot_polling_active"] = True
     RUNTIME_STATE["last_heartbeat"] = utc_now_iso()
     if ADMIN_CHAT_ID:
-        db.ensure_subscriber(ADMIN_CHAT_ID)
+        await asyncio.to_thread(db.ensure_subscriber, ADMIN_CHAT_ID)
     logger.info("🚀 Bot inicializado. Registrando jobs periódicos...")
 
     try:
@@ -875,7 +1039,10 @@ async def post_init(application) -> None:
             [
                 ("menu", "Explorador rápido de rankings (0 cuota)"),
                 ("hoy", "Briefing del día: rankings + GitHub + HN"),
+                ("semanal", "Resumen semanal de la industria"),
                 ("buscar", "Buscar posición y precio de un modelo"),
+                ("seguir", "Vigilar cambios de un modelo concreto"),
+                ("dejar", "Dejar de vigilar un modelo"),
                 ("chart", "Gráfica visual del Top actual"),
                 ("alertas", "Personalizar notificaciones"),
                 ("status", "Estado del sistema"),
@@ -899,11 +1066,18 @@ async def post_init(application) -> None:
         time=dtime(hour=DAILY_BRIEF_HOUR, minute=0, tzinfo=timezone.utc),
         name="daily_briefing",
     )
+    application.job_queue.run_daily(
+        weekly_digest,
+        time=dtime(hour=DAILY_BRIEF_HOUR, minute=15, tzinfo=timezone.utc),
+        days=(0,),
+        name="weekly_digest",
+    )
 
     logger.info(
         "✅ Jobs registrados: self_ping (5 min), heartbeat (30 min), "
-        "periodic_update (%d min), daily_briefing (%02d:00 UTC)",
+        "periodic_update (%d min), daily_briefing (%02d:00 UTC), weekly_digest (domingos %02d:15 UTC)",
         UPDATE_INTERVAL_MINUTES,
+        DAILY_BRIEF_HOUR,
         DAILY_BRIEF_HOUR,
     )
 
@@ -913,6 +1087,10 @@ async def post_init(application) -> None:
 
 def ensure_chromium() -> None:
     """Instala Chromium en segundo plano si falta (sin bloquear el puerto HTTP al arrancar)."""
+    if DISABLE_PLAYWRIGHT:
+        RUNTIME_STATE["chromium_ready"] = False
+        logger.info("⏭️ DISABLE_PLAYWRIGHT activo: se omite descarga/uso de Chromium.")
+        return
     if os.getenv("SKIP_CHROMIUM_INSTALL", "").lower() in ("1", "true", "yes"):
         RUNTIME_STATE["chromium_ready"] = True
         logger.info("⏭️ SKIP_CHROMIUM_INSTALL activo: Chromium preinstalado en contenedor.")
@@ -965,8 +1143,11 @@ if __name__ == "__main__":
         application.add_handler(CommandHandler("menu", menu_cmd))
         application.add_handler(CommandHandler("subscribe", subscribe))
         application.add_handler(CommandHandler("alertas", alertas_cmd))
+        application.add_handler(CommandHandler("seguir", seguir_cmd))
+        application.add_handler(CommandHandler("dejar", dejar_cmd))
         application.add_handler(CommandHandler("unsubscribe", unsubscribe))
         application.add_handler(CommandHandler("buscar", buscar_cmd))
+        application.add_handler(CommandHandler("semanal", semanal_cmd))
         application.add_handler(CommandHandler("chart", chart_cmd))
         application.add_handler(CommandHandler("status", status))
         application.add_handler(CommandHandler("testalerta", test_alerta))

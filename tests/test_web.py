@@ -128,3 +128,22 @@ def test_api_rankings_y_404_sin_datos(client, monkeypatch):
 
     monkeypatch.setattr("src.web.db", EmptyDb())
     assert client.get("/api/rankings").status_code == 404
+
+
+def test_elo_history_usa_tabla_compacta_sin_leer_snapshots(client, monkeypatch, tmp_path, v3_snapshot):
+    from src.db import Database
+
+    real_db = Database(str(tmp_path / "elo.db"))
+    real_db.save_snapshot(v3_snapshot)
+
+    # Simulamos que get_snapshots está vacío para demostrar que lee de elo_history
+    monkeypatch.setattr(real_db, "get_snapshots", lambda days=30: [])
+    monkeypatch.setattr("src.web.db", real_db)
+
+    resp = client.get("/api/elo-history?source=arena&category=Text")
+    assert resp.status_code == 200
+    assert resp.headers.get("Cache-Control") == "public, max-age=60"
+    series = resp.get_json()["series"]
+    assert "claude-opus-4-6" in series
+    assert series["claude-opus-4-6"][0][1] == 1496
+

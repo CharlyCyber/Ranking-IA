@@ -8,6 +8,8 @@ el updater los une en un boletín. Solo si hay eventos se invoca el LLM (para
 pulir el boletín) y siempre con plantilla de fallback.
 """
 
+import re
+
 from src.html_utils import escape_html, strip_html
 from src.validator import is_legacy_snapshot
 
@@ -22,14 +24,34 @@ SCORE_SOURCES = {"arena", "design"}
 CODING_CATEGORIES = {"code", "coding", "webdev", "image-to-webdev"}
 
 
+def canonical_model_key(name: str) -> str:
+    """Normaliza variantes de formato entre fuentes preservando sufijos como (High)/(Max).
+
+    Ej.: ``anthropic/claude-opus-4-6`` y ``Claude Opus 4.6`` → ``claudeopus46``,
+    mientras ``Claude Opus 5 (Max)`` (``claudeopus5max``) ≠ ``Claude Opus 5 (High)``.
+    """
+    base = (name or "").strip()
+    if "/" in base:
+        base = base.rsplit("/", 1)[-1]
+    elif ": " in base:
+        prefix, rest = base.split(": ", 1)
+        if len(prefix) <= 24:
+            base = rest
+    return re.sub(r"[^a-z0-9]+", "", base.lower())
+
+
 def _groups(payload: dict) -> dict[str, dict[str, dict]]:
-    """Agrupa los modelos de una fuente por categoría ('default' si no tiene)."""
+    """Agrupa los modelos de una fuente por categoría y clave canónica."""
     groups: dict[str, dict[str, dict]] = {}
     for m in payload.get("models") or []:
         if not isinstance(m, dict) or not m.get("model"):
             continue
-        key = m.get("category") or "default"
-        groups.setdefault(key, {})[m["model"]] = m
+        cat = m.get("category") or "default"
+        canon = canonical_model_key(str(m["model"])) or str(m["model"])
+        bucket = groups.setdefault(cat, {})
+        existing = bucket.get(canon)
+        if existing is None or m.get("rank", 10**6) < existing.get("rank", 10**6):
+            bucket[canon] = m
     return groups
 
 
@@ -39,10 +61,62 @@ def _top1(group: dict[str, dict]) -> str | None:
     return min(group.values(), key=lambda m: m.get("rank", 10**6))["model"]
 
 
+def compact_snapshot_for_state(snapshot: dict | None) -> dict:
+    """Reduce un snapshot a campos mínimos de ranking/score para persistir baseline."""
+    if not isinstance(snapshot, dict):
+        return {"generated_at": "", "sources": {}}
+    compact_sources: dict[str, dict] = {}
+    for source, payload in (snapshot.get("sources") or {}).items():
+        if not isinstance(payload, dict):
+            continue
+        models = []
+        for m in (payload.get("models") or [])[:120]:
+            if not isinstance(m, dict) or not m.get("model"):
+                continue
+            item = {
+                "model": m["model"],
+                "rank": m.get("rank", 999),
+            }
+            if m.get("category"):
+                item["category"] = m["category"]
+            if m.get("score") is not None:
+                item["score"] = m["score"]
+            models.append(item)
+        compact_sources[source] = {
+            "status": payload.get("status", "ok"),
+            "models": models,
+        }
+    return {
+        "generated_at": snapshot.get("generated_at", ""),
+        "sources": compact_sources,
+    }
+
+
+def merge_notified_baseline(
+    baseline: dict | None,
+    new_snapshot: dict,
+    alerted_sources: set[str],
+) -> dict:
+    """Actualiza en el baseline solo las fuentes que acaban de emitir alerta."""
+    compact_new = compact_snapshot_for_state(new_snapshot)
+    merged_sources: dict[str, dict] = {}
+    old_sources = (baseline or {}).get("sources") or {}
+    for source, payload in compact_new.get("sources", {}).items():
+        if source in alerted_sources or source not in old_sources:
+            merged_sources[source] = payload
+        else:
+            merged_sources[source] = old_sources[source]
+    return {
+        "generated_at": compact_new.get("generated_at", ""),
+        "sources": merged_sources,
+    }
+
+
 def detect_changes(
     old: dict | None,
     new: dict,
     star_baselines: dict[str, int] | None = None,
+    baseline_snapshot: dict | None = None,
 ) -> list[dict]:
     """Compara dos snapshots estructurados y devuelve eventos ordenados por importancia."""
     if is_legacy_snapshot(old) or is_legacy_snapshot(new):
@@ -50,6 +124,11 @@ def detect_changes(
 
     events: list[dict] = []
     old_sources = old.get("sources", {})
+    base_sources = (
+        baseline_snapshot.get("sources", {})
+        if isinstance(baseline_snapshot, dict) and not is_legacy_snapshot(baseline_snapshot)
+        else {}
+    )
     new_sources = new.get("sources", {})
 
     for source, payload in new_sources.items():
@@ -63,33 +142,44 @@ def detect_changes(
             events.extend(_diff_items(source, old_payload, payload, star_baselines=star_baselines))
             continue
 
-        events.extend(_diff_models(source, old_payload, payload))
+        base_payload = base_sources.get(source)
+        if not isinstance(base_payload, dict) or base_payload.get("status") not in ("ok", "stale"):
+            base_payload = None
+        events.extend(_diff_models(source, old_payload, payload, base_payload=base_payload))
 
     priority = {"top1": 0, "podium": 1, "new": 2, "accel": 3, "move": 4, "score": 5}
     events.sort(key=lambda e: priority.get(e["kind"], 9))
     return events[:MAX_EVENTS]
 
 
-def _diff_models(source: str, old_payload: dict, new_payload: dict) -> list[dict]:
+def _diff_models(
+    source: str,
+    old_payload: dict,
+    new_payload: dict,
+    base_payload: dict | None = None,
+) -> list[dict]:
     events: list[dict] = []
     old_groups = _groups(old_payload)
+    base_groups = _groups(base_payload) if base_payload else {}
     new_groups = _groups(new_payload)
 
     for category, new_group in new_groups.items():
         old_group = old_groups.get(category) or {}
         if not old_group:
             continue
+        base_group = base_groups.get(category) or {}
         raw_label = f"{source}" if category == "default" else f"{source} · {category}"
         label = escape_html(raw_label)
 
-        # 1. Cambio de top-1
+        # 1. Cambio de top-1 (usando clave canónica para ignorar cambios de formato entre fuentes)
         old_t1, new_t1 = _top1(old_group), _top1(new_group)
-        if old_t1 and new_t1 and old_t1 != new_t1:
+        if old_t1 and new_t1 and canonical_model_key(old_t1) != canonical_model_key(new_t1):
             events.append(
                 {
                     "kind": "top1",
                     "source": source,
                     "category": category,
+                    "models": [new_t1, old_t1],
                     "text": (
                         f"🥇 <b>¡Nuevo nº1 en {label}!</b>\n"
                         f"<b>{escape_html(new_t1)}</b> desbancó a {escape_html(old_t1)}."
@@ -98,64 +188,75 @@ def _diff_models(source: str, old_payload: dict, new_payload: dict) -> list[dict
             )
 
         # 2. Modelos nuevos en el top-10 (o entrando desde #11+)
-        for model, entry in new_group.items():
+        handled_moves: set[str] = set()
+        for canon, entry in new_group.items():
+            model = entry["model"]
             rank = entry.get("rank", 999)
-            old_entry = old_group.get(model)
+            old_entry = old_group.get(canon)
+            base_entry = base_group.get(canon) or old_entry
             if not old_entry and rank <= 10:
                 events.append(
                     {
                         "kind": "new",
                         "source": source,
                         "category": category,
+                        "models": [model],
                         "text": f"🆕 <b>Modelo nuevo en {label}:</b> {escape_html(model)} entra directo al puesto {rank}.",
                     },
                 )
-            elif (
-                old_entry
-                and old_entry.get("rank", 999) > 10
-                and rank <= 10
-                and abs(old_entry.get("rank", 0) - rank) < MOVE_THRESHOLD
-            ):
-                events.append(
-                    {
-                        "kind": "new",
-                        "source": source,
-                        "category": category,
-                        "text": (
-                            f"🆕 <b>{escape_html(model)}</b> entra al Top 10 de {label} "
-                            f"(puesto {old_entry.get('rank')} → {rank})."
-                        ),
-                    },
-                )
+            elif old_entry and old_entry.get("rank", 999) > 10 and rank <= 10:
+                base_rank = base_entry.get("rank", old_entry.get("rank", 0))
+                if abs(base_rank - rank) < MOVE_THRESHOLD:
+                    handled_moves.add(canon)
+                    events.append(
+                        {
+                            "kind": "new",
+                            "source": source,
+                            "category": category,
+                            "models": [model],
+                            "text": (
+                                f"🆕 <b>{escape_html(model)}</b> entra al Top 10 de {label} "
+                                f"(puesto {old_entry.get('rank')} → {rank})."
+                            ),
+                        },
+                    )
 
-        # 3. Subidas al podio Top-3, movimientos grandes y saltos de score
-        for model, entry in new_group.items():
-            old_entry = old_group.get(model)
+        # 3. Subidas al podio Top-3, movimientos grandes (acumulados vs baseline) y saltos de score
+        for canon, entry in new_group.items():
+            if canon in handled_moves:
+                continue
+            model = entry["model"]
+            old_entry = old_group.get(canon)
             if not old_entry:
                 continue
+            base_entry = base_group.get(canon) or old_entry
             old_rank = old_entry.get("rank", 0)
+            base_rank = base_entry.get("rank", old_rank)
             new_rank = entry.get("rank", 0)
-            delta = old_rank - new_rank
-            if abs(delta) >= MOVE_THRESHOLD and delta != 0:
-                arrow = "📈" if delta > 0 else "📉"
+            delta_step = old_rank - new_rank
+            delta_base = base_rank - new_rank
+            if delta_step != 0 and abs(delta_base) >= MOVE_THRESHOLD:
+                arrow = "📈" if delta_base > 0 else "📉"
                 events.append(
                     {
                         "kind": "move",
                         "source": source,
                         "category": category,
+                        "models": [model],
                         "text": (
                             f"{arrow} <b>{escape_html(model)}</b> en {label}: "
-                            f"puesto {old_rank} → {new_rank} "
-                            f"({'sube' if delta > 0 else 'baja'} {abs(delta)})"
+                            f"puesto {base_rank} → {new_rank} "
+                            f"({'sube' if delta_base > 0 else 'baja'} {abs(delta_base)})"
                         ),
                     },
                 )
-            elif new_rank in (2, 3) and old_rank > new_rank and delta > 0:
+            elif new_rank in (2, 3) and old_rank > new_rank and delta_step > 0:
                 events.append(
                     {
                         "kind": "podium",
                         "source": source,
                         "category": category,
+                        "models": [model],
                         "text": (
                             f"🏅 <b>{escape_html(model)}</b> sube en el podio de {label}: "
                             f"puesto {old_rank} → {new_rank}."
@@ -163,20 +264,23 @@ def _diff_models(source: str, old_payload: dict, new_payload: dict) -> list[dict
                     },
                 )
             elif source in SCORE_SOURCES and old_entry.get("score") and entry.get("score"):
-                jump = entry["score"] - old_entry["score"]
-                if abs(jump) >= SCORE_JUMP:
-                    arrow = "🚀" if jump > 0 else "⛰"
-                    events.append(
-                        {
-                            "kind": "score",
-                            "source": source,
-                            "category": category,
-                            "text": (
-                                f"{arrow} <b>{escape_html(model)}</b> en {label}: "
-                                f"score {old_entry['score']} → {entry['score']} ({jump:+d})."
-                            ),
-                        },
-                    )
+                base_score = base_entry.get("score") or old_entry["score"]
+                if entry["score"] != old_entry["score"]:
+                    jump = entry["score"] - base_score
+                    if abs(jump) >= SCORE_JUMP:
+                        arrow = "🚀" if jump > 0 else "⛰"
+                        events.append(
+                            {
+                                "kind": "score",
+                                "source": source,
+                                "category": category,
+                                "models": [model],
+                                "text": (
+                                    f"{arrow} <b>{escape_html(model)}</b> en {label}: "
+                                    f"score {base_score} → {entry['score']} ({jump:+d})."
+                                ),
+                            },
+                        )
 
     if source == "openrouter":
         old_free = old_payload.get("free_models")
@@ -188,13 +292,15 @@ def _diff_models(source: str, old_payload: dict, new_payload: dict) -> list[dict
                     continue
                 fid = fm.get("id") or fm.get("name")
                 if fid and fid not in old_ids and int(fm.get("context_length") or 0) >= 64_000:
-                    name = escape_html(fm.get("name") or fid)
+                    raw_name = fm.get("name") or fid
+                    name = escape_html(raw_name)
                     ctx_k = int(fm["context_length"]) // 1000
                     events.append(
                         {
                             "kind": "new",
                             "source": "openrouter",
                             "category": "free",
+                            "models": [str(raw_name), str(fid)],
                             "text": f"🆓 <b>Nuevo modelo API gratis ($0):</b> {name} ({ctx_k}K contexto).",
                         }
                     )
@@ -224,6 +330,7 @@ def _diff_items(
                     "kind": "top1",
                     "source": "huggingface",
                     "category": "huggingface",
+                    "models": [new_top, old_top],
                     "text": (
                         f"🤗 <b>Nuevo nº1 en tendencia Open-Weights (Hugging Face):</b> "
                         f"{escape_html(new_top)} ({likes:,}❤️).".replace(",", ".")
@@ -257,6 +364,7 @@ def _diff_items(
                         "kind": "accel",
                         "source": source,
                         "category": "github",
+                        "models": [name],
                         "text": f"🔥 <b>{safe_name}</b> acelera en GitHub: +{delta:,} estrellas (total {stars:,}).".replace(
                             ",", "."
                         ),
@@ -268,6 +376,7 @@ def _diff_items(
                     "kind": "new",
                     "source": source,
                     "category": "github",
+                    "models": [name],
                     "text": f"⭐ <b>Repositorio nuevo en tendencias:</b> {safe_name} ({stars:,} estrellas).".replace(
                         ",", "."
                     ),
@@ -276,20 +385,54 @@ def _diff_items(
     return events
 
 
-def filter_events_for_preference(events: list[dict], alert_pref: str) -> list[dict]:
-    """Filtra la lista de eventos según la preferencia de alertas del suscriptor."""
+def event_matches_watch(event: dict, watch_models: list[str]) -> bool:
+    """Devuelve True si algún término seguido coincide con los modelos del evento."""
+    if not watch_models:
+        return False
+    candidates = [str(m) for m in (event.get("models") or []) if m]
+    if not candidates:
+        candidates = [strip_html(event.get("text") or "")]
+    cand_lower = [c.lower() for c in candidates]
+    cand_canon = [canonical_model_key(c) for c in candidates]
+    for raw_term in watch_models:
+        term = (raw_term or "").strip().lower()
+        if not term:
+            continue
+        cterm = canonical_model_key(term)
+        if any(term in cl for cl in cand_lower):
+            return True
+        if len(cterm) >= 3 and any(cterm in cc for cc in cand_canon):
+            return True
+    return False
+
+
+def filter_events_for_preference(
+    events: list[dict],
+    alert_pref: str,
+    watch_models: list[str] | None = None,
+) -> list[dict]:
+    """Filtra la lista de eventos según la preferencia de alertas y modelos seguidos."""
     pref = (alert_pref or "all").lower()
     if pref == "none":
         return []
+    watched = [w for w in (watch_models or []) if str(w).strip()]
+    if pref == "watched":
+        return [e for e in events if event_matches_watch(e, watched)]
     if pref == "top1":
-        return [e for e in events if e.get("kind") == "top1"]
-    if pref == "coding":
-        return [
+        base = [e for e in events if e.get("kind") == "top1"]
+    elif pref == "coding":
+        base = [
             e
             for e in events
             if str(e.get("category") or "").lower() in CODING_CATEGORIES or e.get("source") == "design"
         ]
-    return events
+    else:
+        return events
+
+    if not watched:
+        return base
+    selected_ids = {id(e) for e in base}
+    return [e for e in events if id(e) in selected_ids or event_matches_watch(e, watched)]
 
 
 def render_alert(events: list[dict]) -> str:

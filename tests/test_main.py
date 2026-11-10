@@ -80,6 +80,91 @@ class TestHourlySchedule:
         await m.post_init(app)
         assert repeating_jobs["periodic_update"]["interval"] == 3600
 
+    async def test_post_init_registra_weekly_digest_dominical(self):
+        from types import SimpleNamespace
+
+        daily_jobs = {}
+
+        def record_daily(cb, time, name=None, days=None):
+            daily_jobs[name] = {"time": time, "days": days}
+
+        async def noop_commands(*args, **kwargs):
+            return None
+
+        app = SimpleNamespace(
+            bot_data={},
+            bot=SimpleNamespace(set_my_commands=noop_commands),
+            job_queue=SimpleNamespace(
+                run_repeating=lambda *a, **k: None,
+                run_daily=record_daily,
+            ),
+        )
+        await m.post_init(app)
+        assert "daily_briefing" in daily_jobs
+        assert daily_jobs["weekly_digest"]["days"] == (0,)
+
+
+class TestWatchAndWeeklyCommands:
+    async def test_seguir_y_dejar_comandos(self, tmp_path, monkeypatch):
+        from types import SimpleNamespace
+
+        from src.db import Database
+
+        test_db = Database(str(tmp_path / "watch.db"))
+        monkeypatch.setattr(m, "db", test_db)
+        replies = []
+
+        async def fake_reply(text, parse_mode=None, reply_markup=None):
+            replies.append(text)
+
+        upd = SimpleNamespace(
+            effective_chat=SimpleNamespace(id=321),
+            message=SimpleNamespace(reply_text=fake_reply),
+        )
+        await m.seguir_cmd(upd, SimpleNamespace(args=["claude"]))
+        assert test_db.get_watched_models("321") == ["claude"]
+        assert "vigilas" in replies[-1]
+
+        await m.dejar_cmd(upd, SimpleNamespace(args=["claude"]))
+        assert test_db.get_watched_models("321") == []
+        assert "vacía" in replies[-1]
+
+    async def test_semanal_sin_cambios_muestra_resumen_tranquilo(self, tmp_path, monkeypatch):
+        from types import SimpleNamespace
+
+        from src.db import Database
+
+        test_db = Database(str(tmp_path / "weekly.db"))
+        monkeypatch.setattr(m, "db", test_db)
+
+        async def fake_load():
+            return {
+                "generated_at": "2026-11-10T12:00:00",
+                "sources": {
+                    "arena": {"status": "ok", "models": [{"rank": 1, "model": "Gemini 4", "score": 1520, "category": "Text"}]}
+                },
+            }
+
+        monkeypatch.setattr(m, "load_snapshot", fake_load)
+        sent = []
+
+        async def fake_send(chat_id, text, parse_mode=None, reply_markup=None):
+            sent.append(text)
+
+        upd = SimpleNamespace(effective_chat=SimpleNamespace(id=654))
+        ctx = SimpleNamespace(bot=SimpleNamespace(send_message=fake_send))
+        await m.semanal_cmd(upd, ctx)
+        assert len(sent) == 1
+        assert "Resumen Semanal" in sent[0]
+        assert "Semana tranquila" in sent[0]
+        assert "Gemini 4" in sent[0]
+
+    def test_ensure_chromium_omite_con_disable_playwright(self, monkeypatch):
+        monkeypatch.setattr(m, "DISABLE_PLAYWRIGHT", True)
+        m.RUNTIME_STATE["chromium_ready"] = True
+        m.ensure_chromium()
+        assert m.RUNTIME_STATE["chromium_ready"] is False
+
 
 class TestDiagnosticCommands:
     async def test_testalerta_requiere_admin(self, monkeypatch):

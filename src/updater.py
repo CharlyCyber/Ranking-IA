@@ -21,8 +21,10 @@ from src.config import ADMIN_CHAT_ID, PUBLIC_CHANNEL_ID, TELEGRAM_TOKEN
 from src.db import Database, utc_now_iso
 from src.detector import (
     change_summary,
+    compact_snapshot_for_state,
     detect_changes,
     filter_events_for_preference,
+    merge_notified_baseline,
     render_alert,
 )
 from src.fetcher import DataFetcher
@@ -80,6 +82,33 @@ class DataUpdater:
                 return True
         return False
 
+    def _get_notified_baseline(self, fallback_old: dict | None) -> dict | None:
+        """Recupera el baseline del último aviso emitido (para detectar deriva gradual)."""
+        getter = getattr(self.db, "get_state", None)
+        if callable(getter):
+            saved = getter("notified_snapshot")
+            if isinstance(saved, dict) and isinstance(saved.get("sources"), dict):
+                return saved
+        if isinstance(fallback_old, dict) and not is_legacy_snapshot(fallback_old):
+            compact = compact_snapshot_for_state(fallback_old)
+            setter = getattr(self.db, "set_state", None)
+            if callable(setter):
+                setter("notified_snapshot", compact)
+            return compact
+        return None
+
+    def _update_notified_baseline(
+        self,
+        baseline: dict | None,
+        new_snapshot: dict,
+        alerted_sources: set[str],
+    ) -> None:
+        setter = getattr(self.db, "set_state", None)
+        if not callable(setter):
+            return
+        updated = merge_notified_baseline(baseline, new_snapshot, alerted_sources)
+        setter("notified_snapshot", updated)
+
     async def check_and_update(self, force: bool = False) -> dict:
         now_iso = utc_now_iso()
         result = {
@@ -97,11 +126,12 @@ class DataUpdater:
         async with self._lock:
             try:
                 logger.info("🔄 Iniciando verificación horaria de actualizaciones...")
-                old = self._load_snapshot()
+                old = await asyncio.to_thread(self._load_snapshot)
                 if isinstance(old, dict) and old.get("generated_at"):
                     result["last_update"] = old["generated_at"]
 
-                star_baselines = self.db.get_repo_stars_baseline(hours=24)
+                baseline_snap = await asyncio.to_thread(self._get_notified_baseline, old)
+                star_baselines = await asyncio.to_thread(self.db.get_repo_stars_baseline, 24)
 
                 # 1. Captura: rankings + tendencias
                 fetched = await self.fetcher.fetch_all()
@@ -154,8 +184,8 @@ class DataUpdater:
 
                 snapshot = {"generated_at": snap_iso, "sources": merged}
 
-                # 3. Persistencia atómica: SQLite + fichero JSON
-                self.db.save_snapshot(snapshot)
+                # 3. Persistencia atómica: SQLite/Turso + fichero JSON
+                await asyncio.to_thread(self.db.save_snapshot, snapshot)
                 out_dir = os.path.dirname(self.output_path)
                 if out_dir:
                     os.makedirs(out_dir, exist_ok=True)
@@ -171,20 +201,28 @@ class DataUpdater:
                 gh = merged.get("github") or {}
                 if gh.get("status") == "ok" and gh.get("items"):
                     try:
-                        self.db.save_repo_stars(gh["items"])
+                        await asyncio.to_thread(self.db.save_repo_stars, gh["items"])
                     except Exception as exc:  # noqa: BLE001
                         logger.warning("No se pudo guardar historial de estrellas: %s", exc)
 
-                # 4. Detección de cambios (diff local determinista; 0 tokens)
-                events = detect_changes(old, snapshot, star_baselines=star_baselines)
+                # 4. Detección de cambios (diff determinista con acumulación sobre baseline)
+                events = detect_changes(
+                    old,
+                    snapshot,
+                    star_baselines=star_baselines,
+                    baseline_snapshot=baseline_snap,
+                )
                 baseline = is_legacy_snapshot(old)
                 skip_broadcast = bool(cfg.SKIP_TELEGRAM_BROADCAST)
 
+                if baseline_snap is None and not is_legacy_snapshot(snapshot):
+                    await asyncio.to_thread(self._update_notified_baseline, None, snapshot, set(merged))
+
                 if events:
                     summary = change_summary(events)
-                    already_sent = self._is_recent_duplicate_change(summary)
+                    already_sent = await asyncio.to_thread(self._is_recent_duplicate_change, summary)
                     if not already_sent:
-                        self.db.save_change(summary)
+                        await asyncio.to_thread(self.db.save_change, summary)
                     self.last_change = snap_iso
                     RUNTIME_STATE["last_change"] = snap_iso
                     result["events_count"] = len(events)
@@ -193,6 +231,11 @@ class DataUpdater:
                     if force:
                         result["message"] = f"Actualización forzada completada ({len(events)} cambio(s) registrados)"
                     elif skip_broadcast or already_sent:
+                        if already_sent:
+                            alerted_sources = {e.get("source") for e in events if e.get("source")}
+                            await asyncio.to_thread(
+                                self._update_notified_baseline, baseline_snap, snapshot, alerted_sources
+                            )
                         reason = "modo respaldo silencioso" if skip_broadcast else "cambio ya notificado recientemente"
                         result["message"] = f"Cambios detectados ({len(events)}), broadcast omitido ({reason})"
                         logger.info("ℹ️ %s", result["message"])
@@ -200,10 +243,14 @@ class DataUpdater:
                         result["changes_detected"] = True
                         result["comparison_result"] = summary
                         if ADMIN_CHAT_ID:
-                            self.db.ensure_subscriber(ADMIN_CHAT_ID)
+                            await asyncio.to_thread(self.db.ensure_subscriber, ADMIN_CHAT_ID)
                         alert = await self._compose_alert(events, summary)
                         delivered = await self._broadcast(alert, events=events)
                         RUNTIME_STATE["last_broadcast_count"] = delivered
+                        alerted_sources = {e.get("source") for e in events if e.get("source")}
+                        await asyncio.to_thread(
+                            self._update_notified_baseline, baseline_snap, snapshot, alerted_sources
+                        )
                         result["message"] = f"Cambios detectados ({len(events)} eventos), enviado a {delivered} destino(s)"
                         logger.info("📣 %s", result["message"])
                 elif force:
@@ -219,7 +266,7 @@ class DataUpdater:
                 RUNTIME_STATE["last_update_check"] = snap_iso
                 RUNTIME_STATE["last_update_message"] = result["message"]
 
-                self.db.cleanup_old_data()
+                await asyncio.to_thread(self.db.cleanup_old_data)
                 return result
 
             except Exception as e:
@@ -266,7 +313,11 @@ class DataUpdater:
             except Exception as exc:  # noqa: BLE001
                 logger.error("No se pudo publicar en el canal público %s: %s", PUBLIC_CHANNEL_ID, exc)
 
-        subs = [s for s in self.db.list_subscribers_with_prefs() if s["chat_id"] and s["chat_id"] != "None"]
+        subs = [
+            s
+            for s in await asyncio.to_thread(self.db.list_subscribers_with_prefs)
+            if s["chat_id"] and s["chat_id"] != "None"
+        ]
         if not subs and (not PUBLIC_CHANNEL_ID or not channel_ok) and ADMIN_CHAT_ID:
             subs = [{"chat_id": str(ADMIN_CHAT_ID), "preferences": {"alerts": "all"}}]
 
@@ -276,16 +327,19 @@ class DataUpdater:
 
         for idx, sub in enumerate(subs):
             chat_id = sub["chat_id"]
-            pref = (sub.get("preferences") or {}).get("alerts", "all")
+            prefs = sub.get("preferences") or {}
+            pref = prefs.get("alerts", "all")
+            watch_models = prefs.get("watch_models") or []
             if pref == "none":
                 continue
 
             msg_to_send = text
             if events is not None and pref != "all":
-                subset = filter_events_for_preference(events, pref)
+                subset = filter_events_for_preference(events, pref, watch_models=watch_models)
                 if not subset:
                     continue
-                msg_to_send = render_alert(subset)
+                if len(subset) < len(events):
+                    msg_to_send = render_alert(subset)
 
             try:
                 await self._send_to(chat_id, msg_to_send)
@@ -294,7 +348,7 @@ class DataUpdater:
                 err_lower = str(exc).lower()
                 if any(tok in err_lower for tok in ("forbidden", "bot was blocked", "chat not found", "deactivated")):
                     logger.info("Suscriptor %s bloqueó o cerró el chat; desactivando suscripción.", chat_id)
-                    self.db.remove_subscriber(chat_id)
+                    await asyncio.to_thread(self.db.remove_subscriber, chat_id)
                 else:
                     logger.error("No se pudo enviar a %s: %s", chat_id, exc)
 
