@@ -284,3 +284,85 @@ async def test_deduplicacion_evita_doble_alerta_del_mismo_cambio(tmp_path, monke
     assert bot.sent == []
 
 
+async def test_send_to_fallback_texto_plano_si_html_falla(tmp_path, monkeypatch):
+    """Si Telegram rechaza HTML en una alerta, reintenta en texto plano sin perderla."""
+
+    class HtmlRejectingBot:
+        def __init__(self):
+            self.sent = []
+
+        async def send_message(self, chat_id, text, parse_mode=None):
+            if parse_mode == "HTML":
+                raise RuntimeError("Bad Request: can't parse entities")
+            self.sent.append({"chat_id": chat_id, "text": text, "parse_mode": parse_mode})
+
+    fetch_results = {"arena": {"status": "ok", "models": _models(swap_top=True)}}
+    updater, _ = _make_updater(tmp_path, monkeypatch, fetch_results, old_snapshot=OLD_V3)
+    updater.bot = HtmlRejectingBot()
+
+    res = await updater.check_and_update(force=False)
+    assert res["changes_detected"] is True
+    assert len(updater.bot.sent) == 1
+    assert updater.bot.sent[0]["parse_mode"] is None
+    assert "ALERTA DE CAMBIO" in updater.bot.sent[0]["text"]
+
+
+async def test_broadcast_fallback_a_admin_si_canal_publico_falla(tmp_path, monkeypatch):
+    """Si PUBLIC_CHANNEL_ID falla y no hay suscriptores, notifica al ADMIN_CHAT_ID."""
+
+    class SelectiveFailBot:
+        def __init__(self):
+            self.sent = []
+
+        async def send_message(self, chat_id, text, parse_mode=None):
+            if chat_id == "@canal_roto":
+                raise RuntimeError("Forbidden: bot is not a member of the channel")
+            self.sent.append({"chat_id": chat_id, "text": text})
+
+    monkeypatch.setattr("src.updater.PUBLIC_CHANNEL_ID", "@canal_roto")
+    monkeypatch.setattr("src.updater.ADMIN_CHAT_ID", "99999")
+    fetch_results = {"arena": {"status": "ok", "models": _models(swap_top=True)}}
+    updater, _ = _make_updater(tmp_path, monkeypatch, fetch_results, old_snapshot=OLD_V3)
+    updater.db.remove_subscriber("777")
+    updater.bot = SelectiveFailBot()
+
+    res = await updater.check_and_update(force=False)
+    assert res["changes_detected"] is True
+    assert any(m["chat_id"] == 99999 for m in updater.bot.sent)
+
+
+def test_ensure_subscriber_respeta_baja_previa(tmp_path):
+    db = Database(str(tmp_path / "ensure.db"))
+    db.ensure_subscriber("555")
+    assert db.is_subscriber("555") is True
+    db.remove_subscriber("555")
+    assert db.is_subscriber("555") is False
+    # Volver a llamar ensure_subscriber no debe reactivar a quien pidió /unsubscribe
+    db.ensure_subscriber("555")
+    assert db.is_subscriber("555") is False
+
+
+def test_turso_error_json_dispara_fallback_sqlite(tmp_path, monkeypatch):
+    """Un error SQL dentro de HTTP 200 de Turso debe caer a SQLite local, no devolver []."""
+
+    class FakeResp:
+        status_code = 200
+
+        def raise_for_status(self):
+            return None
+
+        def json(self):
+            return {"results": [{"type": "error", "error": {"message": "no such column: preferences"}}]}
+
+    db = Database(str(tmp_path / "turso_err.db"))
+    db.add_subscriber("12345")
+
+    db._turso_endpoint = "https://example.turso.io/v2/pipeline"
+    db._turso_token = "tok"
+    monkeypatch.setattr("src.db.httpx.post", lambda *a, **k: FakeResp())
+
+    subs = db.list_subscribers_with_prefs()
+    assert len(subs) == 1
+    assert subs[0]["chat_id"] == "12345"
+
+

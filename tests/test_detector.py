@@ -107,6 +107,58 @@ class TestCambios:
 
         assert detect_changes(BASE, _mutate(stale)) == []
 
+    def test_entrada_al_podio_top3_notifica(self):
+        def climb(sources):
+            ms = sources["arena"]["models"]
+            ms[2]["rank"], ms[3]["rank"] = 4, 3
+
+        events = detect_changes(BASE, _mutate(climb))
+        assert any(e["kind"] == "podium" and "model-3" in e["text"] and "4 → 3" in e["text"] for e in events)
+
+    def test_entrada_al_top10_desde_11_notifica(self):
+        old = _mutate(lambda s: s["arena"]["models"].append(_model(11, "model-10")))
+        new = _mutate(lambda s: s["arena"]["models"].append(_model(10, "model-10")))
+        events = detect_changes(old, new)
+        assert any(e["kind"] == "new" and "model-10" in e["text"] and "11 → 10" in e["text"] for e in events)
+
+    def test_recuperacion_desde_stale_compara_con_ultimo_valido(self):
+        old = _mutate(lambda s: s["arena"].__setitem__("status", "stale"))
+        new = _mutate(lambda s: s["arena"]["models"].__setitem__(0, _model(2, "model-0")) or s["arena"]["models"].__setitem__(1, _model(1, "model-1")))
+        events = detect_changes(old, new)
+        assert any(e["kind"] == "top1" and "model-1" in e["text"] for e in events)
+
+    def test_huggingface_y_openrouter_gratis_notifican(self):
+        old = _mutate(
+            lambda s: s.update(
+                {
+                    "huggingface": {"status": "ok", "items": [{"id": "a/old", "likes": 200}]},
+                    "openrouter": {
+                        "status": "ok",
+                        "models": [_model(1, "m1"), _model(2, "m2"), _model(3, "m3")],
+                        "free_models": [{"id": "x/y:free", "name": "Old Free", "context_length": 131072}],
+                    },
+                }
+            )
+        )
+        new = _mutate(
+            lambda s: s.update(
+                {
+                    "huggingface": {"status": "ok", "items": [{"id": "qwen/new-model", "likes": 450}]},
+                    "openrouter": {
+                        "status": "ok",
+                        "models": [_model(1, "m1"), _model(2, "m2"), _model(3, "m3")],
+                        "free_models": [
+                            {"id": "new/model:free", "name": "New Free 128K", "context_length": 131072},
+                            {"id": "x/y:free", "name": "Old Free", "context_length": 131072},
+                        ],
+                    },
+                }
+            )
+        )
+        events = detect_changes(old, new)
+        assert any("qwen/new-model" in e["text"] for e in events)
+        assert any("New Free 128K" in e["text"] for e in events)
+
 
 class TestRender:
     def test_alerta_html_y_limitada(self):

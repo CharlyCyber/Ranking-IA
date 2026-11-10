@@ -394,14 +394,64 @@ async def status(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     brain_ok, brain_msg = brain.check_health()
     brain_status = f"✅ {escape_html(brain_msg)}" if brain_ok else f"❌ {escape_html(brain_msg)}"
 
+    last_check = RUNTIME_STATE.get("last_update_check") or "Pendiente"
+    last_msg = RUNTIME_STATE.get("last_update_message") or "Aún no ejecutada en esta sesión"
+    recent_changes = db.get_changes(days=30)
+    last_change_str = (
+        f"{str(recent_changes[0].get('detected_at', ''))[:16].replace('T', ' ')} UTC"
+        if recent_changes
+        else "Ninguno registrado aún"
+    )
+    prefs = db.get_subscriber_prefs(update.effective_chat.id)
+    is_sub = db.is_subscriber(update.effective_chat.id)
+    db_mode = "Turso Cloud + SQLite" if db._turso_endpoint else "SQLite local"
+    channel_info = PUBLIC_CHANNEL_ID or "No configurado"
+
     await update.message.reply_text(
         f"📊 <b>Estado del Sistema</b>\n\n"
         f"<b>Datos:</b> {escape_html(data_status)}\n"
-        f"<b>Revisión automática:</b> cada {UPDATE_INTERVAL_MINUTES} min (avisa solo cambios)\n"
+        f"<b>Última revisión:</b> {escape_html(str(last_check)[:19].replace('T', ' '))}\n"
+        f"<b>Resultado:</b> {escape_html(str(last_msg)[:140])}\n"
+        f"<b>Último cambio:</b> {escape_html(last_change_str)}\n"
+        f"<b>Revisión automática:</b> cada {UPDATE_INTERVAL_MINUTES} min\n"
+        f"<b>Base de datos:</b> {escape_html(db_mode)}\n"
+        f"<b>Canal público:</b> {escape_html(channel_info)}\n"
+        f"<b>Tus alertas:</b> {'✅ Activas' if is_sub else '❌ Sin suscripción'} ({escape_html(prefs.get('alerts', 'all'))})\n"
         f"<b>IA Brain:</b> {brain_status}\n"
         f"<b>Suscriptores activos:</b> {len(db.list_subscribers())}\n"
-        f"<b>Versión:</b> 4.1 (24/7 Always-On)\n"
+        f"<b>Versión:</b> 4.3 (24/7 Always-On)\n"
         f"<b>Uptime desde:</b> {escape_html(context.bot_data.get('start_time', 'N/A'))}",
+        parse_mode="HTML",
+    )
+
+
+async def test_alerta(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Envía una alerta de prueba al admin (y verifica canal público si aplica)."""
+    if not is_admin(update.effective_chat.id):
+        await update.message.reply_text("🔒 Solo el administrador puede ejecutar <code>/testalerta</code>.", parse_mode="HTML")
+        return
+
+    db.ensure_subscriber(update.effective_chat.id)
+    subs = db.list_subscribers()
+    channel_status = "No configurado"
+    if PUBLIC_CHANNEL_ID:
+        try:
+            await context.bot.send_message(
+                chat_id=PUBLIC_CHANNEL_ID,
+                text="🔔 <b>Prueba de conexión Ranking AI</b>\nEl canal público está listo para recibir alertas.",
+                parse_mode="HTML",
+            )
+            channel_status = f"✅ OK ({PUBLIC_CHANNEL_ID})"
+        except Exception as exc:  # noqa: BLE001
+            channel_status = f"❌ Error ({str(exc)[:80]})"
+
+    await update.message.reply_text(
+        f"🔔 <b>Alerta de Prueba Enviada</b>\n\n"
+        f"• <b>Tu chat ID:</b> <code>{escape_html(str(update.effective_chat.id))}</code>\n"
+        f"• <b>Suscriptores activos:</b> {len(subs)}\n"
+        f"• <b>Canal público:</b> {escape_html(channel_status)}\n"
+        f"• <b>Turso Cloud:</b> {'✅ Conectado' if db._turso_endpoint else '⚠️ Solo SQLite local'}\n"
+        f"• <b>Última revisión:</b> {escape_html(str(RUNTIME_STATE.get('last_update_message') or 'Pendiente')[:120])}",
         parse_mode="HTML",
     )
 
@@ -422,12 +472,14 @@ async def force_update(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
     try:
         result = await get_updater(context.bot).check_and_update(force=True)
         if result["success"]:
-            await update.message.reply_text(
+            msg = (
                 f"✅ <b>Actualización completada</b>\n\n"
                 f"📊 Fuentes consultadas: {escape_html(', '.join(result.get('sources_scraped', [])))}\n"
-                f"📝 {escape_html(result.get('message', 'Datos actualizados correctamente'))}",
-                parse_mode="HTML",
+                f"📝 {escape_html(result.get('message', 'Datos actualizados correctamente'))}"
             )
+            if result.get("events_preview"):
+                msg += f"\n\n<i>Cambios detectados en este corte (no difundidos masivamente por ser manual):</i>\n\n{result['events_preview']}"
+            await send_html(context.bot, update.effective_chat.id, msg)
         else:
             await update.message.reply_text(
                 f"⚠️ <b>Aviso en actualización</b>\n\n{escape_html(result.get('message', 'Error desconocido'))}",
@@ -545,14 +597,16 @@ async def daily_briefing(context: ContextTypes.DEFAULT_TYPE) -> None:
         logger.error("Briefing diario falló: %s", exc, exc_info=True)
         return
 
+    channel_ok = False
     if PUBLIC_CHANNEL_ID:
         try:
             await send_html(context.bot, PUBLIC_CHANNEL_ID, text)
+            channel_ok = True
         except Exception as exc:  # noqa: BLE001
             logger.error("No se pudo enviar briefing al canal público %s: %s", PUBLIC_CHANNEL_ID, exc)
 
     subs = db.list_subscribers_with_prefs()
-    if not subs and not PUBLIC_CHANNEL_ID and ADMIN_CHAT_ID:
+    if not subs and (not PUBLIC_CHANNEL_ID or not channel_ok) and ADMIN_CHAT_ID:
         subs = [{"chat_id": str(ADMIN_CHAT_ID), "preferences": {"daily_brief": True}}]
 
     for idx, sub in enumerate(subs):
@@ -812,6 +866,8 @@ async def post_init(application) -> None:
     application.bot_data["start_time"] = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
     RUNTIME_STATE["bot_polling_active"] = True
     RUNTIME_STATE["last_heartbeat"] = utc_now_iso()
+    if ADMIN_CHAT_ID:
+        db.ensure_subscriber(ADMIN_CHAT_ID)
     logger.info("🚀 Bot inicializado. Registrando jobs periódicos...")
 
     try:
@@ -913,6 +969,7 @@ if __name__ == "__main__":
         application.add_handler(CommandHandler("buscar", buscar_cmd))
         application.add_handler(CommandHandler("chart", chart_cmd))
         application.add_handler(CommandHandler("status", status))
+        application.add_handler(CommandHandler("testalerta", test_alerta))
         application.add_handler(CommandHandler("forceupdate", force_update))
         application.add_handler(CommandHandler("hoy", hoy))
         application.add_handler(CallbackQueryHandler(handle_callback))
