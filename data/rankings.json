@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-11T09:58:46.218607",
+  "generated_at": "2026-11-11T17:42:26.064053",
   "sources": {
     "design": {
       "status": "ok",
@@ -7,7 +7,7 @@
         {
           "rank": 1,
           "model": "Claude Opus 5.5 (high)",
-          "score": 1442,
+          "score": 1440,
           "prompt_per_m": 4.0,
           "completion_per_m": 20.0,
           "context_length": 1000000,
@@ -16,7 +16,7 @@
         {
           "rank": 2,
           "model": "GPT-6.1 Sol (max)",
-          "score": 1400,
+          "score": 1398,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1050000,
@@ -25,7 +25,7 @@
         {
           "rank": 3,
           "model": "GPT-6 Astra (max)",
-          "score": 1387,
+          "score": 1385,
           "prompt_per_m": 10.0,
           "completion_per_m": 50.0,
           "context_length": 1050000,
@@ -34,7 +34,7 @@
         {
           "rank": 4,
           "model": "Claude Fable 5.2",
-          "score": 1353,
+          "score": 1359,
           "prompt_per_m": 8.0,
           "completion_per_m": 40.0,
           "context_length": 1000000,
@@ -43,7 +43,7 @@
         {
           "rank": 5,
           "model": "Claude Fable 5.1",
-          "score": 1329,
+          "score": 1327,
           "prompt_per_m": 10.0,
           "completion_per_m": 50.0,
           "context_length": 1000000,
@@ -52,7 +52,7 @@
         {
           "rank": 6,
           "model": "DeepSeek-V4.1-Flash (1017)",
-          "score": 1302,
+          "score": 1301,
           "prompt_per_m": 0.051,
           "completion_per_m": 0.567,
           "context_length": 1048576,
@@ -60,8 +60,8 @@
         },
         {
           "rank": 7,
-          "model": "Kimi K3.1 Pro",
-          "score": 1284,
+          "model": "Gemini 4 Carbon",
+          "score": 1288,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1048576,
@@ -69,114 +69,114 @@
         },
         {
           "rank": 8,
+          "model": "Kimi K3.1 Pro",
+          "score": 1282,
+          "prompt_per_m": 2.0,
+          "completion_per_m": 10.0,
+          "context_length": 1048576,
+          "is_free": false
+        },
+        {
+          "rank": 9,
           "model": "Claude Sonnet 5.5",
-          "score": 1283,
+          "score": 1282,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1000000,
           "is_free": false
         },
         {
-          "rank": 9,
+          "rank": 10,
           "model": "Muse Spark 1.3 Max",
-          "score": 1277
+          "score": 1276
         },
         {
-          "rank": 10,
+          "rank": 11,
           "model": "Inkling 2 Small",
-          "score": 1270,
+          "score": 1269,
           "prompt_per_m": 0.0,
           "completion_per_m": 0.0,
           "context_length": 1048576,
           "is_free": true
         },
         {
-          "rank": 11,
+          "rank": 12,
           "model": "Claude Fable 5",
-          "score": 1268,
+          "score": 1266,
           "prompt_per_m": 10.0,
           "completion_per_m": 50.0,
           "context_length": 1000000,
           "is_free": false
         },
         {
-          "rank": 12,
-          "model": "Gemini 4 Argon",
-          "score": 1266,
-          "prompt_per_m": 2.0,
-          "completion_per_m": 10.0,
-          "context_length": 1048576,
-          "is_free": false
-        },
-        {
           "rank": 13,
           "model": "1276W / 472L 73.0% ±2.1% 1,748 Anthropic",
-          "score": 1442
+          "score": 1440
         },
         {
           "rank": 14,
           "model": "584W / 347L 62.7% ±3.1% 931 OpenAI",
-          "score": 1400
+          "score": 1398
         },
         {
           "rank": 15,
-          "model": "1453W / 705L 67.3% ±2.0% 2,158 OpenAI",
-          "score": 1387
+          "model": "1454W / 708L 67.3% ±2.0% 2,162 OpenAI",
+          "score": 1385
         },
         {
           "rank": 16,
-          "model": "593W / 265L 69.1% ±3.1% 858 Anthropic",
-          "score": 1353
+          "model": "781W / 341L 69.6% ±2.7% 1,122 Anthropic",
+          "score": 1359
         },
         {
           "rank": 17,
           "model": "2827W / 1918L 59.6% ±1.4% 4,745 Anthropic",
-          "score": 1329
+          "score": 1327
         },
         {
           "rank": 18,
           "model": "137W / 112L 55.0% ±6.2% 249 DeepSeek",
-          "score": 1302
+          "score": 1301
         },
         {
           "rank": 19,
-          "model": "2195W / 1499L 59.4% ±1.6% 3,694 Moonshot AI",
-          "score": 1284
+          "model": "157W / 111L 58.6% ±5.9% 268 Google",
+          "score": 1288
         },
         {
           "rank": 20,
-          "model": "1479W / 1072L 58.0% ±1.9% 2,551 Anthropic",
-          "score": 1283
+          "model": "2200W / 1504L 59.4% ±1.6% 3,704 Moonshot AI",
+          "score": 1282
         },
         {
           "rank": 21,
-          "model": "7264W / 5412L 57.3% ±0.9% 12,676 Meta",
-          "score": 1277
+          "model": "1487W / 1077L 58.0% ±1.9% 2,564 Anthropic",
+          "score": 1282
         },
         {
           "rank": 22,
-          "model": "3389W / 2518L 57.4% ±1.3% 5,907 Thinking Machines",
-          "score": 1270
+          "model": "7273W / 5420L 57.3% ±0.9% 12,693 Meta",
+          "score": 1276
         },
         {
           "rank": 23,
-          "model": "7899W / 5173L 60.4% ±0.8% 13,072 Anthropic",
-          "score": 1268
+          "model": "3392W / 2521L 57.4% ±1.3% 5,913 Thinking Machines",
+          "score": 1269
         },
         {
           "rank": 24,
-          "model": "513W / 674L 43.2% ±2.8% 1,187 Google",
+          "model": "7899W / 5173L 60.4% ±0.8% 13,072 Anthropic",
           "score": 1266
         },
         {
           "rank": 25,
           "model": "1899W / 1362L 58.2% ±1.7% 3,261 Xiaomi",
-          "score": 1265
+          "score": 1264
         },
         {
           "rank": 26,
-          "model": "4314W / 3399L 55.9% ±1.1% 7,713 Anthropic",
-          "score": 1265
+          "model": "4318W / 3402L 55.9% ±1.1% 7,720 Anthropic",
+          "score": 1264
         }
       ],
       "method": "http"
@@ -539,16 +539,27 @@
           "score": 1510,
           "author": "z-ai",
           "votes": 50189,
-          "prompt_per_m": 0.15,
-          "completion_per_m": 0.5,
+          "prompt_per_m": 0.0399,
+          "completion_per_m": 0.0784,
           "context_length": 1048576,
           "is_free": false
         },
         {
           "rank": 1,
+          "model": "Claude Fable 5.2 (xHigh)",
+          "category": "WebDev",
+          "score": 1836,
+          "author": "anthropic",
+          "prompt_per_m": 8.0,
+          "completion_per_m": 40.0,
+          "context_length": 1000000,
+          "is_free": false
+        },
+        {
+          "rank": 2,
           "model": "Claude Opus 5.5 (Max)",
           "category": "WebDev",
-          "score": 1818,
+          "score": 1814,
           "author": "anthropic",
           "prompt_per_m": 4.0,
           "completion_per_m": 20.0,
@@ -556,10 +567,10 @@
           "is_free": false
         },
         {
-          "rank": 2,
+          "rank": 3,
           "model": "Claude Sonnet 5.5 (xHigh)",
           "category": "WebDev",
-          "score": 1774,
+          "score": 1773,
           "author": "anthropic",
           "votes": 13821,
           "prompt_per_m": 2.0,
@@ -568,7 +579,7 @@
           "is_free": false
         },
         {
-          "rank": 3,
+          "rank": 4,
           "model": "Gemini 4 Carbon (High)",
           "category": "WebDev",
           "score": 1768,
@@ -580,27 +591,15 @@
           "is_free": false
         },
         {
-          "rank": 4,
+          "rank": 5,
           "model": "GPT-6 Astra (Max)",
           "category": "WebDev",
-          "score": 1767,
+          "score": 1764,
           "author": "openai",
           "votes": 18315,
           "prompt_per_m": 10.0,
           "completion_per_m": 50.0,
           "context_length": 1050000,
-          "is_free": false
-        },
-        {
-          "rank": 5,
-          "model": "Claude Fable 5.1 (Max)",
-          "category": "WebDev",
-          "score": 1745,
-          "author": "anthropic",
-          "votes": 20087,
-          "prompt_per_m": 10.0,
-          "completion_per_m": 50.0,
-          "context_length": 1000000,
           "is_free": false
         },
         {
@@ -617,16 +616,28 @@
         },
         {
           "rank": 7,
-          "model": "Muse Wonder Full (Max)",
+          "model": "Claude Fable 5.1 (Max)",
           "category": "WebDev",
-          "score": 1724,
-          "author": "meta"
+          "score": 1742,
+          "author": "anthropic",
+          "votes": 20087,
+          "prompt_per_m": 10.0,
+          "completion_per_m": 50.0,
+          "context_length": 1000000,
+          "is_free": false
         },
         {
           "rank": 8,
+          "model": "Muse Wonder Full (Max)",
+          "category": "WebDev",
+          "score": 1723,
+          "author": "meta"
+        },
+        {
+          "rank": 9,
           "model": "Claude Sonnet 5.5 (High)",
           "category": "WebDev",
-          "score": 1713,
+          "score": 1715,
           "author": "anthropic",
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
@@ -634,7 +645,7 @@
           "is_free": false
         },
         {
-          "rank": 9,
+          "rank": 10,
           "model": "Claude Opus 5 (Max)",
           "category": "WebDev",
           "score": 1691,
@@ -646,7 +657,7 @@
           "is_free": false
         },
         {
-          "rank": 10,
+          "rank": 11,
           "model": "Kimi K3.1 Pro (Max)",
           "category": "WebDev",
           "score": 1688,
@@ -658,10 +669,10 @@
           "is_free": false
         },
         {
-          "rank": 11,
+          "rank": 12,
           "model": "Gemini 4 Argon (High)",
           "category": "WebDev",
-          "score": 1683,
+          "score": 1682,
           "author": "google",
           "votes": 19787,
           "prompt_per_m": 2.0,
@@ -670,7 +681,7 @@
           "is_free": false
         },
         {
-          "rank": 12,
+          "rank": 13,
           "model": "GPT-6.1 Terra (Max)",
           "category": "WebDev",
           "score": 1679,
@@ -681,37 +692,26 @@
           "is_free": false
         },
         {
-          "rank": 13,
+          "rank": 14,
           "model": "Qwen3.8-Max (0902)",
           "category": "WebDev",
-          "score": 1677,
+          "score": 1676,
           "author": "qwen",
           "prompt_per_m": 2.0,
           "completion_per_m": 6.0,
           "context_length": 1000000
         },
         {
-          "rank": 14,
+          "rank": 15,
           "model": "GPT-6 Sol (Max)",
           "category": "WebDev",
-          "score": 1674,
+          "score": 1673,
           "author": "openai",
           "votes": 19890,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1050000,
           "is_free": false
-        },
-        {
-          "rank": 15,
-          "model": "Qwen3.8-Max",
-          "category": "WebDev",
-          "score": 1670,
-          "author": "qwen",
-          "votes": 36324,
-          "prompt_per_m": 2.0,
-          "completion_per_m": 6.0,
-          "context_length": 1000000
         },
         {
           "rank": 1,
@@ -1876,209 +1876,250 @@
     "github": {
       "status": "ok",
       "since": "2026-11-10",
-      "ai": [],
+      "ai": [
+        {
+          "full_name": "8hjkkwikl8/ai-portfolio",
+          "stars": 36,
+          "language": "Python",
+          "description": "三个可运行的 AI 工程项目：可追溯 RAG、提示词评测与受守护的 NL2SQL 分析",
+          "url": "https://github.com/8hjkkwikl8/ai-portfolio",
+          "created_at": "2026-11-11T05:28:14Z"
+        },
+        {
+          "full_name": "SophieCecil7793/windsurf-cursor-pro-vcc-finops",
+          "stars": 12,
+          "language": "",
+          "description": "⚡ 2026 实战指南：手把手教你用 CoreGold 商业 VCC 开通 Windsurf / Cursor 满血编程",
+          "url": "https://github.com/SophieCecil7793/windsurf-cursor-pro-vcc-finops",
+          "created_at": "2026-11-11T06:59:21Z"
+        },
+        {
+          "full_name": "MarceloBear8052/huggingface-pro-inference-endpoints-vcc",
+          "stars": 11,
+          "language": "",
+          "description": "⚡ 2026 实战指南：用 CoreGold 商业 VCC 搞定 Hugging Face Pro 与私有推理端点结算",
+          "url": "https://github.com/MarceloBear8052/huggingface-pro-inference-endpoints-vcc",
+          "created_at": "2026-11-11T07:53:50Z"
+        }
+      ],
       "general": [
         {
-          "full_name": "diameterzonerush/discord-server-raider",
-          "stars": 828,
+          "full_name": "setyamickala/fastmint-fcfs-agentic",
+          "stars": 207,
+          "language": "JavaScript",
+          "description": "FCFS mint di BNB Smart Chain lewat Binance Agentic Wallet, masuk blok ±2 detik setelah jam buka.",
+          "url": "https://github.com/setyamickala/fastmint-fcfs-agentic",
+          "created_at": "2026-11-11T03:42:12Z"
+        },
+        {
+          "full_name": "Nobleglusurvive/discord-quest-completer",
+          "stars": 119,
+          "language": "Python",
+          "description": "Automated Discord Quest Completer. Supports all 5 quest types: game, video, stream, activity, and achievement. Built-in dashboard, safe timing, and privacy-first. Open-source.",
+          "url": "https://github.com/Nobleglusurvive/discord-quest-completer",
+          "created_at": "2026-11-11T11:51:00Z"
+        },
+        {
+          "full_name": "BankerInterface/youtube-seo-optimizer",
+          "stars": 119,
+          "language": "Python",
+          "description": "Free YouTube SEO optimizer and metadata auditor. Analyze titles, descriptions, and tags to improve video rankings. Check chapters, keywords, and SEO scores locally. Open-source.",
+          "url": "https://github.com/BankerInterface/youtube-seo-optimizer",
+          "created_at": "2026-11-11T13:00:17Z"
+        },
+        {
+          "full_name": "byizmysh/IZCIVSwitch",
+          "stars": 76,
+          "language": "JavaScript",
+          "description": "Tool for accessing the Nintendo Switch 2 file system through Civilization VII.",
+          "url": "https://github.com/byizmysh/IZCIVSwitch",
+          "created_at": "2026-11-11T06:53:24Z"
+        },
+        {
+          "full_name": "snicolast/SegaRally2Native",
+          "stars": 72,
+          "language": "C++",
+          "description": "Sega Rally 2 - PC Port",
+          "url": "https://github.com/snicolast/SegaRally2Native",
+          "created_at": "2026-11-11T04:43:58Z"
+        },
+        {
+          "full_name": "Harmonicdellafitting/minecraft-jenny-mod-download",
+          "stars": 67,
+          "language": "Java",
+          "description": "Download Jenny Mod Minecraft for Java and Bedrock Edition. Get new characters, gameplay features, installation guide, safe download links, and working mod files.",
+          "url": "https://github.com/Harmonicdellafitting/minecraft-jenny-mod-download",
+          "created_at": "2026-11-11T13:56:20Z"
+        },
+        {
+          "full_name": "SteelMillerBar/auto-twitch-drops-claim",
+          "stars": 57,
           "language": "",
-          "description": "Discord Server Raider 3.1 automated deployment pipeline, pre-configured environment for rapid local workstation setup in 2026.",
-          "url": "https://github.com/diameterzonerush/discord-server-raider",
-          "created_at": "2026-11-11T09:22:37Z"
+          "description": "Auto-farm Twitch drops in the background. Claim rewards, switch channels, and mine timed drops with zero video download. Lightweight AFK miner for Windows, macOS, and Linux.",
+          "url": "https://github.com/SteelMillerBar/auto-twitch-drops-claim",
+          "created_at": "2026-11-11T02:57:57Z"
         },
         {
-          "full_name": "dimensiondriverarbor/aion-2-trainer-tool",
-          "stars": 825,
+          "full_name": "wquguru/fable52-fps-repro",
+          "stars": 52,
           "language": "HTML",
-          "description": "Aion 2, a cutting-edge AI-driven software suite for advanced prompt engineering tasks, offers a pre-configured environment designed to...",
-          "url": "https://github.com/dimensiondriverarbor/aion-2-trainer-tool",
-          "created_at": "2026-11-11T09:22:38Z"
+          "description": "Fable 5.2 一句话生成 3D FPS 复现：4 个单文件演示、提示词与缓存账单 / One-prompt 3D FPS repro with demos, prompts & cost data",
+          "url": "https://github.com/wquguru/fable52-fps-repro",
+          "created_at": "2026-11-11T04:58:58Z"
         },
         {
-          "full_name": "DensityApothecary/adobe-substance-3d",
-          "stars": 823,
-          "language": "HTML",
-          "description": "Creative Studio App 2026 pre-configured environment for secure digital asset deployment pipeline, ready for isolated local workstation execution.",
-          "url": "https://github.com/DensityApothecary/adobe-substance-3d",
-          "created_at": "2026-11-11T09:22:38Z"
+          "full_name": "ferhatcore/claude-codex-project-os",
+          "stars": 47,
+          "language": "JavaScript",
+          "description": "Project management for Claude Code and Codex with shared task files, developer and QA roles, and human approvals.",
+          "url": "https://github.com/ferhatcore/claude-codex-project-os",
+          "created_at": "2026-11-11T11:15:13Z"
         },
         {
-          "full_name": "DivineLocustClaim/auto-withdraw-bot",
-          "stars": 821,
-          "language": "HTML",
-          "description": "Auto Withdraw Bot 2026 pre-configured environment for automated desktop software utility deployment on isolated local workstations.",
-          "url": "https://github.com/DivineLocustClaim/auto-withdraw-bot",
-          "created_at": "2026-11-11T09:22:37Z"
-        },
-        {
-          "full_name": "DiscordMajor/ads-blocker",
-          "stars": 819,
-          "language": "HTML",
-          "description": "Ads Blocker 2023 automated deployment pipeline, pre-configured environment for efficient desktop software utility management.",
-          "url": "https://github.com/DiscordMajor/ads-blocker",
-          "created_at": "2026-11-11T09:22:36Z"
-        },
-        {
-          "full_name": "DeveloperProceed/aiseesoft-unlocker",
-          "stars": 818,
-          "language": "HTML",
-          "description": "Aiseesoft Unlocker 2023 pre-configured environment for secure and efficient software catalog management.",
-          "url": "https://github.com/DeveloperProceed/aiseesoft-unlocker",
-          "created_at": "2026-11-11T09:22:37Z"
-        },
-        {
-          "full_name": "depthlightpropagate/flash-crypto-generator",
-          "stars": 816,
-          "language": "HTML",
-          "description": "Flash Crypto Generator 2023 automated deployment pipeline with pre-configured environment, ready for secure desktop software utility execution.",
-          "url": "https://github.com/depthlightpropagate/flash-crypto-generator",
-          "created_at": "2026-11-11T09:22:37Z"
-        },
-        {
-          "full_name": "Divinenearfunicular/adobe-acrobat-pro",
-          "stars": 816,
-          "language": "HTML",
-          "description": "Secure PDF Document Processor 2026 pre-configured environment for isolated local workstation deployment, ensuring robust digital asset...",
-          "url": "https://github.com/Divinenearfunicular/adobe-acrobat-pro",
-          "created_at": "2026-11-11T09:22:36Z"
-        },
-        {
-          "full_name": "DitchCabbieCatalog/aida-64-extreme",
-          "stars": 812,
-          "language": "HTML",
-          "description": "Aida 64 Extreme, an advanced AI-driven software suite, offers a pre-configured environment for seamless deployment on enterprise-grade...",
-          "url": "https://github.com/DitchCabbieCatalog/aida-64-extreme",
-          "created_at": "2026-11-11T09:22:36Z"
-        },
-        {
-          "full_name": "Digitalpesymbolize/actual-multiplie-monitors",
-          "stars": 808,
-          "language": "HTML",
-          "description": "Actual Multiplie Monitors 2023 automated deployment pipeline for efficient desktop software utility management and monitoring.",
-          "url": "https://github.com/Digitalpesymbolize/actual-multiplie-monitors",
-          "created_at": "2026-11-11T09:22:36Z"
+          "full_name": "smm-gg/smm-panel-api",
+          "stars": 46,
+          "language": "PHP",
+          "description": "SMM panel API client for PHP, Python & Node.js: resell 5,900+ Instagram, TikTok, YouTube and Telegram services from your own site, bot or panel.",
+          "url": "https://github.com/smm-gg/smm-panel-api",
+          "created_at": "2026-11-11T06:09:51Z"
         }
       ],
       "items": [
         {
-          "full_name": "diameterzonerush/discord-server-raider",
-          "stars": 828,
-          "language": "",
-          "description": "Discord Server Raider 3.1 automated deployment pipeline, pre-configured environment for rapid local workstation setup in 2026.",
-          "url": "https://github.com/diameterzonerush/discord-server-raider",
-          "created_at": "2026-11-11T09:22:37Z"
+          "full_name": "8hjkkwikl8/ai-portfolio",
+          "stars": 36,
+          "language": "Python",
+          "description": "三个可运行的 AI 工程项目：可追溯 RAG、提示词评测与受守护的 NL2SQL 分析",
+          "url": "https://github.com/8hjkkwikl8/ai-portfolio",
+          "created_at": "2026-11-11T05:28:14Z"
         },
         {
-          "full_name": "dimensiondriverarbor/aion-2-trainer-tool",
-          "stars": 825,
+          "full_name": "SophieCecil7793/windsurf-cursor-pro-vcc-finops",
+          "stars": 12,
+          "language": "",
+          "description": "⚡ 2026 实战指南：手把手教你用 CoreGold 商业 VCC 开通 Windsurf / Cursor 满血编程",
+          "url": "https://github.com/SophieCecil7793/windsurf-cursor-pro-vcc-finops",
+          "created_at": "2026-11-11T06:59:21Z"
+        },
+        {
+          "full_name": "MarceloBear8052/huggingface-pro-inference-endpoints-vcc",
+          "stars": 11,
+          "language": "",
+          "description": "⚡ 2026 实战指南：用 CoreGold 商业 VCC 搞定 Hugging Face Pro 与私有推理端点结算",
+          "url": "https://github.com/MarceloBear8052/huggingface-pro-inference-endpoints-vcc",
+          "created_at": "2026-11-11T07:53:50Z"
+        },
+        {
+          "full_name": "setyamickala/fastmint-fcfs-agentic",
+          "stars": 207,
+          "language": "JavaScript",
+          "description": "FCFS mint di BNB Smart Chain lewat Binance Agentic Wallet, masuk blok ±2 detik setelah jam buka.",
+          "url": "https://github.com/setyamickala/fastmint-fcfs-agentic",
+          "created_at": "2026-11-11T03:42:12Z"
+        },
+        {
+          "full_name": "Nobleglusurvive/discord-quest-completer",
+          "stars": 119,
+          "language": "Python",
+          "description": "Automated Discord Quest Completer. Supports all 5 quest types: game, video, stream, activity, and achievement. Built-in dashboard, safe timing, and privacy-first. Open-source.",
+          "url": "https://github.com/Nobleglusurvive/discord-quest-completer",
+          "created_at": "2026-11-11T11:51:00Z"
+        },
+        {
+          "full_name": "BankerInterface/youtube-seo-optimizer",
+          "stars": 119,
+          "language": "Python",
+          "description": "Free YouTube SEO optimizer and metadata auditor. Analyze titles, descriptions, and tags to improve video rankings. Check chapters, keywords, and SEO scores locally. Open-source.",
+          "url": "https://github.com/BankerInterface/youtube-seo-optimizer",
+          "created_at": "2026-11-11T13:00:17Z"
+        },
+        {
+          "full_name": "byizmysh/IZCIVSwitch",
+          "stars": 76,
+          "language": "JavaScript",
+          "description": "Tool for accessing the Nintendo Switch 2 file system through Civilization VII.",
+          "url": "https://github.com/byizmysh/IZCIVSwitch",
+          "created_at": "2026-11-11T06:53:24Z"
+        },
+        {
+          "full_name": "snicolast/SegaRally2Native",
+          "stars": 72,
+          "language": "C++",
+          "description": "Sega Rally 2 - PC Port",
+          "url": "https://github.com/snicolast/SegaRally2Native",
+          "created_at": "2026-11-11T04:43:58Z"
+        },
+        {
+          "full_name": "Harmonicdellafitting/minecraft-jenny-mod-download",
+          "stars": 67,
+          "language": "Java",
+          "description": "Download Jenny Mod Minecraft for Java and Bedrock Edition. Get new characters, gameplay features, installation guide, safe download links, and working mod files.",
+          "url": "https://github.com/Harmonicdellafitting/minecraft-jenny-mod-download",
+          "created_at": "2026-11-11T13:56:20Z"
+        },
+        {
+          "full_name": "SteelMillerBar/auto-twitch-drops-claim",
+          "stars": 57,
+          "language": "",
+          "description": "Auto-farm Twitch drops in the background. Claim rewards, switch channels, and mine timed drops with zero video download. Lightweight AFK miner for Windows, macOS, and Linux.",
+          "url": "https://github.com/SteelMillerBar/auto-twitch-drops-claim",
+          "created_at": "2026-11-11T02:57:57Z"
+        },
+        {
+          "full_name": "wquguru/fable52-fps-repro",
+          "stars": 52,
           "language": "HTML",
-          "description": "Aion 2, a cutting-edge AI-driven software suite for advanced prompt engineering tasks, offers a pre-configured environment designed to...",
-          "url": "https://github.com/dimensiondriverarbor/aion-2-trainer-tool",
-          "created_at": "2026-11-11T09:22:38Z"
+          "description": "Fable 5.2 一句话生成 3D FPS 复现：4 个单文件演示、提示词与缓存账单 / One-prompt 3D FPS repro with demos, prompts & cost data",
+          "url": "https://github.com/wquguru/fable52-fps-repro",
+          "created_at": "2026-11-11T04:58:58Z"
+        },
+        {
+          "full_name": "ferhatcore/claude-codex-project-os",
+          "stars": 47,
+          "language": "JavaScript",
+          "description": "Project management for Claude Code and Codex with shared task files, developer and QA roles, and human approvals.",
+          "url": "https://github.com/ferhatcore/claude-codex-project-os",
+          "created_at": "2026-11-11T11:15:13Z"
+        },
+        {
+          "full_name": "smm-gg/smm-panel-api",
+          "stars": 46,
+          "language": "PHP",
+          "description": "SMM panel API client for PHP, Python & Node.js: resell 5,900+ Instagram, TikTok, YouTube and Telegram services from your own site, bot or panel.",
+          "url": "https://github.com/smm-gg/smm-panel-api",
+          "created_at": "2026-11-11T06:09:51Z"
+        },
+        {
+          "full_name": "abdenourgnx/re-kindle",
+          "stars": 45,
+          "language": "Shell",
+          "description": "",
+          "url": "https://github.com/abdenourgnx/re-kindle",
+          "created_at": "2026-11-11T08:56:37Z"
+        },
+        {
+          "full_name": "c6lang/c6",
+          "stars": 35,
+          "language": "C",
+          "description": "基于 TinyCC 的 C 语言扩展编译器（c6）：defer/err 错误处理、async/await 协程、module/import、interface、切片、元组、泛型；扩展只在 .c6 文件生效，.c 行为与上游 TCC 完全一致。",
+          "url": "https://github.com/c6lang/c6",
+          "created_at": "2026-11-11T04:26:35Z"
         },
         {
           "full_name": "DensityApothecary/adobe-substance-3d",
-          "stars": 823,
+          "stars": 32,
           "language": "HTML",
           "description": "Creative Studio App 2026 pre-configured environment for secure digital asset deployment pipeline, ready for isolated local workstation execution.",
           "url": "https://github.com/DensityApothecary/adobe-substance-3d",
           "created_at": "2026-11-11T09:22:38Z"
         },
         {
-          "full_name": "DivineLocustClaim/auto-withdraw-bot",
-          "stars": 821,
-          "language": "HTML",
-          "description": "Auto Withdraw Bot 2026 pre-configured environment for automated desktop software utility deployment on isolated local workstations.",
-          "url": "https://github.com/DivineLocustClaim/auto-withdraw-bot",
-          "created_at": "2026-11-11T09:22:37Z"
-        },
-        {
-          "full_name": "DiscordMajor/ads-blocker",
-          "stars": 819,
-          "language": "HTML",
-          "description": "Ads Blocker 2023 automated deployment pipeline, pre-configured environment for efficient desktop software utility management.",
-          "url": "https://github.com/DiscordMajor/ads-blocker",
-          "created_at": "2026-11-11T09:22:36Z"
-        },
-        {
-          "full_name": "DeveloperProceed/aiseesoft-unlocker",
-          "stars": 818,
-          "language": "HTML",
-          "description": "Aiseesoft Unlocker 2023 pre-configured environment for secure and efficient software catalog management.",
-          "url": "https://github.com/DeveloperProceed/aiseesoft-unlocker",
-          "created_at": "2026-11-11T09:22:37Z"
-        },
-        {
-          "full_name": "depthlightpropagate/flash-crypto-generator",
-          "stars": 816,
-          "language": "HTML",
-          "description": "Flash Crypto Generator 2023 automated deployment pipeline with pre-configured environment, ready for secure desktop software utility execution.",
-          "url": "https://github.com/depthlightpropagate/flash-crypto-generator",
-          "created_at": "2026-11-11T09:22:37Z"
-        },
-        {
-          "full_name": "Divinenearfunicular/adobe-acrobat-pro",
-          "stars": 816,
-          "language": "HTML",
-          "description": "Secure PDF Document Processor 2026 pre-configured environment for isolated local workstation deployment, ensuring robust digital asset...",
-          "url": "https://github.com/Divinenearfunicular/adobe-acrobat-pro",
-          "created_at": "2026-11-11T09:22:36Z"
-        },
-        {
-          "full_name": "DitchCabbieCatalog/aida-64-extreme",
-          "stars": 812,
-          "language": "HTML",
-          "description": "Aida 64 Extreme, an advanced AI-driven software suite, offers a pre-configured environment for seamless deployment on enterprise-grade...",
-          "url": "https://github.com/DitchCabbieCatalog/aida-64-extreme",
-          "created_at": "2026-11-11T09:22:36Z"
-        },
-        {
-          "full_name": "Digitalpesymbolize/actual-multiplie-monitors",
-          "stars": 808,
-          "language": "HTML",
-          "description": "Actual Multiplie Monitors 2023 automated deployment pipeline for efficient desktop software utility management and monitoring.",
-          "url": "https://github.com/Digitalpesymbolize/actual-multiplie-monitors",
-          "created_at": "2026-11-11T09:22:36Z"
-        },
-        {
-          "full_name": "DiamondBoltFlare/adobe-audition",
-          "stars": 807,
-          "language": "HTML",
-          "description": "Advanced Audio Workbench 2026 pre-configured environment for secure digital asset deployment pipeline.",
-          "url": "https://github.com/DiamondBoltFlare/adobe-audition",
-          "created_at": "2026-11-11T09:22:36Z"
-        },
-        {
-          "full_name": "Divinewithinspin/serato-dj-pro",
-          "stars": 805,
-          "language": "HTML",
-          "description": "Serato Dj Pro 2023 pre-configured environment for seamless local workstation deployment.",
-          "url": "https://github.com/Divinewithinspin/serato-dj-pro",
-          "created_at": "2026-11-11T09:22:37Z"
-        },
-        {
-          "full_name": "DegreeStorkVeil/ableton-live-12",
-          "stars": 804,
-          "language": "HTML",
-          "description": "Ableton Live 12 automated deployment pipeline ready for immediate local workstation integration, featuring optimized package deployment and...",
-          "url": "https://github.com/DegreeStorkVeil/ableton-live-12",
-          "created_at": "2026-11-11T09:22:35Z"
-        },
-        {
-          "full_name": "DiamondGladiator/adobe-after-effects",
-          "stars": 803,
-          "language": "HTML",
-          "description": "Cinematic Motion Video Processor 2026 pre-configured environment for secure digital asset deployment pipeline.",
-          "url": "https://github.com/DiamondGladiator/adobe-after-effects",
-          "created_at": "2026-11-11T09:22:36Z"
-        },
-        {
-          "full_name": "DataDetectiveVoyage/abbyy-finereader-pdf",
-          "stars": 801,
-          "language": "HTML",
-          "description": "Abbyy Finereader Pdf 15.1 automated deployment pipeline ready for isolated desktop environment installation.",
-          "url": "https://github.com/DataDetectiveVoyage/abbyy-finereader-pdf",
-          "created_at": "2026-11-11T09:22:34Z"
+          "full_name": "kate-land/ga100vfi",
+          "stars": 31,
+          "language": "C",
+          "description": "GA100 voltage glitch resources",
+          "url": "https://github.com/kate-land/ga100vfi",
+          "created_at": "2026-11-11T00:17:23Z"
         }
       ]
     },
@@ -2140,71 +2181,71 @@
       "items": [
         {
           "id": "xtools-at/DeepSeek-V4-Pro-Qwen3.5-9B-UNCENSORED-heretic",
-          "likes": 1295,
-          "downloads": 14378,
+          "likes": 2046,
+          "downloads": 16693,
           "pipeline_tag": "text-generation",
           "url": "https://huggingface.co/xtools-at/DeepSeek-V4-Pro-Qwen3.5-9B-UNCENSORED-heretic"
         },
         {
           "id": "speridlabs/idol",
-          "likes": 1915,
-          "downloads": 26470,
+          "likes": 1958,
+          "downloads": 28250,
           "pipeline_tag": "image-to-3d",
           "url": "https://huggingface.co/speridlabs/idol"
         },
         {
-          "id": "moonshotai/Kimi-K3.1-Pro",
-          "likes": 1894,
-          "downloads": 30721,
-          "pipeline_tag": "image-text-to-text",
-          "url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro"
-        },
-        {
           "id": "MiniMaxAI/MiniMax-H3-Image",
-          "likes": 559,
-          "downloads": 667,
+          "likes": 649,
+          "downloads": 142989,
           "pipeline_tag": "text-to-image",
           "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3-Image"
         },
         {
+          "id": "moonshotai/Kimi-K3.1-Pro",
+          "likes": 1912,
+          "downloads": 33617,
+          "pipeline_tag": "image-text-to-text",
+          "url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro"
+        },
+        {
           "id": "ricursiveAI/Ripple-65B-Preview",
-          "likes": 492,
-          "downloads": 6480,
+          "likes": 506,
+          "downloads": 7112,
           "pipeline_tag": "",
           "url": "https://huggingface.co/ricursiveAI/Ripple-65B-Preview"
         },
         {
-          "id": "NousResearch/Arete-27B",
-          "likes": 416,
-          "downloads": 3431,
-          "pipeline_tag": "text-generation",
-          "url": "https://huggingface.co/NousResearch/Arete-27B"
-        },
-        {
           "id": "Lightricks/LTX-2.5",
-          "likes": 11428,
-          "downloads": 2791606,
+          "likes": 11478,
+          "downloads": 2848771,
           "pipeline_tag": "image-to-video",
           "url": "https://huggingface.co/Lightricks/LTX-2.5"
         },
         {
+          "id": "NousResearch/Arete-27B",
+          "likes": 422,
+          "downloads": 4023,
+          "pipeline_tag": "text-generation",
+          "url": "https://huggingface.co/NousResearch/Arete-27B"
+        },
+        {
           "id": "DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
-          "likes": 2867,
-          "downloads": 1459029,
+          "likes": 2890,
+          "downloads": 1532273,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF"
         },
         {
           "id": "ccore/Qwen3.5-4B-3D-Coder",
-          "likes": 984,
-          "downloads": 319405,
+          "likes": 1004,
+          "downloads": 344727,
           "pipeline_tag": "",
           "url": "https://huggingface.co/ccore/Qwen3.5-4B-3D-Coder"
         },
         {
           "id": "Qwen/Qwen3.8-27B",
-          "likes": 19591,
-          "downloads": 7443748,
+          "likes": 19612,
+          "downloads": 7232703,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/Qwen/Qwen3.8-27B"
         }
