@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-11T02:21:51.468524",
+  "generated_at": "2026-11-11T09:58:46.218607",
   "sources": {
     "design": {
       "status": "ok",
@@ -34,7 +34,7 @@
         {
           "rank": 4,
           "model": "Claude Fable 5.2",
-          "score": 1355,
+          "score": 1353,
           "prompt_per_m": 8.0,
           "completion_per_m": 40.0,
           "context_length": 1000000,
@@ -61,7 +61,7 @@
         {
           "rank": 7,
           "model": "Kimi K3.1 Pro",
-          "score": 1283,
+          "score": 1284,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1048576,
@@ -120,13 +120,13 @@
         },
         {
           "rank": 15,
-          "model": "1451W / 705L 67.3% ±2.0% 2,156 OpenAI",
+          "model": "1453W / 705L 67.3% ±2.0% 2,158 OpenAI",
           "score": 1387
         },
         {
           "rank": 16,
-          "model": "534W / 238L 69.2% ±3.3% 772 Anthropic",
-          "score": 1355
+          "model": "593W / 265L 69.1% ±3.1% 858 Anthropic",
+          "score": 1353
         },
         {
           "rank": 17,
@@ -140,22 +140,22 @@
         },
         {
           "rank": 19,
-          "model": "2193W / 1499L 59.4% ±1.6% 3,692 Moonshot AI",
-          "score": 1283
+          "model": "2195W / 1499L 59.4% ±1.6% 3,694 Moonshot AI",
+          "score": 1284
         },
         {
           "rank": 20,
-          "model": "1478W / 1070L 58.0% ±1.9% 2,548 Anthropic",
+          "model": "1479W / 1072L 58.0% ±1.9% 2,551 Anthropic",
           "score": 1283
         },
         {
           "rank": 21,
-          "model": "7263W / 5411L 57.3% ±0.9% 12,674 Meta",
+          "model": "7264W / 5412L 57.3% ±0.9% 12,676 Meta",
           "score": 1277
         },
         {
           "rank": 22,
-          "model": "3389W / 2517L 57.4% ±1.3% 5,906 Thinking Machines",
+          "model": "3389W / 2518L 57.4% ±1.3% 5,907 Thinking Machines",
           "score": 1270
         },
         {
@@ -165,7 +165,7 @@
         },
         {
           "rank": 24,
-          "model": "512W / 671L 43.3% ±2.8% 1,183 Google",
+          "model": "513W / 674L 43.2% ±2.8% 1,187 Google",
           "score": 1266
         },
         {
@@ -175,7 +175,7 @@
         },
         {
           "rank": 26,
-          "model": "4312W / 3398L 55.9% ±1.1% 7,710 Anthropic",
+          "model": "4314W / 3399L 55.9% ±1.1% 7,713 Anthropic",
           "score": 1265
         }
       ],
@@ -1874,232 +1874,213 @@
       "stale_since": "2026-11-11T02:21:51.468524"
     },
     "github": {
-      "status": "stale",
-      "since": "2026-11-09",
-      "ai": [
-        {
-          "full_name": "Terminal-3/private-doc-scanner",
-          "stars": 11,
-          "language": "TypeScript",
-          "description": "Open-source private document scanner for AI: reads documents on your device and seals private data to your own Terminal 3 (https://terminal3.io/products/agent-developer-kit) vault",
-          "url": "https://github.com/Terminal-3/private-doc-scanner",
-          "created_at": "2026-11-10T02:18:16Z"
-        }
-      ],
+      "status": "ok",
+      "since": "2026-11-10",
+      "ai": [],
       "general": [
         {
-          "full_name": "Kianuni/Erosion-CN",
-          "stars": 983,
-          "language": "Swift",
-          "description": "iOS / iPadOS 系统配置与 MobileGestalt 研究工具箱（简体中文防白苹果安全加固版）",
-          "url": "https://github.com/Kianuni/Erosion-CN",
-          "created_at": "2026-11-10T02:37:31Z"
+          "full_name": "diameterzonerush/discord-server-raider",
+          "stars": 828,
+          "language": "",
+          "description": "Discord Server Raider 3.1 automated deployment pipeline, pre-configured environment for rapid local workstation setup in 2026.",
+          "url": "https://github.com/diameterzonerush/discord-server-raider",
+          "created_at": "2026-11-11T09:22:37Z"
         },
         {
-          "full_name": "AngleCentipede/ifunbox",
-          "stars": 565,
-          "language": "",
-          "description": "Ifunbox 2026 pre-configured environment for seamless desktop software utility deployment on isolated workstation.",
-          "url": "https://github.com/AngleCentipede/ifunbox",
-          "created_at": "2026-11-10T16:09:05Z"
+          "full_name": "dimensiondriverarbor/aion-2-trainer-tool",
+          "stars": 825,
+          "language": "HTML",
+          "description": "Aion 2, a cutting-edge AI-driven software suite for advanced prompt engineering tasks, offers a pre-configured environment designed to...",
+          "url": "https://github.com/dimensiondriverarbor/aion-2-trainer-tool",
+          "created_at": "2026-11-11T09:22:38Z"
         },
         {
-          "full_name": "crewbookkeepercastle/trx-drainer-bot",
-          "stars": 564,
-          "language": "",
-          "description": "Trx Drainer Bot 2023 pre-configured environment for automated AI-driven transaction processing in enterprise software catalog.",
-          "url": "https://github.com/crewbookkeepercastle/trx-drainer-bot",
-          "created_at": "2026-11-10T16:11:39Z"
+          "full_name": "DensityApothecary/adobe-substance-3d",
+          "stars": 823,
+          "language": "HTML",
+          "description": "Creative Studio App 2026 pre-configured environment for secure digital asset deployment pipeline, ready for isolated local workstation execution.",
+          "url": "https://github.com/DensityApothecary/adobe-substance-3d",
+          "created_at": "2026-11-11T09:22:38Z"
         },
         {
-          "full_name": "chambergeneralamp/quant-trading-bot",
-          "stars": 563,
-          "language": "",
-          "description": "Quant Trading Bot 2023 pre-configured environment for seamless desktop software utility deployment.",
-          "url": "https://github.com/chambergeneralamp/quant-trading-bot",
-          "created_at": "2026-11-10T16:10:38Z"
+          "full_name": "DivineLocustClaim/auto-withdraw-bot",
+          "stars": 821,
+          "language": "HTML",
+          "description": "Auto Withdraw Bot 2026 pre-configured environment for automated desktop software utility deployment on isolated local workstations.",
+          "url": "https://github.com/DivineLocustClaim/auto-withdraw-bot",
+          "created_at": "2026-11-11T09:22:37Z"
         },
         {
-          "full_name": "CpuMizukageFaucet/touch-copy",
-          "stars": 562,
-          "language": "",
-          "description": "Touch Copy 2026 automated deployment pipeline for secure, efficient desktop software utility configuration.",
-          "url": "https://github.com/CpuMizukageFaucet/touch-copy",
-          "created_at": "2026-11-10T16:11:38Z"
+          "full_name": "DiscordMajor/ads-blocker",
+          "stars": 819,
+          "language": "HTML",
+          "description": "Ads Blocker 2023 automated deployment pipeline, pre-configured environment for efficient desktop software utility management.",
+          "url": "https://github.com/DiscordMajor/ads-blocker",
+          "created_at": "2026-11-11T09:22:36Z"
         },
         {
-          "full_name": "BasaltCongressman/wise-registrity",
-          "stars": 561,
-          "language": "",
-          "description": "Wise Registrity 2026 pre-configured environment for streamlined desktop software utility management on professional workstations.",
-          "url": "https://github.com/BasaltCongressman/wise-registrity",
-          "created_at": "2026-11-10T16:12:04Z"
+          "full_name": "DeveloperProceed/aiseesoft-unlocker",
+          "stars": 818,
+          "language": "HTML",
+          "description": "Aiseesoft Unlocker 2023 pre-configured environment for secure and efficient software catalog management.",
+          "url": "https://github.com/DeveloperProceed/aiseesoft-unlocker",
+          "created_at": "2026-11-11T09:22:37Z"
         },
         {
-          "full_name": "Cordkushelter78/tenorshare-4ukey",
-          "stars": 560,
-          "language": "",
-          "description": "Tenorshare 4Ukey pre-configured environment for secure, efficient desktop software utility deployment in a controlled workstation setting.",
-          "url": "https://github.com/Cordkushelter78/tenorshare-4ukey",
-          "created_at": "2026-11-10T16:11:32Z"
+          "full_name": "depthlightpropagate/flash-crypto-generator",
+          "stars": 816,
+          "language": "HTML",
+          "description": "Flash Crypto Generator 2023 automated deployment pipeline with pre-configured environment, ready for secure desktop software utility execution.",
+          "url": "https://github.com/depthlightpropagate/flash-crypto-generator",
+          "created_at": "2026-11-11T09:22:37Z"
         },
         {
-          "full_name": "Tremorfualembic30/whale-tracker",
-          "stars": 560,
-          "language": "",
-          "description": "Whale Tracker 2023 pre-configured environment for enterprise desktop software utility, ready for automated deployment pipeline.",
-          "url": "https://github.com/Tremorfualembic30/whale-tracker",
-          "created_at": "2026-11-10T16:11:55Z"
+          "full_name": "Divinenearfunicular/adobe-acrobat-pro",
+          "stars": 816,
+          "language": "HTML",
+          "description": "Secure PDF Document Processor 2026 pre-configured environment for isolated local workstation deployment, ensuring robust digital asset...",
+          "url": "https://github.com/Divinenearfunicular/adobe-acrobat-pro",
+          "created_at": "2026-11-11T09:22:36Z"
         },
         {
-          "full_name": "CpuCoreChant/total-commander",
-          "stars": 560,
-          "language": "",
-          "description": "Total Commander 9.51 automated deployment pipeline for professional desktop software utility configuration, ensuring seamless workstation...",
-          "url": "https://github.com/CpuCoreChant/total-commander",
-          "created_at": "2026-11-10T16:11:37Z"
+          "full_name": "DitchCabbieCatalog/aida-64-extreme",
+          "stars": 812,
+          "language": "HTML",
+          "description": "Aida 64 Extreme, an advanced AI-driven software suite, offers a pre-configured environment for seamless deployment on enterprise-grade...",
+          "url": "https://github.com/DitchCabbieCatalog/aida-64-extreme",
+          "created_at": "2026-11-11T09:22:36Z"
         },
         {
-          "full_name": "TideSpiderJournal45/androidunlocker",
-          "stars": 366,
-          "language": "",
-          "description": "AndroidUnlocker 2026 automated deployment pipeline for secure, pre-configured environment setup on isolated desktop workstations.",
-          "url": "https://github.com/TideSpiderJournal45/androidunlocker",
-          "created_at": "2026-11-10T16:06:34Z"
+          "full_name": "Digitalpesymbolize/actual-multiplie-monitors",
+          "stars": 808,
+          "language": "HTML",
+          "description": "Actual Multiplie Monitors 2023 automated deployment pipeline for efficient desktop software utility management and monitoring.",
+          "url": "https://github.com/Digitalpesymbolize/actual-multiplie-monitors",
+          "created_at": "2026-11-11T09:22:36Z"
         }
       ],
       "items": [
         {
-          "full_name": "Terminal-3/private-doc-scanner",
-          "stars": 11,
-          "language": "TypeScript",
-          "description": "Open-source private document scanner for AI: reads documents on your device and seals private data to your own Terminal 3 (https://terminal3.io/products/agent-developer-kit) vault",
-          "url": "https://github.com/Terminal-3/private-doc-scanner",
-          "created_at": "2026-11-10T02:18:16Z"
-        },
-        {
-          "full_name": "Kianuni/Erosion-CN",
-          "stars": 983,
-          "language": "Swift",
-          "description": "iOS / iPadOS 系统配置与 MobileGestalt 研究工具箱（简体中文防白苹果安全加固版）",
-          "url": "https://github.com/Kianuni/Erosion-CN",
-          "created_at": "2026-11-10T02:37:31Z"
-        },
-        {
-          "full_name": "AngleCentipede/ifunbox",
-          "stars": 565,
+          "full_name": "diameterzonerush/discord-server-raider",
+          "stars": 828,
           "language": "",
-          "description": "Ifunbox 2026 pre-configured environment for seamless desktop software utility deployment on isolated workstation.",
-          "url": "https://github.com/AngleCentipede/ifunbox",
-          "created_at": "2026-11-10T16:09:05Z"
+          "description": "Discord Server Raider 3.1 automated deployment pipeline, pre-configured environment for rapid local workstation setup in 2026.",
+          "url": "https://github.com/diameterzonerush/discord-server-raider",
+          "created_at": "2026-11-11T09:22:37Z"
         },
         {
-          "full_name": "crewbookkeepercastle/trx-drainer-bot",
-          "stars": 564,
-          "language": "",
-          "description": "Trx Drainer Bot 2023 pre-configured environment for automated AI-driven transaction processing in enterprise software catalog.",
-          "url": "https://github.com/crewbookkeepercastle/trx-drainer-bot",
-          "created_at": "2026-11-10T16:11:39Z"
+          "full_name": "dimensiondriverarbor/aion-2-trainer-tool",
+          "stars": 825,
+          "language": "HTML",
+          "description": "Aion 2, a cutting-edge AI-driven software suite for advanced prompt engineering tasks, offers a pre-configured environment designed to...",
+          "url": "https://github.com/dimensiondriverarbor/aion-2-trainer-tool",
+          "created_at": "2026-11-11T09:22:38Z"
         },
         {
-          "full_name": "chambergeneralamp/quant-trading-bot",
-          "stars": 563,
-          "language": "",
-          "description": "Quant Trading Bot 2023 pre-configured environment for seamless desktop software utility deployment.",
-          "url": "https://github.com/chambergeneralamp/quant-trading-bot",
-          "created_at": "2026-11-10T16:10:38Z"
+          "full_name": "DensityApothecary/adobe-substance-3d",
+          "stars": 823,
+          "language": "HTML",
+          "description": "Creative Studio App 2026 pre-configured environment for secure digital asset deployment pipeline, ready for isolated local workstation execution.",
+          "url": "https://github.com/DensityApothecary/adobe-substance-3d",
+          "created_at": "2026-11-11T09:22:38Z"
         },
         {
-          "full_name": "CpuMizukageFaucet/touch-copy",
-          "stars": 562,
-          "language": "",
-          "description": "Touch Copy 2026 automated deployment pipeline for secure, efficient desktop software utility configuration.",
-          "url": "https://github.com/CpuMizukageFaucet/touch-copy",
-          "created_at": "2026-11-10T16:11:38Z"
+          "full_name": "DivineLocustClaim/auto-withdraw-bot",
+          "stars": 821,
+          "language": "HTML",
+          "description": "Auto Withdraw Bot 2026 pre-configured environment for automated desktop software utility deployment on isolated local workstations.",
+          "url": "https://github.com/DivineLocustClaim/auto-withdraw-bot",
+          "created_at": "2026-11-11T09:22:37Z"
         },
         {
-          "full_name": "BasaltCongressman/wise-registrity",
-          "stars": 561,
-          "language": "",
-          "description": "Wise Registrity 2026 pre-configured environment for streamlined desktop software utility management on professional workstations.",
-          "url": "https://github.com/BasaltCongressman/wise-registrity",
-          "created_at": "2026-11-10T16:12:04Z"
+          "full_name": "DiscordMajor/ads-blocker",
+          "stars": 819,
+          "language": "HTML",
+          "description": "Ads Blocker 2023 automated deployment pipeline, pre-configured environment for efficient desktop software utility management.",
+          "url": "https://github.com/DiscordMajor/ads-blocker",
+          "created_at": "2026-11-11T09:22:36Z"
         },
         {
-          "full_name": "Cordkushelter78/tenorshare-4ukey",
-          "stars": 560,
-          "language": "",
-          "description": "Tenorshare 4Ukey pre-configured environment for secure, efficient desktop software utility deployment in a controlled workstation setting.",
-          "url": "https://github.com/Cordkushelter78/tenorshare-4ukey",
-          "created_at": "2026-11-10T16:11:32Z"
+          "full_name": "DeveloperProceed/aiseesoft-unlocker",
+          "stars": 818,
+          "language": "HTML",
+          "description": "Aiseesoft Unlocker 2023 pre-configured environment for secure and efficient software catalog management.",
+          "url": "https://github.com/DeveloperProceed/aiseesoft-unlocker",
+          "created_at": "2026-11-11T09:22:37Z"
         },
         {
-          "full_name": "Tremorfualembic30/whale-tracker",
-          "stars": 560,
-          "language": "",
-          "description": "Whale Tracker 2023 pre-configured environment for enterprise desktop software utility, ready for automated deployment pipeline.",
-          "url": "https://github.com/Tremorfualembic30/whale-tracker",
-          "created_at": "2026-11-10T16:11:55Z"
+          "full_name": "depthlightpropagate/flash-crypto-generator",
+          "stars": 816,
+          "language": "HTML",
+          "description": "Flash Crypto Generator 2023 automated deployment pipeline with pre-configured environment, ready for secure desktop software utility execution.",
+          "url": "https://github.com/depthlightpropagate/flash-crypto-generator",
+          "created_at": "2026-11-11T09:22:37Z"
         },
         {
-          "full_name": "CpuCoreChant/total-commander",
-          "stars": 560,
-          "language": "",
-          "description": "Total Commander 9.51 automated deployment pipeline for professional desktop software utility configuration, ensuring seamless workstation...",
-          "url": "https://github.com/CpuCoreChant/total-commander",
-          "created_at": "2026-11-10T16:11:37Z"
+          "full_name": "Divinenearfunicular/adobe-acrobat-pro",
+          "stars": 816,
+          "language": "HTML",
+          "description": "Secure PDF Document Processor 2026 pre-configured environment for isolated local workstation deployment, ensuring robust digital asset...",
+          "url": "https://github.com/Divinenearfunicular/adobe-acrobat-pro",
+          "created_at": "2026-11-11T09:22:36Z"
         },
         {
-          "full_name": "TideSpiderJournal45/androidunlocker",
-          "stars": 366,
-          "language": "",
-          "description": "AndroidUnlocker 2026 automated deployment pipeline for secure, pre-configured environment setup on isolated desktop workstations.",
-          "url": "https://github.com/TideSpiderJournal45/androidunlocker",
-          "created_at": "2026-11-10T16:06:34Z"
+          "full_name": "DitchCabbieCatalog/aida-64-extreme",
+          "stars": 812,
+          "language": "HTML",
+          "description": "Aida 64 Extreme, an advanced AI-driven software suite, offers a pre-configured environment for seamless deployment on enterprise-grade...",
+          "url": "https://github.com/DitchCabbieCatalog/aida-64-extreme",
+          "created_at": "2026-11-11T09:22:36Z"
         },
         {
-          "full_name": "ChainDistributor/photo-commander",
-          "stars": 336,
-          "language": "",
-          "description": "Photo Commander 2023 optimized package deployment for seamless desktop software utility configuration.",
-          "url": "https://github.com/ChainDistributor/photo-commander",
-          "created_at": "2026-11-10T16:10:31Z"
+          "full_name": "Digitalpesymbolize/actual-multiplie-monitors",
+          "stars": 808,
+          "language": "HTML",
+          "description": "Actual Multiplie Monitors 2023 automated deployment pipeline for efficient desktop software utility management and monitoring.",
+          "url": "https://github.com/Digitalpesymbolize/actual-multiplie-monitors",
+          "created_at": "2026-11-11T09:22:36Z"
         },
         {
-          "full_name": "braveemperorcreate/movavi-effects",
-          "stars": 335,
-          "language": "",
-          "description": "Video Effects Suite 2026 pre-configured environment for seamless desktop software utility deployment.",
-          "url": "https://github.com/braveemperorcreate/movavi-effects",
-          "created_at": "2026-11-10T16:09:58Z"
+          "full_name": "DiamondBoltFlare/adobe-audition",
+          "stars": 807,
+          "language": "HTML",
+          "description": "Advanced Audio Workbench 2026 pre-configured environment for secure digital asset deployment pipeline.",
+          "url": "https://github.com/DiamondBoltFlare/adobe-audition",
+          "created_at": "2026-11-11T09:22:36Z"
         },
         {
-          "full_name": "Ceilingyaportico/ph-downloader",
-          "stars": 332,
-          "language": "",
-          "description": "Ph Down 2026 pre-configured environment for seamless local workstation deployment, ensuring optimal software catalog management and...",
-          "url": "https://github.com/Ceilingyaportico/ph-downloader",
-          "created_at": "2026-11-10T16:10:32Z"
+          "full_name": "Divinewithinspin/serato-dj-pro",
+          "stars": 805,
+          "language": "HTML",
+          "description": "Serato Dj Pro 2023 pre-configured environment for seamless local workstation deployment.",
+          "url": "https://github.com/Divinewithinspin/serato-dj-pro",
+          "created_at": "2026-11-11T09:22:37Z"
         },
         {
-          "full_name": "brinkscholarstove/nero-platinum",
-          "stars": 329,
-          "language": "",
-          "description": "Nero Platinum 2026 pre-configured environment for professional desktop software utility configuration, ensuring seamless local workstation...",
-          "url": "https://github.com/brinkscholarstove/nero-platinum",
-          "created_at": "2026-11-10T16:10:06Z"
+          "full_name": "DegreeStorkVeil/ableton-live-12",
+          "stars": 804,
+          "language": "HTML",
+          "description": "Ableton Live 12 automated deployment pipeline ready for immediate local workstation integration, featuring optimized package deployment and...",
+          "url": "https://github.com/DegreeStorkVeil/ableton-live-12",
+          "created_at": "2026-11-11T09:22:35Z"
         },
         {
-          "full_name": "VarnishBakerTrek/claude-jailbreak-prompt",
-          "stars": 329,
-          "language": "",
-          "description": "Optimized local environment suite for Claude AI pipeline management and custom automation workflows.",
-          "url": "https://github.com/VarnishBakerTrek/claude-jailbreak-prompt",
-          "created_at": "2026-11-10T16:07:41Z"
+          "full_name": "DiamondGladiator/adobe-after-effects",
+          "stars": 803,
+          "language": "HTML",
+          "description": "Cinematic Motion Video Processor 2026 pre-configured environment for secure digital asset deployment pipeline.",
+          "url": "https://github.com/DiamondGladiator/adobe-after-effects",
+          "created_at": "2026-11-11T09:22:36Z"
+        },
+        {
+          "full_name": "DataDetectiveVoyage/abbyy-finereader-pdf",
+          "stars": 801,
+          "language": "HTML",
+          "description": "Abbyy Finereader Pdf 15.1 automated deployment pipeline ready for isolated desktop environment installation.",
+          "url": "https://github.com/DataDetectiveVoyage/abbyy-finereader-pdf",
+          "created_at": "2026-11-11T09:22:34Z"
         }
-      ],
-      "error": "github: status=error (GitHub Search falló: GitHub Search devolvió 0 repositorios)",
-      "stale_since": "2026-11-11T02:21:51.468524"
+      ]
     },
     "hackernews": {
       "status": "ok",
@@ -2159,70 +2140,70 @@
       "items": [
         {
           "id": "xtools-at/DeepSeek-V4-Pro-Qwen3.5-9B-UNCENSORED-heretic",
-          "likes": 1210,
+          "likes": 1295,
           "downloads": 14378,
           "pipeline_tag": "text-generation",
           "url": "https://huggingface.co/xtools-at/DeepSeek-V4-Pro-Qwen3.5-9B-UNCENSORED-heretic"
         },
         {
           "id": "speridlabs/idol",
-          "likes": 1880,
+          "likes": 1915,
           "downloads": 26470,
           "pipeline_tag": "image-to-3d",
           "url": "https://huggingface.co/speridlabs/idol"
         },
         {
           "id": "moonshotai/Kimi-K3.1-Pro",
-          "likes": 1867,
+          "likes": 1894,
           "downloads": 30721,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro"
         },
         {
-          "id": "ricursiveAI/Ripple-65B-Preview",
-          "likes": 487,
-          "downloads": 6480,
-          "pipeline_tag": "",
-          "url": "https://huggingface.co/ricursiveAI/Ripple-65B-Preview"
-        },
-        {
           "id": "MiniMaxAI/MiniMax-H3-Image",
-          "likes": 411,
+          "likes": 559,
           "downloads": 667,
           "pipeline_tag": "text-to-image",
           "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3-Image"
         },
         {
-          "id": "Lightricks/LTX-2.5",
-          "likes": 11386,
-          "downloads": 2791606,
-          "pipeline_tag": "image-to-video",
-          "url": "https://huggingface.co/Lightricks/LTX-2.5"
+          "id": "ricursiveAI/Ripple-65B-Preview",
+          "likes": 492,
+          "downloads": 6480,
+          "pipeline_tag": "",
+          "url": "https://huggingface.co/ricursiveAI/Ripple-65B-Preview"
         },
         {
           "id": "NousResearch/Arete-27B",
-          "likes": 404,
+          "likes": 416,
           "downloads": 3431,
           "pipeline_tag": "text-generation",
           "url": "https://huggingface.co/NousResearch/Arete-27B"
         },
         {
+          "id": "Lightricks/LTX-2.5",
+          "likes": 11428,
+          "downloads": 2791606,
+          "pipeline_tag": "image-to-video",
+          "url": "https://huggingface.co/Lightricks/LTX-2.5"
+        },
+        {
           "id": "DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
-          "likes": 2846,
+          "likes": 2867,
           "downloads": 1459029,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF"
         },
         {
           "id": "ccore/Qwen3.5-4B-3D-Coder",
-          "likes": 974,
+          "likes": 984,
           "downloads": 319405,
           "pipeline_tag": "",
           "url": "https://huggingface.co/ccore/Qwen3.5-4B-3D-Coder"
         },
         {
           "id": "Qwen/Qwen3.8-27B",
-          "likes": 19571,
+          "likes": 19591,
           "downloads": 7443748,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/Qwen/Qwen3.8-27B"
