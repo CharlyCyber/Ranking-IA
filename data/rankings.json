@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-11T17:42:26.064053",
+  "generated_at": "2026-11-11T23:49:27.585363",
   "sources": {
     "design": {
       "status": "ok",
@@ -34,7 +34,7 @@
         {
           "rank": 4,
           "model": "Claude Fable 5.2",
-          "score": 1359,
+          "score": 1358,
           "prompt_per_m": 8.0,
           "completion_per_m": 40.0,
           "context_length": 1000000,
@@ -51,38 +51,38 @@
         },
         {
           "rank": 6,
+          "model": "Gemini 4 Carbon",
+          "score": 1305,
+          "prompt_per_m": 2.0,
+          "completion_per_m": 10.0,
+          "context_length": 1048576,
+          "is_free": false
+        },
+        {
+          "rank": 7,
           "model": "DeepSeek-V4.1-Flash (1017)",
-          "score": 1301,
+          "score": 1300,
           "prompt_per_m": 0.051,
           "completion_per_m": 0.567,
           "context_length": 1048576,
           "is_free": false
         },
         {
-          "rank": 7,
-          "model": "Gemini 4 Carbon",
-          "score": 1288,
-          "prompt_per_m": 2.0,
-          "completion_per_m": 10.0,
-          "context_length": 1048576,
-          "is_free": false
-        },
-        {
           "rank": 8,
-          "model": "Kimi K3.1 Pro",
-          "score": 1282,
-          "prompt_per_m": 2.0,
-          "completion_per_m": 10.0,
-          "context_length": 1048576,
-          "is_free": false
-        },
-        {
-          "rank": 9,
           "model": "Claude Sonnet 5.5",
           "score": 1282,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1000000,
+          "is_free": false
+        },
+        {
+          "rank": 9,
+          "model": "Kimi K3.1 Pro",
+          "score": 1282,
+          "prompt_per_m": 2.0,
+          "completion_per_m": 10.0,
+          "context_length": 1048576,
           "is_free": false
         },
         {
@@ -93,7 +93,7 @@
         {
           "rank": 11,
           "model": "Inkling 2 Small",
-          "score": 1269,
+          "score": 1268,
           "prompt_per_m": 0.0,
           "completion_per_m": 0.0,
           "context_length": 1048576,
@@ -120,13 +120,13 @@
         },
         {
           "rank": 15,
-          "model": "1454W / 708L 67.3% ±2.0% 2,162 OpenAI",
+          "model": "1455W / 708L 67.3% ±2.0% 2,163 OpenAI",
           "score": 1385
         },
         {
           "rank": 16,
-          "model": "781W / 341L 69.6% ±2.7% 1,122 Anthropic",
-          "score": 1359
+          "model": "879W / 390L 69.3% ±2.5% 1,269 Anthropic",
+          "score": 1358
         },
         {
           "rank": 17,
@@ -135,33 +135,33 @@
         },
         {
           "rank": 18,
-          "model": "137W / 112L 55.0% ±6.2% 249 DeepSeek",
-          "score": 1301
+          "model": "290W / 180L 61.7% ±4.4% 470 Google",
+          "score": 1305
         },
         {
           "rank": 19,
-          "model": "157W / 111L 58.6% ±5.9% 268 Google",
-          "score": 1288
+          "model": "137W / 112L 55.0% ±6.2% 249 DeepSeek",
+          "score": 1300
         },
         {
           "rank": 20,
-          "model": "2200W / 1504L 59.4% ±1.6% 3,704 Moonshot AI",
+          "model": "1490W / 1085L 57.9% ±1.9% 2,575 Anthropic",
           "score": 1282
         },
         {
           "rank": 21,
-          "model": "1487W / 1077L 58.0% ±1.9% 2,564 Anthropic",
+          "model": "2204W / 1506L 59.4% ±1.6% 3,710 Moonshot AI",
           "score": 1282
         },
         {
           "rank": 22,
-          "model": "7273W / 5420L 57.3% ±0.9% 12,693 Meta",
+          "model": "7276W / 5424L 57.3% ±0.9% 12,700 Meta",
           "score": 1276
         },
         {
           "rank": 23,
-          "model": "3392W / 2521L 57.4% ±1.3% 5,913 Thinking Machines",
-          "score": 1269
+          "model": "3393W / 2522L 57.4% ±1.3% 5,915 Thinking Machines",
+          "score": 1268
         },
         {
           "rank": 24,
@@ -170,13 +170,13 @@
         },
         {
           "rank": 25,
-          "model": "1899W / 1362L 58.2% ±1.7% 3,261 Xiaomi",
+          "model": "4321W / 3407L 55.9% ±1.1% 7,728 Anthropic",
           "score": 1264
         },
         {
           "rank": 26,
-          "model": "4318W / 3402L 55.9% ±1.1% 7,720 Anthropic",
-          "score": 1264
+          "model": "1899W / 1362L 58.2% ±1.7% 3,261 Xiaomi",
+          "score": 1263
         }
       ],
       "method": "http"
@@ -1879,7 +1879,7 @@
       "ai": [
         {
           "full_name": "8hjkkwikl8/ai-portfolio",
-          "stars": 36,
+          "stars": 43,
           "language": "Python",
           "description": "三个可运行的 AI 工程项目：可追溯 RAG、提示词评测与受守护的 NL2SQL 分析",
           "url": "https://github.com/8hjkkwikl8/ai-portfolio",
@@ -1905,7 +1905,7 @@
       "general": [
         {
           "full_name": "setyamickala/fastmint-fcfs-agentic",
-          "stars": 207,
+          "stars": 213,
           "language": "JavaScript",
           "description": "FCFS mint di BNB Smart Chain lewat Binance Agentic Wallet, masuk blok ±2 detik setelah jam buka.",
           "url": "https://github.com/setyamickala/fastmint-fcfs-agentic",
@@ -1929,7 +1929,7 @@
         },
         {
           "full_name": "byizmysh/IZCIVSwitch",
-          "stars": 76,
+          "stars": 89,
           "language": "JavaScript",
           "description": "Tool for accessing the Nintendo Switch 2 file system through Civilization VII.",
           "url": "https://github.com/byizmysh/IZCIVSwitch",
@@ -1937,11 +1937,35 @@
         },
         {
           "full_name": "snicolast/SegaRally2Native",
-          "stars": 72,
+          "stars": 86,
           "language": "C++",
           "description": "Sega Rally 2 - PC Port",
           "url": "https://github.com/snicolast/SegaRally2Native",
           "created_at": "2026-11-11T04:43:58Z"
+        },
+        {
+          "full_name": "Harbornuembody/HWmonitor-software",
+          "stars": 81,
+          "language": "",
+          "description": "HWmonitor is a lightweight hardware monitoring software designed to track system performance and provide essential hardware information through a simple and intuitive interface.",
+          "url": "https://github.com/Harbornuembody/HWmonitor-software",
+          "created_at": "2026-11-11T20:55:08Z"
+        },
+        {
+          "full_name": "FrostPillage/CapCut-Pro-Version",
+          "stars": 75,
+          "language": "HTML",
+          "description": "CapCut Pro for Windows — free professional video editor with AI auto captions, effects, keyframes, transitions and high-quality 4K export for content creators.",
+          "url": "https://github.com/FrostPillage/CapCut-Pro-Version",
+          "created_at": "2026-11-11T20:52:29Z"
+        },
+        {
+          "full_name": "abdenourgnx/re-kindle",
+          "stars": 69,
+          "language": "Shell",
+          "description": "",
+          "url": "https://github.com/abdenourgnx/re-kindle",
+          "created_at": "2026-11-11T08:56:37Z"
         },
         {
           "full_name": "Harmonicdellafitting/minecraft-jenny-mod-download",
@@ -1952,42 +1976,18 @@
           "created_at": "2026-11-11T13:56:20Z"
         },
         {
-          "full_name": "SteelMillerBar/auto-twitch-drops-claim",
-          "stars": 57,
+          "full_name": "SsKanDon/blender-ai-mcp-addon",
+          "stars": 66,
           "language": "",
-          "description": "Auto-farm Twitch drops in the background. Claim rewards, switch channels, and mine timed drops with zero video download. Lightweight AFK miner for Windows, macOS, and Linux.",
-          "url": "https://github.com/SteelMillerBar/auto-twitch-drops-claim",
-          "created_at": "2026-11-11T02:57:57Z"
-        },
-        {
-          "full_name": "wquguru/fable52-fps-repro",
-          "stars": 52,
-          "language": "HTML",
-          "description": "Fable 5.2 一句话生成 3D FPS 复现：4 个单文件演示、提示词与缓存账单 / One-prompt 3D FPS repro with demos, prompts & cost data",
-          "url": "https://github.com/wquguru/fable52-fps-repro",
-          "created_at": "2026-11-11T04:58:58Z"
-        },
-        {
-          "full_name": "ferhatcore/claude-codex-project-os",
-          "stars": 47,
-          "language": "JavaScript",
-          "description": "Project management for Claude Code and Codex with shared task files, developer and QA roles, and human approvals.",
-          "url": "https://github.com/ferhatcore/claude-codex-project-os",
-          "created_at": "2026-11-11T11:15:13Z"
-        },
-        {
-          "full_name": "smm-gg/smm-panel-api",
-          "stars": 46,
-          "language": "PHP",
-          "description": "SMM panel API client for PHP, Python & Node.js: resell 5,900+ Instagram, TikTok, YouTube and Telegram services from your own site, bot or panel.",
-          "url": "https://github.com/smm-gg/smm-panel-api",
-          "created_at": "2026-11-11T06:09:51Z"
+          "description": "AI assistant and MCP server for Blender: visual chat, scene tools, multi-agent workflows. Works with ChatGPT/GPT, Claude, Gemini, Ollama, OpenCode. Blender AI addon, copilot for 3D, bpy Python scripting, MCP integration.",
+          "url": "https://github.com/SsKanDon/blender-ai-mcp-addon",
+          "created_at": "2026-11-11T17:24:32Z"
         }
       ],
       "items": [
         {
           "full_name": "8hjkkwikl8/ai-portfolio",
-          "stars": 36,
+          "stars": 43,
           "language": "Python",
           "description": "三个可运行的 AI 工程项目：可追溯 RAG、提示词评测与受守护的 NL2SQL 分析",
           "url": "https://github.com/8hjkkwikl8/ai-portfolio",
@@ -2011,7 +2011,7 @@
         },
         {
           "full_name": "setyamickala/fastmint-fcfs-agentic",
-          "stars": 207,
+          "stars": 213,
           "language": "JavaScript",
           "description": "FCFS mint di BNB Smart Chain lewat Binance Agentic Wallet, masuk blok ±2 detik setelah jam buka.",
           "url": "https://github.com/setyamickala/fastmint-fcfs-agentic",
@@ -2035,7 +2035,7 @@
         },
         {
           "full_name": "byizmysh/IZCIVSwitch",
-          "stars": 76,
+          "stars": 89,
           "language": "JavaScript",
           "description": "Tool for accessing the Nintendo Switch 2 file system through Civilization VII.",
           "url": "https://github.com/byizmysh/IZCIVSwitch",
@@ -2043,11 +2043,35 @@
         },
         {
           "full_name": "snicolast/SegaRally2Native",
-          "stars": 72,
+          "stars": 86,
           "language": "C++",
           "description": "Sega Rally 2 - PC Port",
           "url": "https://github.com/snicolast/SegaRally2Native",
           "created_at": "2026-11-11T04:43:58Z"
+        },
+        {
+          "full_name": "Harbornuembody/HWmonitor-software",
+          "stars": 81,
+          "language": "",
+          "description": "HWmonitor is a lightweight hardware monitoring software designed to track system performance and provide essential hardware information through a simple and intuitive interface.",
+          "url": "https://github.com/Harbornuembody/HWmonitor-software",
+          "created_at": "2026-11-11T20:55:08Z"
+        },
+        {
+          "full_name": "FrostPillage/CapCut-Pro-Version",
+          "stars": 75,
+          "language": "HTML",
+          "description": "CapCut Pro for Windows — free professional video editor with AI auto captions, effects, keyframes, transitions and high-quality 4K export for content creators.",
+          "url": "https://github.com/FrostPillage/CapCut-Pro-Version",
+          "created_at": "2026-11-11T20:52:29Z"
+        },
+        {
+          "full_name": "abdenourgnx/re-kindle",
+          "stars": 69,
+          "language": "Shell",
+          "description": "",
+          "url": "https://github.com/abdenourgnx/re-kindle",
+          "created_at": "2026-11-11T08:56:37Z"
         },
         {
           "full_name": "Harmonicdellafitting/minecraft-jenny-mod-download",
@@ -2058,68 +2082,52 @@
           "created_at": "2026-11-11T13:56:20Z"
         },
         {
-          "full_name": "SteelMillerBar/auto-twitch-drops-claim",
-          "stars": 57,
+          "full_name": "SsKanDon/blender-ai-mcp-addon",
+          "stars": 66,
           "language": "",
-          "description": "Auto-farm Twitch drops in the background. Claim rewards, switch channels, and mine timed drops with zero video download. Lightweight AFK miner for Windows, macOS, and Linux.",
-          "url": "https://github.com/SteelMillerBar/auto-twitch-drops-claim",
-          "created_at": "2026-11-11T02:57:57Z"
+          "description": "AI assistant and MCP server for Blender: visual chat, scene tools, multi-agent workflows. Works with ChatGPT/GPT, Claude, Gemini, Ollama, OpenCode. Blender AI addon, copilot for 3D, bpy Python scripting, MCP integration.",
+          "url": "https://github.com/SsKanDon/blender-ai-mcp-addon",
+          "created_at": "2026-11-11T17:24:32Z"
         },
         {
-          "full_name": "wquguru/fable52-fps-repro",
-          "stars": 52,
-          "language": "HTML",
-          "description": "Fable 5.2 一句话生成 3D FPS 复现：4 个单文件演示、提示词与缓存账单 / One-prompt 3D FPS repro with demos, prompts & cost data",
-          "url": "https://github.com/wquguru/fable52-fps-repro",
-          "created_at": "2026-11-11T04:58:58Z"
+          "full_name": "SsKanDon/blender-unreal-asset-bridge",
+          "stars": 63,
+          "language": "",
+          "description": "An AI-assisted asset bridge from Blender to Unreal Engine — batch-export static and skeletal meshes, animations, collisions, sockets and cameras into a UE-ready folder tree, rebuild everything with generated import scripts, and let the built-in AI assistant take the routine off y",
+          "url": "https://github.com/SsKanDon/blender-unreal-asset-bridge",
+          "created_at": "2026-11-11T18:36:45Z"
         },
         {
           "full_name": "ferhatcore/claude-codex-project-os",
-          "stars": 47,
+          "stars": 59,
           "language": "JavaScript",
           "description": "Project management for Claude Code and Codex with shared task files, developer and QA roles, and human approvals.",
           "url": "https://github.com/ferhatcore/claude-codex-project-os",
           "created_at": "2026-11-11T11:15:13Z"
         },
         {
-          "full_name": "smm-gg/smm-panel-api",
-          "stars": 46,
-          "language": "PHP",
-          "description": "SMM panel API client for PHP, Python & Node.js: resell 5,900+ Instagram, TikTok, YouTube and Telegram services from your own site, bot or panel.",
-          "url": "https://github.com/smm-gg/smm-panel-api",
-          "created_at": "2026-11-11T06:09:51Z"
+          "full_name": "linknimiball1974/ai-texture-forge",
+          "stars": 59,
+          "language": "",
+          "description": "An AI-powered texture forge for Blender — turn text prompts into seamless PBR materials, concept art and scene-wide projections with local or cloud diffusion models, straight inside the 3D viewport on Windows. · dream textures · dream textures blender · dream textures addon · dre",
+          "url": "https://github.com/linknimiball1974/ai-texture-forge",
+          "created_at": "2026-11-11T19:09:18Z"
         },
         {
-          "full_name": "abdenourgnx/re-kindle",
-          "stars": 45,
-          "language": "Shell",
-          "description": "",
-          "url": "https://github.com/abdenourgnx/re-kindle",
-          "created_at": "2026-11-11T08:56:37Z"
+          "full_name": "av/safe-sand",
+          "stars": 57,
+          "language": "JavaScript",
+          "description": "Hyper-realistic sand on your phone screen (WebGL2)",
+          "url": "https://github.com/av/safe-sand",
+          "created_at": "2026-11-11T11:17:23Z"
         },
         {
-          "full_name": "c6lang/c6",
-          "stars": 35,
-          "language": "C",
-          "description": "基于 TinyCC 的 C 语言扩展编译器（c6）：defer/err 错误处理、async/await 协程、module/import、interface、切片、元组、泛型；扩展只在 .c6 文件生效，.c 行为与上游 TCC 完全一致。",
-          "url": "https://github.com/c6lang/c6",
-          "created_at": "2026-11-11T04:26:35Z"
-        },
-        {
-          "full_name": "DensityApothecary/adobe-substance-3d",
-          "stars": 32,
-          "language": "HTML",
-          "description": "Creative Studio App 2026 pre-configured environment for secure digital asset deployment pipeline, ready for isolated local workstation execution.",
-          "url": "https://github.com/DensityApothecary/adobe-substance-3d",
-          "created_at": "2026-11-11T09:22:38Z"
-        },
-        {
-          "full_name": "kate-land/ga100vfi",
-          "stars": 31,
-          "language": "C",
-          "description": "GA100 voltage glitch resources",
-          "url": "https://github.com/kate-land/ga100vfi",
-          "created_at": "2026-11-11T00:17:23Z"
+          "full_name": "Stitchnocommemorate/Rob-Run-Mod",
+          "stars": 57,
+          "language": "",
+          "description": "Rob Run Mod: aim presets, hack, cheats, money, inf money, fly, cheat, free, overlays, loot filters, radar and handling for Rob Run ",
+          "url": "https://github.com/Stitchnocommemorate/Rob-Run-Mod",
+          "created_at": "2026-11-11T13:19:05Z"
         }
       ]
     },
@@ -2181,73 +2189,73 @@
       "items": [
         {
           "id": "xtools-at/DeepSeek-V4-Pro-Qwen3.5-9B-UNCENSORED-heretic",
-          "likes": 2046,
+          "likes": 2970,
           "downloads": 16693,
           "pipeline_tag": "text-generation",
           "url": "https://huggingface.co/xtools-at/DeepSeek-V4-Pro-Qwen3.5-9B-UNCENSORED-heretic"
         },
         {
-          "id": "speridlabs/idol",
-          "likes": 1958,
-          "downloads": 28250,
-          "pipeline_tag": "image-to-3d",
-          "url": "https://huggingface.co/speridlabs/idol"
-        },
-        {
           "id": "MiniMaxAI/MiniMax-H3-Image",
-          "likes": 649,
+          "likes": 695,
           "downloads": 142989,
           "pipeline_tag": "text-to-image",
           "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3-Image"
         },
         {
-          "id": "moonshotai/Kimi-K3.1-Pro",
-          "likes": 1912,
-          "downloads": 33617,
-          "pipeline_tag": "image-text-to-text",
-          "url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro"
-        },
-        {
-          "id": "ricursiveAI/Ripple-65B-Preview",
-          "likes": 506,
-          "downloads": 7112,
-          "pipeline_tag": "",
-          "url": "https://huggingface.co/ricursiveAI/Ripple-65B-Preview"
-        },
-        {
-          "id": "Lightricks/LTX-2.5",
-          "likes": 11478,
-          "downloads": 2848771,
-          "pipeline_tag": "image-to-video",
-          "url": "https://huggingface.co/Lightricks/LTX-2.5"
+          "id": "speridlabs/idol",
+          "likes": 2143,
+          "downloads": 28250,
+          "pipeline_tag": "image-to-3d",
+          "url": "https://huggingface.co/speridlabs/idol"
         },
         {
           "id": "NousResearch/Arete-27B",
-          "likes": 422,
+          "likes": 434,
           "downloads": 4023,
           "pipeline_tag": "text-generation",
           "url": "https://huggingface.co/NousResearch/Arete-27B"
         },
         {
+          "id": "moonshotai/Kimi-K3.1-Pro",
+          "likes": 1934,
+          "downloads": 33617,
+          "pipeline_tag": "image-text-to-text",
+          "url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro"
+        },
+        {
+          "id": "Lightricks/LTX-2.5",
+          "likes": 11509,
+          "downloads": 2848771,
+          "pipeline_tag": "image-to-video",
+          "url": "https://huggingface.co/Lightricks/LTX-2.5"
+        },
+        {
+          "id": "ricursiveAI/Ripple-65B-Preview",
+          "likes": 515,
+          "downloads": 7112,
+          "pipeline_tag": "",
+          "url": "https://huggingface.co/ricursiveAI/Ripple-65B-Preview"
+        },
+        {
           "id": "DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
-          "likes": 2890,
+          "likes": 2903,
           "downloads": 1532273,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF"
         },
         {
-          "id": "ccore/Qwen3.5-4B-3D-Coder",
-          "likes": 1004,
-          "downloads": 344727,
-          "pipeline_tag": "",
-          "url": "https://huggingface.co/ccore/Qwen3.5-4B-3D-Coder"
-        },
-        {
           "id": "Qwen/Qwen3.8-27B",
-          "likes": 19612,
+          "likes": 19634,
           "downloads": 7232703,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/Qwen/Qwen3.8-27B"
+        },
+        {
+          "id": "ccore/Qwen3.5-4B-3D-Coder",
+          "likes": 1016,
+          "downloads": 344727,
+          "pipeline_tag": "",
+          "url": "https://huggingface.co/ccore/Qwen3.5-4B-3D-Coder"
         }
       ]
     }
