@@ -1,6 +1,186 @@
 {
-  "generated_at": "2026-11-10T22:01:38.144754",
+  "generated_at": "2026-11-11T02:21:51.468524",
   "sources": {
+    "design": {
+      "status": "ok",
+      "models": [
+        {
+          "rank": 1,
+          "model": "Claude Opus 5.5 (high)",
+          "score": 1442,
+          "prompt_per_m": 4.0,
+          "completion_per_m": 20.0,
+          "context_length": 1000000,
+          "is_free": false
+        },
+        {
+          "rank": 2,
+          "model": "GPT-6.1 Sol (max)",
+          "score": 1400,
+          "prompt_per_m": 2.0,
+          "completion_per_m": 10.0,
+          "context_length": 1050000,
+          "is_free": false
+        },
+        {
+          "rank": 3,
+          "model": "GPT-6 Astra (max)",
+          "score": 1387,
+          "prompt_per_m": 10.0,
+          "completion_per_m": 50.0,
+          "context_length": 1050000,
+          "is_free": false
+        },
+        {
+          "rank": 4,
+          "model": "Claude Fable 5.2",
+          "score": 1355,
+          "prompt_per_m": 8.0,
+          "completion_per_m": 40.0,
+          "context_length": 1000000,
+          "is_free": false
+        },
+        {
+          "rank": 5,
+          "model": "Claude Fable 5.1",
+          "score": 1329,
+          "prompt_per_m": 10.0,
+          "completion_per_m": 50.0,
+          "context_length": 1000000,
+          "is_free": false
+        },
+        {
+          "rank": 6,
+          "model": "DeepSeek-V4.1-Flash (1017)",
+          "score": 1302,
+          "prompt_per_m": 0.051,
+          "completion_per_m": 0.567,
+          "context_length": 1048576,
+          "is_free": false
+        },
+        {
+          "rank": 7,
+          "model": "Kimi K3.1 Pro",
+          "score": 1283,
+          "prompt_per_m": 2.0,
+          "completion_per_m": 10.0,
+          "context_length": 1048576,
+          "is_free": false
+        },
+        {
+          "rank": 8,
+          "model": "Claude Sonnet 5.5",
+          "score": 1283,
+          "prompt_per_m": 2.0,
+          "completion_per_m": 10.0,
+          "context_length": 1000000,
+          "is_free": false
+        },
+        {
+          "rank": 9,
+          "model": "Muse Spark 1.3 Max",
+          "score": 1277
+        },
+        {
+          "rank": 10,
+          "model": "Inkling 2 Small",
+          "score": 1270,
+          "prompt_per_m": 0.0,
+          "completion_per_m": 0.0,
+          "context_length": 1048576,
+          "is_free": true
+        },
+        {
+          "rank": 11,
+          "model": "Claude Fable 5",
+          "score": 1268,
+          "prompt_per_m": 10.0,
+          "completion_per_m": 50.0,
+          "context_length": 1000000,
+          "is_free": false
+        },
+        {
+          "rank": 12,
+          "model": "Gemini 4 Argon",
+          "score": 1266,
+          "prompt_per_m": 2.0,
+          "completion_per_m": 10.0,
+          "context_length": 1048576,
+          "is_free": false
+        },
+        {
+          "rank": 13,
+          "model": "1276W / 472L 73.0% ±2.1% 1,748 Anthropic",
+          "score": 1442
+        },
+        {
+          "rank": 14,
+          "model": "584W / 347L 62.7% ±3.1% 931 OpenAI",
+          "score": 1400
+        },
+        {
+          "rank": 15,
+          "model": "1451W / 705L 67.3% ±2.0% 2,156 OpenAI",
+          "score": 1387
+        },
+        {
+          "rank": 16,
+          "model": "534W / 238L 69.2% ±3.3% 772 Anthropic",
+          "score": 1355
+        },
+        {
+          "rank": 17,
+          "model": "2827W / 1918L 59.6% ±1.4% 4,745 Anthropic",
+          "score": 1329
+        },
+        {
+          "rank": 18,
+          "model": "137W / 112L 55.0% ±6.2% 249 DeepSeek",
+          "score": 1302
+        },
+        {
+          "rank": 19,
+          "model": "2193W / 1499L 59.4% ±1.6% 3,692 Moonshot AI",
+          "score": 1283
+        },
+        {
+          "rank": 20,
+          "model": "1478W / 1070L 58.0% ±1.9% 2,548 Anthropic",
+          "score": 1283
+        },
+        {
+          "rank": 21,
+          "model": "7263W / 5411L 57.3% ±0.9% 12,674 Meta",
+          "score": 1277
+        },
+        {
+          "rank": 22,
+          "model": "3389W / 2517L 57.4% ±1.3% 5,906 Thinking Machines",
+          "score": 1270
+        },
+        {
+          "rank": 23,
+          "model": "7899W / 5173L 60.4% ±0.8% 13,072 Anthropic",
+          "score": 1268
+        },
+        {
+          "rank": 24,
+          "model": "512W / 671L 43.3% ±2.8% 1,183 Google",
+          "score": 1266
+        },
+        {
+          "rank": 25,
+          "model": "1899W / 1362L 58.2% ±1.7% 3,261 Xiaomi",
+          "score": 1265
+        },
+        {
+          "rank": 26,
+          "model": "4312W / 3398L 55.9% ±1.1% 7,710 Anthropic",
+          "score": 1265
+        }
+      ],
+      "method": "http"
+    },
     "arena": {
       "status": "ok",
       "models": [
@@ -1368,160 +1548,8 @@
       ],
       "method": "api"
     },
-    "design": {
-      "status": "ok",
-      "models": [
-        {
-          "rank": 1,
-          "model": "Claude Opus 5.5 (high)",
-          "score": 1459,
-          "win_rate_pct": 74.0,
-          "prompt_per_m": 4.0,
-          "completion_per_m": 20.0,
-          "context_length": 1000000,
-          "is_free": false
-        },
-        {
-          "rank": 2,
-          "model": "GPT-6.1 Sol (max)",
-          "score": 1423,
-          "win_rate_pct": 63.9,
-          "prompt_per_m": 2.0,
-          "completion_per_m": 10.0,
-          "context_length": 1050000,
-          "is_free": false
-        },
-        {
-          "rank": 3,
-          "model": "GPT-6 Astra (max)",
-          "score": 1391,
-          "win_rate_pct": 67.3,
-          "prompt_per_m": 10.0,
-          "completion_per_m": 50.0,
-          "context_length": 1050000,
-          "is_free": false
-        },
-        {
-          "rank": 4,
-          "model": "Claude Fable 5.2",
-          "score": 1347,
-          "win_rate_pct": 68.5,
-          "prompt_per_m": 8.0,
-          "completion_per_m": 40.0,
-          "context_length": 1000000,
-          "is_free": false
-        },
-        {
-          "rank": 5,
-          "model": "Claude Fable 5.1",
-          "score": 1329,
-          "win_rate_pct": 59.6,
-          "prompt_per_m": 10.0,
-          "completion_per_m": 50.0,
-          "context_length": 1000000,
-          "is_free": false
-        },
-        {
-          "rank": 6,
-          "model": "DeepSeek-V4.1-Flash (1017)",
-          "score": 1301,
-          "win_rate_pct": 55.0,
-          "prompt_per_m": 0.3,
-          "completion_per_m": 1.2,
-          "context_length": 1048576,
-          "is_free": false
-        },
-        {
-          "rank": 7,
-          "model": "Kimi K3.1 Pro",
-          "score": 1281,
-          "win_rate_pct": 59.6,
-          "prompt_per_m": 2.0,
-          "completion_per_m": 10.0,
-          "context_length": 1048576,
-          "is_free": false
-        },
-        {
-          "rank": 8,
-          "model": "Claude Sonnet 5.5",
-          "score": 1280,
-          "win_rate_pct": 58.1,
-          "prompt_per_m": 2.0,
-          "completion_per_m": 10.0,
-          "context_length": 1000000,
-          "is_free": false
-        },
-        {
-          "rank": 9,
-          "model": "Gemini 4 Argon",
-          "score": 1278,
-          "win_rate_pct": 43.9,
-          "prompt_per_m": 2.0,
-          "completion_per_m": 10.0,
-          "context_length": 1048576,
-          "is_free": false
-        },
-        {
-          "rank": 10,
-          "model": "Muse Spark 1.3 Max",
-          "score": 1275,
-          "win_rate_pct": 57.3
-        },
-        {
-          "rank": 11,
-          "model": "Inkling 2 Small",
-          "score": 1269,
-          "win_rate_pct": 57.4,
-          "prompt_per_m": 0.0,
-          "completion_per_m": 0.0,
-          "context_length": 1048576,
-          "is_free": true
-        },
-        {
-          "rank": 12,
-          "model": "Claude Fable 5",
-          "score": 1266,
-          "win_rate_pct": 60.4,
-          "prompt_per_m": 10.0,
-          "completion_per_m": 50.0,
-          "context_length": 1000000,
-          "is_free": false
-        },
-        {
-          "rank": 13,
-          "model": "MiMo-V2.6-Pro",
-          "score": 1263,
-          "win_rate_pct": 58.2,
-          "prompt_per_m": 0.435,
-          "completion_per_m": 0.87,
-          "context_length": 1050000,
-          "is_free": false
-        },
-        {
-          "rank": 14,
-          "model": "Claude Opus 5",
-          "score": 1263,
-          "win_rate_pct": 56.0,
-          "prompt_per_m": 5.0,
-          "completion_per_m": 25.0,
-          "context_length": 1000000,
-          "is_free": false
-        },
-        {
-          "rank": 15,
-          "model": "Kimi K3",
-          "score": 1254,
-          "win_rate_pct": 56.0,
-          "prompt_per_m": 0.192,
-          "completion_per_m": 16.0,
-          "context_length": 1048576,
-          "is_free": false
-        }
-      ],
-      "method": "page"
-    },
     "openrouter": {
-      "status": "ok",
+      "status": "stale",
       "models": [
         {
           "rank": 1,
@@ -1841,10 +1869,12 @@
           "is_free": false,
           "created": 1794009477
         }
-      ]
+      ],
+      "error": "openrouter: status=error (OpenRouter: solo 0 filas parseadas)",
+      "stale_since": "2026-11-11T02:21:51.468524"
     },
     "github": {
-      "status": "ok",
+      "status": "stale",
       "since": "2026-11-09",
       "ai": [
         {
@@ -2067,7 +2097,9 @@
           "url": "https://github.com/VarnishBakerTrek/claude-jailbreak-prompt",
           "created_at": "2026-11-10T16:07:41Z"
         }
-      ]
+      ],
+      "error": "github: status=error (GitHub Search falló: GitHub Search devolvió 0 repositorios)",
+      "stale_since": "2026-11-11T02:21:51.468524"
     },
     "hackernews": {
       "status": "ok",
@@ -2126,71 +2158,71 @@
       "status": "ok",
       "items": [
         {
-          "id": "speridlabs/idol",
-          "likes": 1853,
-          "downloads": 26470,
-          "pipeline_tag": "image-to-3d",
-          "url": "https://huggingface.co/speridlabs/idol"
-        },
-        {
           "id": "xtools-at/DeepSeek-V4-Pro-Qwen3.5-9B-UNCENSORED-heretic",
-          "likes": 1177,
+          "likes": 1210,
           "downloads": 14378,
           "pipeline_tag": "text-generation",
           "url": "https://huggingface.co/xtools-at/DeepSeek-V4-Pro-Qwen3.5-9B-UNCENSORED-heretic"
         },
         {
+          "id": "speridlabs/idol",
+          "likes": 1880,
+          "downloads": 26470,
+          "pipeline_tag": "image-to-3d",
+          "url": "https://huggingface.co/speridlabs/idol"
+        },
+        {
           "id": "moonshotai/Kimi-K3.1-Pro",
-          "likes": 1864,
+          "likes": 1867,
           "downloads": 30721,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro"
         },
         {
           "id": "ricursiveAI/Ripple-65B-Preview",
-          "likes": 482,
+          "likes": 487,
           "downloads": 6480,
           "pipeline_tag": "",
           "url": "https://huggingface.co/ricursiveAI/Ripple-65B-Preview"
         },
         {
+          "id": "MiniMaxAI/MiniMax-H3-Image",
+          "likes": 411,
+          "downloads": 667,
+          "pipeline_tag": "text-to-image",
+          "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3-Image"
+        },
+        {
           "id": "Lightricks/LTX-2.5",
-          "likes": 11366,
+          "likes": 11386,
           "downloads": 2791606,
           "pipeline_tag": "image-to-video",
           "url": "https://huggingface.co/Lightricks/LTX-2.5"
         },
         {
           "id": "NousResearch/Arete-27B",
-          "likes": 397,
+          "likes": 404,
           "downloads": 3431,
           "pipeline_tag": "text-generation",
           "url": "https://huggingface.co/NousResearch/Arete-27B"
         },
         {
           "id": "DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
-          "likes": 2833,
+          "likes": 2846,
           "downloads": 1459029,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF"
         },
         {
-          "id": "MiniMaxAI/MiniMax-H3-Image",
-          "likes": 338,
-          "downloads": 667,
-          "pipeline_tag": "text-to-image",
-          "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3-Image"
-        },
-        {
           "id": "ccore/Qwen3.5-4B-3D-Coder",
-          "likes": 971,
+          "likes": 974,
           "downloads": 319405,
           "pipeline_tag": "",
           "url": "https://huggingface.co/ccore/Qwen3.5-4B-3D-Coder"
         },
         {
           "id": "Qwen/Qwen3.8-27B",
-          "likes": 19564,
+          "likes": 19571,
           "downloads": 7443748,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/Qwen/Qwen3.8-27B"
