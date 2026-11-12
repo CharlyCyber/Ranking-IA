@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-12T13:26:08.708255",
+  "generated_at": "2026-11-12T21:14:55.574765",
   "sources": {
     "design": {
       "status": "ok",
@@ -7,7 +7,7 @@
         {
           "rank": 1,
           "model": "Claude Opus 5.5 (high)",
-          "score": 1440,
+          "score": 1442,
           "prompt_per_m": 4.0,
           "completion_per_m": 20.0,
           "context_length": 1000000,
@@ -16,7 +16,7 @@
         {
           "rank": 2,
           "model": "GPT-6.1 Sol (max)",
-          "score": 1398,
+          "score": 1399,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1050000,
@@ -52,7 +52,7 @@
         {
           "rank": 6,
           "model": "Gemini 4 Carbon",
-          "score": 1302,
+          "score": 1307,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1048576,
@@ -61,9 +61,9 @@
         {
           "rank": 7,
           "model": "DeepSeek-V4.1-Flash (1017)",
-          "score": 1300,
-          "prompt_per_m": 0.022,
-          "completion_per_m": 0.4,
+          "score": 1301,
+          "prompt_per_m": 0.3,
+          "completion_per_m": 1.2,
           "context_length": 1048576,
           "is_free": false
         },
@@ -79,7 +79,7 @@
         {
           "rank": 9,
           "model": "Claude Sonnet 5.5",
-          "score": 1281,
+          "score": 1280,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1000000,
@@ -88,7 +88,7 @@
         {
           "rank": 10,
           "model": "Muse Spark 1.3 Max",
-          "score": 1276
+          "score": 1275
         },
         {
           "rank": 11,
@@ -102,7 +102,7 @@
         {
           "rank": 12,
           "model": "Claude Fable 5",
-          "score": 1267,
+          "score": 1266,
           "prompt_per_m": 10.0,
           "completion_per_m": 50.0,
           "context_length": 1000000,
@@ -111,21 +111,21 @@
         {
           "rank": 13,
           "model": "1276W / 472L 73.0% ±2.1% 1,748 Anthropic",
-          "score": 1440
+          "score": 1442
         },
         {
           "rank": 14,
           "model": "584W / 347L 62.7% ±3.1% 931 OpenAI",
-          "score": 1398
+          "score": 1399
         },
         {
           "rank": 15,
-          "model": "1459W / 711L 67.2% ±2.0% 2,170 OpenAI",
+          "model": "1462W / 714L 67.2% ±2.0% 2,176 OpenAI",
           "score": 1385
         },
         {
           "rank": 16,
-          "model": "930W / 426L 68.6% ±2.5% 1,356 Anthropic",
+          "model": "957W / 442L 68.4% ±2.4% 1,399 Anthropic",
           "score": 1353
         },
         {
@@ -135,47 +135,47 @@
         },
         {
           "rank": 18,
-          "model": "384W / 239L 61.6% ±3.8% 623 Google",
-          "score": 1302
+          "model": "422W / 257L 62.1% ±3.6% 679 Google",
+          "score": 1307
         },
         {
           "rank": 19,
           "model": "137W / 112L 55.0% ±6.2% 249 DeepSeek",
-          "score": 1300
+          "score": 1301
         },
         {
           "rank": 20,
-          "model": "2224W / 1519L 59.4% ±1.6% 3,743 Moonshot AI",
+          "model": "2242W / 1531L 59.4% ±1.6% 3,773 Moonshot AI",
           "score": 1283
         },
         {
           "rank": 21,
-          "model": "1510W / 1100L 57.9% ±1.9% 2,610 Anthropic",
-          "score": 1281
+          "model": "1534W / 1122L 57.8% ±1.9% 2,656 Anthropic",
+          "score": 1280
         },
         {
           "rank": 22,
-          "model": "7291W / 5439L 57.3% ±0.9% 12,730 Meta",
-          "score": 1276
+          "model": "7305W / 5448L 57.3% ±0.9% 12,753 Meta",
+          "score": 1275
         },
         {
           "rank": 23,
-          "model": "3400W / 2526L 57.4% ±1.3% 5,926 Thinking Machines",
+          "model": "3406W / 2528L 57.4% ±1.3% 5,934 Thinking Machines",
           "score": 1269
         },
         {
           "rank": 24,
           "model": "8057W / 5249L 60.5% ±0.8% 13,306 Anthropic",
-          "score": 1267
+          "score": 1266
         },
         {
           "rank": 25,
-          "model": "1899W / 1362L 58.2% ±1.7% 3,261 Xiaomi",
+          "model": "4386W / 3433L 56.1% ±1.1% 7,819 Anthropic",
           "score": 1264
         },
         {
           "rank": 26,
-          "model": "4375W / 3427L 56.1% ±1.1% 7,802 Anthropic",
+          "model": "587W / 750L 43.9% ±2.7% 1,337 Google",
           "score": 1264
         }
       ],
@@ -1875,8 +1875,49 @@
     "github": {
       "status": "ok",
       "since": "2026-11-11",
-      "ai": [],
+      "ai": [
+        {
+          "full_name": "FlameProudspark/windows-tweak-checker-rpocket-team",
+          "stars": 50,
+          "language": "HTML",
+          "description": "",
+          "url": "https://github.com/FlameProudspark/windows-tweak-checker-rpocket-team",
+          "created_at": "2026-11-12T17:00:49Z"
+        }
+      ],
       "general": [
+        {
+          "full_name": "AIRzZ90/study-materials-fork",
+          "stars": 312,
+          "language": "TypeScript",
+          "description": "A cross-platform Tauri 2 interface and interaction practice project",
+          "url": "https://github.com/AIRzZ90/study-materials-fork",
+          "created_at": "2026-11-12T10:52:32Z"
+        },
+        {
+          "full_name": "rivet-dev/open-orange",
+          "stars": 176,
+          "language": "TypeScript",
+          "description": "Run Cloudflare Workers and Durable Objects unchanged on AWS, GCP, Azure or your own servers.",
+          "url": "https://github.com/rivet-dev/open-orange",
+          "created_at": "2026-11-12T00:44:12Z"
+        },
+        {
+          "full_name": "Simon3Sarkis/super-odyssey-pc-recomp",
+          "stars": 138,
+          "language": "C",
+          "description": "A native Windows PC port of Super Mario Odyssey by static recompilation. Bring your own game: no game files included.",
+          "url": "https://github.com/Simon3Sarkis/super-odyssey-pc-recomp",
+          "created_at": "2026-11-12T01:49:10Z"
+        },
+        {
+          "full_name": "lawandrorder/mate",
+          "stars": 138,
+          "language": "Python",
+          "description": "Mate, your mate while you shop. A text-first shopping agent for cashback, personal discount codes, package tracking and price-drop alerts. Includes a starter agent, web chat, original icon set and docs. mate.fm ",
+          "url": "https://github.com/lawandrorder/mate",
+          "created_at": "2026-11-12T14:05:28Z"
+        },
         {
           "full_name": "routerhubSI/kimi-uncensored",
           "stars": 84,
@@ -1886,20 +1927,20 @@
           "created_at": "2026-11-12T04:21:39Z"
         },
         {
-          "full_name": "AIRzZ90/study-materials-fork",
-          "stars": 84,
-          "language": "TypeScript",
-          "description": "A cross-platform Tauri 2 interface and interaction practice project",
-          "url": "https://github.com/AIRzZ90/study-materials-fork",
-          "created_at": "2026-11-12T10:52:32Z"
+          "full_name": "StitchSerfJump/Microsoft-Visio-For-Windows",
+          "stars": 76,
+          "language": "",
+          "description": "Microsoft Visio for Windows — diagramming and vector graphics application for flowcharts, org charts, network maps, floor plans and professional diagrams.",
+          "url": "https://github.com/StitchSerfJump/Microsoft-Visio-For-Windows",
+          "created_at": "2026-11-12T13:42:23Z"
         },
         {
-          "full_name": "Simon3Sarkis/super-odyssey-pc-recomp",
-          "stars": 76,
-          "language": "C",
-          "description": "A native Windows PC port of Super Mario Odyssey by static recompilation. Bring your own game: no game files included.",
-          "url": "https://github.com/Simon3Sarkis/super-odyssey-pc-recomp",
-          "created_at": "2026-11-12T01:49:10Z"
+          "full_name": "CatchArtisanDone86/Movavi-Video-Editor-For-Windows",
+          "stars": 72,
+          "language": "",
+          "description": "Movavi Video Editor for Windows — desktop video editing application for cutting clips, adding effects, transitions, titles and exporting videos for social media and everyday projects.",
+          "url": "https://github.com/CatchArtisanDone86/Movavi-Video-Editor-For-Windows",
+          "created_at": "2026-11-12T19:12:12Z"
         },
         {
           "full_name": "routerhubSI/deepseek-uncensored",
@@ -1910,32 +1951,64 @@
           "created_at": "2026-11-12T04:44:07Z"
         },
         {
-          "full_name": "alinuo666/ComfyUI-Banzhang-All",
-          "stars": 38,
-          "language": "Python",
-          "description": "用 MiniMax H3 视频模型生成视频的 ComfyUI 中文插件。主打三采工作流，6GB 显存也能跑高清视频。",
-          "url": "https://github.com/alinuo666/ComfyUI-Banzhang-All",
-          "created_at": "2026-11-12T06:37:26Z"
+          "full_name": "simonklee/opencode-native-preview",
+          "stars": 58,
+          "language": "TypeScript",
+          "description": "OpenCode Native CLI Preview builds",
+          "url": "https://github.com/simonklee/opencode-native-preview",
+          "created_at": "2026-11-12T08:50:58Z"
         },
         {
-          "full_name": "LALUARIFTA/goodle_drive_cloud_storage_ui",
-          "stars": 36,
-          "language": "JavaScript",
-          "description": "",
-          "url": "https://github.com/LALUARIFTA/goodle_drive_cloud_storage_ui",
-          "created_at": "2026-11-12T02:01:43Z"
-        },
-        {
-          "full_name": "bikini/telejam",
-          "stars": 33,
-          "language": "HTML",
-          "description": "telegram RCE",
-          "url": "https://github.com/bikini/telejam",
-          "created_at": "2026-11-12T07:22:22Z"
+          "full_name": "FallsLarvaInterest/Sketchup-Pro-For-Windows",
+          "stars": 52,
+          "language": "",
+          "description": "SketchUp Pro for Windows — 3D modeling software for architecture, interior design, construction documentation and spatial design workflows.",
+          "url": "https://github.com/FallsLarvaInterest/Sketchup-Pro-For-Windows",
+          "created_at": "2026-11-12T15:05:07Z"
         }
       ],
       "items": [
         {
+          "full_name": "FlameProudspark/windows-tweak-checker-rpocket-team",
+          "stars": 50,
+          "language": "HTML",
+          "description": "",
+          "url": "https://github.com/FlameProudspark/windows-tweak-checker-rpocket-team",
+          "created_at": "2026-11-12T17:00:49Z"
+        },
+        {
+          "full_name": "AIRzZ90/study-materials-fork",
+          "stars": 312,
+          "language": "TypeScript",
+          "description": "A cross-platform Tauri 2 interface and interaction practice project",
+          "url": "https://github.com/AIRzZ90/study-materials-fork",
+          "created_at": "2026-11-12T10:52:32Z"
+        },
+        {
+          "full_name": "rivet-dev/open-orange",
+          "stars": 176,
+          "language": "TypeScript",
+          "description": "Run Cloudflare Workers and Durable Objects unchanged on AWS, GCP, Azure or your own servers.",
+          "url": "https://github.com/rivet-dev/open-orange",
+          "created_at": "2026-11-12T00:44:12Z"
+        },
+        {
+          "full_name": "Simon3Sarkis/super-odyssey-pc-recomp",
+          "stars": 138,
+          "language": "C",
+          "description": "A native Windows PC port of Super Mario Odyssey by static recompilation. Bring your own game: no game files included.",
+          "url": "https://github.com/Simon3Sarkis/super-odyssey-pc-recomp",
+          "created_at": "2026-11-12T01:49:10Z"
+        },
+        {
+          "full_name": "lawandrorder/mate",
+          "stars": 138,
+          "language": "Python",
+          "description": "Mate, your mate while you shop. A text-first shopping agent for cashback, personal discount codes, package tracking and price-drop alerts. Includes a starter agent, web chat, original icon set and docs. mate.fm ",
+          "url": "https://github.com/lawandrorder/mate",
+          "created_at": "2026-11-12T14:05:28Z"
+        },
+        {
           "full_name": "routerhubSI/kimi-uncensored",
           "stars": 84,
           "language": "",
@@ -1944,20 +2017,20 @@
           "created_at": "2026-11-12T04:21:39Z"
         },
         {
-          "full_name": "AIRzZ90/study-materials-fork",
-          "stars": 84,
-          "language": "TypeScript",
-          "description": "A cross-platform Tauri 2 interface and interaction practice project",
-          "url": "https://github.com/AIRzZ90/study-materials-fork",
-          "created_at": "2026-11-12T10:52:32Z"
+          "full_name": "StitchSerfJump/Microsoft-Visio-For-Windows",
+          "stars": 76,
+          "language": "",
+          "description": "Microsoft Visio for Windows — diagramming and vector graphics application for flowcharts, org charts, network maps, floor plans and professional diagrams.",
+          "url": "https://github.com/StitchSerfJump/Microsoft-Visio-For-Windows",
+          "created_at": "2026-11-12T13:42:23Z"
         },
         {
-          "full_name": "Simon3Sarkis/super-odyssey-pc-recomp",
-          "stars": 76,
-          "language": "C",
-          "description": "A native Windows PC port of Super Mario Odyssey by static recompilation. Bring your own game: no game files included.",
-          "url": "https://github.com/Simon3Sarkis/super-odyssey-pc-recomp",
-          "created_at": "2026-11-12T01:49:10Z"
+          "full_name": "CatchArtisanDone86/Movavi-Video-Editor-For-Windows",
+          "stars": 72,
+          "language": "",
+          "description": "Movavi Video Editor for Windows — desktop video editing application for cutting clips, adding effects, transitions, titles and exporting videos for social media and everyday projects.",
+          "url": "https://github.com/CatchArtisanDone86/Movavi-Video-Editor-For-Windows",
+          "created_at": "2026-11-12T19:12:12Z"
         },
         {
           "full_name": "routerhubSI/deepseek-uncensored",
@@ -1968,28 +2041,60 @@
           "created_at": "2026-11-12T04:44:07Z"
         },
         {
-          "full_name": "alinuo666/ComfyUI-Banzhang-All",
-          "stars": 38,
+          "full_name": "simonklee/opencode-native-preview",
+          "stars": 58,
+          "language": "TypeScript",
+          "description": "OpenCode Native CLI Preview builds",
+          "url": "https://github.com/simonklee/opencode-native-preview",
+          "created_at": "2026-11-12T08:50:58Z"
+        },
+        {
+          "full_name": "FallsLarvaInterest/Sketchup-Pro-For-Windows",
+          "stars": 52,
+          "language": "",
+          "description": "SketchUp Pro for Windows — 3D modeling software for architecture, interior design, construction documentation and spatial design workflows.",
+          "url": "https://github.com/FallsLarvaInterest/Sketchup-Pro-For-Windows",
+          "created_at": "2026-11-12T15:05:07Z"
+        },
+        {
+          "full_name": "BetaChampionTitle/Coreldraw-For-Windows",
+          "stars": 52,
+          "language": "",
+          "description": "CorelDRAW for Windows — vector graphics and design suite for illustration, layout, typography and print-ready artwork on desktop.",
+          "url": "https://github.com/BetaChampionTitle/Coreldraw-For-Windows",
+          "created_at": "2026-11-12T13:33:33Z"
+        },
+        {
+          "full_name": "Meetovergate/Rob-Run-ESP",
+          "stars": 52,
+          "language": "",
+          "description": "ESP tool for Rob Run with player, cheat, aim, hack, esp, wallhack, inf money, fly, free, vehicle and loot overlays, radar, aim assist and recoil tuning.",
+          "url": "https://github.com/Meetovergate/Rob-Run-ESP",
+          "created_at": "2026-11-12T17:40:42Z"
+        },
+        {
+          "full_name": "siwen-121/agent-shared-facts",
+          "stars": 51,
           "language": "Python",
-          "description": "用 MiniMax H3 视频模型生成视频的 ComfyUI 中文插件。主打三采工作流，6GB 显存也能跑高清视频。",
-          "url": "https://github.com/alinuo666/ComfyUI-Banzhang-All",
-          "created_at": "2026-11-12T06:37:26Z"
+          "description": "An agent-first reference implementation for sharing reviewed facts across devices with Git and read-only MCP.",
+          "url": "https://github.com/siwen-121/agent-shared-facts",
+          "created_at": "2026-11-12T06:22:10Z"
         },
         {
-          "full_name": "LALUARIFTA/goodle_drive_cloud_storage_ui",
-          "stars": 36,
-          "language": "JavaScript",
-          "description": "",
-          "url": "https://github.com/LALUARIFTA/goodle_drive_cloud_storage_ui",
-          "created_at": "2026-11-12T02:01:43Z"
+          "full_name": "ArmorSinceHelm/Resp-Blooket-AIO-Soft",
+          "stars": 51,
+          "language": "C++",
+          "description": "Best Software For Blooket Yet",
+          "url": "https://github.com/ArmorSinceHelm/Resp-Blooket-AIO-Soft",
+          "created_at": "2026-11-12T16:58:03Z"
         },
         {
-          "full_name": "bikini/telejam",
-          "stars": 33,
-          "language": "HTML",
-          "description": "telegram RCE",
-          "url": "https://github.com/bikini/telejam",
-          "created_at": "2026-11-12T07:22:22Z"
+          "full_name": "OrangeSaviorImagine/Abbyy-Finereader-Pdf-For-Windows",
+          "stars": 51,
+          "language": "",
+          "description": "ABBYY FineReader PDF for Windows — OCR and PDF application for scanning, converting documents, editing PDFs and extracting searchable text from images.",
+          "url": "https://github.com/OrangeSaviorImagine/Abbyy-Finereader-Pdf-For-Windows",
+          "created_at": "2026-11-12T14:34:57Z"
         }
       ]
     },
@@ -2051,73 +2156,73 @@
       "items": [
         {
           "id": "xtools-at/DeepSeek-V4-Pro-Qwen3.5-9B-UNCENSORED-heretic",
-          "likes": 4615,
+          "likes": 4684,
           "downloads": 18933,
           "pipeline_tag": "text-generation",
           "url": "https://huggingface.co/xtools-at/DeepSeek-V4-Pro-Qwen3.5-9B-UNCENSORED-heretic"
         },
         {
           "id": "MiniMaxAI/MiniMax-H3-Image",
-          "likes": 812,
+          "likes": 851,
           "downloads": 306718,
           "pipeline_tag": "text-to-image",
           "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3-Image"
         },
         {
-          "id": "speridlabs/idol",
-          "likes": 2189,
-          "downloads": 29904,
-          "pipeline_tag": "image-to-3d",
-          "url": "https://huggingface.co/speridlabs/idol"
-        },
-        {
           "id": "NousResearch/Arete-27B",
-          "likes": 459,
+          "likes": 478,
           "downloads": 4669,
           "pipeline_tag": "text-generation",
           "url": "https://huggingface.co/NousResearch/Arete-27B"
         },
         {
+          "id": "speridlabs/idol",
+          "likes": 2221,
+          "downloads": 29904,
+          "pipeline_tag": "image-to-3d",
+          "url": "https://huggingface.co/speridlabs/idol"
+        },
+        {
           "id": "Lightricks/LTX-2.5",
-          "likes": 11579,
+          "likes": 11610,
           "downloads": 2782513,
           "pipeline_tag": "image-to-video",
           "url": "https://huggingface.co/Lightricks/LTX-2.5"
         },
         {
           "id": "DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
-          "likes": 2950,
+          "likes": 2973,
           "downloads": 1599836,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF"
         },
         {
           "id": "Qwen/Qwen3.8-27B",
-          "likes": 19687,
+          "likes": 19730,
           "downloads": 7094218,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/Qwen/Qwen3.8-27B"
         },
         {
           "id": "ccore/Qwen3.5-4B-3D-Coder",
-          "likes": 1033,
+          "likes": 1044,
           "downloads": 368236,
           "pipeline_tag": "",
           "url": "https://huggingface.co/ccore/Qwen3.5-4B-3D-Coder"
         },
         {
+          "id": "Comfy-Org/MiniMax-H3-Image",
+          "likes": 288,
+          "downloads": 835593,
+          "pipeline_tag": "text-to-image",
+          "url": "https://huggingface.co/Comfy-Org/MiniMax-H3-Image"
+        },
+        {
           "id": "ricursiveAI/Ripple-65B-Preview",
-          "likes": 524,
+          "likes": 530,
           "downloads": 7667,
           "pipeline_tag": "",
           "url": "https://huggingface.co/ricursiveAI/Ripple-65B-Preview"
-        },
-        {
-          "id": "moonshotai/Kimi-K3.1-Pro",
-          "likes": 1959,
-          "downloads": 37486,
-          "pipeline_tag": "image-text-to-text",
-          "url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro"
         }
       ]
     }
