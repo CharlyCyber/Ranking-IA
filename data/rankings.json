@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-12T04:45:50.240337",
+  "generated_at": "2026-11-12T13:26:08.708255",
   "sources": {
     "design": {
       "status": "ok",
@@ -7,7 +7,7 @@
         {
           "rank": 1,
           "model": "Claude Opus 5.5 (high)",
-          "score": 1439,
+          "score": 1440,
           "prompt_per_m": 4.0,
           "completion_per_m": 20.0,
           "context_length": 1000000,
@@ -34,7 +34,7 @@
         {
           "rank": 4,
           "model": "Claude Fable 5.2",
-          "score": 1359,
+          "score": 1353,
           "prompt_per_m": 8.0,
           "completion_per_m": 40.0,
           "context_length": 1000000,
@@ -52,7 +52,7 @@
         {
           "rank": 6,
           "model": "Gemini 4 Carbon",
-          "score": 1305,
+          "score": 1302,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1048576,
@@ -69,20 +69,20 @@
         },
         {
           "rank": 8,
-          "model": "Claude Sonnet 5.5",
-          "score": 1282,
-          "prompt_per_m": 2.0,
-          "completion_per_m": 10.0,
-          "context_length": 1000000,
+          "model": "Kimi K3.1 Pro",
+          "score": 1283,
+          "prompt_per_m": 0.2375,
+          "completion_per_m": 8.7856,
+          "context_length": 1048576,
           "is_free": false
         },
         {
           "rank": 9,
-          "model": "Kimi K3.1 Pro",
-          "score": 1282,
+          "model": "Claude Sonnet 5.5",
+          "score": 1281,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
-          "context_length": 1048576,
+          "context_length": 1000000,
           "is_free": false
         },
         {
@@ -93,7 +93,7 @@
         {
           "rank": 11,
           "model": "Inkling 2 Small",
-          "score": 1268,
+          "score": 1269,
           "prompt_per_m": 0.0,
           "completion_per_m": 0.0,
           "context_length": 1048576,
@@ -102,7 +102,7 @@
         {
           "rank": 12,
           "model": "Claude Fable 5",
-          "score": 1266,
+          "score": 1267,
           "prompt_per_m": 10.0,
           "completion_per_m": 50.0,
           "context_length": 1000000,
@@ -111,7 +111,7 @@
         {
           "rank": 13,
           "model": "1276W / 472L 73.0% ±2.1% 1,748 Anthropic",
-          "score": 1439
+          "score": 1440
         },
         {
           "rank": 14,
@@ -120,13 +120,13 @@
         },
         {
           "rank": 15,
-          "model": "1456W / 708L 67.3% ±2.0% 2,164 OpenAI",
+          "model": "1459W / 711L 67.2% ±2.0% 2,170 OpenAI",
           "score": 1385
         },
         {
           "rank": 16,
-          "model": "893W / 395L 69.3% ±2.5% 1,288 Anthropic",
-          "score": 1359
+          "model": "930W / 426L 68.6% ±2.5% 1,356 Anthropic",
+          "score": 1353
         },
         {
           "rank": 17,
@@ -135,8 +135,8 @@
         },
         {
           "rank": 18,
-          "model": "338W / 209L 61.8% ±4.1% 547 Google",
-          "score": 1305
+          "model": "384W / 239L 61.6% ±3.8% 623 Google",
+          "score": 1302
         },
         {
           "rank": 19,
@@ -145,37 +145,37 @@
         },
         {
           "rank": 20,
-          "model": "1496W / 1085L 58.0% ±1.9% 2,581 Anthropic",
-          "score": 1282
+          "model": "2224W / 1519L 59.4% ±1.6% 3,743 Moonshot AI",
+          "score": 1283
         },
         {
           "rank": 21,
-          "model": "2207W / 1508L 59.4% ±1.6% 3,715 Moonshot AI",
-          "score": 1282
+          "model": "1510W / 1100L 57.9% ±1.9% 2,610 Anthropic",
+          "score": 1281
         },
         {
           "rank": 22,
-          "model": "7276W / 5425L 57.3% ±0.9% 12,701 Meta",
+          "model": "7291W / 5439L 57.3% ±0.9% 12,730 Meta",
           "score": 1276
         },
         {
           "rank": 23,
-          "model": "3393W / 2523L 57.4% ±1.3% 5,916 Thinking Machines",
-          "score": 1268
+          "model": "3400W / 2526L 57.4% ±1.3% 5,926 Thinking Machines",
+          "score": 1269
         },
         {
           "rank": 24,
-          "model": "7899W / 5173L 60.4% ±0.8% 13,072 Anthropic",
-          "score": 1266
+          "model": "8057W / 5249L 60.5% ±0.8% 13,306 Anthropic",
+          "score": 1267
         },
         {
           "rank": 25,
-          "model": "4324W / 3407L 55.9% ±1.1% 7,731 Anthropic",
+          "model": "1899W / 1362L 58.2% ±1.7% 3,261 Xiaomi",
           "score": 1264
         },
         {
           "rank": 26,
-          "model": "1899W / 1362L 58.2% ±1.7% 3,261 Xiaomi",
+          "model": "4375W / 3427L 56.1% ±1.1% 7,802 Anthropic",
           "score": 1264
         }
       ],
@@ -663,8 +663,8 @@
           "score": 1688,
           "author": "moonshot",
           "votes": 3443,
-          "prompt_per_m": 2.0,
-          "completion_per_m": 10.0,
+          "prompt_per_m": 0.2375,
+          "completion_per_m": 8.7856,
           "context_length": 1048576,
           "is_free": false
         },
@@ -890,9 +890,20 @@
         },
         {
           "rank": 1,
+          "model": "Claude Fable 5.2 (Max)",
+          "category": "Agent",
+          "win_rate_pct": 30.35,
+          "author": "anthropic",
+          "prompt_per_m": 8.0,
+          "completion_per_m": 40.0,
+          "context_length": 1000000,
+          "is_free": false
+        },
+        {
+          "rank": 2,
           "model": "Claude Opus 5.5 (Max)",
           "category": "Agent",
-          "win_rate_pct": 19.96,
+          "win_rate_pct": 19.52,
           "author": "anthropic",
           "prompt_per_m": 4.0,
           "completion_per_m": 20.0,
@@ -900,10 +911,10 @@
           "is_free": false
         },
         {
-          "rank": 2,
+          "rank": 3,
           "model": "Gemini 4 Carbon (High)",
           "category": "Agent",
-          "win_rate_pct": 16.63,
+          "win_rate_pct": 16.98,
           "author": "google",
           "votes": 4282,
           "prompt_per_m": 2.0,
@@ -912,10 +923,10 @@
           "is_free": false
         },
         {
-          "rank": 3,
+          "rank": 4,
           "model": "Claude Sonnet 5.5 (Max)",
           "category": "Agent",
-          "win_rate_pct": 15.99,
+          "win_rate_pct": 15.95,
           "author": "anthropic",
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
@@ -923,10 +934,10 @@
           "is_free": false
         },
         {
-          "rank": 4,
+          "rank": 5,
           "model": "Claude Fable 5.1 (Max)",
           "category": "Agent",
-          "win_rate_pct": 14.34,
+          "win_rate_pct": 14.82,
           "author": "anthropic",
           "votes": 20087,
           "prompt_per_m": 10.0,
@@ -935,10 +946,10 @@
           "is_free": false
         },
         {
-          "rank": 5,
+          "rank": 6,
           "model": "GPT-6 Astra (Max)",
           "category": "Agent",
-          "win_rate_pct": 14.24,
+          "win_rate_pct": 14.54,
           "author": "openai",
           "votes": 18315,
           "prompt_per_m": 10.0,
@@ -947,10 +958,10 @@
           "is_free": false
         },
         {
-          "rank": 6,
+          "rank": 7,
           "model": "GPT-6.1 Sol (Max)",
           "category": "Agent",
-          "win_rate_pct": 12.53,
+          "win_rate_pct": 12.46,
           "author": "openai",
           "votes": 12952,
           "prompt_per_m": 2.0,
@@ -959,10 +970,10 @@
           "is_free": false
         },
         {
-          "rank": 7,
+          "rank": 8,
           "model": "GPT-6.1 Terra (Max)",
           "category": "Agent",
-          "win_rate_pct": 12.1,
+          "win_rate_pct": 12.0,
           "author": "openai",
           "prompt_per_m": 1.0,
           "completion_per_m": 5.0,
@@ -970,10 +981,10 @@
           "is_free": false
         },
         {
-          "rank": 8,
+          "rank": 9,
           "model": "Gemini 4 Argon (High)",
           "category": "Agent",
-          "win_rate_pct": 10.83,
+          "win_rate_pct": 10.74,
           "author": "google",
           "votes": 19787,
           "prompt_per_m": 2.0,
@@ -982,17 +993,17 @@
           "is_free": false
         },
         {
-          "rank": 9,
+          "rank": 10,
           "model": "Muse Wonder Full (Max)",
           "category": "Agent",
-          "win_rate_pct": 9.09,
+          "win_rate_pct": 8.96,
           "author": "meta"
         },
         {
-          "rank": 10,
+          "rank": 11,
           "model": "Claude Fable 5 (High)",
           "category": "Agent",
-          "win_rate_pct": 7.7,
+          "win_rate_pct": 7.3,
           "author": "anthropic",
           "votes": 45524,
           "prompt_per_m": 10.0,
@@ -1001,10 +1012,10 @@
           "is_free": false
         },
         {
-          "rank": 11,
+          "rank": 12,
           "model": "Claude Opus 5 (Max)",
           "category": "Agent",
-          "win_rate_pct": 7.5,
+          "win_rate_pct": 7.23,
           "author": "anthropic",
           "votes": 35710,
           "prompt_per_m": 5.0,
@@ -1013,10 +1024,10 @@
           "is_free": false
         },
         {
-          "rank": 12,
+          "rank": 13,
           "model": "GPT-6 Sol (Max)",
           "category": "Agent",
-          "win_rate_pct": 7.0,
+          "win_rate_pct": 6.91,
           "author": "openai",
           "votes": 19890,
           "prompt_per_m": 2.0,
@@ -1025,22 +1036,10 @@
           "is_free": false
         },
         {
-          "rank": 13,
-          "model": "Kimi K3.1 Pro (Max)",
-          "category": "Agent",
-          "win_rate_pct": 5.24,
-          "author": "moonshot",
-          "votes": 3443,
-          "prompt_per_m": 2.0,
-          "completion_per_m": 10.0,
-          "context_length": 1048576,
-          "is_free": false
-        },
-        {
           "rank": 14,
           "model": "Hy4",
           "category": "Agent",
-          "win_rate_pct": 4.66,
+          "win_rate_pct": 5.26,
           "author": "tencent",
           "prompt_per_m": 0.417,
           "completion_per_m": 1.2505,
@@ -1049,14 +1048,14 @@
         },
         {
           "rank": 15,
-          "model": "GPT-5.6 Sol (xHigh)",
+          "model": "Kimi K3.1 Pro (Max)",
           "category": "Agent",
-          "win_rate_pct": 4.53,
-          "author": "openai",
-          "votes": 43994,
-          "prompt_per_m": 4.0,
-          "completion_per_m": 20.0,
-          "context_length": 1050000,
+          "win_rate_pct": 4.9,
+          "author": "moonshot",
+          "votes": 3443,
+          "prompt_per_m": 0.2375,
+          "completion_per_m": 8.7856,
+          "context_length": 1048576,
           "is_free": false
         },
         {
@@ -1880,21 +1879,117 @@
       "general": [
         {
           "full_name": "routerhubSI/kimi-uncensored",
-          "stars": 47,
+          "stars": 84,
           "language": "",
-          "description": "Every uncensored and abliterated Kimi build — Kimi K3.1 Pro Uncensored via API at \\.30/\\.50 per million tokens, abliterated open-weight checkpoints for K3.1 Pro and K3, license notes and a red-team prompt library. Maintained by RouterHub.",
+          "description": "Every uncensored and abliterated Kimi build — Kimi K3.1 Pro Uncensored via API at 0.30/1.50 USD per million tokens, abliterated open-weight checkpoints for K3.1 Pro and K3, license notes and a red-team prompt library. Maintained by RouterHub.",
           "url": "https://github.com/routerhubSI/kimi-uncensored",
           "created_at": "2026-11-12T04:21:39Z"
+        },
+        {
+          "full_name": "AIRzZ90/study-materials-fork",
+          "stars": 84,
+          "language": "TypeScript",
+          "description": "A cross-platform Tauri 2 interface and interaction practice project",
+          "url": "https://github.com/AIRzZ90/study-materials-fork",
+          "created_at": "2026-11-12T10:52:32Z"
+        },
+        {
+          "full_name": "Simon3Sarkis/super-odyssey-pc-recomp",
+          "stars": 76,
+          "language": "C",
+          "description": "A native Windows PC port of Super Mario Odyssey by static recompilation. Bring your own game: no game files included.",
+          "url": "https://github.com/Simon3Sarkis/super-odyssey-pc-recomp",
+          "created_at": "2026-11-12T01:49:10Z"
+        },
+        {
+          "full_name": "routerhubSI/deepseek-uncensored",
+          "stars": 68,
+          "language": "Python",
+          "description": "Every uncensored and abliterated DeepSeek build — V4.1 Flash 1017 Abliterated (the pinned, reproducible build that ranks third on the AA Cyber benchmark), V4 Pro, the tuned variants, abliterated GGUF builds and a cyber red-team prompt library. Maintained by RouterHub.",
+          "url": "https://github.com/routerhubSI/deepseek-uncensored",
+          "created_at": "2026-11-12T04:44:07Z"
+        },
+        {
+          "full_name": "alinuo666/ComfyUI-Banzhang-All",
+          "stars": 38,
+          "language": "Python",
+          "description": "用 MiniMax H3 视频模型生成视频的 ComfyUI 中文插件。主打三采工作流，6GB 显存也能跑高清视频。",
+          "url": "https://github.com/alinuo666/ComfyUI-Banzhang-All",
+          "created_at": "2026-11-12T06:37:26Z"
+        },
+        {
+          "full_name": "LALUARIFTA/goodle_drive_cloud_storage_ui",
+          "stars": 36,
+          "language": "JavaScript",
+          "description": "",
+          "url": "https://github.com/LALUARIFTA/goodle_drive_cloud_storage_ui",
+          "created_at": "2026-11-12T02:01:43Z"
+        },
+        {
+          "full_name": "bikini/telejam",
+          "stars": 33,
+          "language": "HTML",
+          "description": "telegram RCE",
+          "url": "https://github.com/bikini/telejam",
+          "created_at": "2026-11-12T07:22:22Z"
         }
       ],
       "items": [
         {
           "full_name": "routerhubSI/kimi-uncensored",
-          "stars": 47,
+          "stars": 84,
           "language": "",
-          "description": "Every uncensored and abliterated Kimi build — Kimi K3.1 Pro Uncensored via API at \\.30/\\.50 per million tokens, abliterated open-weight checkpoints for K3.1 Pro and K3, license notes and a red-team prompt library. Maintained by RouterHub.",
+          "description": "Every uncensored and abliterated Kimi build — Kimi K3.1 Pro Uncensored via API at 0.30/1.50 USD per million tokens, abliterated open-weight checkpoints for K3.1 Pro and K3, license notes and a red-team prompt library. Maintained by RouterHub.",
           "url": "https://github.com/routerhubSI/kimi-uncensored",
           "created_at": "2026-11-12T04:21:39Z"
+        },
+        {
+          "full_name": "AIRzZ90/study-materials-fork",
+          "stars": 84,
+          "language": "TypeScript",
+          "description": "A cross-platform Tauri 2 interface and interaction practice project",
+          "url": "https://github.com/AIRzZ90/study-materials-fork",
+          "created_at": "2026-11-12T10:52:32Z"
+        },
+        {
+          "full_name": "Simon3Sarkis/super-odyssey-pc-recomp",
+          "stars": 76,
+          "language": "C",
+          "description": "A native Windows PC port of Super Mario Odyssey by static recompilation. Bring your own game: no game files included.",
+          "url": "https://github.com/Simon3Sarkis/super-odyssey-pc-recomp",
+          "created_at": "2026-11-12T01:49:10Z"
+        },
+        {
+          "full_name": "routerhubSI/deepseek-uncensored",
+          "stars": 68,
+          "language": "Python",
+          "description": "Every uncensored and abliterated DeepSeek build — V4.1 Flash 1017 Abliterated (the pinned, reproducible build that ranks third on the AA Cyber benchmark), V4 Pro, the tuned variants, abliterated GGUF builds and a cyber red-team prompt library. Maintained by RouterHub.",
+          "url": "https://github.com/routerhubSI/deepseek-uncensored",
+          "created_at": "2026-11-12T04:44:07Z"
+        },
+        {
+          "full_name": "alinuo666/ComfyUI-Banzhang-All",
+          "stars": 38,
+          "language": "Python",
+          "description": "用 MiniMax H3 视频模型生成视频的 ComfyUI 中文插件。主打三采工作流，6GB 显存也能跑高清视频。",
+          "url": "https://github.com/alinuo666/ComfyUI-Banzhang-All",
+          "created_at": "2026-11-12T06:37:26Z"
+        },
+        {
+          "full_name": "LALUARIFTA/goodle_drive_cloud_storage_ui",
+          "stars": 36,
+          "language": "JavaScript",
+          "description": "",
+          "url": "https://github.com/LALUARIFTA/goodle_drive_cloud_storage_ui",
+          "created_at": "2026-11-12T02:01:43Z"
+        },
+        {
+          "full_name": "bikini/telejam",
+          "stars": 33,
+          "language": "HTML",
+          "description": "telegram RCE",
+          "url": "https://github.com/bikini/telejam",
+          "created_at": "2026-11-12T07:22:22Z"
         }
       ]
     },
@@ -1956,73 +2051,73 @@
       "items": [
         {
           "id": "xtools-at/DeepSeek-V4-Pro-Qwen3.5-9B-UNCENSORED-heretic",
-          "likes": 3908,
-          "downloads": 16693,
+          "likes": 4615,
+          "downloads": 18933,
           "pipeline_tag": "text-generation",
           "url": "https://huggingface.co/xtools-at/DeepSeek-V4-Pro-Qwen3.5-9B-UNCENSORED-heretic"
         },
         {
           "id": "MiniMaxAI/MiniMax-H3-Image",
-          "likes": 745,
-          "downloads": 142989,
+          "likes": 812,
+          "downloads": 306718,
           "pipeline_tag": "text-to-image",
           "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3-Image"
         },
         {
           "id": "speridlabs/idol",
-          "likes": 2154,
-          "downloads": 28250,
+          "likes": 2189,
+          "downloads": 29904,
           "pipeline_tag": "image-to-3d",
           "url": "https://huggingface.co/speridlabs/idol"
         },
         {
           "id": "NousResearch/Arete-27B",
-          "likes": 440,
-          "downloads": 4023,
+          "likes": 459,
+          "downloads": 4669,
           "pipeline_tag": "text-generation",
           "url": "https://huggingface.co/NousResearch/Arete-27B"
         },
         {
           "id": "Lightricks/LTX-2.5",
-          "likes": 11533,
-          "downloads": 2848771,
+          "likes": 11579,
+          "downloads": 2782513,
           "pipeline_tag": "image-to-video",
           "url": "https://huggingface.co/Lightricks/LTX-2.5"
         },
         {
-          "id": "moonshotai/Kimi-K3.1-Pro",
-          "likes": 1939,
-          "downloads": 33617,
-          "pipeline_tag": "image-text-to-text",
-          "url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro"
-        },
-        {
-          "id": "ricursiveAI/Ripple-65B-Preview",
-          "likes": 518,
-          "downloads": 7112,
-          "pipeline_tag": "",
-          "url": "https://huggingface.co/ricursiveAI/Ripple-65B-Preview"
-        },
-        {
           "id": "DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
-          "likes": 2919,
-          "downloads": 1532273,
+          "likes": 2950,
+          "downloads": 1599836,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF"
         },
         {
           "id": "Qwen/Qwen3.8-27B",
-          "likes": 19651,
-          "downloads": 7232703,
+          "likes": 19687,
+          "downloads": 7094218,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/Qwen/Qwen3.8-27B"
         },
         {
           "id": "ccore/Qwen3.5-4B-3D-Coder",
-          "likes": 1021,
-          "downloads": 344727,
+          "likes": 1033,
+          "downloads": 368236,
           "pipeline_tag": "",
           "url": "https://huggingface.co/ccore/Qwen3.5-4B-3D-Coder"
+        },
+        {
+          "id": "ricursiveAI/Ripple-65B-Preview",
+          "likes": 524,
+          "downloads": 7667,
+          "pipeline_tag": "",
+          "url": "https://huggingface.co/ricursiveAI/Ripple-65B-Preview"
+        },
+        {
+          "id": "moonshotai/Kimi-K3.1-Pro",
+          "likes": 1959,
+          "downloads": 37486,
+          "pipeline_tag": "image-text-to-text",
+          "url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro"
         }
       ]
     }
