@@ -1,31 +1,31 @@
 {
-  "generated_at": "2026-11-13T02:16:28.525206",
+  "generated_at": "2026-11-13T10:17:02.418985",
   "sources": {
     "design": {
       "status": "ok",
       "models": [
         {
           "rank": 1,
-          "model": "Claude Opus 5.5 (high)",
-          "score": 1436,
-          "prompt_per_m": 4.0,
-          "completion_per_m": 20.0,
-          "context_length": 1000000,
-          "is_free": false
-        },
-        {
-          "rank": 2,
           "model": "GPT-6.1 Sol (max)",
-          "score": 1400,
+          "score": 1421,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1050000,
           "is_free": false
         },
         {
+          "rank": 2,
+          "model": "Claude Opus 5.5 (high)",
+          "score": 1404,
+          "prompt_per_m": 4.0,
+          "completion_per_m": 20.0,
+          "context_length": 1000000,
+          "is_free": false
+        },
+        {
           "rank": 3,
           "model": "GPT-6 Astra (max)",
-          "score": 1391,
+          "score": 1392,
           "prompt_per_m": 10.0,
           "completion_per_m": 50.0,
           "context_length": 1050000,
@@ -43,7 +43,7 @@
         {
           "rank": 5,
           "model": "Claude Fable 5.1",
-          "score": 1327,
+          "score": 1326,
           "prompt_per_m": 10.0,
           "completion_per_m": 50.0,
           "context_length": 1000000,
@@ -52,7 +52,7 @@
         {
           "rank": 6,
           "model": "Gemini 4 Carbon",
-          "score": 1308,
+          "score": 1307,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1048576,
@@ -61,16 +61,16 @@
         {
           "rank": 7,
           "model": "Kimi K3.1 Pro",
-          "score": 1287,
-          "prompt_per_m": 0.2375,
-          "completion_per_m": 8.4114,
+          "score": 1286,
+          "prompt_per_m": 2.0,
+          "completion_per_m": 10.0,
           "context_length": 1048576,
           "is_free": false
         },
         {
           "rank": 8,
           "model": "Claude Sonnet 5.5",
-          "score": 1284,
+          "score": 1283,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1000000,
@@ -79,12 +79,12 @@
         {
           "rank": 9,
           "model": "Muse Spark 1.3 Max",
-          "score": 1277
+          "score": 1276
         },
         {
           "rank": 10,
           "model": "Gemini 4 Argon",
-          "score": 1269,
+          "score": 1268,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1048576,
@@ -93,7 +93,7 @@
         {
           "rank": 11,
           "model": "Claude Fable 5",
-          "score": 1268,
+          "score": 1267,
           "prompt_per_m": 10.0,
           "completion_per_m": 50.0,
           "context_length": 1000000,
@@ -102,7 +102,7 @@
         {
           "rank": 12,
           "model": "Claude Opus 5",
-          "score": 1266,
+          "score": 1265,
           "prompt_per_m": 5.0,
           "completion_per_m": 25.0,
           "context_length": 1000000,
@@ -110,73 +110,73 @@
         },
         {
           "rank": 13,
-          "model": "1208W / 462L 72.3% ±2.1% 1,670 Anthropic",
-          "score": 1436
+          "model": "757W / 441L 63.2% ±2.7% 1,198 OpenAI",
+          "score": 1421
         },
         {
           "rank": 14,
-          "model": "586W / 348L 62.7% ±3.1% 934 OpenAI",
-          "score": 1400
+          "model": "1302W / 668L 66.1% ±2.1% 1,970 Anthropic",
+          "score": 1404
         },
         {
           "rank": 15,
-          "model": "1427W / 676L 67.9% ±2.0% 2,103 OpenAI",
-          "score": 1391
+          "model": "1439W / 665L 68.4% ±2.0% 2,104 OpenAI",
+          "score": 1392
         },
         {
           "rank": 16,
-          "model": "957W / 441L 68.5% ±2.4% 1,398 Anthropic",
+          "model": "974W / 445L 68.6% ±2.4% 1,419 Anthropic",
           "score": 1355
         },
         {
           "rank": 17,
-          "model": "2770W / 1886L 59.5% ±1.4% 4,656 Anthropic",
-          "score": 1327
+          "model": "2779W / 1877L 59.7% ±1.4% 4,656 Anthropic",
+          "score": 1326
         },
         {
           "rank": 18,
-          "model": "427W / 261L 62.1% ±3.6% 688 Google",
-          "score": 1308
+          "model": "444W / 272L 62.0% ±3.6% 716 Google",
+          "score": 1307
         },
         {
           "rank": 19,
-          "model": "2209W / 1478L 59.9% ±1.6% 3,687 Moonshot AI",
-          "score": 1287
+          "model": "2212W / 1483L 59.9% ±1.6% 3,695 Moonshot AI",
+          "score": 1286
         },
         {
           "rank": 20,
-          "model": "1448W / 1025L 58.5% ±1.9% 2,473 Anthropic",
-          "score": 1284
+          "model": "1459W / 1032L 58.6% ±1.9% 2,491 Anthropic",
+          "score": 1283
         },
         {
           "rank": 21,
-          "model": "7221W / 5359L 57.4% ±0.9% 12,580 Meta",
-          "score": 1277
+          "model": "7226W / 5364L 57.4% ±0.9% 12,590 Meta",
+          "score": 1276
         },
         {
           "rank": 22,
-          "model": "520W / 661L 44.0% ±2.8% 1,181 Google",
-          "score": 1269
-        },
-        {
-          "rank": 23,
-          "model": "8057W / 5249L 60.5% ±0.8% 13,306 Anthropic",
+          "model": "533W / 669L 44.3% ±2.8% 1,202 Google",
           "score": 1268
         },
         {
+          "rank": 23,
+          "model": "8061W / 5240L 60.6% ±0.8% 13,301 Anthropic",
+          "score": 1267
+        },
+        {
           "rank": 24,
-          "model": "4272W / 3305L 56.4% ±1.1% 7,577 Anthropic",
-          "score": 1266
+          "model": "4278W / 3309L 56.4% ±1.1% 7,587 Anthropic",
+          "score": 1265
         },
         {
           "rank": 25,
           "model": "1899W / 1362L 58.2% ±1.7% 3,261 Xiaomi",
-          "score": 1265
+          "score": 1264
         },
         {
           "rank": 26,
-          "model": "8606W / 6755L 56.0% ±0.8% 15,361 Moonshot AI",
-          "score": 1255
+          "model": "8610W / 6757L 56.0% ±0.8% 15,367 Moonshot AI",
+          "score": 1254
         }
       ],
       "method": "http"
@@ -663,8 +663,8 @@
           "score": 1688,
           "author": "moonshot",
           "votes": 3443,
-          "prompt_per_m": 0.2375,
-          "completion_per_m": 8.4114,
+          "prompt_per_m": 2.0,
+          "completion_per_m": 10.0,
           "context_length": 1048576,
           "is_free": false
         },
@@ -1053,8 +1053,8 @@
           "win_rate_pct": 4.9,
           "author": "moonshot",
           "votes": 3443,
-          "prompt_per_m": 0.2375,
-          "completion_per_m": 8.4114,
+          "prompt_per_m": 2.0,
+          "completion_per_m": 10.0,
           "context_length": 1048576,
           "is_free": false
         },
@@ -1873,232 +1873,78 @@
       "stale_since": "2026-11-11T02:21:51.468524"
     },
     "github": {
-      "status": "stale",
-      "since": "2026-11-11",
+      "status": "ok",
+      "since": "2026-11-12",
       "ai": [
         {
-          "full_name": "FlameProudspark/windows-tweak-checker-rpocket-team",
-          "stars": 50,
-          "language": "HTML",
-          "description": "",
-          "url": "https://github.com/FlameProudspark/windows-tweak-checker-rpocket-team",
-          "created_at": "2026-11-12T17:00:49Z"
+          "full_name": "JanieBodde6309/virtual-card-usdt-llm-router-gateway-arbitrage-finops",
+          "stars": 11,
+          "language": "",
+          "description": "An architectural FinOps and payment-clearing guide for multi-provider LLM routers (OpenRouter / LiteLLM / Portkey) routing across Qwen4-Max, DeepSeek-V4.1, and Claude 5.2, preventing concurrent Auto-Topup bank freezes and cascade failures via USDT-funded CoreGold Virtual Cards (V",
+          "url": "https://github.com/JanieBodde6309/virtual-card-usdt-llm-router-gateway-arbitrage-finops",
+          "created_at": "2026-11-13T07:19:44Z"
         }
       ],
       "general": [
         {
-          "full_name": "AIRzZ90/study-materials-fork",
-          "stars": 312,
-          "language": "TypeScript",
-          "description": "A cross-platform Tauri 2 interface and interaction practice project",
-          "url": "https://github.com/AIRzZ90/study-materials-fork",
-          "created_at": "2026-11-12T10:52:32Z"
+          "full_name": "faizfahmi77/ScanDot",
+          "stars": 197,
+          "language": "Kotlin",
+          "description": "Experimental Android 3D scanning and point-cloud viewer",
+          "url": "https://github.com/faizfahmi77/ScanDot",
+          "created_at": "2026-11-13T04:07:57Z"
         },
         {
-          "full_name": "rivet-dev/open-orange",
-          "stars": 176,
-          "language": "TypeScript",
-          "description": "Run Cloudflare Workers and Durable Objects unchanged on AWS, GCP, Azure or your own servers.",
-          "url": "https://github.com/rivet-dev/open-orange",
-          "created_at": "2026-11-12T00:44:12Z"
+          "full_name": "Teamvyajoint/3D-Modeling-With-Sketchup",
+          "stars": 61,
+          "language": "C++",
+          "description": "With SketchUp Pro, architects and designers gain access to a robust set of modeling tools. The software is designed to streamline the creation of visualizations and enhance project communication",
+          "url": "https://github.com/Teamvyajoint/3D-Modeling-With-Sketchup",
+          "created_at": "2026-11-13T00:28:18Z"
         },
         {
-          "full_name": "Simon3Sarkis/super-odyssey-pc-recomp",
-          "stars": 138,
-          "language": "C",
-          "description": "A native Windows PC port of Super Mario Odyssey by static recompilation. Bring your own game: no game files included.",
-          "url": "https://github.com/Simon3Sarkis/super-odyssey-pc-recomp",
-          "created_at": "2026-11-12T01:49:10Z"
-        },
-        {
-          "full_name": "lawandrorder/mate",
-          "stars": 138,
-          "language": "Python",
-          "description": "Mate, your mate while you shop. A text-first shopping agent for cashback, personal discount codes, package tracking and price-drop alerts. Includes a starter agent, web chat, original icon set and docs. mate.fm ",
-          "url": "https://github.com/lawandrorder/mate",
-          "created_at": "2026-11-12T14:05:28Z"
-        },
-        {
-          "full_name": "routerhubSI/kimi-uncensored",
-          "stars": 84,
-          "language": "",
-          "description": "Every uncensored and abliterated Kimi build — Kimi K3.1 Pro Uncensored via API at 0.30/1.50 USD per million tokens, abliterated open-weight checkpoints for K3.1 Pro and K3, license notes and a red-team prompt library. Maintained by RouterHub.",
-          "url": "https://github.com/routerhubSI/kimi-uncensored",
-          "created_at": "2026-11-12T04:21:39Z"
-        },
-        {
-          "full_name": "StitchSerfJump/Microsoft-Visio-For-Windows",
-          "stars": 76,
-          "language": "",
-          "description": "Microsoft Visio for Windows — diagramming and vector graphics application for flowcharts, org charts, network maps, floor plans and professional diagrams.",
-          "url": "https://github.com/StitchSerfJump/Microsoft-Visio-For-Windows",
-          "created_at": "2026-11-12T13:42:23Z"
-        },
-        {
-          "full_name": "CatchArtisanDone86/Movavi-Video-Editor-For-Windows",
-          "stars": 72,
-          "language": "",
-          "description": "Movavi Video Editor for Windows — desktop video editing application for cutting clips, adding effects, transitions, titles and exporting videos for social media and everyday projects.",
-          "url": "https://github.com/CatchArtisanDone86/Movavi-Video-Editor-For-Windows",
-          "created_at": "2026-11-12T19:12:12Z"
-        },
-        {
-          "full_name": "routerhubSI/deepseek-uncensored",
-          "stars": 68,
-          "language": "Python",
-          "description": "Every uncensored and abliterated DeepSeek build — V4.1 Flash 1017 Abliterated (the pinned, reproducible build that ranks third on the AA Cyber benchmark), V4 Pro, the tuned variants, abliterated GGUF builds and a cyber red-team prompt library. Maintained by RouterHub.",
-          "url": "https://github.com/routerhubSI/deepseek-uncensored",
-          "created_at": "2026-11-12T04:44:07Z"
-        },
-        {
-          "full_name": "simonklee/opencode-native-preview",
-          "stars": 58,
-          "language": "TypeScript",
-          "description": "OpenCode Native CLI Preview builds",
-          "url": "https://github.com/simonklee/opencode-native-preview",
-          "created_at": "2026-11-12T08:50:58Z"
-        },
-        {
-          "full_name": "FallsLarvaInterest/Sketchup-Pro-For-Windows",
-          "stars": 52,
-          "language": "",
-          "description": "SketchUp Pro for Windows — 3D modeling software for architecture, interior design, construction documentation and spatial design workflows.",
-          "url": "https://github.com/FallsLarvaInterest/Sketchup-Pro-For-Windows",
-          "created_at": "2026-11-12T15:05:07Z"
+          "full_name": "Speedsobastion1/Filmora-Video-Editor",
+          "stars": 42,
+          "language": "C++",
+          "description": "As a paid video editing software, Filmora 15 specializes in crafting polished films directly from the user's PC. It features an intuitive timeline for editing and a straightforward export function to compile the finished project",
+          "url": "https://github.com/Speedsobastion1/Filmora-Video-Editor",
+          "created_at": "2026-11-13T00:08:23Z"
         }
       ],
       "items": [
         {
-          "full_name": "FlameProudspark/windows-tweak-checker-rpocket-team",
-          "stars": 50,
-          "language": "HTML",
-          "description": "",
-          "url": "https://github.com/FlameProudspark/windows-tweak-checker-rpocket-team",
-          "created_at": "2026-11-12T17:00:49Z"
-        },
-        {
-          "full_name": "AIRzZ90/study-materials-fork",
-          "stars": 312,
-          "language": "TypeScript",
-          "description": "A cross-platform Tauri 2 interface and interaction practice project",
-          "url": "https://github.com/AIRzZ90/study-materials-fork",
-          "created_at": "2026-11-12T10:52:32Z"
-        },
-        {
-          "full_name": "rivet-dev/open-orange",
-          "stars": 176,
-          "language": "TypeScript",
-          "description": "Run Cloudflare Workers and Durable Objects unchanged on AWS, GCP, Azure or your own servers.",
-          "url": "https://github.com/rivet-dev/open-orange",
-          "created_at": "2026-11-12T00:44:12Z"
-        },
-        {
-          "full_name": "Simon3Sarkis/super-odyssey-pc-recomp",
-          "stars": 138,
-          "language": "C",
-          "description": "A native Windows PC port of Super Mario Odyssey by static recompilation. Bring your own game: no game files included.",
-          "url": "https://github.com/Simon3Sarkis/super-odyssey-pc-recomp",
-          "created_at": "2026-11-12T01:49:10Z"
-        },
-        {
-          "full_name": "lawandrorder/mate",
-          "stars": 138,
-          "language": "Python",
-          "description": "Mate, your mate while you shop. A text-first shopping agent for cashback, personal discount codes, package tracking and price-drop alerts. Includes a starter agent, web chat, original icon set and docs. mate.fm ",
-          "url": "https://github.com/lawandrorder/mate",
-          "created_at": "2026-11-12T14:05:28Z"
-        },
-        {
-          "full_name": "routerhubSI/kimi-uncensored",
-          "stars": 84,
+          "full_name": "JanieBodde6309/virtual-card-usdt-llm-router-gateway-arbitrage-finops",
+          "stars": 11,
           "language": "",
-          "description": "Every uncensored and abliterated Kimi build — Kimi K3.1 Pro Uncensored via API at 0.30/1.50 USD per million tokens, abliterated open-weight checkpoints for K3.1 Pro and K3, license notes and a red-team prompt library. Maintained by RouterHub.",
-          "url": "https://github.com/routerhubSI/kimi-uncensored",
-          "created_at": "2026-11-12T04:21:39Z"
+          "description": "An architectural FinOps and payment-clearing guide for multi-provider LLM routers (OpenRouter / LiteLLM / Portkey) routing across Qwen4-Max, DeepSeek-V4.1, and Claude 5.2, preventing concurrent Auto-Topup bank freezes and cascade failures via USDT-funded CoreGold Virtual Cards (V",
+          "url": "https://github.com/JanieBodde6309/virtual-card-usdt-llm-router-gateway-arbitrage-finops",
+          "created_at": "2026-11-13T07:19:44Z"
         },
         {
-          "full_name": "StitchSerfJump/Microsoft-Visio-For-Windows",
-          "stars": 76,
-          "language": "",
-          "description": "Microsoft Visio for Windows — diagramming and vector graphics application for flowcharts, org charts, network maps, floor plans and professional diagrams.",
-          "url": "https://github.com/StitchSerfJump/Microsoft-Visio-For-Windows",
-          "created_at": "2026-11-12T13:42:23Z"
+          "full_name": "faizfahmi77/ScanDot",
+          "stars": 197,
+          "language": "Kotlin",
+          "description": "Experimental Android 3D scanning and point-cloud viewer",
+          "url": "https://github.com/faizfahmi77/ScanDot",
+          "created_at": "2026-11-13T04:07:57Z"
         },
         {
-          "full_name": "CatchArtisanDone86/Movavi-Video-Editor-For-Windows",
-          "stars": 72,
-          "language": "",
-          "description": "Movavi Video Editor for Windows — desktop video editing application for cutting clips, adding effects, transitions, titles and exporting videos for social media and everyday projects.",
-          "url": "https://github.com/CatchArtisanDone86/Movavi-Video-Editor-For-Windows",
-          "created_at": "2026-11-12T19:12:12Z"
-        },
-        {
-          "full_name": "routerhubSI/deepseek-uncensored",
-          "stars": 68,
-          "language": "Python",
-          "description": "Every uncensored and abliterated DeepSeek build — V4.1 Flash 1017 Abliterated (the pinned, reproducible build that ranks third on the AA Cyber benchmark), V4 Pro, the tuned variants, abliterated GGUF builds and a cyber red-team prompt library. Maintained by RouterHub.",
-          "url": "https://github.com/routerhubSI/deepseek-uncensored",
-          "created_at": "2026-11-12T04:44:07Z"
-        },
-        {
-          "full_name": "simonklee/opencode-native-preview",
-          "stars": 58,
-          "language": "TypeScript",
-          "description": "OpenCode Native CLI Preview builds",
-          "url": "https://github.com/simonklee/opencode-native-preview",
-          "created_at": "2026-11-12T08:50:58Z"
-        },
-        {
-          "full_name": "FallsLarvaInterest/Sketchup-Pro-For-Windows",
-          "stars": 52,
-          "language": "",
-          "description": "SketchUp Pro for Windows — 3D modeling software for architecture, interior design, construction documentation and spatial design workflows.",
-          "url": "https://github.com/FallsLarvaInterest/Sketchup-Pro-For-Windows",
-          "created_at": "2026-11-12T15:05:07Z"
-        },
-        {
-          "full_name": "BetaChampionTitle/Coreldraw-For-Windows",
-          "stars": 52,
-          "language": "",
-          "description": "CorelDRAW for Windows — vector graphics and design suite for illustration, layout, typography and print-ready artwork on desktop.",
-          "url": "https://github.com/BetaChampionTitle/Coreldraw-For-Windows",
-          "created_at": "2026-11-12T13:33:33Z"
-        },
-        {
-          "full_name": "Meetovergate/Rob-Run-ESP",
-          "stars": 52,
-          "language": "",
-          "description": "ESP tool for Rob Run with player, cheat, aim, hack, esp, wallhack, inf money, fly, free, vehicle and loot overlays, radar, aim assist and recoil tuning.",
-          "url": "https://github.com/Meetovergate/Rob-Run-ESP",
-          "created_at": "2026-11-12T17:40:42Z"
-        },
-        {
-          "full_name": "siwen-121/agent-shared-facts",
-          "stars": 51,
-          "language": "Python",
-          "description": "An agent-first reference implementation for sharing reviewed facts across devices with Git and read-only MCP.",
-          "url": "https://github.com/siwen-121/agent-shared-facts",
-          "created_at": "2026-11-12T06:22:10Z"
-        },
-        {
-          "full_name": "ArmorSinceHelm/Resp-Blooket-AIO-Soft",
-          "stars": 51,
+          "full_name": "Teamvyajoint/3D-Modeling-With-Sketchup",
+          "stars": 61,
           "language": "C++",
-          "description": "Best Software For Blooket Yet",
-          "url": "https://github.com/ArmorSinceHelm/Resp-Blooket-AIO-Soft",
-          "created_at": "2026-11-12T16:58:03Z"
+          "description": "With SketchUp Pro, architects and designers gain access to a robust set of modeling tools. The software is designed to streamline the creation of visualizations and enhance project communication",
+          "url": "https://github.com/Teamvyajoint/3D-Modeling-With-Sketchup",
+          "created_at": "2026-11-13T00:28:18Z"
         },
         {
-          "full_name": "OrangeSaviorImagine/Abbyy-Finereader-Pdf-For-Windows",
-          "stars": 51,
-          "language": "",
-          "description": "ABBYY FineReader PDF for Windows — OCR and PDF application for scanning, converting documents, editing PDFs and extracting searchable text from images.",
-          "url": "https://github.com/OrangeSaviorImagine/Abbyy-Finereader-Pdf-For-Windows",
-          "created_at": "2026-11-12T14:34:57Z"
+          "full_name": "Speedsobastion1/Filmora-Video-Editor",
+          "stars": 42,
+          "language": "C++",
+          "description": "As a paid video editing software, Filmora 15 specializes in crafting polished films directly from the user's PC. It features an intuitive timeline for editing and a straightforward export function to compile the finished project",
+          "url": "https://github.com/Speedsobastion1/Filmora-Video-Editor",
+          "created_at": "2026-11-13T00:08:23Z"
         }
-      ],
-      "error": "github: status=error (GitHub Search falló: GitHub Search devolvió 0 repositorios)",
-      "stale_since": "2026-11-13T02:16:28.525206"
+      ]
     },
     "hackernews": {
       "status": "ok",
@@ -2158,73 +2004,73 @@
       "items": [
         {
           "id": "xtools-at/DeepSeek-V4-Pro-Qwen3.5-9B-UNCENSORED-heretic",
-          "likes": 4733,
-          "downloads": 18933,
+          "likes": 4831,
+          "downloads": 21586,
           "pipeline_tag": "text-generation",
           "url": "https://huggingface.co/xtools-at/DeepSeek-V4-Pro-Qwen3.5-9B-UNCENSORED-heretic"
         },
         {
           "id": "MiniMaxAI/MiniMax-H3-Image",
-          "likes": 873,
-          "downloads": 306718,
+          "likes": 934,
+          "downloads": 437039,
           "pipeline_tag": "text-to-image",
           "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3-Image"
         },
         {
           "id": "NousResearch/Arete-27B",
-          "likes": 489,
-          "downloads": 4669,
+          "likes": 508,
+          "downloads": 5545,
           "pipeline_tag": "text-generation",
           "url": "https://huggingface.co/NousResearch/Arete-27B"
         },
         {
-          "id": "speridlabs/idol",
-          "likes": 2236,
-          "downloads": 29904,
-          "pipeline_tag": "image-to-3d",
-          "url": "https://huggingface.co/speridlabs/idol"
-        },
-        {
           "id": "Lightricks/LTX-2.5",
-          "likes": 11640,
-          "downloads": 2782513,
+          "likes": 11675,
+          "downloads": 2778909,
           "pipeline_tag": "image-to-video",
           "url": "https://huggingface.co/Lightricks/LTX-2.5"
         },
         {
+          "id": "speridlabs/idol",
+          "likes": 2255,
+          "downloads": 31367,
+          "pipeline_tag": "image-to-3d",
+          "url": "https://huggingface.co/speridlabs/idol"
+        },
+        {
           "id": "Qwen/Qwen3.8-27B",
-          "likes": 19746,
-          "downloads": 7094218,
+          "likes": 19784,
+          "downloads": 6960395,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/Qwen/Qwen3.8-27B"
         },
         {
           "id": "DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
-          "likes": 2982,
-          "downloads": 1599836,
+          "likes": 2998,
+          "downloads": 1639400,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF"
         },
         {
-          "id": "ccore/Qwen3.5-4B-3D-Coder",
-          "likes": 1051,
-          "downloads": 368236,
-          "pipeline_tag": "",
-          "url": "https://huggingface.co/ccore/Qwen3.5-4B-3D-Coder"
-        },
-        {
           "id": "Comfy-Org/MiniMax-H3-Image",
-          "likes": 296,
-          "downloads": 835593,
+          "likes": 319,
+          "downloads": 1257301,
           "pipeline_tag": "text-to-image",
           "url": "https://huggingface.co/Comfy-Org/MiniMax-H3-Image"
         },
         {
-          "id": "ricursiveAI/Ripple-65B-Preview",
-          "likes": 536,
-          "downloads": 7667,
+          "id": "ccore/Qwen3.5-4B-3D-Coder",
+          "likes": 1066,
+          "downloads": 392582,
           "pipeline_tag": "",
-          "url": "https://huggingface.co/ricursiveAI/Ripple-65B-Preview"
+          "url": "https://huggingface.co/ccore/Qwen3.5-4B-3D-Coder"
+        },
+        {
+          "id": "black-forest-labs/flux-3-image-klein-comfy",
+          "likes": 3049,
+          "downloads": 1330289,
+          "pipeline_tag": "image-to-image",
+          "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein-comfy"
         }
       ]
     }
