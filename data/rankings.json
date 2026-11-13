@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-12T21:14:55.574765",
+  "generated_at": "2026-11-13T02:16:28.525206",
   "sources": {
     "design": {
       "status": "ok",
@@ -7,7 +7,7 @@
         {
           "rank": 1,
           "model": "Claude Opus 5.5 (high)",
-          "score": 1442,
+          "score": 1436,
           "prompt_per_m": 4.0,
           "completion_per_m": 20.0,
           "context_length": 1000000,
@@ -16,7 +16,7 @@
         {
           "rank": 2,
           "model": "GPT-6.1 Sol (max)",
-          "score": 1399,
+          "score": 1400,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1050000,
@@ -25,7 +25,7 @@
         {
           "rank": 3,
           "model": "GPT-6 Astra (max)",
-          "score": 1385,
+          "score": 1391,
           "prompt_per_m": 10.0,
           "completion_per_m": 50.0,
           "context_length": 1050000,
@@ -34,7 +34,7 @@
         {
           "rank": 4,
           "model": "Claude Fable 5.2",
-          "score": 1353,
+          "score": 1355,
           "prompt_per_m": 8.0,
           "completion_per_m": 40.0,
           "context_length": 1000000,
@@ -52,7 +52,7 @@
         {
           "rank": 6,
           "model": "Gemini 4 Carbon",
-          "score": 1307,
+          "score": 1308,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1048576,
@@ -60,123 +60,123 @@
         },
         {
           "rank": 7,
-          "model": "DeepSeek-V4.1-Flash (1017)",
-          "score": 1301,
-          "prompt_per_m": 0.3,
-          "completion_per_m": 1.2,
+          "model": "Kimi K3.1 Pro",
+          "score": 1287,
+          "prompt_per_m": 0.2375,
+          "completion_per_m": 8.4114,
           "context_length": 1048576,
           "is_free": false
         },
         {
           "rank": 8,
-          "model": "Kimi K3.1 Pro",
-          "score": 1283,
-          "prompt_per_m": 0.2375,
-          "completion_per_m": 8.7856,
-          "context_length": 1048576,
-          "is_free": false
-        },
-        {
-          "rank": 9,
           "model": "Claude Sonnet 5.5",
-          "score": 1280,
+          "score": 1284,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1000000,
           "is_free": false
         },
         {
-          "rank": 10,
+          "rank": 9,
           "model": "Muse Spark 1.3 Max",
-          "score": 1275
+          "score": 1277
+        },
+        {
+          "rank": 10,
+          "model": "Gemini 4 Argon",
+          "score": 1269,
+          "prompt_per_m": 2.0,
+          "completion_per_m": 10.0,
+          "context_length": 1048576,
+          "is_free": false
         },
         {
           "rank": 11,
-          "model": "Inkling 2 Small",
-          "score": 1269,
-          "prompt_per_m": 0.0,
-          "completion_per_m": 0.0,
-          "context_length": 1048576,
-          "is_free": true
-        },
-        {
-          "rank": 12,
           "model": "Claude Fable 5",
-          "score": 1266,
+          "score": 1268,
           "prompt_per_m": 10.0,
           "completion_per_m": 50.0,
           "context_length": 1000000,
           "is_free": false
         },
         {
+          "rank": 12,
+          "model": "Claude Opus 5",
+          "score": 1266,
+          "prompt_per_m": 5.0,
+          "completion_per_m": 25.0,
+          "context_length": 1000000,
+          "is_free": false
+        },
+        {
           "rank": 13,
-          "model": "1276W / 472L 73.0% ±2.1% 1,748 Anthropic",
-          "score": 1442
+          "model": "1208W / 462L 72.3% ±2.1% 1,670 Anthropic",
+          "score": 1436
         },
         {
           "rank": 14,
-          "model": "584W / 347L 62.7% ±3.1% 931 OpenAI",
-          "score": 1399
+          "model": "586W / 348L 62.7% ±3.1% 934 OpenAI",
+          "score": 1400
         },
         {
           "rank": 15,
-          "model": "1462W / 714L 67.2% ±2.0% 2,176 OpenAI",
-          "score": 1385
+          "model": "1427W / 676L 67.9% ±2.0% 2,103 OpenAI",
+          "score": 1391
         },
         {
           "rank": 16,
-          "model": "957W / 442L 68.4% ±2.4% 1,399 Anthropic",
-          "score": 1353
+          "model": "957W / 441L 68.5% ±2.4% 1,398 Anthropic",
+          "score": 1355
         },
         {
           "rank": 17,
-          "model": "2827W / 1918L 59.6% ±1.4% 4,745 Anthropic",
+          "model": "2770W / 1886L 59.5% ±1.4% 4,656 Anthropic",
           "score": 1327
         },
         {
           "rank": 18,
-          "model": "422W / 257L 62.1% ±3.6% 679 Google",
-          "score": 1307
+          "model": "427W / 261L 62.1% ±3.6% 688 Google",
+          "score": 1308
         },
         {
           "rank": 19,
-          "model": "137W / 112L 55.0% ±6.2% 249 DeepSeek",
-          "score": 1301
+          "model": "2209W / 1478L 59.9% ±1.6% 3,687 Moonshot AI",
+          "score": 1287
         },
         {
           "rank": 20,
-          "model": "2242W / 1531L 59.4% ±1.6% 3,773 Moonshot AI",
-          "score": 1283
+          "model": "1448W / 1025L 58.5% ±1.9% 2,473 Anthropic",
+          "score": 1284
         },
         {
           "rank": 21,
-          "model": "1534W / 1122L 57.8% ±1.9% 2,656 Anthropic",
-          "score": 1280
+          "model": "7221W / 5359L 57.4% ±0.9% 12,580 Meta",
+          "score": 1277
         },
         {
           "rank": 22,
-          "model": "7305W / 5448L 57.3% ±0.9% 12,753 Meta",
-          "score": 1275
-        },
-        {
-          "rank": 23,
-          "model": "3406W / 2528L 57.4% ±1.3% 5,934 Thinking Machines",
+          "model": "520W / 661L 44.0% ±2.8% 1,181 Google",
           "score": 1269
         },
         {
-          "rank": 24,
+          "rank": 23,
           "model": "8057W / 5249L 60.5% ±0.8% 13,306 Anthropic",
+          "score": 1268
+        },
+        {
+          "rank": 24,
+          "model": "4272W / 3305L 56.4% ±1.1% 7,577 Anthropic",
           "score": 1266
         },
         {
           "rank": 25,
-          "model": "4386W / 3433L 56.1% ±1.1% 7,819 Anthropic",
-          "score": 1264
+          "model": "1899W / 1362L 58.2% ±1.7% 3,261 Xiaomi",
+          "score": 1265
         },
         {
           "rank": 26,
-          "model": "587W / 750L 43.9% ±2.7% 1,337 Google",
-          "score": 1264
+          "model": "8606W / 6755L 56.0% ±0.8% 15,361 Moonshot AI",
+          "score": 1255
         }
       ],
       "method": "http"
@@ -664,7 +664,7 @@
           "author": "moonshot",
           "votes": 3443,
           "prompt_per_m": 0.2375,
-          "completion_per_m": 8.7856,
+          "completion_per_m": 8.4114,
           "context_length": 1048576,
           "is_free": false
         },
@@ -1054,7 +1054,7 @@
           "author": "moonshot",
           "votes": 3443,
           "prompt_per_m": 0.2375,
-          "completion_per_m": 8.7856,
+          "completion_per_m": 8.4114,
           "context_length": 1048576,
           "is_free": false
         },
@@ -1873,7 +1873,7 @@
       "stale_since": "2026-11-11T02:21:51.468524"
     },
     "github": {
-      "status": "ok",
+      "status": "stale",
       "since": "2026-11-11",
       "ai": [
         {
@@ -2096,7 +2096,9 @@
           "url": "https://github.com/OrangeSaviorImagine/Abbyy-Finereader-Pdf-For-Windows",
           "created_at": "2026-11-12T14:34:57Z"
         }
-      ]
+      ],
+      "error": "github: status=error (GitHub Search falló: GitHub Search devolvió 0 repositorios)",
+      "stale_since": "2026-11-13T02:16:28.525206"
     },
     "hackernews": {
       "status": "ok",
@@ -2156,70 +2158,70 @@
       "items": [
         {
           "id": "xtools-at/DeepSeek-V4-Pro-Qwen3.5-9B-UNCENSORED-heretic",
-          "likes": 4684,
+          "likes": 4733,
           "downloads": 18933,
           "pipeline_tag": "text-generation",
           "url": "https://huggingface.co/xtools-at/DeepSeek-V4-Pro-Qwen3.5-9B-UNCENSORED-heretic"
         },
         {
           "id": "MiniMaxAI/MiniMax-H3-Image",
-          "likes": 851,
+          "likes": 873,
           "downloads": 306718,
           "pipeline_tag": "text-to-image",
           "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3-Image"
         },
         {
           "id": "NousResearch/Arete-27B",
-          "likes": 478,
+          "likes": 489,
           "downloads": 4669,
           "pipeline_tag": "text-generation",
           "url": "https://huggingface.co/NousResearch/Arete-27B"
         },
         {
           "id": "speridlabs/idol",
-          "likes": 2221,
+          "likes": 2236,
           "downloads": 29904,
           "pipeline_tag": "image-to-3d",
           "url": "https://huggingface.co/speridlabs/idol"
         },
         {
           "id": "Lightricks/LTX-2.5",
-          "likes": 11610,
+          "likes": 11640,
           "downloads": 2782513,
           "pipeline_tag": "image-to-video",
           "url": "https://huggingface.co/Lightricks/LTX-2.5"
         },
         {
-          "id": "DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
-          "likes": 2973,
-          "downloads": 1599836,
-          "pipeline_tag": "image-text-to-text",
-          "url": "https://huggingface.co/DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF"
-        },
-        {
           "id": "Qwen/Qwen3.8-27B",
-          "likes": 19730,
+          "likes": 19746,
           "downloads": 7094218,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/Qwen/Qwen3.8-27B"
         },
         {
+          "id": "DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
+          "likes": 2982,
+          "downloads": 1599836,
+          "pipeline_tag": "image-text-to-text",
+          "url": "https://huggingface.co/DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF"
+        },
+        {
           "id": "ccore/Qwen3.5-4B-3D-Coder",
-          "likes": 1044,
+          "likes": 1051,
           "downloads": 368236,
           "pipeline_tag": "",
           "url": "https://huggingface.co/ccore/Qwen3.5-4B-3D-Coder"
         },
         {
           "id": "Comfy-Org/MiniMax-H3-Image",
-          "likes": 288,
+          "likes": 296,
           "downloads": 835593,
           "pipeline_tag": "text-to-image",
           "url": "https://huggingface.co/Comfy-Org/MiniMax-H3-Image"
         },
         {
           "id": "ricursiveAI/Ripple-65B-Preview",
-          "likes": 530,
+          "likes": 536,
           "downloads": 7667,
           "pipeline_tag": "",
           "url": "https://huggingface.co/ricursiveAI/Ripple-65B-Preview"
