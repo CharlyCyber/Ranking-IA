@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-13T10:17:02.418985",
+  "generated_at": "2026-11-13T18:16:53.572491",
   "sources": {
     "design": {
       "status": "ok",
@@ -16,7 +16,7 @@
         {
           "rank": 2,
           "model": "Claude Opus 5.5 (high)",
-          "score": 1404,
+          "score": 1405,
           "prompt_per_m": 4.0,
           "completion_per_m": 20.0,
           "context_length": 1000000,
@@ -25,7 +25,7 @@
         {
           "rank": 3,
           "model": "GPT-6 Astra (max)",
-          "score": 1392,
+          "score": 1393,
           "prompt_per_m": 10.0,
           "completion_per_m": 50.0,
           "context_length": 1050000,
@@ -34,7 +34,7 @@
         {
           "rank": 4,
           "model": "Claude Fable 5.2",
-          "score": 1355,
+          "score": 1356,
           "prompt_per_m": 8.0,
           "completion_per_m": 40.0,
           "context_length": 1000000,
@@ -42,15 +42,24 @@
         },
         {
           "rank": 5,
+          "model": "Inkling 2 Small",
+          "score": 1356,
+          "prompt_per_m": 0.3,
+          "completion_per_m": 1.0,
+          "context_length": 1048576,
+          "is_free": false
+        },
+        {
+          "rank": 6,
           "model": "Claude Fable 5.1",
-          "score": 1326,
+          "score": 1327,
           "prompt_per_m": 10.0,
           "completion_per_m": 50.0,
           "context_length": 1000000,
           "is_free": false
         },
         {
-          "rank": 6,
+          "rank": 7,
           "model": "Gemini 4 Carbon",
           "score": 1307,
           "prompt_per_m": 2.0,
@@ -59,7 +68,7 @@
           "is_free": false
         },
         {
-          "rank": 7,
+          "rank": 8,
           "model": "Kimi K3.1 Pro",
           "score": 1286,
           "prompt_per_m": 2.0,
@@ -68,7 +77,7 @@
           "is_free": false
         },
         {
-          "rank": 8,
+          "rank": 9,
           "model": "Claude Sonnet 5.5",
           "score": 1283,
           "prompt_per_m": 2.0,
@@ -77,23 +86,14 @@
           "is_free": false
         },
         {
-          "rank": 9,
-          "model": "Muse Spark 1.3 Max",
-          "score": 1276
-        },
-        {
           "rank": 10,
-          "model": "Gemini 4 Argon",
-          "score": 1268,
-          "prompt_per_m": 2.0,
-          "completion_per_m": 10.0,
-          "context_length": 1048576,
-          "is_free": false
+          "model": "Muse Spark 1.3 Max",
+          "score": 1278
         },
         {
           "rank": 11,
           "model": "Claude Fable 5",
-          "score": 1267,
+          "score": 1268,
           "prompt_per_m": 10.0,
           "completion_per_m": 50.0,
           "context_length": 1000000,
@@ -101,11 +101,11 @@
         },
         {
           "rank": 12,
-          "model": "Claude Opus 5",
-          "score": 1265,
-          "prompt_per_m": 5.0,
-          "completion_per_m": 25.0,
-          "context_length": 1000000,
+          "model": "Gemini 4 Argon",
+          "score": 1268,
+          "prompt_per_m": 2.0,
+          "completion_per_m": 10.0,
+          "context_length": 1048576,
           "is_free": false
         },
         {
@@ -116,67 +116,67 @@
         {
           "rank": 14,
           "model": "1302W / 668L 66.1% ±2.1% 1,970 Anthropic",
-          "score": 1404
+          "score": 1405
         },
         {
           "rank": 15,
-          "model": "1439W / 665L 68.4% ±2.0% 2,104 OpenAI",
-          "score": 1392
+          "model": "1439W / 666L 68.4% ±2.0% 2,105 OpenAI",
+          "score": 1393
         },
         {
           "rank": 16,
-          "model": "974W / 445L 68.6% ±2.4% 1,419 Anthropic",
-          "score": 1355
+          "model": "999W / 458L 68.6% ±2.4% 1,457 Anthropic",
+          "score": 1356
         },
         {
           "rank": 17,
-          "model": "2779W / 1877L 59.7% ±1.4% 4,656 Anthropic",
-          "score": 1326
+          "model": "202W / 98L 67.3% ±5.3% 300 Thinking Machines",
+          "score": 1356
         },
         {
           "rank": 18,
-          "model": "444W / 272L 62.0% ±3.6% 716 Google",
-          "score": 1307
+          "model": "2779W / 1877L 59.7% ±1.4% 4,656 Anthropic",
+          "score": 1327
         },
         {
           "rank": 19,
-          "model": "2212W / 1483L 59.9% ±1.6% 3,695 Moonshot AI",
-          "score": 1286
+          "model": "467W / 291L 61.6% ±3.5% 758 Google",
+          "score": 1307
         },
         {
           "rank": 20,
-          "model": "1459W / 1032L 58.6% ±1.9% 2,491 Anthropic",
-          "score": 1283
+          "model": "2221W / 1496L 59.8% ±1.6% 3,717 Moonshot AI",
+          "score": 1286
         },
         {
           "rank": 21,
-          "model": "7226W / 5364L 57.4% ±0.9% 12,590 Meta",
-          "score": 1276
+          "model": "1473W / 1049L 58.4% ±1.9% 2,522 Anthropic",
+          "score": 1283
         },
         {
           "rank": 22,
-          "model": "533W / 669L 44.3% ±2.8% 1,202 Google",
-          "score": 1268
+          "model": "7234W / 5372L 57.4% ±0.9% 12,606 Meta",
+          "score": 1278
         },
         {
           "rank": 23,
-          "model": "8061W / 5240L 60.6% ±0.8% 13,301 Anthropic",
-          "score": 1267
+          "model": "8061W / 5241L 60.6% ±0.8% 13,302 Anthropic",
+          "score": 1268
         },
         {
           "rank": 24,
-          "model": "4278W / 3309L 56.4% ±1.1% 7,587 Anthropic",
-          "score": 1265
+          "model": "549W / 684L 44.5% ±2.8% 1,233 Google",
+          "score": 1268
         },
         {
           "rank": 25,
-          "model": "1899W / 1362L 58.2% ±1.7% 3,261 Xiaomi",
-          "score": 1264
+          "model": "4284W / 3314L 56.4% ±1.1% 7,598 Anthropic",
+          "score": 1266
         },
         {
           "rank": 26,
-          "model": "8610W / 6757L 56.0% ±0.8% 15,367 Moonshot AI",
-          "score": 1254
+          "model": "1899W / 1362L 58.2% ±1.7% 3,261 Xiaomi",
+          "score": 1265
         }
       ],
       "method": "http"
@@ -190,7 +190,7 @@
           "category": "Text",
           "score": 1538,
           "author": "google",
-          "votes": 4282,
+          "votes": 4273,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1048576,
@@ -200,9 +200,9 @@
           "rank": 2,
           "model": "Gemini 4 Argon (High)",
           "category": "Text",
-          "score": 1530,
+          "score": 1529,
           "author": "google",
-          "votes": 19787,
+          "votes": 20779,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1048576,
@@ -212,9 +212,9 @@
           "rank": 3,
           "model": "Claude Opus 5.5 (High)",
           "category": "Text",
-          "score": 1513,
+          "score": 1514,
           "author": "anthropic",
-          "votes": 15249,
+          "votes": 15793,
           "prompt_per_m": 4.0,
           "completion_per_m": 20.0,
           "context_length": 1000000,
@@ -226,7 +226,7 @@
           "category": "Text",
           "score": 1512,
           "author": "anthropic",
-          "votes": 20087,
+          "votes": 20511,
           "prompt_per_m": 10.0,
           "completion_per_m": 50.0,
           "context_length": 1000000,
@@ -236,9 +236,9 @@
           "rank": 5,
           "model": "Claude Opus 5 (Max)",
           "category": "Text",
-          "score": 1506,
+          "score": 1507,
           "author": "anthropic",
-          "votes": 35710,
+          "votes": 35670,
           "prompt_per_m": 5.0,
           "completion_per_m": 25.0,
           "context_length": 1000000,
@@ -250,7 +250,7 @@
           "category": "Text",
           "score": 1503,
           "author": "meta",
-          "votes": 12032,
+          "votes": 12696,
           "prompt_per_m": 4.0,
           "completion_per_m": 20.0,
           "context_length": 1048576,
@@ -262,7 +262,7 @@
           "category": "Text",
           "score": 1502,
           "author": "anthropic",
-          "votes": 73697,
+          "votes": 73632,
           "prompt_per_m": 5.0,
           "completion_per_m": 25.0,
           "context_length": 1000000,
@@ -270,50 +270,50 @@
         },
         {
           "rank": 8,
-          "model": "Claude Opus 4.6 (High)",
+          "model": "Gemini 4 Hydrogen (High)",
           "category": "Text",
           "score": 1502,
+          "author": "google",
+          "votes": 4741,
+          "prompt_per_m": 1.5,
+          "completion_per_m": 7.5,
+          "context_length": 1048576,
+          "is_free": false
+        },
+        {
+          "rank": 9,
+          "model": "Claude Opus 4.6 (High)",
+          "category": "Text",
+          "score": 1501,
           "author": "anthropic",
-          "votes": 84424,
+          "votes": 84375,
           "prompt_per_m": 5.0,
           "completion_per_m": 25.0,
           "context_length": 1000000,
           "is_free": false
         },
         {
-          "rank": 9,
+          "rank": 10,
           "model": "Gemini 3.8 Flash (High)",
           "category": "Text",
           "score": 1500,
           "author": "google",
-          "votes": 61143,
+          "votes": 62675,
           "prompt_per_m": 0.825,
           "completion_per_m": 4.125,
           "context_length": 1048576,
           "is_free": false
         },
         {
-          "rank": 10,
+          "rank": 11,
           "model": "Claude Opus 4.6",
           "category": "Text",
           "score": 1497,
           "author": "anthropic",
-          "votes": 89228,
+          "votes": 89177,
           "prompt_per_m": 5.0,
           "completion_per_m": 25.0,
           "context_length": 1000000,
-          "is_free": false
-        },
-        {
-          "rank": 11,
-          "model": "MiMo-V2.6-Pro",
-          "category": "Text",
-          "score": 1492,
-          "author": "xiaomi",
-          "votes": 4066,
-          "prompt_per_m": 0.435,
-          "completion_per_m": 0.87,
-          "context_length": 1050000,
           "is_free": false
         },
         {
@@ -322,7 +322,7 @@
           "category": "Text",
           "score": 1492,
           "author": "anthropic",
-          "votes": 45524,
+          "votes": 45469,
           "prompt_per_m": 10.0,
           "completion_per_m": 50.0,
           "context_length": 1000000,
@@ -332,9 +332,9 @@
           "rank": 13,
           "model": "Muse Spark 1.3 (Max)",
           "category": "Text",
-          "score": 1491,
+          "score": 1492,
           "author": "meta",
-          "votes": 26111,
+          "votes": 26806,
           "prompt_per_m": 1.25,
           "completion_per_m": 4.25,
           "context_length": 1048576,
@@ -342,35 +342,35 @@
         },
         {
           "rank": 14,
+          "model": "MiMo-V2.6-Pro",
+          "category": "Text",
+          "score": 1492,
+          "author": "xiaomi",
+          "votes": 4064,
+          "prompt_per_m": 0.435,
+          "completion_per_m": 0.87,
+          "context_length": 1050000,
+          "is_free": false
+        },
+        {
+          "rank": 15,
           "model": "Claude Opus 4.7 (High)",
           "category": "Text",
           "score": 1490,
           "author": "anthropic",
-          "votes": 64308,
+          "votes": 64260,
           "prompt_per_m": 5.0,
           "completion_per_m": 25.0,
           "context_length": 1000000,
           "is_free": false
         },
         {
-          "rank": 15,
-          "model": "Gemini 3.7 Flash (High)",
-          "category": "Text",
-          "score": 1489,
-          "author": "google",
-          "votes": 33300,
-          "prompt_per_m": 0.75,
-          "completion_per_m": 3.75,
-          "context_length": 1048576,
-          "is_free": false
-        },
-        {
           "rank": 1,
           "model": "Gemini 4 Carbon (High)",
           "category": "Code",
-          "score": 1563,
+          "score": 1564,
           "author": "google",
-          "votes": 4282,
+          "votes": 4273,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1048576,
@@ -380,9 +380,9 @@
           "rank": 2,
           "model": "Claude Opus 5.5 (High)",
           "category": "Code",
-          "score": 1542,
+          "score": 1543,
           "author": "anthropic",
-          "votes": 15249,
+          "votes": 15793,
           "prompt_per_m": 4.0,
           "completion_per_m": 20.0,
           "context_length": 1000000,
@@ -394,7 +394,7 @@
           "category": "Code",
           "score": 1540,
           "author": "google",
-          "votes": 19787,
+          "votes": 20779,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1048576,
@@ -406,7 +406,7 @@
           "category": "Code",
           "score": 1534,
           "author": "anthropic",
-          "votes": 89228,
+          "votes": 89177,
           "prompt_per_m": 5.0,
           "completion_per_m": 25.0,
           "context_length": 1000000,
@@ -416,9 +416,9 @@
           "rank": 5,
           "model": "MiMo-V2.6-Pro",
           "category": "Code",
-          "score": 1533,
+          "score": 1534,
           "author": "xiaomi",
-          "votes": 4066,
+          "votes": 4064,
           "prompt_per_m": 0.435,
           "completion_per_m": 0.87,
           "context_length": 1050000,
@@ -430,7 +430,7 @@
           "category": "Code",
           "score": 1532,
           "author": "anthropic",
-          "votes": 35710,
+          "votes": 35670,
           "prompt_per_m": 5.0,
           "completion_per_m": 25.0,
           "context_length": 1000000,
@@ -442,7 +442,7 @@
           "category": "Code",
           "score": 1531,
           "author": "anthropic",
-          "votes": 73697,
+          "votes": 73632,
           "prompt_per_m": 5.0,
           "completion_per_m": 25.0,
           "context_length": 1000000,
@@ -454,7 +454,7 @@
           "category": "Code",
           "score": 1531,
           "author": "anthropic",
-          "votes": 84424,
+          "votes": 84375,
           "prompt_per_m": 5.0,
           "completion_per_m": 25.0,
           "context_length": 1000000,
@@ -466,7 +466,7 @@
           "category": "Code",
           "score": 1527,
           "author": "anthropic",
-          "votes": 20087,
+          "votes": 20511,
           "prompt_per_m": 10.0,
           "completion_per_m": 50.0,
           "context_length": 1000000,
@@ -478,7 +478,7 @@
           "category": "Code",
           "score": 1519,
           "author": "anthropic",
-          "votes": 64308,
+          "votes": 64260,
           "prompt_per_m": 5.0,
           "completion_per_m": 25.0,
           "context_length": 1000000,
@@ -490,7 +490,7 @@
           "category": "Code",
           "score": 1519,
           "author": "anthropic",
-          "votes": 45524,
+          "votes": 45469,
           "prompt_per_m": 10.0,
           "completion_per_m": 50.0,
           "context_length": 1000000,
@@ -498,49 +498,49 @@
         },
         {
           "rank": 12,
+          "model": "Gemini 4 Hydrogen (High)",
+          "category": "Code",
+          "score": 1516,
+          "author": "google",
+          "votes": 4741,
+          "prompt_per_m": 1.5,
+          "completion_per_m": 7.5,
+          "context_length": 1048576,
+          "is_free": false
+        },
+        {
+          "rank": 13,
           "model": "Muse Wonder (Max)",
           "category": "Code",
-          "score": 1517,
+          "score": 1516,
           "author": "meta",
-          "votes": 12032,
+          "votes": 12696,
           "prompt_per_m": 4.0,
           "completion_per_m": 20.0,
           "context_length": 1048576,
           "is_free": false
         },
         {
-          "rank": 13,
+          "rank": 14,
           "model": "Claude Opus 4.7",
           "category": "Code",
           "score": 1515,
           "author": "anthropic",
-          "votes": 65369,
+          "votes": 65309,
           "prompt_per_m": 5.0,
           "completion_per_m": 25.0,
           "context_length": 1000000,
           "is_free": false
         },
         {
-          "rank": 14,
+          "rank": 15,
           "model": "Gemini 3.8 Flash (High)",
           "category": "Code",
-          "score": 1511,
+          "score": 1510,
           "author": "google",
-          "votes": 61143,
+          "votes": 62675,
           "prompt_per_m": 0.825,
           "completion_per_m": 4.125,
-          "context_length": 1048576,
-          "is_free": false
-        },
-        {
-          "rank": 15,
-          "model": "GLM-5.3-Flash",
-          "category": "Code",
-          "score": 1510,
-          "author": "z-ai",
-          "votes": 50189,
-          "prompt_per_m": 0.0399,
-          "completion_per_m": 0.0784,
           "context_length": 1048576,
           "is_free": false
         },
@@ -548,7 +548,7 @@
           "rank": 1,
           "model": "Claude Fable 5.2 (xHigh)",
           "category": "WebDev",
-          "score": 1836,
+          "score": 1838,
           "author": "anthropic",
           "prompt_per_m": 8.0,
           "completion_per_m": 40.0,
@@ -559,7 +559,7 @@
           "rank": 2,
           "model": "Claude Opus 5.5 (Max)",
           "category": "WebDev",
-          "score": 1814,
+          "score": 1815,
           "author": "anthropic",
           "prompt_per_m": 4.0,
           "completion_per_m": 20.0,
@@ -570,9 +570,9 @@
           "rank": 3,
           "model": "Claude Sonnet 5.5 (xHigh)",
           "category": "WebDev",
-          "score": 1773,
+          "score": 1772,
           "author": "anthropic",
-          "votes": 13821,
+          "votes": 14355,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1000000,
@@ -584,7 +584,7 @@
           "category": "WebDev",
           "score": 1768,
           "author": "google",
-          "votes": 4282,
+          "votes": 4273,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1048576,
@@ -596,7 +596,7 @@
           "category": "WebDev",
           "score": 1764,
           "author": "openai",
-          "votes": 18315,
+          "votes": 18745,
           "prompt_per_m": 10.0,
           "completion_per_m": 50.0,
           "context_length": 1050000,
@@ -608,7 +608,7 @@
           "category": "WebDev",
           "score": 1743,
           "author": "openai",
-          "votes": 12952,
+          "votes": 13498,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1050000,
@@ -620,7 +620,7 @@
           "category": "WebDev",
           "score": 1742,
           "author": "anthropic",
-          "votes": 20087,
+          "votes": 20511,
           "prompt_per_m": 10.0,
           "completion_per_m": 50.0,
           "context_length": 1000000,
@@ -646,35 +646,35 @@
         },
         {
           "rank": 10,
+          "model": "Gemini 4 Hydrogen (High)",
+          "category": "WebDev",
+          "score": 1704,
+          "author": "google",
+          "votes": 4741,
+          "prompt_per_m": 1.5,
+          "completion_per_m": 7.5,
+          "context_length": 1048576,
+          "is_free": false
+        },
+        {
+          "rank": 11,
           "model": "Claude Opus 5 (Max)",
           "category": "WebDev",
           "score": 1691,
           "author": "anthropic",
-          "votes": 35710,
+          "votes": 35670,
           "prompt_per_m": 5.0,
           "completion_per_m": 25.0,
           "context_length": 1000000,
           "is_free": false
         },
         {
-          "rank": 11,
+          "rank": 12,
           "model": "Kimi K3.1 Pro (Max)",
           "category": "WebDev",
-          "score": 1688,
+          "score": 1687,
           "author": "moonshot",
-          "votes": 3443,
-          "prompt_per_m": 2.0,
-          "completion_per_m": 10.0,
-          "context_length": 1048576,
-          "is_free": false
-        },
-        {
-          "rank": 12,
-          "model": "Gemini 4 Argon (High)",
-          "category": "WebDev",
-          "score": 1682,
-          "author": "google",
-          "votes": 19787,
+          "votes": 3995,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1048576,
@@ -682,9 +682,21 @@
         },
         {
           "rank": 13,
+          "model": "Gemini 4 Argon (High)",
+          "category": "WebDev",
+          "score": 1681,
+          "author": "google",
+          "votes": 20779,
+          "prompt_per_m": 2.0,
+          "completion_per_m": 10.0,
+          "context_length": 1048576,
+          "is_free": false
+        },
+        {
+          "rank": 14,
           "model": "GPT-6.1 Terra (Max)",
           "category": "WebDev",
-          "score": 1679,
+          "score": 1678,
           "author": "openai",
           "prompt_per_m": 1.0,
           "completion_per_m": 5.0,
@@ -692,7 +704,7 @@
           "is_free": false
         },
         {
-          "rank": 14,
+          "rank": 15,
           "model": "Qwen3.8-Max (0902)",
           "category": "WebDev",
           "score": 1676,
@@ -702,24 +714,12 @@
           "context_length": 1000000
         },
         {
-          "rank": 15,
-          "model": "GPT-6 Sol (Max)",
-          "category": "WebDev",
-          "score": 1673,
-          "author": "openai",
-          "votes": 19890,
-          "prompt_per_m": 2.0,
-          "completion_per_m": 10.0,
-          "context_length": 1050000,
-          "is_free": false
-        },
-        {
           "rank": 1,
           "model": "Claude Fable 5 (High)",
           "category": "Vision",
           "score": 1326,
           "author": "anthropic",
-          "votes": 45524,
+          "votes": 45469,
           "prompt_per_m": 10.0,
           "completion_per_m": 50.0,
           "context_length": 1000000,
@@ -731,7 +731,7 @@
           "category": "Vision",
           "score": 1324,
           "author": "anthropic",
-          "votes": 15249,
+          "votes": 15793,
           "prompt_per_m": 4.0,
           "completion_per_m": 20.0,
           "context_length": 1000000,
@@ -743,7 +743,7 @@
           "category": "Vision",
           "score": 1322,
           "author": "anthropic",
-          "votes": 20087,
+          "votes": 20511,
           "prompt_per_m": 10.0,
           "completion_per_m": 50.0,
           "context_length": 1000000,
@@ -755,7 +755,7 @@
           "category": "Vision",
           "score": 1319,
           "author": "anthropic",
-          "votes": 65369,
+          "votes": 65309,
           "prompt_per_m": 5.0,
           "completion_per_m": 25.0,
           "context_length": 1000000,
@@ -767,7 +767,7 @@
           "category": "Vision",
           "score": 1317,
           "author": "anthropic",
-          "votes": 73697,
+          "votes": 73632,
           "prompt_per_m": 5.0,
           "completion_per_m": 25.0,
           "context_length": 1000000,
@@ -779,7 +779,7 @@
           "category": "Vision",
           "score": 1317,
           "author": "google",
-          "votes": 61143,
+          "votes": 62675,
           "prompt_per_m": 0.825,
           "completion_per_m": 4.125,
           "context_length": 1048576,
@@ -791,7 +791,7 @@
           "category": "Vision",
           "score": 1316,
           "author": "anthropic",
-          "votes": 84424,
+          "votes": 84375,
           "prompt_per_m": 5.0,
           "completion_per_m": 25.0,
           "context_length": 1000000,
@@ -803,7 +803,7 @@
           "category": "Vision",
           "score": 1314,
           "author": "anthropic",
-          "votes": 64308,
+          "votes": 64260,
           "prompt_per_m": 5.0,
           "completion_per_m": 25.0,
           "context_length": 1000000,
@@ -815,7 +815,7 @@
           "category": "Vision",
           "score": 1313,
           "author": "google",
-          "votes": 33300,
+          "votes": 33251,
           "prompt_per_m": 0.75,
           "completion_per_m": 3.75,
           "context_length": 1048576,
@@ -827,7 +827,7 @@
           "category": "Vision",
           "score": 1312,
           "author": "anthropic",
-          "votes": 89228,
+          "votes": 89177,
           "prompt_per_m": 5.0,
           "completion_per_m": 25.0,
           "context_length": 1000000,
@@ -839,7 +839,7 @@
           "category": "Vision",
           "score": 1312,
           "author": "qwen",
-          "votes": 36324,
+          "votes": 36936,
           "prompt_per_m": 2.0,
           "completion_per_m": 6.0,
           "context_length": 1000000
@@ -850,7 +850,7 @@
           "category": "Vision",
           "score": 1310,
           "author": "meta",
-          "votes": 26111,
+          "votes": 26806,
           "prompt_per_m": 1.25,
           "completion_per_m": 4.25,
           "context_length": 1048576,
@@ -862,7 +862,7 @@
           "category": "Vision",
           "score": 1308,
           "author": "google",
-          "votes": 47642,
+          "votes": 47588,
           "prompt_per_m": 1.5,
           "completion_per_m": 9.0,
           "context_length": 1048576,
@@ -874,7 +874,7 @@
           "category": "Vision",
           "score": 1306,
           "author": "meta",
-          "votes": 14009
+          "votes": 13985
         },
         {
           "rank": 15,
@@ -882,7 +882,7 @@
           "category": "Vision",
           "score": 1305,
           "author": "google",
-          "votes": 46377,
+          "votes": 46329,
           "prompt_per_m": 1.5,
           "completion_per_m": 9.0,
           "context_length": 1048576,
@@ -916,7 +916,7 @@
           "category": "Agent",
           "win_rate_pct": 16.98,
           "author": "google",
-          "votes": 4282,
+          "votes": 4273,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1048576,
@@ -939,7 +939,7 @@
           "category": "Agent",
           "win_rate_pct": 14.82,
           "author": "anthropic",
-          "votes": 20087,
+          "votes": 20511,
           "prompt_per_m": 10.0,
           "completion_per_m": 50.0,
           "context_length": 1000000,
@@ -951,7 +951,7 @@
           "category": "Agent",
           "win_rate_pct": 14.54,
           "author": "openai",
-          "votes": 18315,
+          "votes": 18745,
           "prompt_per_m": 10.0,
           "completion_per_m": 50.0,
           "context_length": 1050000,
@@ -963,7 +963,7 @@
           "category": "Agent",
           "win_rate_pct": 12.46,
           "author": "openai",
-          "votes": 12952,
+          "votes": 13498,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1050000,
@@ -986,7 +986,7 @@
           "category": "Agent",
           "win_rate_pct": 10.74,
           "author": "google",
-          "votes": 19787,
+          "votes": 20779,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1048576,
@@ -1005,7 +1005,7 @@
           "category": "Agent",
           "win_rate_pct": 7.3,
           "author": "anthropic",
-          "votes": 45524,
+          "votes": 45469,
           "prompt_per_m": 10.0,
           "completion_per_m": 50.0,
           "context_length": 1000000,
@@ -1017,7 +1017,7 @@
           "category": "Agent",
           "win_rate_pct": 7.23,
           "author": "anthropic",
-          "votes": 35710,
+          "votes": 35670,
           "prompt_per_m": 5.0,
           "completion_per_m": 25.0,
           "context_length": 1000000,
@@ -1029,7 +1029,7 @@
           "category": "Agent",
           "win_rate_pct": 6.91,
           "author": "openai",
-          "votes": 19890,
+          "votes": 20430,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1050000,
@@ -1052,7 +1052,7 @@
           "category": "Agent",
           "win_rate_pct": 4.9,
           "author": "moonshot",
-          "votes": 3443,
+          "votes": 3995,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1048576,
@@ -1877,72 +1877,368 @@
       "since": "2026-11-12",
       "ai": [
         {
-          "full_name": "JanieBodde6309/virtual-card-usdt-llm-router-gateway-arbitrage-finops",
-          "stars": 11,
+          "full_name": "SandyPandyMandy/ai--manus",
+          "stars": 146,
           "language": "",
-          "description": "An architectural FinOps and payment-clearing guide for multi-provider LLM routers (OpenRouter / LiteLLM / Portkey) routing across Qwen4-Max, DeepSeek-V4.1, and Claude 5.2, preventing concurrent Auto-Topup bank freezes and cascade failures via USDT-funded CoreGold Virtual Cards (V",
-          "url": "https://github.com/JanieBodde6309/virtual-card-usdt-llm-router-gateway-arbitrage-finops",
-          "created_at": "2026-11-13T07:19:44Z"
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/SandyPandyMandy/ai--manus",
+          "created_at": "2026-11-13T14:44:52Z"
+        },
+        {
+          "full_name": "sofixleon-arch/ai--manus",
+          "stars": 146,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/sofixleon-arch/ai--manus",
+          "created_at": "2026-11-13T14:45:36Z"
+        },
+        {
+          "full_name": "ITprogamatikDedSec/ai--manus",
+          "stars": 146,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/ITprogamatikDedSec/ai--manus",
+          "created_at": "2026-11-13T14:50:37Z"
+        },
+        {
+          "full_name": "python001-dev/manus--ai",
+          "stars": 146,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment. ",
+          "url": "https://github.com/python001-dev/manus--ai",
+          "created_at": "2026-11-13T14:47:22Z"
+        },
+        {
+          "full_name": "mtn-imran-khan/manus--ai",
+          "stars": 146,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment. ",
+          "url": "https://github.com/mtn-imran-khan/manus--ai",
+          "created_at": "2026-11-13T14:47:55Z"
+        },
+        {
+          "full_name": "python001-dev/ai--manus",
+          "stars": 146,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/python001-dev/ai--manus",
+          "created_at": "2026-11-13T14:47:01Z"
+        },
+        {
+          "full_name": "buttheadtrenton16-byte/manus--ai",
+          "stars": 146,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment. ",
+          "url": "https://github.com/buttheadtrenton16-byte/manus--ai",
+          "created_at": "2026-11-13T14:45:56Z"
+        },
+        {
+          "full_name": "xombiensar/ai--manus",
+          "stars": 146,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/xombiensar/ai--manus",
+          "created_at": "2026-11-13T14:44:05Z"
+        },
+        {
+          "full_name": "arberpilafi8-blip/ai--manus",
+          "stars": 146,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/arberpilafi8-blip/ai--manus",
+          "created_at": "2026-11-13T14:47:35Z"
+        },
+        {
+          "full_name": "qweqeqeqweqeqwe/manus--ai",
+          "stars": 146,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment. ",
+          "url": "https://github.com/qweqeqeqweqeqwe/manus--ai",
+          "created_at": "2026-11-13T14:48:33Z"
         }
       ],
       "general": [
         {
           "full_name": "faizfahmi77/ScanDot",
-          "stars": 197,
+          "stars": 333,
           "language": "Kotlin",
           "description": "Experimental Android 3D scanning and point-cloud viewer",
           "url": "https://github.com/faizfahmi77/ScanDot",
           "created_at": "2026-11-13T04:07:57Z"
         },
         {
-          "full_name": "Teamvyajoint/3D-Modeling-With-Sketchup",
-          "stars": 61,
-          "language": "C++",
-          "description": "With SketchUp Pro, architects and designers gain access to a robust set of modeling tools. The software is designed to streamline the creation of visualizations and enhance project communication",
-          "url": "https://github.com/Teamvyajoint/3D-Modeling-With-Sketchup",
-          "created_at": "2026-11-13T00:28:18Z"
+          "full_name": "quer3q/kraken-mount",
+          "stars": 153,
+          "language": "Rust",
+          "description": "Minimalist PS5 game mounter supporting PKG, folder dumps, lz4, and zstd",
+          "url": "https://github.com/quer3q/kraken-mount",
+          "created_at": "2026-11-13T07:25:37Z"
         },
         {
-          "full_name": "Speedsobastion1/Filmora-Video-Editor",
-          "stars": 42,
-          "language": "C++",
-          "description": "As a paid video editing software, Filmora 15 specializes in crafting polished films directly from the user's PC. It features an intuitive timeline for editing and a straightforward export function to compile the finished project",
-          "url": "https://github.com/Speedsobastion1/Filmora-Video-Editor",
-          "created_at": "2026-11-13T00:08:23Z"
+          "full_name": "eagrafki-byte/ai--manus",
+          "stars": 146,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/eagrafki-byte/ai--manus",
+          "created_at": "2026-11-13T14:46:15Z"
+        },
+        {
+          "full_name": "agdinis/ai--manus",
+          "stars": 146,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/agdinis/ai--manus",
+          "created_at": "2026-11-13T14:44:09Z"
+        },
+        {
+          "full_name": "tyesheh/ai--manus",
+          "stars": 146,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/tyesheh/ai--manus",
+          "created_at": "2026-11-13T14:48:14Z"
+        },
+        {
+          "full_name": "alphafalcongamer-creator/manus--ai",
+          "stars": 146,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment. ",
+          "url": "https://github.com/alphafalcongamer-creator/manus--ai",
+          "created_at": "2026-11-13T14:47:15Z"
+        },
+        {
+          "full_name": "mtn-imran-khan/ai--manus",
+          "stars": 146,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/mtn-imran-khan/ai--manus",
+          "created_at": "2026-11-13T14:47:36Z"
+        },
+        {
+          "full_name": "AcgBoss/ai--manus",
+          "stars": 146,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/AcgBoss/ai--manus",
+          "created_at": "2026-11-13T14:45:26Z"
+        },
+        {
+          "full_name": "XTwiNSaraX/manus--ai",
+          "stars": 146,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment. ",
+          "url": "https://github.com/XTwiNSaraX/manus--ai",
+          "created_at": "2026-11-13T14:45:22Z"
+        },
+        {
+          "full_name": "melchersimon011-bot/ai--manus",
+          "stars": 146,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/melchersimon011-bot/ai--manus",
+          "created_at": "2026-11-13T14:46:20Z"
         }
       ],
       "items": [
         {
-          "full_name": "JanieBodde6309/virtual-card-usdt-llm-router-gateway-arbitrage-finops",
-          "stars": 11,
+          "full_name": "SandyPandyMandy/ai--manus",
+          "stars": 146,
           "language": "",
-          "description": "An architectural FinOps and payment-clearing guide for multi-provider LLM routers (OpenRouter / LiteLLM / Portkey) routing across Qwen4-Max, DeepSeek-V4.1, and Claude 5.2, preventing concurrent Auto-Topup bank freezes and cascade failures via USDT-funded CoreGold Virtual Cards (V",
-          "url": "https://github.com/JanieBodde6309/virtual-card-usdt-llm-router-gateway-arbitrage-finops",
-          "created_at": "2026-11-13T07:19:44Z"
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/SandyPandyMandy/ai--manus",
+          "created_at": "2026-11-13T14:44:52Z"
+        },
+        {
+          "full_name": "sofixleon-arch/ai--manus",
+          "stars": 146,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/sofixleon-arch/ai--manus",
+          "created_at": "2026-11-13T14:45:36Z"
+        },
+        {
+          "full_name": "ITprogamatikDedSec/ai--manus",
+          "stars": 146,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/ITprogamatikDedSec/ai--manus",
+          "created_at": "2026-11-13T14:50:37Z"
+        },
+        {
+          "full_name": "python001-dev/manus--ai",
+          "stars": 146,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment. ",
+          "url": "https://github.com/python001-dev/manus--ai",
+          "created_at": "2026-11-13T14:47:22Z"
+        },
+        {
+          "full_name": "mtn-imran-khan/manus--ai",
+          "stars": 146,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment. ",
+          "url": "https://github.com/mtn-imran-khan/manus--ai",
+          "created_at": "2026-11-13T14:47:55Z"
+        },
+        {
+          "full_name": "python001-dev/ai--manus",
+          "stars": 146,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/python001-dev/ai--manus",
+          "created_at": "2026-11-13T14:47:01Z"
+        },
+        {
+          "full_name": "buttheadtrenton16-byte/manus--ai",
+          "stars": 146,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment. ",
+          "url": "https://github.com/buttheadtrenton16-byte/manus--ai",
+          "created_at": "2026-11-13T14:45:56Z"
+        },
+        {
+          "full_name": "xombiensar/ai--manus",
+          "stars": 146,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/xombiensar/ai--manus",
+          "created_at": "2026-11-13T14:44:05Z"
+        },
+        {
+          "full_name": "arberpilafi8-blip/ai--manus",
+          "stars": 146,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/arberpilafi8-blip/ai--manus",
+          "created_at": "2026-11-13T14:47:35Z"
+        },
+        {
+          "full_name": "qweqeqeqweqeqwe/manus--ai",
+          "stars": 146,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment. ",
+          "url": "https://github.com/qweqeqeqweqeqwe/manus--ai",
+          "created_at": "2026-11-13T14:48:33Z"
         },
         {
           "full_name": "faizfahmi77/ScanDot",
-          "stars": 197,
+          "stars": 333,
           "language": "Kotlin",
           "description": "Experimental Android 3D scanning and point-cloud viewer",
           "url": "https://github.com/faizfahmi77/ScanDot",
           "created_at": "2026-11-13T04:07:57Z"
         },
         {
-          "full_name": "Teamvyajoint/3D-Modeling-With-Sketchup",
-          "stars": 61,
-          "language": "C++",
-          "description": "With SketchUp Pro, architects and designers gain access to a robust set of modeling tools. The software is designed to streamline the creation of visualizations and enhance project communication",
-          "url": "https://github.com/Teamvyajoint/3D-Modeling-With-Sketchup",
-          "created_at": "2026-11-13T00:28:18Z"
+          "full_name": "quer3q/kraken-mount",
+          "stars": 153,
+          "language": "Rust",
+          "description": "Minimalist PS5 game mounter supporting PKG, folder dumps, lz4, and zstd",
+          "url": "https://github.com/quer3q/kraken-mount",
+          "created_at": "2026-11-13T07:25:37Z"
         },
         {
-          "full_name": "Speedsobastion1/Filmora-Video-Editor",
-          "stars": 42,
-          "language": "C++",
-          "description": "As a paid video editing software, Filmora 15 specializes in crafting polished films directly from the user's PC. It features an intuitive timeline for editing and a straightforward export function to compile the finished project",
-          "url": "https://github.com/Speedsobastion1/Filmora-Video-Editor",
-          "created_at": "2026-11-13T00:08:23Z"
+          "full_name": "eagrafki-byte/ai--manus",
+          "stars": 146,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/eagrafki-byte/ai--manus",
+          "created_at": "2026-11-13T14:46:15Z"
+        },
+        {
+          "full_name": "agdinis/ai--manus",
+          "stars": 146,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/agdinis/ai--manus",
+          "created_at": "2026-11-13T14:44:09Z"
+        },
+        {
+          "full_name": "tyesheh/ai--manus",
+          "stars": 146,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/tyesheh/ai--manus",
+          "created_at": "2026-11-13T14:48:14Z"
+        },
+        {
+          "full_name": "alphafalcongamer-creator/manus--ai",
+          "stars": 146,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment. ",
+          "url": "https://github.com/alphafalcongamer-creator/manus--ai",
+          "created_at": "2026-11-13T14:47:15Z"
+        },
+        {
+          "full_name": "mtn-imran-khan/ai--manus",
+          "stars": 146,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/mtn-imran-khan/ai--manus",
+          "created_at": "2026-11-13T14:47:36Z"
+        },
+        {
+          "full_name": "AcgBoss/ai--manus",
+          "stars": 146,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/AcgBoss/ai--manus",
+          "created_at": "2026-11-13T14:45:26Z"
+        },
+        {
+          "full_name": "XTwiNSaraX/manus--ai",
+          "stars": 146,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment. ",
+          "url": "https://github.com/XTwiNSaraX/manus--ai",
+          "created_at": "2026-11-13T14:45:22Z"
+        },
+        {
+          "full_name": "melchersimon011-bot/ai--manus",
+          "stars": 146,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/melchersimon011-bot/ai--manus",
+          "created_at": "2026-11-13T14:46:20Z"
+        },
+        {
+          "full_name": "stancaedy10-glitch/manus--ai",
+          "stars": 146,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment. ",
+          "url": "https://github.com/stancaedy10-glitch/manus--ai",
+          "created_at": "2026-11-13T14:47:22Z"
+        },
+        {
+          "full_name": "stancaedy10-glitch/ai--manus",
+          "stars": 146,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/stancaedy10-glitch/ai--manus",
+          "created_at": "2026-11-13T14:47:05Z"
+        },
+        {
+          "full_name": "alphafalcongamer-creator/ai--manus",
+          "stars": 146,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/alphafalcongamer-creator/ai--manus",
+          "created_at": "2026-11-13T14:46:57Z"
+        },
+        {
+          "full_name": "lebronstx-collab/manus--ai",
+          "stars": 146,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment. ",
+          "url": "https://github.com/lebronstx-collab/manus--ai",
+          "created_at": "2026-11-13T14:47:47Z"
+        },
+        {
+          "full_name": "XTwiNSaraX/ai--manus",
+          "stars": 146,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/XTwiNSaraX/ai--manus",
+          "created_at": "2026-11-13T14:45:01Z"
         }
       ]
     },
@@ -2004,73 +2300,73 @@
       "items": [
         {
           "id": "xtools-at/DeepSeek-V4-Pro-Qwen3.5-9B-UNCENSORED-heretic",
-          "likes": 4831,
+          "likes": 5012,
           "downloads": 21586,
           "pipeline_tag": "text-generation",
           "url": "https://huggingface.co/xtools-at/DeepSeek-V4-Pro-Qwen3.5-9B-UNCENSORED-heretic"
         },
         {
           "id": "MiniMaxAI/MiniMax-H3-Image",
-          "likes": 934,
+          "likes": 976,
           "downloads": 437039,
           "pipeline_tag": "text-to-image",
           "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3-Image"
         },
         {
           "id": "NousResearch/Arete-27B",
-          "likes": 508,
+          "likes": 527,
           "downloads": 5545,
           "pipeline_tag": "text-generation",
           "url": "https://huggingface.co/NousResearch/Arete-27B"
         },
         {
           "id": "Lightricks/LTX-2.5",
-          "likes": 11675,
+          "likes": 11738,
           "downloads": 2778909,
           "pipeline_tag": "image-to-video",
           "url": "https://huggingface.co/Lightricks/LTX-2.5"
         },
         {
           "id": "speridlabs/idol",
-          "likes": 2255,
+          "likes": 2270,
           "downloads": 31367,
           "pipeline_tag": "image-to-3d",
           "url": "https://huggingface.co/speridlabs/idol"
         },
         {
           "id": "Qwen/Qwen3.8-27B",
-          "likes": 19784,
+          "likes": 19830,
           "downloads": 6960395,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/Qwen/Qwen3.8-27B"
         },
         {
+          "id": "moonshotai/Kimi-K3.1-Pro",
+          "likes": 2008,
+          "downloads": 40953,
+          "pipeline_tag": "image-text-to-text",
+          "url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro"
+        },
+        {
           "id": "DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
-          "likes": 2998,
+          "likes": 3027,
           "downloads": 1639400,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF"
         },
         {
           "id": "Comfy-Org/MiniMax-H3-Image",
-          "likes": 319,
+          "likes": 332,
           "downloads": 1257301,
           "pipeline_tag": "text-to-image",
           "url": "https://huggingface.co/Comfy-Org/MiniMax-H3-Image"
         },
         {
           "id": "ccore/Qwen3.5-4B-3D-Coder",
-          "likes": 1066,
+          "likes": 1073,
           "downloads": 392582,
           "pipeline_tag": "",
           "url": "https://huggingface.co/ccore/Qwen3.5-4B-3D-Coder"
-        },
-        {
-          "id": "black-forest-labs/flux-3-image-klein-comfy",
-          "likes": 3049,
-          "downloads": 1330289,
-          "pipeline_tag": "image-to-image",
-          "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein-comfy"
         }
       ]
     }
