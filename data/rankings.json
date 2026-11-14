@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-14T19:34:33.901018",
+  "generated_at": "2026-11-14T23:29:22.659934",
   "sources": {
     "design": {
       "status": "ok",
@@ -7,7 +7,7 @@
         {
           "rank": 1,
           "model": "Claude Opus 5.5 (high)",
-          "score": 1446,
+          "score": 1449,
           "prompt_per_m": 4.0,
           "completion_per_m": 20.0,
           "context_length": 1000000,
@@ -16,7 +16,7 @@
         {
           "rank": 2,
           "model": "GPT-6 Astra (max)",
-          "score": 1399,
+          "score": 1401,
           "prompt_per_m": 10.0,
           "completion_per_m": 50.0,
           "context_length": 1050000,
@@ -25,7 +25,7 @@
         {
           "rank": 3,
           "model": "Claude Fable 5.2",
-          "score": 1370,
+          "score": 1371,
           "prompt_per_m": 8.0,
           "completion_per_m": 40.0,
           "context_length": 1000000,
@@ -34,7 +34,7 @@
         {
           "rank": 4,
           "model": "GPT-6.1 Sol (max)",
-          "score": 1368,
+          "score": 1370,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1050000,
@@ -43,7 +43,7 @@
         {
           "rank": 5,
           "model": "Claude Fable 5.1",
-          "score": 1331,
+          "score": 1333,
           "prompt_per_m": 10.0,
           "completion_per_m": 50.0,
           "context_length": 1000000,
@@ -52,7 +52,7 @@
         {
           "rank": 6,
           "model": "Inkling 2 Small",
-          "score": 1309,
+          "score": 1311,
           "prompt_per_m": 0.3,
           "completion_per_m": 1.0,
           "context_length": 1048576,
@@ -61,7 +61,7 @@
         {
           "rank": 7,
           "model": "Gemini 4 Carbon",
-          "score": 1300,
+          "score": 1301,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1048576,
@@ -70,7 +70,7 @@
         {
           "rank": 8,
           "model": "Kimi K3.1 Pro",
-          "score": 1294,
+          "score": 1296,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1048576,
@@ -79,7 +79,7 @@
         {
           "rank": 9,
           "model": "Claude Sonnet 5.5",
-          "score": 1286,
+          "score": 1288,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1000000,
@@ -88,12 +88,12 @@
         {
           "rank": 10,
           "model": "Muse Spark 1.3 Max",
-          "score": 1277
+          "score": 1279
         },
         {
           "rank": 11,
           "model": "DeepSeek-V4.1-Flash (1017)",
-          "score": 1276,
+          "score": 1278,
           "prompt_per_m": 0.0507,
           "completion_per_m": 0.2028,
           "context_length": 1048576,
@@ -102,7 +102,7 @@
         {
           "rank": 12,
           "model": "Grok 4.7",
-          "score": 1271,
+          "score": 1273,
           "prompt_per_m": 2.0,
           "completion_per_m": 6.0,
           "context_length": 500000,
@@ -111,72 +111,72 @@
         {
           "rank": 13,
           "model": "1704W / 721L 70.3% ±1.8% 2,425 Anthropic",
-          "score": 1446
+          "score": 1449
         },
         {
           "rank": 14,
-          "model": "1646W / 773L 68.0% ±1.9% 2,419 OpenAI",
-          "score": 1399
+          "model": "1648W / 773L 68.1% ±1.9% 2,421 OpenAI",
+          "score": 1401
         },
         {
           "rank": 15,
-          "model": "1170W / 514L 69.5% ±2.2% 1,684 Anthropic",
-          "score": 1370
+          "model": "1175W / 519L 69.4% ±2.2% 1,694 Anthropic",
+          "score": 1371
         },
         {
           "rank": 16,
           "model": "952W / 860L 52.5% ±2.3% 1,812 OpenAI",
-          "score": 1368
+          "score": 1370
         },
         {
           "rank": 17,
           "model": "2961W / 2008L 59.6% ±1.4% 4,969 Anthropic",
-          "score": 1331
+          "score": 1333
         },
         {
           "rank": 18,
-          "model": "4118W / 3080L 57.2% ±1.1% 7,198 Thinking Machines",
-          "score": 1309
+          "model": "4119W / 3081L 57.2% ±1.1% 7,200 Thinking Machines",
+          "score": 1311
         },
         {
           "rank": 19,
-          "model": "585W / 395L 59.7% ±3.1% 980 Google",
-          "score": 1300
+          "model": "590W / 400L 59.6% ±3.1% 990 Google",
+          "score": 1301
         },
         {
           "rank": 20,
-          "model": "2509W / 1702L 59.6% ±1.5% 4,211 Moonshot AI",
-          "score": 1294
+          "model": "2512W / 1708L 59.5% ±1.5% 4,220 Moonshot AI",
+          "score": 1296
         },
         {
           "rank": 21,
-          "model": "1657W / 1225L 57.5% ±1.8% 2,882 Anthropic",
-          "score": 1286
+          "model": "1663W / 1229L 57.5% ±1.8% 2,892 Anthropic",
+          "score": 1288
         },
         {
           "rank": 22,
-          "model": "7399W / 5565L 57.1% ±0.9% 12,964 Meta",
-          "score": 1277
+          "model": "7403W / 5567L 57.1% ±0.9% 12,970 Meta",
+          "score": 1279
         },
         {
           "rank": 23,
           "model": "155W / 165L 48.4% ±5.5% 320 DeepSeek",
-          "score": 1276
+          "score": 1278
         },
         {
           "rank": 24,
-          "model": "832W / 702L 54.2% ±2.5% 1,534 xAI",
-          "score": 1271
+          "model": "835W / 706L 54.2% ±2.5% 1,541 xAI",
+          "score": 1273
         },
         {
           "rank": 25,
           "model": "8154W / 5299L 60.6% ±0.8% 13,453 Anthropic",
-          "score": 1269
+          "score": 1271
         },
         {
           "rank": 26,
-          "model": "728W / 891L 45.0% ±2.4% 1,619 Google",
-          "score": 1269
+          "model": "731W / 895L 45.0% ±2.4% 1,626 Google",
+          "score": 1271
         }
       ],
       "method": "http"
@@ -1877,368 +1877,280 @@
       "since": "2026-11-13",
       "ai": [
         {
-          "full_name": "maneswordyell/ai--manus2.0",
-          "stars": 182,
+          "full_name": "Topkiflare74/ai--manus2.0",
+          "stars": 678,
           "language": "",
           "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
-          "url": "https://github.com/maneswordyell/ai--manus2.0",
-          "created_at": "2026-11-14T16:45:12Z"
+          "url": "https://github.com/Topkiflare74/ai--manus2.0",
+          "created_at": "2026-11-14T19:15:24Z"
         },
         {
-          "full_name": "rapidmechanicrear/ai--manus2.0",
-          "stars": 182,
+          "full_name": "trackboatwrightplan/GitHub-Copilot-app",
+          "stars": 673,
           "language": "",
-          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
-          "url": "https://github.com/rapidmechanicrear/ai--manus2.0",
-          "created_at": "2026-11-14T16:45:12Z"
+          "description": "The GitHub Copilot app is an agent-native desktop experience for finding, running, steering, and landing software work across your GitHub repositories. ",
+          "url": "https://github.com/trackboatwrightplan/GitHub-Copilot-app",
+          "created_at": "2026-11-14T19:16:41Z"
         },
         {
-          "full_name": "MessengerSmash/ai--manus2.0",
-          "stars": 182,
+          "full_name": "TrapAccountant/GitHub-Copilot-app",
+          "stars": 671,
           "language": "",
-          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
-          "url": "https://github.com/MessengerSmash/ai--manus2.0",
-          "created_at": "2026-11-14T16:45:11Z"
+          "description": "The GitHub Copilot app is an agent-native desktop experience for finding, running, steering, and landing software work across your GitHub repositories. ",
+          "url": "https://github.com/TrapAccountant/GitHub-Copilot-app",
+          "created_at": "2026-11-14T19:16:47Z"
         },
         {
-          "full_name": "PowderLieutenant/ai--manus2.0",
-          "stars": 182,
+          "full_name": "topapothecarycanal/ai--manus2.0",
+          "stars": 667,
           "language": "",
           "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
-          "url": "https://github.com/PowderLieutenant/ai--manus2.0",
-          "created_at": "2026-11-14T16:45:12Z"
+          "url": "https://github.com/topapothecarycanal/ai--manus2.0",
+          "created_at": "2026-11-14T19:15:24Z"
         },
         {
-          "full_name": "RestraintBowZen40/ai--manus2.0",
-          "stars": 182,
+          "full_name": "trackersnailgrip/GitHub-Copilot-app",
+          "stars": 667,
           "language": "",
-          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
-          "url": "https://github.com/RestraintBowZen40/ai--manus2.0",
-          "created_at": "2026-11-14T16:45:12Z"
+          "description": "The GitHub Copilot app is an agent-native desktop experience for finding, running, steering, and landing software work across your GitHub repositories. ",
+          "url": "https://github.com/trackersnailgrip/GitHub-Copilot-app",
+          "created_at": "2026-11-14T19:16:41Z"
         },
         {
-          "full_name": "Meteornyuspeed/ai--manus2.0",
-          "stars": 182,
+          "full_name": "TradesmanRecord/GitHub-Copilot-app",
+          "stars": 666,
           "language": "",
-          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
-          "url": "https://github.com/Meteornyuspeed/ai--manus2.0",
-          "created_at": "2026-11-14T16:45:11Z"
+          "description": "The GitHub Copilot app is an agent-native desktop experience for finding, running, steering, and landing software work across your GitHub repositories. ",
+          "url": "https://github.com/TradesmanRecord/GitHub-Copilot-app",
+          "created_at": "2026-11-14T19:16:41Z"
         },
         {
-          "full_name": "mixedbladesmanlabel/ai--manus2.0",
-          "stars": 182,
+          "full_name": "toppatronweave/GitHub-Copilot-app",
+          "stars": 666,
           "language": "",
-          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
-          "url": "https://github.com/mixedbladesmanlabel/ai--manus2.0",
-          "created_at": "2026-11-14T16:45:10Z"
+          "description": "The GitHub Copilot app is an agent-native desktop experience for finding, running, steering, and landing software work across your GitHub repositories. ",
+          "url": "https://github.com/toppatronweave/GitHub-Copilot-app",
+          "created_at": "2026-11-14T19:25:20Z"
         },
         {
-          "full_name": "NautilusMill/ai--manus2.0",
-          "stars": 182,
+          "full_name": "toppatronweave/ai--manus2.0",
+          "stars": 666,
           "language": "",
           "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
-          "url": "https://github.com/NautilusMill/ai--manus2.0",
-          "created_at": "2026-11-14T16:45:11Z"
+          "url": "https://github.com/toppatronweave/ai--manus2.0",
+          "created_at": "2026-11-14T19:15:25Z"
         },
         {
-          "full_name": "meteorwayoscillator7/ai--manus2.0",
-          "stars": 182,
+          "full_name": "TurquoiseConsultant/GitHub-Copilot-app",
+          "stars": 665,
           "language": "",
-          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
-          "url": "https://github.com/meteorwayoscillator7/ai--manus2.0",
-          "created_at": "2026-11-14T16:45:11Z"
+          "description": "The GitHub Copilot app is an agent-native desktop experience for finding, running, steering, and landing software work across your GitHub repositories. ",
+          "url": "https://github.com/TurquoiseConsultant/GitHub-Copilot-app",
+          "created_at": "2026-11-14T19:25:20Z"
         },
         {
-          "full_name": "Nightrihatchet/ai--manus2.0",
-          "stars": 182,
+          "full_name": "TurkeyDesignate/GitHub-Copilot-app",
+          "stars": 665,
           "language": "",
-          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
-          "url": "https://github.com/Nightrihatchet/ai--manus2.0",
-          "created_at": "2026-11-14T16:45:11Z"
+          "description": "The GitHub Copilot app is an agent-native desktop experience for finding, running, steering, and landing software work across your GitHub repositories. ",
+          "url": "https://github.com/TurkeyDesignate/GitHub-Copilot-app",
+          "created_at": "2026-11-14T19:25:18Z"
         }
       ],
       "general": [
         {
-          "full_name": "duwqijlk/muse-protocol",
-          "stars": 497,
-          "language": "Python",
-          "description": "muse.ai 注册与邀请码兑换协议研究（纯 HTTP Python 实现）",
-          "url": "https://github.com/duwqijlk/muse-protocol",
-          "created_at": "2026-11-14T01:24:58Z"
+          "full_name": "WarriorRemember/IPTV_Player_2.0",
+          "stars": 673,
+          "language": "Rust",
+          "description": "🎬 A powerful, intuitive IPTV streaming app supporting M3U playlists, EPG, and community lists. Available for Windows, macOS, Linux, Android & TV Boxes. ",
+          "url": "https://github.com/WarriorRemember/IPTV_Player_2.0",
+          "created_at": "2026-11-14T19:25:25Z"
         },
         {
-          "full_name": "brisk-thrush-husky/malware-defender-desktop",
-          "stars": 300,
-          "language": "C++",
-          "description": "Malware Defender 2026 desktop setup with real-time protection against malware and ransomware, deep system scan with quarantine and removal, plus web shield that blocks phishing and malicious sites for Windows 11",
-          "url": "https://github.com/brisk-thrush-husky/malware-defender-desktop",
-          "created_at": "2026-11-14T00:49:03Z"
+          "full_name": "TurquoiseDetective/IPTV_Player_2.0",
+          "stars": 670,
+          "language": "Rust",
+          "description": "🎬 A powerful, intuitive IPTV streaming app supporting M3U playlists, EPG, and community lists. Available for Windows, macOS, Linux, Android & TV Boxes. ",
+          "url": "https://github.com/TurquoiseDetective/IPTV_Player_2.0",
+          "created_at": "2026-11-14T19:25:17Z"
         },
         {
-          "full_name": "bradburns2001/topaz-video-ai-desktop",
-          "stars": 299,
-          "language": "C++",
-          "description": "Topaz Video AI 2026 desktop setup with AI upscaling up to 16K with detail recovery, frame interpolation for smooth slow-motion, plus deinterlace, denoise and stabilize footage for Windows 11",
-          "url": "https://github.com/bradburns2001/topaz-video-ai-desktop",
-          "created_at": "2026-11-14T00:26:40Z"
+          "full_name": "tornadonovicewhirl40/IPTV_Player_2.0",
+          "stars": 670,
+          "language": "Rust",
+          "description": "🎬 A powerful, intuitive IPTV streaming app supporting M3U playlists, EPG, and community lists. Available for Windows, macOS, Linux, Android & TV Boxes. ",
+          "url": "https://github.com/tornadonovicewhirl40/IPTV_Player_2.0",
+          "created_at": "2026-11-14T19:15:43Z"
         },
         {
-          "full_name": "brave-shell-07/izotope-rx-11-desktop",
-          "stars": 299,
-          "language": "C++",
-          "description": "iZotope RX 11 2026 desktop setup with AI audio repair, denoise, de-reverb and de-click, dialogue isolation and spectral editor, plus music rebalance to remix stems from a mix for Windows 11",
-          "url": "https://github.com/brave-shell-07/izotope-rx-11-desktop",
-          "created_at": "2026-11-14T00:25:20Z"
+          "full_name": "WattBeetleLearn/IPTV_Player_2.0",
+          "stars": 668,
+          "language": "Rust",
+          "description": "🎬 A powerful, intuitive IPTV streaming app supporting M3U playlists, EPG, and community lists. Available for Windows, macOS, Linux, Android & TV Boxes. ",
+          "url": "https://github.com/WattBeetleLearn/IPTV_Player_2.0",
+          "created_at": "2026-11-14T19:25:28Z"
         },
         {
-          "full_name": "briskember13/adobe-acrobat-pdf-desktop",
-          "stars": 298,
-          "language": "C++",
-          "description": "Adobe Acrobat PDF 2026 desktop setup with text and image editing directly inside any PDF, conversion to and from Word, Excel and images, plus fill, sign and merge documents with an AI assistant for Windows 11",
-          "url": "https://github.com/briskember13/adobe-acrobat-pdf-desktop",
-          "created_at": "2026-11-14T00:46:46Z"
+          "full_name": "Trapbraneedle/IPTV_Player_2.0",
+          "stars": 667,
+          "language": "Go",
+          "description": "🎬 A powerful, intuitive IPTV streaming app supporting M3U playlists, EPG, and community lists. Available for Windows, macOS, Linux, Android & TV Boxes. ",
+          "url": "https://github.com/Trapbraneedle/IPTV_Player_2.0",
+          "created_at": "2026-11-14T19:25:19Z"
         },
         {
-          "full_name": "brave-plum-co/leonardo-ai-desktop",
-          "stars": 298,
-          "language": "C++",
-          "description": "Leonardo AI 2026 desktop setup with text-to-image generation using fine-tuned models, canvas editor with inpainting and outpainting, plus real-time generation and image-to-motion for Windows 11",
-          "url": "https://github.com/brave-plum-co/leonardo-ai-desktop",
-          "created_at": "2026-11-14T00:23:46Z"
+          "full_name": "Titanlushrink/IPTV_Player_2.0",
+          "stars": 666,
+          "language": "Rust",
+          "description": "🎬 A powerful, intuitive IPTV streaming app supporting M3U playlists, EPG, and community lists. Available for Windows, macOS, Linux, Android & TV Boxes. ",
+          "url": "https://github.com/Titanlushrink/IPTV_Player_2.0",
+          "created_at": "2026-11-14T19:25:19Z"
         },
         {
-          "full_name": "hikaku-io/hikaku-extension",
-          "stars": 243,
-          "language": "JavaScript",
-          "description": "Open-source browser extension that flags AI-generated images and video as you browse. Runs entirely on your device. Chrome, Edge and Firefox.",
-          "url": "https://github.com/hikaku-io/hikaku-extension",
-          "created_at": "2026-11-14T14:06:05Z"
-        },
-        {
-          "full_name": "summittypeplay/sims4-updater",
-          "stars": 226,
-          "language": "",
-          "description": "Sims 4 DLC Updater",
-          "url": "https://github.com/summittypeplay/sims4-updater",
-          "created_at": "2026-11-14T11:52:29Z"
-        },
-        {
-          "full_name": "DimensionRobin/rob-run-private-cheat",
-          "stars": 202,
-          "language": "",
-          "description": "",
-          "url": "https://github.com/DimensionRobin/rob-run-private-cheat",
-          "created_at": "2026-11-14T01:07:40Z"
-        },
-        {
-          "full_name": "Crateryeexpiate/TradePilot",
-          "stars": 184,
-          "language": "",
-          "description": "TradePilot is an AI-powered crypto trading bot for automated cryptocurrency trading, real-time market analysis, technical indicators, portfolio management, trading signals, strategy backtesting and algorithmic trading. Built for smarter crypto market research and trading automati",
-          "url": "https://github.com/Crateryeexpiate/TradePilot",
-          "created_at": "2026-11-14T14:54:51Z"
+          "full_name": "Torusdrasocket/IPTV_Player_2.0",
+          "stars": 666,
+          "language": "Rust",
+          "description": "🎬 A powerful, intuitive IPTV streaming app supporting M3U playlists, EPG, and community lists. Available for Windows, macOS, Linux, Android & TV Boxes. ",
+          "url": "https://github.com/Torusdrasocket/IPTV_Player_2.0",
+          "created_at": "2026-11-14T19:15:48Z"
         }
       ],
       "items": [
         {
-          "full_name": "maneswordyell/ai--manus2.0",
-          "stars": 182,
+          "full_name": "Topkiflare74/ai--manus2.0",
+          "stars": 678,
           "language": "",
           "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
-          "url": "https://github.com/maneswordyell/ai--manus2.0",
-          "created_at": "2026-11-14T16:45:12Z"
+          "url": "https://github.com/Topkiflare74/ai--manus2.0",
+          "created_at": "2026-11-14T19:15:24Z"
         },
         {
-          "full_name": "rapidmechanicrear/ai--manus2.0",
-          "stars": 182,
+          "full_name": "trackboatwrightplan/GitHub-Copilot-app",
+          "stars": 673,
+          "language": "",
+          "description": "The GitHub Copilot app is an agent-native desktop experience for finding, running, steering, and landing software work across your GitHub repositories. ",
+          "url": "https://github.com/trackboatwrightplan/GitHub-Copilot-app",
+          "created_at": "2026-11-14T19:16:41Z"
+        },
+        {
+          "full_name": "TrapAccountant/GitHub-Copilot-app",
+          "stars": 671,
+          "language": "",
+          "description": "The GitHub Copilot app is an agent-native desktop experience for finding, running, steering, and landing software work across your GitHub repositories. ",
+          "url": "https://github.com/TrapAccountant/GitHub-Copilot-app",
+          "created_at": "2026-11-14T19:16:47Z"
+        },
+        {
+          "full_name": "topapothecarycanal/ai--manus2.0",
+          "stars": 667,
           "language": "",
           "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
-          "url": "https://github.com/rapidmechanicrear/ai--manus2.0",
-          "created_at": "2026-11-14T16:45:12Z"
+          "url": "https://github.com/topapothecarycanal/ai--manus2.0",
+          "created_at": "2026-11-14T19:15:24Z"
         },
         {
-          "full_name": "MessengerSmash/ai--manus2.0",
-          "stars": 182,
+          "full_name": "trackersnailgrip/GitHub-Copilot-app",
+          "stars": 667,
+          "language": "",
+          "description": "The GitHub Copilot app is an agent-native desktop experience for finding, running, steering, and landing software work across your GitHub repositories. ",
+          "url": "https://github.com/trackersnailgrip/GitHub-Copilot-app",
+          "created_at": "2026-11-14T19:16:41Z"
+        },
+        {
+          "full_name": "TradesmanRecord/GitHub-Copilot-app",
+          "stars": 666,
+          "language": "",
+          "description": "The GitHub Copilot app is an agent-native desktop experience for finding, running, steering, and landing software work across your GitHub repositories. ",
+          "url": "https://github.com/TradesmanRecord/GitHub-Copilot-app",
+          "created_at": "2026-11-14T19:16:41Z"
+        },
+        {
+          "full_name": "toppatronweave/GitHub-Copilot-app",
+          "stars": 666,
+          "language": "",
+          "description": "The GitHub Copilot app is an agent-native desktop experience for finding, running, steering, and landing software work across your GitHub repositories. ",
+          "url": "https://github.com/toppatronweave/GitHub-Copilot-app",
+          "created_at": "2026-11-14T19:25:20Z"
+        },
+        {
+          "full_name": "toppatronweave/ai--manus2.0",
+          "stars": 666,
           "language": "",
           "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
-          "url": "https://github.com/MessengerSmash/ai--manus2.0",
-          "created_at": "2026-11-14T16:45:11Z"
+          "url": "https://github.com/toppatronweave/ai--manus2.0",
+          "created_at": "2026-11-14T19:15:25Z"
         },
         {
-          "full_name": "PowderLieutenant/ai--manus2.0",
-          "stars": 182,
+          "full_name": "TurquoiseConsultant/GitHub-Copilot-app",
+          "stars": 665,
           "language": "",
-          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
-          "url": "https://github.com/PowderLieutenant/ai--manus2.0",
-          "created_at": "2026-11-14T16:45:12Z"
+          "description": "The GitHub Copilot app is an agent-native desktop experience for finding, running, steering, and landing software work across your GitHub repositories. ",
+          "url": "https://github.com/TurquoiseConsultant/GitHub-Copilot-app",
+          "created_at": "2026-11-14T19:25:20Z"
         },
         {
-          "full_name": "RestraintBowZen40/ai--manus2.0",
-          "stars": 182,
+          "full_name": "TurkeyDesignate/GitHub-Copilot-app",
+          "stars": 665,
           "language": "",
-          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
-          "url": "https://github.com/RestraintBowZen40/ai--manus2.0",
-          "created_at": "2026-11-14T16:45:12Z"
+          "description": "The GitHub Copilot app is an agent-native desktop experience for finding, running, steering, and landing software work across your GitHub repositories. ",
+          "url": "https://github.com/TurkeyDesignate/GitHub-Copilot-app",
+          "created_at": "2026-11-14T19:25:18Z"
         },
         {
-          "full_name": "Meteornyuspeed/ai--manus2.0",
-          "stars": 182,
-          "language": "",
-          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
-          "url": "https://github.com/Meteornyuspeed/ai--manus2.0",
-          "created_at": "2026-11-14T16:45:11Z"
-        },
-        {
-          "full_name": "mixedbladesmanlabel/ai--manus2.0",
-          "stars": 182,
-          "language": "",
-          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
-          "url": "https://github.com/mixedbladesmanlabel/ai--manus2.0",
-          "created_at": "2026-11-14T16:45:10Z"
-        },
-        {
-          "full_name": "NautilusMill/ai--manus2.0",
-          "stars": 182,
-          "language": "",
-          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
-          "url": "https://github.com/NautilusMill/ai--manus2.0",
-          "created_at": "2026-11-14T16:45:11Z"
-        },
-        {
-          "full_name": "meteorwayoscillator7/ai--manus2.0",
-          "stars": 182,
-          "language": "",
-          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
-          "url": "https://github.com/meteorwayoscillator7/ai--manus2.0",
-          "created_at": "2026-11-14T16:45:11Z"
-        },
-        {
-          "full_name": "Nightrihatchet/ai--manus2.0",
-          "stars": 182,
-          "language": "",
-          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
-          "url": "https://github.com/Nightrihatchet/ai--manus2.0",
-          "created_at": "2026-11-14T16:45:11Z"
-        },
-        {
-          "full_name": "duwqijlk/muse-protocol",
-          "stars": 497,
-          "language": "Python",
-          "description": "muse.ai 注册与邀请码兑换协议研究（纯 HTTP Python 实现）",
-          "url": "https://github.com/duwqijlk/muse-protocol",
-          "created_at": "2026-11-14T01:24:58Z"
-        },
-        {
-          "full_name": "brisk-thrush-husky/malware-defender-desktop",
-          "stars": 300,
-          "language": "C++",
-          "description": "Malware Defender 2026 desktop setup with real-time protection against malware and ransomware, deep system scan with quarantine and removal, plus web shield that blocks phishing and malicious sites for Windows 11",
-          "url": "https://github.com/brisk-thrush-husky/malware-defender-desktop",
-          "created_at": "2026-11-14T00:49:03Z"
-        },
-        {
-          "full_name": "bradburns2001/topaz-video-ai-desktop",
-          "stars": 299,
-          "language": "C++",
-          "description": "Topaz Video AI 2026 desktop setup with AI upscaling up to 16K with detail recovery, frame interpolation for smooth slow-motion, plus deinterlace, denoise and stabilize footage for Windows 11",
-          "url": "https://github.com/bradburns2001/topaz-video-ai-desktop",
-          "created_at": "2026-11-14T00:26:40Z"
-        },
-        {
-          "full_name": "brave-shell-07/izotope-rx-11-desktop",
-          "stars": 299,
-          "language": "C++",
-          "description": "iZotope RX 11 2026 desktop setup with AI audio repair, denoise, de-reverb and de-click, dialogue isolation and spectral editor, plus music rebalance to remix stems from a mix for Windows 11",
-          "url": "https://github.com/brave-shell-07/izotope-rx-11-desktop",
-          "created_at": "2026-11-14T00:25:20Z"
-        },
-        {
-          "full_name": "briskember13/adobe-acrobat-pdf-desktop",
-          "stars": 298,
-          "language": "C++",
-          "description": "Adobe Acrobat PDF 2026 desktop setup with text and image editing directly inside any PDF, conversion to and from Word, Excel and images, plus fill, sign and merge documents with an AI assistant for Windows 11",
-          "url": "https://github.com/briskember13/adobe-acrobat-pdf-desktop",
-          "created_at": "2026-11-14T00:46:46Z"
-        },
-        {
-          "full_name": "brave-plum-co/leonardo-ai-desktop",
-          "stars": 298,
-          "language": "C++",
-          "description": "Leonardo AI 2026 desktop setup with text-to-image generation using fine-tuned models, canvas editor with inpainting and outpainting, plus real-time generation and image-to-motion for Windows 11",
-          "url": "https://github.com/brave-plum-co/leonardo-ai-desktop",
-          "created_at": "2026-11-14T00:23:46Z"
-        },
-        {
-          "full_name": "hikaku-io/hikaku-extension",
-          "stars": 243,
-          "language": "JavaScript",
-          "description": "Open-source browser extension that flags AI-generated images and video as you browse. Runs entirely on your device. Chrome, Edge and Firefox.",
-          "url": "https://github.com/hikaku-io/hikaku-extension",
-          "created_at": "2026-11-14T14:06:05Z"
-        },
-        {
-          "full_name": "summittypeplay/sims4-updater",
-          "stars": 226,
-          "language": "",
-          "description": "Sims 4 DLC Updater",
-          "url": "https://github.com/summittypeplay/sims4-updater",
-          "created_at": "2026-11-14T11:52:29Z"
-        },
-        {
-          "full_name": "DimensionRobin/rob-run-private-cheat",
-          "stars": 202,
-          "language": "",
-          "description": "",
-          "url": "https://github.com/DimensionRobin/rob-run-private-cheat",
-          "created_at": "2026-11-14T01:07:40Z"
-        },
-        {
-          "full_name": "Crateryeexpiate/TradePilot",
-          "stars": 184,
-          "language": "",
-          "description": "TradePilot is an AI-powered crypto trading bot for automated cryptocurrency trading, real-time market analysis, technical indicators, portfolio management, trading signals, strategy backtesting and algorithmic trading. Built for smarter crypto market research and trading automati",
-          "url": "https://github.com/Crateryeexpiate/TradePilot",
-          "created_at": "2026-11-14T14:54:51Z"
-        },
-        {
-          "full_name": "Percentmofascinate/ai--manus2.0",
-          "stars": 182,
-          "language": "",
-          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
-          "url": "https://github.com/Percentmofascinate/ai--manus2.0",
-          "created_at": "2026-11-14T16:45:12Z"
-        },
-        {
-          "full_name": "Orderdromonitor/IPTV_Player2.0",
-          "stars": 182,
+          "full_name": "WarriorRemember/IPTV_Player_2.0",
+          "stars": 673,
           "language": "Rust",
           "description": "🎬 A powerful, intuitive IPTV streaming app supporting M3U playlists, EPG, and community lists. Available for Windows, macOS, Linux, Android & TV Boxes. ",
-          "url": "https://github.com/Orderdromonitor/IPTV_Player2.0",
-          "created_at": "2026-11-14T16:35:41Z"
+          "url": "https://github.com/WarriorRemember/IPTV_Player_2.0",
+          "created_at": "2026-11-14T19:25:25Z"
         },
         {
-          "full_name": "massswanball/ai--manus2.0",
-          "stars": 182,
-          "language": "",
-          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
-          "url": "https://github.com/massswanball/ai--manus2.0",
-          "created_at": "2026-11-14T16:45:11Z"
+          "full_name": "TurquoiseDetective/IPTV_Player_2.0",
+          "stars": 670,
+          "language": "Rust",
+          "description": "🎬 A powerful, intuitive IPTV streaming app supporting M3U playlists, EPG, and community lists. Available for Windows, macOS, Linux, Android & TV Boxes. ",
+          "url": "https://github.com/TurquoiseDetective/IPTV_Player_2.0",
+          "created_at": "2026-11-14T19:25:17Z"
         },
         {
-          "full_name": "ordercocoondrag/ai--manus2.0",
-          "stars": 182,
-          "language": "",
-          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
-          "url": "https://github.com/ordercocoondrag/ai--manus2.0",
-          "created_at": "2026-11-14T16:45:11Z"
+          "full_name": "tornadonovicewhirl40/IPTV_Player_2.0",
+          "stars": 670,
+          "language": "Rust",
+          "description": "🎬 A powerful, intuitive IPTV streaming app supporting M3U playlists, EPG, and community lists. Available for Windows, macOS, Linux, Android & TV Boxes. ",
+          "url": "https://github.com/tornadonovicewhirl40/IPTV_Player_2.0",
+          "created_at": "2026-11-14T19:15:43Z"
         },
         {
-          "full_name": "realscholarfury/ai--manus2.0",
-          "stars": 182,
-          "language": "",
-          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
-          "url": "https://github.com/realscholarfury/ai--manus2.0",
-          "created_at": "2026-11-14T16:45:11Z"
+          "full_name": "WattBeetleLearn/IPTV_Player_2.0",
+          "stars": 668,
+          "language": "Rust",
+          "description": "🎬 A powerful, intuitive IPTV streaming app supporting M3U playlists, EPG, and community lists. Available for Windows, macOS, Linux, Android & TV Boxes. ",
+          "url": "https://github.com/WattBeetleLearn/IPTV_Player_2.0",
+          "created_at": "2026-11-14T19:25:28Z"
+        },
+        {
+          "full_name": "Trapbraneedle/IPTV_Player_2.0",
+          "stars": 667,
+          "language": "Go",
+          "description": "🎬 A powerful, intuitive IPTV streaming app supporting M3U playlists, EPG, and community lists. Available for Windows, macOS, Linux, Android & TV Boxes. ",
+          "url": "https://github.com/Trapbraneedle/IPTV_Player_2.0",
+          "created_at": "2026-11-14T19:25:19Z"
+        },
+        {
+          "full_name": "Titanlushrink/IPTV_Player_2.0",
+          "stars": 666,
+          "language": "Rust",
+          "description": "🎬 A powerful, intuitive IPTV streaming app supporting M3U playlists, EPG, and community lists. Available for Windows, macOS, Linux, Android & TV Boxes. ",
+          "url": "https://github.com/Titanlushrink/IPTV_Player_2.0",
+          "created_at": "2026-11-14T19:25:19Z"
+        },
+        {
+          "full_name": "Torusdrasocket/IPTV_Player_2.0",
+          "stars": 666,
+          "language": "Rust",
+          "description": "🎬 A powerful, intuitive IPTV streaming app supporting M3U playlists, EPG, and community lists. Available for Windows, macOS, Linux, Android & TV Boxes. ",
+          "url": "https://github.com/Torusdrasocket/IPTV_Player_2.0",
+          "created_at": "2026-11-14T19:15:48Z"
         }
       ]
     },
@@ -2300,70 +2212,70 @@
       "items": [
         {
           "id": "xtools-at/DeepSeek-V4-Pro-Qwen3.5-9B-UNCENSORED-heretic",
-          "likes": 7331,
+          "likes": 7351,
           "downloads": 24470,
           "pipeline_tag": "text-generation",
           "url": "https://huggingface.co/xtools-at/DeepSeek-V4-Pro-Qwen3.5-9B-UNCENSORED-heretic"
         },
         {
           "id": "MiniMaxAI/MiniMax-H3-Image",
-          "likes": 1106,
+          "likes": 1115,
           "downloads": 517948,
           "pipeline_tag": "text-to-image",
           "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3-Image"
         },
         {
           "id": "Lightricks/LTX-2.5",
-          "likes": 11900,
+          "likes": 11923,
           "downloads": 2777667,
           "pipeline_tag": "image-to-video",
           "url": "https://huggingface.co/Lightricks/LTX-2.5"
         },
         {
           "id": "Qwen/Qwen3.8-27B",
-          "likes": 19984,
+          "likes": 20006,
           "downloads": 6757964,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/Qwen/Qwen3.8-27B"
         },
         {
           "id": "DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
-          "likes": 3109,
+          "likes": 3118,
           "downloads": 1657783,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF"
         },
         {
-          "id": "NousResearch/Arete-27B",
-          "likes": 586,
-          "downloads": 6191,
-          "pipeline_tag": "text-generation",
-          "url": "https://huggingface.co/NousResearch/Arete-27B"
-        },
-        {
           "id": "speridlabs/idol",
-          "likes": 2334,
+          "likes": 2340,
           "downloads": 32619,
           "pipeline_tag": "image-to-3d",
           "url": "https://huggingface.co/speridlabs/idol"
         },
         {
+          "id": "NousResearch/Arete-27B",
+          "likes": 590,
+          "downloads": 6191,
+          "pipeline_tag": "text-generation",
+          "url": "https://huggingface.co/NousResearch/Arete-27B"
+        },
+        {
           "id": "Comfy-Org/MiniMax-H3-Image",
-          "likes": 379,
+          "likes": 383,
           "downloads": 1615613,
           "pipeline_tag": "text-to-image",
           "url": "https://huggingface.co/Comfy-Org/MiniMax-H3-Image"
         },
         {
           "id": "moonshotai/Kimi-K3.1-Pro",
-          "likes": 2076,
+          "likes": 2077,
           "downloads": 43687,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro"
         },
         {
           "id": "Zyphra/ZONOS3-Mini",
-          "likes": 337,
+          "likes": 344,
           "downloads": 19743,
           "pipeline_tag": "text-to-speech",
           "url": "https://huggingface.co/Zyphra/ZONOS3-Mini"
