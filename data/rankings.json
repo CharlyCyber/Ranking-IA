@@ -1,31 +1,31 @@
 {
-  "generated_at": "2026-11-13T18:16:53.572491",
+  "generated_at": "2026-11-14T00:01:19.149181",
   "sources": {
     "design": {
       "status": "ok",
       "models": [
         {
           "rank": 1,
-          "model": "GPT-6.1 Sol (max)",
-          "score": 1421,
-          "prompt_per_m": 2.0,
-          "completion_per_m": 10.0,
-          "context_length": 1050000,
-          "is_free": false
-        },
-        {
-          "rank": 2,
           "model": "Claude Opus 5.5 (high)",
-          "score": 1405,
+          "score": 1413,
           "prompt_per_m": 4.0,
           "completion_per_m": 20.0,
           "context_length": 1000000,
           "is_free": false
         },
         {
+          "rank": 2,
+          "model": "GPT-6.1 Sol (max)",
+          "score": 1407,
+          "prompt_per_m": 2.0,
+          "completion_per_m": 10.0,
+          "context_length": 1050000,
+          "is_free": false
+        },
+        {
           "rank": 3,
           "model": "GPT-6 Astra (max)",
-          "score": 1393,
+          "score": 1394,
           "prompt_per_m": 10.0,
           "completion_per_m": 50.0,
           "context_length": 1050000,
@@ -34,7 +34,7 @@
         {
           "rank": 4,
           "model": "Claude Fable 5.2",
-          "score": 1356,
+          "score": 1369,
           "prompt_per_m": 8.0,
           "completion_per_m": 40.0,
           "context_length": 1000000,
@@ -42,26 +42,26 @@
         },
         {
           "rank": 5,
-          "model": "Inkling 2 Small",
-          "score": 1356,
-          "prompt_per_m": 0.3,
-          "completion_per_m": 1.0,
-          "context_length": 1048576,
-          "is_free": false
-        },
-        {
-          "rank": 6,
           "model": "Claude Fable 5.1",
-          "score": 1327,
+          "score": 1331,
           "prompt_per_m": 10.0,
           "completion_per_m": 50.0,
           "context_length": 1000000,
           "is_free": false
         },
         {
+          "rank": 6,
+          "model": "Inkling 2 Small",
+          "score": 1324,
+          "prompt_per_m": 0.3,
+          "completion_per_m": 1.0,
+          "context_length": 1048576,
+          "is_free": false
+        },
+        {
           "rank": 7,
           "model": "Gemini 4 Carbon",
-          "score": 1307,
+          "score": 1298,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1048576,
@@ -70,7 +70,7 @@
         {
           "rank": 8,
           "model": "Kimi K3.1 Pro",
-          "score": 1286,
+          "score": 1291,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1048576,
@@ -79,7 +79,7 @@
         {
           "rank": 9,
           "model": "Claude Sonnet 5.5",
-          "score": 1283,
+          "score": 1281,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1000000,
@@ -87,96 +87,96 @@
         },
         {
           "rank": 10,
-          "model": "Muse Spark 1.3 Max",
-          "score": 1278
-        },
-        {
-          "rank": 11,
-          "model": "Claude Fable 5",
-          "score": 1268,
-          "prompt_per_m": 10.0,
-          "completion_per_m": 50.0,
-          "context_length": 1000000,
-          "is_free": false
-        },
-        {
-          "rank": 12,
-          "model": "Gemini 4 Argon",
-          "score": 1268,
-          "prompt_per_m": 2.0,
-          "completion_per_m": 10.0,
+          "model": "DeepSeek-V4.1-Flash (1017)",
+          "score": 1281,
+          "prompt_per_m": 0.3,
+          "completion_per_m": 1.2,
           "context_length": 1048576,
           "is_free": false
         },
         {
+          "rank": 11,
+          "model": "Muse Spark 1.3 Max",
+          "score": 1276
+        },
+        {
+          "rank": 12,
+          "model": "Grok 4.7",
+          "score": 1273,
+          "prompt_per_m": 2.0,
+          "completion_per_m": 6.0,
+          "context_length": 500000,
+          "is_free": false
+        },
+        {
           "rank": 13,
-          "model": "757W / 441L 63.2% ±2.7% 1,198 OpenAI",
-          "score": 1421
+          "model": "1421W / 712L 66.6% ±2.0% 2,133 Anthropic",
+          "score": 1413
         },
         {
           "rank": 14,
-          "model": "1302W / 668L 66.1% ±2.1% 1,970 Anthropic",
-          "score": 1405
+          "model": "938W / 582L 61.7% ±2.4% 1,520 OpenAI",
+          "score": 1407
         },
         {
           "rank": 15,
-          "model": "1439W / 666L 68.4% ±2.0% 2,105 OpenAI",
-          "score": 1393
+          "model": "1529W / 725L 67.8% ±1.9% 2,254 OpenAI",
+          "score": 1394
         },
         {
           "rank": 16,
-          "model": "999W / 458L 68.6% ±2.4% 1,457 Anthropic",
-          "score": 1356
+          "model": "1136W / 501L 69.4% ±2.2% 1,637 Anthropic",
+          "score": 1369
         },
         {
           "rank": 17,
-          "model": "202W / 98L 67.3% ±5.3% 300 Thinking Machines",
-          "score": 1356
+          "model": "2961W / 2008L 59.6% ±1.4% 4,969 Anthropic",
+          "score": 1331
         },
         {
           "rank": 18,
-          "model": "2779W / 1877L 59.7% ±1.4% 4,656 Anthropic",
-          "score": 1327
+          "model": "2805W / 1933L 59.2% ±1.4% 4,738 Thinking Machines",
+          "score": 1324
         },
         {
           "rank": 19,
-          "model": "467W / 291L 61.6% ±3.5% 758 Google",
-          "score": 1307
+          "model": "555W / 385L 59.0% ±3.1% 940 Google",
+          "score": 1298
         },
         {
           "rank": 20,
-          "model": "2221W / 1496L 59.8% ±1.6% 3,717 Moonshot AI",
-          "score": 1286
+          "model": "2397W / 1632L 59.5% ±1.5% 4,029 Moonshot AI",
+          "score": 1291
         },
         {
           "rank": 21,
-          "model": "1473W / 1049L 58.4% ±1.9% 2,522 Anthropic",
-          "score": 1283
+          "model": "1537W / 1150L 57.2% ±1.9% 2,687 Anthropic",
+          "score": 1281
         },
         {
           "rank": 22,
-          "model": "7234W / 5372L 57.4% ±0.9% 12,606 Meta",
-          "score": 1278
+          "model": "155W / 165L 48.4% ±5.5% 320 DeepSeek",
+          "score": 1281
         },
         {
           "rank": 23,
-          "model": "8061W / 5241L 60.6% ±0.8% 13,302 Anthropic",
-          "score": 1268
+          "model": "7281W / 5499L 57.0% ±0.9% 12,780 Meta",
+          "score": 1276
         },
         {
           "rank": 24,
-          "model": "549W / 684L 44.5% ±2.8% 1,233 Google",
-          "score": 1268
+          "model": "811W / 685L 54.2% ±2.5% 1,496 xAI",
+          "score": 1273
         },
         {
           "rank": 25,
-          "model": "4284W / 3314L 56.4% ±1.1% 7,598 Anthropic",
-          "score": 1266
+          "model": "8153W / 5298L 60.6% ±0.8% 13,451 Anthropic",
+          "score": 1270
         },
         {
           "rank": 26,
-          "model": "1899W / 1362L 58.2% ±1.7% 3,261 Xiaomi",
-          "score": 1265
+          "model": "4425W / 3508L 55.8% ±1.1% 7,933 Anthropic",
+          "score": 1267
         }
       ],
       "method": "http"
@@ -1873,7 +1873,7 @@
       "stale_since": "2026-11-11T02:21:51.468524"
     },
     "github": {
-      "status": "ok",
+      "status": "stale",
       "since": "2026-11-12",
       "ai": [
         {
@@ -2240,133 +2240,136 @@
           "url": "https://github.com/XTwiNSaraX/ai--manus",
           "created_at": "2026-11-13T14:45:01Z"
         }
-      ]
+      ],
+      "error": "github: status=error (GitHub Search falló: GitHub Search devolvió 0 repositorios)",
+      "stale_since": "2026-11-14T00:01:19.149181"
     },
     "hackernews": {
       "status": "ok",
       "items": [
         {
-          "title": "Stephen Hawking has died",
-          "points": 6015,
-          "comments": 436,
-          "url": "http://www.bbc.com/news/uk-43396008"
+          "title": "FAA issues national ground stop",
+          "points": 1091,
+          "comments": 664,
+          "url": "https://www.nbcnews.com/news/us-news/faa-orders-nationwide-ground-stop-departing-flights-reasons-safety-rcna609247"
         },
         {
-          "title": "A Message to Our Customers",
-          "points": 5771,
-          "comments": 967,
-          "url": "http://www.apple.com/customer-letter/"
+          "title": "Live airband on all frequencies from KORS. Victoria, CA also ground stopped",
+          "points": 116,
+          "comments": 30,
+          "url": "https://orcasairband.com/"
         },
         {
-          "title": "OpenAI's board has fired Sam Altman",
-          "points": 5710,
-          "comments": 2530,
-          "url": "https://openai.com/blog/openai-announces-leadership-transition"
+          "title": "FM-1 Workbench",
+          "points": 167,
+          "comments": 93,
+          "url": "https://open.m-vave.com/fm1-workbench"
         },
         {
-          "title": "Backdoor in upstream xz/liblzma leading to SSH server compromise",
-          "points": 4549,
-          "comments": 1849,
-          "url": "https://www.openwall.com/lists/oss-security/2024/03/29/4"
+          "title": "Reverse engineering my Coway air purifier to ditch the cloud",
+          "points": 654,
+          "comments": 192,
+          "url": "https://scottjg.com/posts/2026-11-11-reverse-engineering-my-coway-air-purifier-to-ditch-the-cloud/"
         },
         {
-          "title": "CrowdStrike Update: Windows Bluescreen and Boot Loops",
-          "points": 4489,
-          "comments": 3859,
-          "url": "https://old.reddit.com/r/crowdstrike/comments/1e6vmkf/bsod_error_in_latest_crowdstrike_update/"
+          "title": "Found: A protein that drives ageing without unleashing inflammation",
+          "points": 97,
+          "comments": 18,
+          "url": "https://www.nature.com/articles/d41586-026-03638-3"
         },
         {
-          "title": "Steve Jobs has passed away.",
-          "points": 4338,
-          "comments": 363,
-          "url": "http://www.apple.com/stevejobs/"
+          "title": "After 600 experiments, here's what I discovered about JEPA world models",
+          "points": 199,
+          "comments": 33,
+          "url": "https://haddyalchaer.com/jepa"
         },
         {
-          "title": "Bram Moolenaar has died",
-          "points": 4310,
-          "comments": 428,
-          "url": "https://groups.google.com/g/vim_announce/c/tWahca9zkt4"
+          "title": "Perplexity Decider v1.3: Training, eval, and use cases",
+          "points": 87,
+          "comments": 18,
+          "url": "https://www.perplexity.ai/hub/blog/perplexity-decider"
         },
         {
-          "title": "Mechanical Watch",
-          "points": 4298,
-          "comments": 413,
-          "url": "https://ciechanow.ski/mechanical-watch/"
+          "title": "Doomsday: Friday, 13 November, A.D. 2026 (1960)",
+          "points": 432,
+          "comments": 301,
+          "url": "https://www.science.org/doi/10.1126/science.132.3436.1291"
         }
-      ]
+      ],
+      "source": "firebase"
     },
     "huggingface": {
       "status": "ok",
       "items": [
         {
           "id": "xtools-at/DeepSeek-V4-Pro-Qwen3.5-9B-UNCENSORED-heretic",
-          "likes": 5012,
+          "likes": 5824,
           "downloads": 21586,
           "pipeline_tag": "text-generation",
           "url": "https://huggingface.co/xtools-at/DeepSeek-V4-Pro-Qwen3.5-9B-UNCENSORED-heretic"
         },
         {
           "id": "MiniMaxAI/MiniMax-H3-Image",
-          "likes": 976,
+          "likes": 1013,
           "downloads": 437039,
           "pipeline_tag": "text-to-image",
           "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3-Image"
         },
         {
           "id": "NousResearch/Arete-27B",
-          "likes": 527,
+          "likes": 544,
           "downloads": 5545,
           "pipeline_tag": "text-generation",
           "url": "https://huggingface.co/NousResearch/Arete-27B"
         },
         {
           "id": "Lightricks/LTX-2.5",
-          "likes": 11738,
+          "likes": 11775,
           "downloads": 2778909,
           "pipeline_tag": "image-to-video",
           "url": "https://huggingface.co/Lightricks/LTX-2.5"
         },
         {
-          "id": "speridlabs/idol",
-          "likes": 2270,
-          "downloads": 31367,
-          "pipeline_tag": "image-to-3d",
-          "url": "https://huggingface.co/speridlabs/idol"
-        },
-        {
           "id": "Qwen/Qwen3.8-27B",
-          "likes": 19830,
+          "likes": 19868,
           "downloads": 6960395,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/Qwen/Qwen3.8-27B"
         },
         {
-          "id": "moonshotai/Kimi-K3.1-Pro",
-          "likes": 2008,
-          "downloads": 40953,
-          "pipeline_tag": "image-text-to-text",
-          "url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro"
+          "id": "speridlabs/idol",
+          "likes": 2294,
+          "downloads": 31367,
+          "pipeline_tag": "image-to-3d",
+          "url": "https://huggingface.co/speridlabs/idol"
         },
         {
           "id": "DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
-          "likes": 3027,
+          "likes": 3048,
           "downloads": 1639400,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF"
         },
         {
+          "id": "moonshotai/Kimi-K3.1-Pro",
+          "likes": 2030,
+          "downloads": 40953,
+          "pipeline_tag": "image-text-to-text",
+          "url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro"
+        },
+        {
           "id": "Comfy-Org/MiniMax-H3-Image",
-          "likes": 332,
+          "likes": 343,
           "downloads": 1257301,
           "pipeline_tag": "text-to-image",
           "url": "https://huggingface.co/Comfy-Org/MiniMax-H3-Image"
         },
         {
-          "id": "ccore/Qwen3.5-4B-3D-Coder",
-          "likes": 1073,
-          "downloads": 392582,
-          "pipeline_tag": "",
-          "url": "https://huggingface.co/ccore/Qwen3.5-4B-3D-Coder"
+          "id": "Zyphra/ZONOS3-Mini",
+          "likes": 287,
+          "downloads": 13068,
+          "pipeline_tag": "text-to-speech",
+          "url": "https://huggingface.co/Zyphra/ZONOS3-Mini"
         }
       ]
     }
