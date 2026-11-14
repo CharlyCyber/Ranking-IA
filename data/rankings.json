@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-14T14:36:59.232901",
+  "generated_at": "2026-11-14T19:34:33.901018",
   "sources": {
     "design": {
       "status": "ok",
@@ -7,7 +7,7 @@
         {
           "rank": 1,
           "model": "Claude Opus 5.5 (high)",
-          "score": 1447,
+          "score": 1446,
           "prompt_per_m": 4.0,
           "completion_per_m": 20.0,
           "context_length": 1000000,
@@ -61,7 +61,7 @@
         {
           "rank": 7,
           "model": "Gemini 4 Carbon",
-          "score": 1299,
+          "score": 1300,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1048576,
@@ -79,7 +79,7 @@
         {
           "rank": 9,
           "model": "Claude Sonnet 5.5",
-          "score": 1287,
+          "score": 1286,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1000000,
@@ -111,16 +111,16 @@
         {
           "rank": 13,
           "model": "1704W / 721L 70.3% ±1.8% 2,425 Anthropic",
-          "score": 1447
+          "score": 1446
         },
         {
           "rank": 14,
-          "model": "1645W / 771L 68.1% ±1.9% 2,416 OpenAI",
+          "model": "1646W / 773L 68.0% ±1.9% 2,419 OpenAI",
           "score": 1399
         },
         {
           "rank": 15,
-          "model": "1160W / 511L 69.4% ±2.2% 1,671 Anthropic",
+          "model": "1170W / 514L 69.5% ±2.2% 1,684 Anthropic",
           "score": 1370
         },
         {
@@ -135,27 +135,27 @@
         },
         {
           "rank": 18,
-          "model": "4117W / 3080L 57.2% ±1.1% 7,197 Thinking Machines",
+          "model": "4118W / 3080L 57.2% ±1.1% 7,198 Thinking Machines",
           "score": 1309
         },
         {
           "rank": 19,
-          "model": "577W / 392L 59.5% ±3.1% 969 Google",
-          "score": 1299
+          "model": "585W / 395L 59.7% ±3.1% 980 Google",
+          "score": 1300
         },
         {
           "rank": 20,
-          "model": "2502W / 1698L 59.6% ±1.5% 4,200 Moonshot AI",
+          "model": "2509W / 1702L 59.6% ±1.5% 4,211 Moonshot AI",
           "score": 1294
         },
         {
           "rank": 21,
-          "model": "1656W / 1218L 57.6% ±1.8% 2,874 Anthropic",
-          "score": 1287
+          "model": "1657W / 1225L 57.5% ±1.8% 2,882 Anthropic",
+          "score": 1286
         },
         {
           "rank": 22,
-          "model": "7395W / 5563L 57.1% ±0.9% 12,958 Meta",
+          "model": "7399W / 5565L 57.1% ±0.9% 12,964 Meta",
           "score": 1277
         },
         {
@@ -165,17 +165,17 @@
         },
         {
           "rank": 24,
-          "model": "828W / 698L 54.3% ±2.5% 1,526 xAI",
+          "model": "832W / 702L 54.2% ±2.5% 1,534 xAI",
           "score": 1271
         },
         {
           "rank": 25,
-          "model": "720W / 887L 44.8% ±2.4% 1,607 Google",
-          "score": 1270
+          "model": "8154W / 5299L 60.6% ±0.8% 13,453 Anthropic",
+          "score": 1269
         },
         {
           "rank": 26,
-          "model": "8153W / 5298L 60.6% ±0.8% 13,451 Anthropic",
+          "model": "728W / 891L 45.0% ±2.4% 1,619 Google",
           "score": 1269
         }
       ],
@@ -1875,11 +1875,92 @@
     "github": {
       "status": "ok",
       "since": "2026-11-13",
-      "ai": [],
+      "ai": [
+        {
+          "full_name": "maneswordyell/ai--manus2.0",
+          "stars": 182,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/maneswordyell/ai--manus2.0",
+          "created_at": "2026-11-14T16:45:12Z"
+        },
+        {
+          "full_name": "rapidmechanicrear/ai--manus2.0",
+          "stars": 182,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/rapidmechanicrear/ai--manus2.0",
+          "created_at": "2026-11-14T16:45:12Z"
+        },
+        {
+          "full_name": "MessengerSmash/ai--manus2.0",
+          "stars": 182,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/MessengerSmash/ai--manus2.0",
+          "created_at": "2026-11-14T16:45:11Z"
+        },
+        {
+          "full_name": "PowderLieutenant/ai--manus2.0",
+          "stars": 182,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/PowderLieutenant/ai--manus2.0",
+          "created_at": "2026-11-14T16:45:12Z"
+        },
+        {
+          "full_name": "RestraintBowZen40/ai--manus2.0",
+          "stars": 182,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/RestraintBowZen40/ai--manus2.0",
+          "created_at": "2026-11-14T16:45:12Z"
+        },
+        {
+          "full_name": "Meteornyuspeed/ai--manus2.0",
+          "stars": 182,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/Meteornyuspeed/ai--manus2.0",
+          "created_at": "2026-11-14T16:45:11Z"
+        },
+        {
+          "full_name": "mixedbladesmanlabel/ai--manus2.0",
+          "stars": 182,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/mixedbladesmanlabel/ai--manus2.0",
+          "created_at": "2026-11-14T16:45:10Z"
+        },
+        {
+          "full_name": "NautilusMill/ai--manus2.0",
+          "stars": 182,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/NautilusMill/ai--manus2.0",
+          "created_at": "2026-11-14T16:45:11Z"
+        },
+        {
+          "full_name": "meteorwayoscillator7/ai--manus2.0",
+          "stars": 182,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/meteorwayoscillator7/ai--manus2.0",
+          "created_at": "2026-11-14T16:45:11Z"
+        },
+        {
+          "full_name": "Nightrihatchet/ai--manus2.0",
+          "stars": 182,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/Nightrihatchet/ai--manus2.0",
+          "created_at": "2026-11-14T16:45:11Z"
+        }
+      ],
       "general": [
         {
           "full_name": "duwqijlk/muse-protocol",
-          "stars": 392,
+          "stars": 497,
           "language": "Python",
           "description": "muse.ai 注册与邀请码兑换协议研究（纯 HTTP Python 实现）",
           "url": "https://github.com/duwqijlk/muse-protocol",
@@ -1887,31 +1968,31 @@
         },
         {
           "full_name": "brisk-thrush-husky/malware-defender-desktop",
-          "stars": 293,
+          "stars": 300,
           "language": "C++",
           "description": "Malware Defender 2026 desktop setup with real-time protection against malware and ransomware, deep system scan with quarantine and removal, plus web shield that blocks phishing and malicious sites for Windows 11",
           "url": "https://github.com/brisk-thrush-husky/malware-defender-desktop",
           "created_at": "2026-11-14T00:49:03Z"
         },
         {
-          "full_name": "brave-shell-07/izotope-rx-11-desktop",
-          "stars": 292,
-          "language": "C++",
-          "description": "iZotope RX 11 2026 desktop setup with AI audio repair, denoise, de-reverb and de-click, dialogue isolation and spectral editor, plus music rebalance to remix stems from a mix for Windows 11",
-          "url": "https://github.com/brave-shell-07/izotope-rx-11-desktop",
-          "created_at": "2026-11-14T00:25:20Z"
-        },
-        {
           "full_name": "bradburns2001/topaz-video-ai-desktop",
-          "stars": 291,
+          "stars": 299,
           "language": "C++",
           "description": "Topaz Video AI 2026 desktop setup with AI upscaling up to 16K with detail recovery, frame interpolation for smooth slow-motion, plus deinterlace, denoise and stabilize footage for Windows 11",
           "url": "https://github.com/bradburns2001/topaz-video-ai-desktop",
           "created_at": "2026-11-14T00:26:40Z"
         },
         {
+          "full_name": "brave-shell-07/izotope-rx-11-desktop",
+          "stars": 299,
+          "language": "C++",
+          "description": "iZotope RX 11 2026 desktop setup with AI audio repair, denoise, de-reverb and de-click, dialogue isolation and spectral editor, plus music rebalance to remix stems from a mix for Windows 11",
+          "url": "https://github.com/brave-shell-07/izotope-rx-11-desktop",
+          "created_at": "2026-11-14T00:25:20Z"
+        },
+        {
           "full_name": "briskember13/adobe-acrobat-pdf-desktop",
-          "stars": 290,
+          "stars": 298,
           "language": "C++",
           "description": "Adobe Acrobat PDF 2026 desktop setup with text and image editing directly inside any PDF, conversion to and from Word, Excel and images, plus fill, sign and merge documents with an AI assistant for Windows 11",
           "url": "https://github.com/briskember13/adobe-acrobat-pdf-desktop",
@@ -1919,11 +2000,27 @@
         },
         {
           "full_name": "brave-plum-co/leonardo-ai-desktop",
-          "stars": 290,
+          "stars": 298,
           "language": "C++",
           "description": "Leonardo AI 2026 desktop setup with text-to-image generation using fine-tuned models, canvas editor with inpainting and outpainting, plus real-time generation and image-to-motion for Windows 11",
           "url": "https://github.com/brave-plum-co/leonardo-ai-desktop",
           "created_at": "2026-11-14T00:23:46Z"
+        },
+        {
+          "full_name": "hikaku-io/hikaku-extension",
+          "stars": 243,
+          "language": "JavaScript",
+          "description": "Open-source browser extension that flags AI-generated images and video as you browse. Runs entirely on your device. Chrome, Edge and Firefox.",
+          "url": "https://github.com/hikaku-io/hikaku-extension",
+          "created_at": "2026-11-14T14:06:05Z"
+        },
+        {
+          "full_name": "summittypeplay/sims4-updater",
+          "stars": 226,
+          "language": "",
+          "description": "Sims 4 DLC Updater",
+          "url": "https://github.com/summittypeplay/sims4-updater",
+          "created_at": "2026-11-14T11:52:29Z"
         },
         {
           "full_name": "DimensionRobin/rob-run-private-cheat",
@@ -1934,34 +2031,98 @@
           "created_at": "2026-11-14T01:07:40Z"
         },
         {
-          "full_name": "prismarmorergirder/wallet-security-checker",
-          "stars": 115,
+          "full_name": "Crateryeexpiate/TradePilot",
+          "stars": 184,
           "language": "",
-          "description": "SafeWallet is a crypto wallet checker and blockchain security tool. Monitor Bitcoin, Ethereum and crypto wallet balances, track cryptocurrency prices, analyze wallet addresses, explore blockchain transactions, manage digital assets and receive real-time Telegram alerts. Crypto mo",
-          "url": "https://github.com/prismarmorergirder/wallet-security-checker",
-          "created_at": "2026-11-14T00:08:01Z"
-        },
-        {
-          "full_name": "summittypeplay/sims4-updater",
-          "stars": 110,
-          "language": "",
-          "description": "Sims 4 DLC Updater",
-          "url": "https://github.com/summittypeplay/sims4-updater",
-          "created_at": "2026-11-14T11:52:29Z"
-        },
-        {
-          "full_name": "dingxiaopi/clash-verge-static-ip",
-          "stars": 48,
-          "language": "JavaScript",
-          "description": "Clash Verge Rev 电脑版静态 IP 分流脚本，支持 X、AI 和 YouTube 分流及自动选线",
-          "url": "https://github.com/dingxiaopi/clash-verge-static-ip",
-          "created_at": "2026-11-14T03:24:34Z"
+          "description": "TradePilot is an AI-powered crypto trading bot for automated cryptocurrency trading, real-time market analysis, technical indicators, portfolio management, trading signals, strategy backtesting and algorithmic trading. Built for smarter crypto market research and trading automati",
+          "url": "https://github.com/Crateryeexpiate/TradePilot",
+          "created_at": "2026-11-14T14:54:51Z"
         }
       ],
       "items": [
         {
+          "full_name": "maneswordyell/ai--manus2.0",
+          "stars": 182,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/maneswordyell/ai--manus2.0",
+          "created_at": "2026-11-14T16:45:12Z"
+        },
+        {
+          "full_name": "rapidmechanicrear/ai--manus2.0",
+          "stars": 182,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/rapidmechanicrear/ai--manus2.0",
+          "created_at": "2026-11-14T16:45:12Z"
+        },
+        {
+          "full_name": "MessengerSmash/ai--manus2.0",
+          "stars": 182,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/MessengerSmash/ai--manus2.0",
+          "created_at": "2026-11-14T16:45:11Z"
+        },
+        {
+          "full_name": "PowderLieutenant/ai--manus2.0",
+          "stars": 182,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/PowderLieutenant/ai--manus2.0",
+          "created_at": "2026-11-14T16:45:12Z"
+        },
+        {
+          "full_name": "RestraintBowZen40/ai--manus2.0",
+          "stars": 182,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/RestraintBowZen40/ai--manus2.0",
+          "created_at": "2026-11-14T16:45:12Z"
+        },
+        {
+          "full_name": "Meteornyuspeed/ai--manus2.0",
+          "stars": 182,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/Meteornyuspeed/ai--manus2.0",
+          "created_at": "2026-11-14T16:45:11Z"
+        },
+        {
+          "full_name": "mixedbladesmanlabel/ai--manus2.0",
+          "stars": 182,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/mixedbladesmanlabel/ai--manus2.0",
+          "created_at": "2026-11-14T16:45:10Z"
+        },
+        {
+          "full_name": "NautilusMill/ai--manus2.0",
+          "stars": 182,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/NautilusMill/ai--manus2.0",
+          "created_at": "2026-11-14T16:45:11Z"
+        },
+        {
+          "full_name": "meteorwayoscillator7/ai--manus2.0",
+          "stars": 182,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/meteorwayoscillator7/ai--manus2.0",
+          "created_at": "2026-11-14T16:45:11Z"
+        },
+        {
+          "full_name": "Nightrihatchet/ai--manus2.0",
+          "stars": 182,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/Nightrihatchet/ai--manus2.0",
+          "created_at": "2026-11-14T16:45:11Z"
+        },
+        {
           "full_name": "duwqijlk/muse-protocol",
-          "stars": 392,
+          "stars": 497,
           "language": "Python",
           "description": "muse.ai 注册与邀请码兑换协议研究（纯 HTTP Python 实现）",
           "url": "https://github.com/duwqijlk/muse-protocol",
@@ -1969,31 +2130,31 @@
         },
         {
           "full_name": "brisk-thrush-husky/malware-defender-desktop",
-          "stars": 293,
+          "stars": 300,
           "language": "C++",
           "description": "Malware Defender 2026 desktop setup with real-time protection against malware and ransomware, deep system scan with quarantine and removal, plus web shield that blocks phishing and malicious sites for Windows 11",
           "url": "https://github.com/brisk-thrush-husky/malware-defender-desktop",
           "created_at": "2026-11-14T00:49:03Z"
         },
         {
-          "full_name": "brave-shell-07/izotope-rx-11-desktop",
-          "stars": 292,
-          "language": "C++",
-          "description": "iZotope RX 11 2026 desktop setup with AI audio repair, denoise, de-reverb and de-click, dialogue isolation and spectral editor, plus music rebalance to remix stems from a mix for Windows 11",
-          "url": "https://github.com/brave-shell-07/izotope-rx-11-desktop",
-          "created_at": "2026-11-14T00:25:20Z"
-        },
-        {
           "full_name": "bradburns2001/topaz-video-ai-desktop",
-          "stars": 291,
+          "stars": 299,
           "language": "C++",
           "description": "Topaz Video AI 2026 desktop setup with AI upscaling up to 16K with detail recovery, frame interpolation for smooth slow-motion, plus deinterlace, denoise and stabilize footage for Windows 11",
           "url": "https://github.com/bradburns2001/topaz-video-ai-desktop",
           "created_at": "2026-11-14T00:26:40Z"
         },
         {
+          "full_name": "brave-shell-07/izotope-rx-11-desktop",
+          "stars": 299,
+          "language": "C++",
+          "description": "iZotope RX 11 2026 desktop setup with AI audio repair, denoise, de-reverb and de-click, dialogue isolation and spectral editor, plus music rebalance to remix stems from a mix for Windows 11",
+          "url": "https://github.com/brave-shell-07/izotope-rx-11-desktop",
+          "created_at": "2026-11-14T00:25:20Z"
+        },
+        {
           "full_name": "briskember13/adobe-acrobat-pdf-desktop",
-          "stars": 290,
+          "stars": 298,
           "language": "C++",
           "description": "Adobe Acrobat PDF 2026 desktop setup with text and image editing directly inside any PDF, conversion to and from Word, Excel and images, plus fill, sign and merge documents with an AI assistant for Windows 11",
           "url": "https://github.com/briskember13/adobe-acrobat-pdf-desktop",
@@ -2001,11 +2162,27 @@
         },
         {
           "full_name": "brave-plum-co/leonardo-ai-desktop",
-          "stars": 290,
+          "stars": 298,
           "language": "C++",
           "description": "Leonardo AI 2026 desktop setup with text-to-image generation using fine-tuned models, canvas editor with inpainting and outpainting, plus real-time generation and image-to-motion for Windows 11",
           "url": "https://github.com/brave-plum-co/leonardo-ai-desktop",
           "created_at": "2026-11-14T00:23:46Z"
+        },
+        {
+          "full_name": "hikaku-io/hikaku-extension",
+          "stars": 243,
+          "language": "JavaScript",
+          "description": "Open-source browser extension that flags AI-generated images and video as you browse. Runs entirely on your device. Chrome, Edge and Firefox.",
+          "url": "https://github.com/hikaku-io/hikaku-extension",
+          "created_at": "2026-11-14T14:06:05Z"
+        },
+        {
+          "full_name": "summittypeplay/sims4-updater",
+          "stars": 226,
+          "language": "",
+          "description": "Sims 4 DLC Updater",
+          "url": "https://github.com/summittypeplay/sims4-updater",
+          "created_at": "2026-11-14T11:52:29Z"
         },
         {
           "full_name": "DimensionRobin/rob-run-private-cheat",
@@ -2016,68 +2193,52 @@
           "created_at": "2026-11-14T01:07:40Z"
         },
         {
-          "full_name": "prismarmorergirder/wallet-security-checker",
-          "stars": 115,
+          "full_name": "Crateryeexpiate/TradePilot",
+          "stars": 184,
           "language": "",
-          "description": "SafeWallet is a crypto wallet checker and blockchain security tool. Monitor Bitcoin, Ethereum and crypto wallet balances, track cryptocurrency prices, analyze wallet addresses, explore blockchain transactions, manage digital assets and receive real-time Telegram alerts. Crypto mo",
-          "url": "https://github.com/prismarmorergirder/wallet-security-checker",
-          "created_at": "2026-11-14T00:08:01Z"
+          "description": "TradePilot is an AI-powered crypto trading bot for automated cryptocurrency trading, real-time market analysis, technical indicators, portfolio management, trading signals, strategy backtesting and algorithmic trading. Built for smarter crypto market research and trading automati",
+          "url": "https://github.com/Crateryeexpiate/TradePilot",
+          "created_at": "2026-11-14T14:54:51Z"
         },
         {
-          "full_name": "summittypeplay/sims4-updater",
-          "stars": 110,
+          "full_name": "Percentmofascinate/ai--manus2.0",
+          "stars": 182,
           "language": "",
-          "description": "Sims 4 DLC Updater",
-          "url": "https://github.com/summittypeplay/sims4-updater",
-          "created_at": "2026-11-14T11:52:29Z"
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/Percentmofascinate/ai--manus2.0",
+          "created_at": "2026-11-14T16:45:12Z"
         },
         {
-          "full_name": "dingxiaopi/clash-verge-static-ip",
-          "stars": 48,
-          "language": "JavaScript",
-          "description": "Clash Verge Rev 电脑版静态 IP 分流脚本，支持 X、AI 和 YouTube 分流及自动选线",
-          "url": "https://github.com/dingxiaopi/clash-verge-static-ip",
-          "created_at": "2026-11-14T03:24:34Z"
+          "full_name": "Orderdromonitor/IPTV_Player2.0",
+          "stars": 182,
+          "language": "Rust",
+          "description": "🎬 A powerful, intuitive IPTV streaming app supporting M3U playlists, EPG, and community lists. Available for Windows, macOS, Linux, Android & TV Boxes. ",
+          "url": "https://github.com/Orderdromonitor/IPTV_Player2.0",
+          "created_at": "2026-11-14T16:35:41Z"
         },
         {
-          "full_name": "EriOmeganet/agent-wallet-guard-resp-plus",
-          "stars": 42,
+          "full_name": "massswanball/ai--manus2.0",
+          "stars": 182,
           "language": "",
-          "description": "Claude Code skill for safe AI wallet and trade agents with spend limits, send checks, and key care. Built on affaan-m/ECC by @affaan-m.",
-          "url": "https://github.com/EriOmeganet/agent-wallet-guard-resp-plus",
-          "created_at": "2026-11-14T11:29:52Z"
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/massswanball/ai--manus2.0",
+          "created_at": "2026-11-14T16:45:11Z"
         },
         {
-          "full_name": "Rogueatcrest17002/A.W.-rpocket-team-Stratgies-Indicator",
-          "stars": 41,
-          "language": "HTML",
-          "description": "A.W. Strategy: a rules-based intraday futures strategy for TradingView (market structure, order flow, GEX levels), with an automated options-data pipeline and a paper-trading research bot.",
-          "url": "https://github.com/Rogueatcrest17002/A.W.-rpocket-team-Stratgies-Indicator",
-          "created_at": "2026-11-14T11:29:49Z"
-        },
-        {
-          "full_name": "OGVortexed/activa-win-off-resocket",
-          "stars": 41,
+          "full_name": "ordercocoondrag/ai--manus2.0",
+          "stars": 182,
           "language": "",
-          "description": "KMS (Key Management Service) is a Microsoft technology used to activate Windows and Office products within organizations. It allows compatible devices to activate through a local server instead of requiring individual activation for each device.",
-          "url": "https://github.com/OGVortexed/activa-win-off-resocket",
-          "created_at": "2026-11-14T11:29:51Z"
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/ordercocoondrag/ai--manus2.0",
+          "created_at": "2026-11-14T16:45:11Z"
         },
         {
-          "full_name": "Doomsultan13862/accumulation-scanner-resp",
-          "stars": 41,
-          "language": "HTML",
-          "description": "Crypto accumulation-zone scanner: multi-stage funnel, anti-rug/honeypot, scoring (zero-dependency Python)",
-          "url": "https://github.com/Doomsultan13862/accumulation-scanner-resp",
-          "created_at": "2026-11-14T11:29:50Z"
-        },
-        {
-          "full_name": "TorinKnighten/AC-Trainer-resp-Vault",
-          "stars": 41,
-          "language": "HTML",
-          "description": "Assetto Corsa Setup Assistant 2026 Guide for Windows 10 and 11 PC",
-          "url": "https://github.com/TorinKnighten/AC-Trainer-resp-Vault",
-          "created_at": "2026-11-14T11:29:50Z"
+          "full_name": "realscholarfury/ai--manus2.0",
+          "stars": 182,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/realscholarfury/ai--manus2.0",
+          "created_at": "2026-11-14T16:45:11Z"
         }
       ]
     },
@@ -2139,70 +2300,70 @@
       "items": [
         {
           "id": "xtools-at/DeepSeek-V4-Pro-Qwen3.5-9B-UNCENSORED-heretic",
-          "likes": 7257,
+          "likes": 7331,
           "downloads": 24470,
           "pipeline_tag": "text-generation",
           "url": "https://huggingface.co/xtools-at/DeepSeek-V4-Pro-Qwen3.5-9B-UNCENSORED-heretic"
         },
         {
           "id": "MiniMaxAI/MiniMax-H3-Image",
-          "likes": 1083,
+          "likes": 1106,
           "downloads": 517948,
           "pipeline_tag": "text-to-image",
           "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3-Image"
         },
         {
           "id": "Lightricks/LTX-2.5",
-          "likes": 11868,
+          "likes": 11900,
           "downloads": 2777667,
           "pipeline_tag": "image-to-video",
           "url": "https://huggingface.co/Lightricks/LTX-2.5"
         },
         {
           "id": "Qwen/Qwen3.8-27B",
-          "likes": 19949,
+          "likes": 19984,
           "downloads": 6757964,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/Qwen/Qwen3.8-27B"
         },
         {
+          "id": "DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
+          "likes": 3109,
+          "downloads": 1657783,
+          "pipeline_tag": "image-text-to-text",
+          "url": "https://huggingface.co/DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF"
+        },
+        {
           "id": "NousResearch/Arete-27B",
-          "likes": 585,
+          "likes": 586,
           "downloads": 6191,
           "pipeline_tag": "text-generation",
           "url": "https://huggingface.co/NousResearch/Arete-27B"
         },
         {
           "id": "speridlabs/idol",
-          "likes": 2329,
+          "likes": 2334,
           "downloads": 32619,
           "pipeline_tag": "image-to-3d",
           "url": "https://huggingface.co/speridlabs/idol"
         },
         {
-          "id": "DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
-          "likes": 3103,
-          "downloads": 1657783,
-          "pipeline_tag": "image-text-to-text",
-          "url": "https://huggingface.co/DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF"
-        },
-        {
           "id": "Comfy-Org/MiniMax-H3-Image",
-          "likes": 375,
+          "likes": 379,
           "downloads": 1615613,
           "pipeline_tag": "text-to-image",
           "url": "https://huggingface.co/Comfy-Org/MiniMax-H3-Image"
         },
         {
           "id": "moonshotai/Kimi-K3.1-Pro",
-          "likes": 2068,
+          "likes": 2076,
           "downloads": 43687,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro"
         },
         {
           "id": "Zyphra/ZONOS3-Mini",
-          "likes": 330,
+          "likes": 337,
           "downloads": 19743,
           "pipeline_tag": "text-to-speech",
           "url": "https://huggingface.co/Zyphra/ZONOS3-Mini"
