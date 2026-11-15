@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-15T18:08:26.018636",
+  "generated_at": "2026-11-15T23:14:31.563772",
   "sources": {
     "design": {
       "status": "ok",
@@ -7,7 +7,7 @@
         {
           "rank": 1,
           "model": "Claude Opus 5.5 (high)",
-          "score": 1452,
+          "score": 1454,
           "prompt_per_m": 4.0,
           "completion_per_m": 20.0,
           "context_length": 1000000,
@@ -16,7 +16,7 @@
         {
           "rank": 2,
           "model": "GPT-6 Astra (max)",
-          "score": 1404,
+          "score": 1405,
           "prompt_per_m": 10.0,
           "completion_per_m": 50.0,
           "context_length": 1050000,
@@ -25,7 +25,7 @@
         {
           "rank": 3,
           "model": "GPT-6.1 Sol (max)",
-          "score": 1373,
+          "score": 1375,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1050000,
@@ -34,7 +34,7 @@
         {
           "rank": 4,
           "model": "Claude Fable 5.2",
-          "score": 1372,
+          "score": 1374,
           "prompt_per_m": 8.0,
           "completion_per_m": 40.0,
           "context_length": 1000000,
@@ -43,7 +43,7 @@
         {
           "rank": 5,
           "model": "Claude Fable 5.1",
-          "score": 1336,
+          "score": 1338,
           "prompt_per_m": 10.0,
           "completion_per_m": 50.0,
           "context_length": 1000000,
@@ -52,7 +52,7 @@
         {
           "rank": 6,
           "model": "Inkling 2 Small",
-          "score": 1314,
+          "score": 1315,
           "prompt_per_m": 0.3,
           "completion_per_m": 1.0,
           "context_length": 1048576,
@@ -70,7 +70,7 @@
         {
           "rank": 8,
           "model": "Kimi K3.1 Pro",
-          "score": 1299,
+          "score": 1301,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1048576,
@@ -79,7 +79,7 @@
         {
           "rank": 9,
           "model": "Claude Sonnet 5.5",
-          "score": 1291,
+          "score": 1293,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1000000,
@@ -88,12 +88,12 @@
         {
           "rank": 10,
           "model": "Muse Spark 1.3 Max",
-          "score": 1282
+          "score": 1283
         },
         {
           "rank": 11,
           "model": "DeepSeek-V4.1-Flash (1017)",
-          "score": 1281,
+          "score": 1282,
           "prompt_per_m": 0.0507,
           "completion_per_m": 0.2028,
           "context_length": 1048576,
@@ -102,7 +102,7 @@
         {
           "rank": 12,
           "model": "Grok 4.7",
-          "score": 1274,
+          "score": 1277,
           "prompt_per_m": 2.0,
           "completion_per_m": 6.0,
           "context_length": 500000,
@@ -110,73 +110,73 @@
         },
         {
           "rank": 13,
-          "model": "1704W / 721L 70.3% ±1.8% 2,425 Anthropic",
-          "score": 1452
+          "model": "1713W / 727L 70.2% ±1.8% 2,440 Anthropic",
+          "score": 1454
         },
         {
           "rank": 14,
-          "model": "1651W / 774L 68.1% ±1.9% 2,425 OpenAI",
-          "score": 1404
+          "model": "1653W / 775L 68.1% ±1.9% 2,428 OpenAI",
+          "score": 1405
         },
         {
           "rank": 15,
-          "model": "952W / 860L 52.5% ±2.3% 1,812 OpenAI",
-          "score": 1373
+          "model": "958W / 869L 52.4% ±2.3% 1,827 OpenAI",
+          "score": 1375
         },
         {
           "rank": 16,
-          "model": "1194W / 528L 69.3% ±2.2% 1,722 Anthropic",
-          "score": 1372
+          "model": "1204W / 531L 69.4% ±2.2% 1,735 Anthropic",
+          "score": 1374
         },
         {
           "rank": 17,
           "model": "2961W / 2008L 59.6% ±1.4% 4,969 Anthropic",
-          "score": 1336
+          "score": 1338
         },
         {
           "rank": 18,
-          "model": "4125W / 3082L 57.2% ±1.1% 7,207 Thinking Machines",
-          "score": 1314
+          "model": "4126W / 3083L 57.2% ±1.1% 7,209 Thinking Machines",
+          "score": 1315
         },
         {
           "rank": 19,
-          "model": "608W / 408L 59.8% ±3.0% 1,016 Google",
+          "model": "616W / 415L 59.8% ±3.0% 1,031 Google",
           "score": 1305
         },
         {
           "rank": 20,
-          "model": "2530W / 1714L 59.6% ±1.5% 4,244 Moonshot AI",
-          "score": 1299
+          "model": "2540W / 1715L 59.7% ±1.5% 4,255 Moonshot AI",
+          "score": 1301
         },
         {
           "rank": 21,
-          "model": "1687W / 1240L 57.6% ±1.8% 2,927 Anthropic",
-          "score": 1291
+          "model": "1701W / 1245L 57.7% ±1.8% 2,946 Anthropic",
+          "score": 1293
         },
         {
           "rank": 22,
-          "model": "7415W / 5574L 57.1% ±0.9% 12,989 Meta",
-          "score": 1282
+          "model": "7416W / 5577L 57.1% ±0.9% 12,993 Meta",
+          "score": 1283
         },
         {
           "rank": 23,
           "model": "155W / 165L 48.4% ±5.5% 320 DeepSeek",
-          "score": 1281
+          "score": 1282
         },
         {
           "rank": 24,
-          "model": "845W / 715L 54.2% ±2.5% 1,560 xAI",
-          "score": 1274
+          "model": "851W / 716L 54.3% ±2.5% 1,567 xAI",
+          "score": 1277
         },
         {
           "rank": 25,
           "model": "8154W / 5300L 60.6% ±0.8% 13,454 Anthropic",
-          "score": 1274
+          "score": 1275
         },
         {
           "rank": 26,
-          "model": "748W / 909L 45.1% ±2.4% 1,657 Google",
-          "score": 1273
+          "model": "753W / 914L 45.2% ±2.4% 1,667 Google",
+          "score": 1274
         }
       ],
       "method": "http"
@@ -1877,48 +1877,48 @@
       "since": "2026-11-14",
       "ai": [
         {
-          "full_name": "Updatedelcure/Gemini-Config-Checker-",
-          "stars": 292,
+          "full_name": "WingDataVacuum/Gemini-Config-Checker-",
+          "stars": 473,
           "language": "Makefile",
           "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
-          "url": "https://github.com/Updatedelcure/Gemini-Config-Checker-",
+          "url": "https://github.com/WingDataVacuum/Gemini-Config-Checker-",
+          "created_at": "2026-11-15T16:47:17Z"
+        },
+        {
+          "full_name": "TypeTyrantScheme/Gemini-Config-Checker-",
+          "stars": 473,
+          "language": "Makefile",
+          "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
+          "url": "https://github.com/TypeTyrantScheme/Gemini-Config-Checker-",
           "created_at": "2026-11-15T16:46:04Z"
         },
         {
-          "full_name": "visionguruoutfit/Gemini-Config-Checker-",
-          "stars": 291,
+          "full_name": "weightcashiercupola/Gemini-Config-Checker-",
+          "stars": 473,
           "language": "Makefile",
           "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
-          "url": "https://github.com/visionguruoutfit/Gemini-Config-Checker-",
-          "created_at": "2026-11-15T16:46:04Z"
-        },
-        {
-          "full_name": "Unicorneatrowel/Gemini-Config-Checker-",
-          "stars": 291,
-          "language": "Go",
-          "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
-          "url": "https://github.com/Unicorneatrowel/Gemini-Config-Checker-",
-          "created_at": "2026-11-15T16:46:04Z"
-        },
-        {
-          "full_name": "ViceroyWhirl/Gemini-Config-Checker-",
-          "stars": 290,
-          "language": "Makefile",
-          "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
-          "url": "https://github.com/ViceroyWhirl/Gemini-Config-Checker-",
-          "created_at": "2026-11-15T16:46:04Z"
+          "url": "https://github.com/weightcashiercupola/Gemini-Config-Checker-",
+          "created_at": "2026-11-15T16:47:11Z"
         },
         {
           "full_name": "Violetnyudress/Gemini-Config-Checker-",
-          "stars": 288,
+          "stars": 473,
           "language": "Go",
           "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
           "url": "https://github.com/Violetnyudress/Gemini-Config-Checker-",
           "created_at": "2026-11-15T16:46:04Z"
         },
         {
+          "full_name": "WinnerSpecialist/Gemini-Config-Checker-",
+          "stars": 473,
+          "language": "Makefile",
+          "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
+          "url": "https://github.com/WinnerSpecialist/Gemini-Config-Checker-",
+          "created_at": "2026-11-15T16:47:17Z"
+        },
+        {
           "full_name": "TurtleReside/Gemini-Config-Checker-",
-          "stars": 288,
+          "stars": 473,
           "language": "Go",
           "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
           "url": "https://github.com/TurtleReside/Gemini-Config-Checker-",
@@ -1926,82 +1926,123 @@
         },
         {
           "full_name": "Visionbeyondtrack/Gemini-Config-Checker-",
-          "stars": 286,
+          "stars": 473,
           "language": "Makefile",
           "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
           "url": "https://github.com/Visionbeyondtrack/Gemini-Config-Checker-",
           "created_at": "2026-11-15T16:46:05Z"
         },
         {
-          "full_name": "TypeTyrantScheme/Gemini-Config-Checker-",
-          "stars": 285,
+          "full_name": "YellowLaborerMarket/Gemini-Config-Checker-",
+          "stars": 473,
           "language": "Makefile",
           "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
-          "url": "https://github.com/TypeTyrantScheme/Gemini-Config-Checker-",
-          "created_at": "2026-11-15T16:46:04Z"
+          "url": "https://github.com/YellowLaborerMarket/Gemini-Config-Checker-",
+          "created_at": "2026-11-15T16:48:18Z"
         },
         {
-          "full_name": "VisionWormStudio/Gemini-Config-Checker-",
-          "stars": 284,
-          "language": "Go",
+          "full_name": "WindGatorRise37/Gemini-Config-Checker-",
+          "stars": 473,
+          "language": "Makefile",
           "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
-          "url": "https://github.com/VisionWormStudio/Gemini-Config-Checker-",
-          "created_at": "2026-11-15T16:46:04Z"
+          "url": "https://github.com/WindGatorRise37/Gemini-Config-Checker-",
+          "created_at": "2026-11-15T16:47:17Z"
         },
         {
           "full_name": "VortexHostFeel/Gemini-Config-Checker-",
-          "stars": 284,
+          "stars": 473,
           "language": "Makefile",
           "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
           "url": "https://github.com/VortexHostFeel/Gemini-Config-Checker-",
           "created_at": "2026-11-15T16:46:07Z"
         }
       ],
-      "general": [],
-      "items": [
+      "general": [
         {
-          "full_name": "Updatedelcure/Gemini-Config-Checker-",
-          "stars": 292,
+          "full_name": "WyrmClimberManacle/Gemini-Config-Checker-",
+          "stars": 473,
           "language": "Makefile",
           "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
-          "url": "https://github.com/Updatedelcure/Gemini-Config-Checker-",
-          "created_at": "2026-11-15T16:46:04Z"
+          "url": "https://github.com/WyrmClimberManacle/Gemini-Config-Checker-",
+          "created_at": "2026-11-15T16:48:18Z"
         },
         {
-          "full_name": "visionguruoutfit/Gemini-Config-Checker-",
-          "stars": 291,
+          "full_name": "WindowStaffGate11/Gemini-Config-Checker-",
+          "stars": 473,
           "language": "Makefile",
           "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
-          "url": "https://github.com/visionguruoutfit/Gemini-Config-Checker-",
-          "created_at": "2026-11-15T16:46:04Z"
+          "url": "https://github.com/WindowStaffGate11/Gemini-Config-Checker-",
+          "created_at": "2026-11-15T16:47:18Z"
         },
         {
-          "full_name": "Unicorneatrowel/Gemini-Config-Checker-",
-          "stars": 291,
+          "full_name": "WerewolfEmuHub/Gemini-Config-Checker-",
+          "stars": 473,
           "language": "Go",
           "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
-          "url": "https://github.com/Unicorneatrowel/Gemini-Config-Checker-",
+          "url": "https://github.com/WerewolfEmuHub/Gemini-Config-Checker-",
+          "created_at": "2026-11-15T16:47:11Z"
+        },
+        {
+          "full_name": "wisemeadowlarkspike/Gemini-Config-Checker-",
+          "stars": 473,
+          "language": "Go",
+          "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
+          "url": "https://github.com/wisemeadowlarkspike/Gemini-Config-Checker-",
+          "created_at": "2026-11-15T16:48:18Z"
+        },
+        {
+          "full_name": "Watchlespeed/Gemini-Config-Checker-",
+          "stars": 473,
+          "language": "Makefile",
+          "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
+          "url": "https://github.com/Watchlespeed/Gemini-Config-Checker-",
+          "created_at": "2026-11-15T16:47:11Z"
+        }
+      ],
+      "items": [
+        {
+          "full_name": "WingDataVacuum/Gemini-Config-Checker-",
+          "stars": 473,
+          "language": "Makefile",
+          "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
+          "url": "https://github.com/WingDataVacuum/Gemini-Config-Checker-",
+          "created_at": "2026-11-15T16:47:17Z"
+        },
+        {
+          "full_name": "TypeTyrantScheme/Gemini-Config-Checker-",
+          "stars": 473,
+          "language": "Makefile",
+          "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
+          "url": "https://github.com/TypeTyrantScheme/Gemini-Config-Checker-",
           "created_at": "2026-11-15T16:46:04Z"
         },
         {
-          "full_name": "ViceroyWhirl/Gemini-Config-Checker-",
-          "stars": 290,
+          "full_name": "weightcashiercupola/Gemini-Config-Checker-",
+          "stars": 473,
           "language": "Makefile",
           "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
-          "url": "https://github.com/ViceroyWhirl/Gemini-Config-Checker-",
-          "created_at": "2026-11-15T16:46:04Z"
+          "url": "https://github.com/weightcashiercupola/Gemini-Config-Checker-",
+          "created_at": "2026-11-15T16:47:11Z"
         },
         {
           "full_name": "Violetnyudress/Gemini-Config-Checker-",
-          "stars": 288,
+          "stars": 473,
           "language": "Go",
           "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
           "url": "https://github.com/Violetnyudress/Gemini-Config-Checker-",
           "created_at": "2026-11-15T16:46:04Z"
         },
         {
+          "full_name": "WinnerSpecialist/Gemini-Config-Checker-",
+          "stars": 473,
+          "language": "Makefile",
+          "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
+          "url": "https://github.com/WinnerSpecialist/Gemini-Config-Checker-",
+          "created_at": "2026-11-15T16:47:17Z"
+        },
+        {
           "full_name": "TurtleReside/Gemini-Config-Checker-",
-          "stars": 288,
+          "stars": 473,
           "language": "Go",
           "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
           "url": "https://github.com/TurtleReside/Gemini-Config-Checker-",
@@ -2009,35 +2050,75 @@
         },
         {
           "full_name": "Visionbeyondtrack/Gemini-Config-Checker-",
-          "stars": 286,
+          "stars": 473,
           "language": "Makefile",
           "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
           "url": "https://github.com/Visionbeyondtrack/Gemini-Config-Checker-",
           "created_at": "2026-11-15T16:46:05Z"
         },
         {
-          "full_name": "TypeTyrantScheme/Gemini-Config-Checker-",
-          "stars": 285,
+          "full_name": "YellowLaborerMarket/Gemini-Config-Checker-",
+          "stars": 473,
           "language": "Makefile",
           "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
-          "url": "https://github.com/TypeTyrantScheme/Gemini-Config-Checker-",
-          "created_at": "2026-11-15T16:46:04Z"
+          "url": "https://github.com/YellowLaborerMarket/Gemini-Config-Checker-",
+          "created_at": "2026-11-15T16:48:18Z"
         },
         {
-          "full_name": "VisionWormStudio/Gemini-Config-Checker-",
-          "stars": 284,
-          "language": "Go",
+          "full_name": "WindGatorRise37/Gemini-Config-Checker-",
+          "stars": 473,
+          "language": "Makefile",
           "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
-          "url": "https://github.com/VisionWormStudio/Gemini-Config-Checker-",
-          "created_at": "2026-11-15T16:46:04Z"
+          "url": "https://github.com/WindGatorRise37/Gemini-Config-Checker-",
+          "created_at": "2026-11-15T16:47:17Z"
         },
         {
           "full_name": "VortexHostFeel/Gemini-Config-Checker-",
-          "stars": 284,
+          "stars": 473,
           "language": "Makefile",
           "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
           "url": "https://github.com/VortexHostFeel/Gemini-Config-Checker-",
           "created_at": "2026-11-15T16:46:07Z"
+        },
+        {
+          "full_name": "WyrmClimberManacle/Gemini-Config-Checker-",
+          "stars": 473,
+          "language": "Makefile",
+          "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
+          "url": "https://github.com/WyrmClimberManacle/Gemini-Config-Checker-",
+          "created_at": "2026-11-15T16:48:18Z"
+        },
+        {
+          "full_name": "WindowStaffGate11/Gemini-Config-Checker-",
+          "stars": 473,
+          "language": "Makefile",
+          "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
+          "url": "https://github.com/WindowStaffGate11/Gemini-Config-Checker-",
+          "created_at": "2026-11-15T16:47:18Z"
+        },
+        {
+          "full_name": "WerewolfEmuHub/Gemini-Config-Checker-",
+          "stars": 473,
+          "language": "Go",
+          "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
+          "url": "https://github.com/WerewolfEmuHub/Gemini-Config-Checker-",
+          "created_at": "2026-11-15T16:47:11Z"
+        },
+        {
+          "full_name": "wisemeadowlarkspike/Gemini-Config-Checker-",
+          "stars": 473,
+          "language": "Go",
+          "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
+          "url": "https://github.com/wisemeadowlarkspike/Gemini-Config-Checker-",
+          "created_at": "2026-11-15T16:48:18Z"
+        },
+        {
+          "full_name": "Watchlespeed/Gemini-Config-Checker-",
+          "stars": 473,
+          "language": "Makefile",
+          "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
+          "url": "https://github.com/Watchlespeed/Gemini-Config-Checker-",
+          "created_at": "2026-11-15T16:47:11Z"
         }
       ]
     },
@@ -2099,73 +2180,73 @@
       "items": [
         {
           "id": "xtools-at/DeepSeek-V4-Pro-Qwen3.5-9B-UNCENSORED-heretic",
-          "likes": 7487,
+          "likes": 7520,
           "downloads": 27037,
           "pipeline_tag": "text-generation",
           "url": "https://huggingface.co/xtools-at/DeepSeek-V4-Pro-Qwen3.5-9B-UNCENSORED-heretic"
         },
         {
           "id": "MiniMaxAI/MiniMax-H3-Image",
-          "likes": 1166,
+          "likes": 1178,
           "downloads": 571067,
           "pipeline_tag": "text-to-image",
           "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3-Image"
         },
         {
           "id": "Qwen/Qwen3.8-27B",
-          "likes": 20087,
+          "likes": 20113,
           "downloads": 6547772,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/Qwen/Qwen3.8-27B"
         },
         {
           "id": "Lightricks/LTX-2.5",
-          "likes": 12021,
+          "likes": 12056,
           "downloads": 2754355,
           "pipeline_tag": "image-to-video",
           "url": "https://huggingface.co/Lightricks/LTX-2.5"
         },
         {
           "id": "Comfy-Org/MiniMax-H3-Image",
-          "likes": 407,
+          "likes": 410,
           "downloads": 1973388,
           "pipeline_tag": "text-to-image",
           "url": "https://huggingface.co/Comfy-Org/MiniMax-H3-Image"
         },
         {
           "id": "DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
-          "likes": 3154,
+          "likes": 3164,
           "downloads": 1708637,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF"
         },
         {
           "id": "Zyphra/ZONOS3-Mini",
-          "likes": 380,
+          "likes": 391,
           "downloads": 39862,
           "pipeline_tag": "text-to-speech",
           "url": "https://huggingface.co/Zyphra/ZONOS3-Mini"
         },
         {
           "id": "thinkingmachines/Inkling-2-Small",
-          "likes": 335,
+          "likes": 341,
           "downloads": 7329,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/thinkingmachines/Inkling-2-Small"
         },
         {
+          "id": "unsloth/Qwen3.8-27B-GGUF",
+          "likes": 5995,
+          "downloads": 6566295,
+          "pipeline_tag": "",
+          "url": "https://huggingface.co/unsloth/Qwen3.8-27B-GGUF"
+        },
+        {
           "id": "speridlabs/idol",
-          "likes": 2359,
+          "likes": 2362,
           "downloads": 33423,
           "pipeline_tag": "image-to-3d",
           "url": "https://huggingface.co/speridlabs/idol"
-        },
-        {
-          "id": "NousResearch/Arete-27B",
-          "likes": 609,
-          "downloads": 7497,
-          "pipeline_tag": "text-generation",
-          "url": "https://huggingface.co/NousResearch/Arete-27B"
         }
       ]
     }
