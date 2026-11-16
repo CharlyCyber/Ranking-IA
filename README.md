@@ -1,4 +1,23 @@
 <div align="center">
+  <a href="https://unsplash.com/photos/turned-on-monitoring-screen-qwtCeJ5cLYs">
+    <img src="https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?auto=format&fit=crop&crop=entropy&w=1800&h=520&q=85&sat=-65&brightness=-10" alt="Panel de visualización de datos y tendencias para Ranking AI" width="100%" />
+  </a>
+</div>
+
+<p align="center">
+  <a href="https://github.com/CharlyCyber/Ranking-IA"><img src="https://img.shields.io/github/actions/workflow/status/CharlyCyber/Ranking-IA/ci.yml?branch=main&style=for-the-badge&label=CI&color=C7F36A&labelColor=111418" alt="CI" /></a>
+  <a href="https://github.com/CharlyCyber/Ranking-IA"><img src="https://img.shields.io/github/stars/CharlyCyber/Ranking-IA?style=for-the-badge&color=C7F36A&labelColor=111418" alt="Stars" /></a>
+  <a href="https://github.com/CharlyCyber/Ranking-IA"><img src="https://img.shields.io/github/license/CharlyCyber/Ranking-IA?style=for-the-badge&color=111418&labelColor=C7F36A" alt="License" /></a>
+  <a href="https://github.com/CharlyCyber/Ranking-IA"><img src="https://img.shields.io/github/languages/top/CharlyCyber/Ranking-IA?style=for-the-badge&color=C7F36A&labelColor=111418" alt="Language" /></a>
+</p>
+
+<p align="center">
+  <sub>Imagen de portada: <a href="https://unsplash.com/photos/turned-on-monitoring-screen-qwtCeJ5cLYs">Stephen Dawson / Unsplash</a> · Licencia Unsplash</sub>
+</p>
+
+<hr />
+
+<div align="center">
   <img src="assets/readme-banner.svg" alt="" width="100%" />
   <h1>🏆 Ranking AI Agent v4 — Open &amp; Free AI Leaderboard Hub</h1>
   <p>
