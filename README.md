@@ -105,3 +105,11 @@ python -m src.main
 ## 📄 Licencia
 
 [MIT](LICENSE)
+
+
+## 👨‍💻 Autor
+
+Desarrollado por **Charli Rodríguez — Charli AI**.
+
+- Portafolio: https://charli-ai-portfolio.vercel.app
+- GitHub: https://github.com/CharlyCyber
