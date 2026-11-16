@@ -8,3 +8,9 @@ venv/
 data/
 .ruff_cache/
 .freebuff/
+
+# Environment files (keep the documented template)
+.env.*
+!.env.example
+*.pem
+*.key
