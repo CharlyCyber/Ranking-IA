@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-15T23:14:31.563772",
+  "generated_at": "2026-11-16T12:12:42.823830",
   "sources": {
     "design": {
       "status": "ok",
@@ -7,7 +7,7 @@
         {
           "rank": 1,
           "model": "Claude Opus 5.5 (high)",
-          "score": 1454,
+          "score": 1445,
           "prompt_per_m": 4.0,
           "completion_per_m": 20.0,
           "context_length": 1000000,
@@ -16,7 +16,7 @@
         {
           "rank": 2,
           "model": "GPT-6 Astra (max)",
-          "score": 1405,
+          "score": 1399,
           "prompt_per_m": 10.0,
           "completion_per_m": 50.0,
           "context_length": 1050000,
@@ -24,24 +24,33 @@
         },
         {
           "rank": 3,
-          "model": "GPT-6.1 Sol (max)",
-          "score": 1375,
-          "prompt_per_m": 2.0,
-          "completion_per_m": 10.0,
-          "context_length": 1050000,
-          "is_free": false
-        },
-        {
-          "rank": 4,
           "model": "Claude Fable 5.2",
-          "score": 1374,
+          "score": 1370,
           "prompt_per_m": 8.0,
           "completion_per_m": 40.0,
           "context_length": 1000000,
           "is_free": false
         },
         {
+          "rank": 4,
+          "model": "GPT-6.1 Sol (max)",
+          "score": 1367,
+          "prompt_per_m": 2.0,
+          "completion_per_m": 10.0,
+          "context_length": 1050000,
+          "is_free": false
+        },
+        {
           "rank": 5,
+          "model": "Qwen4-Max",
+          "score": 1361,
+          "prompt_per_m": 1.5,
+          "completion_per_m": 4.5,
+          "context_length": 1000000,
+          "is_free": false
+        },
+        {
+          "rank": 6,
           "model": "Claude Fable 5.1",
           "score": 1338,
           "prompt_per_m": 10.0,
@@ -50,27 +59,18 @@
           "is_free": false
         },
         {
-          "rank": 6,
+          "rank": 7,
           "model": "Inkling 2 Small",
-          "score": 1315,
+          "score": 1312,
           "prompt_per_m": 0.3,
           "completion_per_m": 1.0,
           "context_length": 1048576,
           "is_free": false
         },
         {
-          "rank": 7,
-          "model": "Gemini 4 Carbon",
-          "score": 1305,
-          "prompt_per_m": 2.0,
-          "completion_per_m": 10.0,
-          "context_length": 1048576,
-          "is_free": false
-        },
-        {
           "rank": 8,
-          "model": "Kimi K3.1 Pro",
-          "score": 1301,
+          "model": "Gemini 4 Carbon",
+          "score": 1304,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1048576,
@@ -78,104 +78,104 @@
         },
         {
           "rank": 9,
+          "model": "Kimi K3.1 Pro",
+          "score": 1301,
+          "prompt_per_m": 0.2403,
+          "completion_per_m": 8.4023,
+          "context_length": 1048576,
+          "is_free": false
+        },
+        {
+          "rank": 10,
           "model": "Claude Sonnet 5.5",
-          "score": 1293,
+          "score": 1291,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1000000,
           "is_free": false
         },
         {
-          "rank": 10,
-          "model": "Muse Spark 1.3 Max",
-          "score": 1283
-        },
-        {
           "rank": 11,
           "model": "DeepSeek-V4.1-Flash (1017)",
-          "score": 1282,
-          "prompt_per_m": 0.0507,
-          "completion_per_m": 0.2028,
+          "score": 1289,
+          "prompt_per_m": 0.14,
+          "completion_per_m": 0.42,
           "context_length": 1048576,
           "is_free": false
         },
         {
           "rank": 12,
-          "model": "Grok 4.7",
-          "score": 1277,
-          "prompt_per_m": 2.0,
-          "completion_per_m": 6.0,
-          "context_length": 500000,
-          "is_free": false
+          "model": "Muse Spark 1.3 Max",
+          "score": 1280
         },
         {
           "rank": 13,
-          "model": "1713W / 727L 70.2% ±1.8% 2,440 Anthropic",
-          "score": 1454
+          "model": "1780W / 787L 69.3% ±1.8% 2,567 Anthropic",
+          "score": 1445
         },
         {
           "rank": 14,
-          "model": "1653W / 775L 68.1% ±1.9% 2,428 OpenAI",
-          "score": 1405
+          "model": "1723W / 846L 67.1% ±1.8% 2,569 OpenAI",
+          "score": 1399
         },
         {
           "rank": 15,
-          "model": "958W / 869L 52.4% ±2.3% 1,827 OpenAI",
-          "score": 1375
+          "model": "1211W / 537L 69.3% ±2.2% 1,748 Anthropic",
+          "score": 1370
         },
         {
           "rank": 16,
-          "model": "1204W / 531L 69.4% ±2.2% 1,735 Anthropic",
-          "score": 1374
+          "model": "1024W / 942L 52.1% ±2.2% 1,966 OpenAI",
+          "score": 1367
         },
         {
           "rank": 17,
-          "model": "2961W / 2008L 59.6% ±1.4% 4,969 Anthropic",
-          "score": 1338
+          "model": "2145W / 1294L 62.4% ±1.6% 3,439 Alibaba",
+          "score": 1361
         },
         {
           "rank": 18,
-          "model": "4126W / 3083L 57.2% ±1.1% 7,209 Thinking Machines",
-          "score": 1315
+          "model": "3070W / 2085L 59.5% ±1.3% 5,155 Anthropic",
+          "score": 1338
         },
         {
           "rank": 19,
-          "model": "616W / 415L 59.8% ±3.0% 1,031 Google",
-          "score": 1305
+          "model": "4127W / 3084L 57.2% ±1.1% 7,211 Thinking Machines",
+          "score": 1312
         },
         {
           "rank": 20,
-          "model": "2540W / 1715L 59.7% ±1.5% 4,255 Moonshot AI",
-          "score": 1301
+          "model": "628W / 417L 60.1% ±3.0% 1,045 Google",
+          "score": 1304
         },
         {
           "rank": 21,
-          "model": "1701W / 1245L 57.7% ±1.8% 2,946 Anthropic",
-          "score": 1293
+          "model": "2622W / 1786L 59.5% ±1.4% 4,408 Moonshot AI",
+          "score": 1301
         },
         {
           "rank": 22,
-          "model": "7416W / 5577L 57.1% ±0.9% 12,993 Meta",
-          "score": 1283
+          "model": "1748W / 1295L 57.4% ±1.8% 3,043 Anthropic",
+          "score": 1291
         },
         {
           "rank": 23,
-          "model": "155W / 165L 48.4% ±5.5% 320 DeepSeek",
-          "score": 1282
+          "model": "193W / 211L 47.8% ±4.9% 404 DeepSeek",
+          "score": 1289
         },
         {
           "rank": 24,
-          "model": "851W / 716L 54.3% ±2.5% 1,567 xAI",
-          "score": 1277
+          "model": "7439W / 5640L 56.9% ±0.8% 13,079 Meta",
+          "score": 1280
         },
         {
           "rank": 25,
-          "model": "8154W / 5300L 60.6% ±0.8% 13,454 Anthropic",
-          "score": 1275
+          "model": "860W / 720L 54.4% ±2.5% 1,580 xAI",
+          "score": 1274
         },
         {
           "rank": 26,
-          "model": "753W / 914L 45.2% ±2.4% 1,667 Google",
+          "model": "8212W / 5352L 60.5% ±0.8% 13,564 Anthropic",
           "score": 1274
         }
       ],
@@ -548,7 +548,7 @@
           "rank": 1,
           "model": "Claude Fable 5.2 (xHigh)",
           "category": "WebDev",
-          "score": 1838,
+          "score": 1826,
           "author": "anthropic",
           "prompt_per_m": 8.0,
           "completion_per_m": 40.0,
@@ -559,7 +559,7 @@
           "rank": 2,
           "model": "Claude Opus 5.5 (Max)",
           "category": "WebDev",
-          "score": 1815,
+          "score": 1816,
           "author": "anthropic",
           "prompt_per_m": 4.0,
           "completion_per_m": 20.0,
@@ -594,7 +594,7 @@
           "rank": 5,
           "model": "GPT-6 Astra (Max)",
           "category": "WebDev",
-          "score": 1764,
+          "score": 1763,
           "author": "openai",
           "votes": 18745,
           "prompt_per_m": 10.0,
@@ -604,21 +604,20 @@
         },
         {
           "rank": 6,
-          "model": "GPT-6.1 Sol (Max)",
+          "model": "Qwen4-Max (xHigh)",
           "category": "WebDev",
-          "score": 1743,
-          "author": "openai",
-          "votes": 13498,
-          "prompt_per_m": 2.0,
-          "completion_per_m": 10.0,
-          "context_length": 1050000,
+          "score": 1750,
+          "author": "qwen",
+          "prompt_per_m": 1.5,
+          "completion_per_m": 4.5,
+          "context_length": 1000000,
           "is_free": false
         },
         {
           "rank": 7,
           "model": "Claude Fable 5.1 (Max)",
           "category": "WebDev",
-          "score": 1742,
+          "score": 1743,
           "author": "anthropic",
           "votes": 20511,
           "prompt_per_m": 10.0,
@@ -628,16 +627,28 @@
         },
         {
           "rank": 8,
-          "model": "Muse Wonder Full (Max)",
+          "model": "GPT-6.1 Sol (Max)",
           "category": "WebDev",
-          "score": 1723,
-          "author": "meta"
+          "score": 1742,
+          "author": "openai",
+          "votes": 13498,
+          "prompt_per_m": 2.0,
+          "completion_per_m": 10.0,
+          "context_length": 1050000,
+          "is_free": false
         },
         {
           "rank": 9,
+          "model": "Muse Wonder Full (Max)",
+          "category": "WebDev",
+          "score": 1724,
+          "author": "meta"
+        },
+        {
+          "rank": 10,
           "model": "Claude Sonnet 5.5 (High)",
           "category": "WebDev",
-          "score": 1715,
+          "score": 1716,
           "author": "anthropic",
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
@@ -645,7 +656,7 @@
           "is_free": false
         },
         {
-          "rank": 10,
+          "rank": 11,
           "model": "Gemini 4 Hydrogen (High)",
           "category": "WebDev",
           "score": 1704,
@@ -657,7 +668,7 @@
           "is_free": false
         },
         {
-          "rank": 11,
+          "rank": 12,
           "model": "Claude Opus 5 (Max)",
           "category": "WebDev",
           "score": 1691,
@@ -669,26 +680,14 @@
           "is_free": false
         },
         {
-          "rank": 12,
+          "rank": 13,
           "model": "Kimi K3.1 Pro (Max)",
           "category": "WebDev",
-          "score": 1687,
+          "score": 1686,
           "author": "moonshot",
           "votes": 3995,
-          "prompt_per_m": 2.0,
-          "completion_per_m": 10.0,
-          "context_length": 1048576,
-          "is_free": false
-        },
-        {
-          "rank": 13,
-          "model": "Gemini 4 Argon (High)",
-          "category": "WebDev",
-          "score": 1681,
-          "author": "google",
-          "votes": 20779,
-          "prompt_per_m": 2.0,
-          "completion_per_m": 10.0,
+          "prompt_per_m": 0.2403,
+          "completion_per_m": 8.4023,
           "context_length": 1048576,
           "is_free": false
         },
@@ -696,7 +695,7 @@
           "rank": 14,
           "model": "GPT-6.1 Terra (Max)",
           "category": "WebDev",
-          "score": 1678,
+          "score": 1681,
           "author": "openai",
           "prompt_per_m": 1.0,
           "completion_per_m": 5.0,
@@ -705,13 +704,15 @@
         },
         {
           "rank": 15,
-          "model": "Qwen3.8-Max (0902)",
+          "model": "Gemini 4 Argon (High)",
           "category": "WebDev",
-          "score": 1676,
-          "author": "qwen",
+          "score": 1679,
+          "author": "google",
+          "votes": 20779,
           "prompt_per_m": 2.0,
-          "completion_per_m": 6.0,
-          "context_length": 1000000
+          "completion_per_m": 10.0,
+          "context_length": 1048576,
+          "is_free": false
         },
         {
           "rank": 1,
@@ -892,7 +893,7 @@
           "rank": 1,
           "model": "Claude Fable 5.2 (Max)",
           "category": "Agent",
-          "win_rate_pct": 30.35,
+          "win_rate_pct": 28.61,
           "author": "anthropic",
           "prompt_per_m": 8.0,
           "completion_per_m": 40.0,
@@ -903,7 +904,7 @@
           "rank": 2,
           "model": "Claude Opus 5.5 (Max)",
           "category": "Agent",
-          "win_rate_pct": 19.52,
+          "win_rate_pct": 18.19,
           "author": "anthropic",
           "prompt_per_m": 4.0,
           "completion_per_m": 20.0,
@@ -914,7 +915,7 @@
           "rank": 3,
           "model": "Gemini 4 Carbon (High)",
           "category": "Agent",
-          "win_rate_pct": 16.98,
+          "win_rate_pct": 16.45,
           "author": "google",
           "votes": 4273,
           "prompt_per_m": 2.0,
@@ -926,7 +927,7 @@
           "rank": 4,
           "model": "Claude Sonnet 5.5 (Max)",
           "category": "Agent",
-          "win_rate_pct": 15.95,
+          "win_rate_pct": 15.29,
           "author": "anthropic",
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
@@ -935,9 +936,21 @@
         },
         {
           "rank": 5,
+          "model": "Gemini 4 Hydrogen (High)",
+          "category": "Agent",
+          "win_rate_pct": 14.91,
+          "author": "google",
+          "votes": 4741,
+          "prompt_per_m": 1.5,
+          "completion_per_m": 7.5,
+          "context_length": 1048576,
+          "is_free": false
+        },
+        {
+          "rank": 6,
           "model": "Claude Fable 5.1 (Max)",
           "category": "Agent",
-          "win_rate_pct": 14.82,
+          "win_rate_pct": 14.1,
           "author": "anthropic",
           "votes": 20511,
           "prompt_per_m": 10.0,
@@ -946,10 +959,10 @@
           "is_free": false
         },
         {
-          "rank": 6,
+          "rank": 7,
           "model": "GPT-6 Astra (Max)",
           "category": "Agent",
-          "win_rate_pct": 14.54,
+          "win_rate_pct": 13.91,
           "author": "openai",
           "votes": 18745,
           "prompt_per_m": 10.0,
@@ -958,10 +971,22 @@
           "is_free": false
         },
         {
-          "rank": 7,
+          "rank": 8,
+          "model": "Claude Opus 5.5 (High)",
+          "category": "Agent",
+          "win_rate_pct": 13.35,
+          "author": "anthropic",
+          "votes": 15793,
+          "prompt_per_m": 4.0,
+          "completion_per_m": 20.0,
+          "context_length": 1000000,
+          "is_free": false
+        },
+        {
+          "rank": 9,
           "model": "GPT-6.1 Sol (Max)",
           "category": "Agent",
-          "win_rate_pct": 12.46,
+          "win_rate_pct": 11.78,
           "author": "openai",
           "votes": 13498,
           "prompt_per_m": 2.0,
@@ -970,10 +995,10 @@
           "is_free": false
         },
         {
-          "rank": 8,
+          "rank": 10,
           "model": "GPT-6.1 Terra (Max)",
           "category": "Agent",
-          "win_rate_pct": 12.0,
+          "win_rate_pct": 11.34,
           "author": "openai",
           "prompt_per_m": 1.0,
           "completion_per_m": 5.0,
@@ -981,10 +1006,10 @@
           "is_free": false
         },
         {
-          "rank": 9,
+          "rank": 11,
           "model": "Gemini 4 Argon (High)",
           "category": "Agent",
-          "win_rate_pct": 10.74,
+          "win_rate_pct": 10.0,
           "author": "google",
           "votes": 20779,
           "prompt_per_m": 2.0,
@@ -993,69 +1018,43 @@
           "is_free": false
         },
         {
-          "rank": 10,
-          "model": "Muse Wonder Full (Max)",
-          "category": "Agent",
-          "win_rate_pct": 8.96,
-          "author": "meta"
-        },
-        {
-          "rank": 11,
-          "model": "Claude Fable 5 (High)",
-          "category": "Agent",
-          "win_rate_pct": 7.3,
-          "author": "anthropic",
-          "votes": 45469,
-          "prompt_per_m": 10.0,
-          "completion_per_m": 50.0,
-          "context_length": 1000000,
-          "is_free": false
-        },
-        {
           "rank": 12,
-          "model": "Claude Opus 5 (Max)",
+          "model": "GPT-6.1 Sol (Medium)",
           "category": "Agent",
-          "win_rate_pct": 7.23,
-          "author": "anthropic",
-          "votes": 35670,
-          "prompt_per_m": 5.0,
-          "completion_per_m": 25.0,
-          "context_length": 1000000,
-          "is_free": false
-        },
-        {
-          "rank": 13,
-          "model": "GPT-6 Sol (Max)",
-          "category": "Agent",
-          "win_rate_pct": 6.91,
+          "win_rate_pct": 8.04,
           "author": "openai",
-          "votes": 20430,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1050000,
           "is_free": false
         },
         {
-          "rank": 14,
-          "model": "Hy4",
+          "rank": 13,
+          "model": "Muse Wonder Full (Max)",
           "category": "Agent",
-          "win_rate_pct": 5.26,
-          "author": "tencent",
-          "prompt_per_m": 0.417,
-          "completion_per_m": 1.2505,
-          "context_length": 1048576,
+          "win_rate_pct": 8.0,
+          "author": "meta"
+        },
+        {
+          "rank": 14,
+          "model": "Qwen4-Max (xHigh)",
+          "category": "Agent",
+          "win_rate_pct": 7.46,
+          "author": "qwen",
+          "prompt_per_m": 1.5,
+          "completion_per_m": 4.5,
+          "context_length": 1000000,
           "is_free": false
         },
         {
           "rank": 15,
-          "model": "Kimi K3.1 Pro (Max)",
+          "model": "Claude Sonnet 5.5 (High)",
           "category": "Agent",
-          "win_rate_pct": 4.9,
-          "author": "moonshot",
-          "votes": 3995,
+          "win_rate_pct": 7.18,
+          "author": "anthropic",
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
-          "context_length": 1048576,
+          "context_length": 1000000,
           "is_free": false
         },
         {
@@ -1874,251 +1873,106 @@
     },
     "github": {
       "status": "ok",
-      "since": "2026-11-14",
-      "ai": [
-        {
-          "full_name": "WingDataVacuum/Gemini-Config-Checker-",
-          "stars": 473,
-          "language": "Makefile",
-          "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
-          "url": "https://github.com/WingDataVacuum/Gemini-Config-Checker-",
-          "created_at": "2026-11-15T16:47:17Z"
-        },
-        {
-          "full_name": "TypeTyrantScheme/Gemini-Config-Checker-",
-          "stars": 473,
-          "language": "Makefile",
-          "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
-          "url": "https://github.com/TypeTyrantScheme/Gemini-Config-Checker-",
-          "created_at": "2026-11-15T16:46:04Z"
-        },
-        {
-          "full_name": "weightcashiercupola/Gemini-Config-Checker-",
-          "stars": 473,
-          "language": "Makefile",
-          "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
-          "url": "https://github.com/weightcashiercupola/Gemini-Config-Checker-",
-          "created_at": "2026-11-15T16:47:11Z"
-        },
-        {
-          "full_name": "Violetnyudress/Gemini-Config-Checker-",
-          "stars": 473,
-          "language": "Go",
-          "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
-          "url": "https://github.com/Violetnyudress/Gemini-Config-Checker-",
-          "created_at": "2026-11-15T16:46:04Z"
-        },
-        {
-          "full_name": "WinnerSpecialist/Gemini-Config-Checker-",
-          "stars": 473,
-          "language": "Makefile",
-          "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
-          "url": "https://github.com/WinnerSpecialist/Gemini-Config-Checker-",
-          "created_at": "2026-11-15T16:47:17Z"
-        },
-        {
-          "full_name": "TurtleReside/Gemini-Config-Checker-",
-          "stars": 473,
-          "language": "Go",
-          "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
-          "url": "https://github.com/TurtleReside/Gemini-Config-Checker-",
-          "created_at": "2026-11-15T16:46:04Z"
-        },
-        {
-          "full_name": "Visionbeyondtrack/Gemini-Config-Checker-",
-          "stars": 473,
-          "language": "Makefile",
-          "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
-          "url": "https://github.com/Visionbeyondtrack/Gemini-Config-Checker-",
-          "created_at": "2026-11-15T16:46:05Z"
-        },
-        {
-          "full_name": "YellowLaborerMarket/Gemini-Config-Checker-",
-          "stars": 473,
-          "language": "Makefile",
-          "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
-          "url": "https://github.com/YellowLaborerMarket/Gemini-Config-Checker-",
-          "created_at": "2026-11-15T16:48:18Z"
-        },
-        {
-          "full_name": "WindGatorRise37/Gemini-Config-Checker-",
-          "stars": 473,
-          "language": "Makefile",
-          "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
-          "url": "https://github.com/WindGatorRise37/Gemini-Config-Checker-",
-          "created_at": "2026-11-15T16:47:17Z"
-        },
-        {
-          "full_name": "VortexHostFeel/Gemini-Config-Checker-",
-          "stars": 473,
-          "language": "Makefile",
-          "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
-          "url": "https://github.com/VortexHostFeel/Gemini-Config-Checker-",
-          "created_at": "2026-11-15T16:46:07Z"
-        }
-      ],
+      "since": "2026-11-15",
+      "ai": [],
       "general": [
         {
-          "full_name": "WyrmClimberManacle/Gemini-Config-Checker-",
-          "stars": 473,
-          "language": "Makefile",
-          "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
-          "url": "https://github.com/WyrmClimberManacle/Gemini-Config-Checker-",
-          "created_at": "2026-11-15T16:48:18Z"
+          "full_name": "InfernalCaliphShock/rob-run-cheat-tool",
+          "stars": 213,
+          "language": "",
+          "description": "",
+          "url": "https://github.com/InfernalCaliphShock/rob-run-cheat-tool",
+          "created_at": "2026-11-16T01:53:32Z"
         },
         {
-          "full_name": "WindowStaffGate11/Gemini-Config-Checker-",
-          "stars": 473,
-          "language": "Makefile",
-          "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
-          "url": "https://github.com/WindowStaffGate11/Gemini-Config-Checker-",
-          "created_at": "2026-11-15T16:47:18Z"
+          "full_name": "scottsturrock/mate-wayland-desktop",
+          "stars": 74,
+          "language": "",
+          "description": "MATE Wayland Desktop: the MATE desktop on Wayland with labwc, on an Ubuntu 26.04 base. Sources and build system.",
+          "url": "https://github.com/scottsturrock/mate-wayland-desktop",
+          "created_at": "2026-11-16T03:12:11Z"
         },
         {
-          "full_name": "WerewolfEmuHub/Gemini-Config-Checker-",
-          "stars": 473,
-          "language": "Go",
-          "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
-          "url": "https://github.com/WerewolfEmuHub/Gemini-Config-Checker-",
-          "created_at": "2026-11-15T16:47:11Z"
+          "full_name": "waw666waw666/RegisterHub",
+          "stars": 70,
+          "language": "Python",
+          "description": "万能注册机模板 | Universal Auto-Registration Template",
+          "url": "https://github.com/waw666waw666/RegisterHub",
+          "created_at": "2026-11-16T07:10:32Z"
         },
         {
-          "full_name": "wisemeadowlarkspike/Gemini-Config-Checker-",
-          "stars": 473,
-          "language": "Go",
-          "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
-          "url": "https://github.com/wisemeadowlarkspike/Gemini-Config-Checker-",
-          "created_at": "2026-11-15T16:48:18Z"
+          "full_name": "siliconjungle/shapeshift-labs-ink-studio",
+          "stars": 63,
+          "language": "JavaScript",
+          "description": "Sculpting, animation and simulation toolkit for pixel-art Gaussian splats",
+          "url": "https://github.com/siliconjungle/shapeshift-labs-ink-studio",
+          "created_at": "2026-11-16T07:44:00Z"
         },
         {
-          "full_name": "Watchlespeed/Gemini-Config-Checker-",
-          "stars": 473,
-          "language": "Makefile",
-          "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
-          "url": "https://github.com/Watchlespeed/Gemini-Config-Checker-",
-          "created_at": "2026-11-15T16:47:11Z"
+          "full_name": "Aabyss-Team/Threat-Broadcast-Plus",
+          "stars": 48,
+          "language": "Python",
+          "description": "网络安全威胁情报播报-Plus升级版",
+          "url": "https://github.com/Aabyss-Team/Threat-Broadcast-Plus",
+          "created_at": "2026-11-16T03:40:56Z"
+        },
+        {
+          "full_name": "stvlynn/spines",
+          "stars": 42,
+          "language": "Python",
+          "description": "Turn apps & albums into CD jewel case spines | 把 App 与专辑做成实体 CD 盒侧脊收藏图",
+          "url": "https://github.com/stvlynn/spines",
+          "created_at": "2026-11-16T05:14:53Z"
         }
       ],
       "items": [
         {
-          "full_name": "WingDataVacuum/Gemini-Config-Checker-",
-          "stars": 473,
-          "language": "Makefile",
-          "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
-          "url": "https://github.com/WingDataVacuum/Gemini-Config-Checker-",
-          "created_at": "2026-11-15T16:47:17Z"
+          "full_name": "InfernalCaliphShock/rob-run-cheat-tool",
+          "stars": 213,
+          "language": "",
+          "description": "",
+          "url": "https://github.com/InfernalCaliphShock/rob-run-cheat-tool",
+          "created_at": "2026-11-16T01:53:32Z"
         },
         {
-          "full_name": "TypeTyrantScheme/Gemini-Config-Checker-",
-          "stars": 473,
-          "language": "Makefile",
-          "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
-          "url": "https://github.com/TypeTyrantScheme/Gemini-Config-Checker-",
-          "created_at": "2026-11-15T16:46:04Z"
+          "full_name": "scottsturrock/mate-wayland-desktop",
+          "stars": 74,
+          "language": "",
+          "description": "MATE Wayland Desktop: the MATE desktop on Wayland with labwc, on an Ubuntu 26.04 base. Sources and build system.",
+          "url": "https://github.com/scottsturrock/mate-wayland-desktop",
+          "created_at": "2026-11-16T03:12:11Z"
         },
         {
-          "full_name": "weightcashiercupola/Gemini-Config-Checker-",
-          "stars": 473,
-          "language": "Makefile",
-          "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
-          "url": "https://github.com/weightcashiercupola/Gemini-Config-Checker-",
-          "created_at": "2026-11-15T16:47:11Z"
+          "full_name": "waw666waw666/RegisterHub",
+          "stars": 70,
+          "language": "Python",
+          "description": "万能注册机模板 | Universal Auto-Registration Template",
+          "url": "https://github.com/waw666waw666/RegisterHub",
+          "created_at": "2026-11-16T07:10:32Z"
         },
         {
-          "full_name": "Violetnyudress/Gemini-Config-Checker-",
-          "stars": 473,
-          "language": "Go",
-          "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
-          "url": "https://github.com/Violetnyudress/Gemini-Config-Checker-",
-          "created_at": "2026-11-15T16:46:04Z"
+          "full_name": "siliconjungle/shapeshift-labs-ink-studio",
+          "stars": 63,
+          "language": "JavaScript",
+          "description": "Sculpting, animation and simulation toolkit for pixel-art Gaussian splats",
+          "url": "https://github.com/siliconjungle/shapeshift-labs-ink-studio",
+          "created_at": "2026-11-16T07:44:00Z"
         },
         {
-          "full_name": "WinnerSpecialist/Gemini-Config-Checker-",
-          "stars": 473,
-          "language": "Makefile",
-          "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
-          "url": "https://github.com/WinnerSpecialist/Gemini-Config-Checker-",
-          "created_at": "2026-11-15T16:47:17Z"
+          "full_name": "Aabyss-Team/Threat-Broadcast-Plus",
+          "stars": 48,
+          "language": "Python",
+          "description": "网络安全威胁情报播报-Plus升级版",
+          "url": "https://github.com/Aabyss-Team/Threat-Broadcast-Plus",
+          "created_at": "2026-11-16T03:40:56Z"
         },
         {
-          "full_name": "TurtleReside/Gemini-Config-Checker-",
-          "stars": 473,
-          "language": "Go",
-          "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
-          "url": "https://github.com/TurtleReside/Gemini-Config-Checker-",
-          "created_at": "2026-11-15T16:46:04Z"
-        },
-        {
-          "full_name": "Visionbeyondtrack/Gemini-Config-Checker-",
-          "stars": 473,
-          "language": "Makefile",
-          "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
-          "url": "https://github.com/Visionbeyondtrack/Gemini-Config-Checker-",
-          "created_at": "2026-11-15T16:46:05Z"
-        },
-        {
-          "full_name": "YellowLaborerMarket/Gemini-Config-Checker-",
-          "stars": 473,
-          "language": "Makefile",
-          "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
-          "url": "https://github.com/YellowLaborerMarket/Gemini-Config-Checker-",
-          "created_at": "2026-11-15T16:48:18Z"
-        },
-        {
-          "full_name": "WindGatorRise37/Gemini-Config-Checker-",
-          "stars": 473,
-          "language": "Makefile",
-          "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
-          "url": "https://github.com/WindGatorRise37/Gemini-Config-Checker-",
-          "created_at": "2026-11-15T16:47:17Z"
-        },
-        {
-          "full_name": "VortexHostFeel/Gemini-Config-Checker-",
-          "stars": 473,
-          "language": "Makefile",
-          "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
-          "url": "https://github.com/VortexHostFeel/Gemini-Config-Checker-",
-          "created_at": "2026-11-15T16:46:07Z"
-        },
-        {
-          "full_name": "WyrmClimberManacle/Gemini-Config-Checker-",
-          "stars": 473,
-          "language": "Makefile",
-          "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
-          "url": "https://github.com/WyrmClimberManacle/Gemini-Config-Checker-",
-          "created_at": "2026-11-15T16:48:18Z"
-        },
-        {
-          "full_name": "WindowStaffGate11/Gemini-Config-Checker-",
-          "stars": 473,
-          "language": "Makefile",
-          "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
-          "url": "https://github.com/WindowStaffGate11/Gemini-Config-Checker-",
-          "created_at": "2026-11-15T16:47:18Z"
-        },
-        {
-          "full_name": "WerewolfEmuHub/Gemini-Config-Checker-",
-          "stars": 473,
-          "language": "Go",
-          "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
-          "url": "https://github.com/WerewolfEmuHub/Gemini-Config-Checker-",
-          "created_at": "2026-11-15T16:47:11Z"
-        },
-        {
-          "full_name": "wisemeadowlarkspike/Gemini-Config-Checker-",
-          "stars": 473,
-          "language": "Go",
-          "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
-          "url": "https://github.com/wisemeadowlarkspike/Gemini-Config-Checker-",
-          "created_at": "2026-11-15T16:48:18Z"
-        },
-        {
-          "full_name": "Watchlespeed/Gemini-Config-Checker-",
-          "stars": 473,
-          "language": "Makefile",
-          "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
-          "url": "https://github.com/Watchlespeed/Gemini-Config-Checker-",
-          "created_at": "2026-11-15T16:47:11Z"
+          "full_name": "stvlynn/spines",
+          "stars": 42,
+          "language": "Python",
+          "description": "Turn apps & albums into CD jewel case spines | 把 App 与专辑做成实体 CD 盒侧脊收藏图",
+          "url": "https://github.com/stvlynn/spines",
+          "created_at": "2026-11-16T05:14:53Z"
         }
       ]
     },
@@ -2180,71 +2034,71 @@
       "items": [
         {
           "id": "xtools-at/DeepSeek-V4-Pro-Qwen3.5-9B-UNCENSORED-heretic",
-          "likes": 7520,
-          "downloads": 27037,
+          "likes": 7635,
+          "downloads": 29567,
           "pipeline_tag": "text-generation",
           "url": "https://huggingface.co/xtools-at/DeepSeek-V4-Pro-Qwen3.5-9B-UNCENSORED-heretic"
         },
         {
           "id": "MiniMaxAI/MiniMax-H3-Image",
-          "likes": 1178,
-          "downloads": 571067,
+          "likes": 1241,
+          "downloads": 609130,
           "pipeline_tag": "text-to-image",
           "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3-Image"
         },
         {
           "id": "Qwen/Qwen3.8-27B",
-          "likes": 20113,
-          "downloads": 6547772,
+          "likes": 20185,
+          "downloads": 6763402,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/Qwen/Qwen3.8-27B"
         },
         {
           "id": "Lightricks/LTX-2.5",
-          "likes": 12056,
-          "downloads": 2754355,
+          "likes": 12135,
+          "downloads": 2789021,
           "pipeline_tag": "image-to-video",
           "url": "https://huggingface.co/Lightricks/LTX-2.5"
         },
         {
           "id": "Comfy-Org/MiniMax-H3-Image",
-          "likes": 410,
-          "downloads": 1973388,
+          "likes": 438,
+          "downloads": 2294065,
           "pipeline_tag": "text-to-image",
           "url": "https://huggingface.co/Comfy-Org/MiniMax-H3-Image"
         },
         {
-          "id": "DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
-          "likes": 3164,
-          "downloads": 1708637,
-          "pipeline_tag": "image-text-to-text",
-          "url": "https://huggingface.co/DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF"
-        },
-        {
           "id": "Zyphra/ZONOS3-Mini",
-          "likes": 391,
-          "downloads": 39862,
+          "likes": 425,
+          "downloads": 69946,
           "pipeline_tag": "text-to-speech",
           "url": "https://huggingface.co/Zyphra/ZONOS3-Mini"
         },
         {
           "id": "thinkingmachines/Inkling-2-Small",
-          "likes": 341,
-          "downloads": 7329,
+          "likes": 368,
+          "downloads": 16918,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/thinkingmachines/Inkling-2-Small"
         },
         {
+          "id": "higurashi-ai/Haru-4B",
+          "likes": 365,
+          "downloads": 3372,
+          "pipeline_tag": "audio-to-audio",
+          "url": "https://huggingface.co/higurashi-ai/Haru-4B"
+        },
+        {
           "id": "unsloth/Qwen3.8-27B-GGUF",
-          "likes": 5995,
-          "downloads": 6566295,
+          "likes": 6026,
+          "downloads": 6666734,
           "pipeline_tag": "",
           "url": "https://huggingface.co/unsloth/Qwen3.8-27B-GGUF"
         },
         {
           "id": "speridlabs/idol",
-          "likes": 2362,
-          "downloads": 33423,
+          "likes": 2385,
+          "downloads": 34752,
           "pipeline_tag": "image-to-3d",
           "url": "https://huggingface.co/speridlabs/idol"
         }
