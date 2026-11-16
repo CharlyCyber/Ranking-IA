@@ -1,4 +1,14 @@
-# 🏆 Ranking AI Agent v4 — Open & Free AI Leaderboard Hub
+<div align="center">
+  <img src="assets/readme-banner.svg" alt="" width="100%" />
+  <h1>🏆 Ranking AI Agent v4 — Open &amp; Free AI Leaderboard Hub</h1>
+  <p>
+  <a href="https://github.com/CharlyCyber/Ranking-IA/actions/workflows/ci.yml"><img alt="CI" src="https://img.shields.io/github/actions/workflow/status/CharlyCyber/Ranking-IA/ci.yml?branch=main&amp;style=flat-square&amp;label=CI&amp;color=a8f01c&amp;labelColor=171c13" /></a>
+  <img alt="Top language" src="https://img.shields.io/github/languages/top/CharlyCyber/Ranking-IA?style=flat-square&amp;color=a8f01c&amp;labelColor=171c13" />
+  <img alt="Stars" src="https://img.shields.io/github/stars/CharlyCyber/Ranking-IA?style=flat-square&amp;color=a8f01c&amp;labelColor=171c13" />
+  <img alt="Last commit" src="https://img.shields.io/github/last-commit/CharlyCyber/Ranking-IA?style=flat-square&amp;color=a8f01c&amp;labelColor=171c13" />
+  </p>
+</div>
+
 
 Plataforma abierta y gratuita (Bot de Telegram + Dashboard Web / Mini App + API Abierta + RSS) que monitoriza automáticamente **cada 1 hora los rankings, precios y tendencias de modelos de IA** (avisando únicamente cuando hay cambios reales), con **briefing matutino cacheado** (`/hoy`), **menús instantáneos a 0 tokens** y **Modo Inline** para compartir comparativas en cualquier grupo.
 
