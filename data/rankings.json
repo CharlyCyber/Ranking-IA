@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-17T13:57:23.293380",
+  "generated_at": "2026-11-17T21:59:05.399124",
   "sources": {
     "design": {
       "status": "ok",
@@ -7,7 +7,7 @@
         {
           "rank": 1,
           "model": "Claude Opus 5.5 (high)",
-          "score": 1445,
+          "score": 1443,
           "prompt_per_m": 4.0,
           "completion_per_m": 20.0,
           "context_length": 1000000,
@@ -16,7 +16,7 @@
         {
           "rank": 2,
           "model": "GPT-6 Astra (max)",
-          "score": 1399,
+          "score": 1397,
           "prompt_per_m": 10.0,
           "completion_per_m": 50.0,
           "context_length": 1050000,
@@ -25,7 +25,7 @@
         {
           "rank": 3,
           "model": "Claude Fable 5.2",
-          "score": 1367,
+          "score": 1365,
           "prompt_per_m": 8.0,
           "completion_per_m": 40.0,
           "context_length": 1000000,
@@ -34,7 +34,7 @@
         {
           "rank": 4,
           "model": "GPT-6.1 Sol (max)",
-          "score": 1366,
+          "score": 1364,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1050000,
@@ -43,7 +43,7 @@
         {
           "rank": 5,
           "model": "Qwen4-Max",
-          "score": 1361,
+          "score": 1359,
           "prompt_per_m": 1.425,
           "completion_per_m": 4.275,
           "context_length": 1000000,
@@ -52,7 +52,7 @@
         {
           "rank": 6,
           "model": "Claude Fable 5.1",
-          "score": 1336,
+          "score": 1335,
           "prompt_per_m": 10.0,
           "completion_per_m": 50.0,
           "context_length": 1000000,
@@ -61,7 +61,7 @@
         {
           "rank": 7,
           "model": "Inkling 2 Small",
-          "score": 1311,
+          "score": 1309,
           "prompt_per_m": 0.3,
           "completion_per_m": 1.0,
           "context_length": 1048576,
@@ -79,7 +79,7 @@
         {
           "rank": 9,
           "model": "Kimi K3.1 Pro",
-          "score": 1297,
+          "score": 1294,
           "prompt_per_m": 0.2403,
           "completion_per_m": 8.4023,
           "context_length": 1048576,
@@ -88,7 +88,7 @@
         {
           "rank": 10,
           "model": "Claude Sonnet 5.5",
-          "score": 1289,
+          "score": 1288,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1000000,
@@ -97,86 +97,86 @@
         {
           "rank": 11,
           "model": "DeepSeek-V4.1-Flash (1017)",
-          "score": 1288,
-          "prompt_per_m": 0.0507,
-          "completion_per_m": 0.2028,
+          "score": 1286,
+          "prompt_per_m": 0.3,
+          "completion_per_m": 1.2,
           "context_length": 1048576,
           "is_free": false
         },
         {
           "rank": 12,
           "model": "Muse Spark 1.3 Max",
-          "score": 1279
+          "score": 1277
         },
         {
           "rank": 13,
-          "model": "1845W / 825L 69.1% ±1.8% 2,670 Anthropic",
-          "score": 1445
+          "model": "1876W / 846L 68.9% ±1.7% 2,722 Anthropic",
+          "score": 1443
         },
         {
           "rank": 14,
-          "model": "1698W / 829L 67.2% ±1.8% 2,527 OpenAI",
-          "score": 1399
+          "model": "1699W / 830L 67.2% ±1.8% 2,529 OpenAI",
+          "score": 1397
         },
         {
           "rank": 15,
-          "model": "1200W / 539L 69.0% ±2.2% 1,739 Anthropic",
-          "score": 1367
+          "model": "1209W / 543L 69.0% ±2.2% 1,752 Anthropic",
+          "score": 1365
         },
         {
           "rank": 16,
-          "model": "1062W / 1007L 51.3% ±2.2% 2,069 OpenAI",
-          "score": 1366
+          "model": "1083W / 1038L 51.1% ±2.1% 2,121 OpenAI",
+          "score": 1364
         },
         {
           "rank": 17,
-          "model": "2177W / 1303L 62.6% ±1.6% 3,480 Alibaba",
-          "score": 1361
+          "model": "2190W / 1309L 62.6% ±1.6% 3,499 Alibaba",
+          "score": 1359
         },
         {
           "rank": 18,
           "model": "3070W / 2085L 59.5% ±1.3% 5,155 Anthropic",
-          "score": 1336
+          "score": 1335
         },
         {
           "rank": 19,
-          "model": "4131W / 3086L 57.2% ±1.1% 7,217 Thinking Machines",
-          "score": 1311
+          "model": "4134W / 3086L 57.3% ±1.1% 7,220 Thinking Machines",
+          "score": 1309
         },
         {
           "rank": 20,
-          "model": "638W / 417L 60.5% ±2.9% 1,055 Google",
+          "model": "647W / 420L 60.6% ±2.9% 1,067 Google",
           "score": 1305
         },
         {
           "rank": 21,
-          "model": "2687W / 1834L 59.4% ±1.4% 4,521 Moonshot AI",
-          "score": 1297
+          "model": "2799W / 1909L 59.5% ±1.4% 4,708 Moonshot AI",
+          "score": 1294
         },
         {
           "rank": 22,
-          "model": "1742W / 1290L 57.5% ±1.8% 3,032 Anthropic",
-          "score": 1289
+          "model": "1752W / 1296L 57.5% ±1.8% 3,048 Anthropic",
+          "score": 1288
         },
         {
           "rank": 23,
           "model": "193W / 211L 47.8% ±4.9% 404 DeepSeek",
-          "score": 1288
+          "score": 1286
         },
         {
           "rank": 24,
-          "model": "7450W / 5642L 56.9% ±0.8% 13,092 Meta",
-          "score": 1279
+          "model": "7454W / 5646L 56.9% ±0.8% 13,100 Meta",
+          "score": 1277
         },
         {
           "rank": 25,
-          "model": "820W / 687L 54.4% ±2.5% 1,507 xAI",
-          "score": 1273
+          "model": "828W / 695L 54.4% ±2.5% 1,523 xAI",
+          "score": 1271
         },
         {
           "rank": 26,
           "model": "8212W / 5351L 60.5% ±0.8% 13,563 Anthropic",
-          "score": 1272
+          "score": 1270
         }
       ],
       "method": "http"
@@ -1876,240 +1876,368 @@
       "since": "2026-11-16",
       "ai": [
         {
-          "full_name": "TartarusAIDev/awesome-uncensored-ai",
-          "stars": 18,
-          "language": "",
-          "description": "Curated list of uncensored and locally-runnable AI: agents, SDKs, runners, benchmarks, guides.",
-          "url": "https://github.com/TartarusAIDev/awesome-uncensored-ai",
-          "created_at": "2026-11-17T01:28:04Z"
+          "full_name": "lloweryfn-rgb/Gemini-Config-Checker-",
+          "stars": 62,
+          "language": "Go",
+          "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
+          "url": "https://github.com/lloweryfn-rgb/Gemini-Config-Checker-",
+          "created_at": "2026-11-17T17:31:28Z"
         },
         {
-          "full_name": "ProtonLumo/lumo-desktop",
-          "stars": 11,
-          "language": "Rust",
-          "description": "The Lumo Desktop codebase",
-          "url": "https://github.com/ProtonLumo/lumo-desktop",
-          "created_at": "2026-11-17T07:20:11Z"
+          "full_name": "Mariete333/Gemini-Config-Checker-",
+          "stars": 62,
+          "language": "Go",
+          "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
+          "url": "https://github.com/Mariete333/Gemini-Config-Checker-",
+          "created_at": "2026-11-17T17:31:28Z"
+        },
+        {
+          "full_name": "eluyonga/ai--manus2.0",
+          "stars": 62,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/eluyonga/ai--manus2.0",
+          "created_at": "2026-11-17T17:31:28Z"
+        },
+        {
+          "full_name": "4liyev/Gemini-Config-Checker-",
+          "stars": 62,
+          "language": "Go",
+          "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
+          "url": "https://github.com/4liyev/Gemini-Config-Checker-",
+          "created_at": "2026-11-17T17:31:28Z"
+        },
+        {
+          "full_name": "Physico-Academic/Gemini-Config-Checker-",
+          "stars": 62,
+          "language": "Go",
+          "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
+          "url": "https://github.com/Physico-Academic/Gemini-Config-Checker-",
+          "created_at": "2026-11-17T17:31:28Z"
+        },
+        {
+          "full_name": "mancommits/ai--manus2.0",
+          "stars": 62,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/mancommits/ai--manus2.0",
+          "created_at": "2026-11-17T17:31:29Z"
+        },
+        {
+          "full_name": "simadan11/GitHub-Copilot-app",
+          "stars": 62,
+          "language": "",
+          "description": "The GitHub Copilot app is an agent-native desktop experience for finding, running, steering, and landing software work across your GitHub repositories. ",
+          "url": "https://github.com/simadan11/GitHub-Copilot-app",
+          "created_at": "2026-11-17T17:31:31Z"
+        },
+        {
+          "full_name": "mkselvamm/Gemini-Config-Checker-",
+          "stars": 62,
+          "language": "Go",
+          "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
+          "url": "https://github.com/mkselvamm/Gemini-Config-Checker-",
+          "created_at": "2026-11-17T17:31:27Z"
+        },
+        {
+          "full_name": "zalman-ua/GitHub-Copilot-app",
+          "stars": 62,
+          "language": "",
+          "description": "The GitHub Copilot app is an agent-native desktop experience for finding, running, steering, and landing software work across your GitHub repositories. ",
+          "url": "https://github.com/zalman-ua/GitHub-Copilot-app",
+          "created_at": "2026-11-17T17:31:38Z"
+        },
+        {
+          "full_name": "alphafalcongamer-creator/ai--manus2.0",
+          "stars": 62,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/alphafalcongamer-creator/ai--manus2.0",
+          "created_at": "2026-11-17T17:31:28Z"
         }
       ],
       "general": [
         {
-          "full_name": "DrakeDelegate/RUST-private-cheat",
-          "stars": 242,
-          "language": "",
-          "description": "",
-          "url": "https://github.com/DrakeDelegate/RUST-private-cheat",
-          "created_at": "2026-11-17T12:46:19Z"
-        },
-        {
-          "full_name": "roninbyteobliterate/Lichii",
-          "stars": 150,
-          "language": "C++",
-          "description": "Lichii is an experimental, open-source Nintendo Switch and Switch 2 emulator written in C++",
-          "url": "https://github.com/roninbyteobliterate/Lichii",
-          "created_at": "2026-11-17T01:05:59Z"
-        },
-        {
-          "full_name": "xyzww888/muse-JP-Reg",
-          "stars": 143,
-          "language": "Python",
-          "description": "Muse.ai pure-HTTP registration & invite-code fission WebUI (JP residential proxy ready)",
-          "url": "https://github.com/xyzww888/muse-JP-Reg",
-          "created_at": "2026-11-17T00:06:19Z"
-        },
-        {
-          "full_name": "HallDreamBulwark/web-traffic-simulator",
-          "stars": 121,
-          "language": "Python",
-          "description": "Advanced web traffic generator and SEO testing tool. Simulate human-like browsing behavior, search referrals, and CTR patterns for analytics validation. Playwright-based, stealth, open-source.",
-          "url": "https://github.com/HallDreamBulwark/web-traffic-simulator",
-          "created_at": "2026-11-17T05:22:06Z"
-        },
-        {
-          "full_name": "VanquisherRepair/duplicate-file-finder",
-          "stars": 119,
-          "language": "Python",
-          "description": "Fast and lightweight duplicate file finder for Windows. Scan folders to find identical photos, videos, and documents using MD5 hashing. Free up disk space safely. Open-source.",
-          "url": "https://github.com/VanquisherRepair/duplicate-file-finder",
-          "created_at": "2026-11-17T06:50:02Z"
-        },
-        {
-          "full_name": "SkinJaguarAdapt/gas-fee-tracker",
-          "stars": 98,
-          "language": "",
-          "description": "Gas fee pattern tracker for major EVM chains with alerting recipes.",
-          "url": "https://github.com/SkinJaguarAdapt/gas-fee-tracker",
-          "created_at": "2026-11-17T00:47:52Z"
-        },
-        {
-          "full_name": "polygondomainport/obs-streamer-stack",
-          "stars": 97,
-          "language": "",
-          "description": "Streamer plugin stack for OBS — alerts, plugins and performance filters.",
-          "url": "https://github.com/polygondomainport/obs-streamer-stack",
-          "created_at": "2026-11-17T00:20:59Z"
-        },
-        {
-          "full_name": "OutpostPython/tableau-viz-gallery",
-          "stars": 96,
-          "language": "",
-          "description": "Gallery-grade dashboard examples and calculations for Tableau Desktop.",
-          "url": "https://github.com/OutpostPython/tableau-viz-gallery",
-          "created_at": "2026-11-17T00:03:13Z"
-        },
-        {
-          "full_name": "PupaRectifier/jetbrains-dev-setup",
-          "stars": 96,
-          "language": "",
-          "description": "JetBrains IDE tuning notes — keymaps, inspections, AI assist etiquette.",
-          "url": "https://github.com/PupaRectifier/jetbrains-dev-setup",
-          "created_at": "2026-11-17T00:27:37Z"
-        },
-        {
-          "full_name": "VitalityV7/yokuusnwe123133",
-          "stars": 77,
-          "language": "Python",
-          "description": "test description ",
-          "url": "https://github.com/VitalityV7/yokuusnwe123133",
-          "created_at": "2026-11-17T12:09:03Z"
-        }
-      ],
-      "items": [
-        {
-          "full_name": "TartarusAIDev/awesome-uncensored-ai",
-          "stars": 18,
-          "language": "",
-          "description": "Curated list of uncensored and locally-runnable AI: agents, SDKs, runners, benchmarks, guides.",
-          "url": "https://github.com/TartarusAIDev/awesome-uncensored-ai",
-          "created_at": "2026-11-17T01:28:04Z"
-        },
-        {
-          "full_name": "ProtonLumo/lumo-desktop",
-          "stars": 11,
-          "language": "Rust",
-          "description": "The Lumo Desktop codebase",
-          "url": "https://github.com/ProtonLumo/lumo-desktop",
-          "created_at": "2026-11-17T07:20:11Z"
-        },
-        {
-          "full_name": "DrakeDelegate/RUST-private-cheat",
-          "stars": 242,
-          "language": "",
-          "description": "",
-          "url": "https://github.com/DrakeDelegate/RUST-private-cheat",
-          "created_at": "2026-11-17T12:46:19Z"
-        },
-        {
-          "full_name": "roninbyteobliterate/Lichii",
-          "stars": 150,
-          "language": "C++",
-          "description": "Lichii is an experimental, open-source Nintendo Switch and Switch 2 emulator written in C++",
-          "url": "https://github.com/roninbyteobliterate/Lichii",
-          "created_at": "2026-11-17T01:05:59Z"
-        },
-        {
-          "full_name": "xyzww888/muse-JP-Reg",
-          "stars": 143,
-          "language": "Python",
-          "description": "Muse.ai pure-HTTP registration & invite-code fission WebUI (JP residential proxy ready)",
-          "url": "https://github.com/xyzww888/muse-JP-Reg",
-          "created_at": "2026-11-17T00:06:19Z"
-        },
-        {
-          "full_name": "HallDreamBulwark/web-traffic-simulator",
-          "stars": 121,
-          "language": "Python",
-          "description": "Advanced web traffic generator and SEO testing tool. Simulate human-like browsing behavior, search referrals, and CTR patterns for analytics validation. Playwright-based, stealth, open-source.",
-          "url": "https://github.com/HallDreamBulwark/web-traffic-simulator",
-          "created_at": "2026-11-17T05:22:06Z"
-        },
-        {
-          "full_name": "VanquisherRepair/duplicate-file-finder",
-          "stars": 119,
-          "language": "Python",
-          "description": "Fast and lightweight duplicate file finder for Windows. Scan folders to find identical photos, videos, and documents using MD5 hashing. Free up disk space safely. Open-source.",
-          "url": "https://github.com/VanquisherRepair/duplicate-file-finder",
-          "created_at": "2026-11-17T06:50:02Z"
-        },
-        {
-          "full_name": "SkinJaguarAdapt/gas-fee-tracker",
-          "stars": 98,
-          "language": "",
-          "description": "Gas fee pattern tracker for major EVM chains with alerting recipes.",
-          "url": "https://github.com/SkinJaguarAdapt/gas-fee-tracker",
-          "created_at": "2026-11-17T00:47:52Z"
-        },
-        {
-          "full_name": "polygondomainport/obs-streamer-stack",
-          "stars": 97,
-          "language": "",
-          "description": "Streamer plugin stack for OBS — alerts, plugins and performance filters.",
-          "url": "https://github.com/polygondomainport/obs-streamer-stack",
-          "created_at": "2026-11-17T00:20:59Z"
-        },
-        {
-          "full_name": "OutpostPython/tableau-viz-gallery",
-          "stars": 96,
-          "language": "",
-          "description": "Gallery-grade dashboard examples and calculations for Tableau Desktop.",
-          "url": "https://github.com/OutpostPython/tableau-viz-gallery",
-          "created_at": "2026-11-17T00:03:13Z"
-        },
-        {
-          "full_name": "PupaRectifier/jetbrains-dev-setup",
-          "stars": 96,
-          "language": "",
-          "description": "JetBrains IDE tuning notes — keymaps, inspections, AI assist etiquette.",
-          "url": "https://github.com/PupaRectifier/jetbrains-dev-setup",
-          "created_at": "2026-11-17T00:27:37Z"
-        },
-        {
-          "full_name": "VitalityV7/yokuusnwe123133",
-          "stars": 77,
-          "language": "Python",
-          "description": "test description ",
-          "url": "https://github.com/VitalityV7/yokuusnwe123133",
-          "created_at": "2026-11-17T12:09:03Z"
-        },
-        {
-          "full_name": "Tamekamodify/home-assistant-blueprints",
-          "stars": 73,
-          "language": "",
-          "description": "Blueprint corner for Home Assistant — presence, energy and scenes.",
-          "url": "https://github.com/Tamekamodify/home-assistant-blueprints",
-          "created_at": "2026-11-17T01:13:06Z"
-        },
-        {
           "full_name": "gylive/google-ultra",
-          "stars": 69,
+          "stars": 1383,
           "language": "Python",
           "description": "",
           "url": "https://github.com/gylive/google-ultra",
           "created_at": "2026-11-17T10:21:54Z"
         },
         {
-          "full_name": "slingreen3-alt/bazi-study-coach",
-          "stars": 64,
+          "full_name": "FloorTurtleResurrect/free-adobe-activation",
+          "stars": 327,
           "language": "",
-          "description": "用生辰八字给 AI 学习教练做个性化：分析提示词 + 教练模板 + 示例（雅思默认，可换考试）",
-          "url": "https://github.com/slingreen3-alt/bazi-study-coach",
-          "created_at": "2026-11-17T05:46:24Z"
+          "description": "simple tutorial adobe activation with GenP",
+          "url": "https://github.com/FloorTurtleResurrect/free-adobe-activation",
+          "created_at": "2026-11-17T14:47:55Z"
         },
         {
-          "full_name": "tyle-beep/Haiku",
-          "stars": 48,
-          "language": "Rust",
-          "description": "Fire Emblem Fates, statically recompiled to a native Windows program. Contains no game files: you build it from your own dump.",
-          "url": "https://github.com/tyle-beep/Haiku",
-          "created_at": "2026-11-17T00:58:33Z"
+          "full_name": "xyzww888/muse-JP-Reg",
+          "stars": 200,
+          "language": "Python",
+          "description": "Muse.ai pure-HTTP registration & invite-code fission WebUI (JP residential proxy ready)",
+          "url": "https://github.com/xyzww888/muse-JP-Reg",
+          "created_at": "2026-11-17T00:06:19Z"
         },
         {
-          "full_name": "0xkaka/homeport",
-          "stars": 39,
-          "language": "HTML",
+          "full_name": "roninbyteobliterate/Lichii",
+          "stars": 140,
+          "language": "C++",
+          "description": "Lichii is an experimental, open-source Nintendo Switch and Switch 2 emulator written in C++",
+          "url": "https://github.com/roninbyteobliterate/Lichii",
+          "created_at": "2026-11-17T01:05:59Z"
+        },
+        {
+          "full_name": "FiremanInverter/cyberpunk2077-trainer-helper",
+          "stars": 133,
+          "language": "C++",
+          "description": "🎯 Cyberpunk 2077 Mod Menu 2026 - undetected cheat for Windows 10/11. God Mode, Infinite Health, Stamina, RAM, Oxygen, Zero Cooldowns, Stealth Mode, One Hit Kill, Infinite Ammo, No Reload, Set Level 60, Add Money, Spawn Any Item, Spawn Any Vehicle, Teleport, Time Control, Config S",
+          "url": "https://github.com/FiremanInverter/cyberpunk2077-trainer-helper",
+          "created_at": "2026-11-17T16:10:30Z"
+        },
+        {
+          "full_name": "HallDreamBulwark/web-traffic-simulator",
+          "stars": 121,
+          "language": "Python",
+          "description": "Advanced web traffic generator and SEO testing tool. Simulate human-like browsing behavior, search referrals, and CTR patterns for analytics validation. Playwright-based, stealth, open-source.",
+          "url": "https://github.com/HallDreamBulwark/web-traffic-simulator",
+          "created_at": "2026-11-17T05:22:06Z"
+        },
+        {
+          "full_name": "VanquisherRepair/duplicate-file-finder",
+          "stars": 119,
+          "language": "Python",
+          "description": "Fast and lightweight duplicate file finder for Windows. Scan folders to find identical photos, videos, and documents using MD5 hashing. Free up disk space safely. Open-source.",
+          "url": "https://github.com/VanquisherRepair/duplicate-file-finder",
+          "created_at": "2026-11-17T06:50:02Z"
+        },
+        {
+          "full_name": "prusa3d/prusa-connect",
+          "stars": 114,
+          "language": "Go",
+          "description": "Prusa Connect: a local server for your printers",
+          "url": "https://github.com/prusa3d/prusa-connect",
+          "created_at": "2026-11-17T08:54:51Z"
+        },
+        {
+          "full_name": "SkinJaguarAdapt/gas-fee-tracker",
+          "stars": 98,
+          "language": "",
+          "description": "Gas fee pattern tracker for major EVM chains with alerting recipes.",
+          "url": "https://github.com/SkinJaguarAdapt/gas-fee-tracker",
+          "created_at": "2026-11-17T00:47:52Z"
+        },
+        {
+          "full_name": "polygondomainport/obs-streamer-stack",
+          "stars": 97,
+          "language": "",
+          "description": "Streamer plugin stack for OBS — alerts, plugins and performance filters.",
+          "url": "https://github.com/polygondomainport/obs-streamer-stack",
+          "created_at": "2026-11-17T00:20:59Z"
+        }
+      ],
+      "items": [
+        {
+          "full_name": "lloweryfn-rgb/Gemini-Config-Checker-",
+          "stars": 62,
+          "language": "Go",
+          "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
+          "url": "https://github.com/lloweryfn-rgb/Gemini-Config-Checker-",
+          "created_at": "2026-11-17T17:31:28Z"
+        },
+        {
+          "full_name": "Mariete333/Gemini-Config-Checker-",
+          "stars": 62,
+          "language": "Go",
+          "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
+          "url": "https://github.com/Mariete333/Gemini-Config-Checker-",
+          "created_at": "2026-11-17T17:31:28Z"
+        },
+        {
+          "full_name": "eluyonga/ai--manus2.0",
+          "stars": 62,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/eluyonga/ai--manus2.0",
+          "created_at": "2026-11-17T17:31:28Z"
+        },
+        {
+          "full_name": "4liyev/Gemini-Config-Checker-",
+          "stars": 62,
+          "language": "Go",
+          "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
+          "url": "https://github.com/4liyev/Gemini-Config-Checker-",
+          "created_at": "2026-11-17T17:31:28Z"
+        },
+        {
+          "full_name": "Physico-Academic/Gemini-Config-Checker-",
+          "stars": 62,
+          "language": "Go",
+          "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
+          "url": "https://github.com/Physico-Academic/Gemini-Config-Checker-",
+          "created_at": "2026-11-17T17:31:28Z"
+        },
+        {
+          "full_name": "mancommits/ai--manus2.0",
+          "stars": 62,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/mancommits/ai--manus2.0",
+          "created_at": "2026-11-17T17:31:29Z"
+        },
+        {
+          "full_name": "simadan11/GitHub-Copilot-app",
+          "stars": 62,
+          "language": "",
+          "description": "The GitHub Copilot app is an agent-native desktop experience for finding, running, steering, and landing software work across your GitHub repositories. ",
+          "url": "https://github.com/simadan11/GitHub-Copilot-app",
+          "created_at": "2026-11-17T17:31:31Z"
+        },
+        {
+          "full_name": "mkselvamm/Gemini-Config-Checker-",
+          "stars": 62,
+          "language": "Go",
+          "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
+          "url": "https://github.com/mkselvamm/Gemini-Config-Checker-",
+          "created_at": "2026-11-17T17:31:27Z"
+        },
+        {
+          "full_name": "zalman-ua/GitHub-Copilot-app",
+          "stars": 62,
+          "language": "",
+          "description": "The GitHub Copilot app is an agent-native desktop experience for finding, running, steering, and landing software work across your GitHub repositories. ",
+          "url": "https://github.com/zalman-ua/GitHub-Copilot-app",
+          "created_at": "2026-11-17T17:31:38Z"
+        },
+        {
+          "full_name": "alphafalcongamer-creator/ai--manus2.0",
+          "stars": 62,
+          "language": "",
+          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+          "url": "https://github.com/alphafalcongamer-creator/ai--manus2.0",
+          "created_at": "2026-11-17T17:31:28Z"
+        },
+        {
+          "full_name": "gylive/google-ultra",
+          "stars": 1383,
+          "language": "Python",
           "description": "",
-          "url": "https://github.com/0xkaka/homeport",
-          "created_at": "2026-11-17T05:39:46Z"
+          "url": "https://github.com/gylive/google-ultra",
+          "created_at": "2026-11-17T10:21:54Z"
+        },
+        {
+          "full_name": "FloorTurtleResurrect/free-adobe-activation",
+          "stars": 327,
+          "language": "",
+          "description": "simple tutorial adobe activation with GenP",
+          "url": "https://github.com/FloorTurtleResurrect/free-adobe-activation",
+          "created_at": "2026-11-17T14:47:55Z"
+        },
+        {
+          "full_name": "xyzww888/muse-JP-Reg",
+          "stars": 200,
+          "language": "Python",
+          "description": "Muse.ai pure-HTTP registration & invite-code fission WebUI (JP residential proxy ready)",
+          "url": "https://github.com/xyzww888/muse-JP-Reg",
+          "created_at": "2026-11-17T00:06:19Z"
+        },
+        {
+          "full_name": "roninbyteobliterate/Lichii",
+          "stars": 140,
+          "language": "C++",
+          "description": "Lichii is an experimental, open-source Nintendo Switch and Switch 2 emulator written in C++",
+          "url": "https://github.com/roninbyteobliterate/Lichii",
+          "created_at": "2026-11-17T01:05:59Z"
+        },
+        {
+          "full_name": "FiremanInverter/cyberpunk2077-trainer-helper",
+          "stars": 133,
+          "language": "C++",
+          "description": "🎯 Cyberpunk 2077 Mod Menu 2026 - undetected cheat for Windows 10/11. God Mode, Infinite Health, Stamina, RAM, Oxygen, Zero Cooldowns, Stealth Mode, One Hit Kill, Infinite Ammo, No Reload, Set Level 60, Add Money, Spawn Any Item, Spawn Any Vehicle, Teleport, Time Control, Config S",
+          "url": "https://github.com/FiremanInverter/cyberpunk2077-trainer-helper",
+          "created_at": "2026-11-17T16:10:30Z"
+        },
+        {
+          "full_name": "HallDreamBulwark/web-traffic-simulator",
+          "stars": 121,
+          "language": "Python",
+          "description": "Advanced web traffic generator and SEO testing tool. Simulate human-like browsing behavior, search referrals, and CTR patterns for analytics validation. Playwright-based, stealth, open-source.",
+          "url": "https://github.com/HallDreamBulwark/web-traffic-simulator",
+          "created_at": "2026-11-17T05:22:06Z"
+        },
+        {
+          "full_name": "VanquisherRepair/duplicate-file-finder",
+          "stars": 119,
+          "language": "Python",
+          "description": "Fast and lightweight duplicate file finder for Windows. Scan folders to find identical photos, videos, and documents using MD5 hashing. Free up disk space safely. Open-source.",
+          "url": "https://github.com/VanquisherRepair/duplicate-file-finder",
+          "created_at": "2026-11-17T06:50:02Z"
+        },
+        {
+          "full_name": "prusa3d/prusa-connect",
+          "stars": 114,
+          "language": "Go",
+          "description": "Prusa Connect: a local server for your printers",
+          "url": "https://github.com/prusa3d/prusa-connect",
+          "created_at": "2026-11-17T08:54:51Z"
+        },
+        {
+          "full_name": "SkinJaguarAdapt/gas-fee-tracker",
+          "stars": 98,
+          "language": "",
+          "description": "Gas fee pattern tracker for major EVM chains with alerting recipes.",
+          "url": "https://github.com/SkinJaguarAdapt/gas-fee-tracker",
+          "created_at": "2026-11-17T00:47:52Z"
+        },
+        {
+          "full_name": "polygondomainport/obs-streamer-stack",
+          "stars": 97,
+          "language": "",
+          "description": "Streamer plugin stack for OBS — alerts, plugins and performance filters.",
+          "url": "https://github.com/polygondomainport/obs-streamer-stack",
+          "created_at": "2026-11-17T00:20:59Z"
+        },
+        {
+          "full_name": "OutpostPython/tableau-viz-gallery",
+          "stars": 96,
+          "language": "",
+          "description": "Gallery-grade dashboard examples and calculations for Tableau Desktop.",
+          "url": "https://github.com/OutpostPython/tableau-viz-gallery",
+          "created_at": "2026-11-17T00:03:13Z"
+        },
+        {
+          "full_name": "PupaRectifier/jetbrains-dev-setup",
+          "stars": 96,
+          "language": "",
+          "description": "JetBrains IDE tuning notes — keymaps, inspections, AI assist etiquette.",
+          "url": "https://github.com/PupaRectifier/jetbrains-dev-setup",
+          "created_at": "2026-11-17T00:27:37Z"
+        },
+        {
+          "full_name": "TempestSwimmer/Capcut-Pro-For-Windows-And-Macos",
+          "stars": 84,
+          "language": "",
+          "description": "CapCut Pro for Windows and macOS — desktop video editor with AI captions, effects, keyframes, transitions and 4K export tools for content creators on both platforms.",
+          "url": "https://github.com/TempestSwimmer/Capcut-Pro-For-Windows-And-Macos",
+          "created_at": "2026-11-17T16:37:22Z"
+        },
+        {
+          "full_name": "gleameconomicjetty/Adobe-Indesign-For-Windows-And-Macos",
+          "stars": 82,
+          "language": "",
+          "description": "Adobe InDesign for Windows and macOS — professional publishing and page layout software for print and digital design, typography, master pages and multi-page documents on both platforms.",
+          "url": "https://github.com/gleameconomicjetty/Adobe-Indesign-For-Windows-And-Macos",
+          "created_at": "2026-11-17T19:38:04Z"
+        },
+        {
+          "full_name": "WoodpeckerMaster74/Adobe-After-Effects-For-Windows-And-Macos",
+          "stars": 81,
+          "language": "",
+          "description": "Adobe After Effects for Windows and macOS — professional motion graphics and VFX software for animation, compositing, tracking and cinematic effects on both platforms.",
+          "url": "https://github.com/WoodpeckerMaster74/Adobe-After-Effects-For-Windows-And-Macos",
+          "created_at": "2026-11-17T19:17:47Z"
         }
       ]
     },
@@ -2171,73 +2299,73 @@
       "items": [
         {
           "id": "MiniMaxAI/MiniMax-H3-Image",
-          "likes": 1378,
+          "likes": 1442,
           "downloads": 727110,
           "pipeline_tag": "text-to-image",
           "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3-Image"
         },
         {
           "id": "Qwen/Qwen3.8-27B",
-          "likes": 20345,
+          "likes": 20408,
           "downloads": 6942530,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/Qwen/Qwen3.8-27B"
         },
         {
-          "id": "Comfy-Org/MiniMax-H3-Image",
-          "likes": 510,
-          "downloads": 2660341,
-          "pipeline_tag": "text-to-image",
-          "url": "https://huggingface.co/Comfy-Org/MiniMax-H3-Image"
-        },
-        {
           "id": "Lightricks/LTX-2.5",
-          "likes": 12329,
+          "likes": 12391,
           "downloads": 2828071,
           "pipeline_tag": "image-to-video",
           "url": "https://huggingface.co/Lightricks/LTX-2.5"
         },
         {
           "id": "higurashi-ai/Haru-4B",
-          "likes": 471,
+          "likes": 494,
           "downloads": 4445,
           "pipeline_tag": "audio-to-audio",
           "url": "https://huggingface.co/higurashi-ai/Haru-4B"
         },
         {
           "id": "thinkingmachines/Inkling-2-Small",
-          "likes": 433,
+          "likes": 438,
           "downloads": 18359,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/thinkingmachines/Inkling-2-Small"
         },
         {
           "id": "unsloth/Qwen3.8-27B-GGUF",
-          "likes": 6115,
+          "likes": 6133,
           "downloads": 6827598,
           "pipeline_tag": "",
           "url": "https://huggingface.co/unsloth/Qwen3.8-27B-GGUF"
         },
         {
-          "id": "Zyphra/ZONOS3-Mini",
-          "likes": 500,
-          "downloads": 93909,
-          "pipeline_tag": "text-to-speech",
-          "url": "https://huggingface.co/Zyphra/ZONOS3-Mini"
+          "id": "Comfy-Org/MiniMax-H3-Image",
+          "likes": 518,
+          "downloads": 2660341,
+          "pipeline_tag": "text-to-image",
+          "url": "https://huggingface.co/Comfy-Org/MiniMax-H3-Image"
         },
         {
           "id": "black-forest-labs/flux-3-image-klein-comfy",
-          "likes": 3380,
+          "likes": 3405,
           "downloads": 1062051,
           "pipeline_tag": "image-to-image",
           "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein-comfy"
         },
         {
-          "id": "facebook/sam3",
-          "likes": 6843,
-          "downloads": 1971023,
-          "pipeline_tag": "mask-generation",
-          "url": "https://huggingface.co/facebook/sam3"
+          "id": "chatrlabs/Qwen-Image-2.1-Uncensored-Omni-Quantized",
+          "likes": 490,
+          "downloads": 160748,
+          "pipeline_tag": "text-to-image",
+          "url": "https://huggingface.co/chatrlabs/Qwen-Image-2.1-Uncensored-Omni-Quantized"
+        },
+        {
+          "id": "DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
+          "likes": 3287,
+          "downloads": 1759757,
+          "pipeline_tag": "image-text-to-text",
+          "url": "https://huggingface.co/DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF"
         }
       ]
     }
