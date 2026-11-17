@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-16T22:38:38.085058",
+  "generated_at": "2026-11-17T04:51:44.241463",
   "sources": {
     "design": {
       "status": "ok",
@@ -7,7 +7,7 @@
         {
           "rank": 1,
           "model": "Claude Opus 5.5 (high)",
-          "score": 1444,
+          "score": 1445,
           "prompt_per_m": 4.0,
           "completion_per_m": 20.0,
           "context_length": 1000000,
@@ -34,7 +34,7 @@
         {
           "rank": 4,
           "model": "GPT-6.1 Sol (max)",
-          "score": 1367,
+          "score": 1366,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1050000,
@@ -70,7 +70,7 @@
         {
           "rank": 8,
           "model": "Gemini 4 Carbon",
-          "score": 1304,
+          "score": 1305,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1048576,
@@ -79,7 +79,7 @@
         {
           "rank": 9,
           "model": "Kimi K3.1 Pro",
-          "score": 1298,
+          "score": 1297,
           "prompt_per_m": 0.2403,
           "completion_per_m": 8.4023,
           "context_length": 1048576,
@@ -110,8 +110,8 @@
         },
         {
           "rank": 13,
-          "model": "1780W / 788L 69.3% ±1.8% 2,568 Anthropic",
-          "score": 1444
+          "model": "1845W / 825L 69.1% ±1.8% 2,670 Anthropic",
+          "score": 1445
         },
         {
           "rank": 14,
@@ -120,17 +120,17 @@
         },
         {
           "rank": 15,
-          "model": "1189W / 530L 69.2% ±2.2% 1,719 Anthropic",
+          "model": "1192W / 533L 69.1% ±2.2% 1,725 Anthropic",
           "score": 1368
         },
         {
           "rank": 16,
-          "model": "1025W / 942L 52.1% ±2.2% 1,967 OpenAI",
-          "score": 1367
+          "model": "1062W / 1007L 51.3% ±2.2% 2,069 OpenAI",
+          "score": 1366
         },
         {
           "rank": 17,
-          "model": "2163W / 1299L 62.5% ±1.6% 3,462 Alibaba",
+          "model": "2167W / 1300L 62.5% ±1.6% 3,467 Alibaba",
           "score": 1361
         },
         {
@@ -145,17 +145,17 @@
         },
         {
           "rank": 20,
-          "model": "628W / 415L 60.2% ±3.0% 1,043 Google",
-          "score": 1304
+          "model": "632W / 415L 60.4% ±3.0% 1,047 Google",
+          "score": 1305
         },
         {
           "rank": 21,
-          "model": "2566W / 1757L 59.4% ±1.5% 4,323 Moonshot AI",
-          "score": 1298
+          "model": "2608W / 1786L 59.4% ±1.5% 4,394 Moonshot AI",
+          "score": 1297
         },
         {
           "rank": 22,
-          "model": "1734W / 1287L 57.4% ±1.8% 3,021 Anthropic",
+          "model": "1737W / 1287L 57.4% ±1.8% 3,024 Anthropic",
           "score": 1290
         },
         {
@@ -165,13 +165,13 @@
         },
         {
           "rank": 24,
-          "model": "7446W / 5639L 56.9% ±0.8% 13,085 Meta",
+          "model": "7447W / 5639L 56.9% ±0.8% 13,086 Meta",
           "score": 1279
         },
         {
           "rank": 25,
-          "model": "816W / 680L 54.5% ±2.5% 1,496 xAI",
-          "score": 1275
+          "model": "817W / 682L 54.5% ±2.5% 1,499 xAI",
+          "score": 1274
         },
         {
           "rank": 26,
@@ -1873,210 +1873,26 @@
     },
     "github": {
       "status": "ok",
-      "since": "2026-11-15",
+      "since": "2026-11-16",
       "ai": [],
       "general": [
         {
-          "full_name": "edgerunners2/capri-ai-desktop",
-          "stars": 213,
-          "language": "Python",
-          "description": "Capri — Free open-source AI desktop pet, gaming overlay & voice companion for Windows. Visual GUI for Claude Code, Ollama, DeepSeek & MCP. Joins Discord calls, launches Steam games, comments on gameplay & automates screen tasks offline.",
-          "url": "https://github.com/edgerunners2/capri-ai-desktop",
-          "created_at": "2026-11-16T18:29:04Z"
-        },
-        {
-          "full_name": "siliconjungle/shapeshift-labs-ink-studio",
-          "stars": 188,
-          "language": "JavaScript",
-          "description": "Sculpting, animation and simulation toolkit for pixel-art Gaussian splats",
-          "url": "https://github.com/siliconjungle/shapeshift-labs-ink-studio",
-          "created_at": "2026-11-16T07:44:00Z"
-        },
-        {
-          "full_name": "chuanqisun/spaceship",
-          "stars": 156,
-          "language": "HTML",
-          "description": "Steer your ideas in realtime",
-          "url": "https://github.com/chuanqisun/spaceship",
-          "created_at": "2026-11-16T14:43:45Z"
-        },
-        {
-          "full_name": "scottsturrock/mate-wayland-desktop",
-          "stars": 139,
-          "language": "Shell",
-          "description": "MATE Wayland Desktop: the MATE desktop on Wayland with labwc, on an Ubuntu 26.04 base. Sources and build system.",
-          "url": "https://github.com/scottsturrock/mate-wayland-desktop",
-          "created_at": "2026-11-16T03:12:11Z"
-        },
-        {
-          "full_name": "waw666waw666/RegisterHub",
-          "stars": 123,
-          "language": "Python",
-          "description": "万能注册机模板 | Universal Auto-Registration Template",
-          "url": "https://github.com/waw666waw666/RegisterHub",
-          "created_at": "2026-11-16T07:10:32Z"
-        },
-        {
-          "full_name": "boringmarketer/boring-marketing-skills",
-          "stars": 113,
-          "language": "Python",
-          "description": "31 free marketing skills for your AI agent: research, positioning, copy, pages, SEO, AI search, ads, email and content, plus a deep local-business pack. MIT.",
-          "url": "https://github.com/boringmarketer/boring-marketing-skills",
-          "created_at": "2026-11-16T15:09:46Z"
-        },
-        {
-          "full_name": "championkazekagemold/wallpaper-engine-free",
+          "full_name": "roninbyteobliterate/lichi",
           "stars": 100,
-          "language": "JavaScript",
-          "description": "Wallpaper Engine Free is a free desktop wallpaper project designed to bring your screen to life.  Discover beautiful animated wallpapers, customize your desktop environment, and create a unique visual experience without unnecessary complexity.  Our goal is to make desktop customi",
-          "url": "https://github.com/championkazekagemold/wallpaper-engine-free",
-          "created_at": "2026-11-16T18:59:33Z"
-        },
-        {
-          "full_name": "nagavineerpasam/systems-to-ai-reading-map",
-          "stars": 90,
-          "language": "",
-          "description": "112 topics from 8 well-known engineering books, in a suggested reading order.",
-          "url": "https://github.com/nagavineerpasam/systems-to-ai-reading-map",
-          "created_at": "2026-11-16T04:41:43Z"
-        },
-        {
-          "full_name": "DestroyerStrait/RobRun-Cheat-Ares-Crack",
-          "stars": 66,
-          "language": "",
-          "description": "Free Cheat Ares For RobRun with good instrumental",
-          "url": "https://github.com/DestroyerStrait/RobRun-Cheat-Ares-Crack",
-          "created_at": "2026-11-16T14:42:10Z"
-        },
-        {
-          "full_name": "stvlynn/spines",
-          "stars": 62,
-          "language": "TypeScript",
-          "description": "Turn apps & albums into CD jewel case spines | 把 App 与专辑做成实体 CD 盒侧脊收藏图",
-          "url": "https://github.com/stvlynn/spines",
-          "created_at": "2026-11-16T05:14:53Z"
+          "language": "C++",
+          "description": "VERY experimental Nintendo Switch 2 emulator",
+          "url": "https://github.com/roninbyteobliterate/lichi",
+          "created_at": "2026-11-17T01:05:59Z"
         }
       ],
       "items": [
         {
-          "full_name": "edgerunners2/capri-ai-desktop",
-          "stars": 213,
-          "language": "Python",
-          "description": "Capri — Free open-source AI desktop pet, gaming overlay & voice companion for Windows. Visual GUI for Claude Code, Ollama, DeepSeek & MCP. Joins Discord calls, launches Steam games, comments on gameplay & automates screen tasks offline.",
-          "url": "https://github.com/edgerunners2/capri-ai-desktop",
-          "created_at": "2026-11-16T18:29:04Z"
-        },
-        {
-          "full_name": "siliconjungle/shapeshift-labs-ink-studio",
-          "stars": 188,
-          "language": "JavaScript",
-          "description": "Sculpting, animation and simulation toolkit for pixel-art Gaussian splats",
-          "url": "https://github.com/siliconjungle/shapeshift-labs-ink-studio",
-          "created_at": "2026-11-16T07:44:00Z"
-        },
-        {
-          "full_name": "chuanqisun/spaceship",
-          "stars": 156,
-          "language": "HTML",
-          "description": "Steer your ideas in realtime",
-          "url": "https://github.com/chuanqisun/spaceship",
-          "created_at": "2026-11-16T14:43:45Z"
-        },
-        {
-          "full_name": "scottsturrock/mate-wayland-desktop",
-          "stars": 139,
-          "language": "Shell",
-          "description": "MATE Wayland Desktop: the MATE desktop on Wayland with labwc, on an Ubuntu 26.04 base. Sources and build system.",
-          "url": "https://github.com/scottsturrock/mate-wayland-desktop",
-          "created_at": "2026-11-16T03:12:11Z"
-        },
-        {
-          "full_name": "waw666waw666/RegisterHub",
-          "stars": 123,
-          "language": "Python",
-          "description": "万能注册机模板 | Universal Auto-Registration Template",
-          "url": "https://github.com/waw666waw666/RegisterHub",
-          "created_at": "2026-11-16T07:10:32Z"
-        },
-        {
-          "full_name": "boringmarketer/boring-marketing-skills",
-          "stars": 113,
-          "language": "Python",
-          "description": "31 free marketing skills for your AI agent: research, positioning, copy, pages, SEO, AI search, ads, email and content, plus a deep local-business pack. MIT.",
-          "url": "https://github.com/boringmarketer/boring-marketing-skills",
-          "created_at": "2026-11-16T15:09:46Z"
-        },
-        {
-          "full_name": "championkazekagemold/wallpaper-engine-free",
+          "full_name": "roninbyteobliterate/lichi",
           "stars": 100,
-          "language": "JavaScript",
-          "description": "Wallpaper Engine Free is a free desktop wallpaper project designed to bring your screen to life.  Discover beautiful animated wallpapers, customize your desktop environment, and create a unique visual experience without unnecessary complexity.  Our goal is to make desktop customi",
-          "url": "https://github.com/championkazekagemold/wallpaper-engine-free",
-          "created_at": "2026-11-16T18:59:33Z"
-        },
-        {
-          "full_name": "nagavineerpasam/systems-to-ai-reading-map",
-          "stars": 90,
-          "language": "",
-          "description": "112 topics from 8 well-known engineering books, in a suggested reading order.",
-          "url": "https://github.com/nagavineerpasam/systems-to-ai-reading-map",
-          "created_at": "2026-11-16T04:41:43Z"
-        },
-        {
-          "full_name": "DestroyerStrait/RobRun-Cheat-Ares-Crack",
-          "stars": 66,
-          "language": "",
-          "description": "Free Cheat Ares For RobRun with good instrumental",
-          "url": "https://github.com/DestroyerStrait/RobRun-Cheat-Ares-Crack",
-          "created_at": "2026-11-16T14:42:10Z"
-        },
-        {
-          "full_name": "stvlynn/spines",
-          "stars": 62,
-          "language": "TypeScript",
-          "description": "Turn apps & albums into CD jewel case spines | 把 App 与专辑做成实体 CD 盒侧脊收藏图",
-          "url": "https://github.com/stvlynn/spines",
-          "created_at": "2026-11-16T05:14:53Z"
-        },
-        {
-          "full_name": "Aabyss-Team/Threat-Broadcast-Plus",
-          "stars": 60,
-          "language": "Python",
-          "description": "网络安全威胁情报播报-Plus升级版",
-          "url": "https://github.com/Aabyss-Team/Threat-Broadcast-Plus",
-          "created_at": "2026-11-16T03:40:56Z"
-        },
-        {
-          "full_name": "SightPerfumer/Filmora16-Ai-Editor-Latest",
-          "stars": 52,
-          "language": "Go",
-          "description": "how to get Filmora 16 AI Video Editor",
-          "url": "https://github.com/SightPerfumer/Filmora16-Ai-Editor-Latest",
-          "created_at": "2026-11-16T13:20:03Z"
-        },
-        {
-          "full_name": "liangdabiao/seedance-storyboard-generator-realman",
-          "stars": 51,
-          "language": "",
-          "description": "真人实拍质感AI短剧分镜生成器 - Seedance Realman Storyboard Skill 一个帮你把故事/剧本变成真人实拍质感 AI 视频的技能包。  简单说：你给它一个故事，它帮你走完从剧本到成片的全过程，而且生成的画面尽量像真人拍的电影，而不是卡通、动画或塑料感的游戏画面。",
-          "url": "https://github.com/liangdabiao/seedance-storyboard-generator-realman",
-          "created_at": "2026-11-16T07:49:20Z"
-        },
-        {
-          "full_name": "andyhuo520/beanpod",
-          "stars": 49,
-          "language": "Swift",
-          "description": "豆仓 BeanPod：原生 macOS 录音豆管理 App — 本机转写、纪要待办、知识库问答、逐句回听与英语学习、MCP 接入 Claude / Codex",
-          "url": "https://github.com/andyhuo520/beanpod",
-          "created_at": "2026-11-16T08:56:19Z"
-        },
-        {
-          "full_name": "Mecsocse/dni-seguro-pdf",
-          "stars": 47,
-          "language": "HTML",
-          "description": "Utilidad HTML/JS 100% offline y zero-server para proteger copias del DNI en blanco y negro con marca de agua diagonal (MIT)",
-          "url": "https://github.com/Mecsocse/dni-seguro-pdf",
-          "created_at": "2026-11-16T13:59:22Z"
+          "language": "C++",
+          "description": "VERY experimental Nintendo Switch 2 emulator",
+          "url": "https://github.com/roninbyteobliterate/lichi",
+          "created_at": "2026-11-17T01:05:59Z"
         }
       ]
     },
@@ -2138,70 +1954,70 @@
       "items": [
         {
           "id": "xtools-at/DeepSeek-V4-Pro-Qwen3.5-9B-UNCENSORED-heretic",
-          "likes": 8527,
+          "likes": 9132,
           "downloads": 29567,
           "pipeline_tag": "text-generation",
           "url": "https://huggingface.co/xtools-at/DeepSeek-V4-Pro-Qwen3.5-9B-UNCENSORED-heretic"
         },
         {
           "id": "MiniMaxAI/MiniMax-H3-Image",
-          "likes": 1308,
+          "likes": 1335,
           "downloads": 609130,
           "pipeline_tag": "text-to-image",
           "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3-Image"
         },
         {
           "id": "Qwen/Qwen3.8-27B",
-          "likes": 20255,
+          "likes": 20291,
           "downloads": 6763402,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/Qwen/Qwen3.8-27B"
         },
         {
           "id": "Lightricks/LTX-2.5",
-          "likes": 12214,
+          "likes": 12274,
           "downloads": 2789021,
           "pipeline_tag": "image-to-video",
           "url": "https://huggingface.co/Lightricks/LTX-2.5"
         },
         {
           "id": "Comfy-Org/MiniMax-H3-Image",
-          "likes": 474,
+          "likes": 496,
           "downloads": 2294065,
           "pipeline_tag": "text-to-image",
           "url": "https://huggingface.co/Comfy-Org/MiniMax-H3-Image"
         },
         {
           "id": "Zyphra/ZONOS3-Mini",
-          "likes": 457,
+          "likes": 486,
           "downloads": 69946,
           "pipeline_tag": "text-to-speech",
           "url": "https://huggingface.co/Zyphra/ZONOS3-Mini"
         },
         {
           "id": "higurashi-ai/Haru-4B",
-          "likes": 413,
+          "likes": 441,
           "downloads": 3372,
           "pipeline_tag": "audio-to-audio",
           "url": "https://huggingface.co/higurashi-ai/Haru-4B"
         },
         {
           "id": "thinkingmachines/Inkling-2-Small",
-          "likes": 400,
+          "likes": 420,
           "downloads": 16918,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/thinkingmachines/Inkling-2-Small"
         },
         {
           "id": "unsloth/Qwen3.8-27B-GGUF",
-          "likes": 6072,
+          "likes": 6096,
           "downloads": 6666734,
           "pipeline_tag": "",
           "url": "https://huggingface.co/unsloth/Qwen3.8-27B-GGUF"
         },
         {
           "id": "speridlabs/idol",
-          "likes": 2412,
+          "likes": 2428,
           "downloads": 34752,
           "pipeline_tag": "image-to-3d",
           "url": "https://huggingface.co/speridlabs/idol"
