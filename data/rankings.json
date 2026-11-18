@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-18T03:19:55.494902",
+  "generated_at": "2026-11-18T12:26:51.634402",
   "sources": {
     "design": {
       "status": "ok",
@@ -16,7 +16,7 @@
         {
           "rank": 2,
           "model": "GPT-6 Astra (max)",
-          "score": 1397,
+          "score": 1395,
           "prompt_per_m": 10.0,
           "completion_per_m": 50.0,
           "context_length": 1050000,
@@ -25,7 +25,7 @@
         {
           "rank": 3,
           "model": "Claude Fable 5.2",
-          "score": 1365,
+          "score": 1363,
           "prompt_per_m": 8.0,
           "completion_per_m": 40.0,
           "context_length": 1000000,
@@ -34,7 +34,7 @@
         {
           "rank": 4,
           "model": "GPT-6.1 Sol (max)",
-          "score": 1364,
+          "score": 1361,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1050000,
@@ -43,7 +43,7 @@
         {
           "rank": 5,
           "model": "Qwen4-Max",
-          "score": 1359,
+          "score": 1357,
           "prompt_per_m": 1.425,
           "completion_per_m": 4.275,
           "context_length": 1000000,
@@ -51,132 +51,136 @@
         },
         {
           "rank": 6,
+          "model": "GPT-6.2 Astra",
+          "score": 1341,
+          "prompt_per_m": 8.0,
+          "completion_per_m": 40.0,
+          "context_length": 1050000,
+          "is_free": false
+        },
+        {
+          "rank": 7,
           "model": "Claude Fable 5.1",
-          "score": 1335,
+          "score": 1333,
           "prompt_per_m": 10.0,
           "completion_per_m": 50.0,
           "context_length": 1000000,
           "is_free": false
         },
         {
-          "rank": 7,
+          "rank": 8,
           "model": "Inkling 2 Small",
-          "score": 1309,
+          "score": 1307,
           "prompt_per_m": 0.3,
           "completion_per_m": 1.0,
           "context_length": 1048576,
           "is_free": false
         },
         {
-          "rank": 8,
+          "rank": 9,
           "model": "Gemini 4 Carbon",
-          "score": 1305,
+          "score": 1304,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1048576,
           "is_free": false
         },
         {
-          "rank": 9,
+          "rank": 10,
           "model": "Kimi K3.1 Pro",
-          "score": 1294,
+          "score": 1292,
           "prompt_per_m": 0.2403,
           "completion_per_m": 8.4023,
           "context_length": 1048576,
           "is_free": false
         },
         {
-          "rank": 10,
+          "rank": 11,
           "model": "Claude Sonnet 5.5",
-          "score": 1288,
+          "score": 1286,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1000000,
           "is_free": false
         },
         {
-          "rank": 11,
+          "rank": 12,
           "model": "DeepSeek-V4.1-Flash (1017)",
-          "score": 1286,
-          "prompt_per_m": 0.051,
-          "completion_per_m": 0.567,
+          "score": 1285,
+          "prompt_per_m": 0.3,
+          "completion_per_m": 1.2,
           "context_length": 1048576,
           "is_free": false
         },
         {
-          "rank": 12,
-          "model": "Muse Spark 1.3 Max",
-          "score": 1277
-        },
-        {
           "rank": 13,
-          "model": "1876W / 846L 68.9% ±1.7% 2,722 Anthropic",
+          "model": "1960W / 886L 68.9% ±1.7% 2,846 Anthropic",
           "score": 1443
         },
         {
           "rank": 14,
-          "model": "1699W / 830L 67.2% ±1.8% 2,529 OpenAI",
-          "score": 1397
+          "model": "1701W / 830L 67.2% ±1.8% 2,531 OpenAI",
+          "score": 1395
         },
         {
           "rank": 15,
-          "model": "1209W / 543L 69.0% ±2.2% 1,752 Anthropic",
-          "score": 1365
+          "model": "1216W / 547L 69.0% ±2.2% 1,763 Anthropic",
+          "score": 1363
         },
         {
           "rank": 16,
-          "model": "1083W / 1038L 51.1% ±2.1% 2,121 OpenAI",
-          "score": 1364
+          "model": "1123W / 1122L 50.0% ±2.1% 2,245 OpenAI",
+          "score": 1361
         },
         {
           "rank": 17,
-          "model": "2190W / 1309L 62.6% ±1.6% 3,499 Alibaba",
-          "score": 1359
+          "model": "2198W / 1313L 62.6% ±1.6% 3,511 Alibaba",
+          "score": 1357
         },
         {
           "rank": 18,
-          "model": "3070W / 2085L 59.5% ±1.3% 5,155 Anthropic",
-          "score": 1335
+          "model": "201W / 90L 69.1% ±5.3% 291 OpenAI",
+          "score": 1341
         },
         {
           "rank": 19,
-          "model": "4134W / 3086L 57.3% ±1.1% 7,220 Thinking Machines",
-          "score": 1309
+          "model": "3070W / 2085L 59.5% ±1.3% 5,155 Anthropic",
+          "score": 1333
         },
         {
           "rank": 20,
-          "model": "647W / 420L 60.6% ±2.9% 1,067 Google",
-          "score": 1305
+          "model": "4161W / 3106L 57.3% ±1.1% 7,267 Thinking Machines",
+          "score": 1307
         },
         {
           "rank": 21,
-          "model": "2799W / 1909L 59.5% ±1.4% 4,708 Moonshot AI",
-          "score": 1294
+          "model": "655W / 425L 60.6% ±2.9% 1,080 Google",
+          "score": 1304
         },
         {
           "rank": 22,
-          "model": "1752W / 1296L 57.5% ±1.8% 3,048 Anthropic",
-          "score": 1288
+          "model": "2829W / 1923L 59.5% ±1.4% 4,752 Moonshot AI",
+          "score": 1292
         },
         {
           "rank": 23,
-          "model": "193W / 211L 47.8% ±4.9% 404 DeepSeek",
+          "model": "1756W / 1301L 57.4% ±1.8% 3,057 Anthropic",
           "score": 1286
         },
         {
           "rank": 24,
-          "model": "7454W / 5646L 56.9% ±0.8% 13,100 Meta",
-          "score": 1277
+          "model": "193W / 211L 47.8% ±4.9% 404 DeepSeek",
+          "score": 1285
         },
         {
           "rank": 25,
-          "model": "828W / 695L 54.4% ±2.5% 1,523 xAI",
-          "score": 1271
+          "model": "7458W / 5651L 56.9% ±0.8% 13,109 Meta",
+          "score": 1275
         },
         {
           "rank": 26,
           "model": "8212W / 5351L 60.5% ±0.8% 13,563 Anthropic",
-          "score": 1270
+          "score": 1269
         }
       ],
       "method": "http"
@@ -1874,19 +1878,76 @@
     "github": {
       "status": "ok",
       "since": "2026-11-17",
-      "ai": [],
+      "ai": [
+        {
+          "full_name": "fujc683/qwen4-max-api-proxy",
+          "stars": 15,
+          "language": "",
+          "description": "Qwen4 Max relay API: one key, Alipay payment, no overseas card.",
+          "url": "https://github.com/fujc683/qwen4-max-api-proxy",
+          "created_at": "2026-11-18T03:58:37Z"
+        },
+        {
+          "full_name": "fujc683/qwen4-max-api",
+          "stars": 14,
+          "language": "",
+          "description": "Qwen4 Max API: chat completions, streaming defaults and reasoning tokens.",
+          "url": "https://github.com/fujc683/qwen4-max-api",
+          "created_at": "2026-11-18T03:55:35Z"
+        },
+        {
+          "full_name": "fujc683/qwen4-max-pricing",
+          "stars": 12,
+          "language": "",
+          "description": "Qwen4 Max per-million-token pricing with real workload budgets.",
+          "url": "https://github.com/fujc683/qwen4-max-pricing",
+          "created_at": "2026-11-18T03:56:36Z"
+        },
+        {
+          "full_name": "fujc683/awesome-qwen4-max-prompts",
+          "stars": 12,
+          "language": "",
+          "description": "100 prompts that work well with Qwen4 Max, grouped by task type.",
+          "url": "https://github.com/fujc683/awesome-qwen4-max-prompts",
+          "created_at": "2026-11-18T03:54:35Z"
+        },
+        {
+          "full_name": "fujc683/cheap-llm-api",
+          "stars": 11,
+          "language": "",
+          "description": "Every LLM on APIMart ranked by price, plus a two-tier routing pattern.",
+          "url": "https://github.com/fujc683/cheap-llm-api",
+          "created_at": "2026-11-18T03:59:40Z"
+        },
+        {
+          "full_name": "fujc683/qwen4-max-alternatives",
+          "stars": 11,
+          "language": "",
+          "description": "Qwen4 Max vs Qwen3.8 Max vs DeepSeek V3.2 on cost and quality.",
+          "url": "https://github.com/fujc683/qwen4-max-alternatives",
+          "created_at": "2026-11-18T03:57:37Z"
+        }
+      ],
       "general": [
         {
-          "full_name": "piersorttypify/filmora-ai-editor-unlocked",
-          "stars": 81,
-          "language": "Go",
-          "description": "how to get filmora 16 ai",
-          "url": "https://github.com/piersorttypify/filmora-ai-editor-unlocked",
-          "created_at": "2026-11-18T01:09:03Z"
+          "full_name": "Constrainttureside/rainbow-cursor",
+          "stars": 119,
+          "language": "Python",
+          "description": "Just a small tool I made for myself to change mouse cursors. Generates rainbow and gradient pointers. Works on Win 10/11.",
+          "url": "https://github.com/Constrainttureside/rainbow-cursor",
+          "created_at": "2026-11-18T08:03:52Z"
+        },
+        {
+          "full_name": "PlasterFlashBegin/ixl-browser-automation",
+          "stars": 88,
+          "language": "",
+          "description": "IXL Browser Automation is an automated script utility designed to interact with web drivers and programmatically navigate exercises on the IXL learning platform.",
+          "url": "https://github.com/PlasterFlashBegin/ixl-browser-automation",
+          "created_at": "2026-11-18T04:50:39Z"
         },
         {
           "full_name": "GladiatorSense/FlstudioAIproducer",
-          "stars": 77,
+          "stars": 78,
           "language": "Go",
           "description": "How to get Fl studio Producer 2026",
           "url": "https://github.com/GladiatorSense/FlstudioAIproducer",
@@ -1901,26 +1962,98 @@
           "created_at": "2026-11-18T01:29:38Z"
         },
         {
+          "full_name": "geerlingguy/chronytop",
+          "stars": 66,
+          "language": "Go",
+          "description": "A TUI for chrony NTP time server monitoring",
+          "url": "https://github.com/geerlingguy/chronytop",
+          "created_at": "2026-11-18T02:51:38Z"
+        },
+        {
           "full_name": "cerniq/scrap-tf-raffle-bot2027",
           "stars": 44,
           "language": "Python",
           "description": "",
           "url": "https://github.com/cerniq/scrap-tf-raffle-bot2027",
           "created_at": "2026-11-18T01:13:04Z"
+        },
+        {
+          "full_name": "pookjw/Clocky",
+          "stars": 31,
+          "language": "Objective-C",
+          "description": "Present any Apple Watch face",
+          "url": "https://github.com/pookjw/Clocky",
+          "created_at": "2026-11-18T08:00:30Z"
         }
       ],
       "items": [
         {
-          "full_name": "piersorttypify/filmora-ai-editor-unlocked",
-          "stars": 81,
-          "language": "Go",
-          "description": "how to get filmora 16 ai",
-          "url": "https://github.com/piersorttypify/filmora-ai-editor-unlocked",
-          "created_at": "2026-11-18T01:09:03Z"
+          "full_name": "fujc683/qwen4-max-api-proxy",
+          "stars": 15,
+          "language": "",
+          "description": "Qwen4 Max relay API: one key, Alipay payment, no overseas card.",
+          "url": "https://github.com/fujc683/qwen4-max-api-proxy",
+          "created_at": "2026-11-18T03:58:37Z"
+        },
+        {
+          "full_name": "fujc683/qwen4-max-api",
+          "stars": 14,
+          "language": "",
+          "description": "Qwen4 Max API: chat completions, streaming defaults and reasoning tokens.",
+          "url": "https://github.com/fujc683/qwen4-max-api",
+          "created_at": "2026-11-18T03:55:35Z"
+        },
+        {
+          "full_name": "fujc683/qwen4-max-pricing",
+          "stars": 12,
+          "language": "",
+          "description": "Qwen4 Max per-million-token pricing with real workload budgets.",
+          "url": "https://github.com/fujc683/qwen4-max-pricing",
+          "created_at": "2026-11-18T03:56:36Z"
+        },
+        {
+          "full_name": "fujc683/awesome-qwen4-max-prompts",
+          "stars": 12,
+          "language": "",
+          "description": "100 prompts that work well with Qwen4 Max, grouped by task type.",
+          "url": "https://github.com/fujc683/awesome-qwen4-max-prompts",
+          "created_at": "2026-11-18T03:54:35Z"
+        },
+        {
+          "full_name": "fujc683/cheap-llm-api",
+          "stars": 11,
+          "language": "",
+          "description": "Every LLM on APIMart ranked by price, plus a two-tier routing pattern.",
+          "url": "https://github.com/fujc683/cheap-llm-api",
+          "created_at": "2026-11-18T03:59:40Z"
+        },
+        {
+          "full_name": "fujc683/qwen4-max-alternatives",
+          "stars": 11,
+          "language": "",
+          "description": "Qwen4 Max vs Qwen3.8 Max vs DeepSeek V3.2 on cost and quality.",
+          "url": "https://github.com/fujc683/qwen4-max-alternatives",
+          "created_at": "2026-11-18T03:57:37Z"
+        },
+        {
+          "full_name": "Constrainttureside/rainbow-cursor",
+          "stars": 119,
+          "language": "Python",
+          "description": "Just a small tool I made for myself to change mouse cursors. Generates rainbow and gradient pointers. Works on Win 10/11.",
+          "url": "https://github.com/Constrainttureside/rainbow-cursor",
+          "created_at": "2026-11-18T08:03:52Z"
+        },
+        {
+          "full_name": "PlasterFlashBegin/ixl-browser-automation",
+          "stars": 88,
+          "language": "",
+          "description": "IXL Browser Automation is an automated script utility designed to interact with web drivers and programmatically navigate exercises on the IXL learning platform.",
+          "url": "https://github.com/PlasterFlashBegin/ixl-browser-automation",
+          "created_at": "2026-11-18T04:50:39Z"
         },
         {
           "full_name": "GladiatorSense/FlstudioAIproducer",
-          "stars": 77,
+          "stars": 78,
           "language": "Go",
           "description": "How to get Fl studio Producer 2026",
           "url": "https://github.com/GladiatorSense/FlstudioAIproducer",
@@ -1935,12 +2068,28 @@
           "created_at": "2026-11-18T01:29:38Z"
         },
         {
+          "full_name": "geerlingguy/chronytop",
+          "stars": 66,
+          "language": "Go",
+          "description": "A TUI for chrony NTP time server monitoring",
+          "url": "https://github.com/geerlingguy/chronytop",
+          "created_at": "2026-11-18T02:51:38Z"
+        },
+        {
           "full_name": "cerniq/scrap-tf-raffle-bot2027",
           "stars": 44,
           "language": "Python",
           "description": "",
           "url": "https://github.com/cerniq/scrap-tf-raffle-bot2027",
           "created_at": "2026-11-18T01:13:04Z"
+        },
+        {
+          "full_name": "pookjw/Clocky",
+          "stars": 31,
+          "language": "Objective-C",
+          "description": "Present any Apple Watch face",
+          "url": "https://github.com/pookjw/Clocky",
+          "created_at": "2026-11-18T08:00:30Z"
         }
       ]
     },
@@ -2001,74 +2150,74 @@
       "status": "ok",
       "items": [
         {
-          "id": "MiniMaxAI/MiniMax-H3-Image",
-          "likes": 1478,
-          "downloads": 727110,
-          "pipeline_tag": "text-to-image",
-          "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3-Image"
-        },
-        {
-          "id": "Qwen/Qwen3.8-27B",
-          "likes": 20444,
-          "downloads": 6942530,
-          "pipeline_tag": "image-text-to-text",
-          "url": "https://huggingface.co/Qwen/Qwen3.8-27B"
-        },
-        {
           "id": "higurashi-ai/Haru-4B",
-          "likes": 516,
-          "downloads": 4445,
+          "likes": 580,
+          "downloads": 5314,
           "pipeline_tag": "audio-to-audio",
           "url": "https://huggingface.co/higurashi-ai/Haru-4B"
         },
         {
           "id": "Lightricks/LTX-2.5",
-          "likes": 12413,
-          "downloads": 2828071,
+          "likes": 12480,
+          "downloads": 2871190,
           "pipeline_tag": "image-to-video",
           "url": "https://huggingface.co/Lightricks/LTX-2.5"
         },
         {
           "id": "thinkingmachines/Inkling-2-Small",
-          "likes": 442,
-          "downloads": 18359,
+          "likes": 476,
+          "downloads": 30082,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/thinkingmachines/Inkling-2-Small"
         },
         {
-          "id": "unsloth/Qwen3.8-27B-GGUF",
-          "likes": 6144,
-          "downloads": 6827598,
-          "pipeline_tag": "",
-          "url": "https://huggingface.co/unsloth/Qwen3.8-27B-GGUF"
-        },
-        {
-          "id": "Comfy-Org/MiniMax-H3-Image",
-          "likes": 521,
-          "downloads": 2660341,
+          "id": "MiniMaxAI/MiniMax-H3-Image",
+          "likes": 1566,
+          "downloads": 759661,
           "pipeline_tag": "text-to-image",
-          "url": "https://huggingface.co/Comfy-Org/MiniMax-H3-Image"
+          "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3-Image"
         },
         {
-          "id": "black-forest-labs/flux-3-image-klein-comfy",
-          "likes": 3412,
-          "downloads": 1062051,
-          "pipeline_tag": "image-to-image",
-          "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein-comfy"
+          "id": "harness-hub/Qwen3.8-27B-pi-adapted",
+          "likes": 275,
+          "downloads": 377,
+          "pipeline_tag": "image-text-to-text",
+          "url": "https://huggingface.co/harness-hub/Qwen3.8-27B-pi-adapted"
+        },
+        {
+          "id": "Qwen/Qwen3.8-27B",
+          "likes": 20520,
+          "downloads": 6888351,
+          "pipeline_tag": "image-text-to-text",
+          "url": "https://huggingface.co/Qwen/Qwen3.8-27B"
         },
         {
           "id": "chatrlabs/Qwen-Image-2.1-Uncensored-Omni-Quantized",
-          "likes": 514,
-          "downloads": 160748,
+          "likes": 567,
+          "downloads": 224306,
           "pipeline_tag": "text-to-image",
           "url": "https://huggingface.co/chatrlabs/Qwen-Image-2.1-Uncensored-Omni-Quantized"
         },
         {
-          "id": "sensenova/SenseNova-Loop-9B",
-          "likes": 208,
-          "downloads": 0,
+          "id": "n4ze3m/tiny-voca",
+          "likes": 264,
+          "downloads": 4430,
+          "pipeline_tag": "text-to-speech",
+          "url": "https://huggingface.co/n4ze3m/tiny-voca"
+        },
+        {
+          "id": "DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
+          "likes": 3326,
+          "downloads": 1773418,
           "pipeline_tag": "image-text-to-text",
-          "url": "https://huggingface.co/sensenova/SenseNova-Loop-9B"
+          "url": "https://huggingface.co/DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF"
+        },
+        {
+          "id": "maxwell-model/Maxwell-V1-Flash",
+          "likes": 211,
+          "downloads": 1052,
+          "pipeline_tag": "text-generation",
+          "url": "https://huggingface.co/maxwell-model/Maxwell-V1-Flash"
         }
       ]
     }
