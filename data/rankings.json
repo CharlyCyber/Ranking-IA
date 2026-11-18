@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-17T21:59:05.399124",
+  "generated_at": "2026-11-18T03:19:55.494902",
   "sources": {
     "design": {
       "status": "ok",
@@ -98,8 +98,8 @@
           "rank": 11,
           "model": "DeepSeek-V4.1-Flash (1017)",
           "score": 1286,
-          "prompt_per_m": 0.3,
-          "completion_per_m": 1.2,
+          "prompt_per_m": 0.051,
+          "completion_per_m": 0.567,
           "context_length": 1048576,
           "is_free": false
         },
@@ -1873,371 +1873,74 @@
     },
     "github": {
       "status": "ok",
-      "since": "2026-11-16",
-      "ai": [
-        {
-          "full_name": "lloweryfn-rgb/Gemini-Config-Checker-",
-          "stars": 62,
-          "language": "Go",
-          "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
-          "url": "https://github.com/lloweryfn-rgb/Gemini-Config-Checker-",
-          "created_at": "2026-11-17T17:31:28Z"
-        },
-        {
-          "full_name": "Mariete333/Gemini-Config-Checker-",
-          "stars": 62,
-          "language": "Go",
-          "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
-          "url": "https://github.com/Mariete333/Gemini-Config-Checker-",
-          "created_at": "2026-11-17T17:31:28Z"
-        },
-        {
-          "full_name": "eluyonga/ai--manus2.0",
-          "stars": 62,
-          "language": "",
-          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
-          "url": "https://github.com/eluyonga/ai--manus2.0",
-          "created_at": "2026-11-17T17:31:28Z"
-        },
-        {
-          "full_name": "4liyev/Gemini-Config-Checker-",
-          "stars": 62,
-          "language": "Go",
-          "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
-          "url": "https://github.com/4liyev/Gemini-Config-Checker-",
-          "created_at": "2026-11-17T17:31:28Z"
-        },
-        {
-          "full_name": "Physico-Academic/Gemini-Config-Checker-",
-          "stars": 62,
-          "language": "Go",
-          "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
-          "url": "https://github.com/Physico-Academic/Gemini-Config-Checker-",
-          "created_at": "2026-11-17T17:31:28Z"
-        },
-        {
-          "full_name": "mancommits/ai--manus2.0",
-          "stars": 62,
-          "language": "",
-          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
-          "url": "https://github.com/mancommits/ai--manus2.0",
-          "created_at": "2026-11-17T17:31:29Z"
-        },
-        {
-          "full_name": "simadan11/GitHub-Copilot-app",
-          "stars": 62,
-          "language": "",
-          "description": "The GitHub Copilot app is an agent-native desktop experience for finding, running, steering, and landing software work across your GitHub repositories. ",
-          "url": "https://github.com/simadan11/GitHub-Copilot-app",
-          "created_at": "2026-11-17T17:31:31Z"
-        },
-        {
-          "full_name": "mkselvamm/Gemini-Config-Checker-",
-          "stars": 62,
-          "language": "Go",
-          "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
-          "url": "https://github.com/mkselvamm/Gemini-Config-Checker-",
-          "created_at": "2026-11-17T17:31:27Z"
-        },
-        {
-          "full_name": "zalman-ua/GitHub-Copilot-app",
-          "stars": 62,
-          "language": "",
-          "description": "The GitHub Copilot app is an agent-native desktop experience for finding, running, steering, and landing software work across your GitHub repositories. ",
-          "url": "https://github.com/zalman-ua/GitHub-Copilot-app",
-          "created_at": "2026-11-17T17:31:38Z"
-        },
-        {
-          "full_name": "alphafalcongamer-creator/ai--manus2.0",
-          "stars": 62,
-          "language": "",
-          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
-          "url": "https://github.com/alphafalcongamer-creator/ai--manus2.0",
-          "created_at": "2026-11-17T17:31:28Z"
-        }
-      ],
+      "since": "2026-11-17",
+      "ai": [],
       "general": [
         {
-          "full_name": "gylive/google-ultra",
-          "stars": 1383,
+          "full_name": "piersorttypify/filmora-ai-editor-unlocked",
+          "stars": 81,
+          "language": "Go",
+          "description": "how to get filmora 16 ai",
+          "url": "https://github.com/piersorttypify/filmora-ai-editor-unlocked",
+          "created_at": "2026-11-18T01:09:03Z"
+        },
+        {
+          "full_name": "GladiatorSense/FlstudioAIproducer",
+          "stars": 77,
+          "language": "Go",
+          "description": "How to get Fl studio Producer 2026",
+          "url": "https://github.com/GladiatorSense/FlstudioAIproducer",
+          "created_at": "2026-11-18T02:18:40Z"
+        },
+        {
+          "full_name": "LawmakerBoil/MsOfficeLatestVersion2026",
+          "stars": 75,
+          "language": "Go",
+          "description": "how to get Office 2026",
+          "url": "https://github.com/LawmakerBoil/MsOfficeLatestVersion2026",
+          "created_at": "2026-11-18T01:29:38Z"
+        },
+        {
+          "full_name": "cerniq/scrap-tf-raffle-bot2027",
+          "stars": 44,
           "language": "Python",
           "description": "",
-          "url": "https://github.com/gylive/google-ultra",
-          "created_at": "2026-11-17T10:21:54Z"
-        },
-        {
-          "full_name": "FloorTurtleResurrect/free-adobe-activation",
-          "stars": 327,
-          "language": "",
-          "description": "simple tutorial adobe activation with GenP",
-          "url": "https://github.com/FloorTurtleResurrect/free-adobe-activation",
-          "created_at": "2026-11-17T14:47:55Z"
-        },
-        {
-          "full_name": "xyzww888/muse-JP-Reg",
-          "stars": 200,
-          "language": "Python",
-          "description": "Muse.ai pure-HTTP registration & invite-code fission WebUI (JP residential proxy ready)",
-          "url": "https://github.com/xyzww888/muse-JP-Reg",
-          "created_at": "2026-11-17T00:06:19Z"
-        },
-        {
-          "full_name": "roninbyteobliterate/Lichii",
-          "stars": 140,
-          "language": "C++",
-          "description": "Lichii is an experimental, open-source Nintendo Switch and Switch 2 emulator written in C++",
-          "url": "https://github.com/roninbyteobliterate/Lichii",
-          "created_at": "2026-11-17T01:05:59Z"
-        },
-        {
-          "full_name": "FiremanInverter/cyberpunk2077-trainer-helper",
-          "stars": 133,
-          "language": "C++",
-          "description": "🎯 Cyberpunk 2077 Mod Menu 2026 - undetected cheat for Windows 10/11. God Mode, Infinite Health, Stamina, RAM, Oxygen, Zero Cooldowns, Stealth Mode, One Hit Kill, Infinite Ammo, No Reload, Set Level 60, Add Money, Spawn Any Item, Spawn Any Vehicle, Teleport, Time Control, Config S",
-          "url": "https://github.com/FiremanInverter/cyberpunk2077-trainer-helper",
-          "created_at": "2026-11-17T16:10:30Z"
-        },
-        {
-          "full_name": "HallDreamBulwark/web-traffic-simulator",
-          "stars": 121,
-          "language": "Python",
-          "description": "Advanced web traffic generator and SEO testing tool. Simulate human-like browsing behavior, search referrals, and CTR patterns for analytics validation. Playwright-based, stealth, open-source.",
-          "url": "https://github.com/HallDreamBulwark/web-traffic-simulator",
-          "created_at": "2026-11-17T05:22:06Z"
-        },
-        {
-          "full_name": "VanquisherRepair/duplicate-file-finder",
-          "stars": 119,
-          "language": "Python",
-          "description": "Fast and lightweight duplicate file finder for Windows. Scan folders to find identical photos, videos, and documents using MD5 hashing. Free up disk space safely. Open-source.",
-          "url": "https://github.com/VanquisherRepair/duplicate-file-finder",
-          "created_at": "2026-11-17T06:50:02Z"
-        },
-        {
-          "full_name": "prusa3d/prusa-connect",
-          "stars": 114,
-          "language": "Go",
-          "description": "Prusa Connect: a local server for your printers",
-          "url": "https://github.com/prusa3d/prusa-connect",
-          "created_at": "2026-11-17T08:54:51Z"
-        },
-        {
-          "full_name": "SkinJaguarAdapt/gas-fee-tracker",
-          "stars": 98,
-          "language": "",
-          "description": "Gas fee pattern tracker for major EVM chains with alerting recipes.",
-          "url": "https://github.com/SkinJaguarAdapt/gas-fee-tracker",
-          "created_at": "2026-11-17T00:47:52Z"
-        },
-        {
-          "full_name": "polygondomainport/obs-streamer-stack",
-          "stars": 97,
-          "language": "",
-          "description": "Streamer plugin stack for OBS — alerts, plugins and performance filters.",
-          "url": "https://github.com/polygondomainport/obs-streamer-stack",
-          "created_at": "2026-11-17T00:20:59Z"
+          "url": "https://github.com/cerniq/scrap-tf-raffle-bot2027",
+          "created_at": "2026-11-18T01:13:04Z"
         }
       ],
       "items": [
         {
-          "full_name": "lloweryfn-rgb/Gemini-Config-Checker-",
-          "stars": 62,
+          "full_name": "piersorttypify/filmora-ai-editor-unlocked",
+          "stars": 81,
           "language": "Go",
-          "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
-          "url": "https://github.com/lloweryfn-rgb/Gemini-Config-Checker-",
-          "created_at": "2026-11-17T17:31:28Z"
+          "description": "how to get filmora 16 ai",
+          "url": "https://github.com/piersorttypify/filmora-ai-editor-unlocked",
+          "created_at": "2026-11-18T01:09:03Z"
         },
         {
-          "full_name": "Mariete333/Gemini-Config-Checker-",
-          "stars": 62,
+          "full_name": "GladiatorSense/FlstudioAIproducer",
+          "stars": 77,
           "language": "Go",
-          "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
-          "url": "https://github.com/Mariete333/Gemini-Config-Checker-",
-          "created_at": "2026-11-17T17:31:28Z"
+          "description": "How to get Fl studio Producer 2026",
+          "url": "https://github.com/GladiatorSense/FlstudioAIproducer",
+          "created_at": "2026-11-18T02:18:40Z"
         },
         {
-          "full_name": "eluyonga/ai--manus2.0",
-          "stars": 62,
-          "language": "",
-          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
-          "url": "https://github.com/eluyonga/ai--manus2.0",
-          "created_at": "2026-11-17T17:31:28Z"
-        },
-        {
-          "full_name": "4liyev/Gemini-Config-Checker-",
-          "stars": 62,
+          "full_name": "LawmakerBoil/MsOfficeLatestVersion2026",
+          "stars": 75,
           "language": "Go",
-          "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
-          "url": "https://github.com/4liyev/Gemini-Config-Checker-",
-          "created_at": "2026-11-17T17:31:28Z"
+          "description": "how to get Office 2026",
+          "url": "https://github.com/LawmakerBoil/MsOfficeLatestVersion2026",
+          "created_at": "2026-11-18T01:29:38Z"
         },
         {
-          "full_name": "Physico-Academic/Gemini-Config-Checker-",
-          "stars": 62,
-          "language": "Go",
-          "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
-          "url": "https://github.com/Physico-Academic/Gemini-Config-Checker-",
-          "created_at": "2026-11-17T17:31:28Z"
-        },
-        {
-          "full_name": "mancommits/ai--manus2.0",
-          "stars": 62,
-          "language": "",
-          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
-          "url": "https://github.com/mancommits/ai--manus2.0",
-          "created_at": "2026-11-17T17:31:29Z"
-        },
-        {
-          "full_name": "simadan11/GitHub-Copilot-app",
-          "stars": 62,
-          "language": "",
-          "description": "The GitHub Copilot app is an agent-native desktop experience for finding, running, steering, and landing software work across your GitHub repositories. ",
-          "url": "https://github.com/simadan11/GitHub-Copilot-app",
-          "created_at": "2026-11-17T17:31:31Z"
-        },
-        {
-          "full_name": "mkselvamm/Gemini-Config-Checker-",
-          "stars": 62,
-          "language": "Go",
-          "description": "Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
-          "url": "https://github.com/mkselvamm/Gemini-Config-Checker-",
-          "created_at": "2026-11-17T17:31:27Z"
-        },
-        {
-          "full_name": "zalman-ua/GitHub-Copilot-app",
-          "stars": 62,
-          "language": "",
-          "description": "The GitHub Copilot app is an agent-native desktop experience for finding, running, steering, and landing software work across your GitHub repositories. ",
-          "url": "https://github.com/zalman-ua/GitHub-Copilot-app",
-          "created_at": "2026-11-17T17:31:38Z"
-        },
-        {
-          "full_name": "alphafalcongamer-creator/ai--manus2.0",
-          "stars": 62,
-          "language": "",
-          "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
-          "url": "https://github.com/alphafalcongamer-creator/ai--manus2.0",
-          "created_at": "2026-11-17T17:31:28Z"
-        },
-        {
-          "full_name": "gylive/google-ultra",
-          "stars": 1383,
+          "full_name": "cerniq/scrap-tf-raffle-bot2027",
+          "stars": 44,
           "language": "Python",
           "description": "",
-          "url": "https://github.com/gylive/google-ultra",
-          "created_at": "2026-11-17T10:21:54Z"
-        },
-        {
-          "full_name": "FloorTurtleResurrect/free-adobe-activation",
-          "stars": 327,
-          "language": "",
-          "description": "simple tutorial adobe activation with GenP",
-          "url": "https://github.com/FloorTurtleResurrect/free-adobe-activation",
-          "created_at": "2026-11-17T14:47:55Z"
-        },
-        {
-          "full_name": "xyzww888/muse-JP-Reg",
-          "stars": 200,
-          "language": "Python",
-          "description": "Muse.ai pure-HTTP registration & invite-code fission WebUI (JP residential proxy ready)",
-          "url": "https://github.com/xyzww888/muse-JP-Reg",
-          "created_at": "2026-11-17T00:06:19Z"
-        },
-        {
-          "full_name": "roninbyteobliterate/Lichii",
-          "stars": 140,
-          "language": "C++",
-          "description": "Lichii is an experimental, open-source Nintendo Switch and Switch 2 emulator written in C++",
-          "url": "https://github.com/roninbyteobliterate/Lichii",
-          "created_at": "2026-11-17T01:05:59Z"
-        },
-        {
-          "full_name": "FiremanInverter/cyberpunk2077-trainer-helper",
-          "stars": 133,
-          "language": "C++",
-          "description": "🎯 Cyberpunk 2077 Mod Menu 2026 - undetected cheat for Windows 10/11. God Mode, Infinite Health, Stamina, RAM, Oxygen, Zero Cooldowns, Stealth Mode, One Hit Kill, Infinite Ammo, No Reload, Set Level 60, Add Money, Spawn Any Item, Spawn Any Vehicle, Teleport, Time Control, Config S",
-          "url": "https://github.com/FiremanInverter/cyberpunk2077-trainer-helper",
-          "created_at": "2026-11-17T16:10:30Z"
-        },
-        {
-          "full_name": "HallDreamBulwark/web-traffic-simulator",
-          "stars": 121,
-          "language": "Python",
-          "description": "Advanced web traffic generator and SEO testing tool. Simulate human-like browsing behavior, search referrals, and CTR patterns for analytics validation. Playwright-based, stealth, open-source.",
-          "url": "https://github.com/HallDreamBulwark/web-traffic-simulator",
-          "created_at": "2026-11-17T05:22:06Z"
-        },
-        {
-          "full_name": "VanquisherRepair/duplicate-file-finder",
-          "stars": 119,
-          "language": "Python",
-          "description": "Fast and lightweight duplicate file finder for Windows. Scan folders to find identical photos, videos, and documents using MD5 hashing. Free up disk space safely. Open-source.",
-          "url": "https://github.com/VanquisherRepair/duplicate-file-finder",
-          "created_at": "2026-11-17T06:50:02Z"
-        },
-        {
-          "full_name": "prusa3d/prusa-connect",
-          "stars": 114,
-          "language": "Go",
-          "description": "Prusa Connect: a local server for your printers",
-          "url": "https://github.com/prusa3d/prusa-connect",
-          "created_at": "2026-11-17T08:54:51Z"
-        },
-        {
-          "full_name": "SkinJaguarAdapt/gas-fee-tracker",
-          "stars": 98,
-          "language": "",
-          "description": "Gas fee pattern tracker for major EVM chains with alerting recipes.",
-          "url": "https://github.com/SkinJaguarAdapt/gas-fee-tracker",
-          "created_at": "2026-11-17T00:47:52Z"
-        },
-        {
-          "full_name": "polygondomainport/obs-streamer-stack",
-          "stars": 97,
-          "language": "",
-          "description": "Streamer plugin stack for OBS — alerts, plugins and performance filters.",
-          "url": "https://github.com/polygondomainport/obs-streamer-stack",
-          "created_at": "2026-11-17T00:20:59Z"
-        },
-        {
-          "full_name": "OutpostPython/tableau-viz-gallery",
-          "stars": 96,
-          "language": "",
-          "description": "Gallery-grade dashboard examples and calculations for Tableau Desktop.",
-          "url": "https://github.com/OutpostPython/tableau-viz-gallery",
-          "created_at": "2026-11-17T00:03:13Z"
-        },
-        {
-          "full_name": "PupaRectifier/jetbrains-dev-setup",
-          "stars": 96,
-          "language": "",
-          "description": "JetBrains IDE tuning notes — keymaps, inspections, AI assist etiquette.",
-          "url": "https://github.com/PupaRectifier/jetbrains-dev-setup",
-          "created_at": "2026-11-17T00:27:37Z"
-        },
-        {
-          "full_name": "TempestSwimmer/Capcut-Pro-For-Windows-And-Macos",
-          "stars": 84,
-          "language": "",
-          "description": "CapCut Pro for Windows and macOS — desktop video editor with AI captions, effects, keyframes, transitions and 4K export tools for content creators on both platforms.",
-          "url": "https://github.com/TempestSwimmer/Capcut-Pro-For-Windows-And-Macos",
-          "created_at": "2026-11-17T16:37:22Z"
-        },
-        {
-          "full_name": "gleameconomicjetty/Adobe-Indesign-For-Windows-And-Macos",
-          "stars": 82,
-          "language": "",
-          "description": "Adobe InDesign for Windows and macOS — professional publishing and page layout software for print and digital design, typography, master pages and multi-page documents on both platforms.",
-          "url": "https://github.com/gleameconomicjetty/Adobe-Indesign-For-Windows-And-Macos",
-          "created_at": "2026-11-17T19:38:04Z"
-        },
-        {
-          "full_name": "WoodpeckerMaster74/Adobe-After-Effects-For-Windows-And-Macos",
-          "stars": 81,
-          "language": "",
-          "description": "Adobe After Effects for Windows and macOS — professional motion graphics and VFX software for animation, compositing, tracking and cinematic effects on both platforms.",
-          "url": "https://github.com/WoodpeckerMaster74/Adobe-After-Effects-For-Windows-And-Macos",
-          "created_at": "2026-11-17T19:17:47Z"
+          "url": "https://github.com/cerniq/scrap-tf-raffle-bot2027",
+          "created_at": "2026-11-18T01:13:04Z"
         }
       ]
     },
@@ -2299,73 +2002,73 @@
       "items": [
         {
           "id": "MiniMaxAI/MiniMax-H3-Image",
-          "likes": 1442,
+          "likes": 1478,
           "downloads": 727110,
           "pipeline_tag": "text-to-image",
           "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3-Image"
         },
         {
           "id": "Qwen/Qwen3.8-27B",
-          "likes": 20408,
+          "likes": 20444,
           "downloads": 6942530,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/Qwen/Qwen3.8-27B"
         },
         {
-          "id": "Lightricks/LTX-2.5",
-          "likes": 12391,
-          "downloads": 2828071,
-          "pipeline_tag": "image-to-video",
-          "url": "https://huggingface.co/Lightricks/LTX-2.5"
-        },
-        {
           "id": "higurashi-ai/Haru-4B",
-          "likes": 494,
+          "likes": 516,
           "downloads": 4445,
           "pipeline_tag": "audio-to-audio",
           "url": "https://huggingface.co/higurashi-ai/Haru-4B"
         },
         {
+          "id": "Lightricks/LTX-2.5",
+          "likes": 12413,
+          "downloads": 2828071,
+          "pipeline_tag": "image-to-video",
+          "url": "https://huggingface.co/Lightricks/LTX-2.5"
+        },
+        {
           "id": "thinkingmachines/Inkling-2-Small",
-          "likes": 438,
+          "likes": 442,
           "downloads": 18359,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/thinkingmachines/Inkling-2-Small"
         },
         {
           "id": "unsloth/Qwen3.8-27B-GGUF",
-          "likes": 6133,
+          "likes": 6144,
           "downloads": 6827598,
           "pipeline_tag": "",
           "url": "https://huggingface.co/unsloth/Qwen3.8-27B-GGUF"
         },
         {
           "id": "Comfy-Org/MiniMax-H3-Image",
-          "likes": 518,
+          "likes": 521,
           "downloads": 2660341,
           "pipeline_tag": "text-to-image",
           "url": "https://huggingface.co/Comfy-Org/MiniMax-H3-Image"
         },
         {
           "id": "black-forest-labs/flux-3-image-klein-comfy",
-          "likes": 3405,
+          "likes": 3412,
           "downloads": 1062051,
           "pipeline_tag": "image-to-image",
           "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein-comfy"
         },
         {
           "id": "chatrlabs/Qwen-Image-2.1-Uncensored-Omni-Quantized",
-          "likes": 490,
+          "likes": 514,
           "downloads": 160748,
           "pipeline_tag": "text-to-image",
           "url": "https://huggingface.co/chatrlabs/Qwen-Image-2.1-Uncensored-Omni-Quantized"
         },
         {
-          "id": "DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
-          "likes": 3287,
-          "downloads": 1759757,
+          "id": "sensenova/SenseNova-Loop-9B",
+          "likes": 208,
+          "downloads": 0,
           "pipeline_tag": "image-text-to-text",
-          "url": "https://huggingface.co/DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF"
+          "url": "https://huggingface.co/sensenova/SenseNova-Loop-9B"
         }
       ]
     }
