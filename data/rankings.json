@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-19T02:20:49.536599",
+  "generated_at": "2026-11-19T10:59:55.536955",
   "sources": {
     "design": {
       "status": "ok",
@@ -34,7 +34,7 @@
         {
           "rank": 4,
           "model": "GPT-6.1 Sol (max)",
-          "score": 1360,
+          "score": 1361,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1050000,
@@ -70,7 +70,7 @@
         {
           "rank": 8,
           "model": "Gemini 4 Carbon",
-          "score": 1304,
+          "score": 1305,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1048576,
@@ -88,7 +88,7 @@
         {
           "rank": 10,
           "model": "Claude Sonnet 5.5",
-          "score": 1286,
+          "score": 1287,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1000000,
@@ -96,21 +96,17 @@
         },
         {
           "rank": 11,
-          "model": "GPT-6.2 Astra",
-          "score": 1286,
-          "prompt_per_m": 8.0,
-          "completion_per_m": 40.0,
-          "context_length": 1050000,
-          "is_free": false
-        },
-        {
-          "rank": 12,
           "model": "DeepSeek-V4.1-Flash (1017)",
-          "score": 1284,
+          "score": 1285,
           "prompt_per_m": 0.3,
           "completion_per_m": 1.2,
           "context_length": 1048576,
           "is_free": false
+        },
+        {
+          "rank": 12,
+          "model": "Muse Spark 1.3 Max",
+          "score": 1275
         },
         {
           "rank": 13,
@@ -124,17 +120,17 @@
         },
         {
           "rank": 15,
-          "model": "1223W / 552L 68.9% ±2.2% 1,775 Anthropic",
+          "model": "1225W / 552L 68.9% ±2.2% 1,777 Anthropic",
           "score": 1363
         },
         {
           "rank": 16,
           "model": "1123W / 1122L 50.0% ±2.1% 2,245 OpenAI",
-          "score": 1360
+          "score": 1361
         },
         {
           "rank": 17,
-          "model": "2204W / 1318L 62.6% ±1.6% 3,522 Alibaba",
+          "model": "2206W / 1320L 62.6% ±1.6% 3,526 Alibaba",
           "score": 1357
         },
         {
@@ -144,43 +140,43 @@
         },
         {
           "rank": 19,
-          "model": "4164W / 3108L 57.3% ±1.1% 7,272 Thinking Machines",
+          "model": "4167W / 3109L 57.3% ±1.1% 7,276 Thinking Machines",
           "score": 1307
         },
         {
           "rank": 20,
-          "model": "662W / 427L 60.8% ±2.9% 1,089 Google",
-          "score": 1304
+          "model": "665W / 427L 60.9% ±2.9% 1,092 Google",
+          "score": 1305
         },
         {
           "rank": 21,
-          "model": "2839W / 1932L 59.5% ±1.4% 4,771 Moonshot AI",
+          "model": "2841W / 1934L 59.5% ±1.4% 4,775 Moonshot AI",
           "score": 1292
         },
         {
           "rank": 22,
-          "model": "1763W / 1307L 57.4% ±1.7% 3,070 Anthropic",
-          "score": 1286
+          "model": "1766W / 1307L 57.5% ±1.7% 3,073 Anthropic",
+          "score": 1287
         },
         {
           "rank": 23,
-          "model": "506W / 300L 62.8% ±3.3% 806 OpenAI",
-          "score": 1286
+          "model": "193W / 211L 47.8% ±4.9% 404 DeepSeek",
+          "score": 1285
         },
         {
           "rank": 24,
-          "model": "193W / 211L 47.8% ±4.9% 404 DeepSeek",
-          "score": 1284
-        },
-        {
-          "rank": 25,
-          "model": "7466W / 5655L 56.9% ±0.8% 13,121 Meta",
+          "model": "7467W / 5655L 56.9% ±0.8% 13,122 Meta",
           "score": 1275
         },
         {
-          "rank": 26,
+          "rank": 25,
           "model": "8212W / 5351L 60.5% ±0.8% 13,563 Anthropic",
           "score": 1269
+        },
+        {
+          "rank": 26,
+          "model": "837W / 709L 54.1% ±2.5% 1,546 xAI",
+          "score": 1267
         }
       ],
       "method": "http"
@@ -1876,296 +1872,61 @@
       "stale_since": "2026-11-11T02:21:51.468524"
     },
     "github": {
-      "status": "stale",
-      "since": "2026-11-17",
-      "ai": [
-        {
-          "full_name": "fujc683/qwen4-max-api-proxy",
-          "stars": 15,
-          "language": "",
-          "description": "Qwen4 Max relay API: one key, Alipay payment, no overseas card.",
-          "url": "https://github.com/fujc683/qwen4-max-api-proxy",
-          "created_at": "2026-11-18T03:58:37Z"
-        },
-        {
-          "full_name": "fujc683/qwen4-max-api",
-          "stars": 14,
-          "language": "",
-          "description": "Qwen4 Max API: chat completions, streaming defaults and reasoning tokens.",
-          "url": "https://github.com/fujc683/qwen4-max-api",
-          "created_at": "2026-11-18T03:55:35Z"
-        },
-        {
-          "full_name": "fujc683/qwen4-max-pricing",
-          "stars": 12,
-          "language": "",
-          "description": "Qwen4 Max per-million-token pricing with real workload budgets.",
-          "url": "https://github.com/fujc683/qwen4-max-pricing",
-          "created_at": "2026-11-18T03:56:36Z"
-        },
-        {
-          "full_name": "fujc683/awesome-qwen4-max-prompts",
-          "stars": 12,
-          "language": "",
-          "description": "100 prompts that work well with Qwen4 Max, grouped by task type.",
-          "url": "https://github.com/fujc683/awesome-qwen4-max-prompts",
-          "created_at": "2026-11-18T03:54:35Z"
-        },
-        {
-          "full_name": "fujc683/cheap-llm-api",
-          "stars": 11,
-          "language": "",
-          "description": "Every LLM on APIMart ranked by price, plus a two-tier routing pattern.",
-          "url": "https://github.com/fujc683/cheap-llm-api",
-          "created_at": "2026-11-18T03:59:40Z"
-        },
-        {
-          "full_name": "fujc683/qwen4-max-alternatives",
-          "stars": 11,
-          "language": "",
-          "description": "Qwen4 Max vs Qwen3.8 Max vs DeepSeek V3.2 on cost and quality.",
-          "url": "https://github.com/fujc683/qwen4-max-alternatives",
-          "created_at": "2026-11-18T03:57:37Z"
-        }
-      ],
+      "status": "ok",
+      "since": "2026-11-18",
+      "ai": [],
       "general": [
         {
-          "full_name": "geerlingguy/chronytop",
-          "stars": 106,
+          "full_name": "julietorres41/GTAlabs",
+          "stars": 60,
           "language": "Go",
-          "description": "A TUI for chrony NTP time server monitoring",
-          "url": "https://github.com/geerlingguy/chronytop",
-          "created_at": "2026-11-18T02:51:38Z"
-        },
-        {
-          "full_name": "brandbudgietrimmer/Rob-Run-AIM",
-          "stars": 101,
-          "language": "",
-          "description": "Aim cheat tool for Rob Run with per-weapon presets, robrun, hack, free, money dupe, wallhack, fly, adaptive FOV, range cap, bone priority, visible-only lock and switch delay.",
-          "url": "https://github.com/brandbudgietrimmer/Rob-Run-AIM",
-          "created_at": "2026-11-18T15:07:51Z"
-        },
-        {
-          "full_name": "PlasterFlashBegin/ixl-browser-automation",
-          "stars": 88,
-          "language": "",
-          "description": "IXL Browser Automation is an automated script utility designed to interact with web drivers and programmatically navigate exercises on the IXL learning platform.",
-          "url": "https://github.com/PlasterFlashBegin/ixl-browser-automation",
-          "created_at": "2026-11-18T04:50:39Z"
-        },
-        {
-          "full_name": "sfewer-r7/CVE-2026-123007",
-          "stars": 74,
-          "language": "Python",
-          "description": "Proof-of-concept (PoC) scripts for CVE-2026-123007, an integer underflow in NGINX HTTP/2.",
-          "url": "https://github.com/sfewer-r7/CVE-2026-123007",
-          "created_at": "2026-11-18T11:16:51Z"
-        },
-        {
-          "full_name": "pookjw/Clocky",
-          "stars": 68,
-          "language": "Objective-C",
-          "description": "Present any Apple Watch face",
-          "url": "https://github.com/pookjw/Clocky",
-          "created_at": "2026-11-18T08:00:30Z"
-        },
-        {
-          "full_name": "Orbmu2k/NvidiaGsyncTweaks",
-          "stars": 67,
-          "language": "C#",
           "description": "",
-          "url": "https://github.com/Orbmu2k/NvidiaGsyncTweaks",
-          "created_at": "2026-11-18T10:50:37Z"
+          "url": "https://github.com/julietorres41/GTAlabs",
+          "created_at": "2026-11-19T07:31:31Z"
         },
         {
-          "full_name": "eddiezywang/wemail",
-          "stars": 64,
-          "language": "TypeScript",
-          "description": "Local-first AI email client",
-          "url": "https://github.com/eddiezywang/wemail",
-          "created_at": "2026-11-18T06:18:35Z"
-        },
-        {
-          "full_name": "Zenglidescribe/nintendo-switch-yuzu-emulator-free",
-          "stars": 49,
-          "language": "",
-          "description": "Nintendo Switch Yuzu Emulator Free is an open-source emulation software written in C++ that enables users to play Nintendo Switch games on Windows, Linux, and Android devices with enhanced resolution scaling and customizable controller support.",
-          "url": "https://github.com/Zenglidescribe/nintendo-switch-yuzu-emulator-free",
-          "created_at": "2026-11-18T04:53:57Z"
-        },
-        {
-          "full_name": "cerniq/scrap-tf-raffle-bot2027",
-          "stars": 44,
+          "full_name": "setyamickala/airdrop-agent",
+          "stars": 51,
           "language": "Python",
-          "description": "",
-          "url": "https://github.com/cerniq/scrap-tf-raffle-bot2027",
-          "created_at": "2026-11-18T01:13:04Z"
+          "description": "Autonomous airdrop operator: identities, wallets, socials, testnets, quests, radar — guarded CLI + MCP",
+          "url": "https://github.com/setyamickala/airdrop-agent",
+          "created_at": "2026-11-19T07:56:28Z"
         },
         {
-          "full_name": "THZoria/NX2_Firmware",
-          "stars": 41,
-          "language": "",
-          "description": "Firmware for the Nintendo Switch 2",
-          "url": "https://github.com/THZoria/NX2_Firmware",
-          "created_at": "2026-11-18T12:53:36Z"
+          "full_name": "flex36ty/switch2-gamevault",
+          "stars": 40,
+          "language": "C++",
+          "description": "Game Vault for Switch 2 — game and save backup/restore, decrypted backups, USB MTP, FTP and SMB storage.",
+          "url": "https://github.com/flex36ty/switch2-gamevault",
+          "created_at": "2026-11-19T00:34:20Z"
         }
       ],
       "items": [
         {
-          "full_name": "fujc683/qwen4-max-api-proxy",
-          "stars": 15,
-          "language": "",
-          "description": "Qwen4 Max relay API: one key, Alipay payment, no overseas card.",
-          "url": "https://github.com/fujc683/qwen4-max-api-proxy",
-          "created_at": "2026-11-18T03:58:37Z"
-        },
-        {
-          "full_name": "fujc683/qwen4-max-api",
-          "stars": 14,
-          "language": "",
-          "description": "Qwen4 Max API: chat completions, streaming defaults and reasoning tokens.",
-          "url": "https://github.com/fujc683/qwen4-max-api",
-          "created_at": "2026-11-18T03:55:35Z"
-        },
-        {
-          "full_name": "fujc683/qwen4-max-pricing",
-          "stars": 12,
-          "language": "",
-          "description": "Qwen4 Max per-million-token pricing with real workload budgets.",
-          "url": "https://github.com/fujc683/qwen4-max-pricing",
-          "created_at": "2026-11-18T03:56:36Z"
-        },
-        {
-          "full_name": "fujc683/awesome-qwen4-max-prompts",
-          "stars": 12,
-          "language": "",
-          "description": "100 prompts that work well with Qwen4 Max, grouped by task type.",
-          "url": "https://github.com/fujc683/awesome-qwen4-max-prompts",
-          "created_at": "2026-11-18T03:54:35Z"
-        },
-        {
-          "full_name": "fujc683/cheap-llm-api",
-          "stars": 11,
-          "language": "",
-          "description": "Every LLM on APIMart ranked by price, plus a two-tier routing pattern.",
-          "url": "https://github.com/fujc683/cheap-llm-api",
-          "created_at": "2026-11-18T03:59:40Z"
-        },
-        {
-          "full_name": "fujc683/qwen4-max-alternatives",
-          "stars": 11,
-          "language": "",
-          "description": "Qwen4 Max vs Qwen3.8 Max vs DeepSeek V3.2 on cost and quality.",
-          "url": "https://github.com/fujc683/qwen4-max-alternatives",
-          "created_at": "2026-11-18T03:57:37Z"
-        },
-        {
-          "full_name": "geerlingguy/chronytop",
-          "stars": 106,
+          "full_name": "julietorres41/GTAlabs",
+          "stars": 60,
           "language": "Go",
-          "description": "A TUI for chrony NTP time server monitoring",
-          "url": "https://github.com/geerlingguy/chronytop",
-          "created_at": "2026-11-18T02:51:38Z"
-        },
-        {
-          "full_name": "brandbudgietrimmer/Rob-Run-AIM",
-          "stars": 101,
-          "language": "",
-          "description": "Aim cheat tool for Rob Run with per-weapon presets, robrun, hack, free, money dupe, wallhack, fly, adaptive FOV, range cap, bone priority, visible-only lock and switch delay.",
-          "url": "https://github.com/brandbudgietrimmer/Rob-Run-AIM",
-          "created_at": "2026-11-18T15:07:51Z"
-        },
-        {
-          "full_name": "PlasterFlashBegin/ixl-browser-automation",
-          "stars": 88,
-          "language": "",
-          "description": "IXL Browser Automation is an automated script utility designed to interact with web drivers and programmatically navigate exercises on the IXL learning platform.",
-          "url": "https://github.com/PlasterFlashBegin/ixl-browser-automation",
-          "created_at": "2026-11-18T04:50:39Z"
-        },
-        {
-          "full_name": "sfewer-r7/CVE-2026-123007",
-          "stars": 74,
-          "language": "Python",
-          "description": "Proof-of-concept (PoC) scripts for CVE-2026-123007, an integer underflow in NGINX HTTP/2.",
-          "url": "https://github.com/sfewer-r7/CVE-2026-123007",
-          "created_at": "2026-11-18T11:16:51Z"
-        },
-        {
-          "full_name": "pookjw/Clocky",
-          "stars": 68,
-          "language": "Objective-C",
-          "description": "Present any Apple Watch face",
-          "url": "https://github.com/pookjw/Clocky",
-          "created_at": "2026-11-18T08:00:30Z"
-        },
-        {
-          "full_name": "Orbmu2k/NvidiaGsyncTweaks",
-          "stars": 67,
-          "language": "C#",
           "description": "",
-          "url": "https://github.com/Orbmu2k/NvidiaGsyncTweaks",
-          "created_at": "2026-11-18T10:50:37Z"
+          "url": "https://github.com/julietorres41/GTAlabs",
+          "created_at": "2026-11-19T07:31:31Z"
         },
         {
-          "full_name": "eddiezywang/wemail",
-          "stars": 64,
-          "language": "TypeScript",
-          "description": "Local-first AI email client",
-          "url": "https://github.com/eddiezywang/wemail",
-          "created_at": "2026-11-18T06:18:35Z"
-        },
-        {
-          "full_name": "Zenglidescribe/nintendo-switch-yuzu-emulator-free",
-          "stars": 49,
-          "language": "",
-          "description": "Nintendo Switch Yuzu Emulator Free is an open-source emulation software written in C++ that enables users to play Nintendo Switch games on Windows, Linux, and Android devices with enhanced resolution scaling and customizable controller support.",
-          "url": "https://github.com/Zenglidescribe/nintendo-switch-yuzu-emulator-free",
-          "created_at": "2026-11-18T04:53:57Z"
-        },
-        {
-          "full_name": "cerniq/scrap-tf-raffle-bot2027",
-          "stars": 44,
+          "full_name": "setyamickala/airdrop-agent",
+          "stars": 51,
           "language": "Python",
-          "description": "",
-          "url": "https://github.com/cerniq/scrap-tf-raffle-bot2027",
-          "created_at": "2026-11-18T01:13:04Z"
+          "description": "Autonomous airdrop operator: identities, wallets, socials, testnets, quests, radar — guarded CLI + MCP",
+          "url": "https://github.com/setyamickala/airdrop-agent",
+          "created_at": "2026-11-19T07:56:28Z"
         },
         {
-          "full_name": "THZoria/NX2_Firmware",
-          "stars": 41,
-          "language": "",
-          "description": "Firmware for the Nintendo Switch 2",
-          "url": "https://github.com/THZoria/NX2_Firmware",
-          "created_at": "2026-11-18T12:53:36Z"
-        },
-        {
-          "full_name": "wordystepuncl/ai-arbitrage-bot",
-          "stars": 39,
-          "language": "HTML",
-          "description": "Scan live crypto arbitrage spreads for BTC, ETH and BNB, altcoins on Binance, OKX, Gate and more. Compare bid and ask prices and estimate route returns after fees, slippage and transfer costs.",
-          "url": "https://github.com/wordystepuncl/ai-arbitrage-bot",
-          "created_at": "2026-11-18T01:04:35Z"
-        },
-        {
-          "full_name": "ntu0831/mini-agent",
-          "stars": 37,
-          "language": "Python",
-          "description": "",
-          "url": "https://github.com/ntu0831/mini-agent",
-          "created_at": "2026-11-18T09:40:43Z"
-        },
-        {
-          "full_name": "LawmakerBoil/MsOfficeLatestVersion2026",
-          "stars": 32,
-          "language": "Go",
-          "description": "how to get Office 2026",
-          "url": "https://github.com/LawmakerBoil/MsOfficeLatestVersion2026",
-          "created_at": "2026-11-18T01:29:38Z"
+          "full_name": "flex36ty/switch2-gamevault",
+          "stars": 40,
+          "language": "C++",
+          "description": "Game Vault for Switch 2 — game and save backup/restore, decrypted backups, USB MTP, FTP and SMB storage.",
+          "url": "https://github.com/flex36ty/switch2-gamevault",
+          "created_at": "2026-11-19T00:34:20Z"
         }
-      ],
-      "error": "github: status=error (GitHub Search falló: GitHub Search devolvió 0 repositorios)",
-      "stale_since": "2026-11-19T02:20:49.536599"
+      ]
     },
     "hackernews": {
       "status": "ok",
@@ -2225,73 +1986,73 @@
       "items": [
         {
           "id": "higurashi-ai/Haru-4B",
-          "likes": 694,
+          "likes": 1744,
           "downloads": 5314,
           "pipeline_tag": "audio-to-audio",
           "url": "https://huggingface.co/higurashi-ai/Haru-4B"
         },
         {
-          "id": "harness-hub/Qwen3.8-27B-pi-adapted",
-          "likes": 422,
-          "downloads": 377,
-          "pipeline_tag": "image-text-to-text",
-          "url": "https://huggingface.co/harness-hub/Qwen3.8-27B-pi-adapted"
-        },
-        {
-          "id": "Lightricks/LTX-2.5",
-          "likes": 12567,
-          "downloads": 2871190,
-          "pipeline_tag": "image-to-video",
-          "url": "https://huggingface.co/Lightricks/LTX-2.5"
-        },
-        {
-          "id": "thinkingmachines/Inkling-2-Small",
-          "likes": 495,
-          "downloads": 30082,
-          "pipeline_tag": "image-text-to-text",
-          "url": "https://huggingface.co/thinkingmachines/Inkling-2-Small"
-        },
-        {
-          "id": "MiniMaxAI/MiniMax-H3-Image",
-          "likes": 1583,
-          "downloads": 759661,
-          "pipeline_tag": "text-to-image",
-          "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3-Image"
-        },
-        {
-          "id": "Qwen/Qwen3.8-27B",
-          "likes": 20562,
-          "downloads": 6888351,
-          "pipeline_tag": "image-text-to-text",
-          "url": "https://huggingface.co/Qwen/Qwen3.8-27B"
-        },
-        {
           "id": "tencent/Hy4-flash",
-          "likes": 237,
+          "likes": 276,
           "downloads": 159,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/tencent/Hy4-flash"
         },
         {
-          "id": "n4ze3m/tiny-voca",
-          "likes": 290,
-          "downloads": 4430,
-          "pipeline_tag": "text-to-speech",
-          "url": "https://huggingface.co/n4ze3m/tiny-voca"
+          "id": "Qwen/Qwen3.8-27B",
+          "likes": 20602,
+          "downloads": 6647301,
+          "pipeline_tag": "image-text-to-text",
+          "url": "https://huggingface.co/Qwen/Qwen3.8-27B"
+        },
+        {
+          "id": "MiniMaxAI/MiniMax-H3-Image",
+          "likes": 1605,
+          "downloads": 759661,
+          "pipeline_tag": "text-to-image",
+          "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3-Image"
+        },
+        {
+          "id": "harness-hub/Qwen3.8-27B-pi-adapted",
+          "likes": 652,
+          "downloads": 377,
+          "pipeline_tag": "image-text-to-text",
+          "url": "https://huggingface.co/harness-hub/Qwen3.8-27B-pi-adapted"
         },
         {
           "id": "apple/FastFrames-L",
-          "likes": 218,
+          "likes": 248,
           "downloads": 0,
           "pipeline_tag": "text-to-video",
           "url": "https://huggingface.co/apple/FastFrames-L"
         },
         {
+          "id": "n4ze3m/tiny-voca",
+          "likes": 307,
+          "downloads": 4430,
+          "pipeline_tag": "text-to-speech",
+          "url": "https://huggingface.co/n4ze3m/tiny-voca"
+        },
+        {
           "id": "meituan-longcat/LongCat-Video-Avatar-1.6",
-          "likes": 265,
+          "likes": 286,
           "downloads": 1226,
           "pipeline_tag": "",
           "url": "https://huggingface.co/meituan-longcat/LongCat-Video-Avatar-1.6"
+        },
+        {
+          "id": "maxwell-model/Maxwell-V1-Flash",
+          "likes": 253,
+          "downloads": 1052,
+          "pipeline_tag": "text-generation",
+          "url": "https://huggingface.co/maxwell-model/Maxwell-V1-Flash"
+        },
+        {
+          "id": "Lightricks/LTX-2.5",
+          "likes": 12656,
+          "downloads": 2934937,
+          "pipeline_tag": "image-to-video",
+          "url": "https://huggingface.co/Lightricks/LTX-2.5"
         }
       ]
     }
