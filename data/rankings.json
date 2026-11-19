@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-18T21:07:31.894145",
+  "generated_at": "2026-11-19T02:20:49.536599",
   "sources": {
     "design": {
       "status": "ok",
@@ -7,7 +7,7 @@
         {
           "rank": 1,
           "model": "Claude Opus 5.5 (high)",
-          "score": 1444,
+          "score": 1443,
           "prompt_per_m": 4.0,
           "completion_per_m": 20.0,
           "context_length": 1000000,
@@ -16,7 +16,7 @@
         {
           "rank": 2,
           "model": "GPT-6 Astra (max)",
-          "score": 1396,
+          "score": 1395,
           "prompt_per_m": 10.0,
           "completion_per_m": 50.0,
           "context_length": 1050000,
@@ -25,7 +25,7 @@
         {
           "rank": 3,
           "model": "Claude Fable 5.2",
-          "score": 1364,
+          "score": 1363,
           "prompt_per_m": 8.0,
           "completion_per_m": 40.0,
           "context_length": 1000000,
@@ -34,7 +34,7 @@
         {
           "rank": 4,
           "model": "GPT-6.1 Sol (max)",
-          "score": 1361,
+          "score": 1360,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1050000,
@@ -43,7 +43,7 @@
         {
           "rank": 5,
           "model": "Qwen4-Max",
-          "score": 1358,
+          "score": 1357,
           "prompt_per_m": 1.425,
           "completion_per_m": 4.275,
           "context_length": 1000000,
@@ -52,7 +52,7 @@
         {
           "rank": 6,
           "model": "Claude Fable 5.1",
-          "score": 1334,
+          "score": 1333,
           "prompt_per_m": 10.0,
           "completion_per_m": 50.0,
           "context_length": 1000000,
@@ -61,7 +61,7 @@
         {
           "rank": 7,
           "model": "Inkling 2 Small",
-          "score": 1308,
+          "score": 1307,
           "prompt_per_m": 0.3,
           "completion_per_m": 1.0,
           "context_length": 1048576,
@@ -78,109 +78,109 @@
         },
         {
           "rank": 9,
-          "model": "GPT-6.2 Astra",
-          "score": 1298,
-          "prompt_per_m": 8.0,
-          "completion_per_m": 40.0,
-          "context_length": 1050000,
-          "is_free": false
-        },
-        {
-          "rank": 10,
           "model": "Kimi K3.1 Pro",
-          "score": 1293,
-          "prompt_per_m": 0.2403,
-          "completion_per_m": 8.4023,
+          "score": 1292,
+          "prompt_per_m": 0.253,
+          "completion_per_m": 8.8,
           "context_length": 1048576,
           "is_free": false
         },
         {
-          "rank": 11,
+          "rank": 10,
           "model": "Claude Sonnet 5.5",
-          "score": 1287,
+          "score": 1286,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1000000,
           "is_free": false
         },
         {
+          "rank": 11,
+          "model": "GPT-6.2 Astra",
+          "score": 1286,
+          "prompt_per_m": 8.0,
+          "completion_per_m": 40.0,
+          "context_length": 1050000,
+          "is_free": false
+        },
+        {
           "rank": 12,
           "model": "DeepSeek-V4.1-Flash (1017)",
-          "score": 1285,
-          "prompt_per_m": 0.0507,
-          "completion_per_m": 0.2028,
+          "score": 1284,
+          "prompt_per_m": 0.3,
+          "completion_per_m": 1.2,
           "context_length": 1048576,
           "is_free": false
         },
         {
           "rank": 13,
           "model": "1960W / 886L 68.9% ±1.7% 2,846 Anthropic",
-          "score": 1444
+          "score": 1443
         },
         {
           "rank": 14,
-          "model": "1702W / 831L 67.2% ±1.8% 2,533 OpenAI",
-          "score": 1396
+          "model": "1703W / 831L 67.2% ±1.8% 2,534 OpenAI",
+          "score": 1395
         },
         {
           "rank": 15,
-          "model": "1221W / 549L 69.0% ±2.2% 1,770 Anthropic",
-          "score": 1364
+          "model": "1223W / 552L 68.9% ±2.2% 1,775 Anthropic",
+          "score": 1363
         },
         {
           "rank": 16,
           "model": "1123W / 1122L 50.0% ±2.1% 2,245 OpenAI",
-          "score": 1361
+          "score": 1360
         },
         {
           "rank": 17,
-          "model": "2204W / 1316L 62.6% ±1.6% 3,520 Alibaba",
-          "score": 1358
+          "model": "2204W / 1318L 62.6% ±1.6% 3,522 Alibaba",
+          "score": 1357
         },
         {
           "rank": 18,
           "model": "3070W / 2085L 59.5% ±1.3% 5,155 Anthropic",
-          "score": 1334
+          "score": 1333
         },
         {
           "rank": 19,
-          "model": "4163W / 3108L 57.3% ±1.1% 7,271 Thinking Machines",
-          "score": 1308
+          "model": "4164W / 3108L 57.3% ±1.1% 7,272 Thinking Machines",
+          "score": 1307
         },
         {
           "rank": 20,
-          "model": "660W / 427L 60.7% ±2.9% 1,087 Google",
+          "model": "662W / 427L 60.8% ±2.9% 1,089 Google",
           "score": 1304
         },
         {
           "rank": 21,
-          "model": "369W / 204L 64.4% ±3.9% 573 OpenAI",
-          "score": 1298
+          "model": "2839W / 1932L 59.5% ±1.4% 4,771 Moonshot AI",
+          "score": 1292
         },
         {
           "rank": 22,
-          "model": "2837W / 1930L 59.5% ±1.4% 4,767 Moonshot AI",
-          "score": 1293
+          "model": "1763W / 1307L 57.4% ±1.7% 3,070 Anthropic",
+          "score": 1286
         },
         {
           "rank": 23,
-          "model": "1759W / 1306L 57.4% ±1.8% 3,065 Anthropic",
-          "score": 1287
+          "model": "506W / 300L 62.8% ±3.3% 806 OpenAI",
+          "score": 1286
         },
         {
           "rank": 24,
           "model": "193W / 211L 47.8% ±4.9% 404 DeepSeek",
-          "score": 1285
+          "score": 1284
         },
         {
           "rank": 25,
-          "model": "7463W / 5651L 56.9% ±0.8% 13,114 Meta",
-          "score": 1276
+          "model": "7466W / 5655L 56.9% ±0.8% 13,121 Meta",
+          "score": 1275
         },
         {
           "rank": 26,
           "model": "8212W / 5351L 60.5% ±0.8% 13,563 Anthropic",
-          "score": 1270
+          "score": 1269
         }
       ],
       "method": "http"
@@ -690,8 +690,8 @@
           "score": 1686,
           "author": "moonshot",
           "votes": 3995,
-          "prompt_per_m": 0.2403,
-          "completion_per_m": 8.4023,
+          "prompt_per_m": 0.253,
+          "completion_per_m": 8.8,
           "context_length": 1048576,
           "is_free": false
         },
@@ -1876,7 +1876,7 @@
       "stale_since": "2026-11-11T02:21:51.468524"
     },
     "github": {
-      "status": "ok",
+      "status": "stale",
       "since": "2026-11-17",
       "ai": [
         {
@@ -2163,7 +2163,9 @@
           "url": "https://github.com/LawmakerBoil/MsOfficeLatestVersion2026",
           "created_at": "2026-11-18T01:29:38Z"
         }
-      ]
+      ],
+      "error": "github: status=error (GitHub Search falló: GitHub Search devolvió 0 repositorios)",
+      "stale_since": "2026-11-19T02:20:49.536599"
     },
     "hackernews": {
       "status": "ok",
@@ -2223,70 +2225,70 @@
       "items": [
         {
           "id": "higurashi-ai/Haru-4B",
-          "likes": 652,
+          "likes": 694,
           "downloads": 5314,
           "pipeline_tag": "audio-to-audio",
           "url": "https://huggingface.co/higurashi-ai/Haru-4B"
         },
         {
+          "id": "harness-hub/Qwen3.8-27B-pi-adapted",
+          "likes": 422,
+          "downloads": 377,
+          "pipeline_tag": "image-text-to-text",
+          "url": "https://huggingface.co/harness-hub/Qwen3.8-27B-pi-adapted"
+        },
+        {
           "id": "Lightricks/LTX-2.5",
-          "likes": 12537,
+          "likes": 12567,
           "downloads": 2871190,
           "pipeline_tag": "image-to-video",
           "url": "https://huggingface.co/Lightricks/LTX-2.5"
         },
         {
           "id": "thinkingmachines/Inkling-2-Small",
-          "likes": 488,
+          "likes": 495,
           "downloads": 30082,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/thinkingmachines/Inkling-2-Small"
         },
         {
-          "id": "harness-hub/Qwen3.8-27B-pi-adapted",
-          "likes": 378,
-          "downloads": 377,
-          "pipeline_tag": "image-text-to-text",
-          "url": "https://huggingface.co/harness-hub/Qwen3.8-27B-pi-adapted"
-        },
-        {
           "id": "MiniMaxAI/MiniMax-H3-Image",
-          "likes": 1576,
+          "likes": 1583,
           "downloads": 759661,
           "pipeline_tag": "text-to-image",
           "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3-Image"
         },
         {
           "id": "Qwen/Qwen3.8-27B",
-          "likes": 20551,
+          "likes": 20562,
           "downloads": 6888351,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/Qwen/Qwen3.8-27B"
         },
         {
-          "id": "n4ze3m/tiny-voca",
-          "likes": 284,
-          "downloads": 4430,
-          "pipeline_tag": "text-to-speech",
-          "url": "https://huggingface.co/n4ze3m/tiny-voca"
-        },
-        {
           "id": "tencent/Hy4-flash",
-          "likes": 221,
+          "likes": 237,
           "downloads": 159,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/tencent/Hy4-flash"
         },
         {
+          "id": "n4ze3m/tiny-voca",
+          "likes": 290,
+          "downloads": 4430,
+          "pipeline_tag": "text-to-speech",
+          "url": "https://huggingface.co/n4ze3m/tiny-voca"
+        },
+        {
           "id": "apple/FastFrames-L",
-          "likes": 201,
+          "likes": 218,
           "downloads": 0,
           "pipeline_tag": "text-to-video",
           "url": "https://huggingface.co/apple/FastFrames-L"
         },
         {
           "id": "meituan-longcat/LongCat-Video-Avatar-1.6",
-          "likes": 255,
+          "likes": 265,
           "downloads": 1226,
           "pipeline_tag": "",
           "url": "https://huggingface.co/meituan-longcat/LongCat-Video-Avatar-1.6"
