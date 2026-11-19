@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-19T10:59:55.536955",
+  "generated_at": "2026-11-19T19:17:35.571734",
   "sources": {
     "design": {
       "status": "ok",
@@ -7,7 +7,7 @@
         {
           "rank": 1,
           "model": "Claude Opus 5.5 (high)",
-          "score": 1443,
+          "score": 1442,
           "prompt_per_m": 4.0,
           "completion_per_m": 20.0,
           "context_length": 1000000,
@@ -16,7 +16,7 @@
         {
           "rank": 2,
           "model": "GPT-6 Astra (max)",
-          "score": 1395,
+          "score": 1394,
           "prompt_per_m": 10.0,
           "completion_per_m": 50.0,
           "context_length": 1050000,
@@ -25,7 +25,7 @@
         {
           "rank": 3,
           "model": "Claude Fable 5.2",
-          "score": 1363,
+          "score": 1362,
           "prompt_per_m": 8.0,
           "completion_per_m": 40.0,
           "context_length": 1000000,
@@ -34,7 +34,7 @@
         {
           "rank": 4,
           "model": "GPT-6.1 Sol (max)",
-          "score": 1361,
+          "score": 1359,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1050000,
@@ -43,7 +43,7 @@
         {
           "rank": 5,
           "model": "Qwen4-Max",
-          "score": 1357,
+          "score": 1356,
           "prompt_per_m": 1.425,
           "completion_per_m": 4.275,
           "context_length": 1000000,
@@ -52,7 +52,7 @@
         {
           "rank": 6,
           "model": "Claude Fable 5.1",
-          "score": 1333,
+          "score": 1332,
           "prompt_per_m": 10.0,
           "completion_per_m": 50.0,
           "context_length": 1000000,
@@ -61,7 +61,7 @@
         {
           "rank": 7,
           "model": "Inkling 2 Small",
-          "score": 1307,
+          "score": 1306,
           "prompt_per_m": 0.3,
           "completion_per_m": 1.0,
           "context_length": 1048576,
@@ -69,114 +69,118 @@
         },
         {
           "rank": 8,
+          "model": "GPT-6.2 Astra (max)",
+          "score": 1304,
+          "prompt_per_m": 8.0,
+          "completion_per_m": 40.0,
+          "context_length": 1050000,
+          "is_free": false
+        },
+        {
+          "rank": 9,
           "model": "Gemini 4 Carbon",
-          "score": 1305,
+          "score": 1304,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1048576,
           "is_free": false
         },
         {
-          "rank": 9,
+          "rank": 10,
           "model": "Kimi K3.1 Pro",
-          "score": 1292,
+          "score": 1291,
           "prompt_per_m": 0.253,
           "completion_per_m": 8.8,
           "context_length": 1048576,
           "is_free": false
         },
         {
-          "rank": 10,
+          "rank": 11,
           "model": "Claude Sonnet 5.5",
-          "score": 1287,
+          "score": 1285,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1000000,
           "is_free": false
         },
         {
-          "rank": 11,
+          "rank": 12,
           "model": "DeepSeek-V4.1-Flash (1017)",
-          "score": 1285,
-          "prompt_per_m": 0.3,
-          "completion_per_m": 1.2,
+          "score": 1284,
+          "prompt_per_m": 0.0507,
+          "completion_per_m": 0.2028,
           "context_length": 1048576,
           "is_free": false
         },
         {
-          "rank": 12,
-          "model": "Muse Spark 1.3 Max",
-          "score": 1275
-        },
-        {
           "rank": 13,
           "model": "1960W / 886L 68.9% ±1.7% 2,846 Anthropic",
-          "score": 1443
+          "score": 1442
         },
         {
           "rank": 14,
-          "model": "1703W / 831L 67.2% ±1.8% 2,534 OpenAI",
-          "score": 1395
+          "model": "1705W / 833L 67.2% ±1.8% 2,538 OpenAI",
+          "score": 1394
         },
         {
           "rank": 15,
-          "model": "1225W / 552L 68.9% ±2.2% 1,777 Anthropic",
-          "score": 1363
+          "model": "1234W / 557L 68.9% ±2.1% 1,791 Anthropic",
+          "score": 1362
         },
         {
           "rank": 16,
           "model": "1123W / 1122L 50.0% ±2.1% 2,245 OpenAI",
-          "score": 1361
+          "score": 1359
         },
         {
           "rank": 17,
-          "model": "2206W / 1320L 62.6% ±1.6% 3,526 Alibaba",
-          "score": 1357
+          "model": "2211W / 1325L 62.5% ±1.6% 3,536 Alibaba",
+          "score": 1356
         },
         {
           "rank": 18,
           "model": "3070W / 2085L 59.5% ±1.3% 5,155 Anthropic",
-          "score": 1333
+          "score": 1332
         },
         {
           "rank": 19,
-          "model": "4167W / 3109L 57.3% ±1.1% 7,276 Thinking Machines",
-          "score": 1307
+          "model": "4170W / 3109L 57.3% ±1.1% 7,279 Thinking Machines",
+          "score": 1306
         },
         {
           "rank": 20,
-          "model": "665W / 427L 60.9% ±2.9% 1,092 Google",
-          "score": 1305
+          "model": "572W / 314L 64.6% ±3.1% 886 OpenAI",
+          "score": 1304
         },
         {
           "rank": 21,
-          "model": "2841W / 1934L 59.5% ±1.4% 4,775 Moonshot AI",
-          "score": 1292
+          "model": "668W / 430L 60.8% ±2.9% 1,098 Google",
+          "score": 1304
         },
         {
           "rank": 22,
-          "model": "1766W / 1307L 57.5% ±1.7% 3,073 Anthropic",
-          "score": 1287
+          "model": "2850W / 1945L 59.4% ±1.4% 4,795 Moonshot AI",
+          "score": 1291
         },
         {
           "rank": 23,
-          "model": "193W / 211L 47.8% ±4.9% 404 DeepSeek",
+          "model": "1776W / 1320L 57.4% ±1.7% 3,096 Anthropic",
           "score": 1285
         },
         {
           "rank": 24,
-          "model": "7467W / 5655L 56.9% ±0.8% 13,122 Meta",
-          "score": 1275
+          "model": "193W / 211L 47.8% ±4.9% 404 DeepSeek",
+          "score": 1284
         },
         {
           "rank": 25,
-          "model": "8212W / 5351L 60.5% ±0.8% 13,563 Anthropic",
-          "score": 1269
+          "model": "7473W / 5664L 56.9% ±0.8% 13,137 Meta",
+          "score": 1274
         },
         {
           "rank": 26,
-          "model": "837W / 709L 54.1% ±2.5% 1,546 xAI",
-          "score": 1267
+          "model": "8212W / 5351L 60.5% ±0.8% 13,563 Anthropic",
+          "score": 1268
         }
       ],
       "method": "http"
@@ -190,7 +194,7 @@
           "category": "Text",
           "score": 1538,
           "author": "google",
-          "votes": 4273,
+          "votes": 4266,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1048576,
@@ -198,133 +202,133 @@
         },
         {
           "rank": 2,
+          "model": "Gemini 4 Neon (High)",
+          "category": "Text",
+          "score": 1530,
+          "author": "google",
+          "votes": 3885,
+          "prompt_per_m": 3.0,
+          "completion_per_m": 15.0,
+          "context_length": 1048576,
+          "is_free": false
+        },
+        {
+          "rank": 3,
           "model": "Gemini 4 Argon (High)",
           "category": "Text",
           "score": 1529,
           "author": "google",
-          "votes": 20779,
+          "votes": 25751,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1048576,
           "is_free": false
         },
         {
-          "rank": 3,
+          "rank": 4,
           "model": "Claude Opus 5.5 (High)",
           "category": "Text",
           "score": 1514,
           "author": "anthropic",
-          "votes": 15793,
+          "votes": 17727,
           "prompt_per_m": 4.0,
           "completion_per_m": 20.0,
           "context_length": 1000000,
           "is_free": false
         },
         {
-          "rank": 4,
+          "rank": 5,
           "model": "Claude Fable 5.1 (Max)",
           "category": "Text",
           "score": 1512,
           "author": "anthropic",
-          "votes": 20511,
+          "votes": 21941,
           "prompt_per_m": 10.0,
           "completion_per_m": 50.0,
           "context_length": 1000000,
           "is_free": false
         },
         {
-          "rank": 5,
+          "rank": 6,
           "model": "Claude Opus 5 (Max)",
           "category": "Text",
-          "score": 1507,
+          "score": 1506,
           "author": "anthropic",
-          "votes": 35670,
+          "votes": 35568,
           "prompt_per_m": 5.0,
           "completion_per_m": 25.0,
           "context_length": 1000000,
           "is_free": false
         },
         {
-          "rank": 6,
+          "rank": 7,
           "model": "Muse Wonder (Max)",
           "category": "Text",
           "score": 1503,
           "author": "meta",
-          "votes": 12696,
+          "votes": 15331,
           "prompt_per_m": 4.0,
           "completion_per_m": 20.0,
           "context_length": 1048576,
           "is_free": false
         },
         {
-          "rank": 7,
+          "rank": 8,
           "model": "Claude Opus 5 (High)",
           "category": "Text",
           "score": 1502,
           "author": "anthropic",
-          "votes": 73632,
+          "votes": 73457,
           "prompt_per_m": 5.0,
           "completion_per_m": 25.0,
           "context_length": 1000000,
           "is_free": false
         },
         {
-          "rank": 8,
+          "rank": 9,
           "model": "Gemini 4 Hydrogen (High)",
           "category": "Text",
           "score": 1502,
           "author": "google",
-          "votes": 4741,
+          "votes": 4737,
           "prompt_per_m": 1.5,
           "completion_per_m": 7.5,
           "context_length": 1048576,
           "is_free": false
         },
         {
-          "rank": 9,
+          "rank": 10,
           "model": "Claude Opus 4.6 (High)",
           "category": "Text",
           "score": 1501,
           "author": "anthropic",
-          "votes": 84375,
+          "votes": 84226,
           "prompt_per_m": 5.0,
           "completion_per_m": 25.0,
           "context_length": 1000000,
           "is_free": false
         },
         {
-          "rank": 10,
+          "rank": 11,
           "model": "Gemini 3.8 Flash (High)",
           "category": "Text",
           "score": 1500,
           "author": "google",
-          "votes": 62675,
+          "votes": 70822,
           "prompt_per_m": 0.825,
           "completion_per_m": 4.125,
           "context_length": 1048576,
           "is_free": false
         },
         {
-          "rank": 11,
+          "rank": 12,
           "model": "Claude Opus 4.6",
           "category": "Text",
           "score": 1497,
           "author": "anthropic",
-          "votes": 89177,
+          "votes": 88982,
           "prompt_per_m": 5.0,
           "completion_per_m": 25.0,
-          "context_length": 1000000,
-          "is_free": false
-        },
-        {
-          "rank": 12,
-          "model": "Claude Fable 5 (High)",
-          "category": "Text",
-          "score": 1492,
-          "author": "anthropic",
-          "votes": 45469,
-          "prompt_per_m": 10.0,
-          "completion_per_m": 50.0,
           "context_length": 1000000,
           "is_free": false
         },
@@ -332,9 +336,9 @@
           "rank": 13,
           "model": "Muse Spark 1.3 (Max)",
           "category": "Text",
-          "score": 1492,
+          "score": 1493,
           "author": "meta",
-          "votes": 26806,
+          "votes": 29406,
           "prompt_per_m": 1.25,
           "completion_per_m": 4.25,
           "context_length": 1048576,
@@ -346,7 +350,7 @@
           "category": "Text",
           "score": 1492,
           "author": "xiaomi",
-          "votes": 4064,
+          "votes": 4056,
           "prompt_per_m": 0.435,
           "completion_per_m": 0.87,
           "context_length": 1050000,
@@ -354,13 +358,13 @@
         },
         {
           "rank": 15,
-          "model": "Claude Opus 4.7 (High)",
+          "model": "Claude Fable 5 (High)",
           "category": "Text",
-          "score": 1490,
+          "score": 1492,
           "author": "anthropic",
-          "votes": 64260,
-          "prompt_per_m": 5.0,
-          "completion_per_m": 25.0,
+          "votes": 45336,
+          "prompt_per_m": 10.0,
+          "completion_per_m": 50.0,
           "context_length": 1000000,
           "is_free": false
         },
@@ -368,9 +372,9 @@
           "rank": 1,
           "model": "Gemini 4 Carbon (High)",
           "category": "Code",
-          "score": 1564,
+          "score": 1563,
           "author": "google",
-          "votes": 4273,
+          "votes": 4266,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1048576,
@@ -378,71 +382,71 @@
         },
         {
           "rank": 2,
+          "model": "Gemini 4 Neon (High)",
+          "category": "Code",
+          "score": 1556,
+          "author": "google",
+          "votes": 3885,
+          "prompt_per_m": 3.0,
+          "completion_per_m": 15.0,
+          "context_length": 1048576,
+          "is_free": false
+        },
+        {
+          "rank": 3,
           "model": "Claude Opus 5.5 (High)",
           "category": "Code",
           "score": 1543,
           "author": "anthropic",
-          "votes": 15793,
+          "votes": 17727,
           "prompt_per_m": 4.0,
           "completion_per_m": 20.0,
           "context_length": 1000000,
           "is_free": false
         },
         {
-          "rank": 3,
+          "rank": 4,
           "model": "Gemini 4 Argon (High)",
           "category": "Code",
-          "score": 1540,
+          "score": 1541,
           "author": "google",
-          "votes": 20779,
+          "votes": 25751,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1048576,
           "is_free": false
         },
         {
-          "rank": 4,
+          "rank": 5,
           "model": "Claude Opus 4.6",
           "category": "Code",
           "score": 1534,
           "author": "anthropic",
-          "votes": 89177,
+          "votes": 88982,
           "prompt_per_m": 5.0,
           "completion_per_m": 25.0,
           "context_length": 1000000,
           "is_free": false
         },
         {
-          "rank": 5,
+          "rank": 6,
           "model": "MiMo-V2.6-Pro",
           "category": "Code",
           "score": 1534,
           "author": "xiaomi",
-          "votes": 4064,
+          "votes": 4056,
           "prompt_per_m": 0.435,
           "completion_per_m": 0.87,
           "context_length": 1050000,
           "is_free": false
         },
         {
-          "rank": 6,
+          "rank": 7,
           "model": "Claude Opus 5 (Max)",
           "category": "Code",
           "score": 1532,
           "author": "anthropic",
-          "votes": 35670,
-          "prompt_per_m": 5.0,
-          "completion_per_m": 25.0,
-          "context_length": 1000000,
-          "is_free": false
-        },
-        {
-          "rank": 7,
-          "model": "Claude Opus 5 (High)",
-          "category": "Code",
-          "score": 1531,
-          "author": "anthropic",
-          "votes": 73632,
+          "votes": 35568,
           "prompt_per_m": 5.0,
           "completion_per_m": 25.0,
           "context_length": 1000000,
@@ -454,7 +458,7 @@
           "category": "Code",
           "score": 1531,
           "author": "anthropic",
-          "votes": 84375,
+          "votes": 84226,
           "prompt_per_m": 5.0,
           "completion_per_m": 25.0,
           "context_length": 1000000,
@@ -462,62 +466,62 @@
         },
         {
           "rank": 9,
-          "model": "Claude Fable 5.1 (Max)",
+          "model": "Claude Opus 5 (High)",
           "category": "Code",
-          "score": 1527,
+          "score": 1531,
           "author": "anthropic",
-          "votes": 20511,
-          "prompt_per_m": 10.0,
-          "completion_per_m": 50.0,
-          "context_length": 1000000,
-          "is_free": false
-        },
-        {
-          "rank": 10,
-          "model": "Claude Opus 4.7 (High)",
-          "category": "Code",
-          "score": 1519,
-          "author": "anthropic",
-          "votes": 64260,
+          "votes": 73457,
           "prompt_per_m": 5.0,
           "completion_per_m": 25.0,
           "context_length": 1000000,
           "is_free": false
         },
         {
-          "rank": 11,
-          "model": "Claude Fable 5 (High)",
+          "rank": 10,
+          "model": "Claude Fable 5.1 (Max)",
           "category": "Code",
-          "score": 1519,
+          "score": 1526,
           "author": "anthropic",
-          "votes": 45469,
+          "votes": 21941,
           "prompt_per_m": 10.0,
           "completion_per_m": 50.0,
           "context_length": 1000000,
           "is_free": false
         },
         {
-          "rank": 12,
-          "model": "Gemini 4 Hydrogen (High)",
+          "rank": 11,
+          "model": "Muse Wonder (Max)",
           "category": "Code",
-          "score": 1516,
-          "author": "google",
-          "votes": 4741,
-          "prompt_per_m": 1.5,
-          "completion_per_m": 7.5,
+          "score": 1522,
+          "author": "meta",
+          "votes": 15331,
+          "prompt_per_m": 4.0,
+          "completion_per_m": 20.0,
           "context_length": 1048576,
           "is_free": false
         },
         {
-          "rank": 13,
-          "model": "Muse Wonder (Max)",
+          "rank": 12,
+          "model": "Claude Opus 4.7 (High)",
           "category": "Code",
-          "score": 1516,
-          "author": "meta",
-          "votes": 12696,
-          "prompt_per_m": 4.0,
-          "completion_per_m": 20.0,
-          "context_length": 1048576,
+          "score": 1519,
+          "author": "anthropic",
+          "votes": 64131,
+          "prompt_per_m": 5.0,
+          "completion_per_m": 25.0,
+          "context_length": 1000000,
+          "is_free": false
+        },
+        {
+          "rank": 13,
+          "model": "Claude Fable 5 (High)",
+          "category": "Code",
+          "score": 1519,
+          "author": "anthropic",
+          "votes": 45336,
+          "prompt_per_m": 10.0,
+          "completion_per_m": 50.0,
+          "context_length": 1000000,
           "is_free": false
         },
         {
@@ -526,7 +530,7 @@
           "category": "Code",
           "score": 1515,
           "author": "anthropic",
-          "votes": 65309,
+          "votes": 65194,
           "prompt_per_m": 5.0,
           "completion_per_m": 25.0,
           "context_length": 1000000,
@@ -534,13 +538,13 @@
         },
         {
           "rank": 15,
-          "model": "Gemini 3.8 Flash (High)",
+          "model": "Gemini 4 Hydrogen (High)",
           "category": "Code",
-          "score": 1510,
+          "score": 1513,
           "author": "google",
-          "votes": 62675,
-          "prompt_per_m": 0.825,
-          "completion_per_m": 4.125,
+          "votes": 4737,
+          "prompt_per_m": 1.5,
+          "completion_per_m": 7.5,
           "context_length": 1048576,
           "is_free": false
         },
@@ -548,7 +552,7 @@
           "rank": 1,
           "model": "Claude Fable 5.2 (xHigh)",
           "category": "WebDev",
-          "score": 1826,
+          "score": 1824,
           "author": "anthropic",
           "prompt_per_m": 8.0,
           "completion_per_m": 40.0,
@@ -559,7 +563,7 @@
           "rank": 2,
           "model": "Claude Opus 5.5 (Max)",
           "category": "WebDev",
-          "score": 1816,
+          "score": 1818,
           "author": "anthropic",
           "prompt_per_m": 4.0,
           "completion_per_m": 20.0,
@@ -568,42 +572,76 @@
         },
         {
           "rank": 3,
+          "model": "GPT-6.2 Astra (Max)",
+          "category": "WebDev",
+          "score": 1781,
+          "author": "openai",
+          "prompt_per_m": 8.0,
+          "completion_per_m": 40.0,
+          "context_length": 1050000,
+          "is_free": false
+        },
+        {
+          "rank": 4,
           "model": "Claude Sonnet 5.5 (xHigh)",
           "category": "WebDev",
-          "score": 1772,
+          "score": 1773,
           "author": "anthropic",
-          "votes": 14355,
+          "votes": 16356,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1000000,
           "is_free": false
         },
         {
-          "rank": 4,
+          "rank": 5,
           "model": "Gemini 4 Carbon (High)",
           "category": "WebDev",
-          "score": 1768,
+          "score": 1769,
           "author": "google",
-          "votes": 4273,
+          "votes": 4266,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1048576,
           "is_free": false
         },
         {
-          "rank": 5,
+          "rank": 6,
+          "model": "Gemini 4 Neon (High)",
+          "category": "WebDev",
+          "score": 1764,
+          "author": "google",
+          "votes": 3885,
+          "prompt_per_m": 3.0,
+          "completion_per_m": 15.0,
+          "context_length": 1048576,
+          "is_free": false
+        },
+        {
+          "rank": 7,
           "model": "GPT-6 Astra (Max)",
           "category": "WebDev",
           "score": 1763,
           "author": "openai",
-          "votes": 18745,
+          "votes": 20431,
           "prompt_per_m": 10.0,
           "completion_per_m": 50.0,
           "context_length": 1050000,
           "is_free": false
         },
         {
-          "rank": 6,
+          "rank": 8,
+          "model": "GPT-6.2 Sol (Max)",
+          "category": "WebDev",
+          "score": 1757,
+          "author": "openai",
+          "prompt_per_m": 2.0,
+          "completion_per_m": 10.0,
+          "context_length": 1050000,
+          "is_free": false
+        },
+        {
+          "rank": 9,
           "model": "Qwen4-Max (xHigh)",
           "category": "WebDev",
           "score": 1750,
@@ -614,38 +652,38 @@
           "is_free": false
         },
         {
-          "rank": 7,
-          "model": "Claude Fable 5.1 (Max)",
-          "category": "WebDev",
-          "score": 1743,
-          "author": "anthropic",
-          "votes": 20511,
-          "prompt_per_m": 10.0,
-          "completion_per_m": 50.0,
-          "context_length": 1000000,
-          "is_free": false
-        },
-        {
-          "rank": 8,
+          "rank": 10,
           "model": "GPT-6.1 Sol (Max)",
           "category": "WebDev",
-          "score": 1742,
+          "score": 1744,
           "author": "openai",
-          "votes": 13498,
+          "votes": 15324,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1050000,
           "is_free": false
         },
         {
-          "rank": 9,
+          "rank": 11,
+          "model": "Claude Fable 5.1 (Max)",
+          "category": "WebDev",
+          "score": 1741,
+          "author": "anthropic",
+          "votes": 21941,
+          "prompt_per_m": 10.0,
+          "completion_per_m": 50.0,
+          "context_length": 1000000,
+          "is_free": false
+        },
+        {
+          "rank": 12,
           "model": "Muse Wonder Full (Max)",
           "category": "WebDev",
-          "score": 1724,
+          "score": 1723,
           "author": "meta"
         },
         {
-          "rank": 10,
+          "rank": 13,
           "model": "Claude Sonnet 5.5 (High)",
           "category": "WebDev",
           "score": 1716,
@@ -656,62 +694,27 @@
           "is_free": false
         },
         {
-          "rank": 11,
+          "rank": 14,
           "model": "Gemini 4 Hydrogen (High)",
           "category": "WebDev",
-          "score": 1704,
+          "score": 1703,
           "author": "google",
-          "votes": 4741,
+          "votes": 4737,
           "prompt_per_m": 1.5,
           "completion_per_m": 7.5,
           "context_length": 1048576,
           "is_free": false
         },
         {
-          "rank": 12,
+          "rank": 15,
           "model": "Claude Opus 5 (Max)",
           "category": "WebDev",
           "score": 1691,
           "author": "anthropic",
-          "votes": 35670,
+          "votes": 35568,
           "prompt_per_m": 5.0,
           "completion_per_m": 25.0,
           "context_length": 1000000,
-          "is_free": false
-        },
-        {
-          "rank": 13,
-          "model": "Kimi K3.1 Pro (Max)",
-          "category": "WebDev",
-          "score": 1686,
-          "author": "moonshot",
-          "votes": 3995,
-          "prompt_per_m": 0.253,
-          "completion_per_m": 8.8,
-          "context_length": 1048576,
-          "is_free": false
-        },
-        {
-          "rank": 14,
-          "model": "GPT-6.1 Terra (Max)",
-          "category": "WebDev",
-          "score": 1681,
-          "author": "openai",
-          "prompt_per_m": 1.0,
-          "completion_per_m": 5.0,
-          "context_length": 1050000,
-          "is_free": false
-        },
-        {
-          "rank": 15,
-          "model": "Gemini 4 Argon (High)",
-          "category": "WebDev",
-          "score": 1679,
-          "author": "google",
-          "votes": 20779,
-          "prompt_per_m": 2.0,
-          "completion_per_m": 10.0,
-          "context_length": 1048576,
           "is_free": false
         },
         {
@@ -720,7 +723,7 @@
           "category": "Vision",
           "score": 1326,
           "author": "anthropic",
-          "votes": 45469,
+          "votes": 45336,
           "prompt_per_m": 10.0,
           "completion_per_m": 50.0,
           "context_length": 1000000,
@@ -732,7 +735,7 @@
           "category": "Vision",
           "score": 1324,
           "author": "anthropic",
-          "votes": 15793,
+          "votes": 17727,
           "prompt_per_m": 4.0,
           "completion_per_m": 20.0,
           "context_length": 1000000,
@@ -744,7 +747,7 @@
           "category": "Vision",
           "score": 1322,
           "author": "anthropic",
-          "votes": 20511,
+          "votes": 21941,
           "prompt_per_m": 10.0,
           "completion_per_m": 50.0,
           "context_length": 1000000,
@@ -756,7 +759,7 @@
           "category": "Vision",
           "score": 1319,
           "author": "anthropic",
-          "votes": 65309,
+          "votes": 65194,
           "prompt_per_m": 5.0,
           "completion_per_m": 25.0,
           "context_length": 1000000,
@@ -768,7 +771,7 @@
           "category": "Vision",
           "score": 1317,
           "author": "anthropic",
-          "votes": 73632,
+          "votes": 73457,
           "prompt_per_m": 5.0,
           "completion_per_m": 25.0,
           "context_length": 1000000,
@@ -780,7 +783,7 @@
           "category": "Vision",
           "score": 1317,
           "author": "google",
-          "votes": 62675,
+          "votes": 70822,
           "prompt_per_m": 0.825,
           "completion_per_m": 4.125,
           "context_length": 1048576,
@@ -792,7 +795,7 @@
           "category": "Vision",
           "score": 1316,
           "author": "anthropic",
-          "votes": 84375,
+          "votes": 84226,
           "prompt_per_m": 5.0,
           "completion_per_m": 25.0,
           "context_length": 1000000,
@@ -804,7 +807,7 @@
           "category": "Vision",
           "score": 1314,
           "author": "anthropic",
-          "votes": 64260,
+          "votes": 64131,
           "prompt_per_m": 5.0,
           "completion_per_m": 25.0,
           "context_length": 1000000,
@@ -816,7 +819,7 @@
           "category": "Vision",
           "score": 1313,
           "author": "google",
-          "votes": 33251,
+          "votes": 33110,
           "prompt_per_m": 0.75,
           "completion_per_m": 3.75,
           "context_length": 1048576,
@@ -828,7 +831,7 @@
           "category": "Vision",
           "score": 1312,
           "author": "anthropic",
-          "votes": 89177,
+          "votes": 88982,
           "prompt_per_m": 5.0,
           "completion_per_m": 25.0,
           "context_length": 1000000,
@@ -840,7 +843,7 @@
           "category": "Vision",
           "score": 1312,
           "author": "qwen",
-          "votes": 36936,
+          "votes": 39457,
           "prompt_per_m": 2.0,
           "completion_per_m": 6.0,
           "context_length": 1000000
@@ -851,7 +854,7 @@
           "category": "Vision",
           "score": 1310,
           "author": "meta",
-          "votes": 26806,
+          "votes": 29406,
           "prompt_per_m": 1.25,
           "completion_per_m": 4.25,
           "context_length": 1048576,
@@ -863,7 +866,7 @@
           "category": "Vision",
           "score": 1308,
           "author": "google",
-          "votes": 47588,
+          "votes": 47501,
           "prompt_per_m": 1.5,
           "completion_per_m": 9.0,
           "context_length": 1048576,
@@ -875,7 +878,7 @@
           "category": "Vision",
           "score": 1306,
           "author": "meta",
-          "votes": 13985
+          "votes": 13972
         },
         {
           "rank": 15,
@@ -883,7 +886,7 @@
           "category": "Vision",
           "score": 1305,
           "author": "google",
-          "votes": 46329,
+          "votes": 46190,
           "prompt_per_m": 1.5,
           "completion_per_m": 9.0,
           "context_length": 1048576,
@@ -893,7 +896,7 @@
           "rank": 1,
           "model": "Claude Fable 5.2 (Max)",
           "category": "Agent",
-          "win_rate_pct": 28.61,
+          "win_rate_pct": 27.42,
           "author": "anthropic",
           "prompt_per_m": 8.0,
           "completion_per_m": 40.0,
@@ -904,7 +907,7 @@
           "rank": 2,
           "model": "Claude Opus 5.5 (Max)",
           "category": "Agent",
-          "win_rate_pct": 18.19,
+          "win_rate_pct": 18.63,
           "author": "anthropic",
           "prompt_per_m": 4.0,
           "completion_per_m": 20.0,
@@ -913,21 +916,33 @@
         },
         {
           "rank": 3,
-          "model": "Gemini 4 Carbon (High)",
+          "model": "Gemini 4 Neon (High)",
           "category": "Agent",
-          "win_rate_pct": 16.45,
+          "win_rate_pct": 18.41,
           "author": "google",
-          "votes": 4273,
-          "prompt_per_m": 2.0,
-          "completion_per_m": 10.0,
+          "votes": 3885,
+          "prompt_per_m": 3.0,
+          "completion_per_m": 15.0,
           "context_length": 1048576,
           "is_free": false
         },
         {
           "rank": 4,
+          "model": "Gemini 4 Carbon (High)",
+          "category": "Agent",
+          "win_rate_pct": 16.1,
+          "author": "google",
+          "votes": 4266,
+          "prompt_per_m": 2.0,
+          "completion_per_m": 10.0,
+          "context_length": 1048576,
+          "is_free": false
+        },
+        {
+          "rank": 5,
           "model": "Claude Sonnet 5.5 (Max)",
           "category": "Agent",
-          "win_rate_pct": 15.29,
+          "win_rate_pct": 15.56,
           "author": "anthropic",
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
@@ -935,36 +950,23 @@
           "is_free": false
         },
         {
-          "rank": 5,
-          "model": "Gemini 4 Hydrogen (High)",
-          "category": "Agent",
-          "win_rate_pct": 14.91,
-          "author": "google",
-          "votes": 4741,
-          "prompt_per_m": 1.5,
-          "completion_per_m": 7.5,
-          "context_length": 1048576,
-          "is_free": false
-        },
-        {
           "rank": 6,
-          "model": "Claude Fable 5.1 (Max)",
+          "model": "GPT-6.2 Astra (Max)",
           "category": "Agent",
-          "win_rate_pct": 14.1,
-          "author": "anthropic",
-          "votes": 20511,
-          "prompt_per_m": 10.0,
-          "completion_per_m": 50.0,
-          "context_length": 1000000,
+          "win_rate_pct": 15.22,
+          "author": "openai",
+          "prompt_per_m": 8.0,
+          "completion_per_m": 40.0,
+          "context_length": 1050000,
           "is_free": false
         },
         {
           "rank": 7,
           "model": "GPT-6 Astra (Max)",
           "category": "Agent",
-          "win_rate_pct": 13.91,
+          "win_rate_pct": 14.56,
           "author": "openai",
-          "votes": 18745,
+          "votes": 20431,
           "prompt_per_m": 10.0,
           "completion_per_m": 50.0,
           "context_length": 1050000,
@@ -974,9 +976,9 @@
           "rank": 8,
           "model": "Claude Opus 5.5 (High)",
           "category": "Agent",
-          "win_rate_pct": 13.35,
+          "win_rate_pct": 13.7,
           "author": "anthropic",
-          "votes": 15793,
+          "votes": 17727,
           "prompt_per_m": 4.0,
           "completion_per_m": 20.0,
           "context_length": 1000000,
@@ -984,45 +986,46 @@
         },
         {
           "rank": 9,
-          "model": "GPT-6.1 Sol (Max)",
+          "model": "Claude Fable 5.1 (Max)",
           "category": "Agent",
-          "win_rate_pct": 11.78,
-          "author": "openai",
-          "votes": 13498,
-          "prompt_per_m": 2.0,
-          "completion_per_m": 10.0,
-          "context_length": 1050000,
+          "win_rate_pct": 13.66,
+          "author": "anthropic",
+          "votes": 21941,
+          "prompt_per_m": 10.0,
+          "completion_per_m": 50.0,
+          "context_length": 1000000,
           "is_free": false
         },
         {
           "rank": 10,
-          "model": "GPT-6.1 Terra (Max)",
+          "model": "Gemini 4 Hydrogen (High)",
           "category": "Agent",
-          "win_rate_pct": 11.34,
-          "author": "openai",
-          "prompt_per_m": 1.0,
-          "completion_per_m": 5.0,
-          "context_length": 1050000,
-          "is_free": false
-        },
-        {
-          "rank": 11,
-          "model": "Gemini 4 Argon (High)",
-          "category": "Agent",
-          "win_rate_pct": 10.0,
+          "win_rate_pct": 13.52,
           "author": "google",
-          "votes": 20779,
-          "prompt_per_m": 2.0,
-          "completion_per_m": 10.0,
+          "votes": 4737,
+          "prompt_per_m": 1.5,
+          "completion_per_m": 7.5,
           "context_length": 1048576,
           "is_free": false
         },
         {
-          "rank": 12,
-          "model": "GPT-6.1 Sol (Medium)",
+          "rank": 11,
+          "model": "GPT-6.2 Sol (Max)",
           "category": "Agent",
-          "win_rate_pct": 8.04,
+          "win_rate_pct": 11.31,
           "author": "openai",
+          "prompt_per_m": 2.0,
+          "completion_per_m": 10.0,
+          "context_length": 1050000,
+          "is_free": false
+        },
+        {
+          "rank": 12,
+          "model": "GPT-6.1 Sol (Max)",
+          "category": "Agent",
+          "win_rate_pct": 11.31,
+          "author": "openai",
+          "votes": 15324,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1050000,
@@ -1030,31 +1033,36 @@
         },
         {
           "rank": 13,
-          "model": "Muse Wonder Full (Max)",
+          "model": "GPT-6.1 Terra (Max)",
           "category": "Agent",
-          "win_rate_pct": 8.0,
-          "author": "meta"
+          "win_rate_pct": 10.48,
+          "author": "openai",
+          "prompt_per_m": 1.0,
+          "completion_per_m": 5.0,
+          "context_length": 1050000,
+          "is_free": false
         },
         {
           "rank": 14,
-          "model": "Qwen4-Max (xHigh)",
+          "model": "Gemini 4 Argon (High)",
           "category": "Agent",
-          "win_rate_pct": 7.46,
-          "author": "qwen",
-          "prompt_per_m": 1.425,
-          "completion_per_m": 4.275,
-          "context_length": 1000000,
+          "win_rate_pct": 10.31,
+          "author": "google",
+          "votes": 25751,
+          "prompt_per_m": 2.0,
+          "completion_per_m": 10.0,
+          "context_length": 1048576,
           "is_free": false
         },
         {
           "rank": 15,
-          "model": "Claude Sonnet 5.5 (High)",
+          "model": "GPT-6.1 Sol (Medium)",
           "category": "Agent",
-          "win_rate_pct": 7.18,
-          "author": "anthropic",
+          "win_rate_pct": 8.2,
+          "author": "openai",
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
-          "context_length": 1000000,
+          "context_length": 1050000,
           "is_free": false
         },
         {
@@ -1877,54 +1885,206 @@
       "ai": [],
       "general": [
         {
-          "full_name": "julietorres41/GTAlabs",
-          "stars": 60,
-          "language": "Go",
-          "description": "",
-          "url": "https://github.com/julietorres41/GTAlabs",
-          "created_at": "2026-11-19T07:31:31Z"
-        },
-        {
-          "full_name": "setyamickala/airdrop-agent",
-          "stars": 51,
+          "full_name": "iamajmeena/neonclipping",
+          "stars": 277,
           "language": "Python",
-          "description": "Autonomous airdrop operator: identities, wallets, socials, testnets, quests, radar — guarded CLI + MCP",
-          "url": "https://github.com/setyamickala/airdrop-agent",
-          "created_at": "2026-11-19T07:56:28Z"
+          "description": "Paste a link, get captioned 9:16 clips in ~2 min. Free, local, open-source clipping engine (audio-first, YouTube captions, local LLM).",
+          "url": "https://github.com/iamajmeena/neonclipping",
+          "created_at": "2026-11-19T10:00:43Z"
         },
         {
-          "full_name": "flex36ty/switch2-gamevault",
-          "stars": 40,
-          "language": "C++",
-          "description": "Game Vault for Switch 2 — game and save backup/restore, decrypted backups, USB MTP, FTP and SMB storage.",
-          "url": "https://github.com/flex36ty/switch2-gamevault",
-          "created_at": "2026-11-19T00:34:20Z"
+          "full_name": "MSNightmare/FastUnlock",
+          "stars": 257,
+          "language": "",
+          "description": "FastUnlock : Windows Narrator LockScreen Bypass 0day Vulnerability",
+          "url": "https://github.com/MSNightmare/FastUnlock",
+          "created_at": "2026-11-19T12:37:51Z"
+        },
+        {
+          "full_name": "duwqijlk/google-trial-tool",
+          "stars": 224,
+          "language": "JavaScript",
+          "description": "",
+          "url": "https://github.com/duwqijlk/google-trial-tool",
+          "created_at": "2026-11-19T11:06:16Z"
+        },
+        {
+          "full_name": "bookwjitchieni1986/blender-ai-mcp-addon",
+          "stars": 214,
+          "language": "",
+          "description": "AI assistant and MCP server for Blender: visual chat, scene tools, multi-agent workflows. Works with ChatGPT/GPT, Claude, Gemini, Ollama, OpenCode. Blender AI addon, copilot for 3D, bpy Python scripting, MCP integration.",
+          "url": "https://github.com/bookwjitchieni1986/blender-ai-mcp-addon",
+          "created_at": "2026-11-19T14:43:10Z"
+        },
+        {
+          "full_name": "MilliMailmanOverpass/KytyPS5-Enhanced",
+          "stars": 132,
+          "language": "",
+          "description": "Enhanced KytyPS5 PS5 emulator with launcher, shader cache, frame pacing and per-game profiles. Tuned for Grand Theft Auto VI on Windows. Bring your own legally dumped game.",
+          "url": "https://github.com/MilliMailmanOverpass/KytyPS5-Enhanced",
+          "created_at": "2026-11-19T12:20:14Z"
+        },
+        {
+          "full_name": "Clasptredress/Adobe-After-Effects-AI-Latest",
+          "stars": 88,
+          "language": "Python",
+          "description": "How to get Adobe After Effects 2026",
+          "url": "https://github.com/Clasptredress/Adobe-After-Effects-AI-Latest",
+          "created_at": "2026-11-19T17:30:01Z"
+        },
+        {
+          "full_name": "BadgeGrackle/Adobe-Media-Encoder-AI-Latest",
+          "stars": 86,
+          "language": "Go",
+          "description": "How to get Adobe Media Encoder 2026",
+          "url": "https://github.com/BadgeGrackle/Adobe-Media-Encoder-AI-Latest",
+          "created_at": "2026-11-19T17:30:00Z"
+        },
+        {
+          "full_name": "AtomBackerPillar/Adobe-InDesign-AI-Latest",
+          "stars": 86,
+          "language": "Go",
+          "description": "How to get Adobe InDesign with AI",
+          "url": "https://github.com/AtomBackerPillar/Adobe-InDesign-AI-Latest",
+          "created_at": "2026-11-19T17:30:02Z"
+        },
+        {
+          "full_name": "PolygonMaintenance/FlstudioAIproducer",
+          "stars": 85,
+          "language": "Go",
+          "description": "How to get Fl studio Producer 2026",
+          "url": "https://github.com/PolygonMaintenance/FlstudioAIproducer",
+          "created_at": "2026-11-19T12:23:05Z"
+        },
+        {
+          "full_name": "FinancialPuzzle/AcrobatDC-Latest2026",
+          "stars": 85,
+          "language": "TypeScript",
+          "description": "How to get Adobe Acrobat 2026",
+          "url": "https://github.com/FinancialPuzzle/AcrobatDC-Latest2026",
+          "created_at": "2026-11-19T17:30:03Z"
         }
       ],
       "items": [
         {
-          "full_name": "julietorres41/GTAlabs",
-          "stars": 60,
-          "language": "Go",
-          "description": "",
-          "url": "https://github.com/julietorres41/GTAlabs",
-          "created_at": "2026-11-19T07:31:31Z"
-        },
-        {
-          "full_name": "setyamickala/airdrop-agent",
-          "stars": 51,
+          "full_name": "iamajmeena/neonclipping",
+          "stars": 277,
           "language": "Python",
-          "description": "Autonomous airdrop operator: identities, wallets, socials, testnets, quests, radar — guarded CLI + MCP",
-          "url": "https://github.com/setyamickala/airdrop-agent",
-          "created_at": "2026-11-19T07:56:28Z"
+          "description": "Paste a link, get captioned 9:16 clips in ~2 min. Free, local, open-source clipping engine (audio-first, YouTube captions, local LLM).",
+          "url": "https://github.com/iamajmeena/neonclipping",
+          "created_at": "2026-11-19T10:00:43Z"
         },
         {
-          "full_name": "flex36ty/switch2-gamevault",
-          "stars": 40,
-          "language": "C++",
-          "description": "Game Vault for Switch 2 — game and save backup/restore, decrypted backups, USB MTP, FTP and SMB storage.",
-          "url": "https://github.com/flex36ty/switch2-gamevault",
-          "created_at": "2026-11-19T00:34:20Z"
+          "full_name": "MSNightmare/FastUnlock",
+          "stars": 257,
+          "language": "",
+          "description": "FastUnlock : Windows Narrator LockScreen Bypass 0day Vulnerability",
+          "url": "https://github.com/MSNightmare/FastUnlock",
+          "created_at": "2026-11-19T12:37:51Z"
+        },
+        {
+          "full_name": "duwqijlk/google-trial-tool",
+          "stars": 224,
+          "language": "JavaScript",
+          "description": "",
+          "url": "https://github.com/duwqijlk/google-trial-tool",
+          "created_at": "2026-11-19T11:06:16Z"
+        },
+        {
+          "full_name": "bookwjitchieni1986/blender-ai-mcp-addon",
+          "stars": 214,
+          "language": "",
+          "description": "AI assistant and MCP server for Blender: visual chat, scene tools, multi-agent workflows. Works with ChatGPT/GPT, Claude, Gemini, Ollama, OpenCode. Blender AI addon, copilot for 3D, bpy Python scripting, MCP integration.",
+          "url": "https://github.com/bookwjitchieni1986/blender-ai-mcp-addon",
+          "created_at": "2026-11-19T14:43:10Z"
+        },
+        {
+          "full_name": "MilliMailmanOverpass/KytyPS5-Enhanced",
+          "stars": 132,
+          "language": "",
+          "description": "Enhanced KytyPS5 PS5 emulator with launcher, shader cache, frame pacing and per-game profiles. Tuned for Grand Theft Auto VI on Windows. Bring your own legally dumped game.",
+          "url": "https://github.com/MilliMailmanOverpass/KytyPS5-Enhanced",
+          "created_at": "2026-11-19T12:20:14Z"
+        },
+        {
+          "full_name": "Clasptredress/Adobe-After-Effects-AI-Latest",
+          "stars": 88,
+          "language": "Python",
+          "description": "How to get Adobe After Effects 2026",
+          "url": "https://github.com/Clasptredress/Adobe-After-Effects-AI-Latest",
+          "created_at": "2026-11-19T17:30:01Z"
+        },
+        {
+          "full_name": "BadgeGrackle/Adobe-Media-Encoder-AI-Latest",
+          "stars": 86,
+          "language": "Go",
+          "description": "How to get Adobe Media Encoder 2026",
+          "url": "https://github.com/BadgeGrackle/Adobe-Media-Encoder-AI-Latest",
+          "created_at": "2026-11-19T17:30:00Z"
+        },
+        {
+          "full_name": "AtomBackerPillar/Adobe-InDesign-AI-Latest",
+          "stars": 86,
+          "language": "Go",
+          "description": "How to get Adobe InDesign with AI",
+          "url": "https://github.com/AtomBackerPillar/Adobe-InDesign-AI-Latest",
+          "created_at": "2026-11-19T17:30:02Z"
+        },
+        {
+          "full_name": "PolygonMaintenance/FlstudioAIproducer",
+          "stars": 85,
+          "language": "Go",
+          "description": "How to get Fl studio Producer 2026",
+          "url": "https://github.com/PolygonMaintenance/FlstudioAIproducer",
+          "created_at": "2026-11-19T12:23:05Z"
+        },
+        {
+          "full_name": "FinancialPuzzle/AcrobatDC-Latest2026",
+          "stars": 85,
+          "language": "TypeScript",
+          "description": "How to get Adobe Acrobat 2026",
+          "url": "https://github.com/FinancialPuzzle/AcrobatDC-Latest2026",
+          "created_at": "2026-11-19T17:30:03Z"
+        },
+        {
+          "full_name": "Radianbetweencontact/Driver-Booster-Latest-2026",
+          "stars": 85,
+          "language": "Go",
+          "description": "How to get Driver Booster 2026",
+          "url": "https://github.com/Radianbetweencontact/Driver-Booster-Latest-2026",
+          "created_at": "2026-11-19T17:30:03Z"
+        },
+        {
+          "full_name": "tiefoxcreate/Winrar-Latest2026",
+          "stars": 85,
+          "language": "Rust",
+          "description": "How to get WinRAR 2026",
+          "url": "https://github.com/tiefoxcreate/Winrar-Latest2026",
+          "created_at": "2026-11-19T17:30:05Z"
+        },
+        {
+          "full_name": "RescuerDevelop/CapCut-AI-PC-Latest",
+          "stars": 85,
+          "language": "Python",
+          "description": "How to get CapCut 2026",
+          "url": "https://github.com/RescuerDevelop/CapCut-AI-PC-Latest",
+          "created_at": "2026-11-19T17:30:02Z"
+        },
+        {
+          "full_name": "VampireDruidEngine/Autodesk-Revit-2027-AI",
+          "stars": 83,
+          "language": "Python",
+          "description": "How to get Autodesk Revit 2027 with AI",
+          "url": "https://github.com/VampireDruidEngine/Autodesk-Revit-2027-AI",
+          "created_at": "2026-11-19T17:30:02Z"
+        },
+        {
+          "full_name": "AntDiscriminate/DaVinci-Resolve-Studio-Latest",
+          "stars": 82,
+          "language": "Go",
+          "description": "how to get DaVinci Resolve Studio",
+          "url": "https://github.com/AntDiscriminate/DaVinci-Resolve-Studio-Latest",
+          "created_at": "2026-11-19T17:30:10Z"
         }
       ]
     },
@@ -1986,73 +2146,73 @@
       "items": [
         {
           "id": "higurashi-ai/Haru-4B",
-          "likes": 1744,
-          "downloads": 5314,
+          "likes": 3331,
+          "downloads": 6266,
           "pipeline_tag": "audio-to-audio",
           "url": "https://huggingface.co/higurashi-ai/Haru-4B"
         },
         {
           "id": "tencent/Hy4-flash",
-          "likes": 276,
-          "downloads": 159,
+          "likes": 317,
+          "downloads": 2053,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/tencent/Hy4-flash"
         },
         {
-          "id": "Qwen/Qwen3.8-27B",
-          "likes": 20602,
-          "downloads": 6647301,
-          "pipeline_tag": "image-text-to-text",
-          "url": "https://huggingface.co/Qwen/Qwen3.8-27B"
-        },
-        {
-          "id": "MiniMaxAI/MiniMax-H3-Image",
-          "likes": 1605,
-          "downloads": 759661,
-          "pipeline_tag": "text-to-image",
-          "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3-Image"
-        },
-        {
-          "id": "harness-hub/Qwen3.8-27B-pi-adapted",
-          "likes": 652,
-          "downloads": 377,
-          "pipeline_tag": "image-text-to-text",
-          "url": "https://huggingface.co/harness-hub/Qwen3.8-27B-pi-adapted"
-        },
-        {
           "id": "apple/FastFrames-L",
-          "likes": 248,
+          "likes": 293,
           "downloads": 0,
           "pipeline_tag": "text-to-video",
           "url": "https://huggingface.co/apple/FastFrames-L"
         },
         {
+          "id": "Qwen/Qwen3.8-27B",
+          "likes": 20646,
+          "downloads": 6647301,
+          "pipeline_tag": "image-text-to-text",
+          "url": "https://huggingface.co/Qwen/Qwen3.8-27B"
+        },
+        {
+          "id": "harness-hub/Qwen3.8-27B-pi-adapted",
+          "likes": 700,
+          "downloads": 1320,
+          "pipeline_tag": "image-text-to-text",
+          "url": "https://huggingface.co/harness-hub/Qwen3.8-27B-pi-adapted"
+        },
+        {
           "id": "n4ze3m/tiny-voca",
-          "likes": 307,
-          "downloads": 4430,
+          "likes": 319,
+          "downloads": 6368,
           "pipeline_tag": "text-to-speech",
           "url": "https://huggingface.co/n4ze3m/tiny-voca"
         },
         {
           "id": "meituan-longcat/LongCat-Video-Avatar-1.6",
-          "likes": 286,
-          "downloads": 1226,
+          "likes": 313,
+          "downloads": 1923,
           "pipeline_tag": "",
           "url": "https://huggingface.co/meituan-longcat/LongCat-Video-Avatar-1.6"
         },
         {
+          "id": "MiniMaxAI/MiniMax-H3-Image",
+          "likes": 1620,
+          "downloads": 821710,
+          "pipeline_tag": "text-to-image",
+          "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3-Image"
+        },
+        {
           "id": "maxwell-model/Maxwell-V1-Flash",
-          "likes": 253,
-          "downloads": 1052,
+          "likes": 269,
+          "downloads": 1703,
           "pipeline_tag": "text-generation",
           "url": "https://huggingface.co/maxwell-model/Maxwell-V1-Flash"
         },
         {
-          "id": "Lightricks/LTX-2.5",
-          "likes": 12656,
-          "downloads": 2934937,
-          "pipeline_tag": "image-to-video",
-          "url": "https://huggingface.co/Lightricks/LTX-2.5"
+          "id": "inworld/voice-isolator",
+          "likes": 213,
+          "downloads": 0,
+          "pipeline_tag": "audio-to-audio",
+          "url": "https://huggingface.co/inworld/voice-isolator"
         }
       ]
     }
