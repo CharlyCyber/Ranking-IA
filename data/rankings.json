@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-19T19:17:35.571734",
+  "generated_at": "2026-11-20T01:31:07.154297",
   "sources": {
     "design": {
       "status": "ok",
@@ -16,7 +16,7 @@
         {
           "rank": 2,
           "model": "GPT-6 Astra (max)",
-          "score": 1394,
+          "score": 1395,
           "prompt_per_m": 10.0,
           "completion_per_m": 50.0,
           "context_length": 1050000,
@@ -25,7 +25,7 @@
         {
           "rank": 3,
           "model": "Claude Fable 5.2",
-          "score": 1362,
+          "score": 1363,
           "prompt_per_m": 8.0,
           "completion_per_m": 40.0,
           "context_length": 1000000,
@@ -34,7 +34,7 @@
         {
           "rank": 4,
           "model": "GPT-6.1 Sol (max)",
-          "score": 1359,
+          "score": 1360,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1050000,
@@ -61,7 +61,7 @@
         {
           "rank": 7,
           "model": "Inkling 2 Small",
-          "score": 1306,
+          "score": 1307,
           "prompt_per_m": 0.3,
           "completion_per_m": 1.0,
           "context_length": 1048576,
@@ -107,8 +107,8 @@
           "rank": 12,
           "model": "DeepSeek-V4.1-Flash (1017)",
           "score": 1284,
-          "prompt_per_m": 0.0507,
-          "completion_per_m": 0.2028,
+          "prompt_per_m": 0.3,
+          "completion_per_m": 1.2,
           "context_length": 1048576,
           "is_free": false
         },
@@ -120,21 +120,21 @@
         {
           "rank": 14,
           "model": "1705W / 833L 67.2% ±1.8% 2,538 OpenAI",
-          "score": 1394
+          "score": 1395
         },
         {
           "rank": 15,
-          "model": "1234W / 557L 68.9% ±2.1% 1,791 Anthropic",
-          "score": 1362
+          "model": "1237W / 558L 68.9% ±2.1% 1,795 Anthropic",
+          "score": 1363
         },
         {
           "rank": 16,
           "model": "1123W / 1122L 50.0% ±2.1% 2,245 OpenAI",
-          "score": 1359
+          "score": 1360
         },
         {
           "rank": 17,
-          "model": "2211W / 1325L 62.5% ±1.6% 3,536 Alibaba",
+          "model": "2213W / 1330L 62.5% ±1.6% 3,543 Alibaba",
           "score": 1356
         },
         {
@@ -145,26 +145,26 @@
         {
           "rank": 19,
           "model": "4170W / 3109L 57.3% ±1.1% 7,279 Thinking Machines",
-          "score": 1306
+          "score": 1307
         },
         {
           "rank": 20,
-          "model": "572W / 314L 64.6% ±3.1% 886 OpenAI",
+          "model": "727W / 405L 64.2% ±2.8% 1,132 OpenAI",
           "score": 1304
         },
         {
           "rank": 21,
-          "model": "668W / 430L 60.8% ±2.9% 1,098 Google",
+          "model": "669W / 430L 60.9% ±2.9% 1,099 Google",
           "score": 1304
         },
         {
           "rank": 22,
-          "model": "2850W / 1945L 59.4% ±1.4% 4,795 Moonshot AI",
+          "model": "2850W / 1947L 59.4% ±1.4% 4,797 Moonshot AI",
           "score": 1291
         },
         {
           "rank": 23,
-          "model": "1776W / 1320L 57.4% ±1.7% 3,096 Anthropic",
+          "model": "1779W / 1326L 57.3% ±1.7% 3,105 Anthropic",
           "score": 1285
         },
         {
@@ -174,8 +174,8 @@
         },
         {
           "rank": 25,
-          "model": "7473W / 5664L 56.9% ±0.8% 13,137 Meta",
-          "score": 1274
+          "model": "7474W / 5666L 56.9% ±0.8% 13,140 Meta",
+          "score": 1275
         },
         {
           "rank": 26,
@@ -1881,210 +1881,42 @@
     },
     "github": {
       "status": "ok",
-      "since": "2026-11-18",
+      "since": "2026-11-19",
       "ai": [],
       "general": [
         {
-          "full_name": "iamajmeena/neonclipping",
-          "stars": 277,
-          "language": "Python",
-          "description": "Paste a link, get captioned 9:16 clips in ~2 min. Free, local, open-source clipping engine (audio-first, YouTube captions, local LLM).",
-          "url": "https://github.com/iamajmeena/neonclipping",
-          "created_at": "2026-11-19T10:00:43Z"
-        },
-        {
-          "full_name": "MSNightmare/FastUnlock",
-          "stars": 257,
+          "full_name": "HandcuffPerfumer/fl-studio-audio",
+          "stars": 190,
           "language": "",
-          "description": "FastUnlock : Windows Narrator LockScreen Bypass 0day Vulnerability",
-          "url": "https://github.com/MSNightmare/FastUnlock",
-          "created_at": "2026-11-19T12:37:51Z"
+          "description": "FL Studio Audio is a comprehensive digital audio workstation (DAW) environment designed for music producers and sound engineers to compose, arrange, record, edit, mix, and master studio-quality audio tracks.",
+          "url": "https://github.com/HandcuffPerfumer/fl-studio-audio",
+          "created_at": "2026-11-20T00:49:31Z"
         },
         {
-          "full_name": "duwqijlk/google-trial-tool",
-          "stars": 224,
-          "language": "JavaScript",
-          "description": "",
-          "url": "https://github.com/duwqijlk/google-trial-tool",
-          "created_at": "2026-11-19T11:06:16Z"
-        },
-        {
-          "full_name": "bookwjitchieni1986/blender-ai-mcp-addon",
-          "stars": 214,
-          "language": "",
-          "description": "AI assistant and MCP server for Blender: visual chat, scene tools, multi-agent workflows. Works with ChatGPT/GPT, Claude, Gemini, Ollama, OpenCode. Blender AI addon, copilot for 3D, bpy Python scripting, MCP integration.",
-          "url": "https://github.com/bookwjitchieni1986/blender-ai-mcp-addon",
-          "created_at": "2026-11-19T14:43:10Z"
-        },
-        {
-          "full_name": "MilliMailmanOverpass/KytyPS5-Enhanced",
-          "stars": 132,
-          "language": "",
-          "description": "Enhanced KytyPS5 PS5 emulator with launcher, shader cache, frame pacing and per-game profiles. Tuned for Grand Theft Auto VI on Windows. Bring your own legally dumped game.",
-          "url": "https://github.com/MilliMailmanOverpass/KytyPS5-Enhanced",
-          "created_at": "2026-11-19T12:20:14Z"
-        },
-        {
-          "full_name": "Clasptredress/Adobe-After-Effects-AI-Latest",
-          "stars": 88,
-          "language": "Python",
-          "description": "How to get Adobe After Effects 2026",
-          "url": "https://github.com/Clasptredress/Adobe-After-Effects-AI-Latest",
-          "created_at": "2026-11-19T17:30:01Z"
-        },
-        {
-          "full_name": "BadgeGrackle/Adobe-Media-Encoder-AI-Latest",
-          "stars": 86,
+          "full_name": "Portionfuspanner/uTorrentLatestFastest",
+          "stars": 84,
           "language": "Go",
-          "description": "How to get Adobe Media Encoder 2026",
-          "url": "https://github.com/BadgeGrackle/Adobe-Media-Encoder-AI-Latest",
-          "created_at": "2026-11-19T17:30:00Z"
-        },
-        {
-          "full_name": "AtomBackerPillar/Adobe-InDesign-AI-Latest",
-          "stars": 86,
-          "language": "Go",
-          "description": "How to get Adobe InDesign with AI",
-          "url": "https://github.com/AtomBackerPillar/Adobe-InDesign-AI-Latest",
-          "created_at": "2026-11-19T17:30:02Z"
-        },
-        {
-          "full_name": "PolygonMaintenance/FlstudioAIproducer",
-          "stars": 85,
-          "language": "Go",
-          "description": "How to get Fl studio Producer 2026",
-          "url": "https://github.com/PolygonMaintenance/FlstudioAIproducer",
-          "created_at": "2026-11-19T12:23:05Z"
-        },
-        {
-          "full_name": "FinancialPuzzle/AcrobatDC-Latest2026",
-          "stars": 85,
-          "language": "TypeScript",
-          "description": "How to get Adobe Acrobat 2026",
-          "url": "https://github.com/FinancialPuzzle/AcrobatDC-Latest2026",
-          "created_at": "2026-11-19T17:30:03Z"
+          "description": "How to get uTorrent 2026",
+          "url": "https://github.com/Portionfuspanner/uTorrentLatestFastest",
+          "created_at": "2026-11-20T00:02:21Z"
         }
       ],
       "items": [
         {
-          "full_name": "iamajmeena/neonclipping",
-          "stars": 277,
-          "language": "Python",
-          "description": "Paste a link, get captioned 9:16 clips in ~2 min. Free, local, open-source clipping engine (audio-first, YouTube captions, local LLM).",
-          "url": "https://github.com/iamajmeena/neonclipping",
-          "created_at": "2026-11-19T10:00:43Z"
-        },
-        {
-          "full_name": "MSNightmare/FastUnlock",
-          "stars": 257,
+          "full_name": "HandcuffPerfumer/fl-studio-audio",
+          "stars": 190,
           "language": "",
-          "description": "FastUnlock : Windows Narrator LockScreen Bypass 0day Vulnerability",
-          "url": "https://github.com/MSNightmare/FastUnlock",
-          "created_at": "2026-11-19T12:37:51Z"
+          "description": "FL Studio Audio is a comprehensive digital audio workstation (DAW) environment designed for music producers and sound engineers to compose, arrange, record, edit, mix, and master studio-quality audio tracks.",
+          "url": "https://github.com/HandcuffPerfumer/fl-studio-audio",
+          "created_at": "2026-11-20T00:49:31Z"
         },
         {
-          "full_name": "duwqijlk/google-trial-tool",
-          "stars": 224,
-          "language": "JavaScript",
-          "description": "",
-          "url": "https://github.com/duwqijlk/google-trial-tool",
-          "created_at": "2026-11-19T11:06:16Z"
-        },
-        {
-          "full_name": "bookwjitchieni1986/blender-ai-mcp-addon",
-          "stars": 214,
-          "language": "",
-          "description": "AI assistant and MCP server for Blender: visual chat, scene tools, multi-agent workflows. Works with ChatGPT/GPT, Claude, Gemini, Ollama, OpenCode. Blender AI addon, copilot for 3D, bpy Python scripting, MCP integration.",
-          "url": "https://github.com/bookwjitchieni1986/blender-ai-mcp-addon",
-          "created_at": "2026-11-19T14:43:10Z"
-        },
-        {
-          "full_name": "MilliMailmanOverpass/KytyPS5-Enhanced",
-          "stars": 132,
-          "language": "",
-          "description": "Enhanced KytyPS5 PS5 emulator with launcher, shader cache, frame pacing and per-game profiles. Tuned for Grand Theft Auto VI on Windows. Bring your own legally dumped game.",
-          "url": "https://github.com/MilliMailmanOverpass/KytyPS5-Enhanced",
-          "created_at": "2026-11-19T12:20:14Z"
-        },
-        {
-          "full_name": "Clasptredress/Adobe-After-Effects-AI-Latest",
-          "stars": 88,
-          "language": "Python",
-          "description": "How to get Adobe After Effects 2026",
-          "url": "https://github.com/Clasptredress/Adobe-After-Effects-AI-Latest",
-          "created_at": "2026-11-19T17:30:01Z"
-        },
-        {
-          "full_name": "BadgeGrackle/Adobe-Media-Encoder-AI-Latest",
-          "stars": 86,
+          "full_name": "Portionfuspanner/uTorrentLatestFastest",
+          "stars": 84,
           "language": "Go",
-          "description": "How to get Adobe Media Encoder 2026",
-          "url": "https://github.com/BadgeGrackle/Adobe-Media-Encoder-AI-Latest",
-          "created_at": "2026-11-19T17:30:00Z"
-        },
-        {
-          "full_name": "AtomBackerPillar/Adobe-InDesign-AI-Latest",
-          "stars": 86,
-          "language": "Go",
-          "description": "How to get Adobe InDesign with AI",
-          "url": "https://github.com/AtomBackerPillar/Adobe-InDesign-AI-Latest",
-          "created_at": "2026-11-19T17:30:02Z"
-        },
-        {
-          "full_name": "PolygonMaintenance/FlstudioAIproducer",
-          "stars": 85,
-          "language": "Go",
-          "description": "How to get Fl studio Producer 2026",
-          "url": "https://github.com/PolygonMaintenance/FlstudioAIproducer",
-          "created_at": "2026-11-19T12:23:05Z"
-        },
-        {
-          "full_name": "FinancialPuzzle/AcrobatDC-Latest2026",
-          "stars": 85,
-          "language": "TypeScript",
-          "description": "How to get Adobe Acrobat 2026",
-          "url": "https://github.com/FinancialPuzzle/AcrobatDC-Latest2026",
-          "created_at": "2026-11-19T17:30:03Z"
-        },
-        {
-          "full_name": "Radianbetweencontact/Driver-Booster-Latest-2026",
-          "stars": 85,
-          "language": "Go",
-          "description": "How to get Driver Booster 2026",
-          "url": "https://github.com/Radianbetweencontact/Driver-Booster-Latest-2026",
-          "created_at": "2026-11-19T17:30:03Z"
-        },
-        {
-          "full_name": "tiefoxcreate/Winrar-Latest2026",
-          "stars": 85,
-          "language": "Rust",
-          "description": "How to get WinRAR 2026",
-          "url": "https://github.com/tiefoxcreate/Winrar-Latest2026",
-          "created_at": "2026-11-19T17:30:05Z"
-        },
-        {
-          "full_name": "RescuerDevelop/CapCut-AI-PC-Latest",
-          "stars": 85,
-          "language": "Python",
-          "description": "How to get CapCut 2026",
-          "url": "https://github.com/RescuerDevelop/CapCut-AI-PC-Latest",
-          "created_at": "2026-11-19T17:30:02Z"
-        },
-        {
-          "full_name": "VampireDruidEngine/Autodesk-Revit-2027-AI",
-          "stars": 83,
-          "language": "Python",
-          "description": "How to get Autodesk Revit 2027 with AI",
-          "url": "https://github.com/VampireDruidEngine/Autodesk-Revit-2027-AI",
-          "created_at": "2026-11-19T17:30:02Z"
-        },
-        {
-          "full_name": "AntDiscriminate/DaVinci-Resolve-Studio-Latest",
-          "stars": 82,
-          "language": "Go",
-          "description": "how to get DaVinci Resolve Studio",
-          "url": "https://github.com/AntDiscriminate/DaVinci-Resolve-Studio-Latest",
-          "created_at": "2026-11-19T17:30:10Z"
+          "description": "How to get uTorrent 2026",
+          "url": "https://github.com/Portionfuspanner/uTorrentLatestFastest",
+          "created_at": "2026-11-20T00:02:21Z"
         }
       ]
     },
@@ -2146,73 +1978,73 @@
       "items": [
         {
           "id": "higurashi-ai/Haru-4B",
-          "likes": 3331,
+          "likes": 3645,
           "downloads": 6266,
           "pipeline_tag": "audio-to-audio",
           "url": "https://huggingface.co/higurashi-ai/Haru-4B"
         },
         {
           "id": "tencent/Hy4-flash",
-          "likes": 317,
+          "likes": 346,
           "downloads": 2053,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/tencent/Hy4-flash"
         },
         {
           "id": "apple/FastFrames-L",
-          "likes": 293,
+          "likes": 332,
           "downloads": 0,
           "pipeline_tag": "text-to-video",
           "url": "https://huggingface.co/apple/FastFrames-L"
         },
         {
-          "id": "Qwen/Qwen3.8-27B",
-          "likes": 20646,
-          "downloads": 6647301,
-          "pipeline_tag": "image-text-to-text",
-          "url": "https://huggingface.co/Qwen/Qwen3.8-27B"
-        },
-        {
           "id": "harness-hub/Qwen3.8-27B-pi-adapted",
-          "likes": 700,
+          "likes": 739,
           "downloads": 1320,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/harness-hub/Qwen3.8-27B-pi-adapted"
         },
         {
-          "id": "n4ze3m/tiny-voca",
-          "likes": 319,
-          "downloads": 6368,
-          "pipeline_tag": "text-to-speech",
-          "url": "https://huggingface.co/n4ze3m/tiny-voca"
+          "id": "Qwen/Qwen3.8-27B",
+          "likes": 20682,
+          "downloads": 6647301,
+          "pipeline_tag": "image-text-to-text",
+          "url": "https://huggingface.co/Qwen/Qwen3.8-27B"
         },
         {
-          "id": "meituan-longcat/LongCat-Video-Avatar-1.6",
-          "likes": 313,
-          "downloads": 1923,
-          "pipeline_tag": "",
-          "url": "https://huggingface.co/meituan-longcat/LongCat-Video-Avatar-1.6"
+          "id": "inworld/voice-isolator",
+          "likes": 266,
+          "downloads": 0,
+          "pipeline_tag": "audio-to-audio",
+          "url": "https://huggingface.co/inworld/voice-isolator"
         },
         {
           "id": "MiniMaxAI/MiniMax-H3-Image",
-          "likes": 1620,
+          "likes": 1647,
           "downloads": 821710,
           "pipeline_tag": "text-to-image",
           "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3-Image"
         },
         {
           "id": "maxwell-model/Maxwell-V1-Flash",
-          "likes": 269,
+          "likes": 287,
           "downloads": 1703,
           "pipeline_tag": "text-generation",
           "url": "https://huggingface.co/maxwell-model/Maxwell-V1-Flash"
         },
         {
-          "id": "inworld/voice-isolator",
-          "likes": 213,
-          "downloads": 0,
-          "pipeline_tag": "audio-to-audio",
-          "url": "https://huggingface.co/inworld/voice-isolator"
+          "id": "Lightricks/LTX-2.5",
+          "likes": 12743,
+          "downloads": 2934937,
+          "pipeline_tag": "image-to-video",
+          "url": "https://huggingface.co/Lightricks/LTX-2.5"
+        },
+        {
+          "id": "chatrlabs/Qwen-Image-2.1-Uncensored-Omni-Quantized",
+          "likes": 693,
+          "downloads": 268540,
+          "pipeline_tag": "text-to-image",
+          "url": "https://huggingface.co/chatrlabs/Qwen-Image-2.1-Uncensored-Omni-Quantized"
         }
       ]
     }
