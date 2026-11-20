@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-20T01:31:07.154297",
+  "generated_at": "2026-11-20T09:22:21.602973",
   "sources": {
     "design": {
       "status": "ok",
@@ -16,7 +16,7 @@
         {
           "rank": 2,
           "model": "GPT-6 Astra (max)",
-          "score": 1395,
+          "score": 1394,
           "prompt_per_m": 10.0,
           "completion_per_m": 50.0,
           "context_length": 1050000,
@@ -60,20 +60,20 @@
         },
         {
           "rank": 7,
+          "model": "GPT-6.2 Astra (max)",
+          "score": 1310,
+          "prompt_per_m": 8.0,
+          "completion_per_m": 40.0,
+          "context_length": 1050000,
+          "is_free": false
+        },
+        {
+          "rank": 8,
           "model": "Inkling 2 Small",
           "score": 1307,
           "prompt_per_m": 0.3,
           "completion_per_m": 1.0,
           "context_length": 1048576,
-          "is_free": false
-        },
-        {
-          "rank": 8,
-          "model": "GPT-6.2 Astra (max)",
-          "score": 1304,
-          "prompt_per_m": 8.0,
-          "completion_per_m": 40.0,
-          "context_length": 1050000,
           "is_free": false
         },
         {
@@ -97,7 +97,7 @@
         {
           "rank": 11,
           "model": "Claude Sonnet 5.5",
-          "score": 1285,
+          "score": 1286,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1000000,
@@ -119,12 +119,12 @@
         },
         {
           "rank": 14,
-          "model": "1705W / 833L 67.2% ±1.8% 2,538 OpenAI",
-          "score": 1395
+          "model": "1706W / 835L 67.1% ±1.8% 2,541 OpenAI",
+          "score": 1394
         },
         {
           "rank": 15,
-          "model": "1237W / 558L 68.9% ±2.1% 1,795 Anthropic",
+          "model": "1241W / 559L 68.9% ±2.1% 1,800 Anthropic",
           "score": 1363
         },
         {
@@ -134,7 +134,7 @@
         },
         {
           "rank": 17,
-          "model": "2213W / 1330L 62.5% ±1.6% 3,543 Alibaba",
+          "model": "2214W / 1332L 62.4% ±1.6% 3,546 Alibaba",
           "score": 1356
         },
         {
@@ -144,28 +144,28 @@
         },
         {
           "rank": 19,
+          "model": "888W / 487L 64.6% ±2.5% 1,375 OpenAI",
+          "score": 1310
+        },
+        {
+          "rank": 20,
           "model": "4170W / 3109L 57.3% ±1.1% 7,279 Thinking Machines",
           "score": 1307
         },
         {
-          "rank": 20,
-          "model": "727W / 405L 64.2% ±2.8% 1,132 OpenAI",
-          "score": 1304
-        },
-        {
           "rank": 21,
-          "model": "669W / 430L 60.9% ±2.9% 1,099 Google",
+          "model": "670W / 432L 60.8% ±2.9% 1,102 Google",
           "score": 1304
         },
         {
           "rank": 22,
-          "model": "2850W / 1947L 59.4% ±1.4% 4,797 Moonshot AI",
+          "model": "2853W / 1948L 59.4% ±1.4% 4,801 Moonshot AI",
           "score": 1291
         },
         {
           "rank": 23,
-          "model": "1779W / 1326L 57.3% ±1.7% 3,105 Anthropic",
-          "score": 1285
+          "model": "1781W / 1328L 57.3% ±1.7% 3,109 Anthropic",
+          "score": 1286
         },
         {
           "rank": 24,
@@ -174,13 +174,13 @@
         },
         {
           "rank": 25,
-          "model": "7474W / 5666L 56.9% ±0.8% 13,140 Meta",
+          "model": "7474W / 5671L 56.9% ±0.8% 13,145 Meta",
           "score": 1275
         },
         {
           "rank": 26,
           "model": "8212W / 5351L 60.5% ±0.8% 13,563 Anthropic",
-          "score": 1268
+          "score": 1269
         }
       ],
       "method": "http"
@@ -1886,11 +1886,19 @@
       "general": [
         {
           "full_name": "HandcuffPerfumer/fl-studio-audio",
-          "stars": 190,
+          "stars": 191,
           "language": "",
           "description": "FL Studio Audio is a comprehensive digital audio workstation (DAW) environment designed for music producers and sound engineers to compose, arrange, record, edit, mix, and master studio-quality audio tracks.",
           "url": "https://github.com/HandcuffPerfumer/fl-studio-audio",
           "created_at": "2026-11-20T00:49:31Z"
+        },
+        {
+          "full_name": "Dimnyohollow/capcut-pro-video-editor-latest",
+          "stars": 169,
+          "language": "",
+          "description": "CapCut Pro Video Editor Latest is an all-in-one, cross-platform video editing suite that equips creators with AI-powered tools, automated captions, background removal, premium effects, and high-resolution 4K export capabilities for producing professional social media and commerci",
+          "url": "https://github.com/Dimnyohollow/capcut-pro-video-editor-latest",
+          "created_at": "2026-11-20T00:52:19Z"
         },
         {
           "full_name": "Portionfuspanner/uTorrentLatestFastest",
@@ -1899,16 +1907,48 @@
           "description": "How to get uTorrent 2026",
           "url": "https://github.com/Portionfuspanner/uTorrentLatestFastest",
           "created_at": "2026-11-20T00:02:21Z"
+        },
+        {
+          "full_name": "jweihe/Awesome-3D-Coding",
+          "stars": 67,
+          "language": "",
+          "description": "A curated collection of benchmarks, datasets, models, and agents for creating and editing 3D content through executable code.",
+          "url": "https://github.com/jweihe/Awesome-3D-Coding",
+          "created_at": "2026-11-20T02:36:37Z"
+        },
+        {
+          "full_name": "midnightMerge982/personaforge",
+          "stars": 33,
+          "language": "",
+          "description": "一键破甲 · Jailbreak：给 20 个 AI 客户端换上你自己的人格设定。",
+          "url": "https://github.com/midnightMerge982/personaforge",
+          "created_at": "2026-11-20T08:24:26Z"
+        },
+        {
+          "full_name": "hey-pu/Willow",
+          "stars": 33,
+          "language": "Rust",
+          "description": "Willow (柳) is an open-source Windows desktop token tracker for AI coding tools. Track local token usage, estimated costs, and sessions for Codex CLI, Claude Code, WorkBuddy, Qoder, and more. macOS builds from source.",
+          "url": "https://github.com/hey-pu/Willow",
+          "created_at": "2026-11-20T02:07:01Z"
         }
       ],
       "items": [
         {
           "full_name": "HandcuffPerfumer/fl-studio-audio",
-          "stars": 190,
+          "stars": 191,
           "language": "",
           "description": "FL Studio Audio is a comprehensive digital audio workstation (DAW) environment designed for music producers and sound engineers to compose, arrange, record, edit, mix, and master studio-quality audio tracks.",
           "url": "https://github.com/HandcuffPerfumer/fl-studio-audio",
           "created_at": "2026-11-20T00:49:31Z"
+        },
+        {
+          "full_name": "Dimnyohollow/capcut-pro-video-editor-latest",
+          "stars": 169,
+          "language": "",
+          "description": "CapCut Pro Video Editor Latest is an all-in-one, cross-platform video editing suite that equips creators with AI-powered tools, automated captions, background removal, premium effects, and high-resolution 4K export capabilities for producing professional social media and commerci",
+          "url": "https://github.com/Dimnyohollow/capcut-pro-video-editor-latest",
+          "created_at": "2026-11-20T00:52:19Z"
         },
         {
           "full_name": "Portionfuspanner/uTorrentLatestFastest",
@@ -1917,6 +1957,30 @@
           "description": "How to get uTorrent 2026",
           "url": "https://github.com/Portionfuspanner/uTorrentLatestFastest",
           "created_at": "2026-11-20T00:02:21Z"
+        },
+        {
+          "full_name": "jweihe/Awesome-3D-Coding",
+          "stars": 67,
+          "language": "",
+          "description": "A curated collection of benchmarks, datasets, models, and agents for creating and editing 3D content through executable code.",
+          "url": "https://github.com/jweihe/Awesome-3D-Coding",
+          "created_at": "2026-11-20T02:36:37Z"
+        },
+        {
+          "full_name": "midnightMerge982/personaforge",
+          "stars": 33,
+          "language": "",
+          "description": "一键破甲 · Jailbreak：给 20 个 AI 客户端换上你自己的人格设定。",
+          "url": "https://github.com/midnightMerge982/personaforge",
+          "created_at": "2026-11-20T08:24:26Z"
+        },
+        {
+          "full_name": "hey-pu/Willow",
+          "stars": 33,
+          "language": "Rust",
+          "description": "Willow (柳) is an open-source Windows desktop token tracker for AI coding tools. Track local token usage, estimated costs, and sessions for Codex CLI, Claude Code, WorkBuddy, Qoder, and more. macOS builds from source.",
+          "url": "https://github.com/hey-pu/Willow",
+          "created_at": "2026-11-20T02:07:01Z"
         }
       ]
     },
@@ -1977,74 +2041,74 @@
       "status": "ok",
       "items": [
         {
-          "id": "higurashi-ai/Haru-4B",
-          "likes": 3645,
-          "downloads": 6266,
-          "pipeline_tag": "audio-to-audio",
-          "url": "https://huggingface.co/higurashi-ai/Haru-4B"
-        },
-        {
           "id": "tencent/Hy4-flash",
-          "likes": 346,
+          "likes": 387,
           "downloads": 2053,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/tencent/Hy4-flash"
         },
         {
+          "id": "higurashi-ai/Haru-4B",
+          "likes": 3693,
+          "downloads": 6266,
+          "pipeline_tag": "audio-to-audio",
+          "url": "https://huggingface.co/higurashi-ai/Haru-4B"
+        },
+        {
           "id": "apple/FastFrames-L",
-          "likes": 332,
+          "likes": 364,
           "downloads": 0,
           "pipeline_tag": "text-to-video",
           "url": "https://huggingface.co/apple/FastFrames-L"
         },
         {
+          "id": "inworld/voice-isolator",
+          "likes": 309,
+          "downloads": 0,
+          "pipeline_tag": "audio-to-audio",
+          "url": "https://huggingface.co/inworld/voice-isolator"
+        },
+        {
           "id": "harness-hub/Qwen3.8-27B-pi-adapted",
-          "likes": 739,
+          "likes": 766,
           "downloads": 1320,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/harness-hub/Qwen3.8-27B-pi-adapted"
         },
         {
           "id": "Qwen/Qwen3.8-27B",
-          "likes": 20682,
+          "likes": 20709,
           "downloads": 6647301,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/Qwen/Qwen3.8-27B"
         },
         {
-          "id": "inworld/voice-isolator",
-          "likes": 266,
-          "downloads": 0,
-          "pipeline_tag": "audio-to-audio",
-          "url": "https://huggingface.co/inworld/voice-isolator"
-        },
-        {
           "id": "MiniMaxAI/MiniMax-H3-Image",
-          "likes": 1647,
+          "likes": 1660,
           "downloads": 821710,
           "pipeline_tag": "text-to-image",
           "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3-Image"
         },
         {
-          "id": "maxwell-model/Maxwell-V1-Flash",
-          "likes": 287,
-          "downloads": 1703,
-          "pipeline_tag": "text-generation",
-          "url": "https://huggingface.co/maxwell-model/Maxwell-V1-Flash"
-        },
-        {
           "id": "Lightricks/LTX-2.5",
-          "likes": 12743,
+          "likes": 12771,
           "downloads": 2934937,
           "pipeline_tag": "image-to-video",
           "url": "https://huggingface.co/Lightricks/LTX-2.5"
         },
         {
           "id": "chatrlabs/Qwen-Image-2.1-Uncensored-Omni-Quantized",
-          "likes": 693,
+          "likes": 704,
           "downloads": 268540,
           "pipeline_tag": "text-to-image",
           "url": "https://huggingface.co/chatrlabs/Qwen-Image-2.1-Uncensored-Omni-Quantized"
+        },
+        {
+          "id": "sensenova/SenseNova-Loop-9B",
+          "likes": 400,
+          "downloads": 1447,
+          "pipeline_tag": "image-text-to-text",
+          "url": "https://huggingface.co/sensenova/SenseNova-Loop-9B"
         }
       ]
     }
