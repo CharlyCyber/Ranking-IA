@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-20T18:07:15.612606",
+  "generated_at": "2026-11-21T00:26:55.492475",
   "sources": {
     "design": {
       "status": "ok",
@@ -7,7 +7,7 @@
         {
           "rank": 1,
           "model": "Claude Opus 5.5 (high)",
-          "score": 1440,
+          "score": 1439,
           "prompt_per_m": 4.0,
           "completion_per_m": 20.0,
           "context_length": 1000000,
@@ -16,7 +16,7 @@
         {
           "rank": 2,
           "model": "GPT-6 Astra (max)",
-          "score": 1393,
+          "score": 1391,
           "prompt_per_m": 10.0,
           "completion_per_m": 50.0,
           "context_length": 1050000,
@@ -25,7 +25,7 @@
         {
           "rank": 3,
           "model": "Claude Fable 5.2",
-          "score": 1361,
+          "score": 1360,
           "prompt_per_m": 8.0,
           "completion_per_m": 40.0,
           "context_length": 1000000,
@@ -34,7 +34,7 @@
         {
           "rank": 4,
           "model": "GPT-6.1 Sol (max)",
-          "score": 1358,
+          "score": 1357,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1050000,
@@ -43,7 +43,7 @@
         {
           "rank": 5,
           "model": "Qwen4-Max",
-          "score": 1353,
+          "score": 1352,
           "prompt_per_m": 1.425,
           "completion_per_m": 4.275,
           "context_length": 1000000,
@@ -52,7 +52,7 @@
         {
           "rank": 6,
           "model": "Claude Fable 5.1",
-          "score": 1331,
+          "score": 1330,
           "prompt_per_m": 10.0,
           "completion_per_m": 50.0,
           "context_length": 1000000,
@@ -60,26 +60,26 @@
         },
         {
           "rank": 7,
-          "model": "Inkling 2 Small",
-          "score": 1305,
-          "prompt_per_m": 0.3,
-          "completion_per_m": 1.0,
-          "context_length": 1048576,
-          "is_free": false
-        },
-        {
-          "rank": 8,
           "model": "GPT-6.2 Astra (max)",
-          "score": 1304,
+          "score": 1306,
           "prompt_per_m": 8.0,
           "completion_per_m": 40.0,
           "context_length": 1050000,
           "is_free": false
         },
         {
+          "rank": 8,
+          "model": "Inkling 2 Small",
+          "score": 1304,
+          "prompt_per_m": 0.3,
+          "completion_per_m": 1.0,
+          "context_length": 1048576,
+          "is_free": false
+        },
+        {
           "rank": 9,
           "model": "Gemini 4 Carbon",
-          "score": 1303,
+          "score": 1301,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1048576,
@@ -88,7 +88,7 @@
         {
           "rank": 10,
           "model": "Kimi K3.1 Pro",
-          "score": 1290,
+          "score": 1289,
           "prompt_per_m": 0.253,
           "completion_per_m": 8.8,
           "context_length": 1048576,
@@ -97,7 +97,7 @@
         {
           "rank": 11,
           "model": "Claude Sonnet 5.5",
-          "score": 1284,
+          "score": 1283,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1000000,
@@ -106,81 +106,81 @@
         {
           "rank": 12,
           "model": "DeepSeek-V4.1-Flash (1017)",
-          "score": 1282,
-          "prompt_per_m": 0.3,
-          "completion_per_m": 1.2,
+          "score": 1281,
+          "prompt_per_m": 0.0507,
+          "completion_per_m": 0.2028,
           "context_length": 1048576,
           "is_free": false
         },
         {
           "rank": 13,
           "model": "1960W / 886L 68.9% ±1.7% 2,846 Anthropic",
-          "score": 1440
+          "score": 1439
         },
         {
           "rank": 14,
-          "model": "1707W / 835L 67.2% ±1.8% 2,542 OpenAI",
-          "score": 1393
+          "model": "1709W / 837L 67.1% ±1.8% 2,546 OpenAI",
+          "score": 1391
         },
         {
           "rank": 15,
-          "model": "1244W / 565L 68.8% ±2.1% 1,809 Anthropic",
-          "score": 1361
+          "model": "1251W / 567L 68.8% ±2.1% 1,818 Anthropic",
+          "score": 1360
         },
         {
           "rank": 16,
           "model": "1123W / 1122L 50.0% ±2.1% 2,245 OpenAI",
-          "score": 1358
+          "score": 1357
         },
         {
           "rank": 17,
-          "model": "2220W / 1338L 62.4% ±1.6% 3,558 Alibaba",
-          "score": 1353
+          "model": "2226W / 1343L 62.4% ±1.6% 3,569 Alibaba",
+          "score": 1352
         },
         {
           "rank": 18,
           "model": "3070W / 2085L 59.5% ±1.3% 5,155 Anthropic",
-          "score": 1331
+          "score": 1330
         },
         {
           "rank": 19,
-          "model": "4171W / 3109L 57.3% ±1.1% 7,280 Thinking Machines",
-          "score": 1305
+          "model": "1110W / 605L 64.7% ±2.3% 1,715 OpenAI",
+          "score": 1306
         },
         {
           "rank": 20,
-          "model": "1065W / 588L 64.4% ±2.3% 1,653 OpenAI",
+          "model": "4171W / 3109L 57.3% ±1.1% 7,280 Thinking Machines",
           "score": 1304
         },
         {
           "rank": 21,
-          "model": "676W / 433L 61.0% ±2.9% 1,109 Google",
-          "score": 1303
+          "model": "680W / 439L 60.8% ±2.9% 1,119 Google",
+          "score": 1301
         },
         {
           "rank": 22,
-          "model": "2858W / 1950L 59.4% ±1.4% 4,808 Moonshot AI",
-          "score": 1290
+          "model": "2867W / 1956L 59.4% ±1.4% 4,823 Moonshot AI",
+          "score": 1289
         },
         {
           "rank": 23,
-          "model": "1788W / 1331L 57.3% ±1.7% 3,119 Anthropic",
-          "score": 1284
+          "model": "1793W / 1337L 57.3% ±1.7% 3,130 Anthropic",
+          "score": 1283
         },
         {
           "rank": 24,
           "model": "193W / 211L 47.8% ±4.9% 404 DeepSeek",
-          "score": 1282
+          "score": 1281
         },
         {
           "rank": 25,
-          "model": "7477W / 5674L 56.9% ±0.8% 13,151 Meta",
-          "score": 1273
+          "model": "7481W / 5675L 56.9% ±0.8% 13,156 Meta",
+          "score": 1272
         },
         {
           "rank": 26,
-          "model": "8212W / 5351L 60.5% ±0.8% 13,563 Anthropic",
-          "score": 1267
+          "model": "8212W / 5350L 60.5% ±0.8% 13,562 Anthropic",
+          "score": 1266
         }
       ],
       "method": "http"
@@ -1891,259 +1891,106 @@
     },
     "github": {
       "status": "ok",
-      "since": "2026-11-19",
-      "ai": [
-        {
-          "full_name": "5235aa-web/Pebble_companionchat",
-          "stars": 25,
-          "language": "Python",
-          "description": "A lightweight, locally-focused, and customizable chat impersonation application",
-          "url": "https://github.com/5235aa-web/Pebble_companionchat",
-          "created_at": "2026-11-20T02:15:53Z"
-        },
-        {
-          "full_name": "annadeters-gif/coregold-usdt-vcc-multimodal-video-creator-payment-guide",
-          "stars": 13,
-          "language": "",
-          "description": "结合多模态与视频生成能力持续向更长时长、更低成本演进的行业趋势，梳理内容创作者与出海团队在订阅工具和绑定数字钱包时的实用做法，附 CoreGold 开卡指南。",
-          "url": "https://github.com/annadeters-gif/coregold-usdt-vcc-multimodal-video-creator-payment-guide",
-          "created_at": "2026-11-20T07:24:06Z"
-        },
-        {
-          "full_name": "lidambrunel309-ship-it/coregold-usdt-vcc-agentic-ai-token-burn-finops-deep-dive",
-          "stars": 12,
-          "language": "",
-          "description": "2026 年 11 月企业与开发者大规模部署 Agentic AI、重度用户单月 Token 消耗飙升的行业现状，深度拆解高频 API 自动扣款（Auto-Topup）的底层清算风险、Stripe 风控拦截原理，并提供 CoreGold 极简开卡与预算隔离实操。",
-          "url": "https://github.com/lidambrunel309-ship-it/coregold-usdt-vcc-agentic-ai-token-burn-finops-deep-dive",
-          "created_at": "2026-11-20T07:36:56Z"
-        }
-      ],
+      "since": "2026-11-20",
+      "ai": [],
       "general": [
         {
-          "full_name": "HandcuffPerfumer/fl-studio-audio",
-          "stars": 192,
-          "language": "",
-          "description": "FL Studio Audio is a comprehensive digital audio workstation (DAW) environment designed for music producers and sound engineers to compose, arrange, record, edit, mix, and master studio-quality audio tracks.",
-          "url": "https://github.com/HandcuffPerfumer/fl-studio-audio",
-          "created_at": "2026-11-20T00:49:31Z"
+          "full_name": "ahmedbkareno1-stack/windows-activation-script-lekalin",
+          "stars": 145,
+          "language": "HTML",
+          "description": "Streamline Windows setup with Lekalin, a practical setup scripting tool.",
+          "url": "https://github.com/ahmedbkareno1-stack/windows-activation-script-lekalin",
+          "created_at": "2026-11-21T00:07:21Z"
         },
         {
-          "full_name": "Dimnyohollow/capcut-pro-video-editor-latest",
-          "stars": 169,
-          "language": "",
-          "description": "CapCut Pro Video Editor Latest is an all-in-one, cross-platform video editing suite that equips creators with AI-powered tools, automated captions, background removal, premium effects, and high-resolution 4K export capabilities for producing professional social media and commerci",
-          "url": "https://github.com/Dimnyohollow/capcut-pro-video-editor-latest",
-          "created_at": "2026-11-20T00:52:19Z"
+          "full_name": "avoid23/knoxmap-easy-launch-bajalor",
+          "stars": 141,
+          "language": "HTML",
+          "description": "Product directory entry for Knoxmap Easy Launch Bajalor, a specialized utility.",
+          "url": "https://github.com/avoid23/knoxmap-easy-launch-bajalor",
+          "created_at": "2026-11-21T00:04:00Z"
         },
         {
-          "full_name": "CocoSgt/riemann-hypothesis-lean",
-          "stars": 142,
-          "language": "Lean",
-          "description": "Mirror of Levent Alpöge's Lean proof of the Riemann Hypothesis (with Claude). All credit to Levent Alpöge. Source: alpo.ge",
-          "url": "https://github.com/CocoSgt/riemann-hypothesis-lean",
-          "created_at": "2026-11-20T14:59:14Z"
-        },
-        {
-          "full_name": "tristanbuckmaster/navier-stokes",
+          "full_name": "lidija52/filmora-license-short-video-studio",
           "stars": 139,
-          "language": "Lean",
-          "description": "",
-          "url": "https://github.com/tristanbuckmaster/navier-stokes",
-          "created_at": "2026-11-20T10:40:33Z"
-        },
-        {
-          "full_name": "jweihe/Awesome-3D-Coding",
-          "stars": 100,
-          "language": "",
-          "description": "A curated collection of benchmarks, datasets, models, and agents for creating and editing 3D content through executable code.",
-          "url": "https://github.com/jweihe/Awesome-3D-Coding",
-          "created_at": "2026-11-20T02:36:37Z"
-        },
-        {
-          "full_name": "midnightMerge982/personaforge",
-          "stars": 99,
-          "language": "",
-          "description": "一键破甲 · Jailbreak：给 20 个 AI 客户端换上你自己的人格设定。",
-          "url": "https://github.com/midnightMerge982/personaforge",
-          "created_at": "2026-11-20T08:24:26Z"
-        },
-        {
-          "full_name": "dev-bad/arc-raiders-norvena",
-          "stars": 93,
-          "language": "TypeScript",
-          "description": "Arc Raiders Norvena delivers sharp in-raid info and tactical readouts for focused play.",
-          "url": "https://github.com/dev-bad/arc-raiders-norvena",
-          "created_at": "2026-11-20T13:41:47Z"
-        },
-        {
-          "full_name": "kendahthebean-cell/rob-run-mod-trainer",
-          "stars": 93,
-          "language": "TypeScript",
-          "description": "Play Rob Run with a trainer that surfaces live game info as you go.",
-          "url": "https://github.com/kendahthebean-cell/rob-run-mod-trainer",
-          "created_at": "2026-11-20T13:32:21Z"
-        },
-        {
-          "full_name": "wozniakalan323-bit/opencode-project-workbench",
-          "stars": 93,
           "language": "HTML",
-          "description": "Opencode Project Workbench structures opencode project tasks, files, and workflow state.",
-          "url": "https://github.com/wozniakalan323-bit/opencode-project-workbench",
-          "created_at": "2026-11-20T14:14:22Z"
+          "description": "Compact studio for short-form video editing and terms-aware project workflows.",
+          "url": "https://github.com/lidija52/filmora-license-short-video-studio",
+          "created_at": "2026-11-21T00:10:48Z"
         },
         {
-          "full_name": "yuda41904-collab/lossless-scaling-frame-workbench",
-          "stars": 93,
+          "full_name": "heracliomc-create/vegas-pro-23-bebaron",
+          "stars": 137,
           "language": "HTML",
-          "description": "Tune lossless scaling frames interactively with a focused, technical workbench.",
-          "url": "https://github.com/yuda41904-collab/lossless-scaling-frame-workbench",
-          "created_at": "2026-11-20T14:19:22Z"
+          "description": "Professional video editing suite with timeline-based tools for multi-track projects.",
+          "url": "https://github.com/heracliomc-create/vegas-pro-23-bebaron",
+          "created_at": "2026-11-21T00:07:05Z"
+        },
+        {
+          "full_name": "bgleeson180-afk/cinema-4d-sacerin-motion-studio",
+          "stars": 135,
+          "language": "HTML",
+          "description": "Builds Cinema 4D Sacerin motion scenes through a structured studio workflow.",
+          "url": "https://github.com/bgleeson180-afk/cinema-4d-sacerin-motion-studio",
+          "created_at": "2026-11-21T00:09:19Z"
+        },
+        {
+          "full_name": "huygenshin220607-blip/3ds-max-modeler",
+          "stars": 135,
+          "language": "HTML",
+          "description": "Builds editable 3D models in 3ds Max - supports mesh construction and scene-ready output.",
+          "url": "https://github.com/huygenshin220607-blip/3ds-max-modeler",
+          "created_at": "2026-11-21T00:07:49Z"
         }
       ],
       "items": [
         {
-          "full_name": "5235aa-web/Pebble_companionchat",
-          "stars": 25,
-          "language": "Python",
-          "description": "A lightweight, locally-focused, and customizable chat impersonation application",
-          "url": "https://github.com/5235aa-web/Pebble_companionchat",
-          "created_at": "2026-11-20T02:15:53Z"
+          "full_name": "ahmedbkareno1-stack/windows-activation-script-lekalin",
+          "stars": 145,
+          "language": "HTML",
+          "description": "Streamline Windows setup with Lekalin, a practical setup scripting tool.",
+          "url": "https://github.com/ahmedbkareno1-stack/windows-activation-script-lekalin",
+          "created_at": "2026-11-21T00:07:21Z"
         },
         {
-          "full_name": "annadeters-gif/coregold-usdt-vcc-multimodal-video-creator-payment-guide",
-          "stars": 13,
-          "language": "",
-          "description": "结合多模态与视频生成能力持续向更长时长、更低成本演进的行业趋势，梳理内容创作者与出海团队在订阅工具和绑定数字钱包时的实用做法，附 CoreGold 开卡指南。",
-          "url": "https://github.com/annadeters-gif/coregold-usdt-vcc-multimodal-video-creator-payment-guide",
-          "created_at": "2026-11-20T07:24:06Z"
+          "full_name": "avoid23/knoxmap-easy-launch-bajalor",
+          "stars": 141,
+          "language": "HTML",
+          "description": "Product directory entry for Knoxmap Easy Launch Bajalor, a specialized utility.",
+          "url": "https://github.com/avoid23/knoxmap-easy-launch-bajalor",
+          "created_at": "2026-11-21T00:04:00Z"
         },
         {
-          "full_name": "lidambrunel309-ship-it/coregold-usdt-vcc-agentic-ai-token-burn-finops-deep-dive",
-          "stars": 12,
-          "language": "",
-          "description": "2026 年 11 月企业与开发者大规模部署 Agentic AI、重度用户单月 Token 消耗飙升的行业现状，深度拆解高频 API 自动扣款（Auto-Topup）的底层清算风险、Stripe 风控拦截原理，并提供 CoreGold 极简开卡与预算隔离实操。",
-          "url": "https://github.com/lidambrunel309-ship-it/coregold-usdt-vcc-agentic-ai-token-burn-finops-deep-dive",
-          "created_at": "2026-11-20T07:36:56Z"
-        },
-        {
-          "full_name": "HandcuffPerfumer/fl-studio-audio",
-          "stars": 192,
-          "language": "",
-          "description": "FL Studio Audio is a comprehensive digital audio workstation (DAW) environment designed for music producers and sound engineers to compose, arrange, record, edit, mix, and master studio-quality audio tracks.",
-          "url": "https://github.com/HandcuffPerfumer/fl-studio-audio",
-          "created_at": "2026-11-20T00:49:31Z"
-        },
-        {
-          "full_name": "Dimnyohollow/capcut-pro-video-editor-latest",
-          "stars": 169,
-          "language": "",
-          "description": "CapCut Pro Video Editor Latest is an all-in-one, cross-platform video editing suite that equips creators with AI-powered tools, automated captions, background removal, premium effects, and high-resolution 4K export capabilities for producing professional social media and commerci",
-          "url": "https://github.com/Dimnyohollow/capcut-pro-video-editor-latest",
-          "created_at": "2026-11-20T00:52:19Z"
-        },
-        {
-          "full_name": "CocoSgt/riemann-hypothesis-lean",
-          "stars": 142,
-          "language": "Lean",
-          "description": "Mirror of Levent Alpöge's Lean proof of the Riemann Hypothesis (with Claude). All credit to Levent Alpöge. Source: alpo.ge",
-          "url": "https://github.com/CocoSgt/riemann-hypothesis-lean",
-          "created_at": "2026-11-20T14:59:14Z"
-        },
-        {
-          "full_name": "tristanbuckmaster/navier-stokes",
+          "full_name": "lidija52/filmora-license-short-video-studio",
           "stars": 139,
-          "language": "Lean",
-          "description": "",
-          "url": "https://github.com/tristanbuckmaster/navier-stokes",
-          "created_at": "2026-11-20T10:40:33Z"
-        },
-        {
-          "full_name": "jweihe/Awesome-3D-Coding",
-          "stars": 100,
-          "language": "",
-          "description": "A curated collection of benchmarks, datasets, models, and agents for creating and editing 3D content through executable code.",
-          "url": "https://github.com/jweihe/Awesome-3D-Coding",
-          "created_at": "2026-11-20T02:36:37Z"
-        },
-        {
-          "full_name": "midnightMerge982/personaforge",
-          "stars": 99,
-          "language": "",
-          "description": "一键破甲 · Jailbreak：给 20 个 AI 客户端换上你自己的人格设定。",
-          "url": "https://github.com/midnightMerge982/personaforge",
-          "created_at": "2026-11-20T08:24:26Z"
-        },
-        {
-          "full_name": "dev-bad/arc-raiders-norvena",
-          "stars": 93,
-          "language": "TypeScript",
-          "description": "Arc Raiders Norvena delivers sharp in-raid info and tactical readouts for focused play.",
-          "url": "https://github.com/dev-bad/arc-raiders-norvena",
-          "created_at": "2026-11-20T13:41:47Z"
-        },
-        {
-          "full_name": "kendahthebean-cell/rob-run-mod-trainer",
-          "stars": 93,
-          "language": "TypeScript",
-          "description": "Play Rob Run with a trainer that surfaces live game info as you go.",
-          "url": "https://github.com/kendahthebean-cell/rob-run-mod-trainer",
-          "created_at": "2026-11-20T13:32:21Z"
-        },
-        {
-          "full_name": "wozniakalan323-bit/opencode-project-workbench",
-          "stars": 93,
           "language": "HTML",
-          "description": "Opencode Project Workbench structures opencode project tasks, files, and workflow state.",
-          "url": "https://github.com/wozniakalan323-bit/opencode-project-workbench",
-          "created_at": "2026-11-20T14:14:22Z"
+          "description": "Compact studio for short-form video editing and terms-aware project workflows.",
+          "url": "https://github.com/lidija52/filmora-license-short-video-studio",
+          "created_at": "2026-11-21T00:10:48Z"
         },
         {
-          "full_name": "yuda41904-collab/lossless-scaling-frame-workbench",
-          "stars": 93,
+          "full_name": "heracliomc-create/vegas-pro-23-bebaron",
+          "stars": 137,
           "language": "HTML",
-          "description": "Tune lossless scaling frames interactively with a focused, technical workbench.",
-          "url": "https://github.com/yuda41904-collab/lossless-scaling-frame-workbench",
-          "created_at": "2026-11-20T14:19:22Z"
+          "description": "Professional video editing suite with timeline-based tools for multi-track projects.",
+          "url": "https://github.com/heracliomc-create/vegas-pro-23-bebaron",
+          "created_at": "2026-11-21T00:07:05Z"
         },
         {
-          "full_name": "rishirishab21-dotcom/cyber-engine-tweaks-runtime-workspace",
-          "stars": 93,
-          "language": "TypeScript",
-          "description": "Mod your Cyberpunk runtime: script, tweak, and iterate in one shared workspace.",
-          "url": "https://github.com/rishirishab21-dotcom/cyber-engine-tweaks-runtime-workspace",
-          "created_at": "2026-11-20T13:58:41Z"
-        },
-        {
-          "full_name": "luciskynet-cloud/sonyvegas",
-          "stars": 93,
-          "language": "TypeScript",
-          "description": "Sonyvegas delivers core functionality — built with direct, technical precision.",
-          "url": "https://github.com/luciskynet-cloud/sonyvegas",
-          "created_at": "2026-11-20T13:34:36Z"
-        },
-        {
-          "full_name": "prakashharapanahalli448-arch/marvel-rivals-calvion",
-          "stars": 93,
-          "language": "JavaScript",
-          "description": "Play Marvel Rivals with Calvion guiding your matches and surfacing live intel.",
-          "url": "https://github.com/prakashharapanahalli448-arch/marvel-rivals-calvion",
-          "created_at": "2026-11-20T13:49:22Z"
-        },
-        {
-          "full_name": "enjinbdg/rustdesk-remote-workspace",
-          "stars": 93,
+          "full_name": "bgleeson180-afk/cinema-4d-sacerin-motion-studio",
+          "stars": 135,
           "language": "HTML",
-          "description": "Connect to and manage remote desktop sessions within a structured workspace.",
-          "url": "https://github.com/enjinbdg/rustdesk-remote-workspace",
-          "created_at": "2026-11-20T14:45:42Z"
+          "description": "Builds Cinema 4D Sacerin motion scenes through a structured studio workflow.",
+          "url": "https://github.com/bgleeson180-afk/cinema-4d-sacerin-motion-studio",
+          "created_at": "2026-11-21T00:09:19Z"
         },
         {
-          "full_name": "marketzy/codex-cli-repo-workbench",
-          "stars": 93,
+          "full_name": "huygenshin220607-blip/3ds-max-modeler",
+          "stars": 135,
           "language": "HTML",
-          "description": "Codex Cli Repo Workbench provides a local workspace for managing and inspecting Codex CLI repository",
-          "url": "https://github.com/marketzy/codex-cli-repo-workbench",
-          "created_at": "2026-11-20T14:28:07Z"
+          "description": "Builds editable 3D models in 3ds Max - supports mesh construction and scene-ready output.",
+          "url": "https://github.com/huygenshin220607-blip/3ds-max-modeler",
+          "created_at": "2026-11-21T00:07:49Z"
         }
       ]
     },
@@ -2205,73 +2052,73 @@
       "items": [
         {
           "id": "higurashi-ai/Haru-4B",
-          "likes": 4593,
+          "likes": 5371,
           "downloads": 7323,
           "pipeline_tag": "audio-to-audio",
           "url": "https://huggingface.co/higurashi-ai/Haru-4B"
         },
         {
           "id": "harness-hub/Qwen3.8-27B-pi-adapted",
-          "likes": 833,
+          "likes": 861,
           "downloads": 1874,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/harness-hub/Qwen3.8-27B-pi-adapted"
         },
         {
           "id": "Qwen/Qwen3.8-27B",
-          "likes": 20766,
+          "likes": 20800,
           "downloads": 6454419,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/Qwen/Qwen3.8-27B"
         },
         {
+          "id": "Sentinel7/h3",
+          "likes": 255,
+          "downloads": 0,
+          "pipeline_tag": "",
+          "url": "https://huggingface.co/Sentinel7/h3"
+        },
+        {
+          "id": "thinkingmachines/Inkling-2-Mini",
+          "likes": 540,
+          "downloads": 136,
+          "pipeline_tag": "image-text-to-text",
+          "url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini"
+        },
+        {
           "id": "Lightricks/LTX-2.5",
-          "likes": 12838,
+          "likes": 12889,
           "downloads": 2964523,
           "pipeline_tag": "image-to-video",
           "url": "https://huggingface.co/Lightricks/LTX-2.5"
         },
         {
-          "id": "MiniMaxAI/MiniMax-H3-Image",
-          "likes": 1682,
-          "downloads": 876986,
-          "pipeline_tag": "text-to-image",
-          "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3-Image"
-        },
-        {
           "id": "tencent/Hy4-flash",
-          "likes": 506,
+          "likes": 544,
           "downloads": 3949,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/tencent/Hy4-flash"
         },
         {
+          "id": "MiniMaxAI/MiniMax-H3-Image",
+          "likes": 1700,
+          "downloads": 876986,
+          "pipeline_tag": "text-to-image",
+          "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3-Image"
+        },
+        {
           "id": "sensenova/SenseNova-Loop-9B",
-          "likes": 427,
+          "likes": 444,
           "downloads": 1631,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/sensenova/SenseNova-Loop-9B"
         },
         {
-          "id": "chatrlabs/Qwen-Image-2.1-Uncensored-Omni-Quantized",
-          "likes": 740,
-          "downloads": 309394,
-          "pipeline_tag": "text-to-image",
-          "url": "https://huggingface.co/chatrlabs/Qwen-Image-2.1-Uncensored-Omni-Quantized"
-        },
-        {
-          "id": "inworld/voice-isolator",
-          "likes": 467,
+          "id": "unsloth/Inkling-2-Mini-GGUF",
+          "likes": 179,
           "downloads": 0,
-          "pipeline_tag": "audio-to-audio",
-          "url": "https://huggingface.co/inworld/voice-isolator"
-        },
-        {
-          "id": "apple/FastFrames-L",
-          "likes": 466,
-          "downloads": 0,
-          "pipeline_tag": "text-to-video",
-          "url": "https://huggingface.co/apple/FastFrames-L"
+          "pipeline_tag": "image-text-to-text",
+          "url": "https://huggingface.co/unsloth/Inkling-2-Mini-GGUF"
         }
       ]
     }
