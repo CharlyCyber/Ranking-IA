@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T15:44:47.174701",
+  "generated_at": "2026-11-21T21:17:37.640750",
   "sources": {
     "design": {
       "status": "ok",
@@ -16,7 +16,7 @@
         {
           "rank": 2,
           "model": "GPT-6 Astra (max)",
-          "score": 1392,
+          "score": 1391,
           "prompt_per_m": 10.0,
           "completion_per_m": 50.0,
           "context_length": 1050000,
@@ -25,7 +25,7 @@
         {
           "rank": 3,
           "model": "Claude Fable 5.2",
-          "score": 1360,
+          "score": 1359,
           "prompt_per_m": 8.0,
           "completion_per_m": 40.0,
           "context_length": 1000000,
@@ -34,7 +34,7 @@
         {
           "rank": 4,
           "model": "GPT-6.1 Sol (max)",
-          "score": 1357,
+          "score": 1356,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1050000,
@@ -43,7 +43,7 @@
         {
           "rank": 5,
           "model": "Qwen4-Max",
-          "score": 1352,
+          "score": 1351,
           "prompt_per_m": 1.425,
           "completion_per_m": 4.275,
           "context_length": 1000000,
@@ -52,7 +52,7 @@
         {
           "rank": 6,
           "model": "Claude Fable 5.1",
-          "score": 1330,
+          "score": 1329,
           "prompt_per_m": 10.0,
           "completion_per_m": 50.0,
           "context_length": 1000000,
@@ -61,7 +61,7 @@
         {
           "rank": 7,
           "model": "GPT-6.2 Astra (max)",
-          "score": 1307,
+          "score": 1308,
           "prompt_per_m": 8.0,
           "completion_per_m": 40.0,
           "context_length": 1050000,
@@ -70,7 +70,7 @@
         {
           "rank": 8,
           "model": "Inkling 2 Small",
-          "score": 1304,
+          "score": 1303,
           "prompt_per_m": 0.3,
           "completion_per_m": 1.0,
           "context_length": 1048576,
@@ -79,7 +79,7 @@
         {
           "rank": 9,
           "model": "Gemini 4 Carbon",
-          "score": 1302,
+          "score": 1303,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1048576,
@@ -87,6 +87,15 @@
         },
         {
           "rank": 10,
+          "model": "Hy4",
+          "score": 1295,
+          "prompt_per_m": 0.417,
+          "completion_per_m": 1.2505,
+          "context_length": 1048576,
+          "is_free": false
+        },
+        {
+          "rank": 11,
           "model": "Kimi K3.1 Pro",
           "score": 1289,
           "prompt_per_m": 0.253,
@@ -95,18 +104,9 @@
           "is_free": false
         },
         {
-          "rank": 11,
-          "model": "Qwen3.8 Max",
-          "score": 1283
-        },
-        {
           "rank": 12,
-          "model": "Claude Sonnet 5.5",
-          "score": 1282,
-          "prompt_per_m": 2.0,
-          "completion_per_m": 10.0,
-          "context_length": 1000000,
-          "is_free": false
+          "model": "Qwen3.8 Max",
+          "score": 1287
         },
         {
           "rank": 13,
@@ -116,67 +116,67 @@
         {
           "rank": 14,
           "model": "1718W / 838L 67.2% ±1.8% 2,556 OpenAI",
-          "score": 1392
+          "score": 1391
         },
         {
           "rank": 15,
-          "model": "1270W / 574L 68.9% ±2.1% 1,844 Anthropic",
-          "score": 1360
+          "model": "1276W / 577L 68.9% ±2.1% 1,853 Anthropic",
+          "score": 1359
         },
         {
           "rank": 16,
           "model": "1123W / 1122L 50.0% ±2.1% 2,245 OpenAI",
-          "score": 1357
+          "score": 1356
         },
         {
           "rank": 17,
-          "model": "2233W / 1349L 62.3% ±1.6% 3,582 Alibaba",
-          "score": 1352
+          "model": "2239W / 1353L 62.3% ±1.6% 3,592 Alibaba",
+          "score": 1351
         },
         {
           "rank": 18,
           "model": "3070W / 2085L 59.5% ±1.3% 5,155 Anthropic",
-          "score": 1330
+          "score": 1329
         },
         {
           "rank": 19,
-          "model": "1139W / 616L 64.9% ±2.2% 1,755 OpenAI",
-          "score": 1307
+          "model": "1151W / 621L 65.0% ±2.2% 1,772 OpenAI",
+          "score": 1308
         },
         {
           "rank": 20,
           "model": "4171W / 3109L 57.3% ±1.1% 7,280 Thinking Machines",
-          "score": 1304
+          "score": 1303
         },
         {
           "rank": 21,
-          "model": "693W / 444L 61.0% ±2.8% 1,137 Google",
-          "score": 1302
+          "model": "698W / 444L 61.1% ±2.8% 1,142 Google",
+          "score": 1303
         },
         {
           "rank": 22,
-          "model": "2878W / 1958L 59.5% ±1.4% 4,836 Moonshot AI",
-          "score": 1289
+          "model": "125W / 83L 60.1% ±6.7% 208 Tencent",
+          "score": 1295
         },
         {
           "rank": 23,
-          "model": "122W / 86L 58.6% ±6.7% 208 Alibaba",
-          "score": 1283
+          "model": "2885W / 1960L 59.5% ±1.4% 4,845 Moonshot AI",
+          "score": 1289
         },
         {
           "rank": 24,
-          "model": "1801W / 1342L 57.3% ±1.7% 3,143 Anthropic",
-          "score": 1282
+          "model": "128W / 87L 59.5% ±6.6% 215 Alibaba",
+          "score": 1287
         },
         {
           "rank": 25,
-          "model": "193W / 211L 47.8% ±4.9% 404 DeepSeek",
-          "score": 1281
+          "model": "1807W / 1346L 57.3% ±1.7% 3,153 Anthropic",
+          "score": 1282
         },
         {
           "rank": 26,
-          "model": "7489W / 5679L 56.9% ±0.8% 13,168 Meta",
-          "score": 1272
+          "model": "193W / 211L 47.8% ±4.9% 404 DeepSeek",
+          "score": 1280
         }
       ],
       "method": "http"
@@ -1900,16 +1900,32 @@
       ],
       "general": [
         {
-          "full_name": "Rohim777/gta6-120fps-dabelen",
-          "stars": 264,
+          "full_name": "omonkeyz/xbox-emulator",
+          "stars": 647,
+          "language": "Rust",
+          "description": "Progress notes for running Xbox Series X|S builds on PC (TomBox + rage9)",
+          "url": "https://github.com/omonkeyz/xbox-emulator",
+          "created_at": "2026-11-21T08:08:39Z"
+        },
+        {
+          "full_name": "sybil-solutions/skill-distill",
+          "stars": 307,
+          "language": "Python",
+          "description": "Distill a good Claude Code / Codex session into a skill an open-weight model can follow to reproduce the task",
+          "url": "https://github.com/sybil-solutions/skill-distill",
+          "created_at": "2026-11-21T01:43:00Z"
+        },
+        {
+          "full_name": "MoritzPindorek/Five-Laws-of-AI-Agents",
+          "stars": 256,
           "language": "HTML",
-          "description": "Adjustable frame-rate configuration for smoother rendering in GTA6.",
-          "url": "https://github.com/Rohim777/gta6-120fps-dabelen",
-          "created_at": "2026-11-21T13:37:06Z"
+          "description": "Independent philosophical research on the Five Laws of AI Agents, delegated authority, non-entitlement and corrigibility. Zenodo DOI: 10.5281/zenodo.24417028",
+          "url": "https://github.com/MoritzPindorek/Five-Laws-of-AI-Agents",
+          "created_at": "2026-11-21T13:23:05Z"
         },
         {
           "full_name": "ahmedbkareno1-stack/windows-activation-script-lekalin",
-          "stars": 207,
+          "stars": 205,
           "language": "HTML",
           "description": "Streamline Windows setup with Lekalin, a practical setup scripting tool.",
           "url": "https://github.com/ahmedbkareno1-stack/windows-activation-script-lekalin",
@@ -1917,7 +1933,7 @@
         },
         {
           "full_name": "lidija52/filmora-license-short-video-studio",
-          "stars": 207,
+          "stars": 205,
           "language": "HTML",
           "description": "Compact studio for short-form video editing and terms-aware project workflows.",
           "url": "https://github.com/lidija52/filmora-license-short-video-studio",
@@ -1925,7 +1941,7 @@
         },
         {
           "full_name": "bgleeson180-afk/cinema-4d-sacerin-motion-studio",
-          "stars": 203,
+          "stars": 201,
           "language": "HTML",
           "description": "Builds Cinema 4D Sacerin motion scenes through a structured studio workflow.",
           "url": "https://github.com/bgleeson180-afk/cinema-4d-sacerin-motion-studio",
@@ -1933,7 +1949,7 @@
         },
         {
           "full_name": "huygenshin220607-blip/3ds-max-modeler",
-          "stars": 203,
+          "stars": 201,
           "language": "HTML",
           "description": "Builds editable 3D models in 3ds Max - supports mesh construction and scene-ready output.",
           "url": "https://github.com/huygenshin220607-blip/3ds-max-modeler",
@@ -1941,23 +1957,15 @@
         },
         {
           "full_name": "heracliomc-create/vegas-pro-23-bebaron",
-          "stars": 203,
+          "stars": 201,
           "language": "HTML",
           "description": "Professional video editing suite with timeline-based tools for multi-track projects.",
           "url": "https://github.com/heracliomc-create/vegas-pro-23-bebaron",
           "created_at": "2026-11-21T00:07:05Z"
         },
         {
-          "full_name": "sybil-solutions/skill-distill",
-          "stars": 202,
-          "language": "Python",
-          "description": "Distill a good Claude Code / Codex session into a skill an open-weight model can follow to reproduce the task",
-          "url": "https://github.com/sybil-solutions/skill-distill",
-          "created_at": "2026-11-21T01:43:00Z"
-        },
-        {
           "full_name": "Daniel451legend/davinci-resolve-sanolen-color-studio",
-          "stars": 197,
+          "stars": 195,
           "language": "HTML",
           "description": "Professional color grading workflows and studio tools built for Davinci Resolve.",
           "url": "https://github.com/Daniel451legend/davinci-resolve-sanolen-color-studio",
@@ -1965,19 +1973,11 @@
         },
         {
           "full_name": "himeshsuthar91-eng/after-effects-ceramar-motion-design",
-          "stars": 196,
+          "stars": 194,
           "language": "HTML",
           "description": "After Effects Ceramar Motion Design: a motion design project built around Ceramar techniques.",
           "url": "https://github.com/himeshsuthar91-eng/after-effects-ceramar-motion-design",
           "created_at": "2026-11-21T13:40:23Z"
-        },
-        {
-          "full_name": "temech30/microsoft-office-ultimate-jakarin",
-          "stars": 194,
-          "language": "HTML",
-          "description": "Microsoft Office Ultimate Jakarin delivers a unified toolkit for document creation and workflow",
-          "url": "https://github.com/temech30/microsoft-office-ultimate-jakarin",
-          "created_at": "2026-11-21T13:34:46Z"
         }
       ],
       "items": [
@@ -1990,16 +1990,32 @@
           "created_at": "2026-11-21T03:46:32Z"
         },
         {
-          "full_name": "Rohim777/gta6-120fps-dabelen",
-          "stars": 264,
+          "full_name": "omonkeyz/xbox-emulator",
+          "stars": 647,
+          "language": "Rust",
+          "description": "Progress notes for running Xbox Series X|S builds on PC (TomBox + rage9)",
+          "url": "https://github.com/omonkeyz/xbox-emulator",
+          "created_at": "2026-11-21T08:08:39Z"
+        },
+        {
+          "full_name": "sybil-solutions/skill-distill",
+          "stars": 307,
+          "language": "Python",
+          "description": "Distill a good Claude Code / Codex session into a skill an open-weight model can follow to reproduce the task",
+          "url": "https://github.com/sybil-solutions/skill-distill",
+          "created_at": "2026-11-21T01:43:00Z"
+        },
+        {
+          "full_name": "MoritzPindorek/Five-Laws-of-AI-Agents",
+          "stars": 256,
           "language": "HTML",
-          "description": "Adjustable frame-rate configuration for smoother rendering in GTA6.",
-          "url": "https://github.com/Rohim777/gta6-120fps-dabelen",
-          "created_at": "2026-11-21T13:37:06Z"
+          "description": "Independent philosophical research on the Five Laws of AI Agents, delegated authority, non-entitlement and corrigibility. Zenodo DOI: 10.5281/zenodo.24417028",
+          "url": "https://github.com/MoritzPindorek/Five-Laws-of-AI-Agents",
+          "created_at": "2026-11-21T13:23:05Z"
         },
         {
           "full_name": "ahmedbkareno1-stack/windows-activation-script-lekalin",
-          "stars": 207,
+          "stars": 205,
           "language": "HTML",
           "description": "Streamline Windows setup with Lekalin, a practical setup scripting tool.",
           "url": "https://github.com/ahmedbkareno1-stack/windows-activation-script-lekalin",
@@ -2007,7 +2023,7 @@
         },
         {
           "full_name": "lidija52/filmora-license-short-video-studio",
-          "stars": 207,
+          "stars": 205,
           "language": "HTML",
           "description": "Compact studio for short-form video editing and terms-aware project workflows.",
           "url": "https://github.com/lidija52/filmora-license-short-video-studio",
@@ -2015,7 +2031,7 @@
         },
         {
           "full_name": "bgleeson180-afk/cinema-4d-sacerin-motion-studio",
-          "stars": 203,
+          "stars": 201,
           "language": "HTML",
           "description": "Builds Cinema 4D Sacerin motion scenes through a structured studio workflow.",
           "url": "https://github.com/bgleeson180-afk/cinema-4d-sacerin-motion-studio",
@@ -2023,7 +2039,7 @@
         },
         {
           "full_name": "huygenshin220607-blip/3ds-max-modeler",
-          "stars": 203,
+          "stars": 201,
           "language": "HTML",
           "description": "Builds editable 3D models in 3ds Max - supports mesh construction and scene-ready output.",
           "url": "https://github.com/huygenshin220607-blip/3ds-max-modeler",
@@ -2031,23 +2047,15 @@
         },
         {
           "full_name": "heracliomc-create/vegas-pro-23-bebaron",
-          "stars": 203,
+          "stars": 201,
           "language": "HTML",
           "description": "Professional video editing suite with timeline-based tools for multi-track projects.",
           "url": "https://github.com/heracliomc-create/vegas-pro-23-bebaron",
           "created_at": "2026-11-21T00:07:05Z"
         },
         {
-          "full_name": "sybil-solutions/skill-distill",
-          "stars": 202,
-          "language": "Python",
-          "description": "Distill a good Claude Code / Codex session into a skill an open-weight model can follow to reproduce the task",
-          "url": "https://github.com/sybil-solutions/skill-distill",
-          "created_at": "2026-11-21T01:43:00Z"
-        },
-        {
           "full_name": "Daniel451legend/davinci-resolve-sanolen-color-studio",
-          "stars": 197,
+          "stars": 195,
           "language": "HTML",
           "description": "Professional color grading workflows and studio tools built for Davinci Resolve.",
           "url": "https://github.com/Daniel451legend/davinci-resolve-sanolen-color-studio",
@@ -2055,7 +2063,7 @@
         },
         {
           "full_name": "himeshsuthar91-eng/after-effects-ceramar-motion-design",
-          "stars": 196,
+          "stars": 194,
           "language": "HTML",
           "description": "After Effects Ceramar Motion Design: a motion design project built around Ceramar techniques.",
           "url": "https://github.com/himeshsuthar91-eng/after-effects-ceramar-motion-design",
@@ -2063,7 +2071,7 @@
         },
         {
           "full_name": "temech30/microsoft-office-ultimate-jakarin",
-          "stars": 194,
+          "stars": 192,
           "language": "HTML",
           "description": "Microsoft Office Ultimate Jakarin delivers a unified toolkit for document creation and workflow",
           "url": "https://github.com/temech30/microsoft-office-ultimate-jakarin",
@@ -2071,7 +2079,7 @@
         },
         {
           "full_name": "Nhoel-hub/microsoft-office-velelan",
-          "stars": 193,
+          "stars": 191,
           "language": "HTML",
           "description": "Office Velelan delivers a structured directory for Microsoft Office components and modules.",
           "url": "https://github.com/Nhoel-hub/microsoft-office-velelan",
@@ -2079,7 +2087,7 @@
         },
         {
           "full_name": "skezoie/microsoft-365-professional",
-          "stars": 192,
+          "stars": 190,
           "language": "HTML",
           "description": "Installs the full Microsoft 365 Professional productivity suite on your device.",
           "url": "https://github.com/skezoie/microsoft-365-professional",
@@ -2087,7 +2095,7 @@
         },
         {
           "full_name": "Phabrooslonopharis/movavi-video-editor-license",
-          "stars": 192,
+          "stars": 190,
           "language": "HTML",
           "description": "Edit and export video projects with Movavi Video Editor terms.",
           "url": "https://github.com/Phabrooslonopharis/movavi-video-editor-license",
@@ -2095,19 +2103,11 @@
         },
         {
           "full_name": "alfoguasta/sketchup-pro-tasalor",
-          "stars": 192,
+          "stars": 190,
           "language": "HTML",
           "description": "Design and model in SketchUp Pro Tasalor with advanced 3D tools.",
           "url": "https://github.com/alfoguasta/sketchup-pro-tasalor",
           "created_at": "2026-11-21T13:07:27Z"
-        },
-        {
-          "full_name": "DigvijayQA/gta6-preload-emulator",
-          "stars": 192,
-          "language": "HTML",
-          "description": "Emulates the GTA6 preload environment for testing and development workflows.",
-          "url": "https://github.com/DigvijayQA/gta6-preload-emulator",
-          "created_at": "2026-11-21T13:33:21Z"
         }
       ]
     },
@@ -2169,73 +2169,73 @@
       "items": [
         {
           "id": "thinkingmachines/Inkling-2-Mini",
-          "likes": 1446,
+          "likes": 2312,
           "downloads": 7944,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini"
         },
         {
-          "id": "harness-hub/Qwen3.8-27B-pi-adapted",
-          "likes": 818,
-          "downloads": 2383,
-          "pipeline_tag": "image-text-to-text",
-          "url": "https://huggingface.co/harness-hub/Qwen3.8-27B-pi-adapted"
-        },
-        {
           "id": "unsloth/Inkling-2-Mini-GGUF",
-          "likes": 454,
+          "likes": 573,
           "downloads": 238152,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/unsloth/Inkling-2-Mini-GGUF"
         },
         {
           "id": "tencent/Hy4-flash",
-          "likes": 505,
+          "likes": 533,
           "downloads": 5588,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/tencent/Hy4-flash"
         },
         {
-          "id": "Lightricks/LTX-2.5",
-          "likes": 12876,
-          "downloads": 3000544,
-          "pipeline_tag": "image-to-video",
-          "url": "https://huggingface.co/Lightricks/LTX-2.5"
-        },
-        {
           "id": "inworld/voice-isolator",
-          "likes": 463,
+          "likes": 494,
           "downloads": 0,
           "pipeline_tag": "audio-to-audio",
           "url": "https://huggingface.co/inworld/voice-isolator"
         },
         {
+          "id": "Lightricks/LTX-2.5",
+          "likes": 12930,
+          "downloads": 3000544,
+          "pipeline_tag": "image-to-video",
+          "url": "https://huggingface.co/Lightricks/LTX-2.5"
+        },
+        {
           "id": "apple/FastFrames-L",
-          "likes": 460,
+          "likes": 485,
           "downloads": 0,
           "pipeline_tag": "text-to-video",
           "url": "https://huggingface.co/apple/FastFrames-L"
         },
         {
+          "id": "harness-hub/Qwen3.8-27B-pi-adapted",
+          "likes": 927,
+          "downloads": 2383,
+          "pipeline_tag": "image-text-to-text",
+          "url": "https://huggingface.co/harness-hub/Qwen3.8-27B-pi-adapted"
+        },
+        {
           "id": "higurashi-ai/Haru-4B",
-          "likes": 816,
+          "likes": 838,
           "downloads": 8120,
           "pipeline_tag": "audio-to-audio",
           "url": "https://huggingface.co/higurashi-ai/Haru-4B"
         },
         {
-          "id": "meituan-longcat/LongCat-Video-Avatar-1.6",
-          "likes": 355,
-          "downloads": 3031,
-          "pipeline_tag": "",
-          "url": "https://huggingface.co/meituan-longcat/LongCat-Video-Avatar-1.6"
+          "id": "maxwell-model/Maxwell-V1-Flash",
+          "likes": 319,
+          "downloads": 2959,
+          "pipeline_tag": "text-generation",
+          "url": "https://huggingface.co/maxwell-model/Maxwell-V1-Flash"
         },
         {
-          "id": "n4ze3m/tiny-voca",
-          "likes": 345,
-          "downloads": 9323,
-          "pipeline_tag": "text-to-speech",
-          "url": "https://huggingface.co/n4ze3m/tiny-voca"
+          "id": "Qwen/Qwen3.8-27B",
+          "likes": 20799,
+          "downloads": 6298190,
+          "pipeline_tag": "image-text-to-text",
+          "url": "https://huggingface.co/Qwen/Qwen3.8-27B"
         }
       ]
     }
