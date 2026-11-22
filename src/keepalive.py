@@ -8,16 +8,22 @@
 
 import logging
 import os
+import time
+from datetime import datetime, timezone
 
 import httpx
 from flask import Flask, redirect, request
 from werkzeug.serving import make_server
 
-from src.config import PUBLIC_URL, UPDATE_INTERVAL_MINUTES
+from src.config import APP_MODE, PUBLIC_URL, UPDATE_INTERVAL_MINUTES
 from src.db import utc_now_iso
+from src.web import db as web_db
 from src.web import web
 
 logger = logging.getLogger(__name__)
+
+_WORKER_STATUS_CACHE: dict[str, object] = {"checked_at": 0.0, "active": False, "heartbeat": None}
+
 
 RUNTIME_STATE: dict[str, object] = {
     "started_at": utc_now_iso(),
@@ -29,6 +35,28 @@ RUNTIME_STATE: dict[str, object] = {
     "last_change": None,
     "last_broadcast_count": 0,
 }
+
+
+def _shared_worker_status() -> tuple[bool, str | None]:
+    """Lee el heartbeat compartido por Turso para la topología web+worker separada."""
+    if APP_MODE != "web" or not web_db._turso_endpoint:
+        return False, None
+    now = time.monotonic()
+    if now - float(_WORKER_STATUS_CACHE["checked_at"]) < 15:
+        return bool(_WORKER_STATUS_CACHE["active"]), _WORKER_STATUS_CACHE["heartbeat"]
+    heartbeat = None
+    active = False
+    try:
+        heartbeat = web_db.get_state("bot_heartbeat")
+        if heartbeat:
+            seen = datetime.fromisoformat(str(heartbeat).replace("Z", "+00:00"))
+            if seen.tzinfo is None:
+                seen = seen.replace(tzinfo=timezone.utc)
+            active = (datetime.now(timezone.utc) - seen).total_seconds() <= 180
+    except Exception as exc:  # noqa: BLE001
+        logger.warning("No se pudo comprobar el heartbeat compartido: %s", exc)
+    _WORKER_STATUS_CACHE.update(checked_at=now, active=active, heartbeat=heartbeat)
+    return active, heartbeat
 
 
 def resolve_http_port() -> int:
@@ -45,17 +73,22 @@ def create_flask_app() -> Flask:
 
     @app.route("/health")
     def health():
+        worker_active = bool(RUNTIME_STATE["bot_polling_active"])
+        worker_heartbeat = RUNTIME_STATE["last_heartbeat"]
+        if not worker_active:
+            worker_active, shared_heartbeat = _shared_worker_status()
+            worker_heartbeat = shared_heartbeat or worker_heartbeat
         return {
             "status": "ok",
             "message": "Ranking AI Agent is Alive!",
-            "version": "4.3.0",
+            "version": "4.4.0",
             "timestamp": utc_now_iso(),
             "uptime_check": True,
             "update_interval_minutes": UPDATE_INTERVAL_MINUTES,
             "started_at": RUNTIME_STATE["started_at"],
-            "bot_polling_active": RUNTIME_STATE["bot_polling_active"],
+            "bot_polling_active": worker_active,
             "chromium_ready": RUNTIME_STATE["chromium_ready"],
-            "last_heartbeat": RUNTIME_STATE["last_heartbeat"],
+            "last_heartbeat": worker_heartbeat,
             "last_update_check": RUNTIME_STATE["last_update_check"],
             "last_update_message": RUNTIME_STATE["last_update_message"],
             "last_change": RUNTIME_STATE["last_change"],

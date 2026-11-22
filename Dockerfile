@@ -8,7 +8,8 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
     PIP_NO_CACHE_DIR=1 \
     PLAYWRIGHT_BROWSERS_PATH=/ms-playwright \
     SKIP_CHROMIUM_INSTALL=1 \
-    UPDATE_INTERVAL_MINUTES=60 \
+    UPDATE_INTERVAL_MINUTES=1 \
+    APP_MODE=all \
     PORT=7860
 
 # Crear usuario no-root uid=1000 (requerido por Hugging Face Spaces) si no existe

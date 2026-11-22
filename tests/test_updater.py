@@ -95,7 +95,9 @@ async def test_safety_net_conserva_datos_previos_si_scrape_falla(tmp_path, monke
 
     arena = saved["sources"]["arena"]
     assert arena["status"] == "stale"
+    assert arena["last_checked_at"] == saved["generated_at"]
     assert arena["models"] == _models(), "los modelos previos deben sobrevivir intactos"
+    assert saved["sources"]["openrouter"]["last_successful_fetch_at"] == saved["generated_at"]
     assert "No se pudo obtener datos" not in json.dumps(arena["models"])
     assert bot.sent == [], "un fetch fallido solo alerta al admin, no emite boletín de cambios"
 

@@ -6,7 +6,7 @@ services:
     healthCheckPath: /health
     envVars:
       - key: UPDATE_INTERVAL_MINUTES
-        value: "60"
+        value: "1"
       - key: SKIP_CHROMIUM_INSTALL
         value: "1"
       - key: TELEGRAM_TOKEN
@@ -15,8 +15,14 @@ services:
         sync: false
       - key: CHAT_ID
         sync: false
+      - key: ADMIN_USER_ID
+        sync: false
       - key: GROQ_API_KEY
         sync: false
+      - key: TAVILY_API_KEY
+        sync: false
+      - key: LIVE_SEARCH_DAILY_LIMIT
+        value: "100"
       - key: TURSO_DATABASE_URL
         sync: false
       - key: TURSO_AUTH_TOKEN

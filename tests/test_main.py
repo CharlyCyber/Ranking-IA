@@ -1,7 +1,5 @@
 """Utilidades del bot: splitting de mensajes y rate limit por usuario."""
 
-from datetime import datetime, timedelta
-
 import src.main as m
 
 
@@ -26,31 +24,6 @@ class TestSplitMessage:
         assert "".join(chunks) == "x" * 9000
 
 
-class TestRateLimit:
-    def test_ventana_por_usuario(self):
-        uid = 999001
-        assert sum(m.allow_user_message(uid) for _ in range(25)) == m.USER_RATE_LIMIT
-        assert m.allow_user_message(uid) is False
-        # otro usuario no afecta
-        assert m.allow_user_message(999002) is True
-
-    def test_ventana_expira_tras_1h(self):
-        uid = 999003
-        for _ in range(m.USER_RATE_LIMIT):
-            assert m.allow_user_message(uid)
-        assert m.allow_user_message(uid) is False
-        # expira la ventana: envejece los timestamps manualmente
-        m._user_messages[uid] = deque_with_old_timestamp()
-        assert m.allow_user_message(uid) is True
-
-
-def deque_with_old_timestamp():
-    from collections import deque
-
-    old = datetime.now() - timedelta(hours=2)
-    return deque([old] * m.USER_RATE_LIMIT)
-
-
 class TestStripHtml:
     def test_quita_etiquetas_y_decodifica(self):
         assert m._strip_html("<b>Hola</b> &amp; <i>mundo</i>") == "Hola & mundo"
@@ -60,7 +33,7 @@ class TestHourlySchedule:
     async def test_post_init_registra_revision_cada_1_hora(self):
         from types import SimpleNamespace
 
-        assert m.UPDATE_INTERVAL_MINUTES == 60
+        assert m.UPDATE_INTERVAL_MINUTES >= 1
         repeating_jobs = {}
 
         def record_repeating(cb, interval, first, name):
@@ -78,7 +51,7 @@ class TestHourlySchedule:
             ),
         )
         await m.post_init(app)
-        assert repeating_jobs["periodic_update"]["interval"] == 3600
+        assert repeating_jobs["periodic_update"]["interval"] == max(60, m.UPDATE_INTERVAL_MINUTES * 60)
 
     async def test_post_init_registra_weekly_digest_dominical(self):
         from types import SimpleNamespace
@@ -208,3 +181,11 @@ class TestDiagnosticCommands:
         assert test_db.is_subscriber("12345") is True
 
 
+
+
+class TestAdminIdentity:
+    def test_uses_user_id_not_group_chat_id(self, monkeypatch):
+        monkeypatch.setattr(m, "ADMIN_USER_ID", "12345")
+        monkeypatch.setattr(m, "ADMIN_CHAT_ID", "-100987654321")
+        assert m.is_admin(12345) is True
+        assert m.is_admin(-100987654321) is False

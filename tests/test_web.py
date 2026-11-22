@@ -18,7 +18,10 @@ def test_health(client):
     assert resp.status_code == 200
     body = resp.get_json()
     assert body["status"] == "ok"
-    assert body["update_interval_minutes"] == 60
+    assert body["version"] == "4.4.0"
+    from src.config import UPDATE_INTERVAL_MINUTES
+
+    assert body["update_interval_minutes"] == UPDATE_INTERVAL_MINUTES
     assert "chromium_ready" in body
 
 
@@ -147,3 +150,62 @@ def test_elo_history_usa_tabla_compacta_sin_leer_snapshots(client, monkeypatch, 
     assert "claude-opus-4-6" in series
     assert series["claude-opus-4-6"][0][1] == 1496
 
+def test_public_api_has_basic_per_ip_rate_limit(client, monkeypatch):
+    import src.web as web_module
+
+    monkeypatch.setattr(web_module, "API_RATE_LIMIT_PER_MINUTE", 2)
+    web_module._API_REQUESTS.clear()
+    headers = {"REMOTE_ADDR": "198.51.100.77"}
+    assert client.get("/api/history", headers=headers).status_code == 200
+    assert client.get("/api/history", headers=headers).status_code == 200
+    limited = client.get("/api/history", headers=headers)
+    assert limited.status_code == 429
+    assert limited.headers["Retry-After"] == "60"
+
+
+def test_health_in_web_role_reads_shared_worker_heartbeat(client, monkeypatch):
+    from datetime import datetime, timezone
+
+    import src.keepalive as keepalive
+
+    class SharedDb:
+        _turso_endpoint = "https://db.example"
+
+        @staticmethod
+        def get_state(_key):
+            return datetime.now(timezone.utc).isoformat()
+
+    monkeypatch.setattr(keepalive, "APP_MODE", "web")
+    monkeypatch.setattr(keepalive, "web_db", SharedDb())
+    monkeypatch.setitem(keepalive._WORKER_STATUS_CACHE, "checked_at", 0.0)
+    monkeypatch.setitem(keepalive.RUNTIME_STATE, "bot_polling_active", False)
+    assert client.get("/health").get_json()["bot_polling_active"] is True
+def test_api_freshness_reports_per_source_last_success(client, monkeypatch):
+    import src.web as web_module
+
+    class SnapshotDb:
+        def get_or_seed_latest_snapshot(self):
+            return {
+                "created_at": "2026-11-22T04:33:00",
+                "data": {
+                    "generated_at": "2026-11-22T04:33:00",
+                    "sources": {
+                        "openrouter": {
+                            "status": "stale",
+                            "last_checked_at": "2026-11-22T04:33:00",
+                            "last_successful_fetch_at": "2026-11-22T04:20:00",
+                            "stale_since": "2026-11-22T04:33:00",
+                        }
+                    },
+                },
+            }
+
+    monkeypatch.setattr(web_module, "db", SnapshotDb())
+    response = client.get("/api/freshness")
+    assert response.status_code == 200
+    body = response.get_json()
+    assert body["snapshot_generated_at"] == "2026-11-22T04:33:00"
+    source = body["sources"]["openrouter"]
+    assert source["status"] == "stale"
+    assert source["last_successful_fetch_at"] == "2026-11-22T04:20:00"
+    assert source["last_success_age_minutes"] is not None
