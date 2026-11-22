@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T01:46:23.593845",
+  "generated_at": "2026-11-22T08:59:57.294095",
   "sources": {
     "design": {
       "status": "ok",
@@ -61,7 +61,7 @@
         {
           "rank": 7,
           "model": "GPT-6.2 Astra (max)",
-          "score": 1307,
+          "score": 1308,
           "prompt_per_m": 8.0,
           "completion_per_m": 40.0,
           "context_length": 1050000,
@@ -88,7 +88,7 @@
         {
           "rank": 10,
           "model": "Hy4",
-          "score": 1293,
+          "score": 1292,
           "prompt_per_m": 0.417,
           "completion_per_m": 1.2505,
           "context_length": 1048576,
@@ -106,7 +106,7 @@
         {
           "rank": 12,
           "model": "Qwen3.8 Max",
-          "score": 1285
+          "score": 1284
         },
         {
           "rank": 13,
@@ -120,7 +120,7 @@
         },
         {
           "rank": 15,
-          "model": "1280W / 578L 68.9% ±2.1% 1,858 Anthropic",
+          "model": "1284W / 578L 69.0% ±2.1% 1,862 Anthropic",
           "score": 1360
         },
         {
@@ -130,7 +130,7 @@
         },
         {
           "rank": 17,
-          "model": "2240W / 1355L 62.3% ±1.6% 3,595 Alibaba",
+          "model": "2241W / 1358L 62.3% ±1.6% 3,599 Alibaba",
           "score": 1350
         },
         {
@@ -140,8 +140,8 @@
         },
         {
           "rank": 19,
-          "model": "1153W / 623L 64.9% ±2.2% 1,776 OpenAI",
-          "score": 1307
+          "model": "1157W / 624L 65.0% ±2.2% 1,781 OpenAI",
+          "score": 1308
         },
         {
           "rank": 20,
@@ -150,27 +150,27 @@
         },
         {
           "rank": 21,
-          "model": "698W / 445L 61.1% ±2.8% 1,143 Google",
+          "model": "699W / 446L 61.0% ±2.8% 1,145 Google",
           "score": 1302
         },
         {
           "rank": 22,
-          "model": "125W / 84L 59.8% ±6.6% 209 Tencent",
-          "score": 1293
+          "model": "126W / 85L 59.7% ±6.6% 211 Tencent",
+          "score": 1292
         },
         {
           "rank": 23,
-          "model": "2886W / 1961L 59.5% ±1.4% 4,847 Moonshot AI",
+          "model": "2887W / 1961L 59.5% ±1.4% 4,848 Moonshot AI",
           "score": 1288
         },
         {
           "rank": 24,
           "model": "128W / 88L 59.3% ±6.6% 216 Alibaba",
-          "score": 1285
+          "score": 1284
         },
         {
           "rank": 25,
-          "model": "1809W / 1348L 57.3% ±1.7% 3,157 Anthropic",
+          "model": "1811W / 1349L 57.3% ±1.7% 3,160 Anthropic",
           "score": 1282
         },
         {
@@ -179,7 +179,9 @@
           "score": 1280
         }
       ],
-      "method": "http"
+      "method": "http",
+      "last_checked_at": "2026-11-22T08:59:57.294095",
+      "last_successful_fetch_at": "2026-11-22T08:59:57.294095"
     },
     "arena": {
       "status": "ok",
@@ -1558,7 +1560,9 @@
           "score": 1182
         }
       ],
-      "method": "api"
+      "method": "api",
+      "last_checked_at": "2026-11-22T08:59:57.294095",
+      "last_successful_fetch_at": "2026-11-22T08:59:57.294095"
     },
     "openrouter": {
       "status": "stale",
@@ -1883,7 +1887,9 @@
         }
       ],
       "error": "openrouter: status=error (OpenRouter: solo 0 filas parseadas)",
-      "stale_since": "2026-11-11T02:21:51.468524"
+      "stale_since": "2026-11-11T02:21:51.468524",
+      "last_checked_at": "2026-11-22T08:59:57.294095",
+      "last_successful_fetch_at": null
     },
     "github": {
       "status": "ok",
@@ -1892,23 +1898,23 @@
       "general": [
         {
           "full_name": "nickghq00x1/bubble-gum-simulator-infinity-script-x64",
-          "stars": 262,
-          "language": "CMake",
+          "stars": 227,
+          "language": "Jupyter Notebook",
           "description": "Bubble Gum Simulator Infinity (BGSI) Script — Auto-Blow, Fast Hatch Secret Pets & Rift ESP (Windows x64 Build): native 64-bit Windows 10/11 portable x64 build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.",
           "url": "https://github.com/nickghq00x1/bubble-gum-simulator-infinity-script-x64",
           "created_at": "2026-11-22T00:46:52Z"
         },
         {
           "full_name": "alexpetrovx1903z9/switch-firmware-19-keys-pack",
-          "stars": 259,
-          "language": "C++",
+          "stars": 218,
+          "language": "Jupyter Notebook",
           "description": "Switch Emulator Firmware 19.0.1 + Keys Installer for Sudachi, Citron, Suyu & NSP-Box: native 64-bit Windows 10/11 portable x64 build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.",
           "url": "https://github.com/alexpetrovx1903z9/switch-firmware-19-keys-pack",
           "created_at": "2026-11-22T00:50:14Z"
         },
         {
           "full_name": "ben-tech-lab1999h1/spt-aki-profile-editor-tarkov-win11",
-          "stars": 258,
+          "stars": 215,
           "language": "C++",
           "description": "Escape from Tarkov SPT-AKI 3.10 Profile Editor, Flea Unlocker & BattlEye smbios-utility (Windows 10/11 x64): native 64-bit Windows 10/11 portable x64 build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.",
           "url": "https://github.com/ben-tech-lab1999h1/spt-aki-profile-editor-tarkov-win11",
@@ -1916,183 +1922,185 @@
         },
         {
           "full_name": "sergey-techdev1998d6/fisch-script-macro-win11",
-          "stars": 256,
+          "stars": 215,
           "language": "Jupyter Notebook",
           "description": "Fisch Script & Macro V12 — Auto-Cast, Instant Reel, Duping & Aurora Totem Hub (Windows 10/11 x64): native 64-bit Windows 10/11 portable x64 build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.",
           "url": "https://github.com/sergey-techdev1998d6/fisch-script-macro-win11",
           "created_at": "2026-11-22T00:45:45Z"
         },
         {
-          "full_name": "alex-lee-dev2000a1/solara-executor-v3-portable",
-          "stars": 254,
-          "language": "C++",
-          "description": "Solara bootstrapper V3 — Official Keyless Roblox Script bootstrapper & Bootstrapper (2026) (Portable Suite): native 64-bit Windows 10/11 portable x64 build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.",
-          "url": "https://github.com/alex-lee-dev2000a1/solara-executor-v3-portable",
-          "created_at": "2026-11-22T00:06:32Z"
-        },
-        {
-          "full_name": "sergeywright-98r1/bloxstrap-roblox-fflags-x64",
-          "stars": 252,
+          "full_name": "dmitryveng2092q8/monster-hunter-wilds-save-editor-win11",
+          "stars": 211,
           "language": "Jupyter Notebook",
-          "description": "Bloxstrap 2026 FFlag Editor — Roblox FPS Unlocker, Ping Reducer & Shader Mod (Windows x64 Build): native 64-bit Windows 10/11 portable x64 build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.",
-          "url": "https://github.com/sergeywright-98r1/bloxstrap-roblox-fflags-x64",
-          "created_at": "2026-11-22T00:41:43Z"
+          "description": "Monster Hunter Wilds Save Editor, Charm/Decoration Injector & Standalone Trainer (Windows 10/11 x64): native 64-bit Windows 10/11 portable x64 build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.",
+          "url": "https://github.com/dmitryveng2092q8/monster-hunter-wilds-save-editor-win11",
+          "created_at": "2026-11-22T00:47:22Z"
         },
         {
           "full_name": "sam-ivanov-io1995u2/cs2-skin-changer-win11",
-          "stars": 251,
+          "stars": 211,
           "language": "Jupyter Notebook",
           "description": "CS2 Skin Changer & Inventory Unlocker — All Knives, Gloves, Agents & Stickers (Windows 10/11 x64): native 64-bit Windows 10/11 portable x64 build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.",
           "url": "https://github.com/sam-ivanov-io1995u2/cs2-skin-changer-win11",
           "created_at": "2026-11-22T00:45:49Z"
         },
         {
-          "full_name": "john-rlab95l7/swift-executor-roblox-x64",
-          "stars": 250,
+          "full_name": "kevin-alilab2094a4/deep-live-cam-cuda-portable-win11",
+          "stars": 210,
           "language": "Jupyter Notebook",
-          "description": "Swift bootstrapper Roblox (getswift) — 100% sUNC Keyless Windows PC Script Runner (Windows x64 Build): native 64-bit Windows 10/11 portable x64 build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.",
-          "url": "https://github.com/john-rlab95l7/swift-executor-roblox-x64",
-          "created_at": "2026-11-22T00:43:13Z"
-        },
-        {
-          "full_name": "sam-lee-dev1990s2/poe2-auto-flask-cheat-hud-win11",
-          "stars": 248,
-          "language": "C++",
-          "description": "PoE 2 external-overlay HUD (ExileAPI) — Auto-Flask, Auto-Dodge, Rare Monster ESP & Price Check (Windows 10/11 x64): native 64-bit Windows 10/11 portable x64 build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.",
-          "url": "https://github.com/sam-lee-dev1990s2/poe2-auto-flask-cheat-hud-win11",
-          "created_at": "2026-11-22T00:47:34Z"
-        },
-        {
-          "full_name": "dmitryveng2092q8/monster-hunter-wilds-save-editor-win11",
-          "stars": 247,
-          "language": "CMake",
-          "description": "Monster Hunter Wilds Save Editor, Charm/Decoration Injector & Standalone Trainer (Windows 10/11 x64): native 64-bit Windows 10/11 portable x64 build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.",
-          "url": "https://github.com/dmitryveng2092q8/monster-hunter-wilds-save-editor-win11",
-          "created_at": "2026-11-22T00:47:22Z"
-        }
-      ],
-      "items": [
-        {
-          "full_name": "nickghq00x1/bubble-gum-simulator-infinity-script-x64",
-          "stars": 262,
-          "language": "CMake",
-          "description": "Bubble Gum Simulator Infinity (BGSI) Script — Auto-Blow, Fast Hatch Secret Pets & Rift ESP (Windows x64 Build): native 64-bit Windows 10/11 portable x64 build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.",
-          "url": "https://github.com/nickghq00x1/bubble-gum-simulator-infinity-script-x64",
-          "created_at": "2026-11-22T00:46:52Z"
-        },
-        {
-          "full_name": "alexpetrovx1903z9/switch-firmware-19-keys-pack",
-          "stars": 259,
-          "language": "C++",
-          "description": "Switch Emulator Firmware 19.0.1 + Keys Installer for Sudachi, Citron, Suyu & NSP-Box: native 64-bit Windows 10/11 portable x64 build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.",
-          "url": "https://github.com/alexpetrovx1903z9/switch-firmware-19-keys-pack",
-          "created_at": "2026-11-22T00:50:14Z"
-        },
-        {
-          "full_name": "ben-tech-lab1999h1/spt-aki-profile-editor-tarkov-win11",
-          "stars": 258,
-          "language": "C++",
-          "description": "Escape from Tarkov SPT-AKI 3.10 Profile Editor, Flea Unlocker & BattlEye smbios-utility (Windows 10/11 x64): native 64-bit Windows 10/11 portable x64 build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.",
-          "url": "https://github.com/ben-tech-lab1999h1/spt-aki-profile-editor-tarkov-win11",
-          "created_at": "2026-11-22T00:48:01Z"
-        },
-        {
-          "full_name": "sergey-techdev1998d6/fisch-script-macro-win11",
-          "stars": 256,
-          "language": "Jupyter Notebook",
-          "description": "Fisch Script & Macro V12 — Auto-Cast, Instant Reel, Duping & Aurora Totem Hub (Windows 10/11 x64): native 64-bit Windows 10/11 portable x64 build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.",
-          "url": "https://github.com/sergey-techdev1998d6/fisch-script-macro-win11",
-          "created_at": "2026-11-22T00:45:45Z"
-        },
-        {
-          "full_name": "alex-lee-dev2000a1/solara-executor-v3-portable",
-          "stars": 254,
-          "language": "C++",
-          "description": "Solara bootstrapper V3 — Official Keyless Roblox Script bootstrapper & Bootstrapper (2026) (Portable Suite): native 64-bit Windows 10/11 portable x64 build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.",
-          "url": "https://github.com/alex-lee-dev2000a1/solara-executor-v3-portable",
-          "created_at": "2026-11-22T00:06:32Z"
-        },
-        {
-          "full_name": "sergeywright-98r1/bloxstrap-roblox-fflags-x64",
-          "stars": 252,
-          "language": "Jupyter Notebook",
-          "description": "Bloxstrap 2026 FFlag Editor — Roblox FPS Unlocker, Ping Reducer & Shader Mod (Windows x64 Build): native 64-bit Windows 10/11 portable x64 build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.",
-          "url": "https://github.com/sergeywright-98r1/bloxstrap-roblox-fflags-x64",
-          "created_at": "2026-11-22T00:41:43Z"
-        },
-        {
-          "full_name": "sam-ivanov-io1995u2/cs2-skin-changer-win11",
-          "stars": 251,
-          "language": "Jupyter Notebook",
-          "description": "CS2 Skin Changer & Inventory Unlocker — All Knives, Gloves, Agents & Stickers (Windows 10/11 x64): native 64-bit Windows 10/11 portable x64 build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.",
-          "url": "https://github.com/sam-ivanov-io1995u2/cs2-skin-changer-win11",
-          "created_at": "2026-11-22T00:45:49Z"
-        },
-        {
-          "full_name": "john-rlab95l7/swift-executor-roblox-x64",
-          "stars": 250,
-          "language": "Jupyter Notebook",
-          "description": "Swift bootstrapper Roblox (getswift) — 100% sUNC Keyless Windows PC Script Runner (Windows x64 Build): native 64-bit Windows 10/11 portable x64 build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.",
-          "url": "https://github.com/john-rlab95l7/swift-executor-roblox-x64",
-          "created_at": "2026-11-22T00:43:13Z"
-        },
-        {
-          "full_name": "sam-lee-dev1990s2/poe2-auto-flask-cheat-hud-win11",
-          "stars": 248,
-          "language": "C++",
-          "description": "PoE 2 external-overlay HUD (ExileAPI) — Auto-Flask, Auto-Dodge, Rare Monster ESP & Price Check (Windows 10/11 x64): native 64-bit Windows 10/11 portable x64 build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.",
-          "url": "https://github.com/sam-lee-dev1990s2/poe2-auto-flask-cheat-hud-win11",
-          "created_at": "2026-11-22T00:47:34Z"
-        },
-        {
-          "full_name": "dmitryveng2092q8/monster-hunter-wilds-save-editor-win11",
-          "stars": 247,
-          "language": "CMake",
-          "description": "Monster Hunter Wilds Save Editor, Charm/Decoration Injector & Standalone Trainer (Windows 10/11 x64): native 64-bit Windows 10/11 portable x64 build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.",
-          "url": "https://github.com/dmitryveng2092q8/monster-hunter-wilds-save-editor-win11",
-          "created_at": "2026-11-22T00:47:22Z"
+          "description": "Deep-Live-Cam v2.1 Portable (1-Click CUDA Installer) — Realtime Webcam FaceSwap for OBS/Discord (Windows 10/11 x64): native 64-bit Windows 10/11 portable x64 build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.",
+          "url": "https://github.com/kevin-alilab2094a4/deep-live-cam-cuda-portable-win11",
+          "created_at": "2026-11-22T00:50:00Z"
         },
         {
           "full_name": "nikitadhq2000d6/pump-fun-volume-bump-bot-win11",
-          "stars": 247,
+          "stars": 208,
           "language": "Jupyter Notebook",
           "description": "Pump.fun Volume Booster, Micro-Buy Bump Bot & Organic Holder Maker Terminal (2026) (Windows 10/11 x64): native 64-bit Windows 10/11 portable x64 build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.",
           "url": "https://github.com/nikitadhq2000d6/pump-fun-volume-bump-bot-win11",
           "created_at": "2026-11-22T00:49:41Z"
         },
         {
-          "full_name": "sergey-w-code2095e1/phantom-blade-zero-save-editor-win11",
-          "stars": 246,
-          "language": "Jupyter Notebook",
-          "description": "Phantom Blade Zero Save Editor, FOV Unlocker & DLSS 4 Frame Generation Mod (Windows 10/11 x64): native 64-bit Windows 10/11 portable x64 build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.",
-          "url": "https://github.com/sergey-w-code2095e1/phantom-blade-zero-save-editor-win11",
-          "created_at": "2026-11-22T00:45:24Z"
+          "full_name": "alex-lee-dev2000a1/solara-executor-v3-portable",
+          "stars": 207,
+          "language": "C++",
+          "description": "Solara bootstrapper V3 — Official Keyless Roblox Script bootstrapper & Bootstrapper (2026) (Portable Suite): native 64-bit Windows 10/11 portable x64 build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.",
+          "url": "https://github.com/alex-lee-dev2000a1/solara-executor-v3-portable",
+          "created_at": "2026-11-22T00:06:32Z"
         },
         {
-          "full_name": "dan-moore-lab2092d9/wave-executor-roblox-portable",
-          "stars": 246,
+          "full_name": "ivan-kumar-1998n3/haikyuu-volleyball-legends-script-x64",
+          "stars": 207,
+          "language": "Jupyter Notebook",
+          "description": "Haikyuu / Volleyball Legends Script — Auto-Spike, Perfect Receive, Secret Style Spin & Hitbox (Windows x64 Build): native 64-bit Windows 10/11 portable x64 build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.",
+          "url": "https://github.com/ivan-kumar-1998n3/haikyuu-volleyball-legends-script-x64",
+          "created_at": "2026-11-22T00:48:08Z"
+        }
+      ],
+      "items": [
+        {
+          "full_name": "nickghq00x1/bubble-gum-simulator-infinity-script-x64",
+          "stars": 227,
+          "language": "Jupyter Notebook",
+          "description": "Bubble Gum Simulator Infinity (BGSI) Script — Auto-Blow, Fast Hatch Secret Pets & Rift ESP (Windows x64 Build): native 64-bit Windows 10/11 portable x64 build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.",
+          "url": "https://github.com/nickghq00x1/bubble-gum-simulator-infinity-script-x64",
+          "created_at": "2026-11-22T00:46:52Z"
+        },
+        {
+          "full_name": "alexpetrovx1903z9/switch-firmware-19-keys-pack",
+          "stars": 218,
+          "language": "Jupyter Notebook",
+          "description": "Switch Emulator Firmware 19.0.1 + Keys Installer for Sudachi, Citron, Suyu & NSP-Box: native 64-bit Windows 10/11 portable x64 build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.",
+          "url": "https://github.com/alexpetrovx1903z9/switch-firmware-19-keys-pack",
+          "created_at": "2026-11-22T00:50:14Z"
+        },
+        {
+          "full_name": "ben-tech-lab1999h1/spt-aki-profile-editor-tarkov-win11",
+          "stars": 215,
           "language": "C++",
-          "description": "Wave bootstrapper Keyless — 100% sUNC Roblox Script bootstrapper & LuaU Injector (Portable Suite): native 64-bit Windows 10/11 portable x64 build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.",
-          "url": "https://github.com/dan-moore-lab2092d9/wave-executor-roblox-portable",
-          "created_at": "2026-11-22T00:06:33Z"
+          "description": "Escape from Tarkov SPT-AKI 3.10 Profile Editor, Flea Unlocker & BattlEye smbios-utility (Windows 10/11 x64): native 64-bit Windows 10/11 portable x64 build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.",
+          "url": "https://github.com/ben-tech-lab1999h1/spt-aki-profile-editor-tarkov-win11",
+          "created_at": "2026-11-22T00:48:01Z"
+        },
+        {
+          "full_name": "sergey-techdev1998d6/fisch-script-macro-win11",
+          "stars": 215,
+          "language": "Jupyter Notebook",
+          "description": "Fisch Script & Macro V12 — Auto-Cast, Instant Reel, Duping & Aurora Totem Hub (Windows 10/11 x64): native 64-bit Windows 10/11 portable x64 build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.",
+          "url": "https://github.com/sergey-techdev1998d6/fisch-script-macro-win11",
+          "created_at": "2026-11-22T00:45:45Z"
+        },
+        {
+          "full_name": "dmitryveng2092q8/monster-hunter-wilds-save-editor-win11",
+          "stars": 211,
+          "language": "Jupyter Notebook",
+          "description": "Monster Hunter Wilds Save Editor, Charm/Decoration Injector & Standalone Trainer (Windows 10/11 x64): native 64-bit Windows 10/11 portable x64 build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.",
+          "url": "https://github.com/dmitryveng2092q8/monster-hunter-wilds-save-editor-win11",
+          "created_at": "2026-11-22T00:47:22Z"
+        },
+        {
+          "full_name": "sam-ivanov-io1995u2/cs2-skin-changer-win11",
+          "stars": 211,
+          "language": "Jupyter Notebook",
+          "description": "CS2 Skin Changer & Inventory Unlocker — All Knives, Gloves, Agents & Stickers (Windows 10/11 x64): native 64-bit Windows 10/11 portable x64 build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.",
+          "url": "https://github.com/sam-ivanov-io1995u2/cs2-skin-changer-win11",
+          "created_at": "2026-11-22T00:45:49Z"
+        },
+        {
+          "full_name": "kevin-alilab2094a4/deep-live-cam-cuda-portable-win11",
+          "stars": 210,
+          "language": "Jupyter Notebook",
+          "description": "Deep-Live-Cam v2.1 Portable (1-Click CUDA Installer) — Realtime Webcam FaceSwap for OBS/Discord (Windows 10/11 x64): native 64-bit Windows 10/11 portable x64 build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.",
+          "url": "https://github.com/kevin-alilab2094a4/deep-live-cam-cuda-portable-win11",
+          "created_at": "2026-11-22T00:50:00Z"
+        },
+        {
+          "full_name": "nikitadhq2000d6/pump-fun-volume-bump-bot-win11",
+          "stars": 208,
+          "language": "Jupyter Notebook",
+          "description": "Pump.fun Volume Booster, Micro-Buy Bump Bot & Organic Holder Maker Terminal (2026) (Windows 10/11 x64): native 64-bit Windows 10/11 portable x64 build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.",
+          "url": "https://github.com/nikitadhq2000d6/pump-fun-volume-bump-bot-win11",
+          "created_at": "2026-11-22T00:49:41Z"
+        },
+        {
+          "full_name": "alex-lee-dev2000a1/solara-executor-v3-portable",
+          "stars": 207,
+          "language": "C++",
+          "description": "Solara bootstrapper V3 — Official Keyless Roblox Script bootstrapper & Bootstrapper (2026) (Portable Suite): native 64-bit Windows 10/11 portable x64 build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.",
+          "url": "https://github.com/alex-lee-dev2000a1/solara-executor-v3-portable",
+          "created_at": "2026-11-22T00:06:32Z"
+        },
+        {
+          "full_name": "ivan-kumar-1998n3/haikyuu-volleyball-legends-script-x64",
+          "stars": 207,
+          "language": "Jupyter Notebook",
+          "description": "Haikyuu / Volleyball Legends Script — Auto-Spike, Perfect Receive, Secret Style Spin & Hitbox (Windows x64 Build): native 64-bit Windows 10/11 portable x64 build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.",
+          "url": "https://github.com/ivan-kumar-1998n3/haikyuu-volleyball-legends-script-x64",
+          "created_at": "2026-11-22T00:48:08Z"
+        },
+        {
+          "full_name": "john-rlab95l7/swift-executor-roblox-x64",
+          "stars": 206,
+          "language": "Jupyter Notebook",
+          "description": "Swift bootstrapper Roblox (getswift) — 100% sUNC Keyless Windows PC Script Runner (Windows x64 Build): native 64-bit Windows 10/11 portable x64 build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.",
+          "url": "https://github.com/john-rlab95l7/swift-executor-roblox-x64",
+          "created_at": "2026-11-22T00:43:13Z"
         },
         {
           "full_name": "kevin-weng04f9/awp-gg-executor-roblox-x64",
-          "stars": 245,
+          "stars": 206,
           "language": "Jupyter Notebook",
           "description": "AWP.gg Roblox bootstrapper — Internal sUNC 100% LuaU Decompiler & Multi-Attach (Windows x64 Build): native 64-bit Windows 10/11 portable x64 build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.",
           "url": "https://github.com/kevin-weng04f9/awp-gg-executor-roblox-x64",
           "created_at": "2026-11-22T00:43:39Z"
         },
         {
+          "full_name": "dan-moore-lab2092d9/wave-executor-roblox-portable",
+          "stars": 205,
+          "language": "C++",
+          "description": "Wave bootstrapper Keyless — 100% sUNC Roblox Script bootstrapper & LuaU Injector (Portable Suite): native 64-bit Windows 10/11 portable x64 build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.",
+          "url": "https://github.com/dan-moore-lab2092d9/wave-executor-roblox-portable",
+          "created_at": "2026-11-22T00:06:33Z"
+        },
+        {
+          "full_name": "kylesantos-dev91v9/delta-executor-pc",
+          "stars": 204,
+          "language": "Jupyter Notebook",
+          "description": "Delta bootstrapper PC & Windows Subsystem — Keyless Roblox Script Hub & Auto-Execute: native 64-bit Windows 10/11 portable x64 build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.",
+          "url": "https://github.com/kylesantos-dev91v9/delta-executor-pc",
+          "created_at": "2026-11-22T00:11:32Z"
+        },
+        {
           "full_name": "mark-n-io02t2/xeno-keyless-roblox-x64",
-          "stars": 245,
+          "stars": 204,
           "language": "Jupyter Notebook",
           "description": "Xeno Keyless bootstrapper PC — Multi-Instance Roblox Injector & FPS Unlocker (Windows x64 Build): native 64-bit Windows 10/11 portable x64 build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.",
           "url": "https://github.com/mark-n-io02t2/xeno-keyless-roblox-x64",
           "created_at": "2026-11-22T00:45:11Z"
         }
-      ]
+      ],
+      "last_checked_at": "2026-11-22T08:59:57.294095",
+      "last_successful_fetch_at": "2026-11-22T08:59:57.294095"
     },
     "hackernews": {
       "status": "ok",
@@ -2145,82 +2153,86 @@
           "comments": 413,
           "url": "https://ciechanow.ski/mechanical-watch/"
         }
-      ]
+      ],
+      "last_checked_at": "2026-11-22T08:59:57.294095",
+      "last_successful_fetch_at": "2026-11-22T08:59:57.294095"
     },
     "huggingface": {
       "status": "ok",
       "items": [
         {
           "id": "thinkingmachines/Inkling-2-Mini",
-          "likes": 2972,
+          "likes": 3403,
           "downloads": 7944,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini"
         },
         {
           "id": "unsloth/Inkling-2-Mini-GGUF",
-          "likes": 623,
+          "likes": 712,
           "downloads": 238152,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/unsloth/Inkling-2-Mini-GGUF"
         },
         {
-          "id": "tencent/Hy4-flash",
-          "likes": 546,
-          "downloads": 5588,
-          "pipeline_tag": "image-text-to-text",
-          "url": "https://huggingface.co/tencent/Hy4-flash"
-        },
-        {
           "id": "inworld/voice-isolator",
-          "likes": 516,
+          "likes": 547,
           "downloads": 0,
           "pipeline_tag": "audio-to-audio",
           "url": "https://huggingface.co/inworld/voice-isolator"
         },
         {
-          "id": "Lightricks/LTX-2.5",
-          "likes": 12946,
-          "downloads": 3000544,
-          "pipeline_tag": "image-to-video",
-          "url": "https://huggingface.co/Lightricks/LTX-2.5"
+          "id": "tencent/Hy4-flash",
+          "likes": 567,
+          "downloads": 5588,
+          "pipeline_tag": "image-text-to-text",
+          "url": "https://huggingface.co/tencent/Hy4-flash"
         },
         {
           "id": "apple/FastFrames-L",
-          "likes": 493,
+          "likes": 502,
           "downloads": 0,
           "pipeline_tag": "text-to-video",
           "url": "https://huggingface.co/apple/FastFrames-L"
         },
         {
           "id": "harness-hub/Qwen3.8-27B-pi-adapted",
-          "likes": 934,
+          "likes": 948,
           "downloads": 2383,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/harness-hub/Qwen3.8-27B-pi-adapted"
         },
         {
           "id": "higurashi-ai/Haru-4B",
-          "likes": 845,
+          "likes": 848,
           "downloads": 8120,
           "pipeline_tag": "audio-to-audio",
           "url": "https://huggingface.co/higurashi-ai/Haru-4B"
         },
         {
           "id": "Qwen/Qwen3.8-27B",
-          "likes": 20812,
+          "likes": 20830,
           "downloads": 6298190,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/Qwen/Qwen3.8-27B"
         },
         {
-          "id": "sensenova/SenseNova-Loop-9B",
-          "likes": 462,
-          "downloads": 1745,
+          "id": "AtomicChat/Inkling-2-Mini-Uncensored-GGUF",
+          "likes": 317,
+          "downloads": 9540,
           "pipeline_tag": "image-text-to-text",
-          "url": "https://huggingface.co/sensenova/SenseNova-Loop-9B"
+          "url": "https://huggingface.co/AtomicChat/Inkling-2-Mini-Uncensored-GGUF"
+        },
+        {
+          "id": "apple/DepthPro2",
+          "likes": 220,
+          "downloads": 0,
+          "pipeline_tag": "depth-estimation",
+          "url": "https://huggingface.co/apple/DepthPro2"
         }
-      ]
+      ],
+      "last_checked_at": "2026-11-22T08:59:57.294095",
+      "last_successful_fetch_at": "2026-11-22T08:59:57.294095"
     }
   }
 }
