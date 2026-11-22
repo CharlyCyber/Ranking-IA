@@ -12,6 +12,7 @@ import logging
 import re
 import threading
 import time
+import unicodedata
 from datetime import datetime, timezone
 from urllib.parse import urlparse
 
@@ -53,8 +54,49 @@ def _clean_text(value: object, limit: int) -> str:
     return re.sub(r"\s+", " ", text).strip()[:limit]
 
 
+def _search_query(query: str) -> str:
+    """Prioriza la pregunta factual y omite instrucciones de formato/citación para el buscador."""
+    text = _clean_text(query, 800)
+    match = re.search(r"¿([^?]{3,500})\?", text)
+    if match:
+        return match.group(1).strip()
+    return re.split(r"\s+(?:cita|cítalo|contrasta|contrástalo|incluye|indica)\b", text, maxsplit=1, flags=re.I)[0].strip()
+
+
+_STOPWORDS = {
+    "acerca", "ahora", "alguna", "algunas", "alguno", "algunos", "ante", "como", "con", "contra",
+    "cual", "cuales", "cuando", "cuanta", "cuantas", "cuanto", "cuantos", "de", "del", "desde",
+    "donde", "el", "ella", "ellas", "ellos", "en", "entre", "era", "es", "esa", "esas", "ese",
+    "eso", "esos", "esta", "estaba", "estan", "este", "esto", "estos", "fue", "ha", "hace", "hay",
+    "la", "las", "le", "les", "lo", "los", "mas", "me", "mi", "mis", "muy", "no", "o", "para",
+    "pero", "por", "porque", "que", "quien", "quienes", "se", "segun", "sin", "sobre", "son", "su",
+    "sus", "te", "tiene", "tienen", "todo", "todos", "tu", "un", "una", "unas", "uno", "unos", "y",
+    "ultimo", "ultima", "ultimos", "ultimas", "snapshot", "actual", "actuales", "actualmente", "pagina",
+    "fuente", "fuentes", "independiente", "independientes", "cita", "citas", "cita", "contrasta", "contrastar",
+    "indica", "incluye", "dime", "debes", "deberia", "deberia", "deberias", "quiero", "saber", "segun",
+}
+
+
+def _tokens(value: object) -> set[str]:
+    normalized = unicodedata.normalize("NFKD", _clean_text(value, 4000).lower())
+    ascii_text = normalized.encode("ascii", "ignore").decode("ascii")
+    words = re.findall(r"[a-z0-9]{3,}", ascii_text)
+    return {word[:-1] if word.endswith("s") and len(word) > 4 else word for word in words}
+
+
+def _is_relevant_result(query: str, title: str, url: str, excerpt: str) -> bool:
+    """Descarta resultados sin coincidencias léxicas mínimas con la pregunta factual."""
+    terms = _tokens(query) - _STOPWORDS
+    if not terms:
+        return True
+    title_terms = _tokens(f"{title} {url}")
+    all_terms = title_terms | _tokens(excerpt)
+    required = min(2, len(terms))
+    return len(terms & all_terms) >= required and bool(terms & title_terms)
+
+
 def _query_cache_key(query: str) -> str:
-    normalized = " ".join((query or "").lower().split())[:800]
+    normalized = " ".join(_search_query(query).lower().split())[:800]
     return hashlib.sha256(normalized.encode("utf-8")).hexdigest()
 
 
@@ -96,7 +138,8 @@ def search_live_web(query: str, database: Database) -> dict:
     """Busca fuentes públicas recientes o devuelve un estado explícito si no es posible."""
     if not TAVILY_API_KEY:
         return {"status": "not_configured", "sources": []}
-    cache_key = _query_cache_key(query)
+    search_query = _search_query(query)
+    cache_key = _query_cache_key(search_query)
     cached = _cached_search(cache_key)
     if cached is not None:
         return cached
@@ -107,7 +150,7 @@ def search_live_web(query: str, database: Database) -> dict:
 
     payload = {
         "api_key": TAVILY_API_KEY,
-        "query": _clean_text(query, 800),
+        "query": _clean_text(search_query, 500),
         "search_depth": "basic",
         "topic": "general",
         "max_results": MAX_RESULTS,
@@ -125,6 +168,7 @@ def search_live_web(query: str, database: Database) -> dict:
 
     results = body.get("results") if isinstance(body, dict) else None
     sources = []
+    rejected_irrelevant = 0
     for item in results if isinstance(results, list) else []:
         if not isinstance(item, dict):
             continue
@@ -140,6 +184,9 @@ def search_live_web(query: str, database: Database) -> dict:
         page_text = item.get("raw_content")
         has_page_text = isinstance(page_text, str) and bool(page_text.strip())
         evidence = page_text if has_page_text else item.get("content")
+        if not _is_relevant_result(search_query, item.get("title", ""), url, str(evidence or "")):
+            rejected_irrelevant += 1
+            continue
         sources.append(
             {
                 "id": f"S{len(sources) + 1}",
@@ -154,6 +201,8 @@ def search_live_web(query: str, database: Database) -> dict:
         if len(sources) >= MAX_RESULTS:
             break
 
+    if rejected_irrelevant:
+        logger.info("Tavily devolvió %d resultado(s) irrelevante(s), descartados.", rejected_irrelevant)
     result = {
         "status": "ok" if sources else "no_results",
         "sources": sources,

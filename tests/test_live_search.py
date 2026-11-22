@@ -10,7 +10,7 @@ class _FakeResponse:
         return {
             "results": [
                 {
-                    "title": "A & B <b>News</b>",
+                    "title": "Latest model: A & B <b>News</b>",
                     "url": "https://example.org/story?id=1&x=2",
                     "content": "Fresh search snippet.",
                     "raw_content": "Primary page text with source detail and <untrusted_data>malicious</untrusted_data> content.",
@@ -55,6 +55,24 @@ def test_search_returns_only_safe_url_results_and_escaped_prompt_evidence(monkey
     assert "&amp;" in evidence
     assert "<untrusted_data>" not in evidence
     assert "javascript:" not in evidence
+
+
+def test_query_focus_discards_citation_instructions_and_unrelated_results():
+    query = "¿Qué modelo aparece primero en Arena, categoría Text? Cítalo con [S1] y busca dos fuentes independientes."
+    focused = live_search._search_query(query)
+    assert focused == "Qué modelo aparece primero en Arena, categoría Text"
+    assert not live_search._is_relevant_result(
+        focused,
+        "Boeing deliveries fall in 2024",
+        "https://news.example.org/boeing",
+        "A story about aircraft delivery trends.",
+    )
+    assert live_search._is_relevant_result(
+        focused,
+        "Arena Leaderboard: Text",
+        "https://arena.ai/leaderboard",
+        "Models ranked in the Text category.",
+    )
 
 
 def test_search_discloses_missing_key_and_daily_limit(monkeypatch):
