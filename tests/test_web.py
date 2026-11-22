@@ -195,6 +195,7 @@ def test_api_freshness_reports_per_source_last_success(client, monkeypatch):
                             "last_checked_at": "2026-11-22T04:33:00",
                             "last_successful_fetch_at": "2026-11-22T04:20:00",
                             "stale_since": "2026-11-22T04:33:00",
+                            "error": "OpenRouter parser returned too few rows",
                         }
                     },
                 },
@@ -209,3 +210,4 @@ def test_api_freshness_reports_per_source_last_success(client, monkeypatch):
     assert source["status"] == "stale"
     assert source["last_successful_fetch_at"] == "2026-11-22T04:20:00"
     assert source["last_success_age_minutes"] is not None
+    assert source["last_error"] == "OpenRouter parser returned too few rows"
