@@ -511,8 +511,10 @@ async def status(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         else "Ninguno registrado aún"
     )
     turso_state = await asyncio.to_thread(db.turso_health)
-    if turso_state["reachable"]:
-        db_mode = "Turso responde a prueba de conexión (SQLite local disponible como fallback)"
+    if turso_state["reachable"] and turso_state["readable"] and turso_state["writable"]:
+        db_mode = "Turso conectado; prueba de lectura/escritura correcta (SQLite local como fallback)"
+    elif turso_state["reachable"]:
+        db_mode = "Turso responde, pero falla la prueba de tabla/lectura/escritura; fallback SQLite"
     elif turso_state["configured"]:
         db_mode = "Turso configurado, pero no responde; SQLite local como fallback"
     else:
@@ -569,8 +571,10 @@ async def test_alerta(update: Update, context: ContextTypes.DEFAULT_TYPE) -> Non
             channel_status = f"❌ Error ({str(exc)[:80]})"
 
     turso_state = await asyncio.to_thread(db.turso_health)
-    if turso_state["reachable"]:
-        turso_status = "✅ Responde a prueba de conexión"
+    if turso_state["reachable"] and turso_state["readable"] and turso_state["writable"]:
+        turso_status = "✅ Lectura/escritura remota probadas"
+    elif turso_state["reachable"]:
+        turso_status = "⚠️ Responde, pero falló la prueba de lectura/escritura"
     elif turso_state["configured"]:
         turso_status = "⚠️ Configurado, pero sin conexión; fallback local"
     else:

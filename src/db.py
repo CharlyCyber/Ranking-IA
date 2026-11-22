@@ -12,6 +12,7 @@ import os
 import sqlite3
 import threading
 from datetime import datetime, timedelta, timezone
+from uuid import uuid4
 
 import httpx
 
@@ -132,11 +133,29 @@ class Database:
         return batch[0] if batch else []
 
     def turso_health(self) -> dict[str, bool]:
-        """Distingue credenciales configuradas de una conexión remota comprobada ahora."""
+        """Comprueba acceso autenticado y un ciclo efímero de escritura/lectura/borrado."""
+        state = {"configured": bool(self._turso_endpoint), "reachable": False, "readable": False, "writable": False}
         if not self._turso_endpoint:
-            return {"configured": False, "reachable": False}
-        rows = self._turso_exec("SELECT 1")
-        return {"configured": True, "reachable": rows == [(1,)]}
+            return state
+
+        state["reachable"] = self._turso_exec("SELECT 1") == [(1,)]
+        if not state["reachable"]:
+            return state
+
+        key = f"__healthcheck__:{uuid4().hex}"
+        value = uuid4().hex
+        now = utc_now_iso()
+        batch = self._turso_batch(
+            [
+                ("INSERT INTO app_state (key, value, updated_at) VALUES (?, ?, ?)", (key, value, now)),
+                ("SELECT value FROM app_state WHERE key = ?", (key,)),
+                ("DELETE FROM app_state WHERE key = ?", (key,)),
+            ]
+        )
+        if batch is not None and len(batch) == 3:
+            state["readable"] = batch[1] == [(value,)]
+            state["writable"] = state["readable"] and batch[2] == []
+        return state
 
     def _init_db(self) -> None:
         ddl_statements = [

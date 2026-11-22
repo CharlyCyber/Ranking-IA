@@ -105,7 +105,7 @@ La integración ya está implementada en el código y usa la API HTTP de libSQL,
 2. Copia la URL de la base (normalmente con esquema `libsql://`) y guarda URL y token como secretos en Render → servicio → **Environment**:
    - `TURSO_DATABASE_URL` = URL de la base
    - `TURSO_AUTH_TOKEN` = token generado (secreto; no lo compartas ni lo pongas en el repositorio)
-3. Guarda los cambios y despliega el código que contiene esta integración. Tras el reinicio, `/status` debe decir que Turso responde a una prueba de conexión; “configurado” por sí solo no confirma conectividad. Si no responde, el bot mantiene SQLite local como fallback y lo indicará.
+3. Guarda los cambios y despliega el código que contiene esta integración. Tras el reinicio, `/status` debe indicar que la prueba remota de lectura/escritura funcionó; “configurado” por sí solo no confirma persistencia operativa. Si falla, el bot mantiene SQLite local como fallback y lo indicará.
 
 La integración crea el esquema al arrancar y replica las nuevas escrituras. No importa automáticamente todo el histórico SQLite preexistente a Turso; conserva una copia antes de cambiar o eliminar el servicio local. Comprueba el estado después del despliegue.
 
@@ -115,7 +115,7 @@ La integración crea el esquema al arrancar y replica las nuevas escrituras. No 
 |------|-------------|
 | `/dashboard` | Monitor interactivo con buscador, pestañas, gráfica ELO y radar Gratis/Precio (compatible con Telegram Mini App) |
 | `/api/rankings` | Último snapshot completo normalizado en JSON |
-| `/api/freshness` | Hora de captura y edad de la última captura válida por fuente (no equivale a fecha upstream) |
+| `/api/freshness` | Captura, edad, estado y último error por fuente (no equivale a fecha upstream) |
 | `/api/models/search?q=claude` | Buscador transversal de modelos y precios |
 | `/api/value-leaders` | Índice Calidad/Precio (ELO vs $/1M tok) y modelos API `$0` |
 | `/api/elo-history?source=arena&category=Text` | Series temporales para gráficas |

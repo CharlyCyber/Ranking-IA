@@ -175,6 +175,7 @@ def api_freshness():
             "last_successful_fetch_at": last_success,
             "last_success_age_minutes": _age_minutes(last_success),
             "stale_since": payload.get("stale_since"),
+            "last_error": str(payload.get("error") or "")[:180] or None,
         }
     return _cached_json(
         {"snapshot_generated_at": snapshot.get("generated_at"), "sources": freshness},
