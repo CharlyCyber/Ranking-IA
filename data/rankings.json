@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T08:59:57.294095",
+  "generated_at": "2026-11-22T16:55:01.386652",
   "sources": {
     "design": {
       "status": "ok",
@@ -7,7 +7,7 @@
         {
           "rank": 1,
           "model": "Claude Opus 5.5 (high)",
-          "score": 1438,
+          "score": 1439,
           "prompt_per_m": 4.0,
           "completion_per_m": 20.0,
           "context_length": 1000000,
@@ -16,7 +16,7 @@
         {
           "rank": 2,
           "model": "GPT-6 Astra (max)",
-          "score": 1391,
+          "score": 1392,
           "prompt_per_m": 10.0,
           "completion_per_m": 50.0,
           "context_length": 1050000,
@@ -25,7 +25,7 @@
         {
           "rank": 3,
           "model": "Claude Fable 5.2",
-          "score": 1360,
+          "score": 1362,
           "prompt_per_m": 8.0,
           "completion_per_m": 40.0,
           "context_length": 1000000,
@@ -34,7 +34,7 @@
         {
           "rank": 4,
           "model": "GPT-6.1 Sol (max)",
-          "score": 1356,
+          "score": 1357,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1050000,
@@ -43,7 +43,7 @@
         {
           "rank": 5,
           "model": "Qwen4-Max",
-          "score": 1350,
+          "score": 1351,
           "prompt_per_m": 1.425,
           "completion_per_m": 4.275,
           "context_length": 1000000,
@@ -61,7 +61,7 @@
         {
           "rank": 7,
           "model": "GPT-6.2 Astra (max)",
-          "score": 1308,
+          "score": 1307,
           "prompt_per_m": 8.0,
           "completion_per_m": 40.0,
           "context_length": 1050000,
@@ -70,7 +70,7 @@
         {
           "rank": 8,
           "model": "Inkling 2 Small",
-          "score": 1303,
+          "score": 1304,
           "prompt_per_m": 0.3,
           "completion_per_m": 1.0,
           "context_length": 1048576,
@@ -79,7 +79,7 @@
         {
           "rank": 9,
           "model": "Gemini 4 Carbon",
-          "score": 1302,
+          "score": 1304,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1048576,
@@ -87,6 +87,11 @@
         },
         {
           "rank": 10,
+          "model": "Qwen3.8 Max",
+          "score": 1293
+        },
+        {
+          "rank": 11,
           "model": "Hy4",
           "score": 1292,
           "prompt_per_m": 0.417,
@@ -95,43 +100,38 @@
           "is_free": false
         },
         {
-          "rank": 11,
+          "rank": 12,
           "model": "Kimi K3.1 Pro",
-          "score": 1288,
-          "prompt_per_m": 0.253,
-          "completion_per_m": 8.8,
+          "score": 1289,
+          "prompt_per_m": 0.2403,
+          "completion_per_m": 8.4023,
           "context_length": 1048576,
           "is_free": false
         },
         {
-          "rank": 12,
-          "model": "Qwen3.8 Max",
-          "score": 1284
-        },
-        {
           "rank": 13,
           "model": "1960W / 886L 68.9% ±1.7% 2,846 Anthropic",
-          "score": 1438
+          "score": 1439
         },
         {
           "rank": 14,
-          "model": "1718W / 838L 67.2% ±1.8% 2,556 OpenAI",
-          "score": 1391
+          "model": "1719W / 838L 67.2% ±1.8% 2,557 OpenAI",
+          "score": 1392
         },
         {
           "rank": 15,
-          "model": "1284W / 578L 69.0% ±2.1% 1,862 Anthropic",
-          "score": 1360
+          "model": "1294W / 579L 69.1% ±2.1% 1,873 Anthropic",
+          "score": 1362
         },
         {
           "rank": 16,
           "model": "1123W / 1122L 50.0% ±2.1% 2,245 OpenAI",
-          "score": 1356
+          "score": 1357
         },
         {
           "rank": 17,
-          "model": "2241W / 1358L 62.3% ±1.6% 3,599 Alibaba",
-          "score": 1350
+          "model": "2249W / 1360L 62.3% ±1.6% 3,609 Alibaba",
+          "score": 1351
         },
         {
           "rank": 18,
@@ -140,37 +140,37 @@
         },
         {
           "rank": 19,
-          "model": "1157W / 624L 65.0% ±2.2% 1,781 OpenAI",
-          "score": 1308
+          "model": "1167W / 629L 65.0% ±2.2% 1,796 OpenAI",
+          "score": 1307
         },
         {
           "rank": 20,
           "model": "4171W / 3109L 57.3% ±1.1% 7,280 Thinking Machines",
-          "score": 1303
+          "score": 1304
         },
         {
           "rank": 21,
-          "model": "699W / 446L 61.0% ±2.8% 1,145 Google",
-          "score": 1302
+          "model": "710W / 449L 61.3% ±2.8% 1,159 Google",
+          "score": 1304
         },
         {
           "rank": 22,
-          "model": "126W / 85L 59.7% ±6.6% 211 Tencent",
-          "score": 1292
+          "model": "138W / 90L 60.5% ±6.3% 228 Alibaba",
+          "score": 1293
         },
         {
           "rank": 23,
-          "model": "2887W / 1961L 59.5% ±1.4% 4,848 Moonshot AI",
-          "score": 1288
+          "model": "132W / 89L 59.7% ±6.5% 221 Tencent",
+          "score": 1292
         },
         {
           "rank": 24,
-          "model": "128W / 88L 59.3% ±6.6% 216 Alibaba",
-          "score": 1284
+          "model": "2892W / 1964L 59.6% ±1.4% 4,856 Moonshot AI",
+          "score": 1289
         },
         {
           "rank": 25,
-          "model": "1811W / 1349L 57.3% ±1.7% 3,160 Anthropic",
+          "model": "1820W / 1353L 57.4% ±1.7% 3,173 Anthropic",
           "score": 1282
         },
         {
@@ -180,8 +180,8 @@
         }
       ],
       "method": "http",
-      "last_checked_at": "2026-11-22T08:59:57.294095",
-      "last_successful_fetch_at": "2026-11-22T08:59:57.294095"
+      "last_checked_at": "2026-11-22T16:55:01.386652",
+      "last_successful_fetch_at": "2026-11-22T16:55:01.386652"
     },
     "arena": {
       "status": "ok",
@@ -1561,8 +1561,8 @@
         }
       ],
       "method": "api",
-      "last_checked_at": "2026-11-22T08:59:57.294095",
-      "last_successful_fetch_at": "2026-11-22T08:59:57.294095"
+      "last_checked_at": "2026-11-22T16:55:01.386652",
+      "last_successful_fetch_at": "2026-11-22T16:55:01.386652"
     },
     "openrouter": {
       "status": "stale",
@@ -1888,7 +1888,7 @@
       ],
       "error": "openrouter: status=error (OpenRouter: solo 0 filas parseadas)",
       "stale_since": "2026-11-11T02:21:51.468524",
-      "last_checked_at": "2026-11-22T08:59:57.294095",
+      "last_checked_at": "2026-11-22T16:55:01.386652",
       "last_successful_fetch_at": null
     },
     "github": {
@@ -1898,7 +1898,7 @@
       "general": [
         {
           "full_name": "nickghq00x1/bubble-gum-simulator-infinity-script-x64",
-          "stars": 227,
+          "stars": 226,
           "language": "Jupyter Notebook",
           "description": "Bubble Gum Simulator Infinity (BGSI) Script — Auto-Blow, Fast Hatch Secret Pets & Rift ESP (Windows x64 Build): native 64-bit Windows 10/11 portable x64 build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.",
           "url": "https://github.com/nickghq00x1/bubble-gum-simulator-infinity-script-x64",
@@ -1913,14 +1913,6 @@
           "created_at": "2026-11-22T00:50:14Z"
         },
         {
-          "full_name": "ben-tech-lab1999h1/spt-aki-profile-editor-tarkov-win11",
-          "stars": 215,
-          "language": "C++",
-          "description": "Escape from Tarkov SPT-AKI 3.10 Profile Editor, Flea Unlocker & BattlEye smbios-utility (Windows 10/11 x64): native 64-bit Windows 10/11 portable x64 build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.",
-          "url": "https://github.com/ben-tech-lab1999h1/spt-aki-profile-editor-tarkov-win11",
-          "created_at": "2026-11-22T00:48:01Z"
-        },
-        {
           "full_name": "sergey-techdev1998d6/fisch-script-macro-win11",
           "stars": 215,
           "language": "Jupyter Notebook",
@@ -1929,12 +1921,44 @@
           "created_at": "2026-11-22T00:45:45Z"
         },
         {
-          "full_name": "dmitryveng2092q8/monster-hunter-wilds-save-editor-win11",
+          "full_name": "ben-tech-lab1999h1/spt-aki-profile-editor-tarkov-win11",
+          "stars": 214,
+          "language": "C++",
+          "description": "Escape from Tarkov SPT-AKI 3.10 Profile Editor, Flea Unlocker & BattlEye smbios-utility (Windows 10/11 x64): native 64-bit Windows 10/11 portable x64 build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.",
+          "url": "https://github.com/ben-tech-lab1999h1/spt-aki-profile-editor-tarkov-win11",
+          "created_at": "2026-11-22T00:48:01Z"
+        },
+        {
+          "full_name": "lucamenzo1-ops/rob-run-majalin",
+          "stars": 213,
+          "language": "HTML",
+          "description": "Provides run stats and in-game info without altering core Roblox gameplay.",
+          "url": "https://github.com/lucamenzo1-ops/rob-run-majalin",
+          "created_at": "2026-11-22T16:06:23Z"
+        },
+        {
+          "full_name": "alfoguasta/gta6-preload-emulator",
+          "stars": 212,
+          "language": "HTML",
+          "description": "Gta6 Preload Emulator simulates the preload flow for testing and validation.",
+          "url": "https://github.com/alfoguasta/gta6-preload-emulator",
+          "created_at": "2026-11-22T16:05:19Z"
+        },
+        {
+          "full_name": "legendary-propozar/rob-run-mod-trainer",
           "stars": 211,
-          "language": "Jupyter Notebook",
-          "description": "Monster Hunter Wilds Save Editor, Charm/Decoration Injector & Standalone Trainer (Windows 10/11 x64): native 64-bit Windows 10/11 portable x64 build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.",
-          "url": "https://github.com/dmitryveng2092q8/monster-hunter-wilds-save-editor-win11",
-          "created_at": "2026-11-22T00:47:22Z"
+          "language": "HTML",
+          "description": "Rob Run Mod Trainer delivers live in-game readouts and control aids.",
+          "url": "https://github.com/legendary-propozar/rob-run-mod-trainer",
+          "created_at": "2026-11-22T16:06:40Z"
+        },
+        {
+          "full_name": "be240116-afk/gta6-120fps-karalan",
+          "stars": 211,
+          "language": "HTML",
+          "description": "Real-time frame-rate monitoring and display tool for GTA6.",
+          "url": "https://github.com/be240116-afk/gta6-120fps-karalan",
+          "created_at": "2026-11-22T16:06:21Z"
         },
         {
           "full_name": "sam-ivanov-io1995u2/cs2-skin-changer-win11",
@@ -1951,36 +1975,12 @@
           "description": "Deep-Live-Cam v2.1 Portable (1-Click CUDA Installer) — Realtime Webcam FaceSwap for OBS/Discord (Windows 10/11 x64): native 64-bit Windows 10/11 portable x64 build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.",
           "url": "https://github.com/kevin-alilab2094a4/deep-live-cam-cuda-portable-win11",
           "created_at": "2026-11-22T00:50:00Z"
-        },
-        {
-          "full_name": "nikitadhq2000d6/pump-fun-volume-bump-bot-win11",
-          "stars": 208,
-          "language": "Jupyter Notebook",
-          "description": "Pump.fun Volume Booster, Micro-Buy Bump Bot & Organic Holder Maker Terminal (2026) (Windows 10/11 x64): native 64-bit Windows 10/11 portable x64 build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.",
-          "url": "https://github.com/nikitadhq2000d6/pump-fun-volume-bump-bot-win11",
-          "created_at": "2026-11-22T00:49:41Z"
-        },
-        {
-          "full_name": "alex-lee-dev2000a1/solara-executor-v3-portable",
-          "stars": 207,
-          "language": "C++",
-          "description": "Solara bootstrapper V3 — Official Keyless Roblox Script bootstrapper & Bootstrapper (2026) (Portable Suite): native 64-bit Windows 10/11 portable x64 build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.",
-          "url": "https://github.com/alex-lee-dev2000a1/solara-executor-v3-portable",
-          "created_at": "2026-11-22T00:06:32Z"
-        },
-        {
-          "full_name": "ivan-kumar-1998n3/haikyuu-volleyball-legends-script-x64",
-          "stars": 207,
-          "language": "Jupyter Notebook",
-          "description": "Haikyuu / Volleyball Legends Script — Auto-Spike, Perfect Receive, Secret Style Spin & Hitbox (Windows x64 Build): native 64-bit Windows 10/11 portable x64 build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.",
-          "url": "https://github.com/ivan-kumar-1998n3/haikyuu-volleyball-legends-script-x64",
-          "created_at": "2026-11-22T00:48:08Z"
         }
       ],
       "items": [
         {
           "full_name": "nickghq00x1/bubble-gum-simulator-infinity-script-x64",
-          "stars": 227,
+          "stars": 226,
           "language": "Jupyter Notebook",
           "description": "Bubble Gum Simulator Infinity (BGSI) Script — Auto-Blow, Fast Hatch Secret Pets & Rift ESP (Windows x64 Build): native 64-bit Windows 10/11 portable x64 build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.",
           "url": "https://github.com/nickghq00x1/bubble-gum-simulator-infinity-script-x64",
@@ -1995,14 +1995,6 @@
           "created_at": "2026-11-22T00:50:14Z"
         },
         {
-          "full_name": "ben-tech-lab1999h1/spt-aki-profile-editor-tarkov-win11",
-          "stars": 215,
-          "language": "C++",
-          "description": "Escape from Tarkov SPT-AKI 3.10 Profile Editor, Flea Unlocker & BattlEye smbios-utility (Windows 10/11 x64): native 64-bit Windows 10/11 portable x64 build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.",
-          "url": "https://github.com/ben-tech-lab1999h1/spt-aki-profile-editor-tarkov-win11",
-          "created_at": "2026-11-22T00:48:01Z"
-        },
-        {
           "full_name": "sergey-techdev1998d6/fisch-script-macro-win11",
           "stars": 215,
           "language": "Jupyter Notebook",
@@ -2011,12 +2003,44 @@
           "created_at": "2026-11-22T00:45:45Z"
         },
         {
-          "full_name": "dmitryveng2092q8/monster-hunter-wilds-save-editor-win11",
+          "full_name": "ben-tech-lab1999h1/spt-aki-profile-editor-tarkov-win11",
+          "stars": 214,
+          "language": "C++",
+          "description": "Escape from Tarkov SPT-AKI 3.10 Profile Editor, Flea Unlocker & BattlEye smbios-utility (Windows 10/11 x64): native 64-bit Windows 10/11 portable x64 build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.",
+          "url": "https://github.com/ben-tech-lab1999h1/spt-aki-profile-editor-tarkov-win11",
+          "created_at": "2026-11-22T00:48:01Z"
+        },
+        {
+          "full_name": "lucamenzo1-ops/rob-run-majalin",
+          "stars": 213,
+          "language": "HTML",
+          "description": "Provides run stats and in-game info without altering core Roblox gameplay.",
+          "url": "https://github.com/lucamenzo1-ops/rob-run-majalin",
+          "created_at": "2026-11-22T16:06:23Z"
+        },
+        {
+          "full_name": "alfoguasta/gta6-preload-emulator",
+          "stars": 212,
+          "language": "HTML",
+          "description": "Gta6 Preload Emulator simulates the preload flow for testing and validation.",
+          "url": "https://github.com/alfoguasta/gta6-preload-emulator",
+          "created_at": "2026-11-22T16:05:19Z"
+        },
+        {
+          "full_name": "legendary-propozar/rob-run-mod-trainer",
           "stars": 211,
-          "language": "Jupyter Notebook",
-          "description": "Monster Hunter Wilds Save Editor, Charm/Decoration Injector & Standalone Trainer (Windows 10/11 x64): native 64-bit Windows 10/11 portable x64 build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.",
-          "url": "https://github.com/dmitryveng2092q8/monster-hunter-wilds-save-editor-win11",
-          "created_at": "2026-11-22T00:47:22Z"
+          "language": "HTML",
+          "description": "Rob Run Mod Trainer delivers live in-game readouts and control aids.",
+          "url": "https://github.com/legendary-propozar/rob-run-mod-trainer",
+          "created_at": "2026-11-22T16:06:40Z"
+        },
+        {
+          "full_name": "be240116-afk/gta6-120fps-karalan",
+          "stars": 211,
+          "language": "HTML",
+          "description": "Real-time frame-rate monitoring and display tool for GTA6.",
+          "url": "https://github.com/be240116-afk/gta6-120fps-karalan",
+          "created_at": "2026-11-22T16:06:21Z"
         },
         {
           "full_name": "sam-ivanov-io1995u2/cs2-skin-changer-win11",
@@ -2035,20 +2059,20 @@
           "created_at": "2026-11-22T00:50:00Z"
         },
         {
+          "full_name": "dmitryveng2092q8/monster-hunter-wilds-save-editor-win11",
+          "stars": 210,
+          "language": "Jupyter Notebook",
+          "description": "Monster Hunter Wilds Save Editor, Charm/Decoration Injector & Standalone Trainer (Windows 10/11 x64): native 64-bit Windows 10/11 portable x64 build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.",
+          "url": "https://github.com/dmitryveng2092q8/monster-hunter-wilds-save-editor-win11",
+          "created_at": "2026-11-22T00:47:22Z"
+        },
+        {
           "full_name": "nikitadhq2000d6/pump-fun-volume-bump-bot-win11",
-          "stars": 208,
+          "stars": 207,
           "language": "Jupyter Notebook",
           "description": "Pump.fun Volume Booster, Micro-Buy Bump Bot & Organic Holder Maker Terminal (2026) (Windows 10/11 x64): native 64-bit Windows 10/11 portable x64 build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.",
           "url": "https://github.com/nikitadhq2000d6/pump-fun-volume-bump-bot-win11",
           "created_at": "2026-11-22T00:49:41Z"
-        },
-        {
-          "full_name": "alex-lee-dev2000a1/solara-executor-v3-portable",
-          "stars": 207,
-          "language": "C++",
-          "description": "Solara bootstrapper V3 — Official Keyless Roblox Script bootstrapper & Bootstrapper (2026) (Portable Suite): native 64-bit Windows 10/11 portable x64 build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.",
-          "url": "https://github.com/alex-lee-dev2000a1/solara-executor-v3-portable",
-          "created_at": "2026-11-22T00:06:32Z"
         },
         {
           "full_name": "ivan-kumar-1998n3/haikyuu-volleyball-legends-script-x64",
@@ -2059,12 +2083,12 @@
           "created_at": "2026-11-22T00:48:08Z"
         },
         {
-          "full_name": "john-rlab95l7/swift-executor-roblox-x64",
+          "full_name": "alex-lee-dev2000a1/solara-executor-v3-portable",
           "stars": 206,
-          "language": "Jupyter Notebook",
-          "description": "Swift bootstrapper Roblox (getswift) — 100% sUNC Keyless Windows PC Script Runner (Windows x64 Build): native 64-bit Windows 10/11 portable x64 build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.",
-          "url": "https://github.com/john-rlab95l7/swift-executor-roblox-x64",
-          "created_at": "2026-11-22T00:43:13Z"
+          "language": "C++",
+          "description": "Solara bootstrapper V3 — Official Keyless Roblox Script bootstrapper & Bootstrapper (2026) (Portable Suite): native 64-bit Windows 10/11 portable x64 build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.",
+          "url": "https://github.com/alex-lee-dev2000a1/solara-executor-v3-portable",
+          "created_at": "2026-11-22T00:06:32Z"
         },
         {
           "full_name": "kevin-weng04f9/awp-gg-executor-roblox-x64",
@@ -2073,34 +2097,10 @@
           "description": "AWP.gg Roblox bootstrapper — Internal sUNC 100% LuaU Decompiler & Multi-Attach (Windows x64 Build): native 64-bit Windows 10/11 portable x64 build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.",
           "url": "https://github.com/kevin-weng04f9/awp-gg-executor-roblox-x64",
           "created_at": "2026-11-22T00:43:39Z"
-        },
-        {
-          "full_name": "dan-moore-lab2092d9/wave-executor-roblox-portable",
-          "stars": 205,
-          "language": "C++",
-          "description": "Wave bootstrapper Keyless — 100% sUNC Roblox Script bootstrapper & LuaU Injector (Portable Suite): native 64-bit Windows 10/11 portable x64 build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.",
-          "url": "https://github.com/dan-moore-lab2092d9/wave-executor-roblox-portable",
-          "created_at": "2026-11-22T00:06:33Z"
-        },
-        {
-          "full_name": "kylesantos-dev91v9/delta-executor-pc",
-          "stars": 204,
-          "language": "Jupyter Notebook",
-          "description": "Delta bootstrapper PC & Windows Subsystem — Keyless Roblox Script Hub & Auto-Execute: native 64-bit Windows 10/11 portable x64 build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.",
-          "url": "https://github.com/kylesantos-dev91v9/delta-executor-pc",
-          "created_at": "2026-11-22T00:11:32Z"
-        },
-        {
-          "full_name": "mark-n-io02t2/xeno-keyless-roblox-x64",
-          "stars": 204,
-          "language": "Jupyter Notebook",
-          "description": "Xeno Keyless bootstrapper PC — Multi-Instance Roblox Injector & FPS Unlocker (Windows x64 Build): native 64-bit Windows 10/11 portable x64 build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.",
-          "url": "https://github.com/mark-n-io02t2/xeno-keyless-roblox-x64",
-          "created_at": "2026-11-22T00:45:11Z"
         }
       ],
-      "last_checked_at": "2026-11-22T08:59:57.294095",
-      "last_successful_fetch_at": "2026-11-22T08:59:57.294095"
+      "last_checked_at": "2026-11-22T16:55:01.386652",
+      "last_successful_fetch_at": "2026-11-22T16:55:01.386652"
     },
     "hackernews": {
       "status": "ok",
@@ -2154,85 +2154,85 @@
           "url": "https://ciechanow.ski/mechanical-watch/"
         }
       ],
-      "last_checked_at": "2026-11-22T08:59:57.294095",
-      "last_successful_fetch_at": "2026-11-22T08:59:57.294095"
+      "last_checked_at": "2026-11-22T16:55:01.386652",
+      "last_successful_fetch_at": "2026-11-22T16:55:01.386652"
     },
     "huggingface": {
       "status": "ok",
       "items": [
         {
           "id": "thinkingmachines/Inkling-2-Mini",
-          "likes": 3403,
-          "downloads": 7944,
+          "likes": 4403,
+          "downloads": 23543,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini"
         },
         {
           "id": "unsloth/Inkling-2-Mini-GGUF",
-          "likes": 712,
-          "downloads": 238152,
+          "likes": 806,
+          "downloads": 805993,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/unsloth/Inkling-2-Mini-GGUF"
         },
         {
           "id": "inworld/voice-isolator",
-          "likes": 547,
+          "likes": 591,
           "downloads": 0,
           "pipeline_tag": "audio-to-audio",
           "url": "https://huggingface.co/inworld/voice-isolator"
         },
         {
           "id": "tencent/Hy4-flash",
-          "likes": 567,
-          "downloads": 5588,
+          "likes": 592,
+          "downloads": 6617,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/tencent/Hy4-flash"
         },
         {
           "id": "apple/FastFrames-L",
-          "likes": 502,
+          "likes": 517,
           "downloads": 0,
           "pipeline_tag": "text-to-video",
           "url": "https://huggingface.co/apple/FastFrames-L"
         },
         {
           "id": "harness-hub/Qwen3.8-27B-pi-adapted",
-          "likes": 948,
-          "downloads": 2383,
+          "likes": 963,
+          "downloads": 2831,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/harness-hub/Qwen3.8-27B-pi-adapted"
         },
         {
           "id": "higurashi-ai/Haru-4B",
-          "likes": 848,
-          "downloads": 8120,
+          "likes": 864,
+          "downloads": 8608,
           "pipeline_tag": "audio-to-audio",
           "url": "https://huggingface.co/higurashi-ai/Haru-4B"
         },
         {
-          "id": "Qwen/Qwen3.8-27B",
-          "likes": 20830,
-          "downloads": 6298190,
-          "pipeline_tag": "image-text-to-text",
-          "url": "https://huggingface.co/Qwen/Qwen3.8-27B"
-        },
-        {
           "id": "AtomicChat/Inkling-2-Mini-Uncensored-GGUF",
-          "likes": 317,
-          "downloads": 9540,
+          "likes": 415,
+          "downloads": 129693,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/AtomicChat/Inkling-2-Mini-Uncensored-GGUF"
         },
         {
           "id": "apple/DepthPro2",
-          "likes": 220,
+          "likes": 248,
           "downloads": 0,
           "pipeline_tag": "depth-estimation",
           "url": "https://huggingface.co/apple/DepthPro2"
+        },
+        {
+          "id": "Qwen/Qwen3.8-27B",
+          "likes": 20852,
+          "downloads": 6297396,
+          "pipeline_tag": "image-text-to-text",
+          "url": "https://huggingface.co/Qwen/Qwen3.8-27B"
         }
       ],
-      "last_checked_at": "2026-11-22T08:59:57.294095",
-      "last_successful_fetch_at": "2026-11-22T08:59:57.294095"
+      "last_checked_at": "2026-11-22T16:55:01.386652",
+      "last_successful_fetch_at": "2026-11-22T16:55:01.386652"
     }
   }
 }
