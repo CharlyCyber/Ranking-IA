@@ -131,6 +131,13 @@ class Database:
             return None
         return batch[0] if batch else []
 
+    def turso_health(self) -> dict[str, bool]:
+        """Distingue credenciales configuradas de una conexión remota comprobada ahora."""
+        if not self._turso_endpoint:
+            return {"configured": False, "reachable": False}
+        rows = self._turso_exec("SELECT 1")
+        return {"configured": True, "reachable": rows == [(1,)]}
+
     def _init_db(self) -> None:
         ddl_statements = [
             """
@@ -190,6 +197,23 @@ class Database:
                 updated_at TEXT NOT NULL
             )
             """,
+            """
+            CREATE TABLE IF NOT EXISTS usage_limits (
+                limit_key TEXT PRIMARY KEY,
+                window_started REAL NOT NULL,
+                used INTEGER NOT NULL
+            )
+            """,
+            """
+            CREATE TABLE IF NOT EXISTS chat_messages (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                chat_id TEXT NOT NULL,
+                role TEXT NOT NULL,
+                content TEXT NOT NULL,
+                created_at TEXT NOT NULL
+            )
+            """,
+            "CREATE INDEX IF NOT EXISTS idx_chat_messages_chat_id ON chat_messages(chat_id, id)",
         ]
         with self._connect() as conn:
             for ddl in ddl_statements:
@@ -588,6 +612,98 @@ class Database:
             conn.commit()
         self._turso_exec(sql, (cache_key, content, now))
 
+    # -------------------------------------------------------------- usage limits
+
+    def consume_limit(self, key: str, limit: int, window_seconds: int, now: float | None = None) -> bool:
+        """Consume un cupo de forma atómica y persistente (Turso compartido o SQLite local)."""
+        if not key or limit < 1 or window_seconds < 1:
+            return False
+        import time
+
+        current = float(now if now is not None else time.time())
+        sql = (
+            "INSERT INTO usage_limits (limit_key, window_started, used) VALUES (?, ?, 1) "
+            "ON CONFLICT(limit_key) DO UPDATE SET "
+            "window_started = CASE WHEN usage_limits.window_started <= ? THEN excluded.window_started "
+            "ELSE usage_limits.window_started END, "
+            "used = CASE WHEN usage_limits.window_started <= ? THEN 1 ELSE usage_limits.used + 1 END "
+            "RETURNING used"
+        )
+        params = (key, current, current - window_seconds, current - window_seconds)
+        remote = self._turso_exec(sql, params)
+        if remote:
+            return int(remote[0][0]) <= limit
+        if remote is None:
+            with self._connect() as conn:
+                row = conn.execute(sql, params).fetchone()
+                conn.commit()
+            return bool(row and int(row[0]) <= limit)
+        # Un resultado vacío del servidor remoto no debe abrir el límite.
+        return False
+
+    def limit_used(self, key: str, window_seconds: int, now: float | None = None) -> int:
+        """Lee el consumo actual de una ventana sin modificarla."""
+        import time
+
+        current = float(now if now is not None else time.time())
+        sql = "SELECT window_started, used FROM usage_limits WHERE limit_key = ?"
+        remote = self._turso_exec(sql, (key,))
+        if remote is None:
+            with self._connect() as conn:
+                remote = conn.execute(sql, (key,)).fetchall()
+        if not remote or float(remote[0][0]) <= current - window_seconds:
+            return 0
+        return int(remote[0][1])
+
+    # ------------------------------------------------------------ chat history
+
+    def get_chat_history(self, chat_id: str | int, limit: int = 10) -> list[dict[str, str]]:
+        """Devuelve los últimos turnos, ordenados cronológicamente; nunca más de 20 mensajes."""
+        safe_limit = max(0, min(int(limit), 20))
+        if not safe_limit:
+            return []
+        sql = "SELECT role, content FROM chat_messages WHERE chat_id = ? ORDER BY id DESC LIMIT ?"
+        params = (str(chat_id), safe_limit)
+        rows = self._turso_exec(sql, params)
+        if rows is None:
+            with self._connect() as conn:
+                rows = conn.execute(sql, params).fetchall()
+        return [{"role": str(role), "content": str(content)} for role, content in reversed(rows or [])]
+
+    def add_chat_message(self, chat_id: str | int, role: str, content: str) -> None:
+        """Persiste un turno acotado; la limpieza global elimina conversaciones de más de 7 días."""
+        safe_role = role if role in {"user", "assistant"} else "user"
+        safe_content = str(content or "").strip()[:4000]
+        if not safe_content:
+            return
+        now = utc_now_iso()
+        sql = "INSERT INTO chat_messages (chat_id, role, content, created_at) VALUES (?, ?, ?, ?)"
+        params = (str(chat_id), safe_role, safe_content, now)
+        with self._connect() as conn:
+            conn.execute(sql, params)
+            # Mantiene un máximo de 20 mensajes por chat.
+            conn.execute(
+                "DELETE FROM chat_messages WHERE chat_id = ? AND id NOT IN "
+                "(SELECT id FROM chat_messages WHERE chat_id = ? ORDER BY id DESC LIMIT 20)",
+                (str(chat_id), str(chat_id)),
+            )
+            conn.commit()
+        self._turso_exec(sql, params)
+        if self._turso_endpoint:
+            self._turso_exec(
+                "DELETE FROM chat_messages WHERE chat_id = ? AND id NOT IN "
+                "(SELECT id FROM chat_messages WHERE chat_id = ? ORDER BY id DESC LIMIT 20)",
+                (str(chat_id), str(chat_id)),
+            )
+
+    def clear_chat_history(self, chat_id: str | int) -> None:
+        sql = "DELETE FROM chat_messages WHERE chat_id = ?"
+        params = (str(chat_id),)
+        with self._connect() as conn:
+            conn.execute(sql, params)
+            conn.commit()
+        self._turso_exec(sql, params)
+
     # -------------------------------------------------------------- app_state
 
     def get_state(self, key: str):
@@ -625,12 +741,16 @@ class Database:
     def cleanup_old_data(self, days: int = 31) -> None:
         cutoff = (datetime.now(timezone.utc).replace(tzinfo=None) - timedelta(days=days)).isoformat()
         brief_cutoff = (datetime.now(timezone.utc).replace(tzinfo=None) - timedelta(days=3)).isoformat()
+        chat_cutoff = (datetime.now(timezone.utc).replace(tzinfo=None) - timedelta(days=7)).isoformat()
+        usage_cutoff = datetime.now(timezone.utc).timestamp() - 2 * 86400
         with self._connect() as conn:
             conn.execute("DELETE FROM snapshots WHERE created_at < ?", (cutoff,))
             conn.execute("DELETE FROM changes WHERE detected_at < ?", (cutoff,))
             conn.execute("DELETE FROM repo_stars WHERE observed_at < ?", (cutoff,))
             conn.execute("DELETE FROM elo_history WHERE observed_at < ?", (cutoff,))
             conn.execute("DELETE FROM briefing_cache WHERE created_at < ?", (brief_cutoff,))
+            conn.execute("DELETE FROM chat_messages WHERE created_at < ?", (chat_cutoff,))
+            conn.execute("DELETE FROM usage_limits WHERE window_started < ?", (usage_cutoff,))
             conn.commit()
         if self._turso_endpoint:
             self._turso_batch(
@@ -640,5 +760,7 @@ class Database:
                     ("DELETE FROM repo_stars WHERE observed_at < ?", (cutoff,)),
                     ("DELETE FROM elo_history WHERE observed_at < ?", (cutoff,)),
                     ("DELETE FROM briefing_cache WHERE created_at < ?", (brief_cutoff,)),
+                    ("DELETE FROM chat_messages WHERE created_at < ?", (chat_cutoff,)),
+                    ("DELETE FROM usage_limits WHERE window_started < ?", (usage_cutoff,)),
                 ]
             )

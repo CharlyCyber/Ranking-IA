@@ -1,11 +1,14 @@
-"""Dashboard Web Público v4.3 (Obsidian + Neon Lime + White Split Sheet · UX Sencilla) + API + RSS."""
+"""Dashboard Web público v4.4 + API REST, RSS, rate limits y citas de búsqueda web."""
 
+import threading
 import time
+from collections import defaultdict, deque
 from datetime import datetime, timezone
 from email.utils import format_datetime
 
 from flask import Blueprint, Response, jsonify, render_template, request
 
+from src.config import API_RATE_LIMIT_PER_MINUTE
 from src.db import Database
 from src.html_utils import escape_html
 from src.insights import compute_value_leaders, fmt_compact_number, render_elo_svg, search_models
@@ -17,6 +20,32 @@ db.get_or_seed_latest_snapshot()
 _CACHE_TTL_SECONDS = 60.0
 _CACHE_MAX_ENTRIES = 128
 _API_CACHE: dict[tuple, tuple[float, object]] = {}
+_API_REQUESTS: dict[str, deque[float]] = defaultdict(deque)
+_API_RATE_LOCK = threading.Lock()
+
+
+@web.before_app_request
+def limit_public_api():
+    """Rate limit básico por IP para API/RSS; usar gateway para límites globales multi-réplica."""
+    if not request.path.startswith("/api/") and request.path != "/feed.xml":
+        return None
+    now = time.monotonic()
+    client_key = request.remote_addr or "unknown"
+    with _API_RATE_LOCK:
+        window = _API_REQUESTS[client_key]
+        while window and now - window[0] >= 60:
+            window.popleft()
+        if len(window) >= API_RATE_LIMIT_PER_MINUTE:
+            response = jsonify({"error": "rate_limit_exceeded", "retry_after_seconds": 60})
+            response.status_code = 429
+            response.headers["Retry-After"] = "60"
+            return response
+        window.append(now)
+        if len(_API_REQUESTS) > 10_000:
+            for key in list(_API_REQUESTS)[:2_000]:
+                if not _API_REQUESTS[key] or now - _API_REQUESTS[key][-1] >= 60:
+                    _API_REQUESTS.pop(key, None)
+    return None
 
 
 def _cache_get(key: tuple):
@@ -56,11 +85,11 @@ def _safe_int(raw: str | None, default: int, minimum: int, maximum: int) -> int:
 
 
 def _latest_snapshot() -> dict | None:
-    cache_key = ("latest_snapshot", id(db))
+    cache_key = ("latest_snapshot", db)
     cached = _cache_get(cache_key)
     if cached is not None:
         return cached
-    loader = getattr(db, "get_or_seed_latest_snapshot", db.get_latest_snapshot)
+    loader = getattr(db, "get_or_seed_latest_snapshot", None) or getattr(db, "get_latest_snapshot")
     snap = loader()
     if snap is not None:
         _cache_set(cache_key, snap)
@@ -113,6 +142,44 @@ def _build_elo_series(source: str, category: str | None, days: int, limit: int) 
 @web.route("/dashboard")
 def dashboard():
     return render_template("dashboard.html")
+
+
+def _age_minutes(timestamp: object) -> int | None:
+    if not timestamp:
+        return None
+    try:
+        seen = datetime.fromisoformat(str(timestamp).replace("Z", "+00:00"))
+        if seen.tzinfo is None:
+            seen = seen.replace(tzinfo=timezone.utc)
+        return max(0, int((datetime.now(timezone.utc) - seen).total_seconds() // 60))
+    except (TypeError, ValueError):
+        return None
+
+
+@web.route("/api/freshness")
+def api_freshness():
+    """Tiempos de captura por fuente; generated_at es hora de snapshot, no de publicación upstream."""
+    wrapped = _latest_snapshot()
+    if not wrapped:
+        return jsonify({"error": "Aún no hay datos"}), 404
+    snapshot = wrapped.get("data") if isinstance(wrapped.get("data"), dict) else wrapped
+    sources = snapshot.get("sources") if isinstance(snapshot, dict) else {}
+    freshness = {}
+    for name, payload in (sources or {}).items():
+        if not isinstance(payload, dict):
+            continue
+        last_success = payload.get("last_successful_fetch_at") or payload.get("fetched_at")
+        freshness[name] = {
+            "status": payload.get("status", "unknown"),
+            "last_checked_at": payload.get("last_checked_at"),
+            "last_successful_fetch_at": last_success,
+            "last_success_age_minutes": _age_minutes(last_success),
+            "stale_since": payload.get("stale_since"),
+        }
+    return _cached_json(
+        {"snapshot_generated_at": snapshot.get("generated_at"), "sources": freshness},
+        max_age=30,
+    )
 
 
 @web.route("/api/rankings")

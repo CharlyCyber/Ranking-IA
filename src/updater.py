@@ -163,7 +163,11 @@ class DataUpdater:
                             ]
                             if extra_multimodal:
                                 payload = {**payload, "models": new_models + extra_multimodal}
-                        merged[source] = payload
+                        merged[source] = {
+                            **payload,
+                            "last_checked_at": snap_iso,
+                            "last_successful_fetch_at": snap_iso,
+                        }
                         continue
 
                     stale.append(source)
@@ -173,12 +177,17 @@ class DataUpdater:
                             **previous,
                             "status": "stale",
                             "error": "; ".join(errors)[:300],
+                            "last_checked_at": snap_iso,
+                            "last_successful_fetch_at": previous.get("last_successful_fetch_at")
+                            or previous.get("fetched_at"),
                             "stale_since": previous.get("stale_since") or snap_iso,
                         }
                         logger.warning("🛡️ Safety net: %s inválida; se conservan datos previos. %s", source, errors[:3])
                     else:
                         merged[source] = (
-                            payload if isinstance(payload, dict) else {"status": "error", "error": str(payload)[:300]}
+                            {**payload, "last_checked_at": snap_iso}
+                            if isinstance(payload, dict)
+                            else {"status": "error", "error": str(payload)[:300], "last_checked_at": snap_iso}
                         )
                         logger.error("Fuente %s falló y no hay datos previos: %s", source, errors[:3])
 

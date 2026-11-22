@@ -15,7 +15,6 @@ import logging
 import os
 import threading
 import traceback
-from collections import defaultdict, deque
 from datetime import datetime, timezone
 from datetime import time as dtime
 from uuid import uuid4
@@ -48,11 +47,15 @@ from src.brain import (
 )
 from src.config import (
     ADMIN_CHAT_ID,
+    ADMIN_USER_ID,
+    APP_MODE,
     DAILY_BRIEF_HOUR,
     DATA_JSON_URL,
     DISABLE_PLAYWRIGHT,
+    LIVE_SEARCH_DAILY_LIMIT,
     PUBLIC_CHANNEL_ID,
     PUBLIC_URL,
+    TAVILY_API_KEY,
     TELEGRAM_TOKEN,
     UPDATE_INTERVAL_MINUTES,
     USER_RATE_LIMIT,
@@ -71,6 +74,7 @@ from src.insights import (
     search_models,
 )
 from src.keepalive import RUNTIME_STATE, run_flask, self_ping
+from src.live_search import search_live_web
 from src.trending import render_trending_brief
 from src.updater import DataUpdater
 
@@ -98,27 +102,23 @@ def get_updater(bot=None) -> DataUpdater:
 
 
 # --------------------------------------------------------------- rate limiting
+# Los límites persistentes y atómicos viven en Database.consume_limit.
 
-_user_messages: dict[int, deque] = defaultdict(deque)
-
-
-def allow_user_message(user_id: int) -> bool:
-    """Ventana deslizante de 1 hora por usuario (USER_RATE_LIMIT consultas de chat IA)."""
-    now = datetime.now()
-    window = _user_messages[user_id]
-    while window and (now - window[0]).total_seconds() > 3600:
-        window.popleft()
-    if len(window) >= USER_RATE_LIMIT:
+def is_admin(user_id: int | str | None) -> bool:
+    """Comprueba el ID numérico del usuario (compatible con CHAT_ID en despliegues antiguos)."""
+    admin_id = ADMIN_USER_ID or ADMIN_CHAT_ID
+    if not admin_id or user_id is None:
         return False
-    window.append(now)
-    return True
+    return str(user_id).strip() == str(admin_id).strip()
 
 
-def is_admin(chat_id: int | str | None) -> bool:
-    """Comprueba si el chat corresponde al administrador configurado."""
-    if not ADMIN_CHAT_ID or chat_id is None:
-        return False
-    return str(chat_id).strip() == str(ADMIN_CHAT_ID).strip()
+def _actor_user_id(update: Update) -> int | str | None:
+    """Usa la identidad del usuario, no el ID del grupo donde se emitió el comando."""
+    user = getattr(update, "effective_user", None)
+    if user is not None:
+        return user.id
+    chat = getattr(update, "effective_chat", None)
+    return getattr(chat, "id", None)
 
 
 # ------------------------------------------------------------- envío de mensajes
@@ -261,10 +261,17 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     chat_id = str(update.effective_chat.id)
     await asyncio.to_thread(db.add_subscriber, chat_id)
     channel_line = f"📢 Canal público rápido: <b>{escape_html(PUBLIC_CHANNEL_ID)}</b>\n" if PUBLIC_CHANNEL_ID else ""
+    search_line = (
+        "🔎 <b>Búsqueda web:</b> clave configurada; se intenta buscar en cada pregunta abierta.\n"
+        if TAVILY_API_KEY
+        else "🔎 <b>Búsqueda web:</b> no configurada; responderé con el snapshot disponible.\n"
+    )
     await update.message.reply_text(
-        "¡Hola! Soy <b>Ranking AI Agent</b> 🏆 (100% gratuito y open-source).\n\n"
-        "📊 <b>Fuentes en tiempo real:</b> LMSYS Arena, OpenRouter, Design Arena, GitHub AI, Hugging Face y HN.\n"
-        "⚡ <b>Consultas instantáneas (0 cuota):</b> usa los botones de abajo o <code>/buscar claude</code>.\n"
+        "¡Hola! Soy <b>Ranking AI Agent</b> 🏆, herramienta open-source para explorar rankings de IA.\n\n"
+        "📊 <b>Fuentes:</b> LMSYS Arena, OpenRouter, Design Arena, GitHub AI, Hugging Face y HN; revisa la hora del snapshot.\n"
+        "⚡ <b>Consultas instantáneas:</b> usa los botones o <code>/buscar claude</code>.\n"
+        f"{search_line}"
+        "🧠 Las preguntas abiertas usan proveedores de IA configurados; no envíes información sensible.\n"
         "🔍 <b>Modo Inline en cualquier grupo:</b> escribe mi @usuario seguido de un modelo.\n"
         f"{channel_line}\n"
         "<b>Comandos principales:</b>\n"
@@ -275,6 +282,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         "• /seguir <i>modelo</i> — vigilar cambios de un modelo concreto\n"
         "• /chart — gráfica visual del Top actual\n"
         "• /alertas — personalizar qué avisos recibes\n"
+        "• /olvidar — borrar mi historial conversacional\n"
         "• /unsubscribe — darte de baja\n\n"
         "👇 Pulsa una categoría o escríbeme cualquier pregunta en lenguaje natural:",
         parse_mode="HTML",
@@ -451,6 +459,25 @@ async def chart_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         )
 
 
+def _source_age_label(source: dict) -> str:
+    """Describe la última captura exitosa de una fuente sin confundirla con su fecha de publicación."""
+    raw = source.get("last_successful_fetch_at") or source.get("fetched_at")
+    if not raw:
+        return "último éxito sin fecha registrada"
+    try:
+        seen = datetime.fromisoformat(str(raw).replace("Z", "+00:00"))
+        if seen.tzinfo is None:
+            seen = seen.replace(tzinfo=timezone.utc)
+        age_minutes = max(0, int((datetime.now(timezone.utc) - seen).total_seconds() // 60))
+    except (TypeError, ValueError):
+        return "fecha de captura inválida"
+    if age_minutes < 1:
+        return "capturada hace menos de 1 min"
+    if age_minutes < 60:
+        return f"último éxito hace {age_minutes} min"
+    return f"último éxito hace {age_minutes // 60} h {age_minutes % 60} min"
+
+
 async def status(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Chequeo de salud del sistema (sin quemar cuota de IA)."""
     snapshot = await load_snapshot()
@@ -458,9 +485,9 @@ async def status(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     if snapshot:
         data_status = f"✅ Snapshot hace {age:.1f} h" if age is not None else "✅ Snapshot disponible"
         stale = [
-            k
-            for k, v in (snapshot.get("sources") or {}).items()
-            if isinstance(v, dict) and v.get("status") == "stale"
+            f"{name} ({_source_age_label(payload)})"
+            for name, payload in (snapshot.get("sources") or {}).items()
+            if isinstance(payload, dict) and payload.get("status") == "stale"
         ]
         if stale:
             data_status += f"\n⚠️ Fuentes stale: {', '.join(stale)}"
@@ -483,8 +510,24 @@ async def status(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         if recent_changes
         else "Ninguno registrado aún"
     )
-    db_mode = "Turso Cloud + SQLite" if db._turso_endpoint else "SQLite local"
+    turso_state = await asyncio.to_thread(db.turso_health)
+    if turso_state["reachable"]:
+        db_mode = "Turso responde a prueba de conexión (SQLite local disponible como fallback)"
+    elif turso_state["configured"]:
+        db_mode = "Turso configurado, pero no responde; SQLite local como fallback"
+    else:
+        db_mode = "SQLite local (Turso no configurado)"
     channel_info = PUBLIC_CHANNEL_ID or "No configurado"
+    if TAVILY_API_KEY:
+        search_key = f"live_search:{datetime.now(timezone.utc).date().isoformat()}"
+        used_searches = await asyncio.to_thread(db.limit_used, search_key, 86400)
+        live_search_status = (
+            f"✅ Clave configurada · límite interno del bot: "
+            f"{max(0, LIVE_SEARCH_DAILY_LIMIT - used_searches)}/{LIVE_SEARCH_DAILY_LIMIT} consultas hoy UTC "
+            "(no mide la cuota del proveedor)"
+        )
+    else:
+        live_search_status = "⚠️ Sin clave Tavily; respuestas basadas en el snapshot"
 
     await update.message.reply_text(
         f"📊 <b>Estado del Sistema</b>\n\n"
@@ -497,8 +540,9 @@ async def status(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         f"<b>Canal público:</b> {escape_html(channel_info)}\n"
         f"<b>Tus alertas:</b> {'✅ Activas' if is_sub else '❌ Sin suscripción'} ({escape_html(prefs.get('alerts', 'all'))})\n"
         f"<b>IA Brain:</b> {brain_status}\n"
+        f"<b>Búsqueda web:</b> {escape_html(live_search_status)}\n"
         f"<b>Suscriptores activos:</b> {len(total_subs)}\n"
-        f"<b>Versión:</b> 4.3 (24/7 Always-On)\n"
+        f"<b>Versión:</b> 4.4.0\n"
         f"<b>Uptime desde:</b> {escape_html(context.bot_data.get('start_time', 'N/A'))}",
         parse_mode="HTML",
     )
@@ -506,7 +550,7 @@ async def status(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 
 async def test_alerta(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Envía una alerta de prueba al admin (y verifica canal público si aplica)."""
-    if not is_admin(update.effective_chat.id):
+    if not is_admin(_actor_user_id(update)):
         await update.message.reply_text("🔒 Solo el administrador puede ejecutar <code>/testalerta</code>.", parse_mode="HTML")
         return
 
@@ -524,12 +568,20 @@ async def test_alerta(update: Update, context: ContextTypes.DEFAULT_TYPE) -> Non
         except Exception as exc:  # noqa: BLE001
             channel_status = f"❌ Error ({str(exc)[:80]})"
 
+    turso_state = await asyncio.to_thread(db.turso_health)
+    if turso_state["reachable"]:
+        turso_status = "✅ Responde a prueba de conexión"
+    elif turso_state["configured"]:
+        turso_status = "⚠️ Configurado, pero sin conexión; fallback local"
+    else:
+        turso_status = "⚠️ No configurado; SQLite local"
+
     await update.message.reply_text(
         f"🔔 <b>Alerta de Prueba Enviada</b>\n\n"
         f"• <b>Tu chat ID:</b> <code>{escape_html(str(update.effective_chat.id))}</code>\n"
         f"• <b>Suscriptores activos:</b> {len(subs)}\n"
         f"• <b>Canal público:</b> {escape_html(channel_status)}\n"
-        f"• <b>Turso Cloud:</b> {'✅ Conectado' if db._turso_endpoint else '⚠️ Solo SQLite local'}\n"
+        f"• <b>Turso:</b> {escape_html(turso_status)}\n"
         f"• <b>Última revisión:</b> {escape_html(str(RUNTIME_STATE.get('last_update_message') or 'Pendiente')[:120])}",
         parse_mode="HTML",
     )
@@ -537,7 +589,7 @@ async def test_alerta(update: Update, context: ContextTypes.DEFAULT_TYPE) -> Non
 
 async def force_update(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Fuerza una actualización manual (restringido exclusivamente al administrador)."""
-    if not is_admin(update.effective_chat.id):
+    if not is_admin(_actor_user_id(update)):
         await update.message.reply_text(
             "🔒 El comando <code>/forceupdate</code> está reservado al administrador.\n"
             f"Los datos se revisan solos cada {UPDATE_INTERVAL_MINUTES} min; usa /menu o /hoy para ver el último corte.",
@@ -622,7 +674,7 @@ async def build_hoy_text() -> str:
     """Compone el briefing /hoy y lo cachea por snapshot para no gastar cuota repetida."""
     snapshot = await load_snapshot()
     cache_key = (
-        f"hoy:v4.3:{snapshot.get('generated_at')}"
+        f"hoy:v4.4:{snapshot.get('generated_at')}"
         if isinstance(snapshot, dict) and snapshot.get("generated_at")
         else ""
     )
@@ -932,13 +984,28 @@ async def handle_inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE
 # ------------------------------------------------------------------ chat libre
 
 
+async def olvidar_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Elimina el historial conversacional de este chat, también en grupos."""
+    if not update.effective_chat or not update.message:
+        return
+    owner_id = update.effective_user.id if update.effective_user else update.effective_chat.id
+    await asyncio.to_thread(db.clear_chat_history, str(owner_id))
+    await update.message.reply_text(
+        "🧹 He borrado el historial de conversación de este chat. Puedes empezar de nuevo.",
+        reply_markup=build_main_keyboard(),
+    )
+
+
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Preguntas abiertas en lenguaje natural: rate limit → presupuesto → Multi-LLM."""
     if not update.message or not update.message.text:
         return
     user_id = update.effective_user.id if update.effective_user else update.effective_chat.id
 
-    if not allow_user_message(user_id):
+    allowed = await asyncio.to_thread(
+        db.consume_limit, f"chat:{user_id}", USER_RATE_LIMIT, 3600
+    )
+    if not allowed:
         await update.message.reply_text(
             f"⏳ Alcanzaste el límite gratuito de {USER_RATE_LIMIT} consultas abiertas por hora.\n"
             "💡 Puedes seguir usando sin límite los botones instantáneos de <b>/menu</b>, <b>/buscar</b> y <b>/hoy</b>.",
@@ -960,13 +1027,28 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
     await context.bot.send_chat_action(chat_id=update.effective_chat.id, action="typing")
 
     try:
-        snapshot = await load_snapshot()
+        # Busca en vivo y carga el snapshot/historial concurrentemente para no retrasar innecesariamente el chat.
+        conversation_id = str(user_id)
+        snapshot, web_result, history = await asyncio.gather(
+            load_snapshot(),
+            asyncio.to_thread(search_live_web, user_text, db),
+            asyncio.to_thread(db.get_chat_history, conversation_id, 8),
+        )
         context_data = build_context(snapshot)
-
-        response = await asyncio.to_thread(brain.generate_response, user_text, context_data)
+        response = await asyncio.to_thread(
+            brain.generate_response,
+            user_text,
+            context_data,
+            history,
+            web_result.get("sources", []),
+            web_result.get("status", "unavailable"),
+            web_result.get("searched_at"),
+        )
         if not response:
             response = "No pude generar una respuesta ahora mismo. Prueba con /menu para ver los rankings directos."
 
+        await asyncio.to_thread(db.add_chat_message, conversation_id, "user", user_text)
+        await asyncio.to_thread(db.add_chat_message, conversation_id, "assistant", response)
         await send_html(context.bot, update.effective_chat.id, response)
 
     except Exception as e:
@@ -1009,7 +1091,9 @@ async def error_handler(update: object, context: ContextTypes.DEFAULT_TYPE) -> N
 async def heartbeat(context: ContextTypes.DEFAULT_TYPE) -> None:
     now_str = utc_now_iso()
     RUNTIME_STATE["last_heartbeat"] = now_str
-    logger.info("💓 Heartbeat — Bot activo a las %s UTC", now_str)
+    # Señal compartida para que el dashboard y el job failover detecten el worker separado.
+    await asyncio.to_thread(db.set_state, "bot_heartbeat", now_str)
+    logger.debug("💓 Heartbeat — Bot activo a las %s UTC", now_str)
 
 
 async def periodic_update(context: ContextTypes.DEFAULT_TYPE) -> None:
@@ -1030,6 +1114,7 @@ async def post_init(application) -> None:
     application.bot_data["start_time"] = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
     RUNTIME_STATE["bot_polling_active"] = True
     RUNTIME_STATE["last_heartbeat"] = utc_now_iso()
+    await asyncio.to_thread(db.set_state, "bot_heartbeat", RUNTIME_STATE["last_heartbeat"])
     if ADMIN_CHAT_ID:
         await asyncio.to_thread(db.ensure_subscriber, ADMIN_CHAT_ID)
     logger.info("🚀 Bot inicializado. Registrando jobs periódicos...")
@@ -1047,14 +1132,15 @@ async def post_init(application) -> None:
                 ("alertas", "Personalizar notificaciones"),
                 ("status", "Estado del sistema"),
                 ("unsubscribe", "Darse de baja de alertas"),
+                ("olvidar", "Borrar historial conversacional de este chat"),
             ]
         )
     except Exception as exc:  # noqa: BLE001
         logger.warning("No se pudo registrar menú de comandos en Telegram: %s", exc)
 
-    update_seconds = max(300, UPDATE_INTERVAL_MINUTES * 60)
+    update_seconds = max(60, UPDATE_INTERVAL_MINUTES * 60)
     application.job_queue.run_repeating(self_ping, interval=300, first=30, name="self_ping")
-    application.job_queue.run_repeating(heartbeat, interval=1800, first=60, name="heartbeat")
+    application.job_queue.run_repeating(heartbeat, interval=60, first=60, name="heartbeat")
     application.job_queue.run_repeating(
         periodic_update,
         interval=update_seconds,
@@ -1074,7 +1160,7 @@ async def post_init(application) -> None:
     )
 
     logger.info(
-        "✅ Jobs registrados: self_ping (5 min), heartbeat (30 min), "
+        "✅ Jobs registrados: self_ping (5 min), heartbeat (1 min), "
         "periodic_update (%d min), daily_briefing (%02d:00 UTC), weekly_digest (domingos %02d:15 UTC)",
         UPDATE_INTERVAL_MINUTES,
         DAILY_BRIEF_HOUR,
@@ -1114,19 +1200,26 @@ def ensure_chromium() -> None:
 if __name__ == "__main__":
     os.makedirs("data", exist_ok=True)
 
-    # 1. Abrir el puerto HTTP ANTES que nada (<100 ms) para evitar timeouts en Render / HF Spaces
-    flask_thread = threading.Thread(target=run_flask, name="FlaskKeepAlive", daemon=True)
-    flask_thread.start()
-    logger.info("🌐 Servidor HTTP iniciado inmediatamente (puerto abierto para healthcheck 24/7)")
+    # all conserva el modo combinado; bot permite separar worker y web en despliegues escalables.
+    flask_thread = None
+    if APP_MODE in {"all", "web"}:
+        flask_thread = threading.Thread(target=run_flask, name="FlaskKeepAlive", daemon=True)
+        flask_thread.start()
+        logger.info("🌐 Servidor HTTP iniciado inmediatamente para healthcheck/dashboard")
 
-    # 2. Verificar/instalar Chromium en hilo de fondo sin bloquear el arranque del bot
-    chromium_thread = threading.Thread(target=ensure_chromium, name="ChromiumSetup", daemon=True)
-    chromium_thread.start()
-
-    if not TELEGRAM_TOKEN:
-        logger.error("❌ No se encontró TELEGRAM_TOKEN en las variables de entorno; sirviendo solo Dashboard Web.")
+    if APP_MODE == "web":
+        logger.info("Modo web: para producción usa Gunicorn con src.keepalive:flask_app")
         flask_thread.join()
+    elif not TELEGRAM_TOKEN:
+        logger.error("❌ Falta TELEGRAM_TOKEN para el modo bot; el modo web puede ejecutarse sin bot.")
+        if flask_thread:
+            flask_thread.join()
+        else:
+            raise SystemExit(1)
     else:
+        # Playwright solo se prepara en el worker que actualiza las fuentes.
+        chromium_thread = threading.Thread(target=ensure_chromium, name="ChromiumSetup", daemon=True)
+        chromium_thread.start()
         application = (
             ApplicationBuilder()
             .token(TELEGRAM_TOKEN)
@@ -1153,6 +1246,7 @@ if __name__ == "__main__":
         application.add_handler(CommandHandler("testalerta", test_alerta))
         application.add_handler(CommandHandler("forceupdate", force_update))
         application.add_handler(CommandHandler("hoy", hoy))
+        application.add_handler(CommandHandler("olvidar", olvidar_cmd))
         application.add_handler(CallbackQueryHandler(handle_callback))
         application.add_handler(InlineQueryHandler(handle_inline_query))
         application.add_handler(MessageHandler(filters.TEXT & (~filters.COMMAND), handle_message))

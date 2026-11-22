@@ -31,9 +31,26 @@ TELEGRAM_TOKEN = (os.getenv("TELEGRAM_TOKEN") or "").strip() or None
 GEMINI_API_KEY = (os.getenv("GEMINI_API_KEY") or "").strip() or None
 GROQ_API_KEY = (os.getenv("GROQ_API_KEY") or "").strip() or None
 OPENROUTER_API_KEY = (os.getenv("OPENROUTER_API_KEY") or "").strip() or None
+TAVILY_API_KEY = (os.getenv("TAVILY_API_KEY") or "").strip() or None
+
+# Modelos configurables sin editar código. OpenRouter puede enrutar a un modelo gratuito
+# actualmente disponible; mantener una alternativa fija como respaldo.
+def _env_csv(name: str, default: tuple[str, ...]) -> tuple[str, ...]:
+    values = tuple(item.strip() for item in (os.getenv(name) or "").split(",") if item.strip())
+    return values or default
+
+
+GEMINI_MODELS = _env_csv("GEMINI_MODELS", ("gemini-2.5-flash", "gemini-2.5-flash-lite"))
+GROQ_MODELS = _env_csv("GROQ_MODELS", ("llama-3.3-70b-versatile", "llama-3.1-8b-instant"))
+OPENROUTER_FREE_MODELS = _env_csv(
+    "OPENROUTER_FREE_MODELS",
+    ("openrouter/free", "meta-llama/llama-3.3-70b-instruct:free"),
+)
 
 # El CHAT ID del administrador autoriza /forceupdate y recibe alertas técnicas
 ADMIN_CHAT_ID = (os.getenv("CHAT_ID") or "").strip() or None
+# Identidad del usuario que puede ejecutar comandos administrativos; si se omite, conserva compatibilidad con CHAT_ID.
+ADMIN_USER_ID = (os.getenv("ADMIN_USER_ID") or "").strip() or None
 
 # Canal público opcional (ej. @RankingIA_ES) para difusión masiva en 1 sola llamada
 PUBLIC_CHANNEL_ID = (os.getenv("PUBLIC_CHANNEL_ID") or "").strip() or None
@@ -68,8 +85,13 @@ DATA_JSON_URL = (
     or "https://raw.githubusercontent.com/CharlyCyber/Ranking-IA/data/data/rankings.json"
 ).strip()
 
-# Intervalo de revisión automática en minutos (por defecto 60 = cada 1 hora)
-UPDATE_INTERVAL_MINUTES = _env_int("UPDATE_INTERVAL_MINUTES", 60, minimum=5, maximum=1440)
+# Intervalo objetivo de revisión en minutos (1 min por defecto; cada fuente puede publicar menos a menudo).
+UPDATE_INTERVAL_MINUTES = _env_int("UPDATE_INTERVAL_MINUTES", 1, minimum=1, maximum=1440)
+
+# all = compatibilidad (web + bot); bot permite escalar el dashboard por separado.
+APP_MODE = (os.getenv("APP_MODE") or "all").strip().lower()
+if APP_MODE not in {"all", "bot", "web"}:
+    APP_MODE = "all"
 
 # Modo respaldo silencioso (usado por GitHub Actions cuando el bot 24/7 ya está despierto)
 SKIP_TELEGRAM_BROADCAST = _env_bool("SKIP_TELEGRAM_BROADCAST", default=False)
@@ -80,8 +102,15 @@ DISABLE_PLAYWRIGHT = _env_bool("DISABLE_PLAYWRIGHT", default=False)
 # Hora UTC del briefing diario /hoy (0-23)
 DAILY_BRIEF_HOUR = _env_int("DAILY_BRIEF_HOUR", 9, minimum=0, maximum=23)
 
-# Presupuesto global diario de llamadas a LLM (protege la cuota compartida)
-GEMINI_DAILY_LIMIT = _env_int("GEMINI_DAILY_LIMIT", 200, minimum=1)
+# Presupuesto global diario compartido por todos los proveedores LLM.
+# GEMINI_DAILY_LIMIT se conserva como alias para despliegues antiguos.
+LLM_DAILY_LIMIT = _env_int(
+    "LLM_DAILY_LIMIT", _env_int("GEMINI_DAILY_LIMIT", 200, minimum=1), minimum=1
+)
+GEMINI_DAILY_LIMIT = LLM_DAILY_LIMIT
 
 # Consultas de texto libre por usuario y hora
 USER_RATE_LIMIT = _env_int("USER_RATE_LIMIT", 10, minimum=1)
+# Protección básica por proceso para API pública; en réplicas, complementar con CDN/API gateway.
+API_RATE_LIMIT_PER_MINUTE = _env_int("API_RATE_LIMIT_PER_MINUTE", 120, minimum=10)
+LIVE_SEARCH_DAILY_LIMIT = _env_int("LIVE_SEARCH_DAILY_LIMIT", 100, minimum=1)

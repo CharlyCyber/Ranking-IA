@@ -1292,7 +1292,7 @@
                 </button>
                 <div>
                     <h1 class="hero-title" id="heroTitle">¿Cuál es la mejor IA hoy?</h1>
-                    <div class="hero-subtitle">Guía fácil actualizada cada hora según miles de pruebas reales a ciegas</div>
+                    <div class="hero-subtitle">Guía basada en resultados de pruebas a ciegas; la frescura depende de cada fuente</div>
                 </div>
             </div>
             <div class="hero-actions">
@@ -1350,7 +1350,7 @@
                     </div>
                     <div>
                         <div class="metric-label">🔄 Revisión Automática</div>
-                        <div class="metric-big"><span id="kpiInterval">60</span><span class="suffix">min</span></div>
+                        <div class="metric-big"><span id="kpiInterval">—</span><span class="suffix">min</span></div>
                         <div class="metric-hint">Vigilancia continua 24/7</div>
                     </div>
                 </div>
@@ -1623,14 +1623,14 @@
                     <div class="panel-view" id="panel-changes">
                         <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
                             <div>
-                                <div class="d-caption">Vigilancia automática cada 60 minutos</div>
+                                <div class="d-caption" id="changesIntervalCaption">Frecuencia de revisión configurada</div>
                                 <div style="font-size:1.15rem;font-weight:600;">Últimos Movimientos (<span id="cambiosCount">0</span>)</div>
                             </div>
                             <button class="btn-dark-pill" onclick="cambiarVistaPanel('detail')">← Volver a la explicación</button>
                         </div>
                         <div class="feed-scroll" id="cambiosLista"></div>
                         <div class="detail-footer-bar">
-                            <div class="f-stat-lbl">El bot revisa cada hora y avisa por Telegram únicamente cuando cambia algún puesto importante.</div>
+                            <div class="f-stat-lbl" id="changesIntervalDescription">La frecuencia de revisión no garantiza que las fuentes publiquen cambios a ese ritmo.</div>
                             <a class="btn-lime" href="/feed.xml" target="_blank" rel="noopener">Suscribirse RSS</a>
                         </div>
                     </div>
@@ -1935,8 +1935,11 @@
             const res = await fetch('/health').catch(() => null);
             if (!res || !res.ok) return;
             const h = await res.json();
-            if (h.update_interval_minutes) {
-                document.getElementById('kpiInterval').textContent = h.update_interval_minutes;
+            const interval = Number(h.update_interval_minutes);
+            if (Number.isFinite(interval) && interval > 0) {
+                document.getElementById('kpiInterval').textContent = interval;
+                document.getElementById('changesIntervalCaption').textContent = `El bot intenta revisar cada ${interval} min`;
+                document.getElementById('changesIntervalDescription').textContent = `El bot intenta revisar cada ${interval} min; la frescura real depende de la publicación y disponibilidad de cada fuente.`;
             }
         }
 
@@ -2339,7 +2342,7 @@
             document.getElementById('bellDot').style.display = data.length > 0 ? 'block' : 'none';
 
             if (data.length === 0) {
-                document.getElementById('cambiosLista').innerHTML = '<div class="feed-card"><span style="color:var(--text-muted);">Todo estable por ahora. Revisamos automáticamente cada hora y te avisaremos en cuanto cambie algún puesto.</span></div>';
+                document.getElementById('cambiosLista').innerHTML = '<div class="feed-card"><span style="color:var(--text-muted);">Sin cambios registrados en el período consultado. La frecuencia de revisión no garantiza que las fuentes publiquen novedades.</span></div>';
                 return;
             }
             document.getElementById('cambiosLista').innerHTML = data.slice(0, 15).map(c => {
