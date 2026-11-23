@@ -42,6 +42,8 @@ def _env_csv(name: str, default: tuple[str, ...]) -> tuple[str, ...]:
 
 GEMINI_MODELS = _env_csv("GEMINI_MODELS", ("gemini-2.5-flash", "gemini-2.5-flash-lite"))
 GROQ_MODELS = _env_csv("GROQ_MODELS", ("llama-3.3-70b-versatile", "llama-3.1-8b-instant"))
+# Modelo de Whisper en Groq para transcribir notas de voz / archivos de audio
+GROQ_TRANSCRIPTION_MODEL = (os.getenv("GROQ_TRANSCRIPTION_MODEL") or "whisper-large-v3-turbo").strip() or "whisper-large-v3-turbo"
 OPENROUTER_FREE_MODELS = _env_csv(
     "OPENROUTER_FREE_MODELS",
     ("openrouter/free", "meta-llama/llama-3.3-70b-instruct:free"),

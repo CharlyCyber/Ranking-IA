@@ -30,13 +30,15 @@ Plataforma abierta y gratuita (Bot de Telegram + Dashboard Web / Mini App + API 
   - **Difusión en Canal Público** (`PUBLIC_CHANNEL_ID`): una sola publicación llega a todos los lectores del canal; los chats con preferencias individuales se envían por separado y están sujetos a límites de Telegram.
   - **Preferencias por usuario** (`/alertas`): elige recibir *Todas*, *Solo Nuevo #1*, *Solo Coding/UI* o *Silenciar*.
   - **Modo Inline viral (`@TuBot modelo`)**: comparte fichas de cualquier modelo en cualquier chat o grupo a coste cero.
+  - **Notas de voz y audios**: envía una nota de voz o un archivo de audio; se transcribe con Groq Whisper (o Gemini como respaldo) y se responde con el mismo pipeline del chat libre. Requiere `GROQ_API_KEY` o `GEMINI_API_KEY` (en despliegues existentes ya suelen estar configuradas).
   - **Open Data Hub**: Dashboard adaptable como **Telegram Mini App**, feed **RSS 2.0** (`/feed.xml`), **gráficas SVG dinámicas** (`/api/chart.svg`) y **badges Shields.io** (`/api/badge/arena`).
 
 ## 🏗️ Arquitectura
 
 ```text
 src/
-├── main.py        # Bot Telegram: menús inline (0 tokens), Modo Inline, /hoy cacheado, auth admin
+├── main.py        # Bot Telegram: menús inline (0 tokens), Modo Inline, /hoy cacheado, audio, auth admin
+├── transcriber.py # Notas de voz / audios → texto (Groq Whisper, con respaldo Gemini)
 ├── brain.py       # Multi-proveedor configurable + respuestas fundamentadas, citas y guardrails
 ├── live_search.py # Búsqueda web opcional bajo demanda (Tavily) con URLs/citas validadas
 ├── insights.py    # Analítica determinista: Calidad/Precio, modelos gratis, buscador y gráficas SVG/QuickChart
@@ -94,6 +96,7 @@ python -m src.main
 | `/forceupdate` | *Solo Admin* | Fuerza actualización manual protegida por `CHAT_ID` y lock de concurrencia |
 | `@TuBot <consulta>` | **0 tokens** | **Modo Inline**: úsalo desde cualquier grupo de Telegram |
 | *(texto libre)* | **1 llamada** | Pregunta abierta al analista IA con rate limit por usuario |
+| *(audio / nota de voz)* | **1 llamada** | 🎙️ Envía un audio: se transcribe (Groq Whisper → Gemini) y responde como texto libre |
 
 `/forceupdate` requiere que `ADMIN_USER_ID` contenga el ID numérico de tu cuenta de Telegram. `CHAT_ID` es el chat privado al que se envían avisos administrativos; ambos valores pueden coincidir en un chat privado, pero no son necesariamente lo mismo si usas grupos.
 
