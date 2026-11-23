@@ -1,6 +1,6 @@
 [project]
 name = "ranking-ai-agent"
-version = "4.5.0"
+version = "4.6.0"
 description = "Agente y plataforma pública gratuita de monitorización de rankings, precios y tendencias de modelos de IA"
 requires-python = ">=3.10"
 

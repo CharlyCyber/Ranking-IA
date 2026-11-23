@@ -11,6 +11,7 @@ Mejoras clave v4:
 import logging
 import re
 import threading
+import time
 from datetime import date, datetime, timezone
 
 import httpx
@@ -30,6 +31,7 @@ from src.config import (
 )
 from src.db import Database
 from src.html_utils import escape_html, safe_url, sanitize_telegram_html, strip_html
+from src.insights import render_offline_answer
 from src.live_search import format_search_evidence, is_public_http_url
 
 logger = logging.getLogger(__name__)
@@ -304,37 +306,49 @@ class RankingBrain:
         safe_budget = max(max_tokens or 2500, 2500)
         config = self._build_gemini_config(types, system_instruction, safe_budget)
         for model_name in PREFERRED_MODELS:
-            try:
-                response = self.client.models.generate_content(
-                    model=model_name,
-                    contents=user_prompt,
-                    config=config,
-                )
-                text = (response.text or "").strip() if response else ""
-                if self._gemini_was_truncated(response):
-                    logger.warning(
-                        "Respuesta de Gemini (%s) cortada por MAX_TOKENS; reintentando con presupuesto ampliado...",
-                        model_name,
-                    )
-                    retry_cfg = self._build_gemini_config(types, system_instruction, 4096)
-                    response2 = self.client.models.generate_content(
+            for attempt in (1, 2):
+                try:
+                    response = self.client.models.generate_content(
                         model=model_name,
                         contents=user_prompt,
-                        config=retry_cfg,
+                        config=config,
                     )
-                    text2 = (response2.text or "").strip() if response2 else ""
-                    if text2 and not self._gemini_was_truncated(response2):
+                    text = (response.text or "").strip() if response else ""
+                    if self._gemini_was_truncated(response):
+                        logger.warning(
+                            "Respuesta de Gemini (%s) cortada por MAX_TOKENS; reintentando con presupuesto ampliado...",
+                            model_name,
+                        )
+                        retry_cfg = self._build_gemini_config(types, system_instruction, 4096)
+                        response2 = self.client.models.generate_content(
+                            model=model_name,
+                            contents=user_prompt,
+                            config=retry_cfg,
+                        )
+                        text2 = (response2.text or "").strip() if response2 else ""
+                        if text2 and not self._gemini_was_truncated(response2):
+                            self.last_provider_used = f"gemini:{model_name}"
+                            self.last_error = None
+                            return text2
+                        break  # Truncado de nuevo: siguiente modelo, sin reintento extra.
+                    if text:
                         self.last_provider_used = f"gemini:{model_name}"
                         self.last_error = None
-                        return text2
-                    continue
-                if text:
-                    self.last_provider_used = f"gemini:{model_name}"
-                    self.last_error = None
-                    return text
-            except Exception as exc:  # noqa: BLE001
-                self.last_error = str(exc)[:200]
-                logger.warning("Error con Gemini (%s): %s. Probando respaldo...", model_name, self.last_error)
+                        return text
+                    break  # Respuesta vacía: siguiente modelo.
+                except Exception as exc:  # noqa: BLE001
+                    self.last_error = str(exc)[:200]
+                    if attempt == 1:
+                        logger.warning(
+                            "Error con Gemini (%s): %s — reintentando en 2 s...", model_name, self.last_error
+                        )
+                        time.sleep(2)
+                    else:
+                        logger.warning(
+                            "Error con Gemini (%s) tras reintento: %s. Probando respaldo...",
+                            model_name,
+                            self.last_error,
+                        )
         return None
 
     def _generate_openai_compat(
@@ -366,30 +380,40 @@ class RankingBrain:
                 "temperature": 0.45,
                 "max_tokens": safe_budget,
             }
-            try:
-                with httpx.Client(timeout=30.0) as client:
-                    resp = client.post(base_url, headers=headers, json=payload)
-                    resp.raise_for_status()
-                    data = resp.json()
-                choices = data.get("choices") or []
-                if not choices:
-                    continue
-                finish_reason = str(choices[0].get("finish_reason") or "").lower()
-                text = ((choices[0].get("message") or {}).get("content") or "").strip()
-                if finish_reason == "length":
-                    logger.warning(
-                        "Respuesta de %s (%s) cortada por límite de tokens; probando siguiente modelo...",
-                        provider_label,
-                        model_name,
-                    )
-                    continue
-                if text:
-                    self.last_provider_used = f"{provider_label}:{model_name}"
-                    self.last_error = None
-                    return text
-            except Exception as exc:  # noqa: BLE001
-                self.last_error = str(exc)[:200]
-                logger.warning("Error con %s (%s): %s", provider_label, model_name, self.last_error)
+            for attempt in (1, 2):
+                try:
+                    with httpx.Client(timeout=30.0) as client:
+                        resp = client.post(base_url, headers=headers, json=payload)
+                        resp.raise_for_status()
+                        data = resp.json()
+                    choices = data.get("choices") or []
+                    if not choices:
+                        break
+                    finish_reason = str(choices[0].get("finish_reason") or "").lower()
+                    text = ((choices[0].get("message") or {}).get("content") or "").strip()
+                    if finish_reason == "length":
+                        logger.warning(
+                            "Respuesta de %s (%s) cortada por límite de tokens; probando siguiente modelo...",
+                            provider_label,
+                            model_name,
+                        )
+                        break
+                    if text:
+                        self.last_provider_used = f"{provider_label}:{model_name}"
+                        self.last_error = None
+                        return text
+                    break
+                except Exception as exc:  # noqa: BLE001
+                    self.last_error = str(exc)[:200]
+                    if attempt == 1:
+                        logger.warning(
+                            "Error con %s (%s): %s — reintentando en 2 s...", provider_label, model_name, self.last_error
+                        )
+                        time.sleep(2)
+                    else:
+                        logger.warning(
+                            "Error con %s (%s) tras reintento: %s", provider_label, model_name, self.last_error
+                        )
         return None
 
     def _generate(
@@ -462,6 +486,7 @@ class RankingBrain:
         live_sources: list[dict] | None = None,
         live_search_status: str = "not_configured",
         live_search_time: str | None = None,
+        snapshot: dict | None = None,
     ) -> str:
         """Respuesta conversacional fundamentada en snapshot; llamar con asyncio.to_thread."""
         clean_query = (user_query or "").strip()[:MAX_USER_QUERY_CHARS]
@@ -540,15 +565,11 @@ ESTILO DE RESPUESTA (CLARO Y SIEMPRE COMPLETO):
             footer_text = "\n".join(footers)
             return f"{answer}\n\n{footer_text}" if footer_text else answer
         except QuotaExceeded:
-            return (
-                "⏳ Se agotó la cuota diaria compartida de chat IA del bot. "
-                "Puedes seguir usando gratis los botones rápidos de <b>/menu</b> y el resumen <b>/hoy</b>."
-            )
+            logger.warning("Presupuesto LLM agotado; usando respuesta determinista del snapshot.")
+            return render_offline_answer(snapshot, clean_query)
         except RuntimeError:
-            return (
-                "⚠️ Los proveedores de IA están temporalmente ocupados. "
-                "Usa <b>/menu</b> o <b>/hoy</b> para consultar los rankings al instante sin espera."
-            )
+            logger.warning("Cascada de proveedores agotada; usando respuesta determinista del snapshot.")
+            return render_offline_answer(snapshot, clean_query)
 
     def draft_newsletter(self, template: str, summary: str) -> str | None:
         """Pule el boletín determinista. Devuelve None si falla, queda incompleto o no hay cuota."""
