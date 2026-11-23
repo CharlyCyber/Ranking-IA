@@ -2,6 +2,7 @@
 
 Mejoras clave v4:
 - Seguridad: /forceupdate exclusivo del administrador + sanitización HTML estricta.
+- Audio: notas de voz y archivos de audio se transcriben (Groq Whisper → Gemini) y se responden como texto libre.
 - Eficiencia de cuota: /hoy cacheado por snapshot (1 llamada LLM sirve a miles de lectores).
 - UX a 0 tokens: menús interactivos con botones Inline, buscador /buscar, gráficas /chart
   y preferencias de alertas por categoría (/alertas).
@@ -75,6 +76,12 @@ from src.insights import (
 )
 from src.keepalive import RUNTIME_STATE, run_flask, self_ping
 from src.live_search import search_live_web
+from src.transcriber import (
+    MAX_AUDIO_BYTES,
+    AudioTooLargeError,
+    transcribe_audio,
+    transcription_available,
+)
 from src.trending import render_trending_brief
 from src.updater import DataUpdater
 
@@ -1000,10 +1007,8 @@ async def olvidar_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE) -> Non
     )
 
 
-async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    """Preguntas abiertas en lenguaje natural: rate limit → presupuesto → Multi-LLM."""
-    if not update.message or not update.message.text:
-        return
+async def _answer_open_query(update: Update, context: ContextTypes.DEFAULT_TYPE, user_text: str) -> None:
+    """Pipeline compartido de chat abierto: rate limit → presupuesto → Multi-LLM."""
     user_id = update.effective_user.id if update.effective_user else update.effective_chat.id
 
     allowed = await asyncio.to_thread(
@@ -1027,7 +1032,6 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
         )
         return
 
-    user_text = update.message.text
     await context.bot.send_chat_action(chat_id=update.effective_chat.id, action="typing")
 
     try:
@@ -1061,6 +1065,74 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
             f"Tuve un contratiempo técnico procesando la consulta. [<code>{escape_html(str(e)[:90])}</code>]",
             parse_mode="HTML",
         )
+
+
+async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Preguntas abiertas en lenguaje natural: rate limit → presupuesto → Multi-LLM."""
+    if not update.message or not update.message.text:
+        return
+    await _answer_open_query(update, context, update.message.text)
+
+
+async def handle_voice_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Notas de voz y archivos de audio: transcribe y responde con el mismo pipeline de chat."""
+    message = update.message
+    if message is None:
+        return
+    media = message.voice or message.audio
+    if media is None:
+        return
+    if not transcription_available():
+        await message.reply_text(
+            "🎙️ Aún no tengo configurada la transcripción de audio en este despliegue "
+            "(falta <code>GROQ_API_KEY</code> o <code>GEMINI_API_KEY</code>). "
+            "Mientras tanto, escríbeme tu consulta como texto.",
+            parse_mode="HTML",
+        )
+        return
+
+    file_size = getattr(media, "file_size", None) or 0
+    if file_size > MAX_AUDIO_BYTES:
+        await message.reply_text(
+            "🎙️ El audio es demasiado grande (el límite son ~25 MB / 20 minutos). "
+            "Envía una nota más corta, por favor."
+        )
+        return
+
+    await context.bot.send_chat_action(chat_id=update.effective_chat.id, action="typing")
+    try:
+        tg_file = await context.bot.get_file(media.file_id)
+        buffer = await tg_file.download_as_bytearray()
+        audio_bytes = bytes(buffer)
+    except Exception as e:  # noqa: BLE001
+        logger.error("No se pudo descargar el audio de Telegram: %s", e, exc_info=True)
+        await message.reply_text(
+            "No pude descargar el audio desde Telegram. ¿Puedes intentarlo de nuevo?"
+        )
+        return
+
+    is_voice = message.voice is not None
+    filename = "voice.ogg" if is_voice else (getattr(media, "file_name", None) or "audio.mp3")
+    mime_type = getattr(media, "mime_type", None) or ("audio/ogg" if is_voice else "audio/mpeg")
+    try:
+        transcript = await asyncio.to_thread(transcribe_audio, audio_bytes, filename, mime_type)
+    except AudioTooLargeError:
+        await message.reply_text("🎙️ El audio supera el límite permitido (~25 MB). Envía uno más corto.")
+        return
+    except Exception as e:  # noqa: BLE001
+        logger.error("Error inesperado transcribiendo audio: %s", e, exc_info=True)
+        transcript = None
+
+    if not transcript:
+        await message.reply_text(
+            "🎙️ No pude entender el audio (¿inaudible, silencioso o idioma no soportado?). "
+            "Inténtalo de nuevo o escríbeme la consulta."
+        )
+        return
+
+    preview = transcript if len(transcript) <= 300 else transcript[:300].rstrip() + "…"
+    await message.reply_text(f"🎙️ Entendí: <i>{escape_html(preview)}</i>", parse_mode="HTML")
+    await _answer_open_query(update, context, transcript)
 
 
 # ------------------------------------------------------------- error handler
@@ -1254,6 +1326,7 @@ if __name__ == "__main__":
         application.add_handler(CallbackQueryHandler(handle_callback))
         application.add_handler(InlineQueryHandler(handle_inline_query))
         application.add_handler(MessageHandler(filters.TEXT & (~filters.COMMAND), handle_message))
+        application.add_handler(MessageHandler(filters.VOICE | filters.AUDIO, handle_voice_message))
         application.add_error_handler(error_handler)
 
         logger.info("🤖 Bot y Dashboard Web iniciados. Polling resiliente activado...")

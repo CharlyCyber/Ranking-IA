@@ -189,3 +189,106 @@ class TestAdminIdentity:
         monkeypatch.setattr(m, "ADMIN_CHAT_ID", "-100987654321")
         assert m.is_admin(12345) is True
         assert m.is_admin(-100987654321) is False
+
+
+class TestVoiceHandler:
+    def _fake_update(self, replies, media_file_size=1000):
+        from types import SimpleNamespace
+
+        voice = SimpleNamespace(file_id="fid", file_size=media_file_size, mime_type="audio/ogg")
+
+        async def fake_reply(text, parse_mode=None, reply_markup=None):
+            replies.append(text)
+
+        message = SimpleNamespace(reply_text=fake_reply, voice=voice, audio=None)
+        upd = SimpleNamespace(
+            message=message,
+            effective_user=SimpleNamespace(id=42),
+            effective_chat=SimpleNamespace(id=42),
+        )
+        return upd
+
+    def _fake_context(self, downloaded=b"audio-bytes"):
+        from types import SimpleNamespace
+
+        class FakeFile:
+            async def download_as_bytearray(self):
+                return bytearray(downloaded)
+
+        async def fake_get_file(file_id):
+            assert file_id == "fid"
+            return FakeFile()
+
+        async def fake_chat_action(chat_id, action):
+            return None
+
+        return SimpleNamespace(bot=SimpleNamespace(get_file=fake_get_file, send_chat_action=fake_chat_action))
+
+    async def test_nota_de_voz_se_transcribe_y_se_enruta_al_chat(self, monkeypatch):
+        monkeypatch.setattr(m, "transcription_available", lambda: True)
+        monkeypatch.setattr(m, "transcribe_audio", lambda data, filename, mime: "¿cuál es el top 1?")
+        routed = []
+
+        async def fake_answer(update, context, text):
+            routed.append(text)
+
+        monkeypatch.setattr(m, "_answer_open_query", fake_answer)
+        replies = []
+        upd = self._fake_update(replies)
+
+        await m.handle_voice_message(upd, self._fake_context())
+
+        assert routed == ["¿cuál es el top 1?"]
+        assert any("Entendí" in r for r in replies)
+
+    async def test_nota_de_voz_sin_proveedor_avisa_sin_transcribir(self, monkeypatch):
+        monkeypatch.setattr(m, "transcription_available", lambda: False)
+        called = []
+        monkeypatch.setattr(m, "transcribe_audio", lambda *a: called.append(a) or "texto")
+        routed = []
+
+        async def fake_answer(update, context, text):
+            routed.append(text)
+
+        monkeypatch.setattr(m, "_answer_open_query", fake_answer)
+        replies = []
+        upd = self._fake_update(replies)
+
+        await m.handle_voice_message(upd, self._fake_context())
+
+        assert called == []
+        assert routed == []
+        assert any("GROQ_API_KEY" in r for r in replies)
+
+    async def test_nota_de_voz_inaudible_avisa_y_no_enruta(self, monkeypatch):
+        monkeypatch.setattr(m, "transcription_available", lambda: True)
+        monkeypatch.setattr(m, "transcribe_audio", lambda *a: None)
+        routed = []
+
+        async def fake_answer(update, context, text):
+            routed.append(text)
+
+        monkeypatch.setattr(m, "_answer_open_query", fake_answer)
+        replies = []
+        upd = self._fake_update(replies)
+
+        await m.handle_voice_message(upd, self._fake_context())
+
+        assert routed == []
+        assert any("No pude entender" in r for r in replies)
+
+    async def test_audio_excesivo_avisa_y_no_descarga(self, monkeypatch):
+        monkeypatch.setattr(m, "transcription_available", lambda: True)
+        routed = []
+
+        async def fake_answer(update, context, text):
+            routed.append(text)
+
+        monkeypatch.setattr(m, "_answer_open_query", fake_answer)
+        replies = []
+        upd = self._fake_update(replies, media_file_size=m.MAX_AUDIO_BYTES + 1)
+
+        await m.handle_voice_message(upd, self._fake_context())
+
+        assert routed == []
+        assert any("demasiado grande" in r for r in replies)
