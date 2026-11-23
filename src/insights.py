@@ -393,3 +393,40 @@ def build_quickchart_url(models: list[dict], title: str = "Top Modelos IA (ELO)"
     }
     encoded = quote(json.dumps(cfg, separators=(",", ":")))
     return f"https://quickchart.io/chart?bkg=%230c1017&w=700&h=380&c={encoded}"
+
+
+def render_offline_answer(snapshot: dict | None, query: str) -> str:
+    """Respuesta determinista (0 tokens) cuando los proveedores LLM no están disponibles.
+
+    Enruta la intención por palabras clave a una tarjeta del snapshot en vivo:
+    ranking General / Coding / Multimodal / OpenRouter / Gratis & Precio.
+    Nunca inventa datos: solo renderiza lo que ya hay persistido.
+    """
+    if not isinstance(snapshot, dict) or not isinstance(snapshot.get("sources"), dict):
+        return (
+            "⚠️ <i>Los proveedores de IA están ocupados ahora mismo y no hay un snapshot de rankings "
+            "disponible para citar datos reales.</i>\n\n"
+            "Inténtalo en unos minutos, o usa <b>/menu</b> y <b>/hoy</b>."
+        )
+
+    q = (query or "").lower()
+    view = "general"
+    if any(w in q for w in ("coding", "código", "codigo", "programar", "programación", "programacion", "code", "desarrollo", "webdev", "app", "interfaz", " ui", "frontend")):
+        view = "coding"
+    elif any(w in q for w in ("multimodal", "imagen", "vídeo", "video", "visión", "vision", "foto", "audio")):
+        view = "multimodal"
+    elif any(w in q for w in ("gratis", "free", "precio", "barato", "coste", "costo", "valor", "calidad/precio", "calidad precio")):
+        view = "free"
+    elif any(w in q for w in ("openrouter", "tokens", "producción", "produccion", "uso real", "más usado", "mas usado")):
+        view = "openrouter"
+
+    header = (
+        "⚠️ <i>Los proveedores de IA están ocupados ahora mismo, así que te respondo con los datos "
+        "directos del último snapshot, sin redacción IA:</i>\n\n"
+    )
+    body = render_category_card(snapshot, view)
+    footer = (
+        "\n\n💡 Para más detalle prueba <b>/buscar modelo</b> o <b>/menu</b>. "
+        "La cuota de IA suele liberarse en unos minutos."
+    )
+    return header + body + footer

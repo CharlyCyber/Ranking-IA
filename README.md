@@ -31,6 +31,7 @@ Plataforma abierta y gratuita (Bot de Telegram + Dashboard Web / Mini App + API 
   - **Preferencias por usuario** (`/alertas`): elige recibir *Todas*, *Solo Nuevo #1*, *Solo Coding/UI* o *Silenciar*.
   - **Modo Inline viral (`@TuBot modelo`)**: comparte fichas de cualquier modelo en cualquier chat o grupo a coste cero.
   - **Notas de voz y audios**: envía una nota de voz o un archivo de audio; se transcribe con Groq Whisper (o Gemini como respaldo) y se responde con el mismo pipeline del chat libre. Requiere `GROQ_API_KEY` o `GEMINI_API_KEY` (en despliegues existentes ya suelen estar configuradas).
+  - **Respaldo determinista sin IA**: si todos los proveedores están ocupados o se agota la cuota diaria, el bot responde con los datos directos del snapshot (0 tokens) — enrutado por intención a General/Coding/Multimodal/Gratis/OpenRouter — en lugar del mensaje de error. Además, cada proveedor reintenta 1 vez con pausa de 2 s ante fallos transitorios antes de pasar al siguiente.
   - **Open Data Hub**: Dashboard adaptable como **Telegram Mini App**, feed **RSS 2.0** (`/feed.xml`), **gráficas SVG dinámicas** (`/api/chart.svg`) y **badges Shields.io** (`/api/badge/arena`).
 
 ## 🏗️ Arquitectura

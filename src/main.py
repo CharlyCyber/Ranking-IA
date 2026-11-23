@@ -1051,6 +1051,7 @@ async def _answer_open_query(update: Update, context: ContextTypes.DEFAULT_TYPE,
             web_result.get("sources", []),
             web_result.get("status", "unavailable"),
             web_result.get("searched_at"),
+            snapshot=snapshot,
         )
         if not response:
             response = "No pude generar una respuesta ahora mismo. Prueba con /menu para ver los rankings directos."
