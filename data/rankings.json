@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T22:13:58.312348",
+  "generated_at": "2026-11-23T03:21:23.908377",
   "sources": {
     "design": {
       "status": "ok",
@@ -7,7 +7,7 @@
         {
           "rank": 1,
           "model": "Claude Opus 5.5 (high)",
-          "score": 1439,
+          "score": 1456,
           "prompt_per_m": 4.0,
           "completion_per_m": 20.0,
           "context_length": 1000000,
@@ -16,7 +16,7 @@
         {
           "rank": 2,
           "model": "GPT-6 Astra (max)",
-          "score": 1391,
+          "score": 1408,
           "prompt_per_m": 10.0,
           "completion_per_m": 50.0,
           "context_length": 1050000,
@@ -25,7 +25,7 @@
         {
           "rank": 3,
           "model": "Claude Fable 5.2",
-          "score": 1363,
+          "score": 1379,
           "prompt_per_m": 8.0,
           "completion_per_m": 40.0,
           "context_length": 1000000,
@@ -34,7 +34,7 @@
         {
           "rank": 4,
           "model": "GPT-6.1 Sol (max)",
-          "score": 1356,
+          "score": 1373,
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
           "context_length": 1050000,
@@ -43,7 +43,7 @@
         {
           "rank": 5,
           "model": "Qwen4-Max",
-          "score": 1350,
+          "score": 1368,
           "prompt_per_m": 1.425,
           "completion_per_m": 4.275,
           "context_length": 1000000,
@@ -52,7 +52,7 @@
         {
           "rank": 6,
           "model": "Claude Fable 5.1",
-          "score": 1329,
+          "score": 1346,
           "prompt_per_m": 10.0,
           "completion_per_m": 50.0,
           "context_length": 1000000,
@@ -61,7 +61,7 @@
         {
           "rank": 7,
           "model": "GPT-6.2 Astra (max)",
-          "score": 1308,
+          "score": 1324,
           "prompt_per_m": 8.0,
           "completion_per_m": 40.0,
           "context_length": 1050000,
@@ -69,31 +69,31 @@
         },
         {
           "rank": 8,
-          "model": "Gemini 4 Carbon",
-          "score": 1304,
-          "prompt_per_m": 2.0,
-          "completion_per_m": 10.0,
-          "context_length": 1048576,
-          "is_free": false
-        },
-        {
-          "rank": 9,
           "model": "Inkling 2 Small",
-          "score": 1303,
+          "score": 1320,
           "prompt_per_m": 0.3,
           "completion_per_m": 1.0,
           "context_length": 1048576,
           "is_free": false
         },
         {
+          "rank": 9,
+          "model": "Gemini 4 Carbon",
+          "score": 1320,
+          "prompt_per_m": 2.0,
+          "completion_per_m": 10.0,
+          "context_length": 1048576,
+          "is_free": false
+        },
+        {
           "rank": 10,
           "model": "Qwen3.8 Max",
-          "score": 1297
+          "score": 1316
         },
         {
           "rank": 11,
           "model": "Hy4",
-          "score": 1295,
+          "score": 1310,
           "prompt_per_m": 0.417,
           "completion_per_m": 1.2505,
           "context_length": 1048576,
@@ -102,7 +102,7 @@
         {
           "rank": 12,
           "model": "Kimi K3.1 Pro",
-          "score": 1289,
+          "score": 1306,
           "prompt_per_m": 0.2403,
           "completion_per_m": 8.4023,
           "context_length": 1048576,
@@ -111,77 +111,77 @@
         {
           "rank": 13,
           "model": "1960W / 886L 68.9% ±1.7% 2,846 Anthropic",
-          "score": 1439
+          "score": 1456
         },
         {
           "rank": 14,
-          "model": "1721W / 839L 67.2% ±1.8% 2,560 OpenAI",
-          "score": 1391
+          "model": "1723W / 841L 67.2% ±1.8% 2,564 OpenAI",
+          "score": 1408
         },
         {
           "rank": 15,
-          "model": "1303W / 579L 69.2% ±2.1% 1,882 Anthropic",
-          "score": 1363
+          "model": "1307W / 582L 69.2% ±2.1% 1,889 Anthropic",
+          "score": 1379
         },
         {
           "rank": 16,
           "model": "1123W / 1122L 50.0% ±2.1% 2,245 OpenAI",
-          "score": 1356
+          "score": 1373
         },
         {
           "rank": 17,
-          "model": "2251W / 1362L 62.3% ±1.6% 3,613 Alibaba",
-          "score": 1350
+          "model": "2259W / 1363L 62.4% ±1.6% 3,622 Alibaba",
+          "score": 1368
         },
         {
           "rank": 18,
-          "model": "3070W / 2085L 59.5% ±1.3% 5,155 Anthropic",
-          "score": 1329
+          "model": "3071W / 2085L 59.6% ±1.3% 5,156 Anthropic",
+          "score": 1346
         },
         {
           "rank": 19,
-          "model": "1171W / 630L 65.0% ±2.2% 1,801 OpenAI",
-          "score": 1308
+          "model": "1172W / 633L 64.9% ±2.2% 1,805 OpenAI",
+          "score": 1324
         },
         {
           "rank": 20,
-          "model": "713W / 451L 61.3% ±2.8% 1,164 Google",
-          "score": 1304
+          "model": "4171W / 3109L 57.3% ±1.1% 7,280 Thinking Machines",
+          "score": 1320
         },
         {
           "rank": 21,
-          "model": "4171W / 3109L 57.3% ±1.1% 7,280 Thinking Machines",
-          "score": 1303
+          "model": "715W / 453L 61.2% ±2.8% 1,168 Google",
+          "score": 1320
         },
         {
           "rank": 22,
-          "model": "142W / 90L 61.2% ±6.3% 232 Alibaba",
-          "score": 1297
+          "model": "145W / 91L 61.4% ±6.2% 236 Alibaba",
+          "score": 1316
         },
         {
           "rank": 23,
-          "model": "135W / 89L 60.3% ±6.4% 224 Tencent",
-          "score": 1295
+          "model": "138W / 91L 60.3% ±6.3% 229 Tencent",
+          "score": 1310
         },
         {
           "rank": 24,
-          "model": "2895W / 1965L 59.6% ±1.4% 4,860 Moonshot AI",
-          "score": 1289
+          "model": "2895W / 1966L 59.6% ±1.4% 4,861 Moonshot AI",
+          "score": 1306
         },
         {
           "rank": 25,
-          "model": "1824W / 1354L 57.4% ±1.7% 3,178 Anthropic",
-          "score": 1282
+          "model": "1824W / 1357L 57.3% ±1.7% 3,181 Anthropic",
+          "score": 1299
         },
         {
           "rank": 26,
           "model": "193W / 211L 47.8% ±4.9% 404 DeepSeek",
-          "score": 1280
+          "score": 1297
         }
       ],
       "method": "http",
-      "last_checked_at": "2026-11-22T22:13:58.312348",
-      "last_successful_fetch_at": "2026-11-22T22:13:58.312348"
+      "last_checked_at": "2026-11-23T03:21:23.908377",
+      "last_successful_fetch_at": "2026-11-23T03:21:23.908377"
     },
     "arena": {
       "status": "ok",
@@ -1561,8 +1561,8 @@
         }
       ],
       "method": "api",
-      "last_checked_at": "2026-11-22T22:13:58.312348",
-      "last_successful_fetch_at": "2026-11-22T22:13:58.312348"
+      "last_checked_at": "2026-11-23T03:21:23.908377",
+      "last_successful_fetch_at": "2026-11-23T03:21:23.908377"
     },
     "openrouter": {
       "status": "stale",
@@ -1888,219 +1888,35 @@
       ],
       "error": "openrouter: status=error (OpenRouter: solo 0 filas parseadas)",
       "stale_since": "2026-11-11T02:21:51.468524",
-      "last_checked_at": "2026-11-22T22:13:58.312348",
+      "last_checked_at": "2026-11-23T03:21:23.908377",
       "last_successful_fetch_at": null
     },
     "github": {
       "status": "ok",
-      "since": "2026-11-21",
+      "since": "2026-11-22",
       "ai": [],
       "general": [
         {
-          "full_name": "os6/nospeaker",
-          "stars": 321,
-          "language": "Swift",
-          "description": "make your macbook's trackpad talk using its haptic motor",
-          "url": "https://github.com/os6/nospeaker",
-          "created_at": "2026-11-22T12:05:54Z"
-        },
-        {
-          "full_name": "jaredfreellm/FREELLM_INSTALL",
-          "stars": 250,
-          "language": "",
-          "description": "One OpenAI-compatible endpoint for many free LLM tiers. Add your own provider keys, and the router picks a healthy model for each request, fails over when one is rate-limited, and tracks usage per key so you stay under every quota. Self-hosted, keys encrypted at rest. For persona",
-          "url": "https://github.com/jaredfreellm/FREELLM_INSTALL",
-          "created_at": "2026-11-22T19:44:33Z"
-        },
-        {
-          "full_name": "alfoguasta/gta6-preload-emulator",
-          "stars": 243,
-          "language": "HTML",
-          "description": "Gta6 Preload Emulator simulates the preload flow for testing and validation.",
-          "url": "https://github.com/alfoguasta/gta6-preload-emulator",
-          "created_at": "2026-11-22T16:05:19Z"
-        },
-        {
-          "full_name": "satimbe39-cell/path-of-exile-2-map-reveal-zoom-out-noralin",
-          "stars": 230,
-          "language": "HTML",
-          "description": "Zoom out further on the PoE 2 map reveal for a wider view.",
-          "url": "https://github.com/satimbe39-cell/path-of-exile-2-map-reveal-zoom-out-noralin",
-          "created_at": "2026-11-22T20:21:05Z"
-        },
-        {
-          "full_name": "rahulabd919/ios-ramdisk-mdm-iremoval-pro-windows-client-rakaven",
-          "stars": 230,
-          "language": "HTML",
-          "description": "Windows client for iOS ramdisk MDM workflows with iRemoval Pro Rakaven support.",
-          "url": "https://github.com/rahulabd919/ios-ramdisk-mdm-iremoval-pro-windows-client-rakaven",
-          "created_at": "2026-11-22T19:01:57Z"
-        },
-        {
-          "full_name": "Yasar882/creative-video-adobe-cc-v4-universal-vefamar",
-          "stars": 230,
-          "language": "HTML",
-          "description": "Universal video toolset for Adobe CC - built for creative workflows.",
-          "url": "https://github.com/Yasar882/creative-video-adobe-cc-v4-universal-vefamar",
-          "created_at": "2026-11-22T20:05:02Z"
-        },
-        {
-          "full_name": "bhoomikasm-11/avast-premium-security-satamir",
-          "stars": 229,
-          "language": "HTML",
-          "description": "Security product directory entry for Avast Premium Security Satamir builds.",
-          "url": "https://github.com/bhoomikasm-11/avast-premium-security-satamir",
-          "created_at": "2026-11-22T19:13:17Z"
-        },
-        {
-          "full_name": "gunalgps/marvel-rivals-hitscan-projectile-smoothing-assistant-dabalin",
-          "stars": 229,
-          "language": "HTML",
-          "description": "Tune your hitscan and projectile aim in Marvel Rivals with Dabalin's smoothing helper.",
-          "url": "https://github.com/gunalgps/marvel-rivals-hitscan-projectile-smoothing-assistant-dabalin",
-          "created_at": "2026-11-22T19:07:48Z"
-        },
-        {
-          "full_name": "sahilboss728-pixel/cs2-skin-changer-tanomar",
-          "stars": 229,
-          "language": "HTML",
-          "description": "Shape your CS2 look with a modder-first skin changer built for tinkering.",
-          "url": "https://github.com/sahilboss728-pixel/cs2-skin-changer-tanomar",
-          "created_at": "2026-11-22T20:06:47Z"
-        },
-        {
-          "full_name": "DRONSH/fisch-script-macro-betalan",
-          "stars": 229,
-          "language": "HTML",
-          "description": "Automates Fisch macro inputs for repeatable in-game actions.",
-          "url": "https://github.com/DRONSH/fisch-script-macro-betalan",
-          "created_at": "2026-11-22T18:53:21Z"
+          "full_name": "chanke17/KuroCat",
+          "stars": 31,
+          "language": "C++",
+          "description": "🐱 Native macOS & Windows desktop cat pet with full-state keyboard/mouse capture (typing & gaming), 2.5D head tracking, hunting boba eyes, and Black/Siamese skins",
+          "url": "https://github.com/chanke17/KuroCat",
+          "created_at": "2026-11-23T01:06:18Z"
         }
       ],
       "items": [
         {
-          "full_name": "os6/nospeaker",
-          "stars": 321,
-          "language": "Swift",
-          "description": "make your macbook's trackpad talk using its haptic motor",
-          "url": "https://github.com/os6/nospeaker",
-          "created_at": "2026-11-22T12:05:54Z"
-        },
-        {
-          "full_name": "jaredfreellm/FREELLM_INSTALL",
-          "stars": 250,
-          "language": "",
-          "description": "One OpenAI-compatible endpoint for many free LLM tiers. Add your own provider keys, and the router picks a healthy model for each request, fails over when one is rate-limited, and tracks usage per key so you stay under every quota. Self-hosted, keys encrypted at rest. For persona",
-          "url": "https://github.com/jaredfreellm/FREELLM_INSTALL",
-          "created_at": "2026-11-22T19:44:33Z"
-        },
-        {
-          "full_name": "alfoguasta/gta6-preload-emulator",
-          "stars": 243,
-          "language": "HTML",
-          "description": "Gta6 Preload Emulator simulates the preload flow for testing and validation.",
-          "url": "https://github.com/alfoguasta/gta6-preload-emulator",
-          "created_at": "2026-11-22T16:05:19Z"
-        },
-        {
-          "full_name": "satimbe39-cell/path-of-exile-2-map-reveal-zoom-out-noralin",
-          "stars": 230,
-          "language": "HTML",
-          "description": "Zoom out further on the PoE 2 map reveal for a wider view.",
-          "url": "https://github.com/satimbe39-cell/path-of-exile-2-map-reveal-zoom-out-noralin",
-          "created_at": "2026-11-22T20:21:05Z"
-        },
-        {
-          "full_name": "rahulabd919/ios-ramdisk-mdm-iremoval-pro-windows-client-rakaven",
-          "stars": 230,
-          "language": "HTML",
-          "description": "Windows client for iOS ramdisk MDM workflows with iRemoval Pro Rakaven support.",
-          "url": "https://github.com/rahulabd919/ios-ramdisk-mdm-iremoval-pro-windows-client-rakaven",
-          "created_at": "2026-11-22T19:01:57Z"
-        },
-        {
-          "full_name": "Yasar882/creative-video-adobe-cc-v4-universal-vefamar",
-          "stars": 230,
-          "language": "HTML",
-          "description": "Universal video toolset for Adobe CC - built for creative workflows.",
-          "url": "https://github.com/Yasar882/creative-video-adobe-cc-v4-universal-vefamar",
-          "created_at": "2026-11-22T20:05:02Z"
-        },
-        {
-          "full_name": "bhoomikasm-11/avast-premium-security-satamir",
-          "stars": 229,
-          "language": "HTML",
-          "description": "Security product directory entry for Avast Premium Security Satamir builds.",
-          "url": "https://github.com/bhoomikasm-11/avast-premium-security-satamir",
-          "created_at": "2026-11-22T19:13:17Z"
-        },
-        {
-          "full_name": "gunalgps/marvel-rivals-hitscan-projectile-smoothing-assistant-dabalin",
-          "stars": 229,
-          "language": "HTML",
-          "description": "Tune your hitscan and projectile aim in Marvel Rivals with Dabalin's smoothing helper.",
-          "url": "https://github.com/gunalgps/marvel-rivals-hitscan-projectile-smoothing-assistant-dabalin",
-          "created_at": "2026-11-22T19:07:48Z"
-        },
-        {
-          "full_name": "sahilboss728-pixel/cs2-skin-changer-tanomar",
-          "stars": 229,
-          "language": "HTML",
-          "description": "Shape your CS2 look with a modder-first skin changer built for tinkering.",
-          "url": "https://github.com/sahilboss728-pixel/cs2-skin-changer-tanomar",
-          "created_at": "2026-11-22T20:06:47Z"
-        },
-        {
-          "full_name": "DRONSH/fisch-script-macro-betalan",
-          "stars": 229,
-          "language": "HTML",
-          "description": "Automates Fisch macro inputs for repeatable in-game actions.",
-          "url": "https://github.com/DRONSH/fisch-script-macro-betalan",
-          "created_at": "2026-11-22T18:53:21Z"
-        },
-        {
-          "full_name": "Ayancracks/battlefield-6-external-2d-minimap-radar-fademar",
-          "stars": 228,
-          "language": "HTML",
-          "description": "External 2D radar and minimap tool that shows battlefield intel in a clean overlay.",
-          "url": "https://github.com/Ayancracks/battlefield-6-external-2d-minimap-radar-fademar",
-          "created_at": "2026-11-22T19:53:20Z"
-        },
-        {
-          "full_name": "skute9090/subnautica-2-co-op-host-sync-tanoron",
-          "stars": 228,
-          "language": "HTML",
-          "description": "Keeps Subnautica 2 co-op hosts and clients aligned with shared cues and readouts.",
-          "url": "https://github.com/skute9090/subnautica-2-co-op-host-sync-tanoron",
-          "created_at": "2026-11-22T19:08:40Z"
-        },
-        {
-          "full_name": "phoengp/solara-executor-v3-mararon",
-          "stars": 228,
-          "language": "HTML",
-          "description": "Streamlined script execution and live game insights for a smoother play session.",
-          "url": "https://github.com/phoengp/solara-executor-v3-mararon",
-          "created_at": "2026-11-22T18:47:16Z"
-        },
-        {
-          "full_name": "DanielrubioDominguez/oringo-client-skyblock-dungeons-2026",
-          "stars": 228,
-          "language": "HTML",
-          "description": "Run SkyBlock Dungeons with Oringo Client's in-game aids and info panels.",
-          "url": "https://github.com/DanielrubioDominguez/oringo-client-skyblock-dungeons-2026",
-          "created_at": "2026-11-22T19:04:54Z"
-        },
-        {
-          "full_name": "yashyogeshahire9-pixel/capture-one-pro-mararen",
-          "stars": 228,
-          "language": "HTML",
-          "description": "Refined photo editing flows with a visibly smoother workspace and organized sessions.",
-          "url": "https://github.com/yashyogeshahire9-pixel/capture-one-pro-mararen",
-          "created_at": "2026-11-22T19:18:12Z"
+          "full_name": "chanke17/KuroCat",
+          "stars": 31,
+          "language": "C++",
+          "description": "🐱 Native macOS & Windows desktop cat pet with full-state keyboard/mouse capture (typing & gaming), 2.5D head tracking, hunting boba eyes, and Black/Siamese skins",
+          "url": "https://github.com/chanke17/KuroCat",
+          "created_at": "2026-11-23T01:06:18Z"
         }
       ],
-      "last_checked_at": "2026-11-22T22:13:58.312348",
-      "last_successful_fetch_at": "2026-11-22T22:13:58.312348"
+      "last_checked_at": "2026-11-23T03:21:23.908377",
+      "last_successful_fetch_at": "2026-11-23T03:21:23.908377"
     },
     "hackernews": {
       "status": "ok",
@@ -2154,85 +1970,85 @@
           "url": "https://ciechanow.ski/mechanical-watch/"
         }
       ],
-      "last_checked_at": "2026-11-22T22:13:58.312348",
-      "last_successful_fetch_at": "2026-11-22T22:13:58.312348"
+      "last_checked_at": "2026-11-23T03:21:23.908377",
+      "last_successful_fetch_at": "2026-11-23T03:21:23.908377"
     },
     "huggingface": {
       "status": "ok",
       "items": [
         {
           "id": "thinkingmachines/Inkling-2-Mini",
-          "likes": 4922,
+          "likes": 5039,
           "downloads": 23543,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini"
         },
         {
           "id": "unsloth/Inkling-2-Mini-GGUF",
-          "likes": 865,
+          "likes": 905,
           "downloads": 805993,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/unsloth/Inkling-2-Mini-GGUF"
         },
         {
           "id": "inworld/voice-isolator",
-          "likes": 625,
+          "likes": 646,
           "downloads": 0,
           "pipeline_tag": "audio-to-audio",
           "url": "https://huggingface.co/inworld/voice-isolator"
         },
         {
-          "id": "harness-hub/Qwen3.8-27B-pi-adapted",
-          "likes": 990,
-          "downloads": 2831,
-          "pipeline_tag": "image-text-to-text",
-          "url": "https://huggingface.co/harness-hub/Qwen3.8-27B-pi-adapted"
-        },
-        {
-          "id": "higurashi-ai/Haru-4B",
-          "likes": 891,
-          "downloads": 8608,
-          "pipeline_tag": "audio-to-audio",
-          "url": "https://huggingface.co/higurashi-ai/Haru-4B"
-        },
-        {
-          "id": "AtomicChat/Inkling-2-Mini-Uncensored-GGUF",
-          "likes": 469,
-          "downloads": 129693,
-          "pipeline_tag": "image-text-to-text",
-          "url": "https://huggingface.co/AtomicChat/Inkling-2-Mini-Uncensored-GGUF"
-        },
-        {
-          "id": "apple/DepthPro2",
-          "likes": 276,
-          "downloads": 0,
-          "pipeline_tag": "depth-estimation",
-          "url": "https://huggingface.co/apple/DepthPro2"
-        },
-        {
           "id": "tencent/Hy4-flash",
-          "likes": 618,
+          "likes": 623,
           "downloads": 6617,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/tencent/Hy4-flash"
         },
         {
+          "id": "harness-hub/Qwen3.8-27B-pi-adapted",
+          "likes": 993,
+          "downloads": 2831,
+          "pipeline_tag": "image-text-to-text",
+          "url": "https://huggingface.co/harness-hub/Qwen3.8-27B-pi-adapted"
+        },
+        {
+          "id": "AtomicChat/Inkling-2-Mini-Uncensored-GGUF",
+          "likes": 506,
+          "downloads": 129693,
+          "pipeline_tag": "image-text-to-text",
+          "url": "https://huggingface.co/AtomicChat/Inkling-2-Mini-Uncensored-GGUF"
+        },
+        {
+          "id": "higurashi-ai/Haru-4B",
+          "likes": 897,
+          "downloads": 8608,
+          "pipeline_tag": "audio-to-audio",
+          "url": "https://huggingface.co/higurashi-ai/Haru-4B"
+        },
+        {
+          "id": "apple/DepthPro2",
+          "likes": 348,
+          "downloads": 0,
+          "pipeline_tag": "depth-estimation",
+          "url": "https://huggingface.co/apple/DepthPro2"
+        },
+        {
           "id": "Qwen/Qwen3.8-27B",
-          "likes": 20881,
+          "likes": 20939,
           "downloads": 6297396,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/Qwen/Qwen3.8-27B"
         },
         {
           "id": "sensenova/SenseNova-Loop-9B",
-          "likes": 524,
+          "likes": 550,
           "downloads": 1863,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/sensenova/SenseNova-Loop-9B"
         }
       ],
-      "last_checked_at": "2026-11-22T22:13:58.312348",
-      "last_successful_fetch_at": "2026-11-22T22:13:58.312348"
+      "last_checked_at": "2026-11-23T03:21:23.908377",
+      "last_successful_fetch_at": "2026-11-23T03:21:23.908377"
     }
   }
 }
