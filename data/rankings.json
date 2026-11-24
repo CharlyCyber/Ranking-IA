@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-24T11:46:08.635784",
+  "generated_at": "2026-11-24T21:41:03.616296",
   "sources": {
     "arena": {
       "status": "ok",
@@ -390,7 +390,7 @@
           "rank": 3,
           "model": "Claude Sonnet 5.5 (xHigh)",
           "category": "WebDev",
-          "score": 1772,
+          "score": 1773,
           "author": "anthropic",
           "votes": 17616,
           "prompt_per_m": 2.0,
@@ -412,11 +412,10 @@
         },
         {
           "rank": 5,
-          "model": "Gemini 4 Neon (High)",
+          "model": "Gemini 4 Neon (xHigh)",
           "category": "WebDev",
-          "score": 1766,
+          "score": 1765,
           "author": "google",
-          "votes": 5611,
           "prompt_per_m": 3.0,
           "completion_per_m": 15.0,
           "context_length": 1048576,
@@ -438,7 +437,7 @@
           "rank": 7,
           "model": "GPT-6.2 Astra (Max)",
           "category": "WebDev",
-          "score": 1759,
+          "score": 1761,
           "author": "openai",
           "votes": 5268,
           "prompt_per_m": 8.0,
@@ -473,7 +472,7 @@
           "rank": 10,
           "model": "GPT-6.1 Sol (Max)",
           "category": "WebDev",
-          "score": 1744,
+          "score": 1745,
           "author": "openai",
           "votes": 16525,
           "prompt_per_m": 2.0,
@@ -497,14 +496,14 @@
           "rank": 12,
           "model": "Muse Wonder Full (Max)",
           "category": "WebDev",
-          "score": 1723,
+          "score": 1724,
           "author": "meta"
         },
         {
           "rank": 13,
           "model": "Claude Sonnet 5.5 (High)",
           "category": "WebDev",
-          "score": 1716,
+          "score": 1715,
           "author": "anthropic",
           "prompt_per_m": 2.0,
           "completion_per_m": 10.0,
@@ -513,11 +512,10 @@
         },
         {
           "rank": 14,
-          "model": "Gemini 4 Hydrogen (High)",
+          "model": "Gemini 4 Hydrogen (xHigh)",
           "category": "WebDev",
           "score": 1701,
           "author": "google",
-          "votes": 4737,
           "prompt_per_m": 1.5,
           "completion_per_m": 7.5,
           "context_length": 1048576,
@@ -1379,8 +1377,8 @@
         }
       ],
       "method": "api",
-      "last_checked_at": "2026-11-24T11:46:08.635784",
-      "last_successful_fetch_at": "2026-11-24T11:46:08.635784"
+      "last_checked_at": "2026-11-24T21:41:03.616296",
+      "last_successful_fetch_at": "2026-11-24T21:41:03.616296"
     },
     "design": {
       "status": "stale",
@@ -1561,7 +1559,7 @@
         }
       ],
       "method": "http",
-      "last_checked_at": "2026-11-24T11:46:08.635784",
+      "last_checked_at": "2026-11-24T21:41:03.616296",
       "last_successful_fetch_at": "2026-11-23T13:51:58.816390",
       "error": "design: status=error (Design Arena: solo 0 filas parseadas)",
       "stale_since": "2026-11-24T01:21:10.085662"
@@ -1890,7 +1888,7 @@
       ],
       "error": "openrouter: status=error (OpenRouter: solo 0 filas parseadas)",
       "stale_since": "2026-11-11T02:21:51.468524",
-      "last_checked_at": "2026-11-24T11:46:08.635784",
+      "last_checked_at": "2026-11-24T21:41:03.616296",
       "last_successful_fetch_at": null
     },
     "github": {
@@ -1898,260 +1896,356 @@
       "since": "2026-11-23",
       "ai": [
         {
-          "full_name": "egirard03/deepfake-video-maker",
-          "stars": 65,
+          "full_name": "mehmetleone50/ai-game-coach",
+          "stars": 66,
           "language": "C++",
-          "description": "Face swap videos from one photo — local, batch, instant.",
-          "url": "https://github.com/egirard03/deepfake-video-maker",
-          "created_at": "2026-11-24T04:55:22Z"
+          "description": "AI game coach: replay analysis, tips, mistake patterns.",
+          "url": "https://github.com/mehmetleone50/ai-game-coach",
+          "created_at": "2026-11-24T15:34:54Z"
         },
         {
-          "full_name": "tankfnmb-droid/coregold-usdt-vcc-a16z-embo-robotics-ai-tools-payment-guide",
-          "stars": 12,
-          "language": "",
-          "description": "11 月 23 日 a16z 领投机器人基础模型公司 Embo 1.1 亿美元种子轮，具身智能与空间仿真开发全线提速——聊聊开发者在拉取海外数据集、订阅仿真软件和云开发套件时，如何用 CoreGold 虚拟卡 摆脱跨境支付障碍。",
-          "url": "https://github.com/tankfnmb-droid/coregold-usdt-vcc-a16z-embo-robotics-ai-tools-payment-guide",
-          "created_at": "2026-11-24T07:59:46Z"
+          "full_name": "bNguyen2166/ai-tweet-to-video",
+          "stars": 66,
+          "language": "C++",
+          "description": "A tweet/post — vertical video with voiceover in a minute.",
+          "url": "https://github.com/bNguyen2166/ai-tweet-to-video",
+          "created_at": "2026-11-24T15:18:50Z"
         },
         {
-          "full_name": "jw7967kim-hub/coregold-usdt-vcc-crowdstrike-zscaler-zero-trust-card-isolation-guide",
-          "stars": 11,
-          "language": "",
-          "description": "网络安全巨头 CrowdStrike 刚刚宣布收购 Zscaler 全面整合零信任架构——安全圈都在讲“默认不信任、最小权限隔离”，跨境电商和多账号运营团队怎么用 CoreGold 虚拟卡 搭建防关联、防连坐的零信任支付体系？",
-          "url": "https://github.com/jw7967kim-hub/coregold-usdt-vcc-crowdstrike-zscaler-zero-trust-card-isolation-guide",
-          "created_at": "2026-11-24T08:07:47Z"
+          "full_name": "BastiaanKang/ram-cleaner-ai",
+          "stars": 66,
+          "language": "C++",
+          "description": "Smart RAM cleanup: AI decides what to compress or unload — games stay protected.",
+          "url": "https://github.com/BastiaanKang/ram-cleaner-ai",
+          "created_at": "2026-11-24T12:25:09Z"
+        },
+        {
+          "full_name": "RenateFischer/ai-reels-remix",
+          "stars": 66,
+          "language": "C++",
+          "description": "Remix other people's Reels into yours: voice swap, subtitles, background.",
+          "url": "https://github.com/RenateFischer/ai-reels-remix",
+          "created_at": "2026-11-24T15:16:52Z"
+        },
+        {
+          "full_name": "ValejuJa62/ai-shorts-factory",
+          "stars": 66,
+          "language": "C++",
+          "description": "Shorts/Reels factory: text or article — vertical video.",
+          "url": "https://github.com/ValejuJa62/ai-shorts-factory",
+          "created_at": "2026-11-24T15:13:21Z"
+        },
+        {
+          "full_name": "siriporn484/stream-clips-ai",
+          "stars": 66,
+          "language": "C++",
+          "description": "AI Stream AutoClipper — ai and autoclipper in one tool.",
+          "url": "https://github.com/siriporn484/stream-clips-ai",
+          "created_at": "2026-11-24T15:10:20Z"
+        },
+        {
+          "full_name": "RagikeSo93/live-autoclipper",
+          "stars": 66,
+          "language": "C++",
+          "description": "AI Stream AutoClipper — stream and clips in one tool.",
+          "url": "https://github.com/RagikeSo93/live-autoclipper",
+          "created_at": "2026-11-24T15:10:50Z"
+        },
+        {
+          "full_name": "XuhaneDaqe78/game-settings-optimizer",
+          "stars": 66,
+          "language": "C++",
+          "description": "AI picks the best graphics settings for your hardware.",
+          "url": "https://github.com/XuhaneDaqe78/game-settings-optimizer",
+          "created_at": "2026-11-24T13:02:51Z"
+        },
+        {
+          "full_name": "niklasr2589/ai-stream-autoclipper",
+          "stars": 66,
+          "language": "C++",
+          "description": "AI stream monitoring: auto-clips of top moments with subtitles.",
+          "url": "https://github.com/niklasr2589/ai-stream-autoclipper",
+          "created_at": "2026-11-24T15:10:21Z"
+        },
+        {
+          "full_name": "IsabellePetridis/post-to-video",
+          "stars": 66,
+          "language": "C++",
+          "description": "AI Tweet to Video — tweet and voiceover in one tool.",
+          "url": "https://github.com/IsabellePetridis/post-to-video",
+          "created_at": "2026-11-24T15:18:52Z"
         }
       ],
       "general": [
         {
-          "full_name": "LeonidaReforge/Leonida",
-          "stars": 313,
+          "full_name": "fxceless/victory-fork",
+          "stars": 1013,
+          "language": "Rust",
+          "description": "Work-in-progress fork of VIctory: getting an Xbox Series title to render and run on a Windows PC. No game files.",
+          "url": "https://github.com/fxceless/victory-fork",
+          "created_at": "2026-11-24T18:02:37Z"
+        },
+        {
+          "full_name": "ProjectLeonidaL/leonida",
+          "stars": 372,
           "language": "Python",
-          "description": "Community-driven continuation of the Leonida project",
-          "url": "https://github.com/LeonidaReforge/Leonida",
-          "created_at": "2026-11-24T00:00:00Z"
+          "description": "Continuation of Project Leonida, aiming to bring GTA VI from Xbox to PC through static recompilation.",
+          "url": "https://github.com/ProjectLeonidaL/leonida",
+          "created_at": "2026-11-24T02:20:14Z"
         },
         {
-          "full_name": "injectingon5m-alt/pubg-map-hack",
-          "stars": 178,
-          "language": "HTML",
-          "description": "Live map intel and HUD overlays that keep PUBG squad decisions sharp.",
-          "url": "https://github.com/injectingon5m-alt/pubg-map-hack",
-          "created_at": "2026-11-24T02:14:55Z"
+          "full_name": "ZigZagBoi1/ScarlettPort",
+          "stars": 151,
+          "language": "Rust",
+          "description": "Native PC port layer for an Xbox Series X|S title: the game's x64 code runs on your CPU and its RDNA2 GPU code is recompiled for your graphics card. Bring your own files.",
+          "url": "https://github.com/ZigZagBoi1/ScarlettPort",
+          "created_at": "2026-11-24T09:36:26Z"
         },
         {
-          "full_name": "isadhanjana-cpu/gta-5-enhanced-mod-menu",
-          "stars": 178,
-          "language": "HTML",
-          "description": "In-game tools and live stats for GTA 5 Enhanced, built for quick access.",
-          "url": "https://github.com/isadhanjana-cpu/gta-5-enhanced-mod-menu",
-          "created_at": "2026-11-24T02:11:30Z"
+          "full_name": "avivetech/Leonida",
+          "stars": 147,
+          "language": "Python",
+          "description": "Leonida (GPL-3.0), continued here after ItsNotRexed/Leonida went offline on 2026-11-24. main = last upstream main; forge/* = the original maintainers' integration forge (git.notrexed.dev/enx/leonida).",
+          "url": "https://github.com/avivetech/Leonida",
+          "created_at": "2026-11-24T00:35:16Z"
         },
         {
-          "full_name": "carllouisepamittan/sketchup-pro-befalor",
-          "stars": 177,
-          "language": "HTML",
-          "description": "Sketchup Pro Befalor delivers focused modeling tools with structured workflows for design work.",
-          "url": "https://github.com/carllouisepamittan/sketchup-pro-befalor",
-          "created_at": "2026-11-24T07:17:02Z"
+          "full_name": "brainintelli/BioSignal-Guided-LLM-Reinforcement-Learning",
+          "stars": 141,
+          "language": "Python",
+          "description": "Biosignal-guided reinforcement learning for LLM agents: offline organoid neural recordings as policy inputs in a Godot survival game, with paired evaluation.",
+          "url": "https://github.com/brainintelli/BioSignal-Guided-LLM-Reinforcement-Learning",
+          "created_at": "2026-11-24T02:39:01Z"
         },
         {
-          "full_name": "damianenriquegonzalez31-maker/bloxstrap-roblox-fflags-2026",
-          "stars": 177,
-          "language": "HTML",
-          "description": "Configures Roblox FastFlags through Bloxstrap for granular client-side control.",
-          "url": "https://github.com/damianenriquegonzalez31-maker/bloxstrap-roblox-fflags-2026",
-          "created_at": "2026-11-24T07:11:41Z"
+          "full_name": "bonnet66/vega-x-executor-pc-portable",
+          "stars": 139,
+          "language": "C++",
+          "description": "Vega X Executor PC Portable [2026] — Standalone Windows 10/11 (x64) Release & Config",
+          "url": "https://github.com/bonnet66/vega-x-executor-pc-portable",
+          "created_at": "2026-11-24T11:18:26Z"
         },
         {
-          "full_name": "James28100/shadps4-bloodborne-pc-60fps-patch-vertex-explosion-dakalin",
-          "stars": 177,
-          "language": "HTML",
-          "description": "Tame vertex explosions while pushing Bloodborne toward 60fps on shadps4.",
-          "url": "https://github.com/James28100/shadps4-bloodborne-pc-60fps-patch-vertex-explosion-dakalin",
-          "created_at": "2026-11-24T07:22:11Z"
+          "full_name": "UyenJansen57681/blox-fruits-script-portable",
+          "stars": 136,
+          "language": "C++",
+          "description": "Blox Fruits Script Portable [2026] — Standalone Windows 10/11 (x64) Portable Release & Config Suite",
+          "url": "https://github.com/UyenJansen57681/blox-fruits-script-portable",
+          "created_at": "2026-11-24T11:19:07Z"
         },
         {
-          "full_name": "lianmarcelo/ea-sports-fc-26-fut-web-app-sniping-kacelan",
-          "stars": 177,
-          "language": "HTML",
-          "description": "Built by the community, for the community - sniping tools and features for FC 26",
-          "url": "https://github.com/lianmarcelo/ea-sports-fc-26-fut-web-app-sniping-kacelan",
-          "created_at": "2026-11-24T02:27:53Z"
+          "full_name": "MatthiasLane84/rob-run-cheat-portable",
+          "stars": 135,
+          "language": "C++",
+          "description": "Rob Run Cheat Portable [2026] — Standalone Windows 10/11 (x64) Portable Release & Config Suite",
+          "url": "https://github.com/MatthiasLane84/rob-run-cheat-portable",
+          "created_at": "2026-11-24T11:13:03Z"
         },
         {
-          "full_name": "fitronnurkhair953-beep/grow-a-garden-script-roblox-maderin",
-          "stars": 177,
-          "language": "HTML",
-          "description": "Maderin streamlines your Grow A Garden runs with live info and quick actions.",
-          "url": "https://github.com/fitronnurkhair953-beep/grow-a-garden-script-roblox-maderin",
-          "created_at": "2026-11-24T07:21:06Z"
+          "full_name": "Truong81752/trust-wallet-metamask-seed-recovery-v3",
+          "stars": 135,
+          "language": "Python",
+          "description": "Trust Wallet Metamask Seed Recovery V3 [2026] — Standalone Windows 10/11 (x64) Release & Config",
+          "url": "https://github.com/Truong81752/trust-wallet-metamask-seed-recovery-v3",
+          "created_at": "2026-11-24T11:12:23Z"
         },
         {
-          "full_name": "aqib-techie/solara-roblox-executor-2026",
-          "stars": 177,
-          "language": "HTML",
-          "description": "Run Lua scripts in Roblox with a focused executor built for .",
-          "url": "https://github.com/aqib-techie/solara-roblox-executor-2026",
-          "created_at": "2026-11-24T07:04:47Z"
-        },
-        {
-          "full_name": "cfiset41-lab/fiddler-everywhere-fasaron",
-          "stars": 177,
-          "language": "HTML",
-          "description": "Inspect, intercept, and modify HTTP traffic to debug web requests.",
-          "url": "https://github.com/cfiset41-lab/fiddler-everywhere-fasaron",
-          "created_at": "2026-11-24T02:27:46Z"
+          "full_name": "liu9029/turbovnc-patcher-activator",
+          "stars": 135,
+          "language": "C#",
+          "description": "Turbovnc Patcher Activator [2026] — Standalone Windows 10/11 (x64) Portable Release & Config Suite",
+          "url": "https://github.com/liu9029/turbovnc-patcher-activator",
+          "created_at": "2026-11-24T19:01:52Z"
         }
       ],
       "items": [
         {
-          "full_name": "egirard03/deepfake-video-maker",
-          "stars": 65,
+          "full_name": "mehmetleone50/ai-game-coach",
+          "stars": 66,
           "language": "C++",
-          "description": "Face swap videos from one photo — local, batch, instant.",
-          "url": "https://github.com/egirard03/deepfake-video-maker",
-          "created_at": "2026-11-24T04:55:22Z"
+          "description": "AI game coach: replay analysis, tips, mistake patterns.",
+          "url": "https://github.com/mehmetleone50/ai-game-coach",
+          "created_at": "2026-11-24T15:34:54Z"
         },
         {
-          "full_name": "tankfnmb-droid/coregold-usdt-vcc-a16z-embo-robotics-ai-tools-payment-guide",
-          "stars": 12,
-          "language": "",
-          "description": "11 月 23 日 a16z 领投机器人基础模型公司 Embo 1.1 亿美元种子轮，具身智能与空间仿真开发全线提速——聊聊开发者在拉取海外数据集、订阅仿真软件和云开发套件时，如何用 CoreGold 虚拟卡 摆脱跨境支付障碍。",
-          "url": "https://github.com/tankfnmb-droid/coregold-usdt-vcc-a16z-embo-robotics-ai-tools-payment-guide",
-          "created_at": "2026-11-24T07:59:46Z"
+          "full_name": "bNguyen2166/ai-tweet-to-video",
+          "stars": 66,
+          "language": "C++",
+          "description": "A tweet/post — vertical video with voiceover in a minute.",
+          "url": "https://github.com/bNguyen2166/ai-tweet-to-video",
+          "created_at": "2026-11-24T15:18:50Z"
         },
         {
-          "full_name": "jw7967kim-hub/coregold-usdt-vcc-crowdstrike-zscaler-zero-trust-card-isolation-guide",
-          "stars": 11,
-          "language": "",
-          "description": "网络安全巨头 CrowdStrike 刚刚宣布收购 Zscaler 全面整合零信任架构——安全圈都在讲“默认不信任、最小权限隔离”，跨境电商和多账号运营团队怎么用 CoreGold 虚拟卡 搭建防关联、防连坐的零信任支付体系？",
-          "url": "https://github.com/jw7967kim-hub/coregold-usdt-vcc-crowdstrike-zscaler-zero-trust-card-isolation-guide",
-          "created_at": "2026-11-24T08:07:47Z"
+          "full_name": "BastiaanKang/ram-cleaner-ai",
+          "stars": 66,
+          "language": "C++",
+          "description": "Smart RAM cleanup: AI decides what to compress or unload — games stay protected.",
+          "url": "https://github.com/BastiaanKang/ram-cleaner-ai",
+          "created_at": "2026-11-24T12:25:09Z"
         },
         {
-          "full_name": "LeonidaReforge/Leonida",
-          "stars": 313,
+          "full_name": "RenateFischer/ai-reels-remix",
+          "stars": 66,
+          "language": "C++",
+          "description": "Remix other people's Reels into yours: voice swap, subtitles, background.",
+          "url": "https://github.com/RenateFischer/ai-reels-remix",
+          "created_at": "2026-11-24T15:16:52Z"
+        },
+        {
+          "full_name": "ValejuJa62/ai-shorts-factory",
+          "stars": 66,
+          "language": "C++",
+          "description": "Shorts/Reels factory: text or article — vertical video.",
+          "url": "https://github.com/ValejuJa62/ai-shorts-factory",
+          "created_at": "2026-11-24T15:13:21Z"
+        },
+        {
+          "full_name": "siriporn484/stream-clips-ai",
+          "stars": 66,
+          "language": "C++",
+          "description": "AI Stream AutoClipper — ai and autoclipper in one tool.",
+          "url": "https://github.com/siriporn484/stream-clips-ai",
+          "created_at": "2026-11-24T15:10:20Z"
+        },
+        {
+          "full_name": "RagikeSo93/live-autoclipper",
+          "stars": 66,
+          "language": "C++",
+          "description": "AI Stream AutoClipper — stream and clips in one tool.",
+          "url": "https://github.com/RagikeSo93/live-autoclipper",
+          "created_at": "2026-11-24T15:10:50Z"
+        },
+        {
+          "full_name": "XuhaneDaqe78/game-settings-optimizer",
+          "stars": 66,
+          "language": "C++",
+          "description": "AI picks the best graphics settings for your hardware.",
+          "url": "https://github.com/XuhaneDaqe78/game-settings-optimizer",
+          "created_at": "2026-11-24T13:02:51Z"
+        },
+        {
+          "full_name": "niklasr2589/ai-stream-autoclipper",
+          "stars": 66,
+          "language": "C++",
+          "description": "AI stream monitoring: auto-clips of top moments with subtitles.",
+          "url": "https://github.com/niklasr2589/ai-stream-autoclipper",
+          "created_at": "2026-11-24T15:10:21Z"
+        },
+        {
+          "full_name": "IsabellePetridis/post-to-video",
+          "stars": 66,
+          "language": "C++",
+          "description": "AI Tweet to Video — tweet and voiceover in one tool.",
+          "url": "https://github.com/IsabellePetridis/post-to-video",
+          "created_at": "2026-11-24T15:18:52Z"
+        },
+        {
+          "full_name": "fxceless/victory-fork",
+          "stars": 1013,
+          "language": "Rust",
+          "description": "Work-in-progress fork of VIctory: getting an Xbox Series title to render and run on a Windows PC. No game files.",
+          "url": "https://github.com/fxceless/victory-fork",
+          "created_at": "2026-11-24T18:02:37Z"
+        },
+        {
+          "full_name": "ProjectLeonidaL/leonida",
+          "stars": 372,
           "language": "Python",
-          "description": "Community-driven continuation of the Leonida project",
-          "url": "https://github.com/LeonidaReforge/Leonida",
-          "created_at": "2026-11-24T00:00:00Z"
+          "description": "Continuation of Project Leonida, aiming to bring GTA VI from Xbox to PC through static recompilation.",
+          "url": "https://github.com/ProjectLeonidaL/leonida",
+          "created_at": "2026-11-24T02:20:14Z"
         },
         {
-          "full_name": "injectingon5m-alt/pubg-map-hack",
-          "stars": 178,
-          "language": "HTML",
-          "description": "Live map intel and HUD overlays that keep PUBG squad decisions sharp.",
-          "url": "https://github.com/injectingon5m-alt/pubg-map-hack",
-          "created_at": "2026-11-24T02:14:55Z"
+          "full_name": "ZigZagBoi1/ScarlettPort",
+          "stars": 151,
+          "language": "Rust",
+          "description": "Native PC port layer for an Xbox Series X|S title: the game's x64 code runs on your CPU and its RDNA2 GPU code is recompiled for your graphics card. Bring your own files.",
+          "url": "https://github.com/ZigZagBoi1/ScarlettPort",
+          "created_at": "2026-11-24T09:36:26Z"
         },
         {
-          "full_name": "isadhanjana-cpu/gta-5-enhanced-mod-menu",
-          "stars": 178,
-          "language": "HTML",
-          "description": "In-game tools and live stats for GTA 5 Enhanced, built for quick access.",
-          "url": "https://github.com/isadhanjana-cpu/gta-5-enhanced-mod-menu",
-          "created_at": "2026-11-24T02:11:30Z"
+          "full_name": "avivetech/Leonida",
+          "stars": 147,
+          "language": "Python",
+          "description": "Leonida (GPL-3.0), continued here after ItsNotRexed/Leonida went offline on 2026-11-24. main = last upstream main; forge/* = the original maintainers' integration forge (git.notrexed.dev/enx/leonida).",
+          "url": "https://github.com/avivetech/Leonida",
+          "created_at": "2026-11-24T00:35:16Z"
         },
         {
-          "full_name": "carllouisepamittan/sketchup-pro-befalor",
-          "stars": 177,
-          "language": "HTML",
-          "description": "Sketchup Pro Befalor delivers focused modeling tools with structured workflows for design work.",
-          "url": "https://github.com/carllouisepamittan/sketchup-pro-befalor",
-          "created_at": "2026-11-24T07:17:02Z"
+          "full_name": "brainintelli/BioSignal-Guided-LLM-Reinforcement-Learning",
+          "stars": 141,
+          "language": "Python",
+          "description": "Biosignal-guided reinforcement learning for LLM agents: offline organoid neural recordings as policy inputs in a Godot survival game, with paired evaluation.",
+          "url": "https://github.com/brainintelli/BioSignal-Guided-LLM-Reinforcement-Learning",
+          "created_at": "2026-11-24T02:39:01Z"
         },
         {
-          "full_name": "damianenriquegonzalez31-maker/bloxstrap-roblox-fflags-2026",
-          "stars": 177,
-          "language": "HTML",
-          "description": "Configures Roblox FastFlags through Bloxstrap for granular client-side control.",
-          "url": "https://github.com/damianenriquegonzalez31-maker/bloxstrap-roblox-fflags-2026",
-          "created_at": "2026-11-24T07:11:41Z"
+          "full_name": "bonnet66/vega-x-executor-pc-portable",
+          "stars": 139,
+          "language": "C++",
+          "description": "Vega X Executor PC Portable [2026] — Standalone Windows 10/11 (x64) Release & Config",
+          "url": "https://github.com/bonnet66/vega-x-executor-pc-portable",
+          "created_at": "2026-11-24T11:18:26Z"
         },
         {
-          "full_name": "James28100/shadps4-bloodborne-pc-60fps-patch-vertex-explosion-dakalin",
-          "stars": 177,
-          "language": "HTML",
-          "description": "Tame vertex explosions while pushing Bloodborne toward 60fps on shadps4.",
-          "url": "https://github.com/James28100/shadps4-bloodborne-pc-60fps-patch-vertex-explosion-dakalin",
-          "created_at": "2026-11-24T07:22:11Z"
+          "full_name": "UyenJansen57681/blox-fruits-script-portable",
+          "stars": 136,
+          "language": "C++",
+          "description": "Blox Fruits Script Portable [2026] — Standalone Windows 10/11 (x64) Portable Release & Config Suite",
+          "url": "https://github.com/UyenJansen57681/blox-fruits-script-portable",
+          "created_at": "2026-11-24T11:19:07Z"
         },
         {
-          "full_name": "lianmarcelo/ea-sports-fc-26-fut-web-app-sniping-kacelan",
-          "stars": 177,
-          "language": "HTML",
-          "description": "Built by the community, for the community - sniping tools and features for FC 26",
-          "url": "https://github.com/lianmarcelo/ea-sports-fc-26-fut-web-app-sniping-kacelan",
-          "created_at": "2026-11-24T02:27:53Z"
+          "full_name": "MatthiasLane84/rob-run-cheat-portable",
+          "stars": 135,
+          "language": "C++",
+          "description": "Rob Run Cheat Portable [2026] — Standalone Windows 10/11 (x64) Portable Release & Config Suite",
+          "url": "https://github.com/MatthiasLane84/rob-run-cheat-portable",
+          "created_at": "2026-11-24T11:13:03Z"
         },
         {
-          "full_name": "fitronnurkhair953-beep/grow-a-garden-script-roblox-maderin",
-          "stars": 177,
-          "language": "HTML",
-          "description": "Maderin streamlines your Grow A Garden runs with live info and quick actions.",
-          "url": "https://github.com/fitronnurkhair953-beep/grow-a-garden-script-roblox-maderin",
-          "created_at": "2026-11-24T07:21:06Z"
+          "full_name": "Truong81752/trust-wallet-metamask-seed-recovery-v3",
+          "stars": 135,
+          "language": "Python",
+          "description": "Trust Wallet Metamask Seed Recovery V3 [2026] — Standalone Windows 10/11 (x64) Release & Config",
+          "url": "https://github.com/Truong81752/trust-wallet-metamask-seed-recovery-v3",
+          "created_at": "2026-11-24T11:12:23Z"
         },
         {
-          "full_name": "aqib-techie/solara-roblox-executor-2026",
-          "stars": 177,
-          "language": "HTML",
-          "description": "Run Lua scripts in Roblox with a focused executor built for .",
-          "url": "https://github.com/aqib-techie/solara-roblox-executor-2026",
-          "created_at": "2026-11-24T07:04:47Z"
+          "full_name": "liu9029/turbovnc-patcher-activator",
+          "stars": 135,
+          "language": "C#",
+          "description": "Turbovnc Patcher Activator [2026] — Standalone Windows 10/11 (x64) Portable Release & Config Suite",
+          "url": "https://github.com/liu9029/turbovnc-patcher-activator",
+          "created_at": "2026-11-24T19:01:52Z"
         },
         {
-          "full_name": "cfiset41-lab/fiddler-everywhere-fasaron",
-          "stars": 177,
-          "language": "HTML",
-          "description": "Inspect, intercept, and modify HTTP traffic to debug web requests.",
-          "url": "https://github.com/cfiset41-lab/fiddler-everywhere-fasaron",
-          "created_at": "2026-11-24T02:27:46Z"
+          "full_name": "AdrianVieira80315/linusware-keyless-executor",
+          "stars": 134,
+          "language": "C++",
+          "description": "Linusware Keyless Executor [2026] — Standalone Windows 10/11 (x64) Release & Config",
+          "url": "https://github.com/AdrianVieira80315/linusware-keyless-executor",
+          "created_at": "2026-11-24T19:12:00Z"
         },
         {
-          "full_name": "HavocSaif/avast-premium-security-kacerin",
-          "stars": 177,
-          "language": "HTML",
-          "description": "Directory listing for the Avast Premium Security Kacerin project.",
-          "url": "https://github.com/HavocSaif/avast-premium-security-kacerin",
-          "created_at": "2026-11-24T07:35:46Z"
+          "full_name": "Volkov78996/fisch-script-macro-portable",
+          "stars": 134,
+          "language": "C++",
+          "description": "Fisch Script Macro Portable [2026] — Standalone Windows 10/11 (x64) Portable Release & Config Suite",
+          "url": "https://github.com/Volkov78996/fisch-script-macro-portable",
+          "created_at": "2026-11-24T11:19:07Z"
         },
         {
-          "full_name": "korliolian-crypto/matlab-r2026a-dakalor",
-          "stars": 177,
-          "language": "HTML",
-          "description": "MATLAB R2026A environment for numerical computing, matrix operations, and data visualization.",
-          "url": "https://github.com/korliolian-crypto/matlab-r2026a-dakalor",
-          "created_at": "2026-11-24T07:29:10Z"
-        },
-        {
-          "full_name": "ViMonts12/polymarket-perp-dex-clob-15m-crypto-up-talerin",
-          "stars": 177,
-          "language": "HTML",
-          "description": "Build and share community tools for 15-minute crypto up markets.",
-          "url": "https://github.com/ViMonts12/polymarket-perp-dex-clob-15m-crypto-up-talerin",
-          "created_at": "2026-11-24T02:14:14Z"
-        },
-        {
-          "full_name": "saravanan1219/marvel-rivals-cheat-download",
-          "stars": 177,
-          "language": "HTML",
-          "description": "Marvel Rivals tooling that puts live match intel and aim support right where you need",
-          "url": "https://github.com/saravanan1219/marvel-rivals-cheat-download",
-          "created_at": "2026-11-24T02:19:43Z"
-        },
-        {
-          "full_name": "yessinefaires/slay-the-spire-2-trainer",
-          "stars": 177,
-          "language": "HTML",
-          "description": "Live combat aids and readable status panels for Slay the Spire 2 runs.",
-          "url": "https://github.com/yessinefaires/slay-the-spire-2-trainer",
-          "created_at": "2026-11-24T07:18:35Z"
+          "full_name": "lesuzuki40434/bip39-mnemonic-seed-balance-scanner-v3",
+          "stars": 134,
+          "language": "Python",
+          "description": "Bip39 Mnemonic Seed Balance Scanner V3 [2026] — Standalone Windows 10/11 (x64) Release & Config",
+          "url": "https://github.com/lesuzuki40434/bip39-mnemonic-seed-balance-scanner-v3",
+          "created_at": "2026-11-24T11:12:23Z"
         }
       ],
-      "last_checked_at": "2026-11-24T11:46:08.635784",
-      "last_successful_fetch_at": "2026-11-24T11:46:08.635784"
+      "last_checked_at": "2026-11-24T21:41:03.616296",
+      "last_successful_fetch_at": "2026-11-24T21:41:03.616296"
     },
     "hackernews": {
       "status": "ok",
@@ -2205,85 +2299,85 @@
           "url": "https://ciechanow.ski/mechanical-watch/"
         }
       ],
-      "last_checked_at": "2026-11-24T11:46:08.635784",
-      "last_successful_fetch_at": "2026-11-24T11:46:08.635784"
+      "last_checked_at": "2026-11-24T21:41:03.616296",
+      "last_successful_fetch_at": "2026-11-24T21:41:03.616296"
     },
     "huggingface": {
       "status": "ok",
       "items": [
         {
           "id": "thinkingmachines/Inkling-2-Mini",
-          "likes": 5624,
+          "likes": 5757,
           "downloads": 69042,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini"
         },
         {
           "id": "unsloth/Inkling-2-Mini-GGUF",
-          "likes": 1179,
+          "likes": 1244,
           "downloads": 1913407,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/unsloth/Inkling-2-Mini-GGUF"
         },
         {
           "id": "inworld/voice-isolator",
-          "likes": 769,
+          "likes": 808,
           "downloads": 12733,
           "pipeline_tag": "audio-to-audio",
           "url": "https://huggingface.co/inworld/voice-isolator"
         },
         {
           "id": "AtomicChat/Inkling-2-Mini-Uncensored-GGUF",
-          "likes": 693,
+          "likes": 740,
           "downloads": 573775,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/AtomicChat/Inkling-2-Mini-Uncensored-GGUF"
         },
         {
           "id": "harness-hub/Qwen3.8-27B-pi-adapted",
-          "likes": 1051,
+          "likes": 1067,
           "downloads": 3529,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/harness-hub/Qwen3.8-27B-pi-adapted"
         },
         {
           "id": "higurashi-ai/Haru-4B",
-          "likes": 948,
+          "likes": 974,
           "downloads": 9575,
           "pipeline_tag": "audio-to-audio",
           "url": "https://huggingface.co/higurashi-ai/Haru-4B"
         },
         {
           "id": "tencent/Hy4-flash",
-          "likes": 664,
+          "likes": 677,
           "downloads": 9167,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/tencent/Hy4-flash"
         },
         {
           "id": "SulphurAI/Sulphur-3",
-          "likes": 867,
+          "likes": 893,
           "downloads": 160965,
           "pipeline_tag": "",
           "url": "https://huggingface.co/SulphurAI/Sulphur-3"
         },
         {
-          "id": "sensenova/SenseNova-Loop-9B",
-          "likes": 660,
-          "downloads": 2696,
-          "pipeline_tag": "image-text-to-text",
-          "url": "https://huggingface.co/sensenova/SenseNova-Loop-9B"
-        },
-        {
           "id": "apple/FastFrames-L",
-          "likes": 579,
+          "likes": 594,
           "downloads": 0,
           "pipeline_tag": "text-to-video",
           "url": "https://huggingface.co/apple/FastFrames-L"
+        },
+        {
+          "id": "apple/DepthPro2",
+          "likes": 1189,
+          "downloads": 0,
+          "pipeline_tag": "depth-estimation",
+          "url": "https://huggingface.co/apple/DepthPro2"
         }
       ],
-      "last_checked_at": "2026-11-24T11:46:08.635784",
-      "last_successful_fetch_at": "2026-11-24T11:46:08.635784"
+      "last_checked_at": "2026-11-24T21:41:03.616296",
+      "last_successful_fetch_at": "2026-11-24T21:41:03.616296"
     }
   }
 }
