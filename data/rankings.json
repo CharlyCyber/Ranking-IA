@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-24T01:21:10.085662",
+  "generated_at": "2026-11-24T11:46:08.635784",
   "sources": {
     "arena": {
       "status": "ok",
@@ -1379,8 +1379,8 @@
         }
       ],
       "method": "api",
-      "last_checked_at": "2026-11-24T01:21:10.085662",
-      "last_successful_fetch_at": "2026-11-24T01:21:10.085662"
+      "last_checked_at": "2026-11-24T11:46:08.635784",
+      "last_successful_fetch_at": "2026-11-24T11:46:08.635784"
     },
     "design": {
       "status": "stale",
@@ -1561,7 +1561,7 @@
         }
       ],
       "method": "http",
-      "last_checked_at": "2026-11-24T01:21:10.085662",
+      "last_checked_at": "2026-11-24T11:46:08.635784",
       "last_successful_fetch_at": "2026-11-23T13:51:58.816390",
       "error": "design: status=error (Design Arena: solo 0 filas parseadas)",
       "stale_since": "2026-11-24T01:21:10.085662"
@@ -1890,35 +1890,268 @@
       ],
       "error": "openrouter: status=error (OpenRouter: solo 0 filas parseadas)",
       "stale_since": "2026-11-11T02:21:51.468524",
-      "last_checked_at": "2026-11-24T01:21:10.085662",
+      "last_checked_at": "2026-11-24T11:46:08.635784",
       "last_successful_fetch_at": null
     },
     "github": {
       "status": "ok",
       "since": "2026-11-23",
-      "ai": [],
+      "ai": [
+        {
+          "full_name": "egirard03/deepfake-video-maker",
+          "stars": 65,
+          "language": "C++",
+          "description": "Face swap videos from one photo — local, batch, instant.",
+          "url": "https://github.com/egirard03/deepfake-video-maker",
+          "created_at": "2026-11-24T04:55:22Z"
+        },
+        {
+          "full_name": "tankfnmb-droid/coregold-usdt-vcc-a16z-embo-robotics-ai-tools-payment-guide",
+          "stars": 12,
+          "language": "",
+          "description": "11 月 23 日 a16z 领投机器人基础模型公司 Embo 1.1 亿美元种子轮，具身智能与空间仿真开发全线提速——聊聊开发者在拉取海外数据集、订阅仿真软件和云开发套件时，如何用 CoreGold 虚拟卡 摆脱跨境支付障碍。",
+          "url": "https://github.com/tankfnmb-droid/coregold-usdt-vcc-a16z-embo-robotics-ai-tools-payment-guide",
+          "created_at": "2026-11-24T07:59:46Z"
+        },
+        {
+          "full_name": "jw7967kim-hub/coregold-usdt-vcc-crowdstrike-zscaler-zero-trust-card-isolation-guide",
+          "stars": 11,
+          "language": "",
+          "description": "网络安全巨头 CrowdStrike 刚刚宣布收购 Zscaler 全面整合零信任架构——安全圈都在讲“默认不信任、最小权限隔离”，跨境电商和多账号运营团队怎么用 CoreGold 虚拟卡 搭建防关联、防连坐的零信任支付体系？",
+          "url": "https://github.com/jw7967kim-hub/coregold-usdt-vcc-crowdstrike-zscaler-zero-trust-card-isolation-guide",
+          "created_at": "2026-11-24T08:07:47Z"
+        }
+      ],
       "general": [
         {
           "full_name": "LeonidaReforge/Leonida",
-          "stars": 43,
+          "stars": 313,
           "language": "Python",
           "description": "Community-driven continuation of the Leonida project",
           "url": "https://github.com/LeonidaReforge/Leonida",
           "created_at": "2026-11-24T00:00:00Z"
+        },
+        {
+          "full_name": "injectingon5m-alt/pubg-map-hack",
+          "stars": 178,
+          "language": "HTML",
+          "description": "Live map intel and HUD overlays that keep PUBG squad decisions sharp.",
+          "url": "https://github.com/injectingon5m-alt/pubg-map-hack",
+          "created_at": "2026-11-24T02:14:55Z"
+        },
+        {
+          "full_name": "isadhanjana-cpu/gta-5-enhanced-mod-menu",
+          "stars": 178,
+          "language": "HTML",
+          "description": "In-game tools and live stats for GTA 5 Enhanced, built for quick access.",
+          "url": "https://github.com/isadhanjana-cpu/gta-5-enhanced-mod-menu",
+          "created_at": "2026-11-24T02:11:30Z"
+        },
+        {
+          "full_name": "carllouisepamittan/sketchup-pro-befalor",
+          "stars": 177,
+          "language": "HTML",
+          "description": "Sketchup Pro Befalor delivers focused modeling tools with structured workflows for design work.",
+          "url": "https://github.com/carllouisepamittan/sketchup-pro-befalor",
+          "created_at": "2026-11-24T07:17:02Z"
+        },
+        {
+          "full_name": "damianenriquegonzalez31-maker/bloxstrap-roblox-fflags-2026",
+          "stars": 177,
+          "language": "HTML",
+          "description": "Configures Roblox FastFlags through Bloxstrap for granular client-side control.",
+          "url": "https://github.com/damianenriquegonzalez31-maker/bloxstrap-roblox-fflags-2026",
+          "created_at": "2026-11-24T07:11:41Z"
+        },
+        {
+          "full_name": "James28100/shadps4-bloodborne-pc-60fps-patch-vertex-explosion-dakalin",
+          "stars": 177,
+          "language": "HTML",
+          "description": "Tame vertex explosions while pushing Bloodborne toward 60fps on shadps4.",
+          "url": "https://github.com/James28100/shadps4-bloodborne-pc-60fps-patch-vertex-explosion-dakalin",
+          "created_at": "2026-11-24T07:22:11Z"
+        },
+        {
+          "full_name": "lianmarcelo/ea-sports-fc-26-fut-web-app-sniping-kacelan",
+          "stars": 177,
+          "language": "HTML",
+          "description": "Built by the community, for the community - sniping tools and features for FC 26",
+          "url": "https://github.com/lianmarcelo/ea-sports-fc-26-fut-web-app-sniping-kacelan",
+          "created_at": "2026-11-24T02:27:53Z"
+        },
+        {
+          "full_name": "fitronnurkhair953-beep/grow-a-garden-script-roblox-maderin",
+          "stars": 177,
+          "language": "HTML",
+          "description": "Maderin streamlines your Grow A Garden runs with live info and quick actions.",
+          "url": "https://github.com/fitronnurkhair953-beep/grow-a-garden-script-roblox-maderin",
+          "created_at": "2026-11-24T07:21:06Z"
+        },
+        {
+          "full_name": "aqib-techie/solara-roblox-executor-2026",
+          "stars": 177,
+          "language": "HTML",
+          "description": "Run Lua scripts in Roblox with a focused executor built for .",
+          "url": "https://github.com/aqib-techie/solara-roblox-executor-2026",
+          "created_at": "2026-11-24T07:04:47Z"
+        },
+        {
+          "full_name": "cfiset41-lab/fiddler-everywhere-fasaron",
+          "stars": 177,
+          "language": "HTML",
+          "description": "Inspect, intercept, and modify HTTP traffic to debug web requests.",
+          "url": "https://github.com/cfiset41-lab/fiddler-everywhere-fasaron",
+          "created_at": "2026-11-24T02:27:46Z"
         }
       ],
       "items": [
         {
+          "full_name": "egirard03/deepfake-video-maker",
+          "stars": 65,
+          "language": "C++",
+          "description": "Face swap videos from one photo — local, batch, instant.",
+          "url": "https://github.com/egirard03/deepfake-video-maker",
+          "created_at": "2026-11-24T04:55:22Z"
+        },
+        {
+          "full_name": "tankfnmb-droid/coregold-usdt-vcc-a16z-embo-robotics-ai-tools-payment-guide",
+          "stars": 12,
+          "language": "",
+          "description": "11 月 23 日 a16z 领投机器人基础模型公司 Embo 1.1 亿美元种子轮，具身智能与空间仿真开发全线提速——聊聊开发者在拉取海外数据集、订阅仿真软件和云开发套件时，如何用 CoreGold 虚拟卡 摆脱跨境支付障碍。",
+          "url": "https://github.com/tankfnmb-droid/coregold-usdt-vcc-a16z-embo-robotics-ai-tools-payment-guide",
+          "created_at": "2026-11-24T07:59:46Z"
+        },
+        {
+          "full_name": "jw7967kim-hub/coregold-usdt-vcc-crowdstrike-zscaler-zero-trust-card-isolation-guide",
+          "stars": 11,
+          "language": "",
+          "description": "网络安全巨头 CrowdStrike 刚刚宣布收购 Zscaler 全面整合零信任架构——安全圈都在讲“默认不信任、最小权限隔离”，跨境电商和多账号运营团队怎么用 CoreGold 虚拟卡 搭建防关联、防连坐的零信任支付体系？",
+          "url": "https://github.com/jw7967kim-hub/coregold-usdt-vcc-crowdstrike-zscaler-zero-trust-card-isolation-guide",
+          "created_at": "2026-11-24T08:07:47Z"
+        },
+        {
           "full_name": "LeonidaReforge/Leonida",
-          "stars": 43,
+          "stars": 313,
           "language": "Python",
           "description": "Community-driven continuation of the Leonida project",
           "url": "https://github.com/LeonidaReforge/Leonida",
           "created_at": "2026-11-24T00:00:00Z"
+        },
+        {
+          "full_name": "injectingon5m-alt/pubg-map-hack",
+          "stars": 178,
+          "language": "HTML",
+          "description": "Live map intel and HUD overlays that keep PUBG squad decisions sharp.",
+          "url": "https://github.com/injectingon5m-alt/pubg-map-hack",
+          "created_at": "2026-11-24T02:14:55Z"
+        },
+        {
+          "full_name": "isadhanjana-cpu/gta-5-enhanced-mod-menu",
+          "stars": 178,
+          "language": "HTML",
+          "description": "In-game tools and live stats for GTA 5 Enhanced, built for quick access.",
+          "url": "https://github.com/isadhanjana-cpu/gta-5-enhanced-mod-menu",
+          "created_at": "2026-11-24T02:11:30Z"
+        },
+        {
+          "full_name": "carllouisepamittan/sketchup-pro-befalor",
+          "stars": 177,
+          "language": "HTML",
+          "description": "Sketchup Pro Befalor delivers focused modeling tools with structured workflows for design work.",
+          "url": "https://github.com/carllouisepamittan/sketchup-pro-befalor",
+          "created_at": "2026-11-24T07:17:02Z"
+        },
+        {
+          "full_name": "damianenriquegonzalez31-maker/bloxstrap-roblox-fflags-2026",
+          "stars": 177,
+          "language": "HTML",
+          "description": "Configures Roblox FastFlags through Bloxstrap for granular client-side control.",
+          "url": "https://github.com/damianenriquegonzalez31-maker/bloxstrap-roblox-fflags-2026",
+          "created_at": "2026-11-24T07:11:41Z"
+        },
+        {
+          "full_name": "James28100/shadps4-bloodborne-pc-60fps-patch-vertex-explosion-dakalin",
+          "stars": 177,
+          "language": "HTML",
+          "description": "Tame vertex explosions while pushing Bloodborne toward 60fps on shadps4.",
+          "url": "https://github.com/James28100/shadps4-bloodborne-pc-60fps-patch-vertex-explosion-dakalin",
+          "created_at": "2026-11-24T07:22:11Z"
+        },
+        {
+          "full_name": "lianmarcelo/ea-sports-fc-26-fut-web-app-sniping-kacelan",
+          "stars": 177,
+          "language": "HTML",
+          "description": "Built by the community, for the community - sniping tools and features for FC 26",
+          "url": "https://github.com/lianmarcelo/ea-sports-fc-26-fut-web-app-sniping-kacelan",
+          "created_at": "2026-11-24T02:27:53Z"
+        },
+        {
+          "full_name": "fitronnurkhair953-beep/grow-a-garden-script-roblox-maderin",
+          "stars": 177,
+          "language": "HTML",
+          "description": "Maderin streamlines your Grow A Garden runs with live info and quick actions.",
+          "url": "https://github.com/fitronnurkhair953-beep/grow-a-garden-script-roblox-maderin",
+          "created_at": "2026-11-24T07:21:06Z"
+        },
+        {
+          "full_name": "aqib-techie/solara-roblox-executor-2026",
+          "stars": 177,
+          "language": "HTML",
+          "description": "Run Lua scripts in Roblox with a focused executor built for .",
+          "url": "https://github.com/aqib-techie/solara-roblox-executor-2026",
+          "created_at": "2026-11-24T07:04:47Z"
+        },
+        {
+          "full_name": "cfiset41-lab/fiddler-everywhere-fasaron",
+          "stars": 177,
+          "language": "HTML",
+          "description": "Inspect, intercept, and modify HTTP traffic to debug web requests.",
+          "url": "https://github.com/cfiset41-lab/fiddler-everywhere-fasaron",
+          "created_at": "2026-11-24T02:27:46Z"
+        },
+        {
+          "full_name": "HavocSaif/avast-premium-security-kacerin",
+          "stars": 177,
+          "language": "HTML",
+          "description": "Directory listing for the Avast Premium Security Kacerin project.",
+          "url": "https://github.com/HavocSaif/avast-premium-security-kacerin",
+          "created_at": "2026-11-24T07:35:46Z"
+        },
+        {
+          "full_name": "korliolian-crypto/matlab-r2026a-dakalor",
+          "stars": 177,
+          "language": "HTML",
+          "description": "MATLAB R2026A environment for numerical computing, matrix operations, and data visualization.",
+          "url": "https://github.com/korliolian-crypto/matlab-r2026a-dakalor",
+          "created_at": "2026-11-24T07:29:10Z"
+        },
+        {
+          "full_name": "ViMonts12/polymarket-perp-dex-clob-15m-crypto-up-talerin",
+          "stars": 177,
+          "language": "HTML",
+          "description": "Build and share community tools for 15-minute crypto up markets.",
+          "url": "https://github.com/ViMonts12/polymarket-perp-dex-clob-15m-crypto-up-talerin",
+          "created_at": "2026-11-24T02:14:14Z"
+        },
+        {
+          "full_name": "saravanan1219/marvel-rivals-cheat-download",
+          "stars": 177,
+          "language": "HTML",
+          "description": "Marvel Rivals tooling that puts live match intel and aim support right where you need",
+          "url": "https://github.com/saravanan1219/marvel-rivals-cheat-download",
+          "created_at": "2026-11-24T02:19:43Z"
+        },
+        {
+          "full_name": "yessinefaires/slay-the-spire-2-trainer",
+          "stars": 177,
+          "language": "HTML",
+          "description": "Live combat aids and readable status panels for Slay the Spire 2 runs.",
+          "url": "https://github.com/yessinefaires/slay-the-spire-2-trainer",
+          "created_at": "2026-11-24T07:18:35Z"
         }
       ],
-      "last_checked_at": "2026-11-24T01:21:10.085662",
-      "last_successful_fetch_at": "2026-11-24T01:21:10.085662"
+      "last_checked_at": "2026-11-24T11:46:08.635784",
+      "last_successful_fetch_at": "2026-11-24T11:46:08.635784"
     },
     "hackernews": {
       "status": "ok",
@@ -1972,85 +2205,85 @@
           "url": "https://ciechanow.ski/mechanical-watch/"
         }
       ],
-      "last_checked_at": "2026-11-24T01:21:10.085662",
-      "last_successful_fetch_at": "2026-11-24T01:21:10.085662"
+      "last_checked_at": "2026-11-24T11:46:08.635784",
+      "last_successful_fetch_at": "2026-11-24T11:46:08.635784"
     },
     "huggingface": {
       "status": "ok",
       "items": [
         {
           "id": "thinkingmachines/Inkling-2-Mini",
-          "likes": 5496,
-          "downloads": 41888,
+          "likes": 5624,
+          "downloads": 69042,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini"
         },
         {
           "id": "unsloth/Inkling-2-Mini-GGUF",
-          "likes": 1116,
-          "downloads": 1292888,
+          "likes": 1179,
+          "downloads": 1913407,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/unsloth/Inkling-2-Mini-GGUF"
         },
         {
           "id": "inworld/voice-isolator",
-          "likes": 734,
-          "downloads": 0,
+          "likes": 769,
+          "downloads": 12733,
           "pipeline_tag": "audio-to-audio",
           "url": "https://huggingface.co/inworld/voice-isolator"
         },
         {
           "id": "AtomicChat/Inkling-2-Mini-Uncensored-GGUF",
-          "likes": 651,
-          "downloads": 329497,
+          "likes": 693,
+          "downloads": 573775,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/AtomicChat/Inkling-2-Mini-Uncensored-GGUF"
         },
         {
           "id": "harness-hub/Qwen3.8-27B-pi-adapted",
-          "likes": 1037,
-          "downloads": 3132,
+          "likes": 1051,
+          "downloads": 3529,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/harness-hub/Qwen3.8-27B-pi-adapted"
         },
         {
           "id": "higurashi-ai/Haru-4B",
-          "likes": 939,
-          "downloads": 9087,
+          "likes": 948,
+          "downloads": 9575,
           "pipeline_tag": "audio-to-audio",
           "url": "https://huggingface.co/higurashi-ai/Haru-4B"
         },
         {
           "id": "tencent/Hy4-flash",
-          "likes": 649,
-          "downloads": 7696,
+          "likes": 664,
+          "downloads": 9167,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/tencent/Hy4-flash"
         },
         {
           "id": "SulphurAI/Sulphur-3",
-          "likes": 853,
-          "downloads": 133732,
+          "likes": 867,
+          "downloads": 160965,
           "pipeline_tag": "",
           "url": "https://huggingface.co/SulphurAI/Sulphur-3"
         },
         {
           "id": "sensenova/SenseNova-Loop-9B",
-          "likes": 643,
-          "downloads": 2036,
+          "likes": 660,
+          "downloads": 2696,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/sensenova/SenseNova-Loop-9B"
         },
         {
           "id": "apple/FastFrames-L",
-          "likes": 570,
+          "likes": 579,
           "downloads": 0,
           "pipeline_tag": "text-to-video",
           "url": "https://huggingface.co/apple/FastFrames-L"
         }
       ],
-      "last_checked_at": "2026-11-24T01:21:10.085662",
-      "last_successful_fetch_at": "2026-11-24T01:21:10.085662"
+      "last_checked_at": "2026-11-24T11:46:08.635784",
+      "last_successful_fetch_at": "2026-11-24T11:46:08.635784"
     }
   }
 }
