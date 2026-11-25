@@ -1,6 +1,7 @@
 """Tendencias diarias de GitHub, Hacker News y Hugging Face con APIs oficiales (sin scraping).
 
-- GitHub Search API: repos nuevos con más estrellas (IA + general).
+- GitHub Search API: repos **de IA** creados recientemente con más estrellas
+  (solo los de >1000 estrellas, para evitar notificaciones de repos pequeños).
 - Algolia HN API (con fallback a Firebase oficial): historias recientes con más puntos.
 - Hugging Face Trending API: modelos open-weights en tendencia.
 """
@@ -27,6 +28,11 @@ UA = (
     "(KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
 )
 
+# GitHub: solo repos de IA y con popularidad extrema (>1k estrellas) para no saturar
+# las notificaciones con repos pequeños (los de 200-300 estrellas hay cientos).
+GITHUB_AI_TOPIC = "ai"
+GITHUB_MIN_STARS = 1000
+
 AI_KEYWORDS = (
     "ai", "llm", "gpt", "claude", "gemini", "agent", "ml", "machine-learning",
     "deep-learning", "neural", "rag", "inference", "model", "transformer", "diffusion",
@@ -38,7 +44,12 @@ class TrendingError(Exception):
 
 
 async def fetch_github_trending(days: int = 1, per_query: int = 15) -> dict:
-    """Repos creados recientemente con más estrellas, separados en AI y generales."""
+    """Repos de IA creados recientemente con más estrellas.
+
+    Única consulta (topic:ai, >1000 estrellas): los repos pequeños, aunque crezcan,
+    son demasiados y generarían notificaciones innecesarias. Se mantiene la clave
+    ``general`` vacía por compatibilidad con las plantillas existentes.
+    """
     since = (datetime.now(timezone.utc) - timedelta(days=days)).strftime("%Y-%m-%d")
     headers = {"Accept": "application/vnd.github+json", "User-Agent": UA}
     if GITHUB_TOKEN:
@@ -48,45 +59,38 @@ async def fetch_github_trending(days: int = 1, per_query: int = 15) -> dict:
         try:
             ai_resp = await client.get(
                 GITHUB_SEARCH_URL,
-                params={"q": f"topic:ai created:>{since} stars:>10", "sort": "stars", "order": "desc", "per_page": per_query},
-            )
-            general_resp = await client.get(
-                GITHUB_SEARCH_URL,
-                params={"q": f"created:>{since} stars:>30", "sort": "stars", "order": "desc", "per_page": per_query},
+                params={
+                    "q": f"topic:{GITHUB_AI_TOPIC} created:>{since} stars:>{GITHUB_MIN_STARS}",
+                    "sort": "stars",
+                    "order": "desc",
+                    "per_page": per_query,
+                },
             )
         except httpx.HTTPError as exc:
             raise TrendingError(f"GitHub API no disponible: {exc}") from exc
 
     if ai_resp.status_code == 403:
-        logger.warning("GitHub Search rate limit (403) en la consulta AI; se continúa solo con general.")
+        logger.warning("GitHub Search rate limit (403) en la consulta AI.")
     try:
         ai_repos = parse_github_search(ai_resp.json()) if ai_resp.status_code == 200 else []
-    except (ParseError, ValueError):
-        ai_repos = []
-    try:
-        general_repos = parse_github_search(general_resp.json()) if general_resp.status_code == 200 else []
     except (ParseError, ValueError) as exc:
-        if not ai_repos:
+        if ai_resp.status_code == 200:
             raise TrendingError(f"GitHub Search falló: {exc}") from exc
-        general_repos = []
+        ai_repos = []
 
-    ai_names = {r["full_name"] for r in ai_repos}
-    general_repos = [r for r in general_repos if r["full_name"] not in ai_names]
+    if not ai_repos:
+        raise TrendingError(f"GitHub Search: status={ai_resp.status_code} sin resultados")
 
-    if not ai_repos and not general_repos:
-        raise TrendingError(
-            f"GitHub Search: AI={ai_resp.status_code}, general={general_resp.status_code} sin resultados"
-        )
-
+    # La lista ordenada por estrellas ya es la de mayor popularidad/crecimiento.
     merged: dict[str, dict] = {}
-    for r in ai_repos[:10] + general_repos[:15]:
+    for r in ai_repos[:15]:
         merged.setdefault(r["full_name"], r)
 
     return {
         "status": "ok",
         "since": since,
         "ai": ai_repos[:10],
-        "general": general_repos[:10],
+        "general": [],
         "items": list(merged.values()),
     }
 
@@ -218,7 +222,7 @@ def render_trending_brief(github: dict, hackernews: dict, huggingface: dict | No
                 line += "\n   " + escape_html(desc[:120])
             lines.append(line)
         if lines:
-            parts.append("🐙 <b>Tendencias en GitHub (repos nuevos)</b>\n" + "\n".join(lines))
+            parts.append("🐙 <b>Tendencias en GitHub (IA · +1K★)</b>\n" + "\n".join(lines))
 
     if huggingface and huggingface.get("status") == "ok":
         hf_lines = []

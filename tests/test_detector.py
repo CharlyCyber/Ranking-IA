@@ -81,12 +81,16 @@ class TestCambios:
         events = detect_changes(BASE, _mutate(jump))
         assert any(e["kind"] == "score" for e in events)
 
-    def test_repo_nuevo_en_tendencias(self):
+    def test_repo_nuevo_en_tendencias_con_explicacion(self):
         def add_repo(sources):
-            sources["github"]["items"].append({"full_name": "ai/new", "stars": 900})
+            sources["github"]["items"].append(
+                {"full_name": "ai/new", "stars": 1500, "description": "Agente de IA"}
+            )
 
         events = detect_changes(BASE, _mutate(add_repo))
-        assert any(e["kind"] == "new" and "ai/new" in e["text"] for e in events)
+        new_events = [e for e in events if e["kind"] == "new" and "ai/new" in e["text"]]
+        assert new_events
+        assert "Agente de IA" in new_events[0]["text"]
 
     def test_repo_pequeno_no_alerta(self):
         def add_small(sources):
@@ -94,12 +98,24 @@ class TestCambios:
 
         assert detect_changes(BASE, _mutate(add_small)) == []
 
-    def test_aceleracion_de_estrellas(self):
+    def test_repo_de_1k_exacto_no_alerta(self):
+        def add_exact(sources):
+            sources["github"]["items"].append({"full_name": "just/1k", "stars": 1000})
+
+        assert detect_changes(BASE, _mutate(add_exact)) == []
+
+    def test_aceleracion_extrema_solicita_mas_1k(self):
         def accel(sources):
-            sources["github"]["items"][0]["stars"] += 400
+            sources["github"]["items"][0]["stars"] += 600
 
         events = detect_changes(BASE, _mutate(accel))
-        assert any(e["kind"] == "accel" and "+400" in e["text"] for e in events)
+        assert any(e["kind"] == "accel" and "+600" in e["text"] for e in events)
+
+    def test_aceleracion_benja_no_alerta(self):
+        def weak_accel(sources):
+            sources["github"]["items"][0]["stars"] += 300
+
+        assert detect_changes(BASE, _mutate(weak_accel)) == []
 
     def test_fuente_stale_no_compara(self):
         def stale(sources):
