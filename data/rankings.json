@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-25T04:40:47.831497",
+  "generated_at": "2026-11-25T15:08:07.750837",
   "sources": {
     "arena": {
       "status": "ok",
@@ -1377,8 +1377,8 @@
         }
       ],
       "method": "api",
-      "last_checked_at": "2026-11-25T04:40:47.831497",
-      "last_successful_fetch_at": "2026-11-25T04:40:47.831497"
+      "last_checked_at": "2026-11-25T15:08:07.750837",
+      "last_successful_fetch_at": "2026-11-25T15:08:07.750837"
     },
     "design": {
       "status": "stale",
@@ -1559,7 +1559,7 @@
         }
       ],
       "method": "http",
-      "last_checked_at": "2026-11-25T04:40:47.831497",
+      "last_checked_at": "2026-11-25T15:08:07.750837",
       "last_successful_fetch_at": "2026-11-23T13:51:58.816390",
       "error": "design: status=error (Design Arena: solo 0 filas parseadas)",
       "stale_since": "2026-11-24T01:21:10.085662"
@@ -1888,7 +1888,7 @@
       ],
       "error": "openrouter: status=error (OpenRouter: solo 0 filas parseadas)",
       "stale_since": "2026-11-11T02:21:51.468524",
-      "last_checked_at": "2026-11-25T04:40:47.831497",
+      "last_checked_at": "2026-11-25T15:08:07.750837",
       "last_successful_fetch_at": null
     },
     "github": {
@@ -2244,7 +2244,7 @@
           "created_at": "2026-11-24T11:12:23Z"
         }
       ],
-      "last_checked_at": "2026-11-25T04:40:47.831497",
+      "last_checked_at": "2026-11-25T15:08:07.750837",
       "last_successful_fetch_at": "2026-11-24T21:41:03.616296",
       "error": "github: status=error (GitHub Search falló: GitHub Search devolvió 0 repositorios)",
       "stale_since": "2026-11-25T04:40:47.831497"
@@ -2301,85 +2301,85 @@
           "url": "https://ciechanow.ski/mechanical-watch/"
         }
       ],
-      "last_checked_at": "2026-11-25T04:40:47.831497",
-      "last_successful_fetch_at": "2026-11-25T04:40:47.831497"
+      "last_checked_at": "2026-11-25T15:08:07.750837",
+      "last_successful_fetch_at": "2026-11-25T15:08:07.750837"
     },
     "huggingface": {
       "status": "ok",
       "items": [
         {
           "id": "thinkingmachines/Inkling-2-Mini",
-          "likes": 5813,
-          "downloads": 69042,
+          "likes": 5912,
+          "downloads": 96527,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini"
         },
         {
           "id": "unsloth/Inkling-2-Mini-GGUF",
-          "likes": 1271,
-          "downloads": 1913407,
+          "likes": 1313,
+          "downloads": 2445633,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/unsloth/Inkling-2-Mini-GGUF"
         },
         {
           "id": "inworld/voice-isolator",
-          "likes": 824,
-          "downloads": 12733,
+          "likes": 852,
+          "downloads": 15244,
           "pipeline_tag": "audio-to-audio",
           "url": "https://huggingface.co/inworld/voice-isolator"
         },
         {
           "id": "AtomicChat/Inkling-2-Mini-Uncensored-GGUF",
-          "likes": 761,
-          "downloads": 573775,
+          "likes": 797,
+          "downloads": 762491,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/AtomicChat/Inkling-2-Mini-Uncensored-GGUF"
         },
         {
-          "id": "harness-hub/Qwen3.8-27B-pi-adapted",
-          "likes": 1079,
-          "downloads": 3529,
-          "pipeline_tag": "image-text-to-text",
-          "url": "https://huggingface.co/harness-hub/Qwen3.8-27B-pi-adapted"
-        },
-        {
           "id": "SulphurAI/Sulphur-3",
-          "likes": 945,
-          "downloads": 160965,
+          "likes": 993,
+          "downloads": 189735,
           "pipeline_tag": "",
           "url": "https://huggingface.co/SulphurAI/Sulphur-3"
         },
         {
-          "id": "tencent/Hy4-flash",
-          "likes": 683,
-          "downloads": 9167,
-          "pipeline_tag": "image-text-to-text",
-          "url": "https://huggingface.co/tencent/Hy4-flash"
+          "id": "prism-ml/Ternary-Bonsai-2.5-27B-GGUF",
+          "likes": 244,
+          "downloads": 59366,
+          "pipeline_tag": "text-generation",
+          "url": "https://huggingface.co/prism-ml/Ternary-Bonsai-2.5-27B-GGUF"
         },
         {
-          "id": "higurashi-ai/Haru-4B",
-          "likes": 979,
-          "downloads": 9575,
-          "pipeline_tag": "audio-to-audio",
-          "url": "https://huggingface.co/higurashi-ai/Haru-4B"
+          "id": "harness-hub/Qwen3.8-27B-pi-adapted",
+          "likes": 1085,
+          "downloads": 3844,
+          "pipeline_tag": "image-text-to-text",
+          "url": "https://huggingface.co/harness-hub/Qwen3.8-27B-pi-adapted"
         },
         {
           "id": "apple/DepthPro2",
-          "likes": 1200,
+          "likes": 1214,
           "downloads": 0,
           "pipeline_tag": "depth-estimation",
           "url": "https://huggingface.co/apple/DepthPro2"
         },
         {
-          "id": "Lightricks/LTX-2.5",
-          "likes": 13328,
-          "downloads": 3024745,
-          "pipeline_tag": "image-to-video",
-          "url": "https://huggingface.co/Lightricks/LTX-2.5"
+          "id": "higurashi-ai/Haru-4B",
+          "likes": 987,
+          "downloads": 10026,
+          "pipeline_tag": "audio-to-audio",
+          "url": "https://huggingface.co/higurashi-ai/Haru-4B"
+        },
+        {
+          "id": "llamaindex/OCRia-nano-1",
+          "likes": 202,
+          "downloads": 126,
+          "pipeline_tag": "image-to-text",
+          "url": "https://huggingface.co/llamaindex/OCRia-nano-1"
         }
       ],
-      "last_checked_at": "2026-11-25T04:40:47.831497",
-      "last_successful_fetch_at": "2026-11-25T04:40:47.831497"
+      "last_checked_at": "2026-11-25T15:08:07.750837",
+      "last_successful_fetch_at": "2026-11-25T15:08:07.750837"
     }
   }
 }
