@@ -651,13 +651,10 @@ def build_context(snapshot: dict | None) -> str:
 
         if source == "github":
             ai = payload.get("ai") or []
-            general = payload.get("general") or []
             lines.append(f"\n[GITHUB{stale_note}] <untrusted_data>")
             for r in ai[:8]:
                 desc = (r.get("description") or "").strip()[:100].replace("\n", " ")
                 lines.append(f"  - [IA] {r['full_name']} ({_fmt_number(r.get('stars'))}★) {desc}")
-            for r in general[:4]:
-                lines.append(f"  - [Gen] {r['full_name']} ({_fmt_number(r.get('stars'))}★)")
             lines.append("</untrusted_data>")
             continue
 

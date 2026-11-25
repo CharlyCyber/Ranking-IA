@@ -15,8 +15,9 @@ from src.validator import is_legacy_snapshot
 
 MOVE_THRESHOLD = 3
 SCORE_JUMP = 15
-NEW_REPO_MIN_STARS = 200
-REPO_ACCEL_STARS = 150
+# Repos de GitHub: solo se notifican repos de IA con >1000 estrellas y crecimiento extremo.
+REPO_MIN_STARS = 1000
+REPO_ACCEL_STARS = 500
 HF_MIN_LIKES = 100
 MAX_EVENTS = 10
 
@@ -308,6 +309,19 @@ def _diff_models(
     return events
 
 
+def _repo_what(item: dict) -> str:
+    """Breve explicación segura de qué es y para qué sirve un repo (descripción oficial).
+
+    Devuelve ``" — descripción"`` ya escapada para Telegram, o ``""`` si la descripción
+    está vacía o es genérica. Se usa para que la notificación explique el repo, no
+    solo su nombre y número de estrellas.
+    """
+    desc = re.sub(r"\s+", " ", str(item.get("description") or "")).strip()
+    if not desc or desc.lower().startswith("no description"):
+        return ""
+    return " — " + escape_html(desc[:150])
+
+
 def _diff_items(
     source: str,
     old_payload: dict,
@@ -358,28 +372,32 @@ def _diff_items(
             if name in baselines:
                 prev_stars = min(prev_stars, int(baselines[name]))
             delta = stars - prev_stars
-            if delta >= REPO_ACCEL_STARS:
+            if stars > REPO_MIN_STARS and delta >= REPO_ACCEL_STARS:
+                base = (
+                    f"🔥 <b>{safe_name}</b> acelera en GitHub: "
+                    f"+{delta:,} estrellas (total {stars:,})"
+                ).replace(",", ".")
                 events.append(
                     {
                         "kind": "accel",
                         "source": source,
                         "category": "github",
                         "models": [name],
-                        "text": f"🔥 <b>{safe_name}</b> acelera en GitHub: +{delta:,} estrellas (total {stars:,}).".replace(
-                            ",", "."
-                        ),
+                        "text": base + _repo_what(item),
                     },
                 )
-        elif stars >= NEW_REPO_MIN_STARS:
+        elif stars > REPO_MIN_STARS:
+            base = (
+                f"⭐ <b>Repositorio nuevo en tendencias:</b> "
+                f"{safe_name} ({stars:,} estrellas)"
+            ).replace(",", ".")
             events.append(
                 {
                     "kind": "new",
                     "source": source,
                     "category": "github",
                     "models": [name],
-                    "text": f"⭐ <b>Repositorio nuevo en tendencias:</b> {safe_name} ({stars:,} estrellas).".replace(
-                        ",", "."
-                    ),
+                    "text": base + _repo_what(item),
                 },
             )
     return events
