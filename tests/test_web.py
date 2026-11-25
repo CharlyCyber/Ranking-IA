@@ -38,15 +38,15 @@ def test_root_redirige_navegador_y_responde_json_a_api(client):
 def test_dashboard_renderiza(client):
     resp = client.get("/dashboard")
     assert resp.status_code == 200
-    assert b"chartElo" in resp.data
-    assert b"selSource" in resp.data
-    assert b"modelSearch" in resp.data
-    assert b"white-sheet" in resp.data
-    assert b"sheet-notch" in resp.data
-    assert b"detail-dark-card" in resp.data
-    assert b"simpleExplainBox" in resp.data
-    assert b"guideBanner" in resp.data
-    assert b"btnTryModel" in resp.data
+    # Dashboard simplificado para principiantes: shader, hero, metas y lista esencial
+    assert b"shaderCanvas" in resp.data
+    assert b"topChip" in resp.data
+    assert b"goalChips" in resp.data
+    assert b"modelList" in resp.data
+    assert b"detailPanel" in resp.data
+    assert b"detailExplain" in resp.data
+    assert b"btnTry" in resp.data
+    assert b"novedadesList" in resp.data
 
 
 def test_seed_actualizado_contiene_claude_opus_5_5(client):
