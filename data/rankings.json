@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-26T05:50:56.697499",
+  "generated_at": "2026-11-26T15:58:28.672624",
   "sources": {
     "arena": {
       "status": "ok",
@@ -537,7 +537,7 @@
           "rank": 1,
           "model": "Claude Fable 5 (High)",
           "category": "Vision",
-          "score": 1325,
+          "score": 1326,
           "author": "anthropic",
           "votes": 45277,
           "prompt_per_m": 10.0,
@@ -549,7 +549,7 @@
           "rank": 2,
           "model": "Claude Fable 5.1 (Max)",
           "category": "Vision",
-          "score": 1322,
+          "score": 1321,
           "author": "anthropic",
           "votes": 22920,
           "prompt_per_m": 10.0,
@@ -561,7 +561,7 @@
           "rank": 3,
           "model": "Claude Opus 5.5 (High)",
           "category": "Vision",
-          "score": 1322,
+          "score": 1321,
           "author": "anthropic",
           "votes": 18959,
           "prompt_per_m": 4.0,
@@ -573,7 +573,7 @@
           "rank": 4,
           "model": "Claude Opus 4.7",
           "category": "Vision",
-          "score": 1317,
+          "score": 1318,
           "author": "anthropic",
           "votes": 65114,
           "prompt_per_m": 5.0,
@@ -619,18 +619,6 @@
         },
         {
           "rank": 8,
-          "model": "Claude Opus 4.7 (High)",
-          "category": "Vision",
-          "score": 1314,
-          "author": "anthropic",
-          "votes": 64030,
-          "prompt_per_m": 5.0,
-          "completion_per_m": 25.0,
-          "context_length": 1000000,
-          "is_free": false
-        },
-        {
-          "rank": 9,
           "model": "Gemini 3.7 Flash (High)",
           "category": "Vision",
           "score": 1314,
@@ -642,19 +630,19 @@
           "is_free": false
         },
         {
-          "rank": 10,
-          "model": "Claude Fable 5.2 (Max)",
+          "rank": 9,
+          "model": "Claude Opus 4.7 (High)",
           "category": "Vision",
-          "score": 1313,
+          "score": 1314,
           "author": "anthropic",
-          "votes": 5842,
-          "prompt_per_m": 8.0,
-          "completion_per_m": 40.0,
+          "votes": 64030,
+          "prompt_per_m": 5.0,
+          "completion_per_m": 25.0,
           "context_length": 1000000,
           "is_free": false
         },
         {
-          "rank": 11,
+          "rank": 10,
           "model": "Claude Opus 4.6",
           "category": "Vision",
           "score": 1312,
@@ -666,19 +654,19 @@
           "is_free": false
         },
         {
-          "rank": 12,
-          "model": "Gemini 3.5 Flash (High)",
+          "rank": 11,
+          "model": "Claude Fable 5.2 (Max)",
           "category": "Vision",
-          "score": 1308,
-          "author": "google",
-          "votes": 47406,
-          "prompt_per_m": 1.5,
-          "completion_per_m": 9.0,
-          "context_length": 1048576,
+          "score": 1310,
+          "author": "anthropic",
+          "votes": 5842,
+          "prompt_per_m": 8.0,
+          "completion_per_m": 40.0,
+          "context_length": 1000000,
           "is_free": false
         },
         {
-          "rank": 13,
+          "rank": 12,
           "model": "Qwen3.8-Max",
           "category": "Vision",
           "score": 1307,
@@ -689,19 +677,19 @@
           "context_length": 1000000
         },
         {
-          "rank": 14,
-          "model": "Muse Spark 1.3 (Max)",
+          "rank": 13,
+          "model": "Gemini 3.5 Flash (High)",
           "category": "Vision",
-          "score": 1306,
-          "author": "meta",
-          "votes": 31093,
-          "prompt_per_m": 1.25,
-          "completion_per_m": 4.25,
+          "score": 1307,
+          "author": "google",
+          "votes": 47406,
+          "prompt_per_m": 1.5,
+          "completion_per_m": 9.0,
           "context_length": 1048576,
           "is_free": false
         },
         {
-          "rank": 15,
+          "rank": 14,
           "model": "Gemini 3.5 Flash (Medium)",
           "category": "Vision",
           "score": 1306,
@@ -711,6 +699,14 @@
           "completion_per_m": 9.0,
           "context_length": 1048576,
           "is_free": false
+        },
+        {
+          "rank": 15,
+          "model": "Muse Spark",
+          "category": "Vision",
+          "score": 1306,
+          "author": "meta",
+          "votes": 13959
         },
         {
           "rank": 1,
@@ -1377,8 +1373,8 @@
         }
       ],
       "method": "api",
-      "last_checked_at": "2026-11-26T05:50:56.697499",
-      "last_successful_fetch_at": "2026-11-26T05:50:56.697499"
+      "last_checked_at": "2026-11-26T15:58:28.672624",
+      "last_successful_fetch_at": "2026-11-26T15:58:28.672624"
     },
     "design": {
       "status": "stale",
@@ -1559,7 +1555,7 @@
         }
       ],
       "method": "http",
-      "last_checked_at": "2026-11-26T05:50:56.697499",
+      "last_checked_at": "2026-11-26T15:58:28.672624",
       "last_successful_fetch_at": "2026-11-23T13:51:58.816390",
       "error": "design: status=error (Design Arena: solo 0 filas parseadas)",
       "stale_since": "2026-11-24T01:21:10.085662"
@@ -1888,7 +1884,7 @@
       ],
       "error": "openrouter: status=error (OpenRouter: solo 0 filas parseadas)",
       "stale_since": "2026-11-11T02:21:51.468524",
-      "last_checked_at": "2026-11-26T05:50:56.697499",
+      "last_checked_at": "2026-11-26T15:58:28.672624",
       "last_successful_fetch_at": null
     },
     "github": {
@@ -2244,7 +2240,7 @@
           "created_at": "2026-11-24T11:12:23Z"
         }
       ],
-      "last_checked_at": "2026-11-26T05:50:56.697499",
+      "last_checked_at": "2026-11-26T15:58:28.672624",
       "last_successful_fetch_at": "2026-11-24T21:41:03.616296",
       "error": "github: status=error (GitHub Search falló: GitHub Search devolvió 0 repositorios)",
       "stale_since": "2026-11-25T04:40:47.831497"
@@ -2301,85 +2297,85 @@
           "url": "https://ciechanow.ski/mechanical-watch/"
         }
       ],
-      "last_checked_at": "2026-11-26T05:50:56.697499",
-      "last_successful_fetch_at": "2026-11-26T05:50:56.697499"
+      "last_checked_at": "2026-11-26T15:58:28.672624",
+      "last_successful_fetch_at": "2026-11-26T15:58:28.672624"
     },
     "huggingface": {
       "status": "ok",
       "items": [
         {
           "id": "thinkingmachines/Inkling-2-Mini",
-          "likes": 6074,
+          "likes": 6165,
           "downloads": 96527,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini"
         },
         {
           "id": "unsloth/Inkling-2-Mini-GGUF",
-          "likes": 1386,
+          "likes": 1432,
           "downloads": 2445633,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/unsloth/Inkling-2-Mini-GGUF"
         },
         {
           "id": "inworld/voice-isolator",
-          "likes": 905,
+          "likes": 932,
           "downloads": 15244,
           "pipeline_tag": "audio-to-audio",
           "url": "https://huggingface.co/inworld/voice-isolator"
         },
         {
           "id": "AtomicChat/Inkling-2-Mini-Uncensored-GGUF",
-          "likes": 852,
+          "likes": 883,
           "downloads": 762491,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/AtomicChat/Inkling-2-Mini-Uncensored-GGUF"
         },
         {
           "id": "SulphurAI/Sulphur-3",
-          "likes": 1112,
+          "likes": 1178,
           "downloads": 189735,
           "pipeline_tag": "",
           "url": "https://huggingface.co/SulphurAI/Sulphur-3"
         },
         {
           "id": "prism-ml/Ternary-Bonsai-2.5-27B-GGUF",
-          "likes": 373,
+          "likes": 459,
           "downloads": 59366,
           "pipeline_tag": "text-generation",
           "url": "https://huggingface.co/prism-ml/Ternary-Bonsai-2.5-27B-GGUF"
         },
         {
+          "id": "Lightricks/LTX-2.5",
+          "likes": 13516,
+          "downloads": 3041405,
+          "pipeline_tag": "image-to-video",
+          "url": "https://huggingface.co/Lightricks/LTX-2.5"
+        },
+        {
           "id": "apple/DepthPro2",
-          "likes": 1260,
+          "likes": 1273,
           "downloads": 0,
           "pipeline_tag": "depth-estimation",
           "url": "https://huggingface.co/apple/DepthPro2"
         },
         {
           "id": "llamaindex/OCRia-nano-1",
-          "likes": 240,
+          "likes": 256,
           "downloads": 126,
           "pipeline_tag": "image-to-text",
           "url": "https://huggingface.co/llamaindex/OCRia-nano-1"
         },
         {
-          "id": "inclusionAI/Ling-3.2-air",
-          "likes": 239,
-          "downloads": 1467,
-          "pipeline_tag": "",
-          "url": "https://huggingface.co/inclusionAI/Ling-3.2-air"
-        },
-        {
-          "id": "harness-hub/Qwen3.8-27B-pi-adapted",
-          "likes": 1120,
-          "downloads": 3844,
-          "pipeline_tag": "image-text-to-text",
-          "url": "https://huggingface.co/harness-hub/Qwen3.8-27B-pi-adapted"
+          "id": "nvidia/Nemotron-Labs-Image-30B-A3B",
+          "likes": 233,
+          "downloads": 218,
+          "pipeline_tag": "text-to-image",
+          "url": "https://huggingface.co/nvidia/Nemotron-Labs-Image-30B-A3B"
         }
       ],
-      "last_checked_at": "2026-11-26T05:50:56.697499",
-      "last_successful_fetch_at": "2026-11-26T05:50:56.697499"
+      "last_checked_at": "2026-11-26T15:58:28.672624",
+      "last_successful_fetch_at": "2026-11-26T15:58:28.672624"
     }
   }
 }
