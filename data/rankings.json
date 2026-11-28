@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-27T19:15:13.079500",
+  "generated_at": "2026-11-28T02:21:01.632991",
   "sources": {
     "arena": {
       "status": "ok",
@@ -1373,8 +1373,8 @@
         }
       ],
       "method": "api",
-      "last_checked_at": "2026-11-27T19:15:13.079500",
-      "last_successful_fetch_at": "2026-11-27T19:15:13.079500"
+      "last_checked_at": "2026-11-28T02:21:01.632991",
+      "last_successful_fetch_at": "2026-11-28T02:21:01.632991"
     },
     "design": {
       "status": "stale",
@@ -1555,7 +1555,7 @@
         }
       ],
       "method": "http",
-      "last_checked_at": "2026-11-27T19:15:13.079500",
+      "last_checked_at": "2026-11-28T02:21:01.632991",
       "last_successful_fetch_at": "2026-11-23T13:51:58.816390",
       "error": "design: status=error (Design Arena: solo 0 filas parseadas)",
       "stale_since": "2026-11-24T01:21:10.085662"
@@ -1884,7 +1884,7 @@
       ],
       "error": "openrouter: status=error (OpenRouter: solo 0 filas parseadas)",
       "stale_since": "2026-11-11T02:21:51.468524",
-      "last_checked_at": "2026-11-27T19:15:13.079500",
+      "last_checked_at": "2026-11-28T02:21:01.632991",
       "last_successful_fetch_at": null
     },
     "github": {
@@ -2240,7 +2240,7 @@
           "created_at": "2026-11-24T11:12:23Z"
         }
       ],
-      "last_checked_at": "2026-11-27T19:15:13.079500",
+      "last_checked_at": "2026-11-28T02:21:01.632991",
       "last_successful_fetch_at": "2026-11-24T21:41:03.616296",
       "error": "github: status=error (GitHub Search falló: GitHub Search devolvió 0 repositorios)",
       "stale_since": "2026-11-25T04:40:47.831497"
@@ -2297,85 +2297,85 @@
           "url": "https://ciechanow.ski/mechanical-watch/"
         }
       ],
-      "last_checked_at": "2026-11-27T19:15:13.079500",
-      "last_successful_fetch_at": "2026-11-27T19:15:13.079500"
+      "last_checked_at": "2026-11-28T02:21:01.632991",
+      "last_successful_fetch_at": "2026-11-28T02:21:01.632991"
     },
     "huggingface": {
       "status": "ok",
       "items": [
         {
           "id": "thinkingmachines/Inkling-2-Mini",
-          "likes": 6413,
+          "likes": 6474,
           "downloads": 155741,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini"
         },
         {
           "id": "unsloth/Inkling-2-Mini-GGUF",
-          "likes": 1563,
+          "likes": 1615,
           "downloads": 3302340,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/unsloth/Inkling-2-Mini-GGUF"
         },
         {
           "id": "SulphurAI/Sulphur-3",
-          "likes": 1332,
+          "likes": 1370,
           "downloads": 539421,
           "pipeline_tag": "",
           "url": "https://huggingface.co/SulphurAI/Sulphur-3"
         },
         {
           "id": "AtomicChat/Inkling-2-Mini-Uncensored-GGUF",
-          "likes": 993,
+          "likes": 1040,
           "downloads": 1059763,
           "pipeline_tag": "image-text-to-text",
           "url": "https://huggingface.co/AtomicChat/Inkling-2-Mini-Uncensored-GGUF"
         },
         {
           "id": "prism-ml/Ternary-Bonsai-2.5-27B-GGUF",
-          "likes": 598,
+          "likes": 639,
           "downloads": 382546,
           "pipeline_tag": "text-generation",
           "url": "https://huggingface.co/prism-ml/Ternary-Bonsai-2.5-27B-GGUF"
         },
         {
           "id": "inworld/voice-isolator",
-          "likes": 987,
+          "likes": 1015,
           "downloads": 20510,
           "pipeline_tag": "audio-to-audio",
           "url": "https://huggingface.co/inworld/voice-isolator"
         },
         {
           "id": "Lightricks/LTX-2.5",
-          "likes": 13688,
+          "likes": 13731,
           "downloads": 3080701,
           "pipeline_tag": "image-to-video",
           "url": "https://huggingface.co/Lightricks/LTX-2.5"
         },
         {
           "id": "llamaindex/OCRia-nano-1",
-          "likes": 319,
+          "likes": 358,
           "downloads": 626,
           "pipeline_tag": "image-to-text",
           "url": "https://huggingface.co/llamaindex/OCRia-nano-1"
         },
         {
           "id": "nvidia/Nemotron-Labs-Image-30B-A3B",
-          "likes": 311,
+          "likes": 341,
           "downloads": 1692,
           "pipeline_tag": "text-to-image",
           "url": "https://huggingface.co/nvidia/Nemotron-Labs-Image-30B-A3B"
         },
         {
-          "id": "strata-engine/Inkling-2-Mini-Strata",
-          "likes": 276,
-          "downloads": 4532,
-          "pipeline_tag": "image-text-to-text",
-          "url": "https://huggingface.co/strata-engine/Inkling-2-Mini-Strata"
+          "id": "ISTA-DASLab/Inkling-2-Mini-GSQ-RCO-GGUF",
+          "likes": 283,
+          "downloads": 24931,
+          "pipeline_tag": "text-generation",
+          "url": "https://huggingface.co/ISTA-DASLab/Inkling-2-Mini-GSQ-RCO-GGUF"
         }
       ],
-      "last_checked_at": "2026-11-27T19:15:13.079500",
-      "last_successful_fetch_at": "2026-11-27T19:15:13.079500"
+      "last_checked_at": "2026-11-28T02:21:01.632991",
+      "last_successful_fetch_at": "2026-11-28T02:21:01.632991"
     }
   }
 }
